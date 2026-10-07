@@ -189,7 +189,8 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
@@ -215,7 +216,8 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
         ],
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -448,7 +450,8 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
@@ -474,7 +477,8 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
         ],
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -534,17 +538,19 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -923,7 +929,8 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
         "schema:description": "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -933,7 +940,8 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -1224,7 +1232,8 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
         "schema:description": "Bulk specimen or fragment \u2014 \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -1234,7 +1243,8 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -1280,12 +1290,14 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
                     schema1:name "Sample preparation" ;
@@ -1570,7 +1582,8 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         "schema:description": "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -1594,7 +1607,8 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         ],
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -1787,7 +1801,8 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         "schema:description": "Bulk specimen or fragment \u2014 drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -1811,7 +1826,8 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         ],
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -1869,17 +1885,19 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
@@ -2112,7 +2130,8 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         "schema:description": "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -2136,7 +2155,8 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         ],
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -2329,7 +2349,8 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         "schema:description": "Bulk specimen or fragment \u2014 drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4\u20135)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -2353,7 +2374,8 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         ],
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -2412,13 +2434,15 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
                     schema1:name "Sample preparation" ;
@@ -2627,7 +2651,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:description": "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -2637,7 +2662,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -2794,7 +2820,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:description": "Bulk specimen or fragment \u2014 core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -2804,7 +2831,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -2855,12 +2883,14 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
                     schema1:name "Sample preparation" ;
@@ -3062,7 +3092,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:description": "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -3072,7 +3103,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -3244,7 +3276,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:description": "Bulk specimen or fragment (as received) \u2014 extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -3254,7 +3287,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -3298,16 +3332,18 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
@@ -3575,7 +3611,8 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
         "schema:description": "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -3585,7 +3622,8 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -3818,7 +3856,8 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
         "schema:description": "Bulk specimen or fragment \u2014 \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -3828,7 +3867,8 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -3875,16 +3915,18 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
@@ -4187,7 +4229,8 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
         "schema:description": "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -4197,7 +4240,8 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -4433,7 +4477,8 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
         "schema:description": "Powder or crushed split \u2014 chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -4443,7 +4488,8 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -4486,16 +4532,18 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -4813,7 +4861,8 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
         "schema:description": "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -4823,7 +4872,8 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -5069,7 +5119,8 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
         "schema:description": "Bulk specimen or fragment \u2014 \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -5079,7 +5130,8 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -5127,16 +5179,18 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -5452,7 +5506,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
         "schema:description": "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -5462,7 +5517,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -5706,7 +5762,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
         "schema:description": "Separated grain or crystal \u2014 \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -5716,7 +5773,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -5764,13 +5822,15 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ] ] ;
@@ -6119,7 +6179,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:description": "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -6129,7 +6190,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -6400,7 +6462,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:description": "Bulk specimen or fragment (as received) \u2014 Sample B, a 3 \u00d7 5 \u00d7 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -6410,7 +6473,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -6455,12 +6519,14 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
                     schema1:name "Sample preparation" ;
@@ -6827,7 +6893,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:description": "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -6837,7 +6904,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -7108,7 +7176,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:description": "Bulk specimen or fragment (as received) \u2014 Sample B, a 3 \u00d7 5 \u00d7 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -7118,7 +7187,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -7163,16 +7233,18 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -7529,7 +7601,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
         "schema:description": "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -7539,7 +7612,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -7806,7 +7880,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
         "schema:description": "Polished section or chip; Bulk specimen or fragment (as received) \u2014 varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3\u00d74\u00d70.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5\u00d75\u00d70.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3\u00d74\u00d70.15 mm) of a doubly polished thick section\" (p.7)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -7816,7 +7891,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -7863,16 +7939,18 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
@@ -8179,7 +8257,8 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
         "schema:description": "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -8189,7 +8268,8 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -8409,7 +8489,8 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
         "schema:description": "Core or trimmed billet \u2014 \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)",
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:additionalType": [
           "bios:LabProcess"
@@ -8419,7 +8500,8 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
@@ -8468,16 +8550,18 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> ;
@@ -10252,6 +10336,7 @@ allOf:
           items:
             type: object
             allOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/WorkflowStep
             - if:
                 properties:
                   schema:name:

@@ -229,10 +229,11 @@ x-defs:
           containing an ordered sequence of workflow steps. Each step is a cdi:Activity
           + schema:Action describing a distinct phase (sample preparation, calibration,
           acquisition, data processing, quality control). Steps carry their own parameters,
-          reagents, instruments, and sub-steps.
+          reagents, instruments, and sub-steps. Exactly one step must be the sample-preparation
+          step -- see MethodWorkflowHowTo.
         x-jsonld-id: http://schema.org/actionProcess
         allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowHowTo
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MethodWorkflowHowTo
       schema:additionalProperty:
         type: array
         description: Method-level Advanced-protocol parameters that apply across all
@@ -626,34 +627,57 @@ x-defs:
           schema:step:
             type: array
             description: Ordered sequence of workflow steps. Each step is a cdi:Activity
-              + schema:Action describing a distinct phase of the analytical procedure.
-              Must include exactly one sample-preparation step (schema:name "Sample
-              preparation" with schema:additionalType containing "bios:LabProcess");
-              its schema:position is left to the protocol author.
+              + schema:Action + schema:HowToStep describing a distinct phase of the
+              analytical procedure. This shape carries NO sample-preparation requirement,
+              because it is used for a STEP's sub-workflow as well as for a method's
+              top-level workflow; see MethodWorkflowHowTo for the method form that
+              does require one.
             items:
               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowStep
-            contains:
-              type: object
-              description: a sample preparation step is required.
-              properties:
-                schema:name:
-                  x-jsonld-id: http://schema.org/name
-                  enum:
-                  - Sample preparation
-                schema:additionalType:
-                  type: array
-                  contains:
-                    enum:
-                    - bios:LabProcess
-                  x-jsonld-id: http://schema.org/additionalType
-              required:
-              - schema:name
-              - schema:additionalType
-            maxContains: 1
             x-jsonld-id: http://schema.org/step
         required:
         - '@type'
         - schema:step
+      MethodWorkflowHowTo:
+        description: 'A method''s standard workflow: a WorkflowHowTo that must also
+          include exactly one sample-preparation step (schema:name "Sample preparation"
+          with schema:additionalType containing "bios:LabProcess"); its schema:position
+          is left to the protocol author.
+
+          Separate from WorkflowHowTo because that shape is ALSO the sub-workflow
+          of a single step (WorkflowStep.schema:actionProcess), and requiring sample
+          preparation there is wrong -- a step''s sub-workflow is the breakdown of
+          that one step, so a sample-preparation step broken into mount / grind /
+          polish / coat would have needed a nested "Sample preparation" inside itself.
+          Both references pointed at one $def, so the method''s requirement reached
+          every sub-workflow. Nothing exercised it, as no example nests a sub-workflow.'
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowHowTo
+        - type: object
+          properties:
+            schema:step:
+              type: array
+              contains:
+                type: object
+                description: a sample preparation step is required.
+                properties:
+                  schema:name:
+                    x-jsonld-id: http://schema.org/name
+                    enum:
+                    - Sample preparation
+                  schema:additionalType:
+                    type: array
+                    contains:
+                      enum:
+                      - bios:LabProcess
+                    x-jsonld-id: http://schema.org/additionalType
+                required:
+                - schema:name
+                - schema:additionalType
+              maxContains: 1
+              x-jsonld-id: http://schema.org/step
+          required:
+          - schema:step
       WorkflowStep:
         type: object
         description: A single step in the analytical workflow, modeled as a cdi:Activity
@@ -663,10 +687,19 @@ x-defs:
           sub-steps via schema:actionProcess.
         properties:
           '@type':
+            description: 'All THREE are required. cdi:Activity and schema:Action carry
+              the DDI-CDI and schema.org process semantics this model is built on;
+              schema:HowToStep is what schema.org itself expects of a value of schema:step
+              on a schema:HowTo, and omitting it made these steps invalid against
+              the plain schema.org reading -- and against the base cdifProvActivity,
+              whose own step shape requires schema:HowToStep. The two shapes disagreed,
+              which is observable in the examples: 565 steps carried cdi:Activity
+              + schema:Action and 15 carried schema:HowToStep, depending on which
+              side emitted them.'
             type: array
             items:
               type: string
-            minItems: 2
+            minItems: 3
             allOf:
             - contains:
                 enum:
@@ -674,6 +707,9 @@ x-defs:
             - contains:
                 enum:
                 - schema:Action
+            - contains:
+                enum:
+                - schema:HowToStep
           '@id':
             type: string
           schema:name:
@@ -1777,6 +1813,7 @@ x-defs:
                 items:
                   type: object
                   allOf:
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowStep
                   - if:
                       properties:
                         schema:name:
@@ -1995,6 +2032,7 @@ x-defs:
                       items:
                         type: object
                         allOf:
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowStep
                         - if:
                             properties:
                               schema:name:
@@ -3508,6 +3546,38 @@ x-defs:
           items:
             type: object
             properties:
+              schema:actionProcess:
+                description: 'The workflow actually followed by this analysis event,
+                  as a schema:HowTo whose schema:step entries are full workflow steps.
+
+                  The base cdifProvActivity already supplies a schema:HowTo here,
+                  but its step shape carries only @type / name / description / position
+                  / url. A geochem analysis event needs the same step surface the
+                  TAPP plan uses -- per-step instrument, computational tool, reagent,
+                  inputs, result, parameters and sub-workflow -- so the step items
+                  are pinned to tappDefinition''s WorkflowStep. Both apply: the base
+                  and this intersect under allOf, and neither the base HowTo nor its
+                  step is a closed object, so the richer shape adds to it rather than
+                  conflicting.
+
+                  WorkflowStep, NOT WorkflowHowTo, is deliberate. The requirement
+                  for exactly one "Sample preparation" step carrying bios:LabProcess
+                  lives on WorkflowHowTo, and it belongs to the TAPP plan -- a protocol
+                  must say how the sample was prepared. An analysis EVENT records
+                  what was done and may legitimately describe only part of a workflow,
+                  so referencing the step shape alone brings the structure without
+                  that requirement.
+
+                  Only the object form is constrained. schema:actionProcess may also
+                  be a string or an @id reference in the base, and `properties` does
+                  not apply to a non-object, so those branches stay reachable.'
+                properties:
+                  schema:step:
+                    type: array
+                    items:
+                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowStep
+                    x-jsonld-id: http://schema.org/step
+                x-jsonld-id: http://schema.org/actionProcess
               prov:used:
                 type: array
                 description: 'Resources used in the analysis. Each item is one of:
@@ -8742,10 +8812,18 @@ x-defs:
         items:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
         x-jsonld-id: https://w3id.org/cdif/hasPhysicalMapping
-      countRows:
-        type: integer
-      countColumns:
-        type: integer
+      schema:additionalProperty:
+        description: Soft-typed extension properties. The row and column counts live
+          here rather than as bare properties, so that each carries a schema:propertyID
+          identifying the concept it quantifies - DDI Discovery caseQuantity for the
+          row count and variableQuantity for the column count. As bare unprefixed
+          `countRows`/`countColumns` they were the only two properties on this class
+          with no namespace and no definition, so nothing said what they meant or
+          tied them to a vocabulary.
+        type: array
+        items:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularData/$defs/AdditionalProperty
+        x-jsonld-id: http://schema.org/additionalProperty
     oneOf:
     - properties:
         cdi:isDelimited:
@@ -8768,6 +8846,9 @@ x-defs:
     required:
     - '@type'
     - cdif:hasPhysicalMapping
+    $defs:
+      AdditionalProperty:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty
     x-jsonld-prefixes:
       cdif: https://w3id.org/cdif/
       schema: http://schema.org/
@@ -10651,6 +10732,7 @@ allOf:
           items:
             type: object
             allOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowStep
             - if:
                 properties:
                   schema:name:

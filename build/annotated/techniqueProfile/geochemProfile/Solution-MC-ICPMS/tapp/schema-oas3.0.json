@@ -294,11 +294,11 @@
           "x-jsonld-id": "http://schema.org/creator"
         },
         "schema:actionProcess": {
-          "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps.",
+          "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps. Exactly one step must be the sample-preparation step -- see MethodWorkflowHowTo.",
           "x-jsonld-id": "http://schema.org/actionProcess",
           "allOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowHowTo"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MethodWorkflowHowTo"
             }
           ]
         },
@@ -681,36 +681,10 @@
             },
             "schema:step": {
               "type": "array",
-              "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure. Must include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.",
+              "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action + schema:HowToStep describing a distinct phase of the analytical procedure. This shape carries NO sample-preparation requirement, because it is used for a STEP's sub-workflow as well as for a method's top-level workflow; see MethodWorkflowHowTo for the method form that does require one.",
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowStep"
               },
-              "contains": {
-                "type": "object",
-                "description": "a sample preparation step is required.",
-                "properties": {
-                  "schema:name": {
-                    "x-jsonld-id": "http://schema.org/name",
-                    "enum": [
-                      "Sample preparation"
-                    ]
-                  },
-                  "schema:additionalType": {
-                    "type": "array",
-                    "contains": {
-                      "enum": [
-                        "bios:LabProcess"
-                      ]
-                    },
-                    "x-jsonld-id": "http://schema.org/additionalType"
-                  }
-                },
-                "required": [
-                  "schema:name",
-                  "schema:additionalType"
-                ]
-              },
-              "maxContains": 1,
               "x-jsonld-id": "http://schema.org/step"
             }
           },
@@ -719,16 +693,63 @@
             "schema:step"
           ]
         },
+        "MethodWorkflowHowTo": {
+          "description": "A method's standard workflow: a WorkflowHowTo that must also include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.\nSeparate from WorkflowHowTo because that shape is ALSO the sub-workflow of a single step (WorkflowStep.schema:actionProcess), and requiring sample preparation there is wrong -- a step's sub-workflow is the breakdown of that one step, so a sample-preparation step broken into mount / grind / polish / coat would have needed a nested \"Sample preparation\" inside itself. Both references pointed at one $def, so the method's requirement reached every sub-workflow. Nothing exercised it, as no example nests a sub-workflow.",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowHowTo"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:step": {
+                  "type": "array",
+                  "contains": {
+                    "type": "object",
+                    "description": "a sample preparation step is required.",
+                    "properties": {
+                      "schema:name": {
+                        "x-jsonld-id": "http://schema.org/name",
+                        "enum": [
+                          "Sample preparation"
+                        ]
+                      },
+                      "schema:additionalType": {
+                        "type": "array",
+                        "contains": {
+                          "enum": [
+                            "bios:LabProcess"
+                          ]
+                        },
+                        "x-jsonld-id": "http://schema.org/additionalType"
+                      }
+                    },
+                    "required": [
+                      "schema:name",
+                      "schema:additionalType"
+                    ]
+                  },
+                  "maxContains": 1,
+                  "x-jsonld-id": "http://schema.org/step"
+                }
+              },
+              "required": [
+                "schema:step"
+              ]
+            }
+          ]
+        },
         "WorkflowStep": {
           "type": "object",
           "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
           "properties": {
             "@type": {
+              "description": "All THREE are required. cdi:Activity and schema:Action carry the DDI-CDI and schema.org process semantics this model is built on; schema:HowToStep is what schema.org itself expects of a value of schema:step on a schema:HowTo, and omitting it made these steps invalid against the plain schema.org reading -- and against the base cdifProvActivity, whose own step shape requires schema:HowToStep. The two shapes disagreed, which is observable in the examples: 565 steps carried cdi:Activity + schema:Action and 15 carried schema:HowToStep, depending on which side emitted them.",
               "type": "array",
               "items": {
                 "type": "string"
               },
-              "minItems": 2,
+              "minItems": 3,
               "allOf": [
                 {
                   "contains": {
@@ -741,6 +762,13 @@
                   "contains": {
                     "enum": [
                       "schema:Action"
+                    ]
+                  }
+                },
+                {
+                  "contains": {
+                    "enum": [
+                      "schema:HowToStep"
                     ]
                   }
                 }
@@ -2142,6 +2170,9 @@
                     "type": "object",
                     "allOf": [
                       {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/WorkflowStep"
+                      },
+                      {
                         "if": {
                           "properties": {
                             "schema:name": {
@@ -2446,6 +2477,9 @@
                         "items": {
                           "type": "object",
                           "allOf": [
+                            {
+                              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/WorkflowStep"
+                            },
                             {
                               "if": {
                                 "properties": {
@@ -3981,6 +4015,9 @@
                   "items": {
                     "type": "object",
                     "allOf": [
+                      {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/WorkflowStep"
+                      },
                       {
                         "if": {
                           "properties": {
@@ -7297,6 +7334,9 @@
                     "type": "object",
                     "allOf": [
                       {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/WorkflowStep"
+                      },
+                      {
                         "if": {
                           "properties": {
                             "schema:name": {
@@ -9439,876 +9479,6 @@
       "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "ogch.BaseSchema.geochemProduct": {
-      "title": "Geochemistry Analytical Product Metadata",
-      "description": "Generic schema for JSON-LD metadata documenting an analytical product from a geochemistry (or related analytical) laboratory workflow. It describes the dataset and its distributions, the analysis events that produced it (instruments, computational tools, reagents, laboratory, samples analysed), the variables measured, and spatial / temporal / quality coverage. It composes the CDIF core, data-description, manifest (bundle), and provenance profiles.\nThis is the domain-neutral base. Archive-specific submission/delivery layers (e.g. ADA/SAMIS via adaProduct) extend it with their product-type vocabulary, file-classification (componentType) scheme, and delivery-packaging rules.",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore"
-        },
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription"
-        },
-        {
-          "if": {
-            "properties": {
-              "schema:distribution": {
-                "type": "array",
-                "contains": {
-                  "type": "object",
-                  "properties": {
-                    "@type": {
-                      "type": "array",
-                      "contains": {
-                        "enum": [
-                          "schema:Collection"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "@type"
-                  ]
-                }
-              }
-            }
-          },
-          "then": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifManifest"
-          }
-        },
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "@type": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "schema:Dataset",
-                  "schema:Product"
-                ]
-              }
-            },
-            "schema:license": {
-              "description": "Legal statement of conditions for use and access",
-              "type": "array",
-              "minItems": 0,
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.creativeWork"
-                  }
-                ]
-              },
-              "x-jsonld-id": "http://schema.org/license"
-            },
-            "schema:relatedLink": {
-              "type": "array",
-              "description": "Links to related resources at the product level",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "enum": [
-                        "schema:LinkRole"
-                      ]
-                    },
-                    "minItems": 1
-                  },
-                  "schema:linkRelationship": {
-                    "type": "string",
-                    "x-jsonld-id": "http://schema.org/linkRelationship"
-                  },
-                  "schema:target": {
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "enum": [
-                            "schema:EntryPoint"
-                          ]
-                        },
-                        "minItems": 1
-                      },
-                      "schema:encodingFormat": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "x-jsonld-id": "http://schema.org/encodingFormat"
-                      },
-                      "schema:name": {
-                        "type": "string",
-                        "x-jsonld-id": "http://schema.org/name"
-                      },
-                      "schema:url": {
-                        "type": "string",
-                        "x-jsonld-id": "http://schema.org/url"
-                      }
-                    },
-                    "x-jsonld-id": "http://schema.org/target"
-                  }
-                }
-              },
-              "x-jsonld-id": "http://schema.org/relatedLink"
-            },
-            "schema:creativeWorkStatus": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/creativeWorkStatus"
-            },
-            "schema:measurementTechnique": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "description": "Text description of the measurement method",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "enum": [
-                        "schema:DefinedTerm"
-                      ]
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "type": "string",
-                    "x-jsonld-id": "http://schema.org/name"
-                  },
-                  "schema:identifier": {
-                    "type": "string",
-                    "x-jsonld-id": "http://schema.org/identifier"
-                  }
-                }
-              },
-              "x-jsonld-id": "http://schema.org/measurementTechnique"
-            },
-            "prov:wasGeneratedBy": {
-              "description": "Analysis events. Extends cdifProvActivity (from cdifProvenance) with the generic geochem analysis-event surface: the instruments, computational tools and reagents actually used; the laboratory; the samples analysed; and the session identifier and timing.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "prov:used": {
-                    "type": "array",
-                    "description": "Resources used in the analysis. Each item is one of: an instrument BB instance; a computational tool actually used (schema:SoftwareApplication); a reagent / reference material actually used; a tappDefinition BB instance (inlined); or an @id reference to a TAPP definition node defined elsewhere. The TAPP plan (prov:Plan / bios:LabProtocol) prescribes the generic instrument / computationalTool / reagent list; these prov:used entries record the ACTUALS used in this specific run.",
-                    "items": {
-                      "allOf": [
-                        {
-                          "if": {
-                            "type": "object",
-                            "required": [
-                              "schema:instrument"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "schema:instrument": {
-                                "type": "array",
-                                "minItems": 1,
-                                "items": {
-                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.instrument"
-                                },
-                                "x-jsonld-id": "http://schema.org/instrument"
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "if": {
-                            "type": "object",
-                            "required": [
-                              "bios:computationalTool"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "bios:computationalTool": {
-                                "type": "array",
-                                "minItems": 1,
-                                "items": {
-                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/UsedComputationalTool"
-                                },
-                                "x-jsonld-id": "https://bioschemas.org/computationalTool"
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "if": {
-                            "type": "object",
-                            "required": [
-                              "prov:reagent"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "prov:reagent": {
-                                "type": "array",
-                                "minItems": 1,
-                                "items": {
-                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/UsedReagent"
-                                },
-                                "x-jsonld-id": "http://www.w3.org/ns/prov#reagent"
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "if": {
-                            "type": "object",
-                            "properties": {
-                              "@type": {
-                                "contains": {
-                                  "enum": [
-                                    "ada:TAPPDefinition"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": [
-                              "@type",
-                              "schema:name"
-                            ]
-                          },
-                          "then": {
-                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1"
-                          }
-                        }
-                      ]
-                    },
-                    "x-jsonld-id": "http://www.w3.org/ns/prov#used"
-                  },
-                  "schema:location": {
-                    "x-jsonld-id": "http://schema.org/location",
-                    "allOf": [
-                      {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.laboratory"
-                      }
-                    ]
-                  },
-                  "schema:object": {
-                    "type": "array",
-                    "description": "Samples analyzed",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "@type": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "allOf": [
-                            {
-                              "contains": {
-                                "enum": [
-                                  "schema:Thing"
-                                ]
-                              }
-                            },
-                            {
-                              "contains": {
-                                "enum": [
-                                  "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                                ]
-                              }
-                            }
-                          ],
-                          "minItems": 2
-                        },
-                        "schema:additionalType": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "x-jsonld-id": "http://schema.org/additionalType"
-                        },
-                        "schema:identifier": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "x-jsonld-id": "http://schema.org/identifier"
-                        },
-                        "schema:name": {
-                          "description": "Sample name/identifier as used in the lab.",
-                          "type": "string",
-                          "x-jsonld-id": "http://schema.org/name"
-                        },
-                        "schema:additionalProperty": {
-                          "description": "Per-sample PropertyValue entries (e.g. analysis location); technique profiles constrain these.",
-                          "type": "array",
-                          "items": {
-                            "type": "object"
-                          },
-                          "x-jsonld-id": "http://schema.org/additionalProperty"
-                        },
-                        "ada:spatialRegistration": {
-                          "description": "The coordinate system defined ON the sample -- typically a planar thin section -- that image pixel coordinates are registered to. Distinct from the ada:spatialRegistration on an image or imageMap part, which maps pixel coordinates WITHIN one file: this one is the frame those are registered to, and is what lets two images of the same section be compared. Optional, and no record carries it yet.",
-                          "x-jsonld-id": "https://ada.astromat.org/metadata/spatialRegistration",
-                          "allOf": [
-                            {
-                              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.spatialRegistration"
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    "x-jsonld-id": "http://schema.org/object"
-                  },
-                  "schema:identifier": {
-                    "description": "The analytical session's own identifier -- the laboratory's run, sequence or batch identifier as generated by the instrument or acquisition software. Sits on the activity rather than the dataset because the session IS the activity.",
-                    "type": "string",
-                    "x-jsonld-id": "http://schema.org/identifier"
-                  },
-                  "schema:startDate": {
-                    "type": "string",
-                    "x-jsonld-id": "http://schema.org/startDate"
-                  },
-                  "schema:endDate": {
-                    "type": "string",
-                    "x-jsonld-id": "http://schema.org/endDate"
-                  },
-                  "schema:additionalProperty": {
-                    "description": "Per-analysis PropertyValue entries (replicates, transect length, ...); technique profiles constrain these.",
-                    "type": "array",
-                    "items": {
-                      "type": "object"
-                    },
-                    "x-jsonld-id": "http://schema.org/additionalProperty"
-                  },
-                  "ada:combinedResults": {
-                    "description": "The reported values this session obtained by averaging or otherwise combining several individual results -- the ROWS of the combined-result table, and the domain that `defines: combined result` enumerates (Rule 7; see the Legends sheet of any delivered TAPP). One entry per combined value, each naming what it combines: \"Olivine, sample A, 8 points\", \"Zircon weighted-mean date, sample B, 236 of 246 spots\", \"Isochron, sample C, 36 runs\".\nOn the ACTIVITY rather than on a sample, because a combined result names its own sample and need not belong to exactly one -- an isochron over 36 runs is the case in hand.\nIt is METADATA, unlike a sampling unit, and the difference is worth being clear about because an earlier design got it wrong. A combined result is a statement the record makes about its own contents, so it belongs here. An individual sampling unit is not: the procedure and the analysis can state only the KIND of unit (ada:samplingUnitType), while a particular unit's identifier is a schema:variableMeasured naming a COLUMN in one of the distributions, and the binding from that unit to its target material exists only in the instance data table beside the results. There is therefore no array of sampling-unit objects here; one was added on 2026-09-25 and removed on 2026-10-01 once that was settled.\nAnalysis-side only: the procedure can say HOW results will be combined (Combination Method, keyed by reported property) but not WHICH were, so there is no ada:combinedResults counterpart in tappDefinition.\nFields keyed `combined result x reported property` -- Goodness-of-Fit or Dispersion Statistic, and Other Statistics -- ride on these rows as per-reported- property values, keyed by the valueName of the column that declared them.",
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "required": [
-                        "schema:name"
-                      ],
-                      "properties": {
-                        "@id": {
-                          "description": "Optional identifier for this combined result.",
-                          "type": "string"
-                        },
-                        "schema:name": {
-                          "description": "What this combined value is and what it combines. Required, because a combined result nothing can name gives a field keyed by combined result no row to attach its value to.",
-                          "type": "string",
-                          "x-jsonld-id": "http://schema.org/name"
-                        }
-                      }
-                    },
-                    "x-jsonld-id": "https://ada.astromat.org/metadata/combinedResults"
-                  }
-                },
-                "required": [
-                  "prov:used"
-                ]
-              },
-              "x-jsonld-id": "http://www.w3.org/ns/prov#wasGeneratedBy"
-            },
-            "schema:variableMeasured": {
-              "description": "Variable definitions. Extends cdifInstanceVariable (from cdifDataDescription) with additional generic properties. Requires a description with minLength 3.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "required": [
-                  "schema:description"
-                ],
-                "properties": {
-                  "@type": {
-                    "description": "A variable is either a measured VALUE (schema:PropertyValue) or a SPECIFICATION of one (schema:PropertyValueSpecification); exactly which it is decides how a consumer reads schema:value. One of the two must appear. Further type URIs are welcome alongside - cdi:InstanceVariable is the usual companion - so the array is open.",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "anyOf": [
-                        {
-                          "enum": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        {
-                          "enum": [
-                            "schema:PropertyValueSpecification"
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  "schema:description": {
-                    "type": "string",
-                    "minLength": 3,
-                    "x-jsonld-id": "http://schema.org/description"
-                  },
-                  "schema:alternateName": {
-                    "type": "array",
-                    "items": {
-                      "type": "string",
-                      "description": "Human intelligible name for variable that conveys semantics"
-                    },
-                    "x-jsonld-id": "http://schema.org/alternateName"
-                  },
-                  "schema:measurementTechnique": {
-                    "type": "array",
-                    "items": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "object",
-                          "required": [
-                            "@id"
-                          ],
-                          "additionalProperties": false,
-                          "properties": {
-                            "@id": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        {
-                          "type": "object",
-                          "additionalProperties": false,
-                          "properties": {
-                            "@type": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "contains": {
-                                "enum": [
-                                  "schema:DefinedTerm"
-                                ]
-                              },
-                              "minItems": 1
-                            },
-                            "schema:name": {
-                              "type": "string",
-                              "x-jsonld-id": "http://schema.org/name"
-                            }
-                          },
-                          "required": [
-                            "@type",
-                            "schema:name"
-                          ]
-                        }
-                      ]
-                    },
-                    "x-jsonld-id": "http://schema.org/measurementTechnique"
-                  },
-                  "schema:unitText": {
-                    "type": "string",
-                    "x-jsonld-id": "http://schema.org/unitText"
-                  },
-                  "schema:unitCode": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "object",
-                        "required": [
-                          "@id"
-                        ],
-                        "additionalProperties": false,
-                        "properties": {
-                          "@id": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                          "@type": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "contains": {
-                              "enum": [
-                                "schema:DefinedTerm"
-                              ]
-                            },
-                            "minItems": 1
-                          },
-                          "schema:name": {
-                            "type": "string",
-                            "x-jsonld-id": "http://schema.org/name"
-                          }
-                        },
-                        "required": [
-                          "@type",
-                          "schema:name"
-                        ]
-                      }
-                    ],
-                    "x-jsonld-id": "http://schema.org/unitCode"
-                  },
-                  "schema:minValue": {
-                    "type": "number",
-                    "x-jsonld-id": "http://schema.org/minValue"
-                  },
-                  "schema:maxValue": {
-                    "type": "number",
-                    "x-jsonld-id": "http://schema.org/maxValue"
-                  },
-                  "schema:url": {
-                    "type": "string",
-                    "format": "uri",
-                    "x-jsonld-id": "http://schema.org/url"
-                  }
-                }
-              },
-              "x-jsonld-id": "http://schema.org/variableMeasured"
-            },
-            "schema:spatialCoverage": {
-              "description": "Geographic extent of resource content.",
-              "type": "array",
-              "items": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/SpatialExtent"
-              },
-              "x-jsonld-id": "http://schema.org/spatialCoverage"
-            },
-            "schema:temporalCoverage": {
-              "description": "Temporal extent of resource content.",
-              "type": "array",
-              "items": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/TemporalExtent"
-              },
-              "x-jsonld-id": "http://schema.org/temporalCoverage"
-            },
-            "dqv:hasQualityMeasurement": {
-              "description": "Quality measurements reported to assess the resource.",
-              "type": "array",
-              "items": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/QualityMeasure"
-              }
-            },
-            "schema:additionalProperty": {
-              "description": "PropertyValue entries describing the DELIVERED DATA rather than the analysis that produced it (extent, dimensions, ...). Distinct from the per-analysis prov:wasGeneratedBy.schema:additionalProperty. Technique profiles constrain these.",
-              "type": "array",
-              "items": {
-                "type": "object"
-              },
-              "x-jsonld-id": "http://schema.org/additionalProperty"
-            },
-            "schema:distribution": {
-              "description": "Generic distribution structure. A distribution is a schema:DataDownload (or schema:WebAPI, inherited from cdifCore) that MAY carry a cdi:isStructuredBy data-structure description (for a monolithic single file that IS the dataset, or a structure shared across bundle parts), and MAY be a bundle whose schema:hasPart lists member files (typed via cdifManifest). The domain file-classification of a distribution / member (e.g. ADA ada:componentType) is added by the extending profile.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "cdi:isStructuredBy": {
-                    "description": "Data-structure description of a monolithic single-file distribution (the file is the dataset), or a structure shared across bundle parts and referenced from them by @id. One of the four CDIF DataStructure variants inline, or an @id reference. Optional.",
-                    "anyOf": [
-                      {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DataStructure"
-                      },
-                      {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DimensionalDataStructure"
-                      },
-                      {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/LongDataStructure"
-                      },
-                      {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/WideDataStructure"
-                      },
-                      {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
-                      }
-                    ],
-                    "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy"
-                  },
-                  "schema:additionalType": {
-                    "description": "Optional file-classification of this distribution (or, on a bundle, of the whole archive) drawn from the componentType vocabulary (ada:vocab/componentType) -- e.g. \"ada:report\", \"ada:calibrationFile\". Generic and OPTIONAL here; the ADA product layer (adaProduct) instead carries the required ada:componentType. Advisory (annotated via schema:inDefinedTermSet), not hard-enumerated in JSON Schema.",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "schema:inDefinedTermSet": "ada:vocab/componentType",
-                    "x-jsonld-id": "http://schema.org/additionalType"
-                  }
-                },
-                "allOf": [
-                  {
-                    "if": {
-                      "properties": {
-                        "@type": {
-                          "type": "array",
-                          "contains": {
-                            "enum": [
-                              "cdi:TabularTextDataSet"
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    "then": {
-                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tabularData"
-                    }
-                  }
-                ]
-              },
-              "x-jsonld-id": "http://schema.org/distribution"
-            },
-            "schema:subjectOf": {
-              "properties": {
-                "dcterms:conformsTo": {
-                  "contains": {
-                    "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "enum": [
-                          "https://w3id.org/geochem/metadata/profiles/geochemProduct"
-                        ]
-                      }
-                    }
-                  },
-                  "x-jsonld-id": "http://purl.org/dc/terms/conformsTo"
-                }
-              },
-              "x-jsonld-id": "http://schema.org/subjectOf"
-            }
-          }
-        }
-      ],
-      "$defs": {
-        "universalComponentTypeBranch": {
-          "description": "Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf. Constrains ada:componentType to the universal enum and marks it required. Factored out of every profile to eliminate the inline boilerplate.",
-          "properties": {
-            "ada:componentType": {
-              "x-jsonld-id": "https://ada.astromat.org/metadata/componentType",
-              "allOf": [
-                {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/universalComponentType"
-                }
-              ]
-            }
-          },
-          "required": [
-            "ada:componentType"
-          ]
-        },
-        "universalComponentType": {
-          "description": "A componentType value drawn from the shared componentType vocabulary (ada:vocab/componentType). Not hard-enumerated here: conformance to the vocabulary is advisory (annotated via schema:inDefinedTermSet, SHACL-checkable) rather than enforced by JSON Schema, so techniques may extend the term set.",
-          "type": "string",
-          "schema:inDefinedTermSet": "ada:vocab/componentType"
-        },
-        "UsedComputationalTool": {
-          "type": "object",
-          "additionalProperties": false,
-          "description": "Computational tool actually used (acquisition, data reduction, or processing).",
-          "properties": {
-            "@type": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "contains": {
-                "enum": [
-                  "schema:SoftwareApplication"
-                ]
-              }
-            },
-            "@id": {
-              "type": "string"
-            },
-            "schema:name": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/name"
-            },
-            "schema:version": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/version"
-            },
-            "schema:url": {
-              "type": "string",
-              "format": "uri",
-              "x-jsonld-id": "http://schema.org/url"
-            },
-            "schema:description": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/description"
-            },
-            "ada:toolRole": {
-              "type": "string",
-              "enum": [
-                "acquisition",
-                "dataReduction",
-                "processing",
-                "visualization"
-              ],
-              "x-jsonld-id": "https://ada.astromat.org/metadata/toolRole"
-            }
-          },
-          "required": [
-            "@type",
-            "schema:name"
-          ]
-        },
-        "UsedReagent": {
-          "type": "object",
-          "additionalProperties": false,
-          "description": "Reference material, calibration standard, or chemical reagent actually used.",
-          "properties": {
-            "@type": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "minItems": 1,
-              "description": "What the material IS, independent of the role it plays in this run (that is ada:reagentRole). schema:DefinedTerm for a material identified by a registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen or purchased lot; schema:ChemicalSubstance for a bulk chemical or coating stock.",
-              "contains": {
-                "enum": [
-                  "schema:DefinedTerm",
-                  "schema:Product",
-                  "schema:ChemicalSubstance"
-                ]
-              }
-            },
-            "@id": {
-              "type": "string"
-            },
-            "schema:name": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/name"
-            },
-            "schema:description": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/description"
-            },
-            "schema:identifier": {
-              "description": "Formal identifier (IGSN, catalog number, GeoReM ID).",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "@type": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      },
-                      "minItems": 1
-                    },
-                    "schema:propertyID": {
-                      "type": "string",
-                      "x-jsonld-id": "http://schema.org/propertyID"
-                    },
-                    "schema:value": {
-                      "type": "string",
-                      "x-jsonld-id": "http://schema.org/value"
-                    }
-                  }
-                }
-              ],
-              "x-jsonld-id": "http://schema.org/identifier"
-            },
-            "schema:termCode": {
-              "type": "string",
-              "description": "Registry code for the material on the schema:DefinedTerm path.",
-              "x-jsonld-id": "http://schema.org/termCode"
-            },
-            "schema:inDefinedTermSet": {
-              "description": "The registry the schema:termCode belongs to.",
-              "anyOf": [
-                {
-                  "type": "string",
-                  "format": "uri"
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "@id": {
-                      "type": "string",
-                      "format": "uri"
-                    },
-                    "schema:name": {
-                      "type": "string",
-                      "x-jsonld-id": "http://schema.org/name"
-                    }
-                  }
-                }
-              ],
-              "x-jsonld-id": "http://schema.org/inDefinedTermSet"
-            },
-            "ada:reagentRole": {
-              "type": "string",
-              "enum": [
-                "primaryStandard",
-                "secondaryStandard",
-                "interferenceStandard",
-                "blankMaterial",
-                "coatingMaterial",
-                "referenceMaterial",
-                "reagent"
-              ],
-              "x-jsonld-id": "https://ada.astromat.org/metadata/reagentRole"
-            }
-          },
-          "required": [
-            "@type",
-            "schema:name"
-          ]
-        },
-        "SpatialExtent": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent"
-        },
-        "TemporalExtent": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.temporalExtent"
-        },
-        "QualityMeasure": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure"
-        }
-      },
-      "x-jsonld-prefixes": {
-        "schema": "http://schema.org/",
-        "ada": "https://ada.astromat.org/metadata/",
-        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-        "csvw": "http://www.w3.org/ns/csvw#",
-        "prov": "http://www.w3.org/ns/prov#",
-        "bios": "https://bioschemas.org/",
-        "spdx": "http://spdx.org/rdf/terms#",
-        "nxs": "https://manual.nexusformat.org/classes/",
-        "dcterms": "http://purl.org/dc/terms/",
-        "geosparql": "http://www.opengis.net/ont/geosparql#"
-      },
-      "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml",
-      "x-schema-id": "https://w3id.org/geochem/schema/geochemProduct/1.0",
-      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
-    },
     "ogch.BaseSchema.tappDefinition_1": {
       "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
       "description": "A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as a PLAN \u2014 prov:Plan / bios:LabProtocol (also cdi:Activity + schema:Action for the DDI-CDI process/action description). It is a reusable procedure that prescribes an analysis; the analysis OCCURRENCE is the prov:Activity in adaProduct.prov:wasGeneratedBy, which references this plan via prov:used. Because the TAPP is a plan, its instrument / bios:computationalTool / bios:reagent are directly-specified resources (not prov:used entities). The TAPP identity (name, technique, instrument, location) lives at the top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation, calibration, acquisition, data processing, quality control). Each workflow step carries its own parameters, reagents, and instruments. TAPP-level parameters that apply across all steps remain at the top level in schema:additionalProperty. Integrates Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity sequence, and dqv:hasQualityMeasurement for quality metrics.",
@@ -10603,11 +9773,11 @@
           "x-jsonld-id": "http://schema.org/creator"
         },
         "schema:actionProcess": {
-          "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps.",
+          "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps. Exactly one step must be the sample-preparation step -- see MethodWorkflowHowTo.",
           "x-jsonld-id": "http://schema.org/actionProcess",
           "allOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/WorkflowHowTo"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/MethodWorkflowHowTo"
             }
           ]
         },
@@ -10990,36 +10160,10 @@
             },
             "schema:step": {
               "type": "array",
-              "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure. Must include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.",
+              "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action + schema:HowToStep describing a distinct phase of the analytical procedure. This shape carries NO sample-preparation requirement, because it is used for a STEP's sub-workflow as well as for a method's top-level workflow; see MethodWorkflowHowTo for the method form that does require one.",
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/WorkflowStep"
               },
-              "contains": {
-                "type": "object",
-                "description": "a sample preparation step is required.",
-                "properties": {
-                  "schema:name": {
-                    "x-jsonld-id": "http://schema.org/name",
-                    "enum": [
-                      "Sample preparation"
-                    ]
-                  },
-                  "schema:additionalType": {
-                    "type": "array",
-                    "contains": {
-                      "enum": [
-                        "bios:LabProcess"
-                      ]
-                    },
-                    "x-jsonld-id": "http://schema.org/additionalType"
-                  }
-                },
-                "required": [
-                  "schema:name",
-                  "schema:additionalType"
-                ]
-              },
-              "maxContains": 1,
               "x-jsonld-id": "http://schema.org/step"
             }
           },
@@ -11028,16 +10172,63 @@
             "schema:step"
           ]
         },
+        "MethodWorkflowHowTo": {
+          "description": "A method's standard workflow: a WorkflowHowTo that must also include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.\nSeparate from WorkflowHowTo because that shape is ALSO the sub-workflow of a single step (WorkflowStep.schema:actionProcess), and requiring sample preparation there is wrong -- a step's sub-workflow is the breakdown of that one step, so a sample-preparation step broken into mount / grind / polish / coat would have needed a nested \"Sample preparation\" inside itself. Both references pointed at one $def, so the method's requirement reached every sub-workflow. Nothing exercised it, as no example nests a sub-workflow.",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/WorkflowHowTo"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:step": {
+                  "type": "array",
+                  "contains": {
+                    "type": "object",
+                    "description": "a sample preparation step is required.",
+                    "properties": {
+                      "schema:name": {
+                        "x-jsonld-id": "http://schema.org/name",
+                        "enum": [
+                          "Sample preparation"
+                        ]
+                      },
+                      "schema:additionalType": {
+                        "type": "array",
+                        "contains": {
+                          "enum": [
+                            "bios:LabProcess"
+                          ]
+                        },
+                        "x-jsonld-id": "http://schema.org/additionalType"
+                      }
+                    },
+                    "required": [
+                      "schema:name",
+                      "schema:additionalType"
+                    ]
+                  },
+                  "maxContains": 1,
+                  "x-jsonld-id": "http://schema.org/step"
+                }
+              },
+              "required": [
+                "schema:step"
+              ]
+            }
+          ]
+        },
         "WorkflowStep": {
           "type": "object",
           "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
           "properties": {
             "@type": {
+              "description": "All THREE are required. cdi:Activity and schema:Action carry the DDI-CDI and schema.org process semantics this model is built on; schema:HowToStep is what schema.org itself expects of a value of schema:step on a schema:HowTo, and omitting it made these steps invalid against the plain schema.org reading -- and against the base cdifProvActivity, whose own step shape requires schema:HowToStep. The two shapes disagreed, which is observable in the examples: 565 steps carried cdi:Activity + schema:Action and 15 carried schema:HowToStep, depending on which side emitted them.",
               "type": "array",
               "items": {
                 "type": "string"
               },
-              "minItems": 2,
+              "minItems": 3,
               "allOf": [
                 {
                   "contains": {
@@ -11050,6 +10241,13 @@
                   "contains": {
                     "enum": [
                       "schema:Action"
+                    ]
+                  }
+                },
+                {
+                  "contains": {
+                    "enum": [
+                      "schema:HowToStep"
                     ]
                   }
                 }
@@ -12175,6 +11373,889 @@
         "skos": "http://www.w3.org/2004/02/skos/core#"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml",
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "ogch.BaseSchema.geochemProduct": {
+      "title": "Geochemistry Analytical Product Metadata",
+      "description": "Generic schema for JSON-LD metadata documenting an analytical product from a geochemistry (or related analytical) laboratory workflow. It describes the dataset and its distributions, the analysis events that produced it (instruments, computational tools, reagents, laboratory, samples analysed), the variables measured, and spatial / temporal / quality coverage. It composes the CDIF core, data-description, manifest (bundle), and provenance profiles.\nThis is the domain-neutral base. Archive-specific submission/delivery layers (e.g. ADA/SAMIS via adaProduct) extend it with their product-type vocabulary, file-classification (componentType) scheme, and delivery-packaging rules.",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore"
+        },
+        {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription"
+        },
+        {
+          "if": {
+            "properties": {
+              "schema:distribution": {
+                "type": "array",
+                "contains": {
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "type": "array",
+                      "contains": {
+                        "enum": [
+                          "schema:Collection"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifManifest"
+          }
+        },
+        {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@type": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "schema:Dataset",
+                  "schema:Product"
+                ]
+              }
+            },
+            "schema:license": {
+              "description": "Legal statement of conditions for use and access",
+              "type": "array",
+              "minItems": 0,
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.creativeWork"
+                  }
+                ]
+              },
+              "x-jsonld-id": "http://schema.org/license"
+            },
+            "schema:relatedLink": {
+              "type": "array",
+              "description": "Links to related resources at the product level",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "enum": [
+                        "schema:LinkRole"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "schema:linkRelationship": {
+                    "type": "string",
+                    "x-jsonld-id": "http://schema.org/linkRelationship"
+                  },
+                  "schema:target": {
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "contains": {
+                          "enum": [
+                            "schema:EntryPoint"
+                          ]
+                        },
+                        "minItems": 1
+                      },
+                      "schema:encodingFormat": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "x-jsonld-id": "http://schema.org/encodingFormat"
+                      },
+                      "schema:name": {
+                        "type": "string",
+                        "x-jsonld-id": "http://schema.org/name"
+                      },
+                      "schema:url": {
+                        "type": "string",
+                        "x-jsonld-id": "http://schema.org/url"
+                      }
+                    },
+                    "x-jsonld-id": "http://schema.org/target"
+                  }
+                }
+              },
+              "x-jsonld-id": "http://schema.org/relatedLink"
+            },
+            "schema:creativeWorkStatus": {
+              "type": "string",
+              "x-jsonld-id": "http://schema.org/creativeWorkStatus"
+            },
+            "schema:measurementTechnique": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "description": "Text description of the measurement method",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "enum": [
+                        "schema:DefinedTerm"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "x-jsonld-id": "http://schema.org/name"
+                  },
+                  "schema:identifier": {
+                    "type": "string",
+                    "x-jsonld-id": "http://schema.org/identifier"
+                  }
+                }
+              },
+              "x-jsonld-id": "http://schema.org/measurementTechnique"
+            },
+            "prov:wasGeneratedBy": {
+              "description": "Analysis events. Extends cdifProvActivity (from cdifProvenance) with the generic geochem analysis-event surface: the instruments, computational tools and reagents actually used; the laboratory; the samples analysed; and the session identifier and timing.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "schema:actionProcess": {
+                    "description": "The workflow actually followed by this analysis event, as a schema:HowTo whose schema:step entries are full workflow steps.\nThe base cdifProvActivity already supplies a schema:HowTo here, but its step shape carries only @type / name / description / position / url. A geochem analysis event needs the same step surface the TAPP plan uses -- per-step instrument, computational tool, reagent, inputs, result, parameters and sub-workflow -- so the step items are pinned to tappDefinition's WorkflowStep. Both apply: the base and this intersect under allOf, and neither the base HowTo nor its step is a closed object, so the richer shape adds to it rather than conflicting.\nWorkflowStep, NOT WorkflowHowTo, is deliberate. The requirement for exactly one \"Sample preparation\" step carrying bios:LabProcess lives on WorkflowHowTo, and it belongs to the TAPP plan -- a protocol must say how the sample was prepared. An analysis EVENT records what was done and may legitimately describe only part of a workflow, so referencing the step shape alone brings the structure without that requirement.\nOnly the object form is constrained. schema:actionProcess may also be a string or an @id reference in the base, and `properties` does not apply to a non-object, so those branches stay reachable.",
+                    "properties": {
+                      "schema:step": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/WorkflowStep"
+                        },
+                        "x-jsonld-id": "http://schema.org/step"
+                      }
+                    },
+                    "x-jsonld-id": "http://schema.org/actionProcess"
+                  },
+                  "prov:used": {
+                    "type": "array",
+                    "description": "Resources used in the analysis. Each item is one of: an instrument BB instance; a computational tool actually used (schema:SoftwareApplication); a reagent / reference material actually used; a tappDefinition BB instance (inlined); or an @id reference to a TAPP definition node defined elsewhere. The TAPP plan (prov:Plan / bios:LabProtocol) prescribes the generic instrument / computationalTool / reagent list; these prov:used entries record the ACTUALS used in this specific run.",
+                    "items": {
+                      "allOf": [
+                        {
+                          "if": {
+                            "type": "object",
+                            "required": [
+                              "schema:instrument"
+                            ]
+                          },
+                          "then": {
+                            "properties": {
+                              "schema:instrument": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {
+                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.instrument"
+                                },
+                                "x-jsonld-id": "http://schema.org/instrument"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "if": {
+                            "type": "object",
+                            "required": [
+                              "bios:computationalTool"
+                            ]
+                          },
+                          "then": {
+                            "properties": {
+                              "bios:computationalTool": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {
+                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/UsedComputationalTool"
+                                },
+                                "x-jsonld-id": "https://bioschemas.org/computationalTool"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "if": {
+                            "type": "object",
+                            "required": [
+                              "prov:reagent"
+                            ]
+                          },
+                          "then": {
+                            "properties": {
+                              "prov:reagent": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": {
+                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/UsedReagent"
+                                },
+                                "x-jsonld-id": "http://www.w3.org/ns/prov#reagent"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "if": {
+                            "type": "object",
+                            "properties": {
+                              "@type": {
+                                "contains": {
+                                  "enum": [
+                                    "ada:TAPPDefinition"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "@type",
+                              "schema:name"
+                            ]
+                          },
+                          "then": {
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1"
+                          }
+                        }
+                      ]
+                    },
+                    "x-jsonld-id": "http://www.w3.org/ns/prov#used"
+                  },
+                  "schema:location": {
+                    "x-jsonld-id": "http://schema.org/location",
+                    "allOf": [
+                      {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.laboratory"
+                      }
+                    ]
+                  },
+                  "schema:object": {
+                    "type": "array",
+                    "description": "Samples analyzed",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "enum": [
+                                  "schema:Thing"
+                                ]
+                              }
+                            },
+                            {
+                              "contains": {
+                                "enum": [
+                                  "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                ]
+                              }
+                            }
+                          ],
+                          "minItems": 2
+                        },
+                        "schema:additionalType": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "x-jsonld-id": "http://schema.org/additionalType"
+                        },
+                        "schema:identifier": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "x-jsonld-id": "http://schema.org/identifier"
+                        },
+                        "schema:name": {
+                          "description": "Sample name/identifier as used in the lab.",
+                          "type": "string",
+                          "x-jsonld-id": "http://schema.org/name"
+                        },
+                        "schema:additionalProperty": {
+                          "description": "Per-sample PropertyValue entries (e.g. analysis location); technique profiles constrain these.",
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          },
+                          "x-jsonld-id": "http://schema.org/additionalProperty"
+                        },
+                        "ada:spatialRegistration": {
+                          "description": "The coordinate system defined ON the sample -- typically a planar thin section -- that image pixel coordinates are registered to. Distinct from the ada:spatialRegistration on an image or imageMap part, which maps pixel coordinates WITHIN one file: this one is the frame those are registered to, and is what lets two images of the same section be compared. Optional, and no record carries it yet.",
+                          "x-jsonld-id": "https://ada.astromat.org/metadata/spatialRegistration",
+                          "allOf": [
+                            {
+                              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.spatialRegistration"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "x-jsonld-id": "http://schema.org/object"
+                  },
+                  "schema:identifier": {
+                    "description": "The analytical session's own identifier -- the laboratory's run, sequence or batch identifier as generated by the instrument or acquisition software. Sits on the activity rather than the dataset because the session IS the activity.",
+                    "type": "string",
+                    "x-jsonld-id": "http://schema.org/identifier"
+                  },
+                  "schema:startDate": {
+                    "type": "string",
+                    "x-jsonld-id": "http://schema.org/startDate"
+                  },
+                  "schema:endDate": {
+                    "type": "string",
+                    "x-jsonld-id": "http://schema.org/endDate"
+                  },
+                  "schema:additionalProperty": {
+                    "description": "Per-analysis PropertyValue entries (replicates, transect length, ...); technique profiles constrain these.",
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    },
+                    "x-jsonld-id": "http://schema.org/additionalProperty"
+                  },
+                  "ada:combinedResults": {
+                    "description": "The reported values this session obtained by averaging or otherwise combining several individual results -- the ROWS of the combined-result table, and the domain that `defines: combined result` enumerates (Rule 7; see the Legends sheet of any delivered TAPP). One entry per combined value, each naming what it combines: \"Olivine, sample A, 8 points\", \"Zircon weighted-mean date, sample B, 236 of 246 spots\", \"Isochron, sample C, 36 runs\".\nOn the ACTIVITY rather than on a sample, because a combined result names its own sample and need not belong to exactly one -- an isochron over 36 runs is the case in hand.\nIt is METADATA, unlike a sampling unit, and the difference is worth being clear about because an earlier design got it wrong. A combined result is a statement the record makes about its own contents, so it belongs here. An individual sampling unit is not: the procedure and the analysis can state only the KIND of unit (ada:samplingUnitType), while a particular unit's identifier is a schema:variableMeasured naming a COLUMN in one of the distributions, and the binding from that unit to its target material exists only in the instance data table beside the results. There is therefore no array of sampling-unit objects here; one was added on 2026-09-25 and removed on 2026-10-01 once that was settled.\nAnalysis-side only: the procedure can say HOW results will be combined (Combination Method, keyed by reported property) but not WHICH were, so there is no ada:combinedResults counterpart in tappDefinition.\nFields keyed `combined result x reported property` -- Goodness-of-Fit or Dispersion Statistic, and Other Statistics -- ride on these rows as per-reported- property values, keyed by the valueName of the column that declared them.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "schema:name"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "description": "Optional identifier for this combined result.",
+                          "type": "string"
+                        },
+                        "schema:name": {
+                          "description": "What this combined value is and what it combines. Required, because a combined result nothing can name gives a field keyed by combined result no row to attach its value to.",
+                          "type": "string",
+                          "x-jsonld-id": "http://schema.org/name"
+                        }
+                      }
+                    },
+                    "x-jsonld-id": "https://ada.astromat.org/metadata/combinedResults"
+                  }
+                },
+                "required": [
+                  "prov:used"
+                ]
+              },
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasGeneratedBy"
+            },
+            "schema:variableMeasured": {
+              "description": "Variable definitions. Extends cdifInstanceVariable (from cdifDataDescription) with additional generic properties. Requires a description with minLength 3.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "schema:description"
+                ],
+                "properties": {
+                  "@type": {
+                    "description": "A variable is either a measured VALUE (schema:PropertyValue) or a SPECIFICATION of one (schema:PropertyValueSpecification); exactly which it is decides how a consumer reads schema:value. One of the two must appear. Further type URIs are welcome alongside - cdi:InstanceVariable is the usual companion - so the array is open.",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        {
+                          "enum": [
+                            "schema:PropertyValueSpecification"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "schema:description": {
+                    "type": "string",
+                    "minLength": 3,
+                    "x-jsonld-id": "http://schema.org/description"
+                  },
+                  "schema:alternateName": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "Human intelligible name for variable that conveys semantics"
+                    },
+                    "x-jsonld-id": "http://schema.org/alternateName"
+                  },
+                  "schema:measurementTechnique": {
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@id": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "properties": {
+                            "@type": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "contains": {
+                                "enum": [
+                                  "schema:DefinedTerm"
+                                ]
+                              },
+                              "minItems": 1
+                            },
+                            "schema:name": {
+                              "type": "string",
+                              "x-jsonld-id": "http://schema.org/name"
+                            }
+                          },
+                          "required": [
+                            "@type",
+                            "schema:name"
+                          ]
+                        }
+                      ]
+                    },
+                    "x-jsonld-id": "http://schema.org/measurementTechnique"
+                  },
+                  "schema:unitText": {
+                    "type": "string",
+                    "x-jsonld-id": "http://schema.org/unitText"
+                  },
+                  "schema:unitCode": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "object",
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "@id": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "@type": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "enum": [
+                                "schema:DefinedTerm"
+                              ]
+                            },
+                            "minItems": 1
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "x-jsonld-id": "http://schema.org/name"
+                          }
+                        },
+                        "required": [
+                          "@type",
+                          "schema:name"
+                        ]
+                      }
+                    ],
+                    "x-jsonld-id": "http://schema.org/unitCode"
+                  },
+                  "schema:minValue": {
+                    "type": "number",
+                    "x-jsonld-id": "http://schema.org/minValue"
+                  },
+                  "schema:maxValue": {
+                    "type": "number",
+                    "x-jsonld-id": "http://schema.org/maxValue"
+                  },
+                  "schema:url": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-jsonld-id": "http://schema.org/url"
+                  }
+                }
+              },
+              "x-jsonld-id": "http://schema.org/variableMeasured"
+            },
+            "schema:spatialCoverage": {
+              "description": "Geographic extent of resource content.",
+              "type": "array",
+              "items": {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/SpatialExtent"
+              },
+              "x-jsonld-id": "http://schema.org/spatialCoverage"
+            },
+            "schema:temporalCoverage": {
+              "description": "Temporal extent of resource content.",
+              "type": "array",
+              "items": {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/TemporalExtent"
+              },
+              "x-jsonld-id": "http://schema.org/temporalCoverage"
+            },
+            "dqv:hasQualityMeasurement": {
+              "description": "Quality measurements reported to assess the resource.",
+              "type": "array",
+              "items": {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/QualityMeasure"
+              }
+            },
+            "schema:additionalProperty": {
+              "description": "PropertyValue entries describing the DELIVERED DATA rather than the analysis that produced it (extent, dimensions, ...). Distinct from the per-analysis prov:wasGeneratedBy.schema:additionalProperty. Technique profiles constrain these.",
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "x-jsonld-id": "http://schema.org/additionalProperty"
+            },
+            "schema:distribution": {
+              "description": "Generic distribution structure. A distribution is a schema:DataDownload (or schema:WebAPI, inherited from cdifCore) that MAY carry a cdi:isStructuredBy data-structure description (for a monolithic single file that IS the dataset, or a structure shared across bundle parts), and MAY be a bundle whose schema:hasPart lists member files (typed via cdifManifest). The domain file-classification of a distribution / member (e.g. ADA ada:componentType) is added by the extending profile.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "cdi:isStructuredBy": {
+                    "description": "Data-structure description of a monolithic single-file distribution (the file is the dataset), or a structure shared across bundle parts and referenced from them by @id. One of the four CDIF DataStructure variants inline, or an @id reference. Optional.",
+                    "anyOf": [
+                      {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DataStructure"
+                      },
+                      {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DimensionalDataStructure"
+                      },
+                      {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/LongDataStructure"
+                      },
+                      {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/WideDataStructure"
+                      },
+                      {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
+                      }
+                    ],
+                    "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy"
+                  },
+                  "schema:additionalType": {
+                    "description": "Optional file-classification of this distribution (or, on a bundle, of the whole archive) drawn from the componentType vocabulary (ada:vocab/componentType) -- e.g. \"ada:report\", \"ada:calibrationFile\". Generic and OPTIONAL here; the ADA product layer (adaProduct) instead carries the required ada:componentType. Advisory (annotated via schema:inDefinedTermSet), not hard-enumerated in JSON Schema.",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/componentType",
+                    "x-jsonld-id": "http://schema.org/additionalType"
+                  }
+                },
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "contains": {
+                            "enum": [
+                              "cdi:TabularTextDataSet"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "then": {
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tabularData"
+                    }
+                  }
+                ]
+              },
+              "x-jsonld-id": "http://schema.org/distribution"
+            },
+            "schema:subjectOf": {
+              "properties": {
+                "dcterms:conformsTo": {
+                  "contains": {
+                    "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "@id": {
+                        "enum": [
+                          "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+                        ]
+                      }
+                    }
+                  },
+                  "x-jsonld-id": "http://purl.org/dc/terms/conformsTo"
+                }
+              },
+              "x-jsonld-id": "http://schema.org/subjectOf"
+            }
+          }
+        }
+      ],
+      "$defs": {
+        "universalComponentTypeBranch": {
+          "description": "Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf. Constrains ada:componentType to the universal enum and marks it required. Factored out of every profile to eliminate the inline boilerplate.",
+          "properties": {
+            "ada:componentType": {
+              "x-jsonld-id": "https://ada.astromat.org/metadata/componentType",
+              "allOf": [
+                {
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.geochemProduct/$defs/universalComponentType"
+                }
+              ]
+            }
+          },
+          "required": [
+            "ada:componentType"
+          ]
+        },
+        "universalComponentType": {
+          "description": "A componentType value drawn from the shared componentType vocabulary (ada:vocab/componentType). Not hard-enumerated here: conformance to the vocabulary is advisory (annotated via schema:inDefinedTermSet, SHACL-checkable) rather than enforced by JSON Schema, so techniques may extend the term set.",
+          "type": "string",
+          "schema:inDefinedTermSet": "ada:vocab/componentType"
+        },
+        "UsedComputationalTool": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Computational tool actually used (acquisition, data reduction, or processing).",
+          "properties": {
+            "@type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "contains": {
+                "enum": [
+                  "schema:SoftwareApplication"
+                ]
+              }
+            },
+            "@id": {
+              "type": "string"
+            },
+            "schema:name": {
+              "type": "string",
+              "x-jsonld-id": "http://schema.org/name"
+            },
+            "schema:version": {
+              "type": "string",
+              "x-jsonld-id": "http://schema.org/version"
+            },
+            "schema:url": {
+              "type": "string",
+              "format": "uri",
+              "x-jsonld-id": "http://schema.org/url"
+            },
+            "schema:description": {
+              "type": "string",
+              "x-jsonld-id": "http://schema.org/description"
+            },
+            "ada:toolRole": {
+              "type": "string",
+              "enum": [
+                "acquisition",
+                "dataReduction",
+                "processing",
+                "visualization"
+              ],
+              "x-jsonld-id": "https://ada.astromat.org/metadata/toolRole"
+            }
+          },
+          "required": [
+            "@type",
+            "schema:name"
+          ]
+        },
+        "UsedReagent": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Reference material, calibration standard, or chemical reagent actually used.",
+          "properties": {
+            "@type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "description": "What the material IS, independent of the role it plays in this run (that is ada:reagentRole). schema:DefinedTerm for a material identified by a registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen or purchased lot; schema:ChemicalSubstance for a bulk chemical or coating stock.",
+              "contains": {
+                "enum": [
+                  "schema:DefinedTerm",
+                  "schema:Product",
+                  "schema:ChemicalSubstance"
+                ]
+              }
+            },
+            "@id": {
+              "type": "string"
+            },
+            "schema:name": {
+              "type": "string",
+              "x-jsonld-id": "http://schema.org/name"
+            },
+            "schema:description": {
+              "type": "string",
+              "x-jsonld-id": "http://schema.org/description"
+            },
+            "schema:identifier": {
+              "description": "Formal identifier (IGSN, catalog number, GeoReM ID).",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "@type": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "minItems": 1
+                    },
+                    "schema:propertyID": {
+                      "type": "string",
+                      "x-jsonld-id": "http://schema.org/propertyID"
+                    },
+                    "schema:value": {
+                      "type": "string",
+                      "x-jsonld-id": "http://schema.org/value"
+                    }
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://schema.org/identifier"
+            },
+            "schema:termCode": {
+              "type": "string",
+              "description": "Registry code for the material on the schema:DefinedTerm path.",
+              "x-jsonld-id": "http://schema.org/termCode"
+            },
+            "schema:inDefinedTermSet": {
+              "description": "The registry the schema:termCode belongs to.",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "@id": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "schema:name": {
+                      "type": "string",
+                      "x-jsonld-id": "http://schema.org/name"
+                    }
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://schema.org/inDefinedTermSet"
+            },
+            "ada:reagentRole": {
+              "type": "string",
+              "enum": [
+                "primaryStandard",
+                "secondaryStandard",
+                "interferenceStandard",
+                "blankMaterial",
+                "coatingMaterial",
+                "referenceMaterial",
+                "reagent"
+              ],
+              "x-jsonld-id": "https://ada.astromat.org/metadata/reagentRole"
+            }
+          },
+          "required": [
+            "@type",
+            "schema:name"
+          ]
+        },
+        "SpatialExtent": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent"
+        },
+        "TemporalExtent": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.temporalExtent"
+        },
+        "QualityMeasure": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure"
+        }
+      },
+      "x-jsonld-prefixes": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "csvw": "http://www.w3.org/ns/csvw#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "bios": "https://bioschemas.org/",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "nxs": "https://manual.nexusformat.org/classes/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#"
+      },
+      "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml",
+      "x-schema-id": "https://w3id.org/geochem/schema/geochemProduct/1.0",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "cdif.bbr.metadata.schemaorgProperties.instrument": {
@@ -18356,11 +18437,13 @@
           },
           "x-jsonld-id": "https://w3id.org/cdif/hasPhysicalMapping"
         },
-        "countRows": {
-          "type": "integer"
-        },
-        "countColumns": {
-          "type": "integer"
+        "schema:additionalProperty": {
+          "description": "Soft-typed extension properties. The row and column counts live here rather than as bare properties, so that each carries a schema:propertyID identifying the concept it quantifies - DDI Discovery caseQuantity for the row count and variableQuantity for the column count. As bare unprefixed `countRows`/`countColumns` they were the only two properties on this class with no namespace and no definition, so nothing said what they meant or tied them to a vocabulary.",
+          "type": "array",
+          "items": {
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularData/$defs/AdditionalProperty"
+          },
+          "x-jsonld-id": "http://schema.org/additionalProperty"
         }
       },
       "oneOf": [
@@ -18401,6 +18484,11 @@
         "@type",
         "cdif:hasPhysicalMapping"
       ],
+      "$defs": {
+        "AdditionalProperty": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty"
+        }
+      },
       "x-jsonld-prefixes": {
         "cdif": "https://w3id.org/cdif/",
         "schema": "http://schema.org/",
@@ -21112,6 +21200,9 @@
               "items": {
                 "type": "object",
                 "allOf": [
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowStep"
+                  },
                   {
                     "if": {
                       "properties": {

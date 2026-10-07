@@ -56,7 +56,8 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
@@ -131,7 +132,8 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
@@ -166,7 +168,8 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;

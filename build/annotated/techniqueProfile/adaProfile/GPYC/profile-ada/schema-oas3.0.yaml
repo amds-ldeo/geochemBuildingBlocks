@@ -383,6 +383,38 @@ x-defs:
           items:
             type: object
             properties:
+              schema:actionProcess:
+                description: 'The workflow actually followed by this analysis event,
+                  as a schema:HowTo whose schema:step entries are full workflow steps.
+
+                  The base cdifProvActivity already supplies a schema:HowTo here,
+                  but its step shape carries only @type / name / description / position
+                  / url. A geochem analysis event needs the same step surface the
+                  TAPP plan uses -- per-step instrument, computational tool, reagent,
+                  inputs, result, parameters and sub-workflow -- so the step items
+                  are pinned to tappDefinition''s WorkflowStep. Both apply: the base
+                  and this intersect under allOf, and neither the base HowTo nor its
+                  step is a closed object, so the richer shape adds to it rather than
+                  conflicting.
+
+                  WorkflowStep, NOT WorkflowHowTo, is deliberate. The requirement
+                  for exactly one "Sample preparation" step carrying bios:LabProcess
+                  lives on WorkflowHowTo, and it belongs to the TAPP plan -- a protocol
+                  must say how the sample was prepared. An analysis EVENT records
+                  what was done and may legitimately describe only part of a workflow,
+                  so referencing the step shape alone brings the structure without
+                  that requirement.
+
+                  Only the object form is constrained. schema:actionProcess may also
+                  be a string or an @id reference in the base, and `properties` does
+                  not apply to a non-object, so those branches stay reachable.'
+                properties:
+                  schema:step:
+                    type: array
+                    items:
+                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowStep
+                    x-jsonld-id: http://schema.org/step
+                x-jsonld-id: http://schema.org/actionProcess
               prov:used:
                 type: array
                 description: 'Resources used in the analysis. Each item is one of:
@@ -2083,224 +2115,6 @@ x-defs:
       schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  ogch.BaseSchema.instrument:
-    title: ADA Analysis Instrument
-    description: ADA analytical instrument building block. Extends the core CDIF instrument
-      building block with NeXus NXinstrument classification via additionalType. Instruments
-      are typed as schema:Thing + schema:Product (from core) with domain-specific
-      types (e.g. nxs:base_classes/NXinstrument.html, ada:AMSInstrument) in additionalType.
-    allOf:
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
-    - type: object
-      properties:
-        '@id':
-          description: 'Identifier for this instrument within the record. REQUIRED:
-            an instrument has to be referenceable. A monitored species names the instrument
-            (or the instrument part) that reports it, and a dataset variable points
-            back at the device that produced it; neither is expressible while the
-            instrument is an anonymous object. A document-scoped identifier suffices,
-            but a resolvable one is better wherever the lab has a persistent identifier
-            for the device.'
-          type: string
-          minLength: 1
-        schema:additionalType:
-          description: 'Domain-specific instrument type classifications. Should include
-            a NeXus base class (e.g. nxs:base_classes/NXinstrument.html) and/or technique-specific
-            identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape
-            values MUST be serialized as JSON-LD IRI references ({"@id":"..."}); free-label
-            strings remain valid. Every instrument additionally carries the Wikidata
-            "measuring instrument" type, which is invariant across techniques: the
-            technique-specific entry says what KIND of instrument this is and varies
-            by profile, while the Wikidata term says that it is an instrument at all,
-            and gives a consumer one term to select on without knowing the ADA vocabulary.'
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - type: object
-              additionalProperties: false
-              required:
-              - '@id'
-              properties:
-                '@id':
-                  type: string
-          minItems: 1
-          contains:
-            type: object
-            properties:
-              '@id':
-                enum:
-                - https://www.wikidata.org/wiki/Q3099911
-            required:
-            - '@id'
-          x-jsonld-id: http://schema.org/additionalType
-        schema:hasPart:
-          description: 'Sub-components of this instrument system (a torch, an ICP
-            source, a collision/reaction cell, a spectrometer). A component IS an
-            instrument -- same @type (schema:Product + schema:Thing), same Wikidata
-            term, and its own schema:additionalType token saying which kind of component
-            it is. The shape is restated rather than written as `$ref: ''#''`, because
-            resolve_schema replaces a circular ref with an empty stub -- it would
-            read as "a part is an instrument" and enforce nothing. Upstream types
-            a component more loosely (schema:Thing alone, no Wikidata); this narrows
-            it, and the two compose because allOf intersects.'
-          type: array
-          items:
-            anyOf:
-            - type: object
-              required:
-              - '@id'
-              - '@type'
-              - schema:name
-              - schema:additionalType
-              properties:
-                '@id':
-                  description: 'Identifier for this component within the record. REQUIRED
-                    on an INLINE component for the same reason it is required on the
-                    instrument: a monitored species names the part that reports it
-                    -- a Faraday cup, a spectrometer, a detector -- and an anonymous
-                    object cannot be referenced. The sibling branch of this anyOf
-                    is the by-reference form, a bare {"@id": ...} pointing at a component
-                    described elsewhere.'
-                  type: string
-                  minLength: 1
-                '@type':
-                  type: array
-                  items:
-                    type: string
-                  minItems: 2
-                  allOf:
-                  - contains:
-                      enum:
-                      - schema:Product
-                  - contains:
-                      enum:
-                      - schema:Thing
-                schema:name:
-                  type: string
-                  x-jsonld-id: http://schema.org/name
-                schema:additionalType:
-                  type: array
-                  minItems: 1
-                  contains:
-                    type: object
-                    required:
-                    - '@id'
-                    properties:
-                      '@id':
-                        enum:
-                        - https://www.wikidata.org/wiki/Q3099911
-                  x-jsonld-id: http://schema.org/additionalType
-                ada:collectorConfiguration:
-                  description: 'How masses are assigned to collector positions for
-                    this procedure, AS THE SOURCE STATES IT. Free text on purpose:
-                    submitters write this as prose or as a semicolon-separated list
-                    in no agreed syntax ("L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn ..."),
-                    and in many cases it cannot be parsed at all. Recording the statement
-                    verbatim is what can always be done; ada:collectors below is what
-                    can sometimes be done as well. Meaningful on a component whose
-                    schema:additionalType includes ''Collector''.'
-                  type: string
-                ada:collectors:
-                  description: "The collector table. One member per position when
-                    ada:collectorConfiguration parses into positions, and ONE member
-                    carrying the text as written when it does not -- the N=1 form
-                    of the flattening fallback that TAPP-keyed-values-design.md Decision
-                    6 settles for every keyed axis: \"rather than admit two shapes,
-                    always emit the table: a declaration that does not parse into
-                    members yields a one-row table whose row key is the text as written.
-                    The fallback is then not a separate branch but N=1.\"\nSo a consumer
-                    reads one shape either way. In the N=1 form schema:name is a fixed
-                    label rather than a cup ('Collector configuration description'),
-                    schema:description carries the unparsed string, and the per-item
-                    values ride in schema:additionalProperty as name/value pairs.
-                    Parsing these strings to individual collectors is not tractable
-                    in general -- they are written for a person to read -- so N=1
-                    is expected to be the common case, not the exception.\nThis exists
-                    because a cup label has to be referenceable WHEN there is one.
-                    A per-cup quantity (a baseline, a gain factor) and a monitored
-                    property that names the position reporting it both need something
-                    to point AT, and a label buried in a sentence is not something
-                    a consumer can join to. schema:name is that anchor.\nWhat a collector
-                    does NOT carry is which monitored property it measures. That assignment
-                    is procedure configuration, not hardware -- the same physical
-                    array is wired differently by another procedure, and an analysis
-                    may override it -- so it lives as the 'collector' column of ada:monitoredPropertyColumns
-                    on the method definition, whose values are these schema:names.
-                    Putting it here would invert the dependency and make the instrument
-                    description procedure-specific.\nNote what an N=1 member does
-                    NOT assert: it names no cup, so it makes no per-cup claim. That
-                    matters because the resistor values are attested per MASS, not
-                    per cup (Proposal_Monitored_Property_2026-09-10 \xA710), and the
-                    fallback must not quietly move them onto the collector axis."
-                  type: array
-                  items:
-                    type: object
-                    required:
-                    - '@type'
-                    - schema:name
-                    properties:
-                      '@type':
-                        type: array
-                        minItems: 1
-                        items:
-                          type: string
-                        contains:
-                          enum:
-                          - ada:Collector
-                      schema:name:
-                        description: The collector position label as the instrument
-                          names it -- L5..L1, C or Ax, H1..H5, IC1..IC8 on a Neptune-class
-                          multicollector. This is the identifier other properties
-                          reference. In the N=1 fallback there is no position to name,
-                          so it is the fixed label 'Collector configuration description'
-                          and nothing should join to it.
-                        type: string
-                        minLength: 1
-                        x-jsonld-id: http://schema.org/name
-                      schema:description:
-                        type: string
-                        x-jsonld-id: http://schema.org/description
-                      schema:additionalProperty:
-                        description: Quantities carried on this member as name/value
-                          pairs. In the parsed form these are per-position quantities
-                          that cannot be restated per mass -- a baseline, a gain factor.
-                          In the N=1 form they are the source fields themselves, each
-                          as its item name and the text as written, which is how an
-                          unparseable per-collector statement is preserved without
-                          inventing an assignment it does not make.
-                        type: array
-                        items:
-                          type: object
-                          required:
-                          - schema:name
-                          properties:
-                            schema:name:
-                              description: The item name, e.g. 'Faraday Cup Amplifier
-                                Resistor Values'.
-                              type: string
-                              x-jsonld-id: http://schema.org/name
-                            schema:value:
-                              description: The value, as written when it did not parse.
-                              x-jsonld-id: http://schema.org/value
-                        x-jsonld-id: http://schema.org/additionalProperty
-            - type: object
-              additionalProperties: false
-              description: Reference by node @id to a component described elsewhere.
-              required:
-              - '@id'
-              properties:
-                '@id':
-                  type: string
-          x-jsonld-id: http://schema.org/hasPart
-      required:
-      - '@id'
-      - schema:additionalType
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-      nxs: https://manual.nexusformat.org/classes/
-    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.tappDefinition:
     title: Technique-Aligned Protocol Profile (TAPP) Definition v3
     description: "A registered Technique-Aligned Protocol Profile (TAPP) definition
@@ -2531,10 +2345,11 @@ x-defs:
           containing an ordered sequence of workflow steps. Each step is a cdi:Activity
           + schema:Action describing a distinct phase (sample preparation, calibration,
           acquisition, data processing, quality control). Steps carry their own parameters,
-          reagents, instruments, and sub-steps.
+          reagents, instruments, and sub-steps. Exactly one step must be the sample-preparation
+          step -- see MethodWorkflowHowTo.
         x-jsonld-id: http://schema.org/actionProcess
         allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowHowTo
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MethodWorkflowHowTo
       schema:additionalProperty:
         type: array
         description: Method-level Advanced-protocol parameters that apply across all
@@ -2928,34 +2743,57 @@ x-defs:
           schema:step:
             type: array
             description: Ordered sequence of workflow steps. Each step is a cdi:Activity
-              + schema:Action describing a distinct phase of the analytical procedure.
-              Must include exactly one sample-preparation step (schema:name "Sample
-              preparation" with schema:additionalType containing "bios:LabProcess");
-              its schema:position is left to the protocol author.
+              + schema:Action + schema:HowToStep describing a distinct phase of the
+              analytical procedure. This shape carries NO sample-preparation requirement,
+              because it is used for a STEP's sub-workflow as well as for a method's
+              top-level workflow; see MethodWorkflowHowTo for the method form that
+              does require one.
             items:
               $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowStep
-            contains:
-              type: object
-              description: a sample preparation step is required.
-              properties:
-                schema:name:
-                  x-jsonld-id: http://schema.org/name
-                  enum:
-                  - Sample preparation
-                schema:additionalType:
-                  type: array
-                  contains:
-                    enum:
-                    - bios:LabProcess
-                  x-jsonld-id: http://schema.org/additionalType
-              required:
-              - schema:name
-              - schema:additionalType
-            maxContains: 1
             x-jsonld-id: http://schema.org/step
         required:
         - '@type'
         - schema:step
+      MethodWorkflowHowTo:
+        description: 'A method''s standard workflow: a WorkflowHowTo that must also
+          include exactly one sample-preparation step (schema:name "Sample preparation"
+          with schema:additionalType containing "bios:LabProcess"); its schema:position
+          is left to the protocol author.
+
+          Separate from WorkflowHowTo because that shape is ALSO the sub-workflow
+          of a single step (WorkflowStep.schema:actionProcess), and requiring sample
+          preparation there is wrong -- a step''s sub-workflow is the breakdown of
+          that one step, so a sample-preparation step broken into mount / grind /
+          polish / coat would have needed a nested "Sample preparation" inside itself.
+          Both references pointed at one $def, so the method''s requirement reached
+          every sub-workflow. Nothing exercised it, as no example nests a sub-workflow.'
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/WorkflowHowTo
+        - type: object
+          properties:
+            schema:step:
+              type: array
+              contains:
+                type: object
+                description: a sample preparation step is required.
+                properties:
+                  schema:name:
+                    x-jsonld-id: http://schema.org/name
+                    enum:
+                    - Sample preparation
+                  schema:additionalType:
+                    type: array
+                    contains:
+                      enum:
+                      - bios:LabProcess
+                    x-jsonld-id: http://schema.org/additionalType
+                required:
+                - schema:name
+                - schema:additionalType
+              maxContains: 1
+              x-jsonld-id: http://schema.org/step
+          required:
+          - schema:step
       WorkflowStep:
         type: object
         description: A single step in the analytical workflow, modeled as a cdi:Activity
@@ -2965,10 +2803,19 @@ x-defs:
           sub-steps via schema:actionProcess.
         properties:
           '@type':
+            description: 'All THREE are required. cdi:Activity and schema:Action carry
+              the DDI-CDI and schema.org process semantics this model is built on;
+              schema:HowToStep is what schema.org itself expects of a value of schema:step
+              on a schema:HowTo, and omitting it made these steps invalid against
+              the plain schema.org reading -- and against the base cdifProvActivity,
+              whose own step shape requires schema:HowToStep. The two shapes disagreed,
+              which is observable in the examples: 565 steps carried cdi:Activity
+              + schema:Action and 15 carried schema:HowToStep, depending on which
+              side emitted them.'
             type: array
             items:
               type: string
-            minItems: 2
+            minItems: 3
             allOf:
             - contains:
                 enum:
@@ -2976,6 +2823,9 @@ x-defs:
             - contains:
                 enum:
                 - schema:Action
+            - contains:
+                enum:
+                - schema:HowToStep
           '@id':
             type: string
           schema:name:
@@ -3837,6 +3687,224 @@ x-defs:
       dqv: http://www.w3.org/ns/dqv#
       skos: http://www.w3.org/2004/02/skos/core#
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+  ogch.BaseSchema.instrument:
+    title: ADA Analysis Instrument
+    description: ADA analytical instrument building block. Extends the core CDIF instrument
+      building block with NeXus NXinstrument classification via additionalType. Instruments
+      are typed as schema:Thing + schema:Product (from core) with domain-specific
+      types (e.g. nxs:base_classes/NXinstrument.html, ada:AMSInstrument) in additionalType.
+    allOf:
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
+    - type: object
+      properties:
+        '@id':
+          description: 'Identifier for this instrument within the record. REQUIRED:
+            an instrument has to be referenceable. A monitored species names the instrument
+            (or the instrument part) that reports it, and a dataset variable points
+            back at the device that produced it; neither is expressible while the
+            instrument is an anonymous object. A document-scoped identifier suffices,
+            but a resolvable one is better wherever the lab has a persistent identifier
+            for the device.'
+          type: string
+          minLength: 1
+        schema:additionalType:
+          description: 'Domain-specific instrument type classifications. Should include
+            a NeXus base class (e.g. nxs:base_classes/NXinstrument.html) and/or technique-specific
+            identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape
+            values MUST be serialized as JSON-LD IRI references ({"@id":"..."}); free-label
+            strings remain valid. Every instrument additionally carries the Wikidata
+            "measuring instrument" type, which is invariant across techniques: the
+            technique-specific entry says what KIND of instrument this is and varies
+            by profile, while the Wikidata term says that it is an instrument at all,
+            and gives a consumer one term to select on without knowing the ADA vocabulary.'
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - type: object
+              additionalProperties: false
+              required:
+              - '@id'
+              properties:
+                '@id':
+                  type: string
+          minItems: 1
+          contains:
+            type: object
+            properties:
+              '@id':
+                enum:
+                - https://www.wikidata.org/wiki/Q3099911
+            required:
+            - '@id'
+          x-jsonld-id: http://schema.org/additionalType
+        schema:hasPart:
+          description: 'Sub-components of this instrument system (a torch, an ICP
+            source, a collision/reaction cell, a spectrometer). A component IS an
+            instrument -- same @type (schema:Product + schema:Thing), same Wikidata
+            term, and its own schema:additionalType token saying which kind of component
+            it is. The shape is restated rather than written as `$ref: ''#''`, because
+            resolve_schema replaces a circular ref with an empty stub -- it would
+            read as "a part is an instrument" and enforce nothing. Upstream types
+            a component more loosely (schema:Thing alone, no Wikidata); this narrows
+            it, and the two compose because allOf intersects.'
+          type: array
+          items:
+            anyOf:
+            - type: object
+              required:
+              - '@id'
+              - '@type'
+              - schema:name
+              - schema:additionalType
+              properties:
+                '@id':
+                  description: 'Identifier for this component within the record. REQUIRED
+                    on an INLINE component for the same reason it is required on the
+                    instrument: a monitored species names the part that reports it
+                    -- a Faraday cup, a spectrometer, a detector -- and an anonymous
+                    object cannot be referenced. The sibling branch of this anyOf
+                    is the by-reference form, a bare {"@id": ...} pointing at a component
+                    described elsewhere.'
+                  type: string
+                  minLength: 1
+                '@type':
+                  type: array
+                  items:
+                    type: string
+                  minItems: 2
+                  allOf:
+                  - contains:
+                      enum:
+                      - schema:Product
+                  - contains:
+                      enum:
+                      - schema:Thing
+                schema:name:
+                  type: string
+                  x-jsonld-id: http://schema.org/name
+                schema:additionalType:
+                  type: array
+                  minItems: 1
+                  contains:
+                    type: object
+                    required:
+                    - '@id'
+                    properties:
+                      '@id':
+                        enum:
+                        - https://www.wikidata.org/wiki/Q3099911
+                  x-jsonld-id: http://schema.org/additionalType
+                ada:collectorConfiguration:
+                  description: 'How masses are assigned to collector positions for
+                    this procedure, AS THE SOURCE STATES IT. Free text on purpose:
+                    submitters write this as prose or as a semicolon-separated list
+                    in no agreed syntax ("L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn ..."),
+                    and in many cases it cannot be parsed at all. Recording the statement
+                    verbatim is what can always be done; ada:collectors below is what
+                    can sometimes be done as well. Meaningful on a component whose
+                    schema:additionalType includes ''Collector''.'
+                  type: string
+                ada:collectors:
+                  description: "The collector table. One member per position when
+                    ada:collectorConfiguration parses into positions, and ONE member
+                    carrying the text as written when it does not -- the N=1 form
+                    of the flattening fallback that TAPP-keyed-values-design.md Decision
+                    6 settles for every keyed axis: \"rather than admit two shapes,
+                    always emit the table: a declaration that does not parse into
+                    members yields a one-row table whose row key is the text as written.
+                    The fallback is then not a separate branch but N=1.\"\nSo a consumer
+                    reads one shape either way. In the N=1 form schema:name is a fixed
+                    label rather than a cup ('Collector configuration description'),
+                    schema:description carries the unparsed string, and the per-item
+                    values ride in schema:additionalProperty as name/value pairs.
+                    Parsing these strings to individual collectors is not tractable
+                    in general -- they are written for a person to read -- so N=1
+                    is expected to be the common case, not the exception.\nThis exists
+                    because a cup label has to be referenceable WHEN there is one.
+                    A per-cup quantity (a baseline, a gain factor) and a monitored
+                    property that names the position reporting it both need something
+                    to point AT, and a label buried in a sentence is not something
+                    a consumer can join to. schema:name is that anchor.\nWhat a collector
+                    does NOT carry is which monitored property it measures. That assignment
+                    is procedure configuration, not hardware -- the same physical
+                    array is wired differently by another procedure, and an analysis
+                    may override it -- so it lives as the 'collector' column of ada:monitoredPropertyColumns
+                    on the method definition, whose values are these schema:names.
+                    Putting it here would invert the dependency and make the instrument
+                    description procedure-specific.\nNote what an N=1 member does
+                    NOT assert: it names no cup, so it makes no per-cup claim. That
+                    matters because the resistor values are attested per MASS, not
+                    per cup (Proposal_Monitored_Property_2026-09-10 \xA710), and the
+                    fallback must not quietly move them onto the collector axis."
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - '@type'
+                    - schema:name
+                    properties:
+                      '@type':
+                        type: array
+                        minItems: 1
+                        items:
+                          type: string
+                        contains:
+                          enum:
+                          - ada:Collector
+                      schema:name:
+                        description: The collector position label as the instrument
+                          names it -- L5..L1, C or Ax, H1..H5, IC1..IC8 on a Neptune-class
+                          multicollector. This is the identifier other properties
+                          reference. In the N=1 fallback there is no position to name,
+                          so it is the fixed label 'Collector configuration description'
+                          and nothing should join to it.
+                        type: string
+                        minLength: 1
+                        x-jsonld-id: http://schema.org/name
+                      schema:description:
+                        type: string
+                        x-jsonld-id: http://schema.org/description
+                      schema:additionalProperty:
+                        description: Quantities carried on this member as name/value
+                          pairs. In the parsed form these are per-position quantities
+                          that cannot be restated per mass -- a baseline, a gain factor.
+                          In the N=1 form they are the source fields themselves, each
+                          as its item name and the text as written, which is how an
+                          unparseable per-collector statement is preserved without
+                          inventing an assignment it does not make.
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - schema:name
+                          properties:
+                            schema:name:
+                              description: The item name, e.g. 'Faraday Cup Amplifier
+                                Resistor Values'.
+                              type: string
+                              x-jsonld-id: http://schema.org/name
+                            schema:value:
+                              description: The value, as written when it did not parse.
+                              x-jsonld-id: http://schema.org/value
+                        x-jsonld-id: http://schema.org/additionalProperty
+            - type: object
+              additionalProperties: false
+              description: Reference by node @id to a component described elsewhere.
+              required:
+              - '@id'
+              properties:
+                '@id':
+                  type: string
+          x-jsonld-id: http://schema.org/hasPart
+      required:
+      - '@id'
+      - schema:additionalType
+    x-jsonld-prefixes:
+      schema: http://schema.org/
+      nxs: https://manual.nexusformat.org/classes/
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.laboratory:
     title: ADA Analysis Laboratory
@@ -8347,10 +8415,18 @@ x-defs:
         items:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping
         x-jsonld-id: https://w3id.org/cdif/hasPhysicalMapping
-      countRows:
-        type: integer
-      countColumns:
-        type: integer
+      schema:additionalProperty:
+        description: Soft-typed extension properties. The row and column counts live
+          here rather than as bare properties, so that each carries a schema:propertyID
+          identifying the concept it quantifies - DDI Discovery caseQuantity for the
+          row count and variableQuantity for the column count. As bare unprefixed
+          `countRows`/`countColumns` they were the only two properties on this class
+          with no namespace and no definition, so nothing said what they meant or
+          tied them to a vocabulary.
+        type: array
+        items:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifTabularData/$defs/AdditionalProperty
+        x-jsonld-id: http://schema.org/additionalProperty
     oneOf:
     - properties:
         cdi:isDelimited:
@@ -8373,6 +8449,9 @@ x-defs:
     required:
     - '@type'
     - cdif:hasPhysicalMapping
+    $defs:
+      AdditionalProperty:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty
     x-jsonld-prefixes:
       cdif: https://w3id.org/cdif/
       schema: http://schema.org/
@@ -8692,6 +8771,74 @@ x-defs:
       schema: http://schema.org/
       prov: http://www.w3.org/ns/prov#
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifProvActivity/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+  cdif.bbr.metadata.schemaorgProperties.definedTerm:
+    description: "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF
+      profile UML models an attribute typed as\nschema:DefinedTerm is represented
+      by a single attribute of that class type.\nThe JSON Schema implementation permits
+      the property value to be EITHER a\nplain string (interpreted as schema:name
+      or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm
+      object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet).
+      Consumers should accept either form.\n\nNote that this differs from the cdif
+      Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary
+      entry (object form or\n@id-reference) \u2014 plain strings are not permitted
+      for Concept-typed values\nbecause vocabulary identity cannot be recovered from
+      an unscoped label.\n"
+    type: object
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          enum:
+          - schema:DefinedTerm
+        minItems: 1
+      schema:name:
+        type: string
+        description: text label for the term that is useful to human user
+        x-jsonld-id: http://schema.org/name
+      schema:identifier:
+        anyOf:
+        - type: string
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        x-jsonld-id: http://schema.org/identifier
+      schema:inDefinedTermSet:
+        description: 'The controlled vocabulary responsible for this keyword, as EITHER
+          a plain URI string identifying the vocabulary, OR an object reference ({"@id":
+          "<uri>"}) to a vocabulary defined elsewhere in the document. Both forms
+          are already in use across CDIF profiles and downstream ADA building blocks;
+          permitting only the string form made the object form - the natural JSON-LD
+          spelling of a reference - invalid, while this class''s own union-type policy
+          above explicitly anticipates both.'
+        anyOf:
+        - type: string
+        - type: object
+          required:
+          - '@id'
+          additionalProperties: false
+          properties:
+            '@id':
+              type: string
+        x-jsonld-id: http://schema.org/inDefinedTermSet
+      schema:termCode:
+        type: string
+        description: A representative code for this keyword in the controlled vocabulary.
+          Analogous to skos:Notation
+        x-jsonld-id: http://schema.org/termCode
+    allOf:
+    - required:
+      - '@type'
+    - anyOf:
+      - required:
+        - schema:name
+      - required:
+        - schema:identifier
+      - required:
+        - schema:termCode
+    x-jsonld-prefixes:
+      schema: http://schema.org/
+    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/definedTerm/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.instrument:
     title: Instrument Description
@@ -9045,74 +9192,6 @@ x-defs:
       schema: http://schema.org/
       wd: https://www.wikidata.org/entity/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/instrument/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.schemaorgProperties.definedTerm:
-    description: "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF
-      profile UML models an attribute typed as\nschema:DefinedTerm is represented
-      by a single attribute of that class type.\nThe JSON Schema implementation permits
-      the property value to be EITHER a\nplain string (interpreted as schema:name
-      or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm
-      object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet).
-      Consumers should accept either form.\n\nNote that this differs from the cdif
-      Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary
-      entry (object form or\n@id-reference) \u2014 plain strings are not permitted
-      for Concept-typed values\nbecause vocabulary identity cannot be recovered from
-      an unscoped label.\n"
-    type: object
-    properties:
-      '@type':
-        type: array
-        items:
-          type: string
-        contains:
-          enum:
-          - schema:DefinedTerm
-        minItems: 1
-      schema:name:
-        type: string
-        description: text label for the term that is useful to human user
-        x-jsonld-id: http://schema.org/name
-      schema:identifier:
-        anyOf:
-        - type: string
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GPYC/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
-        x-jsonld-id: http://schema.org/identifier
-      schema:inDefinedTermSet:
-        description: 'The controlled vocabulary responsible for this keyword, as EITHER
-          a plain URI string identifying the vocabulary, OR an object reference ({"@id":
-          "<uri>"}) to a vocabulary defined elsewhere in the document. Both forms
-          are already in use across CDIF profiles and downstream ADA building blocks;
-          permitting only the string form made the object form - the natural JSON-LD
-          spelling of a reference - invalid, while this class''s own union-type policy
-          above explicitly anticipates both.'
-        anyOf:
-        - type: string
-        - type: object
-          required:
-          - '@id'
-          additionalProperties: false
-          properties:
-            '@id':
-              type: string
-        x-jsonld-id: http://schema.org/inDefinedTermSet
-      schema:termCode:
-        type: string
-        description: A representative code for this keyword in the controlled vocabulary.
-          Analogous to skos:Notation
-        x-jsonld-id: http://schema.org/termCode
-    allOf:
-    - required:
-      - '@type'
-    - anyOf:
-      - required:
-        - schema:name
-      - required:
-        - schema:identifier
-      - required:
-        - schema:termCode
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/definedTerm/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent:
     title: DDI-CDI Data Structure Component
