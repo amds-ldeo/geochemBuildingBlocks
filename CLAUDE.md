@@ -272,12 +272,20 @@ All 9 already have `tapp/` and `detail/`, so the TAPP machinery exists for every
 replacement `profile/` is missing for those five. Repo-wide, 29 of 59 techniques have a
 TAPP-based `profile/`.
 
-**Superseded in intent is NOT superseded in use, and this is the trap.** The live ADA corpus
-still conforms to the legacy profile names, so retiring a `profile-ada` before its records are
-migrated orphans live records. Moving the twelve `adaProfile` hasPart-item detail blocks to the
-top level was tried on a copy on 2026-09-05 and failed **all 218** records of the affected
-profiles on a missing `ada:componentType`. Check `public.json_table`'s `dcterms:conformsTo`
-before retiring anything.
+**Superseded in intent is NOT superseded in use — but not for the reason you would guess.**
+**No record declares `dcterms:conformsTo` at all**: 0 of 7446 in `public.json_table`, measured
+2026-10-07, corpus-wide and not merely for these techniques. So nothing names a `profile-ada` by
+URI and retiring one cannot orphan a record *that way*.
+
+The risk is real through a different route. The ADA loader **derives** `conformsTo` from record
+CONTENT (via the CDIF validation repo's `detect_conformance`), so a record is matched to a
+profile by what it carries, not by what it cites — and the matched profile's constraints then
+have to accept it. That is why relocating the twelve `adaProfile` hasPart-item detail blocks to
+the top level, tried on a copy on 2026-09-05, failed **all 218** records of the affected profiles
+on a missing `ada:componentType`: those records never mentioned the profile, they were matched
+into it. So the question to ask before retiring a profile is not "what cites this?" — nothing
+does — but "what would `detect_conformance` match here instead, and would that schema accept
+these records?"
 
 > **One stale count nearby.** The Composition-modules section below says `_tapp_lib.py` generates
 > "the 16 under `geochemProfile/`" and that "the 32 under `adaProfile/`" are hand-maintained.
