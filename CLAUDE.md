@@ -15,7 +15,7 @@ This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JS
 
 ## Commands
 
-All tooling is `python tools/<name>.py`. There is **no** package manifest, build system, or pytest suite — the validation tools *are* the test suite.
+All tooling is `python tools/<name>.py`. There is no build system and no pytest suite — the validation tools *are* the test suite. Dependencies ARE pinned, in `requirements.txt` (`pip install -r requirements.txt`), with the database driver split into `requirements-db.txt` so CI and anyone regenerating schemas does not need psycopg2. The pins are exact, not bounded, because the output of these tools is committed and diffed: PyYAML's line-wrapping changed between versions and reflowed 2764 lines of `registry/parameterTemplates` and `registry/parameterValues` with no semantic change, twice. Do not "fix" a pin to a newer release without regenerating and confirming an empty diff. `openpyxl==3.2.0b1` is deliberately a PRE-RELEASE — it is what the committed artifacts were built with.
 
 Regenerate after any `_sources/**/schema.yaml` edit:
 
@@ -116,6 +116,70 @@ python tools/validate_examples.py               # 7. verify
 ```
 
 **Step 5 is easy to skip and its omission is silent.** The publication examples (`example<TAPP>-<Pub>.json`, one per column after `Literature Assessment`) are NOT rebuilt by `build_pathdriven`, so a sidecar change moves the schema while they keep the placement they were last generated with. Nothing complains until `validate_examples` runs, and the failure reads as a schema bug rather than a stale artifact — moving `Detection Limit` off `targetSpeciesColumns[]` produced 125 such failures that regeneration alone cleared. `build_tapp_examples` is not a second generator: it reads the workbook's publication columns for CONTENT and calls `schema_path_example_emitter.build_example(tapp, values=...)` -- the same emitter that writes the `-P0` files -- for PLACEMENT.
+
+## CI: four workflows, three of them required
+
+| workflow | check name | trigger |
+|---|---|---|
+| `validate-branch.yml` | `Validate and annotate (no pages)` | push (not main), PR |
+| `check-schema-drift.yml` | `Regenerate and diff` | every PR |
+| `check-determinism.yml` | `Regenerate twice and compare` | every PR |
+| `process-bblocks.yml` | — | push to main |
+
+The first three are **required** in branch protection. Two rules follow from that and both were
+learned the hard way:
+
+**Never add a `paths:` filter to a required workflow.** A required check that does not RUN is not
+"skipped", it is pending forever, and the PR can never merge — including the PR that would remove
+the filter. `check-schema-drift.yml` had one; dropping it (#38) is what let it become required.
+Affordable only because caching the parsed source files took that job from 59m to 3m37s and a full
+`resolve_schema.py --all` from ~62 minutes to under 6.
+
+**Auto-merge waits only on REQUIRED checks.** It will merge straight past a red non-required one.
+That is how #31 landed with a failing determinism check and #32 landed with failing drift, leaving
+main red for two days. Arm auto-merge only when the failing checks are ones you have read.
+
+### A GITHUB_TOKEN push triggers NO workflow
+
+This is load-bearing, not trivia, and it is observable in main's own history: the three
+`Building blocks postprocessing` commits have no push-triggered run against them, only the chained
+`workflow_run` for deploy-viewer. Anything that needs checks to fire must be done by another
+identity.
+
+### build/ reaches main as a pull request
+
+`build/` IS committed, and `deploy-viewer.yml` depends on that: it checks main out, reads
+`build/register.json` and `build/tests/report.json`, and uploads the tree to Pages **without
+regenerating them**. So build output cannot just stop being committed.
+
+But branch protection declines a push from the postprocess (`GH006 ... 3 of 3 required status
+checks are expected`), and it cannot be exempted: the GitHub Actions app can only be a bypass
+actor on an **organization** ruleset, and a repository ruleset rejects it outright, accepting only
+deploy-key and repository-role bypasses — GITHUB_TOKEN is neither. So `process-bblocks.yml`:
+
+1. closes any superseded build PR, then force-resets **`bblocks-build`** to main;
+2. runs the reusable postprocess with `ref: bblocks-build`, so its commit lands there;
+3. opens a PR from that branch using **`BBLOCKS_PR_TOKEN`** and arms auto-merge.
+
+The PAT (Contents:read + PullRequests:write, this repo only) exists for ONE reason: a PR opened by
+GITHUB_TOKEN would get no checks, per the rule above, and would sit open forever. It grants no
+bypass — the build PR merges through the same three checks as anything else.
+
+- **`bblocks-build` is machine-owned.** It is force-reset on every run. Never branch from it,
+  never commit to it, never base work on it.
+- **A loop-breaker guards step 1**: the run is skipped when its triggering commit message starts
+  `Building blocks postprocessing`. Without it, merging the build PR starts the workflow again.
+  It also bounds the damage if OGC's postprocess ever stops being deterministic — our determinism
+  check covers OUR generators, not theirs.
+- `deploy-viewer.yml` therefore also triggers on `push` to main under `paths: build/**`. The
+  postprocess run that OPENS the build PR finishes before it merges, and the run after the merge
+  is skipped by the loop-breaker (so concludes `skipped`, never `success`) — without the push
+  trigger Pages would sit permanently one change behind. A `paths:` filter is safe here only
+  because this is a deploy, not a required check.
+- `validate-branch.yml`'s dedupe guard carries a third clause for `bblocks-build`. The guard skips
+  the `pull_request` run for same-repo PRs and relies on the push run; the build commit is made by
+  GITHUB_TOKEN, so no push run exists, and without the clause `Validate and annotate` would never
+  report on the build PR.
 
 ## Source vs generated
 

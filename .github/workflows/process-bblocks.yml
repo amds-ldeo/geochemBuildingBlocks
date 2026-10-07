@@ -10,25 +10,124 @@ permissions:
   pages: write
   id-token: write
 
+# The postprocess regenerates build/ and commits it. It used to push that commit straight to
+# main, and four such commits are in main's history. Branch protection now declines that push:
+#
+#   remote: error: GH006: Protected branch update failed for refs/heads/main.
+#   remote: - 3 of 3 required status checks are expected.
+#
+# and there is no way to exempt it. The GitHub Actions app can only be a bypass actor on an
+# ORGANIZATION ruleset; a repository ruleset rejects it outright ("Actor GitHub Actions
+# integration must be part of the ruleset source or owner organization"), accepting only
+# deploy-key and repository-role bypasses, and GITHUB_TOKEN is neither.
+#
+# build/ cannot simply stop being committed: deploy-viewer.yml checks main out, reads
+# build/register.json and build/tests/report.json, and uploads the tree to Pages. It does not
+# regenerate build/. Dropping the push would stale the published register and viewer for good.
+#
+# So the generated output now arrives the way every other change does -- as a pull request
+# that passes the three required checks. Nothing bypasses protection.
 jobs:
+  stage:
+    name: Stage the build branch
+    # Avoid running the workflow on template clone.
+    #
+    # The second clause is a loop-breaker. This workflow's own output lands on main as a
+    # merged PR, which is a push to main, which would start it again. Skipping the run whose
+    # triggering commit is a postprocess merge caps the cycle at one pass. It also saves a
+    # ~12-minute run whose only possible outcome, if generation is deterministic, is "no
+    # change" -- and if it is NOT deterministic, this is what stops the repository pushing
+    # build/ back and forth forever.
+    if: >-
+      github.run_number != 1 &&
+      (github.event_name == 'workflow_dispatch' ||
+       !startsWith(github.event.head_commit.message, 'Building blocks postprocessing'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      # Any PR still open from a previous run is superseded: this run regenerates build/ from
+      # current main, so that PR's content is stale by construction. Close it before the reset
+      # moves the branch out from under it.
+      #
+      # Closing and recreating -- rather than letting an open PR's head advance -- is what
+      # makes the checks run at all. A push by GITHUB_TOKEN triggers no workflow, which is
+      # observable in main's own history: the "Building blocks postprocessing" commits have no
+      # push-triggered run against them, only the chained workflow_run for deploy-viewer. So a
+      # `synchronize` on an existing PR would report no checks, and a PR whose required checks
+      # never report can never merge. Only `pull_request.opened`, raised by a non-GITHUB_TOKEN
+      # identity, gets a fresh set.
+      - name: Close any superseded build PR
+        env:
+          GH_TOKEN: ${{ secrets.BBLOCKS_PR_TOKEN }}
+        run: |
+          for n in $(gh pr list --head bblocks-build --base main --state open --json number --jq '.[].number'); do
+            echo "closing superseded build PR #$n"
+            gh pr close "$n" --comment "Superseded: regenerating build/ from $(git rev-parse --short HEAD)."
+          done
+
+      # Reset the staging branch to main so the postprocess regenerates from current source
+      # rather than from whatever the last run left behind.
+      - name: Reset bblocks-build to main
+        run: git push --force origin HEAD:refs/heads/bblocks-build
+
   validate-and-process:
-    # Avoid running the workflow on template clone
-    if: github.run_number != 1
-    name: Validate and process
+    needs: stage
     # PINNED to v1, not master. Tracking master put this workflow on whatever OGC had just
-    # pushed, and it has failed 4 of 4 runs since: jsonschema raises "TypeError: string
-    # indices must be integers" from its own JSON Pointer resolution, on 15 of the
-    # techniqueProfile .profile blocks. Our schemas are not the cause -- scanning every
-    # internal $ref in the resolved profiles finds 0 pointers that walk into a non-container,
-    # and validate-branch.yml runs the same postprocess pinned at full@v1 over the same
-    # content with 6 successes. Because deploy-viewer triggers on this workflow completing,
-    # the published viewer went stale too.
+    # pushed, and it failed 4 of 4 runs: jsonschema raises "TypeError: string indices must be
+    # integers" from its own JSON Pointer resolution, on 15 of the techniqueProfile .profile
+    # blocks. Our schemas are not the cause -- scanning every internal $ref in the resolved
+    # profiles finds 0 pointers that walk into a non-container, and validate-branch.yml runs
+    # the same postprocess pinned at full@v1 over the same content with 6 successes.
     #
     # v1 is a moving major tag, so this still picks up v1.1.x fixes without tracking an
     # unreleased branch. Move it deliberately, and only with a green run behind it.
     uses: opengeospatial/bblocks-postprocess/.github/workflows/validate-and-process.yml@v1
     with:
       skip-pages: true
+      # Check out and commit to the staging branch. `ref` only changes the checkout -- the job
+      # still runs on main, so the reusable workflow's `environment: github-pages`, which is
+      # restricted to main, is still satisfied.
+      ref: bblocks-build
     secrets:
       sparql_username: ${{ secrets.sparql_username }}
       sparql_password: ${{ secrets.sparql_password }}
+
+  open-pr:
+    name: Propose the regenerated build
+    needs: validate-and-process
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      # BBLOCKS_PR_TOKEN is a fine-grained PAT holding Contents:read + PullRequests:write on
+      # this repository and nothing else. It exists only so the PR is opened by an identity
+      # that is not GITHUB_TOKEN, because that is what makes the required checks run. It
+      # grants no power to bypass protection: the PR merges through the same three checks as
+      # any other, and if they fail it stays open.
+      - name: Open the build PR and arm auto-merge
+        env:
+          GH_TOKEN: ${{ secrets.BBLOCKS_PR_TOKEN }}
+        run: |
+          set -euo pipefail
+          git fetch origin main bblocks-build
+
+          # The postprocess commits only when its output changed, so an unchanged build/
+          # leaves the branch identical to main and there is nothing to propose.
+          if git diff --quiet origin/main origin/bblocks-build; then
+            echo "build/ is already current on main -- nothing to propose"
+            exit 0
+          fi
+
+          echo "changed files:"
+          git diff --name-only origin/main origin/bblocks-build | sed 's/^/  /'
+
+          gh pr create --head bblocks-build --base main --title "Building blocks postprocessing" --body "Regenerated \`build/\` from the OGC bblocks postprocess, proposed as a pull request because branch protection declines a direct push to \`main\` and the GitHub Actions app cannot be a bypass actor on a repository ruleset. \`build/\` has to stay committed because \`deploy-viewer.yml\` reads \`build/register.json\` and \`build/tests/report.json\` out of \`main\` and publishes them to Pages without regenerating them. Opened by \`.github/workflows/process-bblocks.yml\`; auto-merge is armed, so this lands once the three required checks pass."
+
+          num=$(gh pr list --head bblocks-build --base main --state open --json number --jq '.[0].number')
+          echo "opened PR #$num"
+          gh pr merge "$num" --squash --auto
