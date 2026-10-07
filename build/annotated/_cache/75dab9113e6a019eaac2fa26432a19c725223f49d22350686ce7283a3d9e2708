@@ -3,7 +3,7 @@
   "name": "CDIF Building Blocks repository",
   "abstract": "Repository assembling building block for CDIF metadata and profiles, using OGC building block patterns 2025-10-20\n",
   "description": "Includes a set of property modules implementing various metadata content requirements form the CDIF Discovery profile using schema.org entities and properties. \n",
-  "modified": "2026-10-07T18:06:53.515827",
+  "modified": "2026-10-07T18:57:03.789237",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"864ddcf48e5bf8be9c5660d54d35b5d0e702b41b",
@@ -1482,8 +1482,8 @@
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm"
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -1544,11 +1544,8 @@
         "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
@@ -1556,19 +1553,22 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
+        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifInstanceVariable",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm",
         "bblocks://cdif.bbr.metadata.skosProperties.skosConcept",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm"
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifInstanceVariable",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -2061,8 +2061,8 @@
         "cdif.bbr.metadata.xasProperties.xasSample": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasSample/rules.shacl"
         ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
@@ -2070,14 +2070,14 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ]
       },
       "dependsOn": [
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -2288,20 +2288,24 @@
         "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
-        ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        ],
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ]
       },
       "dependsOn": [
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping"
       ],
       "license": {
@@ -2316,7 +2320,7 @@
       "sourceLdContext": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/context.jsonld",
       "resolvedSchemaProperties": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifTabularData/resolvedProperties.json",
       "sourceFiles": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/",
-      "validationPassed": true,
+      "validationPassed": false,
       "testOutputs": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/blob/main/build/tests/bbr/metadata/cdifDataType/cdifTabularData/",
       "documentation": {
         "markdown": {
@@ -2437,9 +2441,6 @@
         "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
         ],
@@ -2448,11 +2449,14 @@
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
-        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist"
+        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -2534,8 +2538,8 @@
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink"
       ],
       "license": {
@@ -2670,22 +2674,22 @@
         "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -2756,23 +2760,23 @@
         "cdif.bbr.metadata.schemaorgProperties.action": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ]
       },
       "dependsOn": [
         "bblocks://cdif.bbr.metadata.schemaorgProperties.action",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -2831,9 +2835,6 @@
         "cdif.bbr.metadata.schemaorgProperties.person": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
         "cdif.bbr.metadata.schemaorgProperties.organization": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
         ],
@@ -2842,11 +2843,14 @@
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -2906,11 +2910,8 @@
         "cdif.bbr.metadata.xasProperties.xasFacility": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasFacility/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
-        ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
@@ -2918,13 +2919,16 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.spatialExtent",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.spatialExtent"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -2994,20 +2998,23 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
+        "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+        "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
         ]
       },
       "dependsOn": [
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifDataCube",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifTabularData"
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifTabularData",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifDataCube"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -3070,9 +3077,6 @@
         "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
         ],
@@ -3081,6 +3085,9 @@
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ]
       },
       "dependsOn": [
@@ -3149,8 +3156,8 @@
         "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
@@ -3158,22 +3165,22 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
-        ],
         "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.variableMeasured",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifStatistics",
         "bblocks://cdif.bbr.metadata.cdifDataType.objectReference",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifStatistics",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.variableMeasured"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -3227,11 +3234,8 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDiscovery/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
-        ],
-        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
@@ -3239,11 +3243,14 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
         ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
@@ -3253,12 +3260,12 @@
         ]
       },
       "dependsOn": [
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.temporalExtent",
-        "bblocks://cdif.bbr.metadata.qualityProperties.qualityMeasure",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.spatialExtent",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.variableMeasured",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm"
+        "bblocks://cdif.bbr.metadata.qualityProperties.qualityMeasure",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.variableMeasured"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -3315,6 +3322,12 @@
         "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
@@ -3323,19 +3336,13 @@
         ],
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization"
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -3394,6 +3401,12 @@
         "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
@@ -3402,18 +3415,12 @@
         ],
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -3472,6 +3479,12 @@
         "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
@@ -3480,18 +3493,12 @@
         ],
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -3557,9 +3564,6 @@
         "cdif.bbr.metadata.schemaorgProperties.person": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
         "cdif.bbr.metadata.schemaorgProperties.organization": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
         ],
@@ -3568,12 +3572,15 @@
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ]
       },
       "dependsOn": [
         "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -3634,17 +3641,17 @@
         "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
@@ -3657,13 +3664,13 @@
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink",
-        "bblocks://cdif.bbr.metadata.skosProperties.skosConcept",
-        "bblocks://cdif.bbr.metadata.cdifDataType.objectReference",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifValueDomain",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm"
+        "bblocks://cdif.bbr.metadata.skosProperties.skosConcept",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
+        "bblocks://cdif.bbr.metadata.cdifDataType.objectReference",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -3722,8 +3729,14 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
         ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
@@ -3734,6 +3747,15 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
+        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+        ],
         "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
         ],
@@ -3742,35 +3764,20 @@
         ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifKey": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
-        ],
-        "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifTabularTextDataSet",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifTextMapping",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifInstanceVariable",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifDataFingerprint",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifStructuredDataSet",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifStatistics",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.variableMeasured",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifKey",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifValueDomain",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifLocatorMapping",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifValueDomain"
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifKey",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifDataFingerprint",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifStatistics",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifInstanceVariable",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifTextMapping",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifStructuredDataSet",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifTabularTextDataSet",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.variableMeasured"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -3828,11 +3835,8 @@
         "cdif.bbr.metadata.xasProperties.xasOptional": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasOptional/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
@@ -3840,8 +3844,8 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
         ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
@@ -3849,13 +3853,16 @@
         "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifInstanceVariable",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifInstanceVariable"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -3926,44 +3933,44 @@
         "cdif.bbr.metadata.schemaorgProperties.instrument": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
         ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.linkRole",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.agentInRole",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -4026,9 +4033,6 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
-        ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
@@ -4038,55 +4042,58 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.person": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.organization": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.provProperties.generatedBy": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
-        ],
-        "cdif.bbr.metadata.provProperties.derivedFrom": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
-        ],
         "cdif.bbr.metadata.schemaorgProperties.webAPI": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.action": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.generatedBy": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
         ]
       },
       "dependsOn": [
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.linkRole",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.monetaryGrant",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.webAPI",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.agentInRole",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifCatalogRecord",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.dataDownload",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.linkRole",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
-        "bblocks://cdif.bbr.metadata.provProperties.generatedBy",
         "bblocks://cdif.bbr.metadata.provProperties.derivedFrom",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.monetaryGrant",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.agentInRole",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.dataDownload",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.webAPI",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
+        "bblocks://cdif.bbr.metadata.provProperties.generatedBy"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -4151,17 +4158,17 @@
         "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
@@ -4241,17 +4248,11 @@
         "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.instrument": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.organization": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
@@ -4259,34 +4260,40 @@
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.instrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.linkRole": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
         "cdif.bbr.metadata.provProperties.generatedBy": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.instrument",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.agentInRole",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.spatialExtent",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
-        "bblocks://cdif.bbr.metadata.provProperties.generatedBy",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.spatialExtent",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.agentInRole"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.instrument",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
+        "bblocks://cdif.bbr.metadata.provProperties.generatedBy"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -4353,17 +4360,11 @@
         "cdif.bbr.metadata.provProperties.provActivity": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/provActivity/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.instrument": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.organization": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
@@ -4371,34 +4372,40 @@
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.instrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        ],
         "cdif.bbr.metadata.provProperties.generatedBy": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
         ]
       },
       "dependsOn": [
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.agentInRole",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.spatialExtent",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.instrument",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.organization",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.person",
-        "bblocks://cdif.bbr.metadata.provProperties.generatedBy",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.spatialExtent",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.agentInRole",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.labeledLink"
+        "bblocks://cdif.bbr.metadata.provProperties.generatedBy"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -4458,6 +4465,12 @@
         "cdif.bbr.metadata.xasProperties.xasInstrument": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasInstrument/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.instrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
@@ -4467,31 +4480,25 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.instrument": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.person": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.instrument"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.instrument",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -4554,9 +4561,6 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
-        ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
@@ -4566,32 +4570,17 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.person": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.organization": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.provProperties.generatedBy": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
-        ],
-        "cdif.bbr.metadata.provProperties.derivedFrom": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.webAPI": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
@@ -4599,17 +4588,35 @@
         "cdif.bbr.metadata.schemaorgProperties.action": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.generatedBy": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+        ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDiscovery/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
         ],
-        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
-        ],
         "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
@@ -4677,71 +4684,8 @@
         "cdif.bbr.metadata.profiles.cdifCompositeProfile.DiscoveryDataDescription": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifCompositeProfile/DiscoveryDataDescription/rules.shacl"
         ],
-        "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
-        ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.provProperties.generatedBy": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
-        ],
-        "cdif.bbr.metadata.provProperties.derivedFrom": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.webAPI": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.action": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
-        ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifKey": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
@@ -4752,22 +4696,85 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
         ],
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.webAPI": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.action": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.generatedBy": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+        ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDiscovery/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
         ],
-        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
-        ],
         "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifCore",
         "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription",
+        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifCore",
         "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery"
       ],
       "license": {
@@ -4834,20 +4841,20 @@
         "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
@@ -4858,27 +4865,27 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
         ],
+        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        ],
         "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
         ]
       },
       "dependsOn": [
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifInstanceVariable",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable",
         "bblocks://cdif.bbr.metadata.cdifDataType.objectReference",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm"
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -4941,17 +4948,11 @@
         "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.instrument": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.organization": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
@@ -4959,23 +4960,29 @@
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.instrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.linkRole": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
         "cdif.bbr.metadata.provProperties.generatedBy": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
         ]
       },
       "dependsOn": [
@@ -5039,11 +5046,11 @@
         "cdif.bbr.metadata.xasProperties.xasGeneratedBy": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasGeneratedBy/rules.shacl"
         ],
-        "cdif.bbr.metadata.xasProperties.xasInstrument": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasInstrument/rules.shacl"
+        "cdif.bbr.metadata.xasProperties.xasSample": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasSample/rules.shacl"
         ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
@@ -5051,23 +5058,26 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        ],
+        "cdif.bbr.metadata.xasProperties.xasInstrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasInstrument/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.instrument": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.linkRole": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.person": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
@@ -5078,9 +5088,6 @@
         "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
         ],
-        "cdif.bbr.metadata.xasProperties.xasSample": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasSample/rules.shacl"
-        ],
         "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
         ],
@@ -5089,13 +5096,13 @@
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.xasProperties.xasInstrument",
+        "bblocks://cdif.bbr.metadata.xasProperties.xasSample",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty",
+        "bblocks://cdif.bbr.metadata.xasProperties.xasInstrument",
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString",
         "bblocks://cdif.bbr.metadata.xasProperties.xasFacility",
-        "bblocks://cdif.bbr.metadata.xasProperties.xasSample",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifProvActivity",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifProvActivity"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -5159,26 +5166,23 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifKey": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
-        ],
         "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
@@ -5189,23 +5193,26 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
         ],
+        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        ],
         "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
         ]
       },
       "dependsOn": [
+        "bblocks://cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.identifier",
         "bblocks://cdif.bbr.metadata.cdifDataType.cdifKey",
-        "bblocks://cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent",
         "bblocks://cdif.bbr.metadata.cdifDataType.objectReference"
       ],
       "license": {
@@ -5265,6 +5272,9 @@
         "cdif.bbr.metadata.xasProperties.xasCore": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasCore/rules.shacl"
         ],
+        "cdif.bbr.metadata.xasProperties.xasSample": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasSample/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
         ],
@@ -5274,20 +5284,8 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
-        ],
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
-        ],
-        "cdif.bbr.metadata.xasProperties.xasSample": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasSample/rules.shacl"
         ],
         "cdif.bbr.metadata.xasProperties.xasGeneratedBy": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasGeneratedBy/rules.shacl"
@@ -5304,6 +5302,12 @@
         "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
@@ -5318,14 +5322,17 @@
         ],
         "cdif.bbr.metadata.provProperties.generatedBy": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.dataDownload",
         "bblocks://cdif.bbr.metadata.xasProperties.xasSample",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm",
         "bblocks://cdif.bbr.metadata.xasProperties.xasGeneratedBy",
-        "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm"
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.additionalProperty",
+        "bblocks://cdif.bbr.metadata.schemaorgProperties.dataDownload"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -5388,71 +5395,8 @@
         "cdif.bbr.metadata.profiles.cdifCompositeProfile.DiscoveryDataDescriptionStructure": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifCompositeProfile/DiscoveryDataDescriptionStructure/rules.shacl"
         ],
-        "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
-        ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.provProperties.generatedBy": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
-        ],
-        "cdif.bbr.metadata.provProperties.derivedFrom": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.webAPI": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.action": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
-        ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifKey": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
@@ -5463,17 +5407,32 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
         ],
-        "cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDiscovery/rules.shacl"
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
         ],
-        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
         ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
@@ -5486,13 +5445,61 @@
         ],
         "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.webAPI": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.action": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.generatedBy": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDiscovery/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
         ]
       },
       "dependsOn": [
-        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifCore",
         "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription",
-        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery",
-        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure"
+        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure",
+        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifCore",
+        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -5565,17 +5572,11 @@
         "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.instrument": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.organization": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
@@ -5583,14 +5584,23 @@
         "cdif.bbr.metadata.skosProperties.skosConcept": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.instrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        ],
         "cdif.bbr.metadata.schemaorgProperties.linkRole": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
@@ -5598,20 +5608,32 @@
         "cdif.bbr.metadata.provProperties.generatedBy": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDiscovery/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
         ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
-        ],
-        "cdif.bbr.metadata.provProperties.derivedFrom": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
@@ -5622,11 +5644,17 @@
         "cdif.bbr.metadata.schemaorgProperties.action": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
         ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifKey": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
@@ -5643,50 +5671,29 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
         ],
+        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        ],
         "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
         ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
-        ],
-        "cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDiscovery/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
-        ],
-        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
         ]
       },
       "dependsOn": [
         "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance",
+        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery",
+        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifManifest",
         "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifCore",
         "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure",
-        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifManifest",
-        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription",
-        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery"
+        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
@@ -5700,7 +5707,7 @@
       "sourceLdContext": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifCompositeProfile/cdifComplete/context.jsonld",
       "resolvedSchemaProperties": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifCompositeProfile/cdifComplete/resolvedProperties.json",
       "sourceFiles": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifCompositeProfile/cdifComplete/",
-      "validationPassed": true,
+      "validationPassed": false,
       "testOutputs": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/blob/main/build/tests/bbr/metadata/profiles/cdifCompositeProfile/cdifComplete/",
       "documentation": {
         "markdown": {
@@ -5748,11 +5755,11 @@
         "xas"
       ],
       "shaclShapes": {
-        "cdif.bbr.metadata.xasProperties.xasCore": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasCore/rules.shacl"
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDiscovery/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
@@ -5760,20 +5767,29 @@
         "cdif.bbr.metadata.schemaorgProperties.identifier": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
         ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.xasProperties.xasCore": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasCore/rules.shacl"
         ],
         "cdif.bbr.metadata.xasProperties.xasSample": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasSample/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
         ],
         "cdif.bbr.metadata.xasProperties.xasGeneratedBy": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasGeneratedBy/rules.shacl"
@@ -5790,14 +5806,14 @@
         "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
         ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
         ],
         "cdif.bbr.metadata.xasProperties.xasFacility": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasFacility/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
@@ -5805,14 +5821,11 @@
         "cdif.bbr.metadata.provProperties.generatedBy": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
         ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
-        ],
-        "cdif.bbr.metadata.provProperties.derivedFrom": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
         ],
         "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
@@ -5823,11 +5836,14 @@
         "cdif.bbr.metadata.schemaorgProperties.action": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
         ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
-        ],
-        "cdif.bbr.metadata.cdifDataType.cdifKey": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
@@ -5844,20 +5860,17 @@
         "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
         ],
+        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        ],
         "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
         ],
         "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
         ],
-        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
-        ],
-        "cdif.bbr.metadata.xasProperties.xasOptional": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasOptional/rules.shacl"
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
         ],
         "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
@@ -5865,23 +5878,17 @@
         "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
           "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
         ],
-        "cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDiscovery/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
-        ],
-        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+        "cdif.bbr.metadata.xasProperties.xasOptional": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/xasProperties/xasOptional/rules.shacl"
         ]
       },
       "dependsOn": [
+        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery",
         "bblocks://cdif.bbr.metadata.xasProperties.xasCore",
         "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifCore",
         "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure",
-        "bblocks://cdif.bbr.metadata.xasProperties.xasOptional",
         "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription",
-        "bblocks://cdif.bbr.metadata.profiles.cdifProfile.cdifDiscovery"
+        "bblocks://cdif.bbr.metadata.xasProperties.xasOptional"
       ],
       "license": {
         "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"

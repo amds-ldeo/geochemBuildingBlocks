@@ -1,5 +1,5 @@
 Validation report for ogch.BaseSchema.tabularData - Tabular Data Type
-Generated 2026-10-07T18:30:26.454989+00:00
+Generated 2026-10-07T22:19:58.057451+00:00
 === Files ===
 Using example_1_1.json from examples
 JSON-LD context is present - uplifting
@@ -13,7 +13,8 @@ Output Turtle example_1_1.ttl created
 ValidationError: 'cdif:hasPhysicalMapping' is a required property
 
 Failed validating 'required' in schema['allOf'][1]:
-    {'$schema': 'https://json-schema.org/draft/2020-12/schema',
+    {'$defs': {'AdditionalProperty': {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/additionalProperty/schema.yaml'}},
+     '$schema': 'https://json-schema.org/draft/2020-12/schema',
      'description': 'Tabular data type aligned with CDIF 2026 schema using '
                     'DDI-CDI and CSVW properties. Typed as '
                     'cdi:TabularTextDataSet.',
@@ -166,8 +167,66 @@ Failed validating 'required' in schema['allOf'][1]:
                                                 'items': {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifPhysicalMapping/schema.yaml'},
                                                 'type': 'array',
                                                 'x-jsonld-id': 'https://w3id.org/cdif/hasPhysicalMapping'},
-                    'countColumns': {'type': 'integer'},
-                    'countRows': {'type': 'integer'}},
+                    'schema:additionalProperty': {'description': 'Soft-typed '
+                                                                 'extension '
+                                                                 'properties. '
+                                                                 'The row '
+                                                                 'and '
+                                                                 'column '
+                                                                 'counts '
+                                                                 'live '
+                                                                 'here '
+                                                                 'rather '
+                                                                 'than as '
+                                                                 'bare '
+                                                                 'properties, '
+                                                                 'so that '
+                                                                 'each '
+                                                                 'carries '
+                                                                 'a '
+                                                                 'schema:propertyID '
+                                                                 'identifying '
+                                                                 'the '
+                                                                 'concept '
+                                                                 'it '
+                                                                 'quantifies '
+                                                                 '- DDI '
+                                                                 'Discovery '
+                                                                 'caseQuantity '
+                                                                 'for the '
+                                                                 'row '
+                                                                 'count '
+                                                                 'and '
+                                                                 'variableQuantity '
+                                                                 'for the '
+                                                                 'column '
+                                                                 'count. '
+                                                                 'As bare '
+                                                                 'unprefixed '
+                                                                 '`countRows`/`countColumns` '
+                                                                 'they '
+                                                                 'were the '
+                                                                 'only two '
+                                                                 'properties '
+                                                                 'on this '
+                                                                 'class '
+                                                                 'with no '
+                                                                 'namespace '
+                                                                 'and no '
+                                                                 'definition, '
+                                                                 'so '
+                                                                 'nothing '
+                                                                 'said '
+                                                                 'what '
+                                                                 'they '
+                                                                 'meant or '
+                                                                 'tied '
+                                                                 'them to '
+                                                                 'a '
+                                                                 'vocabulary.',
+                                                  'items': {'$ref': '#/$defs/AdditionalProperty'},
+                                                  'type': 'array',
+                                                  'x-jsonld-id': 'http://schema.org/additionalProperty'}},
      'required': ['@type', 'cdif:hasPhysicalMapping'],
      'title': 'Tabular Data Type',
      'type': 'object',
@@ -207,9 +266,73 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   	Message: A TabularTextDataSet must have physical mappings (cdif:hasPhysicalMapping) linking variables to columns (required by the JSON Schema).
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl:
+ - Shape cdifd:tabularDataShape: _:N3b53311918f04d0a94b9d0351d6f6348
  - Shape cdifd:tabularDataShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape cdifd:tabularDataShape/sh:or/rdf:first: *none*
- - Shape cdifd:tabularDataShape: _:Na80ad02b2cf24373a49e25ead389e46a
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab13: *none*
+ - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab20: *none*
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab33: *none*
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab28: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab31: *none*
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab21: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: *none*
+ - Shape cdifd:CDIFAddPropertyTermShape: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab29: *none*
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab7: *none*
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab14: *none*
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab30: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape: *none*
+ - Shape _:n3d0493188f084fd9a9df72cfcfc9b18ab6: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+ - Shape _:neca732596dfb4fbc8f4e66359faae5b6b8: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape _:neca732596dfb4fbc8f4e66359faae5b6b26: *none*
+ - Shape _:neca732596dfb4fbc8f4e66359faae5b6b6: *none*
+ - Shape _:neca732596dfb4fbc8f4e66359faae5b6b7: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:neca732596dfb4fbc8f4e66359faae5b6b19: *none*
+ - Shape _:neca732596dfb4fbc8f4e66359faae5b6b5: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape _:neca732596dfb4fbc8f4e66359faae5b6b10: *none*
+ - Shape _:neca732596dfb4fbc8f4e66359faae5b6b4: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+ - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
+ - Shape _:n5b7cdb414a874e63bf73900ebd271db2b23: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n5b7cdb414a874e63bf73900ebd271db2b10: *none*
+ - Shape _:n5b7cdb414a874e63bf73900ebd271db2b11: *none*
+ - Shape _:n5b7cdb414a874e63bf73900ebd271db2b21: *none*
+ - Shape _:n5b7cdb414a874e63bf73900ebd271db2b25: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n5b7cdb414a874e63bf73900ebd271db2b22: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape _:n5b7cdb414a874e63bf73900ebd271db2b20: *none*
+ - Shape cdifd:CDIFIdentifierShape: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl:
   Validation Report
@@ -226,43 +349,6 @@ Focus nodes for https://cross-domain-interoperability-framework.github.io/metada
  - Shape skosv:conceptBroaderNotSelfShape: *none*
  - Shape skosv:ConceptShape: *none*
  - Shape skosv:prefLabelUniqueLangShape: *none*
-
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
- - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b7: *none*
- - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b8: *none*
- - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b5: *none*
- - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b6: *none*
- - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b19: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b26: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b10: *none*
- - Shape cdifd:CDIFDefinedTermShape: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
- - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b4: *none*
-
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
- - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b20: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b11: *none*
- - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
- - Shape cdifd:CDIFIdentifierShape: *none*
- - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b21: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
- - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b10: *none*
- - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
- - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b23: *none*
- - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b22: *none*
- - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b25: *none*
 
 Validation result for _sources/BaseSchema/spatialRegistration/rules.shacl:
   Validation Report
