@@ -77,38 +77,14 @@
     "cdif.bbr.metadata.cdifDataType.cdifKey": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
     ],
-    "ogch.BaseSchema.otherFile": [
-      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
-    ],
     "ogch.BaseSchema.collection": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/collection/rules.shacl"
     ],
     "ogch.BaseSchema.stringArray": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/stringArray/rules.shacl"
     ],
-    "ogch.BaseSchema.imageMap": [
-      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-    ],
-    "ogch.BaseSchema.spatialRegistration": [
-      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
-    ],
-    "ogch.BaseSchema.image": [
-      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
-    ],
     "ogch.BaseSchema.supDocImage": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/supDocImage/rules.shacl"
-    ],
-    "ogch.BaseSchema.tabularData": [
-      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
     ],
     "ogch.BaseSchema.dataCube": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/dataCube/rules.shacl"
@@ -116,20 +92,44 @@
     "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
     ],
+    "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+    ],
+    "ogch.BaseSchema.tabularData": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/rules.shacl"
+    ],
+    "ogch.BaseSchema.spatialRegistration": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+    ],
+    "ogch.BaseSchema.otherFile": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
+    ],
+    "ogch.BaseSchema.imageMap": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
+    ],
+    "ogch.BaseSchema.image": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
+    ],
     "ogch.BaseSchema.document": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/document/rules.shacl"
     ]
   },
   "dependsOn": [
     "ogch.BaseSchema.structuredData",
-    "ogch.BaseSchema.otherFile",
     "ogch.BaseSchema.collection",
-    "ogch.BaseSchema.imageMap",
-    "ogch.BaseSchema.stringArray",
-    "ogch.BaseSchema.image",
     "ogch.BaseSchema.supDocImage",
-    "ogch.BaseSchema.tabularData",
     "ogch.BaseSchema.dataCube",
+    "ogch.BaseSchema.tabularData",
+    "ogch.BaseSchema.stringArray",
+    "ogch.BaseSchema.otherFile",
+    "ogch.BaseSchema.imageMap",
+    "ogch.BaseSchema.image",
     "ogch.BaseSchema.document"
   ],
   "license": {
@@ -177,7 +177,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Files Type\ndescription: \"Properties for any file in an ADA product distribution hasPart. These\n  are component files within an archive \\u2014 they are NOT individually downloadable\n  (no schema:contentUrl). The @type must NOT include schema:DataDownload. GeneralType\n  provides info based on broad categories of file format (tabular, image, dataCube,\n  document).\"\nallOf:\n- type: object\n  description: Base properties common to all file types in hasPart\n  properties:\n    '@id':\n      type: string\n    '@type':\n      type: array\n      items:\n        type: string\n      not:\n        contains:\n          const: schema:DataDownload\n      minItems: 1\n    schema:name:\n      type: string\n      description: String name of file, must be unique within the containing package.\n      x-jsonld-id: http://schema.org/name\n    schema:description:\n      type: string\n      x-jsonld-id: http://schema.org/description\n    spdx:checksum:\n      type: object\n      properties:\n        spdx:algorithm:\n          type: string\n          x-jsonld-id: http://spdx.org/rdf/terms#algorithm\n        spdx:checksumValue:\n          type: string\n          x-jsonld-id: http://spdx.org/rdf/terms#checksumValue\n      x-jsonld-id: http://spdx.org/rdf/terms#checksum\n    schema:size:\n      type: object\n      properties:\n        '@type':\n          type: array\n          contains:\n            const: schema:QuantitativeValue\n          minItems: 1\n        schema:value:\n          type: integer\n          x-jsonld-id: http://schema.org/value\n        schema:unitText:\n          type: string\n          default: byte\n          x-jsonld-id: http://schema.org/unitText\n      x-jsonld-id: http://schema.org/size\n    schema:encodingFormat:\n      type: array\n      items:\n        type: string\n      x-jsonld-id: http://schema.org/encodingFormat\n    ada:resultTarget:\n      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/stringArray/schema.yaml\n      x-jsonld-id: https://ada.astromat.org/metadata/resultTarget\n    schema:relatedLink:\n      type: array\n      description: 'Links between files in the product. Use schema:name for path to\n        target in product, or use #id JSON-LD links. Used to link metadata files in\n        bundle to the data or supplementary files they document.'\n      items:\n        type: object\n        properties:\n          '@type':\n            type: array\n            contains:\n              const: schema:LinkRole\n            minItems: 1\n          schema:linkRelationship:\n            type: string\n            x-jsonld-id: http://schema.org/linkRelationship\n          schema:target:\n            type: object\n            properties:\n              '@type':\n                type: array\n                contains:\n                  const: schema:EntryPoint\n                minItems: 1\n              schema:encodingFormat:\n                type: string\n                x-jsonld-id: http://schema.org/encodingFormat\n              schema:name:\n                type: string\n                x-jsonld-id: http://schema.org/name\n              schema:url:\n                type: string\n                x-jsonld-id: http://schema.org/url\n            x-jsonld-id: http://schema.org/target\n      x-jsonld-id: http://schema.org/relatedLink\n- anyOf:\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/collection/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/otherFile/schema.yaml\n  - type: object\n    properties:\n      '@type':\n        type: array\n        contains:\n          const: Metadata\n    required:\n    - '@type'\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n  spdx: http://spdx.org/rdf/terms#\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Files Type\ndescription: \"Properties for any file in an ADA product distribution hasPart. These\n  are component files within an archive \\u2014 they are NOT individually downloadable\n  (no schema:contentUrl). The @type must NOT include schema:DataDownload. GeneralType\n  provides info based on broad categories of file format (tabular, image, dataCube,\n  document).\"\nallOf:\n- type: object\n  description: Base properties common to all file types in hasPart\n  properties:\n    '@id':\n      type: string\n    '@type':\n      type: array\n      items:\n        type: string\n      not:\n        contains:\n          const: schema:DataDownload\n      minItems: 1\n    schema:name:\n      type: string\n      description: String name of file, must be unique within the containing package.\n      x-jsonld-id: http://schema.org/name\n    schema:alternateName:\n      type: string\n      description: 'A second name for this file, for when the name it is stored under\n        is not the name it arrived with. Added 2026-10-07 for legacy ADA''s OriginalName,\n        which carries the as-submitted filename: schema:name is already written from\n        the file record''s own name and is read back to derive the extension, so the\n        submitted name needs its own slot rather than overwriting that one. Values\n        are not sanitised, so expect spaces -- one legacy value is \"..._1_Method Description.pdf\".\n        Keep it a plain string and do not reach for schema:additionalProperty: a file''s\n        name is a first-class schema.org property, and the PropertyValue route is\n        for concepts with no term.'\n      x-jsonld-id: http://schema.org/alternateName\n    schema:description:\n      type: string\n      x-jsonld-id: http://schema.org/description\n    spdx:checksum:\n      type: object\n      properties:\n        spdx:algorithm:\n          type: string\n          x-jsonld-id: http://spdx.org/rdf/terms#algorithm\n        spdx:checksumValue:\n          type: string\n          x-jsonld-id: http://spdx.org/rdf/terms#checksumValue\n      x-jsonld-id: http://spdx.org/rdf/terms#checksum\n    schema:size:\n      type: object\n      properties:\n        '@type':\n          type: array\n          contains:\n            const: schema:QuantitativeValue\n          minItems: 1\n        schema:value:\n          type: integer\n          x-jsonld-id: http://schema.org/value\n        schema:unitText:\n          type: string\n          default: byte\n          x-jsonld-id: http://schema.org/unitText\n      x-jsonld-id: http://schema.org/size\n    schema:encodingFormat:\n      type: array\n      items:\n        type: string\n      x-jsonld-id: http://schema.org/encodingFormat\n    ada:resultTarget:\n      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/stringArray/schema.yaml\n      x-jsonld-id: https://ada.astromat.org/metadata/resultTarget\n    schema:relatedLink:\n      type: array\n      description: 'Links between files in the product. Use schema:name for path to\n        target in product, or use #id JSON-LD links. Used to link metadata files in\n        bundle to the data or supplementary files they document.'\n      items:\n        type: object\n        properties:\n          '@type':\n            type: array\n            contains:\n              const: schema:LinkRole\n            minItems: 1\n          schema:linkRelationship:\n            type: string\n            x-jsonld-id: http://schema.org/linkRelationship\n          schema:target:\n            type: object\n            properties:\n              '@type':\n                type: array\n                contains:\n                  const: schema:EntryPoint\n                minItems: 1\n              schema:encodingFormat:\n                type: string\n                x-jsonld-id: http://schema.org/encodingFormat\n              schema:name:\n                type: string\n                x-jsonld-id: http://schema.org/name\n              schema:url:\n                type: string\n                x-jsonld-id: http://schema.org/url\n            x-jsonld-id: http://schema.org/target\n      x-jsonld-id: http://schema.org/relatedLink\n- anyOf:\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/collection/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/schema.yaml\n  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/otherFile/schema.yaml\n  - type: object\n    properties:\n      '@type':\n        type: array\n        contains:\n          const: Metadata\n    required:\n    - '@type'\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\n  spdx: http://spdx.org/rdf/terms#\n",
   "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/BaseSchema/files"
 }

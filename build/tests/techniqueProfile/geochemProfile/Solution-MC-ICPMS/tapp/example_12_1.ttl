@@ -14,22 +14,17 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "HF–HNO3 attack (3:2 concentrated HF : double-distilled HNO3 in PFA vials, hotplate, 150 °C, ~1 week); H2O2 step (dried under a heat lamp, 1 mL concentrated HNO3 with 1 mL H2O2 added in 0.1 mL increments); HCl step (dried, dissolved in double-distilled HCl); final uptake (dried, 5 mL 2% HNO3) — after Lauretta et al. (2024)" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF–HNO3 attack: 3:2 HF : HNO3; H2O2 step: concentrated HNO3 + H2O2; HCl step: HCl; final uptake: 2% HNO3" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -43,10 +38,15 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "HF–HNO3 attack (3:2 concentrated HF : double-distilled HNO3 in PFA vials, hotplate, 150 °C, ~1 week); H2O2 step (dried under a heat lamp, 1 mL concentrated HNO3 with 1 mL H2O2 added in 0.1 mL increments); HCl step (dried, dissolved in double-distilled HCl); final uptake (dried, 5 mL 2% HNO3) — after Lauretta et al. (2024)" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HF–HNO3 attack: 3:2 HF : HNO3; H2O2 step: concentrated HNO3 + H2O2; HCl step: HCl; final uptake: 2% HNO3" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault>,

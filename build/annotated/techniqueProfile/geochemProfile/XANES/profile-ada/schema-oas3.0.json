@@ -1592,6 +1592,11 @@
               "description": "String name of file, must be unique within the containing package.",
               "x-jsonld-id": "http://schema.org/name"
             },
+            "schema:alternateName": {
+              "type": "string",
+              "description": "A second name for this file, for when the name it is stored under is not the name it arrived with. Added 2026-10-07 for legacy ADA's OriginalName, which carries the as-submitted filename: schema:name is already written from the file record's own name and is read back to derive the extension, so the submitted name needs its own slot rather than overwriting that one. Values are not sanitised, so expect spaces -- one legacy value is \"..._1_Method Description.pdf\". Keep it a plain string and do not reach for schema:additionalProperty: a file's name is a first-class schema.org property, and the PropertyValue route is for concepts with no term.",
+              "x-jsonld-id": "http://schema.org/alternateName"
+            },
             "schema:description": {
               "type": "string",
               "x-jsonld-id": "http://schema.org/description"
