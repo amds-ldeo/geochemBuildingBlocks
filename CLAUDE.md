@@ -42,6 +42,7 @@ python tools/validate_instance.py --dir <dir>     # profile-aware (auto-detects 
 python tools/audit_building_blocks.py             # completeness, schema<->JSON consistency, resolvedSchema freshness, SHACL
 python tools/check_componentType.py               # componentType vocab/enum drift (annotation-only base layer, so JSON Schema alone misses it)
 python tools/constraint_census.py                 # did a regeneration LOSE a constraint? (validate_examples cannot see that)
+python tools/validate_counterexamples.py           # do instances that MUST fail still fail? (the other half)
 ```
 
 `resolve_schema.py` REFUSES to write a schema whose refs did not resolve, and exits 1 naming each
@@ -67,6 +68,23 @@ from its pointers, so `allOf`/`anyOf` reordering does not register (branch order
 meaning, and the upstream postprocess is known to reorder lists —
 opengeospatial/bblocks-postprocess#91). It runs as a step of `check-schema-drift.yml`, after
 regeneration, rather than as its own required check.
+
+**`validate_counterexamples.py` is the other half, and the two catch different bugs.** The census
+sees a constraint disappear from the SCHEMA. This sees a constraint that is still there but no
+longer BITES — a conditional whose `if` stopped matching, a branch moved into an `anyOf` where it
+constrains nothing, a `$ref` that now resolves somewhere more permissive. 13 cases in
+`docs/counterexamples.json`, each a single MUTATION of a real example (`remove`/`set`/`add` at a
+JSON pointer) which must be REJECTED.
+
+Three properties are deliberate. The mutation is applied to the LIVE example rather than stored as
+an invalid document, because examples are regenerated and a stored counterexample drifts out of
+shape and starts failing for an unrelated reason — which still looks like a pass. `expect` is
+mandatory: the rejection must mention the named thing, or the case is reported as
+failing-for-the-wrong-reason, since a case that fails for the wrong reason tells you nothing about
+the constraint it was written for. And a pointer that no longer resolves is a HARD FAILURE, never
+a skip — a silently skipped case is lost coverage, which is the exact failure mode the file
+exists to prevent. All three are verified: dropping `schema:name` from 48 `required` lists turns
+`tappdef-requires-name` red.
 
 Render the human-readable pages (dataset record + TAPP definition, into `build/htmlViews/`):
 

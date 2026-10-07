@@ -1,0 +1,103 @@
+{
+  "_comment": "Instances that MUST FAIL validation, expressed as single mutations of real examples. Run by tools/validate_counterexamples.py; see that file's docstring and docs/SILENT_SUCCESS.md section 1. Each case asserts that one constraint still BITES: the mutation is applied in memory, the result must be rejected, and it must be rejected for the reason named in `expect`. A case that starts passing means the constraint stopped applying, which no positive example can detect.",
+  "_fields": {
+    "id": "stable name, used by --id",
+    "example": "repo-relative path to a VALID example; the schema is its sibling resolvedSchema.json",
+    "mutate": "one of {op: remove|set|add, pointer: <JSON Pointer>, value: <for set/add>}",
+    "expect": "substring that must appear in the rejection's message, schema path or instance path",
+    "why": "what constraint this defends and why losing it would be invisible"
+  },
+  "cases": [
+    {
+      "id": "tappdef-requires-context",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": { "op": "remove", "pointer": "/@context" },
+      "expect": "@context",
+      "why": "Without @context the document has no term mapping, so every ada:/schema: key is uninterpretable as JSON-LD while remaining perfectly well-formed JSON. Nothing downstream would notice until a consumer tried to expand it."
+    },
+    {
+      "id": "tappdef-requires-name",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": { "op": "remove", "pointer": "/schema:name" },
+      "expect": "schema:name",
+      "why": "schema:name is what separates an INLINE TAPP plan from a bare {@id, @type} REFERENCE to one. geochemProduct's TAPP conditional guards its `if` on schema:name for exactly that reason -- keyed on @type alone it held every reference and failed it on the four properties a reference does not carry. If name stops being required, inline plans and references become indistinguishable and that conditional silently stops separating them."
+    },
+    {
+      "id": "tappdef-requires-measurementTechnique",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": { "op": "remove", "pointer": "/schema:measurementTechnique" },
+      "expect": "schema:measurementTechnique",
+      "why": "The technique is the one thing a TAPP must declare; a protocol that does not say what technique it is cannot be matched to a profile."
+    },
+    {
+      "id": "tappdef-type-is-constrained",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": { "op": "set", "pointer": "/@type", "value": ["schema:NotATapp"] },
+      "expect": "@type",
+      "why": "A TAPP carries several required @type members (ada:TAPPDefinition and prov:Plan among them -- the plan typing is a deliberate PROV decision, not decoration). Accepting an arbitrary single @type would let a document claim to be a TAPP without being one, and the conditionals that key on @type would stop firing."
+    },
+    {
+      "id": "adaproduct-requires-variableMeasured",
+      "example": "_sources/BaseSchema/adaProduct/exampleadaProduct-monolithic-tabular.json",
+      "mutate": { "op": "remove", "pointer": "/schema:variableMeasured" },
+      "expect": "schema:variableMeasured",
+      "why": "A dataset with no declared variables describes no measurements. This is the root requirement of the product schema and the only one at that level, so if it stops biting the product schema requires nothing at all."
+    },
+    {
+      "id": "adaproduct-componentType-sealed",
+      "example": "_sources/BaseSchema/adaProduct/exampleadaProduct-monolithic-tabular.json",
+      "mutate": { "op": "set", "pointer": "/schema:distribution/0/ada:componentType", "value": "ada:NotARealComponentType" },
+      "expect": "componentType",
+      "why": "Each file-type BB declares a SEALED enum of componentType strings, derived from the Components worksheet, so that e.g. ada:EPMAImageMap only validates on a part typed ada:imageMap. The enum is the whole mechanism; an unsealed one would let any componentType sit on any part, and check_componentType.py cannot see that because the base layer is annotation-only."
+    },
+    {
+      "id": "adaproduct-unknown-part-type-rejected",
+      "example": "_sources/BaseSchema/adaProduct/exampleadaProduct-monolithic-tabular.json",
+      "mutate": { "op": "set", "pointer": "/schema:distribution/0/@type", "value": "schema:NotAFileType" },
+      "expect": "@type",
+      "why": "files/schema.yaml's outer anyOf deliberately has NO permissive schema:MediaObject fallback, so a part whose @type matches no specific file-type BB must fail. That absence is a design decision recorded in CLAUDE.md, and adding a fallback 'to be helpful' would make every unrecognised part validate silently."
+    },
+    {
+      "id": "instrument-requires-id",
+      "example": "_sources/BaseSchema/adaProduct/exampleadaProduct-monolithic-tabular.json",
+      "mutate": { "op": "remove", "pointer": "/prov:wasGeneratedBy/0/prov:used/0/schema:instrument/0/@id" },
+      "expect": "@id",
+      "why": "@id is REQUIRED on an instrument (and on an inline schema:hasPart component) because a monitored species has to be able to name the device that reports it. Generated ids are ex:instrument/<Token>, stable across regenerations. Without the requirement the reference target simply does not exist and nothing points anywhere."
+    },
+    {
+      "id": "variableMeasured-requires-type",
+      "example": "_sources/BaseSchema/adaProduct/exampleadaProduct-monolithic-tabular.json",
+      "mutate": { "op": "remove", "pointer": "/schema:variableMeasured/0/@type" },
+      "expect": "@type",
+      "why": "An untyped variable entry cannot be dispatched to the right shape, and @type is what every conditional in the product schema keys on. A missing @type matches no `if`, so the constraints that should apply are silently absent and the record validates clean -- the too-narrow-conditional failure mode in CLAUDE.md."
+    },
+    {
+      "id": "epmatapp-requires-matrixCorrectionMethod",
+      "example": "_sources/techniqueProfile/geochemProfile/EPMA/tapp/exampleepmaTAPP-Barnes2025-2.json",
+      "mutate": { "op": "remove", "pointer": "/ada:matrixCorrectionMethod" },
+      "expect": "ada:matrixCorrectionMethod",
+      "why": "A generated technique requirement, from the EPMA table's tier columns. This is the class of constraint that went missing unnoticed in 2026-09-03, when nine ICP-MS schemas lost 'Limit of Quantification (LOQ) Method' and validate_examples stayed green: a requiredness that evaporates makes the schema more permissive, so every example still passes."
+    },
+    {
+      "id": "keyed-column-must-be-specification",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": { "op": "set", "pointer": "/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/0/@type", "value": ["schema:PropertyValue"] },
+      "expect": "PropertyValueSpecification",
+      "why": "A keyed-table COLUMN is always a schema:PropertyValueSpecification on the procedure side: a column DEFINITION specifies, a property on a part RECORDS. Read-only is an attribute of the specification (schema:readonlyValue), not a different type. Emitting PropertyValue here once produced an allOf no instance could satisfy; the inverse -- accepting PropertyValue -- would let the two shapes merge and the distinction stop meaning anything."
+    },
+    {
+      "id": "keyed-column-requires-dataType",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": { "op": "remove", "pointer": "/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/0/ada:dataType" },
+      "expect": "ada:dataType",
+      "why": "ada:dataType carries the column's declared type and is where unit extraction comes from. A column with no declared type is unusable by a form builder or a loader, and the mismatch between declared and emitted shape is exactly what hid the ada:collectorConfiguration defect until 2026-09-27."
+    },
+    {
+      "id": "step-parameter-requires-name",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": { "op": "remove", "pointer": "/schema:actionProcess/schema:step/1/schema:additionalProperty/0/schema:name" },
+      "expect": "schema:name",
+      "why": "A workflow-step parameter with no name cannot be joined back to the TAPP table row it came from. It also guards the step subtree itself: a standalone build_pathdriven run once dropped the whole schema:actionProcess subtree -- 74 JSON paths -- at a green 614/26, so a case anchored inside a step is a tripwire for that subtree going missing."
+    }
+  ]
+}

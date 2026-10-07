@@ -136,6 +136,17 @@ jobs:
       - name: Constraint census
         run: python tools/constraint_census.py
 
+      # The census above catches a constraint vanishing from the schema. This catches the other
+      # shape: a constraint still present that no longer BITES, because a conditional stopped
+      # matching, a branch moved to an anyOf where it constrains nothing, or a $ref now resolves
+      # somewhere more permissive. Each case mutates a real example and requires the result to be
+      # REJECTED, for a named reason -- validate_examples can only prove the opposite direction.
+      #
+      # Here rather than its own required check, for the same reason as the census: no separate
+      # signal is needed, and a required context that fails to report deadlocks the PR.
+      - name: Counterexamples still rejected
+        run: python tools/validate_counterexamples.py
+
       # Only reachable when the diff is clean, so this catches the other
       # half: a generated file that regeneration does not produce at all.
       - name: Check for untracked generated files
