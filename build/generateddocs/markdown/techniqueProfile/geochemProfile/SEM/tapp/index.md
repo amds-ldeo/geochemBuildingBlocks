@@ -112,6 +112,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
         ]
       },
       "schema:description": "FIB-SEM dual-beam",
+      "ada:mappingBeamCurrentDefault": "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -120,7 +121,9 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:seDetectorType": "In-lens / TLD (through-the-lens)",
@@ -140,6 +143,26 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -377,6 +400,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
         ]
       },
       "schema:description": "FIB-SEM dual-beam",
+      "ada:mappingBeamCurrentDefault": "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -385,7 +409,9 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:seDetectorType": "In-lens / TLD (through-the-lens)",
@@ -405,6 +431,26 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -548,12 +594,6 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -567,7 +607,13 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -612,6 +658,8 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "0.5–5.4 mm" .
@@ -633,7 +681,10 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     ada:acceleratingVoltageDefault "500 V; 1 kV; 5 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)" ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -659,6 +710,18 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -691,7 +754,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Garvie2008-2",
-  "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v85.csv).",
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -829,7 +892,10 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
-      "ada:beamMode": "missing"
+      "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -848,6 +914,26 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -956,7 +1042,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Garvie2008-2",
-  "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v85.csv).",
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -1094,7 +1180,10 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
-      "ada:beamMode": "missing"
+      "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -1113,6 +1202,26 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -1209,16 +1318,16 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
                     ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -1230,7 +1339,7 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
                     ada:liftOutMethod "missing" ;
                     ada:protectiveCoatingDepositionDefault "missing" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v84.csv)." ;
+    schema1:description "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v85.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
@@ -1273,6 +1382,8 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "5.4 mm (eucentric height for electron and ion columns)" .
@@ -1294,7 +1405,10 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "Gallium LMIS (Ga+)" .
+    ada:ionBeamSource "Gallium LMIS (Ga+)" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -1320,6 +1434,18 @@ semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -1352,7 +1478,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Genge2025",
-  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v85.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1442,7 +1568,10 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -1461,6 +1590,26 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -1617,7 +1766,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Genge2025",
-  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v85.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1707,7 +1856,10 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -1726,6 +1878,26 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -1891,7 +2063,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
                     ada:liftOutMethod "missing" ;
                     ada:protectiveCoatingDepositionDefault "missing" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v84.csv)." ;
+    schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v85.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
@@ -1934,6 +2106,8 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -1955,7 +2129,10 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     ada:acceleratingVoltageDefault "10 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -1981,6 +2158,18 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -2013,7 +2202,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Genge2025-2",
-  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v85.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2104,7 +2293,10 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -2138,6 +2330,26 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -2293,7 +2505,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Genge2025-2",
-  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v85.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2384,7 +2596,10 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -2418,6 +2633,26 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -2567,23 +2802,23 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "missing" ;
                     ada:finePolishingConditionsDefault "missing" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v84.csv)." ;
+    schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v85.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
@@ -2626,6 +2861,8 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ;
             ada:targetMaterialDeclaration "Al-Cu alloy phases; associated minerals — Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo" ] ;
     ada:wdsDeadTimeCorrection "missing" ;
@@ -2648,7 +2885,10 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     ada:acceleratingVoltageDefault "10 kV" ;
     ada:beamDiameterDefault "N — the '0.1 μm beam diameter' (p.2) is the EPMA's, not the SEM's" ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -2682,6 +2922,18 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     schema1:valueName "beamDamageMinimizationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -2796,6 +3048,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
         ]
       },
       "schema:description": "VP-SEM",
+      "ada:mappingBeamCurrentDefault": "6 nA",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -2804,7 +3057,9 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -2897,6 +3152,26 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -3087,6 +3362,7 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
         ]
       },
       "schema:description": "VP-SEM",
+      "ada:mappingBeamCurrentDefault": "6 nA",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -3095,7 +3371,9 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -3188,6 +3466,26 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -3349,6 +3647,8 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ;
             ada:targetMaterialDeclaration "Al-Cu alloy phases — Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo" ] ;
     ada:wdsDeadTimeCorrection "missing" ;
@@ -3371,7 +3671,10 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     ada:acceleratingVoltageDefault "20 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault "6 nA" ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -3412,6 +3715,18 @@ semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like)
     schema1:valueName "crystalStructureDatabaseDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -3563,7 +3878,10 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -3582,6 +3900,26 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -3850,7 +4188,10 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -3869,6 +4210,26 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -4006,10 +4367,9 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -4023,9 +4383,10 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -4068,6 +4429,8 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -4091,7 +4454,10 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -4117,6 +4483,18 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -4250,7 +4628,10 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -4269,6 +4650,26 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -4510,7 +4911,10 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -4529,6 +4933,26 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -4668,12 +5092,6 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "missing" ;
@@ -4686,7 +5104,13 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -4729,6 +5153,8 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -4750,7 +5176,10 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
     ada:acceleratingVoltageDefault "15 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "all: Focused — 'The accelerating voltage was 15 kV and the beam current was 2.0 nA, with a focused beam' (p.2)" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -4777,6 +5206,18 @@ semTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (C
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -4914,7 +5355,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -4949,6 +5393,26 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -5217,7 +5681,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -5252,6 +5719,26 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -5403,6 +5890,12 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -5416,13 +5909,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
@@ -5468,13 +5955,15 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "~10 mm" ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5494,7 +5983,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
     ada:acceleratingVoltageDefault "15–20 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -5527,6 +6019,18 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | C
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -5564,7 +6068,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Izawa2010-2",
-  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v85.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5654,7 +6158,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -5673,6 +6180,26 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -5829,7 +6356,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-2",
-  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v85.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5919,7 +6446,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -5938,6 +6468,26 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -6088,22 +6638,22 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "missing" ;
                     ada:finePolishingConditionsDefault "missing" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v84.csv)." ;
+    schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v85.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Surface Science Western" ] ;
@@ -6146,6 +6696,8 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -6167,7 +6719,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -6193,6 +6748,18 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -6317,7 +6884,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -6336,6 +6906,26 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -6583,7 +7173,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -6602,6 +7195,26 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -6746,16 +7359,6 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "missing" ;
-                    ada:finePolishingConditionsDefault "missing" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a cdi:Activity,
@@ -6764,7 +7367,17 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "missing" ;
+                    ada:finePolishingConditionsDefault "missing" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -6809,6 +7422,8 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -6830,7 +7445,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -6857,6 +7475,18 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -6889,7 +7519,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Izawa2010-4",
-  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v85.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6979,7 +7609,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -6998,6 +7631,26 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -7154,7 +7807,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Izawa2010-4",
-  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v85.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7244,7 +7897,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -7263,6 +7919,26 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -7415,20 +8091,20 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "missing" ;
                     ada:finePolishingConditionsDefault "missing" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v84.csv)." ;
+    schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v85.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
@@ -7471,6 +8147,8 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -7492,7 +8170,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -7518,6 +8199,18 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | B
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -7642,7 +8335,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -7661,6 +8357,26 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -7908,7 +8624,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -7927,6 +8646,26 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -8070,6 +8809,16 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "missing" ;
+                    ada:finePolishingConditionsDefault "missing" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
@@ -8079,17 +8828,7 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "missing" ;
-                    ada:finePolishingConditionsDefault "missing" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -8134,6 +8873,8 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -8155,7 +8896,10 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -8182,6 +8926,18 @@ semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | E
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -8214,7 +8970,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Liu2017",
-  "schema:description": "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v84.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics.",
+  "schema:description": "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v85.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics.",
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
   "schema:instrument": [
     {
@@ -8305,6 +9061,9 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -8384,6 +9143,26 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -8497,7 +9276,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Liu2017",
-  "schema:description": "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v84.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics.",
+  "schema:description": "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v85.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics.",
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
   "schema:instrument": [
     {
@@ -8588,6 +9367,9 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -8667,6 +9449,26 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -8768,6 +9570,13 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
@@ -8780,16 +9589,9 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
                     ada:coarseMillingConditionsDefault "missing" ;
                     ada:finePolishingConditionsDefault "missing" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "No coating applied; not sputtered with gold or other materials" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "No coating applied; not sputtered with gold or other materials" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v84.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics." ;
+    schema1:description "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v85.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
@@ -8838,6 +9640,8 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
@@ -8861,7 +9665,10 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -8887,6 +9694,18 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -9022,7 +9841,10 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -9042,6 +9864,26 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -9301,7 +10143,10 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -9321,6 +10166,26 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -9471,20 +10336,20 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "missing" ;
                     ada:finePolishingConditionsDefault "missing" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴" ;
@@ -9531,6 +10396,8 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -9552,7 +10419,10 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -9585,6 +10455,18 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -9720,7 +10602,10 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -9740,6 +10625,26 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -9999,7 +10904,10 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -10019,6 +10927,26 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -10163,6 +11091,12 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -10176,13 +11110,7 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
@@ -10229,6 +11157,8 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -10250,7 +11180,10 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -10283,6 +11216,18 @@ semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) |
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -10405,7 +11350,10 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -10428,6 +11376,26 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -10674,7 +11642,10 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -10697,6 +11668,26 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -10909,6 +11900,8 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -10930,7 +11923,10 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -10956,6 +11952,18 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -11140,7 +12148,10 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -11163,6 +12174,26 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -11422,7 +12453,10 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -11445,6 +12479,26 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -11548,19 +12602,19 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "missing" ;
                     ada:finePolishingConditionsDefault "missing" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -11609,6 +12663,8 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -11630,7 +12686,10 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -11663,6 +12722,18 @@ semTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal pha
     schema1:valueName "crystalStructureDatabaseDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -11785,7 +12856,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -11817,6 +12891,26 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -12069,7 +13163,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:additionalProperty": [
@@ -12101,6 +13198,26 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -12316,6 +13433,8 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "8 mm" ;
@@ -12339,7 +13458,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
     ada:acceleratingVoltageDefault "20 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -12372,6 +13494,18 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BS
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -12495,7 +13629,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -12682,6 +13819,26 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -12937,7 +14094,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -13126,6 +14286,26 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
         "schema:name": "example instrumentName"
       },
       {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -13276,6 +14456,12 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -13289,13 +14475,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
@@ -13343,6 +14523,8 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -13389,7 +14571,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
     ada:acceleratingVoltageDefault "20 kV" ;
     ada:beamDiameterDefault "N — a 30 μm aperture is stated (p.3), not a beam diameter" ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -13430,6 +14615,18 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -13613,6 +14810,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
         ]
       },
       "schema:description": "ESEM",
+      "ada:mappingBeamDiameterDefault": "N — a 60 μm aperture is stated (p.3), not a beam diameter",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -13621,7 +14819,9 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -13809,6 +15009,26 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -14055,6 +15275,7 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
         ]
       },
       "schema:description": "ESEM",
+      "ada:mappingBeamDiameterDefault": "N \u2014 a 60 \u03bcm aperture is stated (p.3), not a beam diameter",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -14063,7 +15284,9 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -14253,6 +15476,26 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
         "schema:name": "example instrumentName"
       },
       {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -14402,13 +15645,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "missing" ;
-                    ada:finePolishingConditionsDefault "missing" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -14418,10 +15658,13 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "missing" ;
+                    ada:finePolishingConditionsDefault "missing" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -14468,6 +15711,8 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
@@ -14502,10 +15747,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/semTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -14524,7 +15769,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
     ada:acceleratingVoltageDefault "20 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault "N — a 60 μm aperture is stated (p.3), not a beam diameter" ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -14558,6 +15806,18 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | ED
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -14748,7 +16008,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -14767,6 +16030,26 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -15013,7 +16296,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -15032,6 +16318,26 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -15176,16 +16482,6 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "missing" ;
-                    ada:finePolishingConditionsDefault "missing" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
@@ -15195,7 +16491,17 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "missing" ;
+                    ada:finePolishingConditionsDefault "missing" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -15240,6 +16546,8 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -15261,7 +16569,10 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -15287,6 +16598,18 @@ semTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -15411,7 +16734,10 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -15431,6 +16757,26 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -15671,7 +17017,10 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -15691,6 +17040,26 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -15827,13 +17196,6 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -15846,7 +17208,14 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -15887,6 +17256,8 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ;
             ada:targetMaterialDeclaration "subbituminous coal; high-volatile bituminous coal — Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China" ] ;
     ada:wdsDeadTimeCorrection "missing" ;
@@ -15911,7 +17282,10 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
     ada:acceleratingVoltageDefault "2 kV (SEM imaging)" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -15937,6 +17311,18 @@ semTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) 
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -16059,6 +17445,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -16078,6 +17467,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -16330,6 +17739,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -16349,6 +17761,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -16563,6 +17995,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
@@ -16586,7 +18020,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ada:acceleratingVoltageDefault "15 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -16612,6 +18049,18 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -16644,7 +18093,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol — Zega2025-2",
-  "schema:description": "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v84.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
+  "schema:description": "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v85.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -16735,6 +18184,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -16756,6 +18208,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -16920,7 +18392,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Zega2025-2",
-  "schema:description": "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v84.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
+  "schema:description": "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v85.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -17011,6 +18483,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -17032,6 +18507,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -17184,6 +18679,16 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "missing" ;
+                    ada:finePolishingConditionsDefault "missing" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
@@ -17193,19 +18698,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "missing" ;
-                    ada:finePolishingConditionsDefault "missing" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v84.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
+    schema1:description "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v85.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
@@ -17248,6 +18743,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
@@ -17273,7 +18770,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ada:acceleratingVoltageDefault "15 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -17300,6 +18800,18 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -17422,6 +18934,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -17441,6 +18956,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -17687,6 +19222,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -17706,6 +19244,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -17850,16 +19408,16 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
                     ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -17914,6 +19472,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -17935,7 +19495,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -17961,6 +19524,18 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -18083,6 +19658,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -18102,6 +19680,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -18348,6 +19946,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -18367,6 +19968,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -18511,6 +20132,12 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -18524,13 +20151,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -18575,6 +20196,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -18596,7 +20219,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -18622,6 +20248,18 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -18746,6 +20384,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -18765,6 +20406,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -19022,6 +20683,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -19041,6 +20705,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -19194,10 +20878,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -19211,9 +20894,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -19258,13 +20942,15 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -19283,7 +20969,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -19310,6 +20999,18 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -19432,7 +21133,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:actionProcess": {
@@ -19499,6 +21203,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -19697,7 +21421,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:actionProcess": {
@@ -19764,6 +21491,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -19860,9 +21607,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ;
+                    ada:finePolishingConditionsDefault "missing" ;
+                    ada:liftOutMethod "In-situ (micromanipulator, Cu or Mo TEM half-grid)" ;
+                    ada:protectiveCoatingDepositionDefault "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -19873,13 +21624,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ;
-                    ada:finePolishingConditionsDefault "missing" ;
-                    ada:liftOutMethod "In-situ (micromanipulator, Cu or Mo TEM half-grid)" ;
-                    ada:protectiveCoatingDepositionDefault "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -19924,6 +21671,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -19945,7 +21694,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ada:acceleratingVoltageDefault "30 keV (FIB milling and thinning)" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -19971,6 +21723,18 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -20093,7 +21857,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
-      "ada:beamMode": "missing"
+      "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:actionProcess": {
@@ -20171,6 +21938,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -20369,7 +22156,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
-      "ada:beamMode": "missing"
+      "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:actionProcess": {
@@ -20447,6 +22237,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -20543,9 +22353,13 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ;
+                    ada:finePolishingConditionsDefault "Various voltages down to 1 keV (polishing)" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -20556,13 +22370,9 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ;
-                    ada:finePolishingConditionsDefault "Various voltages down to 1 keV (polishing)" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -20612,6 +22422,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -20633,7 +22445,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "N/A" .
+    ada:ionBeamSource "N/A" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -20659,6 +22474,18 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -20781,7 +22608,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
-      "ada:beamMode": "missing"
+      "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:actionProcess": {
@@ -20859,6 +22689,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -21057,7 +22907,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
-      "ada:beamMode": "missing"
+      "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "schema:actionProcess": {
@@ -21135,6 +22988,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -21231,6 +23104,12 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
@@ -21244,13 +23123,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     ada:coarseMillingConditionsDefault "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" ;
                     ada:finePolishingConditionsDefault "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick" ;
                     ada:liftOutMethod "In-situ (micromanipulator, Cu or Mo TEM half-grid)" ;
-                    ada:protectiveCoatingDepositionDefault "Electron-beam deposited carbon (~0.5–1 µm); followed by ion beam-deposited carbon (~2–3 µm capping layer)" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:protectiveCoatingDepositionDefault "Electron-beam deposited carbon (~0.5–1 µm); followed by ion beam-deposited carbon (~2–3 µm capping layer)" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -21300,6 +23173,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -21321,7 +23196,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ada:acceleratingVoltageDefault "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "N/A" .
+    ada:ionBeamSource "N/A" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -21347,6 +23225,18 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -21475,6 +23365,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:ProductModel"
         ]
       },
+      "ada:mappingBeamCurrentDefault": "1 to 4 nA",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -21484,6 +23375,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -21505,6 +23398,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -21756,6 +23669,7 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:ProductModel"
         ]
       },
+      "ada:mappingBeamCurrentDefault": "1 to 4 nA",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -21765,6 +23679,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing"
     }
   ],
@@ -21786,6 +23702,26 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -21936,19 +23872,19 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "missing" ;
                     ada:finePolishingConditionsDefault "missing" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -21994,6 +23930,8 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -22016,7 +23954,10 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     ada:acceleratingVoltageDefault "5 keV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault "1 to 4 nA" ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -22042,6 +23983,18 @@ semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -22094,6 +24047,26 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -22270,6 +24243,9 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing",
       "schema:manufacturer": {
         "schema:name": "missing",
@@ -22357,6 +24333,26 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
@@ -22533,6 +24529,9 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "schema:description": "missing",
       "schema:manufacturer": {
         "schema:name": "missing",
@@ -22593,9 +24592,10 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -22609,10 +24609,9 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -22655,6 +24654,8 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ;
             ada:targetMaterialDeclaration "O-rich presolar grains — Asteroid (101955) Bennu aggregate QL particles; O-rich presolar silicate and oxide grains; sample OREX-501018-100" ] ;
     ada:wdsDeadTimeCorrection "missing" ;
@@ -22677,7 +24678,10 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -22704,6 +24708,18 @@ semTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSI
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
@@ -22720,7 +24736,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Technique-Aligned Protocol Profile (semTAPP)
 description: Scanning electron microscopy superset (imaging + EDS/WDS composition
   + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current
-  TAPPs/SEM_TAPP_v84.csv via the path-driven pipeline.
+  TAPPs/SEM_TAPP_v85.csv via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -23164,11 +25180,44 @@ allOf:
                     - None
                     - missing
                     readOnly: true
+              ada:mappingBeamMode:
+                description: Whether the electron beam was focused or defocused to
+                  a stated diameter during X-ray mapping. How the beam or stage moves
+                  across the mapped area is recorded by Stage Scan vs. Beam Scan and
+                  Step Size / Pixel Size.
+                anyOf:
+                - type: string
+                  enum:
+                  - Focused
+                  - Defocused
+                  - N/A
+                  - None
+                  - missing
+                - type: string
+                readOnly: true
+              ada:mappingBeamCurrentDefault:
+                description: 'Electron beam probe current used while the beam scans
+                  an area: an X-ray or CL map, an EBSD map, or an SE or BSE image,
+                  including images taken during FIB-SEM work. For sub-nA values use
+                  decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling
+                  belong in the milling condition fields.'
+                anyOf:
+                - type: number
+                - type: string
+              ada:mappingBeamDiameterDefault:
+                description: Diameter of the electron beam in micrometres during X-ray
+                  mapping. 0 indicates a fully focused beam.
+                anyOf:
+                - type: number
+                - type: string
             required:
             - ada:acceleratingVoltageDefault
             - ada:beamDiameterDefault
             - ada:beamMode
             - ada:ionBeamSource
+            - ada:mappingBeamCurrentDefault
+            - ada:mappingBeamDiameterDefault
+            - ada:mappingBeamMode
             - schema:description
             - schema:manufacturer
             - schema:model
@@ -24264,21 +26313,21 @@ allOf:
             maxContains: 1
       required:
       - ada:defaultTargetSpecies
-    ada:monitoredPropertyTemplate:
+    ada:targetMaterialTemplate:
       type: object
       properties:
-        ada:monitoredPropertyColumns:
+        ada:targetMaterialColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
             - title: Background Counting Time
               description: Total time spent counting at off-peak background position(s)
                 in seconds, summed across all background positions.
               type: object
               properties:
                 '@id':
-                  const: ada:monitoredPropertyColumn/semTAPP/backgroundCountingTime
+                  const: ada:targetMaterialColumn/semTAPP/backgroundCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -24294,14 +26343,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -24309,6 +26352,200 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
+            - title: Peak Counting Time
+              description: Time spent counting X-ray intensity at the peak position,
+                in seconds. Adjustments stay within procedure-defined bounds.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/semTAPP/peakCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: peakCountingTime
+                schema:name:
+                  const: Peak Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Primary Calibration Standard Name
+              description: "Name and reference material identifier of the primary
+                reference material(s) against which the instrument is calibrated \u2014
+                converting raw signal intensities to concentrations, or anchoring
+                an isotope ratio as the bracketing standard or zero-delta reference.
+                Give the material name, its source or supplier, and a citation for
+                the accepted values used. Where calibration instead uses the vendor's
+                stored library or theoretical response factors rather than measured
+                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+                \u2014 record that here, naming the library or model used. 'None'
+                means no calibration was performed at all, which is a different answer."
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: primaryCalibrationStandardName
+                schema:name:
+                  const: Primary Calibration Standard Name
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+          allOf:
+          - contains:
+              title: Background Counting Time
+              description: Total time spent counting at off-peak background position(s)
+                in seconds, summed across all background positions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/semTAPP/backgroundCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundCountingTime
+                schema:name:
+                  const: Background Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Peak Counting Time
+              description: Time spent counting X-ray intensity at the peak position,
+                in seconds. Adjustments stay within procedure-defined bounds.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/semTAPP/peakCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: peakCountingTime
+                schema:name:
+                  const: Peak Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Primary Calibration Standard Name
+              description: "Name and reference material identifier of the primary
+                reference material(s) against which the instrument is calibrated \u2014
+                converting raw signal intensities to concentrations, or anchoring
+                an isotope ratio as the bracketing standard or zero-delta reference.
+                Give the material name, its source or supplier, and a citation for
+                the accepted values used. Where calibration instead uses the vendor's
+                stored library or theoretical response factors rather than measured
+                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+                \u2014 record that here, naming the library or model used. 'None'
+                means no calibration was performed at all, which is a different answer."
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: primaryCalibrationStandardName
+                schema:name:
+                  const: Primary Calibration Standard Name
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+        ada:defaultTargetMaterials:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultTargetMaterials
+    ada:monitoredPropertyTemplate:
+      type: object
+      properties:
+        ada:monitoredPropertyColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative
                 to the peak, in mm or sin-theta, and whether on the high- or low-energy
@@ -24390,43 +26627,6 @@ allOf:
                   const: dwellTimePerPixel
                 schema:name:
                   const: Dwell Time per Pixel
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Peak Counting Time
-              description: Time spent counting X-ray intensity at the peak position,
-                in seconds. Adjustments stay within procedure-defined bounds.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/semTAPP/peakCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: peakCountingTime
-                schema:name:
-                  const: Peak Counting Time
                 ada:dataType:
                   const: number
                 schema:readonlyValue:
@@ -24627,46 +26827,6 @@ allOf:
               - schema:defaultValue
           allOf:
           - contains:
-              title: Background Counting Time
-              description: Total time spent counting at off-peak background position(s)
-                in seconds, summed across all background positions.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/semTAPP/backgroundCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundCountingTime
-                schema:name:
-                  const: Background Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative
                 to the peak, in mm or sin-theta, and whether on the high- or low-energy
@@ -24754,46 +26914,6 @@ allOf:
                   const: dwellTimePerPixel
                 schema:name:
                   const: Dwell Time per Pixel
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Peak Counting Time
-              description: Time spent counting X-ray intensity at the peak position,
-                in seconds. Adjustments stay within procedure-defined bounds.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/semTAPP/peakCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: peakCountingTime
-                schema:name:
-                  const: Peak Counting Time
                 ada:dataType:
                   const: number
                 schema:readonlyValue:
@@ -25820,101 +27940,6 @@ allOf:
         - missing
       - type: string
       readOnly: true
-    ada:targetMaterialTemplate:
-      type: object
-      properties:
-        ada:targetMaterialColumns:
-          type: array
-          items:
-            anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
-            - title: Primary Calibration Standard Name
-              description: "Name and reference material identifier of the primary
-                reference material(s) against which the instrument is calibrated \u2014
-                converting raw signal intensities to concentrations, or anchoring
-                an isotope ratio as the bracketing standard or zero-delta reference.
-                Give the material name, its source or supplier, and a citation for
-                the accepted values used. Where calibration instead uses the vendor's
-                stored library or theoretical response factors rather than measured
-                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-                \u2014 record that here, naming the library or model used. 'None'
-                means no calibration was performed at all, which is a different answer."
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: primaryCalibrationStandardName
-                schema:name:
-                  const: Primary Calibration Standard Name
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-          allOf:
-          - contains:
-              title: Primary Calibration Standard Name
-              description: "Name and reference material identifier of the primary
-                reference material(s) against which the instrument is calibrated \u2014
-                converting raw signal intensities to concentrations, or anchoring
-                an isotope ratio as the bracketing standard or zero-delta reference.
-                Give the material name, its source or supplier, and a citation for
-                the accepted values used. Where calibration instead uses the vendor's
-                stored library or theoretical response factors rather than measured
-                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-                \u2014 record that here, naming the library or model used. 'None'
-                means no calibration was performed at all, which is a different answer."
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: primaryCalibrationStandardName
-                schema:name:
-                  const: Primary Calibration Standard Name
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-        ada:defaultTargetMaterials:
-          type: array
-          items:
-            anyOf:
-            - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
-            - type: object
-      required:
-      - ada:defaultTargetMaterials
     ada:sampleTiltAngle:
       description: Sample tilt angle for EBSD acquisition in degrees, measured from
         horizontal.

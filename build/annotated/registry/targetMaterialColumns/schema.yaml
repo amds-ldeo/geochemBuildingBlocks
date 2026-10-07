@@ -10,6 +10,70 @@ description: Registry of reusable schema:PropertyValueSpecification target-mater
   of its own.
 type: object
 $defs:
+  epma_backgroundCountingTime:
+    title: Background Counting Time
+    description: Total time spent counting at off-peak background position(s) in seconds,
+      summed across all background positions.
+    type: object
+    properties:
+      '@id':
+        const: ada:targetMaterialColumn/epmaTAPP/backgroundCountingTime
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: backgroundCountingTime
+      schema:name:
+        const: Background Counting Time
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  epma_peakCountingTime:
+    title: Peak Counting Time
+    description: Time spent counting X-ray intensity at the peak position, in seconds.
+      Adjustments stay within procedure-defined bounds.
+    type: object
+    properties:
+      '@id':
+        const: ada:targetMaterialColumn/epmaTAPP/peakCountingTime
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: peakCountingTime
+      schema:name:
+        const: Peak Counting Time
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   epma_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: "Name and reference material identifier of the primary reference
@@ -269,6 +333,70 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  semComposition_backgroundCountingTime:
+    title: Background Counting Time
+    description: Total time spent counting at off-peak background position(s) in seconds,
+      summed across all background positions.
+    type: object
+    properties:
+      '@id':
+        const: ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: backgroundCountingTime
+      schema:name:
+        const: Background Counting Time
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  semComposition_peakCountingTime:
+    title: Peak Counting Time
+    description: Time spent counting X-ray intensity at the peak position, in seconds.
+      Adjustments stay within procedure-defined bounds.
+    type: object
+    properties:
+      '@id':
+        const: ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: peakCountingTime
+      schema:name:
+        const: Peak Counting Time
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   semComposition_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: "Name and reference material identifier of the primary reference
@@ -299,6 +427,70 @@ $defs:
         const: M
       schema:defaultValue:
         type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  sem_backgroundCountingTime:
+    title: Background Counting Time
+    description: Total time spent counting at off-peak background position(s) in seconds,
+      summed across all background positions.
+    type: object
+    properties:
+      '@id':
+        const: ada:targetMaterialColumn/semTAPP/backgroundCountingTime
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: backgroundCountingTime
+      schema:name:
+        const: Background Counting Time
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  sem_peakCountingTime:
+    title: Peak Counting Time
+    description: Time spent counting X-ray intensity at the peak position, in seconds.
+      Adjustments stay within procedure-defined bounds.
+    type: object
+    properties:
+      '@id':
+        const: ada:targetMaterialColumn/semTAPP/peakCountingTime
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: peakCountingTime
+      schema:name:
+        const: Peak Counting Time
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'

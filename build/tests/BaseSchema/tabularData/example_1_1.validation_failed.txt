@@ -1,5 +1,5 @@
 Validation report for ogch.BaseSchema.tabularData - Tabular Data Type
-Generated 2026-10-05T15:43:16.518396+00:00
+Generated 2026-10-07T13:28:47.348419+00:00
 === Files ===
 Using example_1_1.json from examples
 JSON-LD context is present - uplifting
@@ -33,6 +33,15 @@ Failed validating 'required' in schema['allOf'][1]:
                               'type': 'array'},
                     'cdi:arrayBase': {'type': 'integer',
                                       'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/arrayBase'},
+                    'cdi:commentPrefix': {'description': 'Character(s) '
+                                                         'that mark a line '
+                                                         'as a comment.',
+                                          'type': 'string',
+                                          'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/commentPrefix'},
+                    'cdi:delimiter': {'description': 'Field delimiter '
+                                                     '(e.g., "," or tab).',
+                                      'type': 'string',
+                                      'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/delimiter'},
                     'cdi:escapeCharacter': {'description': 'The character '
                                                            'used to escape '
                                                            'special '
@@ -42,6 +51,9 @@ Failed validating 'required' in schema['allOf'][1]:
                                                            'PhysicalSegmentLayout.escapeCharacter.',
                                             'type': 'string',
                                             'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/escapeCharacter'},
+                    'cdi:hasHeader': {'default': True,
+                                      'type': 'boolean',
+                                      'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasHeader'},
                     'cdi:headerIsCaseSensitive': {'default': False,
                                                   'description': 'Whether '
                                                                  'column '
@@ -54,6 +66,9 @@ Failed validating 'required' in schema['allOf'][1]:
                                                                  'PhysicalSegmentLayout.headerIsCaseSensitive.',
                                                   'type': 'boolean',
                                                   'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/headerIsCaseSensitive'},
+                    'cdi:headerRowCount': {'default': 1,
+                                           'type': 'integer',
+                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/headerRowCount'},
                     'cdi:isDelimited': {'description': 'Schema constraint '
                                                        'is that one of '
                                                        "{'isDelimited','isFixedWidth'} "
@@ -68,6 +83,52 @@ Failed validating 'required' in schema['allOf'][1]:
                                         'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isDelimited'},
                     'cdi:isFixedWidth': {'type': 'boolean',
                                          'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isFixedWidth'},
+                    'cdi:lineTerminator': {'description': 'Allowed line '
+                                                          'terminators, in '
+                                                          'order (default '
+                                                          '[CRLF, LF]).',
+                                           'items': {'type': 'string'},
+                                           'type': 'array',
+                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/lineTerminator'},
+                    'cdi:quoteCharacter': {'default': '"',
+                                           'type': 'string',
+                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/quoteCharacter'},
+                    'cdi:skipBlankRows': {'default': False,
+                                          'type': 'boolean',
+                                          'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipBlankRows'},
+                    'cdi:skipDataColumns': {'default': 0,
+                                            'type': 'integer',
+                                            'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipDataColumns'},
+                    'cdi:skipInitialSpace': {'default': True,
+                                             'type': 'boolean',
+                                             'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipInitialSpace'},
+                    'cdi:skipRows': {'default': 0,
+                                     'type': 'integer',
+                                     'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipRows'},
+                    'cdi:tableDirection': {'default': 'Auto',
+                                           'description': 'Direction in '
+                                                          'which columns '
+                                                          'are arranged in '
+                                                          'each row '
+                                                          '(DDI-CDI '
+                                                          'TabularTextDataSet.tableDirection, '
+                                                          'TableDirectionValues '
+                                                          'enumeration).',
+                                           'enum': ['Auto', 'Ltr', 'Rtl'],
+                                           'type': 'string',
+                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/tableDirection'},
+                    'cdi:textDirection': {'description': 'Reading order of '
+                                                         'text within '
+                                                         'cells (DDI-CDI '
+                                                         'TabularTextDataSet.textDirection, '
+                                                         'TextDirectionValues '
+                                                         'enumeration).',
+                                          'enum': ['Auto',
+                                                   'Inherit',
+                                                   'Ltr',
+                                                   'Rtl'],
+                                          'type': 'string',
+                                          'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/textDirection'},
                     'cdi:treatConsecutiveDelimitersAsOne': {'default': False,
                                                             'description': 'Whether '
                                                                            'consecutive '
@@ -84,6 +145,17 @@ Failed validating 'required' in schema['allOf'][1]:
                                                                            'PhysicalSegmentLayout.treatConsecutiveDelimitersAsOne.',
                                                             'type': 'boolean',
                                                             'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/treatConsecutiveDelimitersAsOne'},
+                    'cdi:trim': {'description': 'Which spaces to remove '
+                                                'from a data value '
+                                                '(DDI-CDI '
+                                                'TabularTextDataSet.trim, '
+                                                'TrimValues enumeration).',
+                                 'enum': ['Both',
+                                          'End',
+                                          'Neither',
+                                          'Start'],
+                                 'type': 'string',
+                                 'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/trim'},
                     'cdif:hasPhysicalMapping': {'description': 'Links '
                                                                'variables '
                                                                'to their '
@@ -95,123 +167,7 @@ Failed validating 'required' in schema['allOf'][1]:
                                                 'type': 'array',
                                                 'x-jsonld-id': 'https://w3id.org/cdif/hasPhysicalMapping'},
                     'countColumns': {'type': 'integer'},
-                    'countRows': {'type': 'integer'},
-                    'csvw:commentPrefix': {'description': 'An atomic '
-                                                          'property that '
-                                                          'sets the '
-                                                          'comment prefix '
-                                                          'flag to the '
-                                                          'single provided '
-                                                          'value, which '
-                                                          'MUST be a '
-                                                          'string. The '
-                                                          "default is '#'.",
-                                           'type': 'string'},
-                    'csvw:delimiter': {'description': 'Sets the delimiter '
-                                                      'flag to the single '
-                                                      'provided value, '
-                                                      'which MUST be a '
-                                                      'string. The default '
-                                                      "is ','.",
-                                       'type': 'string'},
-                    'csvw:header': {'description': 'If true, sets the '
-                                                   'header row count flag '
-                                                   'to 1, and if false to '
-                                                   '0, unless '
-                                                   'headerRowCount is '
-                                                   'provided, in which '
-                                                   'case the value '
-                                                   'provided for the '
-                                                   'header property is '
-                                                   'ignored. The default '
-                                                   'is true.',
-                                    'type': 'boolean'},
-                    'csvw:headerRowCount': {'default': 1,
-                                            'description': 'A numeric '
-                                                           'atomic '
-                                                           'property that '
-                                                           'sets the '
-                                                           'header row '
-                                                           'count flag to '
-                                                           'the single '
-                                                           'provided '
-                                                           'value, which '
-                                                           'MUST be a '
-                                                           'non-negative '
-                                                           'integer.',
-                                            'minimum': 0,
-                                            'type': 'integer'},
-                    'csvw:lineTerminators': {'enum': ['CRLF',
-                                                      'LF',
-                                                      '\r\n',
-                                                      '\n'],
-                                             'type': 'string'},
-                    'csvw:quoteChar': {'default': '"',
-                                       'description': 'Same as DDI-CDI '
-                                                      'quoteCharacter. The '
-                                                      'string that is used '
-                                                      'around escaped '
-                                                      'cells.',
-                                       'type': 'string'},
-                    'csvw:skipBlankRows': {'default': False,
-                                           'type': 'boolean'},
-                    'csvw:skipColumns': {'default': 0,
-                                         'description': 'The number of '
-                                                        'columns to skip '
-                                                        'at the beginning '
-                                                        'of each row.',
-                                         'type': 'integer'},
-                    'csvw:skipInitialSpace': {'default': True,
-                                              'type': 'boolean'},
-                    'csvw:skipRows': {'default': 0,
-                                      'description': 'The number of rows '
-                                                     'to skip at the '
-                                                     'beginning of the '
-                                                     'file, before a '
-                                                     'header row or '
-                                                     'tabular data.',
-                                      'type': 'integer'},
-                    'csvw:tableDirection': {'default': 'Ltr',
-                                            'description': 'Indicates the '
-                                                           'direction of '
-                                                           'the table '
-                                                           'layout '
-                                                           '(left-to-right '
-                                                           'or '
-                                                           'right-to-left). '
-                                                           'From DDI-CDI '
-                                                           'PhysicalSegmentLayout.tableDirection.',
-                                            'enum': ['Ltr', 'Rtl'],
-                                            'type': 'string'},
-                    'csvw:textDirection': {'default': 'Auto',
-                                           'description': 'Indicates '
-                                                          'whether the '
-                                                          'text within '
-                                                          'cells should be '
-                                                          'displayed as '
-                                                          'left-to-right, '
-                                                          'right-to-left, '
-                                                          'according to '
-                                                          'content, or '
-                                                          'inherited from '
-                                                          'the table '
-                                                          'direction. From '
-                                                          'DDI-CDI '
-                                                          'PhysicalSegmentLayout.textDirection.',
-                                           'enum': ['Auto',
-                                                    'Inherit',
-                                                    'Ltr',
-                                                    'Rtl'],
-                                           'type': 'string'},
-                    'csvw:trim': {'description': 'Indicates whether to '
-                                                 'trim whitespace around '
-                                                 "cells. 'true' "
-                                                 'corresponds to DDI-CDI '
-                                                 "'both' value, 'false' "
-                                                 'corresponds to DDI-CDI '
-                                                 "'neither' value.",
-                                  'enum': ['true', 'end', 'false', 'start'],
-                                  'type': 'string'}},
+                    'countRows': {'type': 'integer'}},
      'required': ['@type', 'cdif:hasPhysicalMapping'],
      'title': 'Tabular Data Type',
      'type': 'object',
@@ -251,8 +207,8 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   	Message: A TabularTextDataSet must have physical mappings (cdif:hasPhysicalMapping) linking variables to columns (required by the JSON Schema).
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl:
- - Shape cdifd:tabularDataShape: _:N124fa38bad874fecb0daea3e5a174127
  - Shape cdifd:tabularDataShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:tabularDataShape: _:Nb06559515225403280ee4b6bd96767ba
  - Shape cdifd:tabularDataShape/sh:or/rdf:first: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl:
@@ -262,51 +218,51 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl:
  - Shape cdifd:physicalMappingShape: *none*
 
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
+ - Shape skosv:prefLabelUniqueLangShape: *none*
+ - Shape skosv:ConceptShape: *none*
+ - Shape skosv:conceptBroaderNotSelfShape: *none*
+
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
- - Shape cdifd:CDIFDefinedTermShape: *none*
- - Shape _:n020eb15d54b44f07beb38e15d898ec40b5: *none*
- - Shape _:n020eb15d54b44f07beb38e15d898ec40b19: *none*
- - Shape _:n020eb15d54b44f07beb38e15d898ec40b7: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:n020eb15d54b44f07beb38e15d898ec40b10: *none*
- - Shape _:n020eb15d54b44f07beb38e15d898ec40b4: *none*
- - Shape _:n020eb15d54b44f07beb38e15d898ec40b8: *none*
- - Shape _:n020eb15d54b44f07beb38e15d898ec40b6: *none*
- - Shape _:n020eb15d54b44f07beb38e15d898ec40b26: *none*
+ - Shape _:na02b8d8b97de485682830b7d3f0b9c53b6: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:na02b8d8b97de485682830b7d3f0b9c53b5: *none*
+ - Shape _:na02b8d8b97de485682830b7d3f0b9c53b10: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape _:na02b8d8b97de485682830b7d3f0b9c53b19: *none*
+ - Shape _:na02b8d8b97de485682830b7d3f0b9c53b26: *none*
+ - Shape _:na02b8d8b97de485682830b7d3f0b9c53b4: *none*
+ - Shape _:na02b8d8b97de485682830b7d3f0b9c53b8: *none*
+ - Shape _:na02b8d8b97de485682830b7d3f0b9c53b7: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
- - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
- - Shape _:n31f3d7eddc1c412185b6c6da7f84826bb20: *none*
- - Shape _:n31f3d7eddc1c412185b6c6da7f84826bb11: *none*
- - Shape cdifd:CDIFIdentifierShape: *none*
- - Shape _:n31f3d7eddc1c412185b6c6da7f84826bb23: *none*
- - Shape _:n31f3d7eddc1c412185b6c6da7f84826bb10: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n1c07d744c3124434a6d55f429cff1d56b10: *none*
+ - Shape _:n1c07d744c3124434a6d55f429cff1d56b20: *none*
  - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:n31f3d7eddc1c412185b6c6da7f84826bb21: *none*
- - Shape _:n31f3d7eddc1c412185b6c6da7f84826bb22: *none*
+ - Shape cdifd:CDIFIdentifierShape: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n1c07d744c3124434a6d55f429cff1d56b23: *none*
+ - Shape _:n1c07d744c3124434a6d55f429cff1d56b25: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape _:n1c07d744c3124434a6d55f429cff1d56b21: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n1c07d744c3124434a6d55f429cff1d56b11: *none*
+ - Shape _:n1c07d744c3124434a6d55f429cff1d56b22: *none*
  - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
- - Shape _:n31f3d7eddc1c412185b6c6da7f84826bb25: *none*
-
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
- - Shape skosv:conceptBroaderNotSelfShape: *none*
- - Shape skosv:ConceptShape: *none*
- - Shape skosv:prefLabelUniqueLangShape: *none*
 
 Validation result for _sources/BaseSchema/spatialRegistration/rules.shacl:
   Validation Report

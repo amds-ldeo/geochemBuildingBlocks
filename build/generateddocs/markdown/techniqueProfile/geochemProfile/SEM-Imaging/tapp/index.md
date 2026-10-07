@@ -116,6 +116,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
       "schema:description": "FIB-SEM dual-beam",
       "ada:acceleratingVoltageDefault": "500 V; 1 kV; 5 kV",
       "ada:workingDistanceDefault": "0.5–5.4 mm",
+      "ada:mappingBeamCurrentDefault": "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -317,6 +318,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
       "schema:description": "FIB-SEM dual-beam",
       "ada:acceleratingVoltageDefault": "500 V; 1 kV; 5 kV",
       "ada:workingDistanceDefault": "0.5\u20135.4 mm",
+      "ada:mappingBeamCurrentDefault": "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -477,6 +479,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             schema1:name "Nova 200 NanoLab DualBeam" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "500 V; 1 kV; 5 kV" ;
+    ada:mappingBeamCurrentDefault "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)" ;
     ada:workingDistanceDefault "0.5–5.4 mm" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -614,6 +617,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       ],
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -815,6 +819,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       ],
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -913,15 +918,15 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -970,6 +975,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             schema1:name "ZEISS 1550VP" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "10 kV" ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -1100,6 +1106,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       ],
       "schema:description": "VP-SEM",
       "ada:acceleratingVoltageDefault": "20 kV",
+      "ada:mappingBeamCurrentDefault": "6 nA",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -1327,6 +1334,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       ],
       "schema:description": "VP-SEM",
       "ada:acceleratingVoltageDefault": "20 kV",
+      "ada:mappingBeamCurrentDefault": "6 nA",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -1457,17 +1465,17 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
@@ -1517,6 +1525,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             schema1:name "ZEISS 1550VP" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "20 kV" ;
+    ada:mappingBeamCurrentDefault "6 nA" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -1697,6 +1706,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
       ],
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -1920,6 +1930,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
       ],
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -2069,6 +2080,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             schema1:name "JSM-5410LV" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -2231,7 +2243,8 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:mappingBeamCurrentDefault": -9999
     }
   ],
   "schema:additionalProperty": [
@@ -2470,7 +2483,8 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:mappingBeamCurrentDefault": -9999
     }
   ],
   "schema:additionalProperty": [
@@ -2591,15 +2605,15 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
@@ -2634,10 +2648,10 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -2654,6 +2668,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             schema1:name "S-2500C" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15–20 kV" ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault "~10 mm" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -2803,6 +2818,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       ],
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -3004,6 +3020,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       ],
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -3159,6 +3176,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             schema1:name "Leo 440" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -3296,6 +3314,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -3497,6 +3516,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -3595,15 +3615,15 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -3652,6 +3672,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             schema1:name "Leo 1540 FIB/SEM CrossBeam" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -3790,6 +3811,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       ],
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -4005,6 +4027,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       ],
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -4175,6 +4198,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             schema1:name "Quanta 250" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -4320,6 +4344,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -4535,6 +4560,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -4705,6 +4731,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             schema1:name "SUPRA 55" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -4853,6 +4880,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -5058,6 +5086,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -5156,15 +5185,15 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -5217,6 +5246,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             schema1:name "1550VP" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -5358,6 +5388,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -5576,6 +5607,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -5686,17 +5718,17 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -5749,6 +5781,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             schema1:name "1550VP" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -5893,7 +5926,8 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:mappingBeamCurrentDefault": -9999
     }
   ],
   "schema:additionalProperty": [
@@ -6113,7 +6147,8 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:mappingBeamCurrentDefault": -9999
     }
   ],
   "schema:additionalProperty": [
@@ -6290,6 +6325,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             schema1:name "Supra 40" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "20 kV" ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault "8 mm" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -6434,6 +6470,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -6635,6 +6672,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -6790,6 +6828,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             schema1:name "Supra 40" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -6926,6 +6965,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       ],
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing"
     }
@@ -7133,6 +7173,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       ],
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing"
     }
@@ -7238,15 +7279,15 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -7297,6 +7338,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:name "7600F" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -7433,6 +7475,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing"
     }
@@ -7634,6 +7677,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing"
     }
@@ -7790,6 +7834,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:name "S-4800" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -7926,6 +7971,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing"
     }
@@ -8127,6 +8173,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:acceleratingVoltageDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing"
     }
@@ -8226,15 +8273,15 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -8283,6 +8330,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:name "S-4800" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -8429,6 +8477,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         }
       ],
       "ada:acceleratingVoltageDefault": "5 keV",
+      "ada:mappingBeamCurrentDefault": "1 to 4 nA",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -8646,6 +8695,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
         }
       ],
       "ada:acceleratingVoltageDefault": "5 keV",
+      "ada:mappingBeamCurrentDefault": "1 to 4 nA",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -8810,6 +8860,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:name "JSM-7000F" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "5 keV" ;
+    ada:mappingBeamCurrentDefault "1 to 4 nA" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
@@ -9239,8 +9290,18 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+              ada:mappingBeamCurrentDefault:
+                description: 'Electron beam probe current used while the beam scans
+                  an area: an X-ray or CL map, an EBSD map, or an SE or BSE image,
+                  including images taken during FIB-SEM work. For sub-nA values use
+                  decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling
+                  belong in the milling condition fields.'
+                anyOf:
+                - type: number
+                - type: string
             required:
             - ada:acceleratingVoltageDefault
+            - ada:mappingBeamCurrentDefault
             - ada:workingDistanceDefault
             - schema:description
             - schema:manufacturer

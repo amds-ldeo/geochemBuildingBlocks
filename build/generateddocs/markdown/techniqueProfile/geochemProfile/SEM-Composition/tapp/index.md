@@ -30,7 +30,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Genge2025",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v82.csv).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v83.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Al-Cu alloy phases; associated minerals — Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo",
     "ada:defaultTargetMaterials": [
@@ -48,6 +48,26 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -138,6 +158,9 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -268,7 +291,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Genge2025",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v82.csv).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v83.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Al-Cu alloy phases; associated minerals \u2014 Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo",
     "ada:defaultTargetMaterials": [
@@ -286,6 +309,26 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -376,6 +419,9 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -494,18 +540,18 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v82.csv)." ;
+    schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v83.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
@@ -538,6 +584,8 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ;
             ada:targetMaterialDeclaration "Al-Cu alloy phases; associated minerals — Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo" ] ;
     ada:wdsDeadTimeCorrection "missing" .
@@ -558,6 +606,9 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     ada:acceleratingVoltageDefault "10 kV" ;
     ada:beamDiameterDefault "N — the '0.1 μm beam diameter' (p.2) is the EPMA's, not the SEM's" ;
     ada:beamMode "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -586,6 +637,18 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     schema1:valueName "beamDamageMinimizationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -635,6 +698,26 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -725,6 +808,9 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -855,6 +941,26 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:name": "example instrumentName"
       },
       {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -943,6 +1049,9 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -1042,15 +1151,15 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -1083,6 +1192,8 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
@@ -1102,6 +1213,9 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
     ada:acceleratingVoltageDefault "15 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "all: Focused — 'The accelerating voltage was 15 kV and the beam current was 2.0 nA, with a focused beam' (p.2)" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -1123,6 +1237,18 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -1172,6 +1298,26 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -1262,6 +1408,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -1398,6 +1547,26 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:name": "example instrumentName"
       },
       {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1486,6 +1655,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -1634,6 +1806,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
@@ -1653,6 +1827,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -1674,6 +1851,18 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -1723,6 +1912,26 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -1813,6 +2022,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -1949,6 +2161,26 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:name": "example instrumentName"
       },
       {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2037,6 +2269,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -2142,15 +2377,15 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -2185,6 +2420,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
@@ -2204,6 +2441,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -2225,6 +2465,18 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -2274,6 +2526,26 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -2364,6 +2636,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -2676,6 +2951,26 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:name": "example instrumentName"
       },
       {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2764,6 +3059,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -3091,6 +3389,8 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -3135,6 +3435,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     ada:acceleratingVoltageDefault "20 kV" ;
     ada:beamDiameterDefault "N — a 30 μm aperture is stated (p.3), not a beam diameter" ;
     ada:beamMode "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -3170,6 +3473,18 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -3289,6 +3604,26 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:name": "example instrumentName"
       },
       {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3369,6 +3704,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       ],
       "schema:description": "ESEM",
       "ada:acceleratingVoltageDefault": "20 kV",
+      "ada:mappingBeamDiameterDefault": "N — a 60 μm aperture is stated (p.3), not a beam diameter",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -3377,6 +3713,8 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -3689,6 +4027,26 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:name": "example instrumentName"
       },
       {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3769,6 +4127,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       ],
       "schema:description": "ESEM",
       "ada:acceleratingVoltageDefault": "20 kV",
+      "ada:mappingBeamDiameterDefault": "N \u2014 a 60 \u03bcm aperture is stated (p.3), not a beam diameter",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -3777,6 +4136,8 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
@@ -4103,6 +4464,8 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
@@ -4157,6 +4520,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     ada:acceleratingVoltageDefault "20 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault "N — a 60 μm aperture is stated (p.3), not a beam diameter" ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -4185,6 +4551,18 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -4285,7 +4663,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol — Zega2025",
-  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v82.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
+  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v83.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Bennu particles"
@@ -4302,6 +4680,26 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -4391,6 +4789,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing"
     }
@@ -4519,7 +4920,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Zega2025",
-  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v82.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
+  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v83.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Bennu particles"
@@ -4536,6 +4937,26 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -4625,6 +5046,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing"
     }
@@ -4751,7 +5175,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v82.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
+    schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v83.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
@@ -4784,6 +5208,8 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
@@ -4807,6 +5233,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     ada:acceleratingVoltageDefault "15 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -4828,6 +5257,18 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -4877,6 +5318,26 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -4966,6 +5427,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing"
     }
@@ -5113,6 +5577,26 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:name": "example instrumentName"
       },
       {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -5200,6 +5684,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing"
     }
@@ -5359,12 +5846,14 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5382,6 +5871,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -5403,6 +5895,18 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -5450,6 +5954,26 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -5594,6 +6118,9 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing",
       "schema:manufacturer": {
@@ -5671,6 +6198,26 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -5815,6 +6362,9 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing",
       "schema:manufacturer": {
@@ -5865,15 +6415,15 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -5906,6 +6456,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ;
             ada:targetMaterialDeclaration "O-rich presolar grains — Asteroid (101955) Bennu aggregate QL particles; O-rich presolar silicate and oxide grains; sample OREX-501018-100" ] ;
     ada:wdsDeadTimeCorrection "missing" .
@@ -5926,6 +6478,9 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -5947,6 +6502,18 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Primary Calibration Standard Name" ;
@@ -5962,7 +6529,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
 $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)
 description: Scanning electron microscopy compositional microanalysis (EDS/WDS) extension
-  of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v82.csv
+  of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v83.csv
   via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -5988,6 +6555,68 @@ allOf:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
+            - title: Peak Counting Time
+              description: Time spent counting X-ray intensity at the peak position,
+                in seconds. Adjustments stay within procedure-defined bounds.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: peakCountingTime
+                schema:name:
+                  const: Peak Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Background Counting Time
+              description: Total time spent counting at off-peak background position(s)
+                in seconds, summed across all background positions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundCountingTime
+                schema:name:
+                  const: Background Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
             - title: Primary Calibration Standard Name
               description: "Name and reference material identifier of the primary
                 reference material(s) against which the instrument is calibrated \u2014
@@ -6026,6 +6655,74 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
+          - contains:
+              title: Peak Counting Time
+              description: Time spent counting X-ray intensity at the peak position,
+                in seconds. Adjustments stay within procedure-defined bounds.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: peakCountingTime
+                schema:name:
+                  const: Peak Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Background Counting Time
+              description: Total time spent counting at off-peak background position(s)
+                in seconds, summed across all background positions.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: backgroundCountingTime
+                schema:name:
+                  const: Background Counting Time
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
           - contains:
               title: Primary Calibration Standard Name
               description: "Name and reference material identifier of the primary
@@ -6295,10 +6992,39 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+              ada:mappingBeamMode:
+                description: Whether the electron beam was focused or defocused to
+                  a stated diameter during X-ray mapping. How the beam or stage moves
+                  across the mapped area is recorded by Stage Scan vs. Beam Scan and
+                  Step Size / Pixel Size.
+                anyOf:
+                - type: string
+                  enum:
+                  - Focused
+                  - Defocused
+                  - N/A
+                  - None
+                  - missing
+                - type: string
+                readOnly: true
+              ada:mappingBeamCurrentDefault:
+                description: Probe current in nanoamperes (nA) used during X-ray mapping.
+                anyOf:
+                - type: number
+                - type: string
+              ada:mappingBeamDiameterDefault:
+                description: Diameter of the electron beam in micrometres during X-ray
+                  mapping. 0 indicates a fully focused beam.
+                anyOf:
+                - type: number
+                - type: string
             required:
             - ada:acceleratingVoltageDefault
             - ada:beamDiameterDefault
             - ada:beamMode
+            - ada:mappingBeamCurrentDefault
+            - ada:mappingBeamDiameterDefault
+            - ada:mappingBeamMode
             - ada:workingDistanceDefault
             - schema:description
             - schema:manufacturer
@@ -7755,80 +8481,6 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: Peak Counting Time
-              description: Time spent counting X-ray intensity at the peak position,
-                in seconds. Adjustments stay within procedure-defined bounds.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/semCompositionTAPP/peakCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: peakCountingTime
-                schema:name:
-                  const: Peak Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Background Counting Time
-              description: Total time spent counting at off-peak background position(s)
-                in seconds, summed across all background positions.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundCountingTime
-                schema:name:
-                  const: Background Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative
                 to the peak, in mm or sin-theta, and whether on the high- or low-energy
@@ -8125,86 +8777,6 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Peak Counting Time
-              description: Time spent counting X-ray intensity at the peak position,
-                in seconds. Adjustments stay within procedure-defined bounds.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/semCompositionTAPP/peakCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: peakCountingTime
-                schema:name:
-                  const: Peak Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Background Counting Time
-              description: Total time spent counting at off-peak background position(s)
-                in seconds, summed across all background positions.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundCountingTime
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: backgroundCountingTime
-                schema:name:
-                  const: Background Counting Time
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             minContains: 0
             maxContains: 1
           - contains:

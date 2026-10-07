@@ -305,6 +305,11 @@
                         "type": "object"
                       },
                       "x-jsonld-id": "http://schema.org/additionalProperty"
+                    },
+                    "ada:spatialRegistration": {
+                      "description": "The coordinate system defined ON the sample -- typically a planar thin section -- that image pixel coordinates are registered to. Distinct from the ada:spatialRegistration on an image or imageMap part, which maps pixel coordinates WITHIN one file: this one is the frame those are registered to, and is what lets two images of the same section be compared. Optional, and no record carries it yet.",
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.json",
+                      "x-jsonld-id": "https://ada.astromat.org/metadata/spatialRegistration"
                     }
                   }
                 },

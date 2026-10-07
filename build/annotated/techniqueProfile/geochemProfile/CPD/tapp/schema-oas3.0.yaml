@@ -3578,6 +3578,17 @@ x-defs:
                       items:
                         type: object
                       x-jsonld-id: http://schema.org/additionalProperty
+                    ada:spatialRegistration:
+                      description: 'The coordinate system defined ON the sample --
+                        typically a planar thin section -- that image pixel coordinates
+                        are registered to. Distinct from the ada:spatialRegistration
+                        on an image or imageMap part, which maps pixel coordinates
+                        WITHIN one file: this one is the frame those are registered
+                        to, and is what lets two images of the same section be compared.
+                        Optional, and no record carries it yet.'
+                      x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
+                      allOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/CPD/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.spatialRegistration
                 x-jsonld-id: http://schema.org/object
               schema:identifier:
                 description: The analytical session's own identifier -- the laboratory's
@@ -5451,6 +5462,53 @@ x-defs:
                 schema:unitText:
                   type: string
                   description: Unit of measure for size (e.g. 'byte').
+            schema:width:
+              type: object
+              description: Pixel width of a raster file, as a QuantitativeValue. schema:width
+                has schema:MediaObject in its domain, which a part here is required
+                to be, so no more specific type such as schema:ImageObject is needed.
+                A QuantitativeValue rather than a bare number because the same property
+                carries physical dimensions elsewhere, so the unit has to be stated
+                -- and because schema:size beside it already takes this shape.
+              properties:
+                '@type':
+                  type: array
+                  items:
+                    type: string
+                  contains:
+                    enum:
+                    - schema:QuantitativeValue
+                  minItems: 1
+                schema:value:
+                  type: number
+                  description: Width in pixels.
+                schema:unitText:
+                  type: string
+                  description: Unit of measure (e.g. 'pixel').
+            schema:height:
+              type: object
+              description: Pixel height of a raster file, as a QuantitativeValue.
+                schema:height has schema:MediaObject in its domain, which a part here
+                is required to be, so no more specific type such as schema:ImageObject
+                is needed. A QuantitativeValue rather than a bare number because the
+                same property carries physical dimensions elsewhere, so the unit has
+                to be stated -- and because schema:size beside it already takes this
+                shape.
+              properties:
+                '@type':
+                  type: array
+                  items:
+                    type: string
+                  contains:
+                    enum:
+                    - schema:QuantitativeValue
+                  minItems: 1
+                schema:value:
+                  type: number
+                  description: Height in pixels.
+                schema:unitText:
+                  type: string
+                  description: Unit of measure (e.g. 'pixel').
             schema:about:
               type: array
               description: For metadata sidecar files, references the data file this
@@ -5561,6 +5619,60 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+  ogch.BaseSchema.spatialRegistration:
+    title: Spatial Registration Type
+    description: Defines pixel coordinate system registration including origin coordinates,
+      pixel scales, and coordinate definition type for spatially registered images
+      and maps.
+    type: object
+    properties:
+      ada:basemap:
+        type: string
+        description: link to appropriate basemap image map
+        x-jsonld-id: https://ada.astromat.org/metadata/basemap
+      ada:originX:
+        type: number
+        x-jsonld-id: https://ada.astromat.org/metadata/originX
+      ada:originY:
+        type: number
+        x-jsonld-id: https://ada.astromat.org/metadata/originY
+      ada:originZ:
+        type: number
+        x-jsonld-id: https://ada.astromat.org/metadata/originZ
+      ada:coordDef:
+        type: string
+        description: Whether coordinates are stage-defined or pixel-defined. If pixel-defined,
+          are coordinates from stage, upperleftPixel, or centerPixel.
+        x-jsonld-id: https://ada.astromat.org/metadata/coordDef
+      ada:coordUnits:
+        type: string
+        x-jsonld-id: https://ada.astromat.org/metadata/coordUnits
+      ada:pixelUnits:
+        type: string
+        x-jsonld-id: https://ada.astromat.org/metadata/pixelUnits
+      ada:pixelScaleX:
+        type: number
+        x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleX
+      ada:pixelScaleY:
+        type: number
+        x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleY
+      ada:originLocation:
+        type: string
+        description: 'The location of the origin pixel of an image. Range: upperLeft,
+          upperRight, lowerLeft, lowerRight, center'
+        x-jsonld-id: https://ada.astromat.org/metadata/originLocation
+    required:
+    - ada:originX
+    - ada:originY
+    - ada:pixelScaleX
+    - ada:pixelScaleY
+    - ada:pixelUnits
+    - ada:originLocation
+    - ada:coordDef
+    x-jsonld-prefixes:
+      ada: https://ada.astromat.org/metadata/
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure:
     title: DDI-CDI Data Structure
@@ -6628,6 +6740,58 @@ x-defs:
         description: File size of this distribution, e.g. '2.5 MB' or a byte count.
           Per schema.org/contentSize.
         x-jsonld-id: http://schema.org/contentSize
+      schema:width:
+        type: object
+        description: Pixel width of this distribution when it is a single raster file,
+          as a QuantitativeValue. schema:width has schema:MediaObject in its domain.
+          A QuantitativeValue rather than a bare number because the same property
+          carries physical dimensions elsewhere, so the unit has to be stated. (schema:contentSize
+          above is a plain string for historical reasons; that inconsistency is left
+          alone rather than widened.)
+        properties:
+          '@type':
+            type: array
+            items:
+              type: string
+            contains:
+              enum:
+              - schema:QuantitativeValue
+            minItems: 1
+          schema:value:
+            type: number
+            description: Width in pixels.
+            x-jsonld-id: http://schema.org/value
+          schema:unitText:
+            type: string
+            description: Unit of measure, e.g. 'pixel'.
+            x-jsonld-id: http://schema.org/unitText
+        x-jsonld-id: http://schema.org/width
+      schema:height:
+        type: object
+        description: Pixel height of this distribution when it is a single raster
+          file, as a QuantitativeValue. schema:height has schema:MediaObject in its
+          domain. A QuantitativeValue rather than a bare number because the same property
+          carries physical dimensions elsewhere, so the unit has to be stated. (schema:contentSize
+          above is a plain string for historical reasons; that inconsistency is left
+          alone rather than widened.)
+        properties:
+          '@type':
+            type: array
+            items:
+              type: string
+            contains:
+              enum:
+              - schema:QuantitativeValue
+            minItems: 1
+          schema:value:
+            type: number
+            description: Height in pixels.
+            x-jsonld-id: http://schema.org/value
+          schema:unitText:
+            type: string
+            description: Unit of measure, e.g. 'pixel'.
+            x-jsonld-id: http://schema.org/unitText
+        x-jsonld-id: http://schema.org/height
       spdx:checksum:
         type: object
         description: A string value calculated from the content of the resource representation,
@@ -8440,25 +8604,22 @@ x-defs:
       cdi:arrayBase:
         type: integer
         x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/arrayBase
-      csvw:commentPrefix:
+      cdi:commentPrefix:
         type: string
-        description: An atomic property that sets the comment prefix flag to the single
-          provided value, which MUST be a string. The default is '#'.
-      csvw:delimiter:
+        description: Character(s) that mark a line as a comment.
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/commentPrefix
+      cdi:delimiter:
         type: string
-        description: Sets the delimiter flag to the single provided value, which MUST
-          be a string. The default is ','.
-      csvw:header:
+        description: Field delimiter (e.g., "," or tab).
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/delimiter
+      cdi:hasHeader:
         type: boolean
-        description: If true, sets the header row count flag to 1, and if false to
-          0, unless headerRowCount is provided, in which case the value provided for
-          the header property is ignored. The default is true.
-      csvw:headerRowCount:
+        default: true
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasHeader
+      cdi:headerRowCount:
         type: integer
-        minimum: 0
         default: 1
-        description: A numeric atomic property that sets the header row count flag
-          to the single provided value, which MUST be a non-negative integer.
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/headerRowCount
       cdi:isDelimited:
         type: boolean
         description: Schema constraint is that one of {'isDelimited','isFixedWidth'}
@@ -8468,35 +8629,32 @@ x-defs:
       cdi:isFixedWidth:
         type: boolean
         x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isFixedWidth
-      csvw:lineTerminators:
-        type: string
-        enum:
-        - CRLF
-        - LF
-        - "\r\n"
-        - '
-
-          '
-      csvw:quoteChar:
+      cdi:lineTerminator:
+        type: array
+        items:
+          type: string
+        description: Allowed line terminators, in order (default [CRLF, LF]).
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/lineTerminator
+      cdi:quoteCharacter:
         type: string
         default: '"'
-        description: Same as DDI-CDI quoteCharacter. The string that is used around
-          escaped cells.
-      csvw:skipBlankRows:
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/quoteCharacter
+      cdi:skipBlankRows:
         type: boolean
         default: false
-      csvw:skipColumns:
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipBlankRows
+      cdi:skipDataColumns:
         type: integer
         default: 0
-        description: The number of columns to skip at the beginning of each row.
-      csvw:skipInitialSpace:
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipDataColumns
+      cdi:skipInitialSpace:
         type: boolean
         default: true
-      csvw:skipRows:
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipInitialSpace
+      cdi:skipRows:
         type: integer
-        description: The number of rows to skip at the beginning of the file, before
-          a header row or tabular data.
         default: 0
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipRows
       cdi:escapeCharacter:
         type: string
         description: The character used to escape special characters in the data.
@@ -8514,34 +8672,36 @@ x-defs:
         description: Whether consecutive delimiters should be treated as a single
           delimiter. From DDI-CDI PhysicalSegmentLayout.treatConsecutiveDelimitersAsOne.
         x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/treatConsecutiveDelimitersAsOne
-      csvw:tableDirection:
+      cdi:tableDirection:
         type: string
+        default: Auto
         enum:
+        - Auto
         - Ltr
         - Rtl
-        default: Ltr
-        description: Indicates the direction of the table layout (left-to-right or
-          right-to-left). From DDI-CDI PhysicalSegmentLayout.tableDirection.
-      csvw:textDirection:
+        description: Direction in which columns are arranged in each row (DDI-CDI
+          TabularTextDataSet.tableDirection, TableDirectionValues enumeration).
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/tableDirection
+      cdi:textDirection:
         type: string
         enum:
         - Auto
         - Inherit
         - Ltr
         - Rtl
-        default: Auto
-        description: Indicates whether the text within cells should be displayed as
-          left-to-right, right-to-left, according to content, or inherited from the
-          table direction. From DDI-CDI PhysicalSegmentLayout.textDirection.
-      csvw:trim:
+        description: Reading order of text within cells (DDI-CDI TabularTextDataSet.textDirection,
+          TextDirectionValues enumeration).
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/textDirection
+      cdi:trim:
         type: string
         enum:
-        - 'true'
-        - end
-        - 'false'
-        - start
-        description: Indicates whether to trim whitespace around cells. 'true' corresponds
-          to DDI-CDI 'both' value, 'false' corresponds to DDI-CDI 'neither' value.
+        - Both
+        - End
+        - Neither
+        - Start
+        description: Which spaces to remove from a data value (DDI-CDI TabularTextDataSet.trim,
+          TrimValues enumeration).
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/trim
       cdif:hasPhysicalMapping:
         type: array
         description: Links variables to their physical representation in this dataset.
@@ -9212,60 +9372,6 @@ x-defs:
       cdif: https://w3id.org/cdif/
       cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifDataStructureComponent/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
-  ogch.BaseSchema.spatialRegistration:
-    title: Spatial Registration Type
-    description: Defines pixel coordinate system registration including origin coordinates,
-      pixel scales, and coordinate definition type for spatially registered images
-      and maps.
-    type: object
-    properties:
-      ada:basemap:
-        type: string
-        description: link to appropriate basemap image map
-        x-jsonld-id: https://ada.astromat.org/metadata/basemap
-      ada:originX:
-        type: number
-        x-jsonld-id: https://ada.astromat.org/metadata/originX
-      ada:originY:
-        type: number
-        x-jsonld-id: https://ada.astromat.org/metadata/originY
-      ada:originZ:
-        type: number
-        x-jsonld-id: https://ada.astromat.org/metadata/originZ
-      ada:coordDef:
-        type: string
-        description: Whether coordinates are stage-defined or pixel-defined. If pixel-defined,
-          are coordinates from stage, upperleftPixel, or centerPixel.
-        x-jsonld-id: https://ada.astromat.org/metadata/coordDef
-      ada:coordUnits:
-        type: string
-        x-jsonld-id: https://ada.astromat.org/metadata/coordUnits
-      ada:pixelUnits:
-        type: string
-        x-jsonld-id: https://ada.astromat.org/metadata/pixelUnits
-      ada:pixelScaleX:
-        type: number
-        x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleX
-      ada:pixelScaleY:
-        type: number
-        x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleY
-      ada:originLocation:
-        type: string
-        description: 'The location of the origin pixel of an image. Range: upperLeft,
-          upperRight, lowerLeft, lowerRight, center'
-        x-jsonld-id: https://ada.astromat.org/metadata/originLocation
-    required:
-    - ada:originX
-    - ada:originY
-    - ada:pixelScaleX
-    - ada:pixelScaleY
-    - ada:pixelUnits
-    - ada:originLocation
-    - ada:coordDef
-    x-jsonld-prefixes:
-      ada: https://ada.astromat.org/metadata/
-    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.skosProperties.skosConcept:
     title: SKOS Concept
