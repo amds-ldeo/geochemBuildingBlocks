@@ -5065,11 +5065,70 @@
                             }
                           }
                         },
-                        "countRows": {
-                          "type": "integer"
-                        },
-                        "countColumns": {
-                          "type": "integer"
+                        "schema:additionalProperty": {
+                          "description": "Soft-typed extension properties. The row and column counts live here rather than as bare properties, so that each carries a schema:propertyID identifying the concept it quantifies - DDI Discovery caseQuantity for the row count and variableQuantity for the column count. As bare unprefixed `countRows`/`countColumns` they were the only two properties on this class with no namespace and no definition, so nothing said what they meant or tied them to a vocabulary.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "title": "additionalProperty PropertyValue",
+                            "description": "PropertyValue values required to define a soft-typed property with a value. ",
+                            "properties": {
+                              "@type": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "contains": {
+                                  "const": "schema:PropertyValue"
+                                },
+                                "minItems": 1
+                              },
+                              "schema:propertyID": {
+                                "type": "array",
+                                "items": {
+                                  "$ref": "#/$defs/propertyID_item"
+                                },
+                                "minItems": 1,
+                                "description": "identifier or name for the property concept quantified by the values in this variable slot. Multiple values can specify the property at different levels of granularity."
+                              },
+                              "schema:name": {
+                                "type": "string"
+                              },
+                              "schema:value": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "number"
+                                  },
+                                  {
+                                    "type": "boolean"
+                                  },
+                                  {
+                                    "type": "object"
+                                  }
+                                ]
+                              },
+                              "schema:unitCode": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "$ref": "#/$defs/AdditionalProperty_DefinedTerm"
+                                  }
+                                ]
+                              },
+                              "schema:unitText": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "schema:name",
+                              "schema:value"
+                            ]
+                          }
                         }
                       },
                       "oneOf": [
@@ -10316,26 +10375,7 @@
                         "schema:propertyID": {
                           "type": "array",
                           "items": {
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "object",
-                                "required": [
-                                  "@id"
-                                ],
-                                "additionalProperties": false,
-                                "properties": {
-                                  "@id": {
-                                    "type": "string"
-                                  }
-                                }
-                              },
-                              {
-                                "$ref": "#/$defs/AdditionalProperty_DefinedTerm"
-                              }
-                            ]
+                            "$ref": "#/$defs/propertyID_item"
                           },
                           "minItems": 1,
                           "description": "identifier or name for the property concept quantified by the values in this variable slot. Multiple values can specify the property at different levels of granularity."
@@ -19364,11 +19404,70 @@
                                       }
                                     }
                                   },
-                                  "countRows": {
-                                    "type": "integer"
-                                  },
-                                  "countColumns": {
-                                    "type": "integer"
+                                  "schema:additionalProperty": {
+                                    "description": "Soft-typed extension properties. The row and column counts live here rather than as bare properties, so that each carries a schema:propertyID identifying the concept it quantifies - DDI Discovery caseQuantity for the row count and variableQuantity for the column count. As bare unprefixed `countRows`/`countColumns` they were the only two properties on this class with no namespace and no definition, so nothing said what they meant or tied them to a vocabulary.",
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "title": "additionalProperty PropertyValue",
+                                      "description": "PropertyValue values required to define a soft-typed property with a value. ",
+                                      "properties": {
+                                        "@type": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "string"
+                                          },
+                                          "contains": {
+                                            "const": "schema:PropertyValue"
+                                          },
+                                          "minItems": 1
+                                        },
+                                        "schema:propertyID": {
+                                          "type": "array",
+                                          "items": {
+                                            "$ref": "#/$defs/propertyID_item"
+                                          },
+                                          "minItems": 1,
+                                          "description": "identifier or name for the property concept quantified by the values in this variable slot. Multiple values can specify the property at different levels of granularity."
+                                        },
+                                        "schema:name": {
+                                          "type": "string"
+                                        },
+                                        "schema:value": {
+                                          "anyOf": [
+                                            {
+                                              "type": "string"
+                                            },
+                                            {
+                                              "type": "number"
+                                            },
+                                            {
+                                              "type": "boolean"
+                                            },
+                                            {
+                                              "type": "object"
+                                            }
+                                          ]
+                                        },
+                                        "schema:unitCode": {
+                                          "anyOf": [
+                                            {
+                                              "type": "string"
+                                            },
+                                            {
+                                              "$ref": "#/$defs/AdditionalProperty_DefinedTerm"
+                                            }
+                                          ]
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
+                                    }
                                   }
                                 },
                                 "oneOf": [
@@ -37110,26 +37209,7 @@
         "schema:propertyID": {
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              },
-              {
-                "$ref": "#/$defs/AdditionalProperty_DefinedTerm"
-              }
-            ]
+            "$ref": "#/$defs/propertyID_item"
           },
           "minItems": 1,
           "description": "identifier or name for the property concept quantified by the values in this variable slot. Multiple values can specify the property at different levels of granularity."
@@ -39820,6 +39900,28 @@
       "required": [
         "@value",
         "@language"
+      ]
+    },
+    "propertyID_item": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "required": [
+            "@id"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "@id": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/AdditionalProperty_DefinedTerm"
+        }
       ]
     },
     "AdditionalProperty_DefinedTerm": {
