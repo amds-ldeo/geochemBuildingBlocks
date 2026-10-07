@@ -261,16 +261,32 @@ correct a mistake in one. `adaProfile/QRIS` named a detail block in its descript
 referenced it nowhere for as long as the file existed, for exactly that reason (fixed 2026-09-05,
 `1db480deb`).
 
-Where the supersession has reached, measured 2026-10-07:
+Where the supersession has reached: **all 9 now have a TAPP-based `profile/`** — EPMA, SEM, TEM
+and XCT already did, and QRIS, RAMAN, VNMIR, XANES and XRD were generated 2026-10-07. Nothing had
+been missing but a `build_profile.PROFILES` entry; all five already had `tapp/`, `detail/` and
+`component_types`, and PROFILES membership is the only gate (`regenerate.py` skips
+profile-1/profile-2 for a technique with no entry). Repo-wide that takes TAPP-based `profile/`
+from 29 to **34 of 59** techniques.
 
-| | techniques |
-|---|---|
-| `profile-ada` WITH a TAPP-based `profile/` — superseded | EPMA, SEM, TEM, XCT (4) |
-| `profile-ada` with NO TAPP `profile/` yet — still load-bearing | QRIS, RAMAN, VNMIR, XANES, XRD (5) |
+So every `profile-ada` under `geochemProfile/` now has a replacement, and what remains before any
+of them can be retired is the record-migration question below — not schema work. The 32
+`adaProfile/` technique directories are a separate and larger job.
 
-All 9 already have `tapp/` and `detail/`, so the TAPP machinery exists for every one; only the
-replacement `profile/` is missing for those five. Repo-wide, 29 of 59 techniques have a
-TAPP-based `profile/`.
+> **`addtype` is the real decision in a PROFILES entry, and it must be answered from the corpus.**
+> `addtype[0]` is written into the generated example, so a profile whose head label no record
+> carries rejects its own records — which is what EPMA did by holding two acronym forms and never
+> its sentence-case partner. Harvest candidates from the legacy `profile-ada`, filter to values
+> that exist in adaProduct's controlled list (coining one is inventing a product type), then order
+> by record count. Counted over 7446 rows of `public.json_table` on 2026-10-07, the head label is
+> `X-ray diffraction` (66) not `X-ray Diffraction (XRD) Tabular` (0),
+> `X-ray absorption near edge structure (XANES) spectroscopy` (245) not the Image Stack form (0),
+> and `Visible, near-, and mid-infrared spectroscopy` (183) not any acronym form (0) — the
+> sentence-case name every time.
+>
+> **Give the TAPP profile a DIFFERENT `cid` from the legacy one.** These five take `ada<TECH>`
+> against the legacy `ada<TECH>Full`. Two schemas claiming one `conformsTo` URI is a fork whose
+> winner is read order, and EPMA and TEM are already in that state: their `profile-ada` and their
+> `profile/` both declare `adaEPMA` / `adaTEM`.
 
 **Superseded in intent is NOT superseded in use — but not for the reason you would guess.**
 **No record declares `dcterms:conformsTo` at all**: 0 of 7446 in `public.json_table`, measured
