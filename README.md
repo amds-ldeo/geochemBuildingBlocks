@@ -174,6 +174,10 @@ Four workflows live in `.github/workflows/`. Three report a check on every pull 
 `process-bblocks.yml` is the fourth. It runs on pushes to `main` and produces the published
 `build/` tree.
 
+> **[docs/SILENT_SUCCESS.md](docs/SILENT_SUCCESS.md)** catalogues the incidents behind this
+> setup — six cases where something in this pipeline reported success while not doing its job,
+> what exposed each one, and the rule that follows. Read it before changing a check or a trigger.
+
 Two consequences worth knowing before editing any of them:
 
 - **A required workflow must not carry a `paths:` filter.** A required check that never runs is
