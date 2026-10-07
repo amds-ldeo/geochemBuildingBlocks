@@ -5,6 +5,27 @@ on:
     branches:
       - main
 
+# Only one postprocess at a time. The `stage` job force-resets a SHARED branch, so two
+# overlapping runs fight over it -- and that is not hypothetical: on 2026-10-07 the runs for
+# 10108f46d and c058e1a3f overlapped, the newer one won the branch, and the older one was
+# rejected with
+#
+#   ! [remote rejected] HEAD -> bblocks-build (refusing to allow a GitHub App to create or
+#     update workflow `.github/workflows/deploy-viewer.yml` without `workflows` permission)
+#
+# because pushing its older tree would have rolled a workflow file BACKWARDS relative to the
+# default branch. GITHUB_TOKEN may push a branch whose workflow files match the default
+# branch, but not one that changes them, and `workflows` is not a grantable key in the
+# permissions block above -- so the only fix is to not race.
+#
+# cancel-in-progress is FALSE deliberately: a run that has already pushed to bblocks-build
+# should finish and open its PR rather than be killed half-way, leaving the branch populated
+# and nothing proposed. The reusable workflow has its own internal concurrency group, but that
+# covers only its own job, not stage/open-pr.
+concurrency:
+  group: postprocess-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pages: write
@@ -70,8 +91,15 @@ jobs:
 
       # Reset the staging branch to main so the postprocess regenerates from current source
       # rather than from whatever the last run left behind.
-      - name: Reset bblocks-build to main
-        run: git push --force origin HEAD:refs/heads/bblocks-build
+      # Push the CURRENT tip of main, not the checked-out triggering SHA. With the
+      # concurrency group above a run should no longer be stale, but if main has moved anyway,
+      # pushing the older commit is exactly the push GITHUB_TOKEN is refused -- its workflow
+      # files would differ from the default branch. Building the newer source is also simply
+      # more correct: build/ should describe main as it is now.
+      - name: Reset bblocks-build to the current tip of main
+        run: |
+          git fetch origin main
+          git push --force origin origin/main:refs/heads/bblocks-build
 
   validate-and-process:
     needs: stage
