@@ -127,6 +127,54 @@ PROFILES = {
         addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Multi-Collector Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA Solution MC-ICP-MS Product Profile"),
 
+    # --- The five techniques whose only profile was the PRE-TAPP profile-ada (added 2026-10-07) --
+    # Each already had tapp/, detail/ and component_types; the ONLY thing missing was an entry
+    # here, so these five directories carried a legacy profile-ada and no TAPP-based profile.
+    #
+    # cid: the legacy profile-ada declares ada<TECH>Full, so the TAPP profile takes ada<TECH>.
+    # They must DIFFER -- two schemas claiming one conformsTo URI is a fork whose winner is read
+    # order, and EPMA and TEM are already in that state (their legacy profile-ada and their
+    # profile/ both say adaEPMA / adaTEM). Not reproducing that here.
+    #
+    # addtype: harvested from each legacy profile-ada, then filtered to values that actually
+    # exist in adaProduct's 114-value controlled list, then ORDERED by what real records carry
+    # (counted over 7446 rows of public.json_table, 2026-10-07). addtype[0] goes into the
+    # generated example, and a profile whose head label no record uses rejects its own records --
+    # the mistake EPMA made by carrying two acronym forms and never its sentence-case partner.
+    # For VNMIR, XANES and XRD the sentence-case technique name is the one records use and every
+    # acronym form scores 0.
+    "qrisTAPP": dict(dir="QRIS", short="QRIS", cid="adaQRIS",
+        # 13 records carry the Calibrated form; the two bare forms score 0. NOTE adaProduct's
+        # list spells this BOTH ways -- "Reflectance" and "Reflective" -- which is a curation
+        # question, not something to resolve by picking one here, so both are kept.
+        addtype=["Quantitative Reflective Imaging System (QRIS) Calibrated",
+                 "Quantitative Reflective Imaging System (QRIS)",
+                 "Quantitative Reflectance Imaging System"],
+        title="ADA QRIS Product Profile"),
+    "ramanTAPP": dict(dir="RAMAN", short="RAMAN", cid="adaRAMAN",
+        # The legacy profile-ada declares exactly one label, and 8 records carry it.
+        addtype=["Raman vibrational spectroscopy"],
+        title="ADA Raman Product Profile"),
+    "vnmirTAPP": dict(dir="VNMIR", short="VNMIR", cid="adaVNMIR",
+        # 183 records carry the sentence-case name. Two labels in the legacy profile-ada --
+        # "(VNMIR) Overview Image" and "(VNMIR) Spectral Map" -- are NOT in adaProduct's
+        # controlled list, so they are omitted: an addtype value absent from that list can never
+        # satisfy the allOf, and coining it here would be inventing a product type. Both are
+        # real component_types (ada:VNMIROverviewImage, ada:VNMIRSpectralMap), so the gap is in
+        # adaProduct's product labels and belongs upstream of this file.
+        addtype=["Visible, near-, and mid-infrared spectroscopy",
+                 "Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Point"],
+        title="ADA VNMIR Product Profile"),
+    "xanesTAPP": dict(dir="XANES", short="XANES", cid="adaXANES",
+        # 245 records carry the sentence-case name; the Image Stack form scores 0.
+        addtype=["X-ray absorption near edge structure (XANES) spectroscopy",
+                 "X-ray Absorption Near Edge Structure Hyperspectral Image Stack (XANES)"],
+        title="ADA XANES Product Profile"),
+    "xrdTAPP": dict(dir="XRD", short="XRD", cid="adaXRD",
+        # 66 records carry "X-ray diffraction"; the Tabular form scores 0.
+        addtype=["X-ray diffraction", "X-ray Diffraction (XRD) Tabular"],
+        title="ADA XRD Product Profile"),
+
     # --- TEMPLATES: the thirteen techniques with no product-type labels anywhere -------------
     # Every draft needs a PROFILES entry to get a geochem profile (geochemProduct + the technique
     # tapp + its detail). Thirty of the forty-three already have labels to harvest -- in
