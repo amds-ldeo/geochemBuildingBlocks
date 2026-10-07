@@ -963,8 +963,8 @@
           ]
         },
         "schema:actionProcess": {
-          "$ref": "#/$defs/WorkflowHowTo",
-          "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps."
+          "$ref": "#/$defs/MethodWorkflowHowTo",
+          "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps. Exactly one step must be the sample-preparation step -- see MethodWorkflowHowTo."
         },
         "schema:additionalProperty": {
           "type": "array",
@@ -2676,67 +2676,43 @@
         }
       ]
     },
-    "WorkflowHowTo": {
-      "type": "object",
-      "description": "The method's standard workflow expressed as a schema:HowTo. Contains an ordered array of workflow steps in schema:step, where each step is a cdi:Activity + schema:Action.",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:HowTo"
-          },
-          "minItems": 1
+    "MethodWorkflowHowTo": {
+      "description": "A method's standard workflow: a WorkflowHowTo that must also include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.\nSeparate from WorkflowHowTo because that shape is ALSO the sub-workflow of a single step (WorkflowStep.schema:actionProcess), and requiring sample preparation there is wrong -- a step's sub-workflow is the breakdown of that one step, so a sample-preparation step broken into mount / grind / polish / coat would have needed a nested \"Sample preparation\" inside itself. Both references pointed at one $def, so the method's requirement reached every sub-workflow. Nothing exercised it, as no example nests a sub-workflow.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/WorkflowHowTo"
         },
-        "@id": {
-          "type": "string"
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "Name of the workflow (e.g. \"EPMA WDS analytical workflow\")."
-        },
-        "schema:description": {
-          "type": "string",
-          "description": "Overview of the workflow."
-        },
-        "schema:url": {
-          "type": "string",
-          "format": "uri",
-          "description": "URL to a published protocol document."
-        },
-        "schema:step": {
-          "type": "array",
-          "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure. Must include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.",
-          "items": {
-            "$ref": "#/$defs/WorkflowStep"
-          },
-          "contains": {
-            "type": "object",
-            "description": "a sample preparation step is required.",
-            "properties": {
-              "schema:name": {
-                "const": "Sample preparation"
+        {
+          "type": "object",
+          "properties": {
+            "schema:step": {
+              "type": "array",
+              "contains": {
+                "type": "object",
+                "description": "a sample preparation step is required.",
+                "properties": {
+                  "schema:name": {
+                    "const": "Sample preparation"
+                  },
+                  "schema:additionalType": {
+                    "type": "array",
+                    "contains": {
+                      "const": "bios:LabProcess"
+                    }
+                  }
+                },
+                "required": [
+                  "schema:name",
+                  "schema:additionalType"
+                ]
               },
-              "schema:additionalType": {
-                "type": "array",
-                "contains": {
-                  "const": "bios:LabProcess"
-                }
-              }
-            },
-            "required": [
-              "schema:name",
-              "schema:additionalType"
-            ]
+              "maxContains": 1
+            }
           },
-          "maxContains": 1
+          "required": [
+            "schema:step"
+          ]
         }
-      },
-      "required": [
-        "@type",
-        "schema:step"
       ]
     },
     "MethodParameter": {
@@ -6176,178 +6152,47 @@
         "skos:inScheme"
       ]
     },
-    "WorkflowStep": {
+    "WorkflowHowTo": {
       "type": "object",
-      "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
+      "description": "The method's standard workflow expressed as a schema:HowTo. Contains an ordered array of workflow steps in schema:step, where each step is a cdi:Activity + schema:Action.",
       "properties": {
         "@type": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "minItems": 2,
-          "allOf": [
-            {
-              "contains": {
-                "const": "cdi:Activity"
-              }
-            },
-            {
-              "contains": {
-                "const": "schema:Action"
-              }
-            }
-          ]
+          "contains": {
+            "const": "schema:HowTo"
+          },
+          "minItems": 1
         },
         "@id": {
           "type": "string"
         },
         "schema:name": {
           "type": "string",
-          "description": "Name of this workflow step (e.g. \"Sample preparation\")."
+          "description": "Name of the workflow (e.g. \"EPMA WDS analytical workflow\")."
         },
         "schema:description": {
           "type": "string",
-          "description": "Detailed description of what this step involves."
+          "description": "Overview of the workflow."
         },
-        "schema:position": {
-          "type": "integer",
-          "description": "Ordinal position in the workflow sequence (1-based)."
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to a published protocol document."
         },
-        "schema:additionalType": {
-          "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps).",
+        "schema:step": {
           "type": "array",
+          "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action + schema:HowToStep describing a distinct phase of the analytical procedure. This shape carries NO sample-preparation requirement, because it is used for a STEP's sub-workflow as well as for a method's top-level workflow; see MethodWorkflowHowTo for the method form that does require one.",
           "items": {
-            "type": "string"
-          }
-        },
-        "schema:instrument": {
-          "description": "Instrument or equipment used in this step.",
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Instrument"
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
-            }
-          ]
-        },
-        "bios:computationalTool": {
-          "description": "Software tools used in this step.",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/ComputationalTool"
-          }
-        },
-        "bios:reagent": {
-          "description": "Reference materials, standards, or reagents used in this step.",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/Reagent"
-          }
-        },
-        "prov:used": {
-          "description": "Input entities consumed or referenced by this step (e.g. prepared sample from a prior step).",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              }
-            ]
-          }
-        },
-        "schema:result": {
-          "description": "Output entity produced by this step (can be referenced as input by a subsequent step).",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        },
-        "schema:object": {
-          "description": "Reference to a prior step whose result is the input for this step (action chaining).",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        },
-        "schema:additionalProperty": {
-          "description": "Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings for the data processing step). Editable parameters are schema:PropertyValueSpecification entries (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value.",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "#/$defs/MethodParameter"
-              },
-              {
-                "$ref": "#/$defs/MethodParameterValue"
-              }
-            ]
-          }
-        },
-        "schema:actionProcess": {
-          "$ref": "#/$defs/WorkflowHowTo",
-          "description": "Sub-workflow for this step, expressed as a nested schema:HowTo with its own ordered steps. Use for steps that have a multi-phase internal procedure (e.g. sample preparation with mount, grind, polish, coat)."
-        },
-        "dqv:hasQualityMeasurement": {
-          "description": "Quality measurements specific to this workflow step.",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/QualityMeasure"
+            "$ref": "#/$defs/WorkflowStep"
           }
         }
       },
       "required": [
         "@type",
-        "schema:name",
-        "schema:position"
+        "schema:step"
       ]
     },
     "PropertyIDValue": {
@@ -7309,6 +7154,186 @@
       },
       "required": [
         "@id"
+      ]
+    },
+    "WorkflowStep": {
+      "type": "object",
+      "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
+      "properties": {
+        "@type": {
+          "description": "All THREE are required. cdi:Activity and schema:Action carry the DDI-CDI and schema.org process semantics this model is built on; schema:HowToStep is what schema.org itself expects of a value of schema:step on a schema:HowTo, and omitting it made these steps invalid against the plain schema.org reading -- and against the base cdifProvActivity, whose own step shape requires schema:HowToStep. The two shapes disagreed, which is observable in the examples: 565 steps carried cdi:Activity + schema:Action and 15 carried schema:HowToStep, depending on which side emitted them.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 3,
+          "allOf": [
+            {
+              "contains": {
+                "const": "cdi:Activity"
+              }
+            },
+            {
+              "contains": {
+                "const": "schema:Action"
+              }
+            },
+            {
+              "contains": {
+                "const": "schema:HowToStep"
+              }
+            }
+          ]
+        },
+        "@id": {
+          "type": "string"
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Name of this workflow step (e.g. \"Sample preparation\")."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Detailed description of what this step involves."
+        },
+        "schema:position": {
+          "type": "integer",
+          "description": "Ordinal position in the workflow sequence (1-based)."
+        },
+        "schema:additionalType": {
+          "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps).",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schema:instrument": {
+          "description": "Instrument or equipment used in this step.",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Instrument"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            }
+          ]
+        },
+        "bios:computationalTool": {
+          "description": "Software tools used in this step.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ComputationalTool"
+          }
+        },
+        "bios:reagent": {
+          "description": "Reference materials, standards, or reagents used in this step.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Reagent"
+          }
+        },
+        "prov:used": {
+          "description": "Input entities consumed or referenced by this step (e.g. prepared sample from a prior step).",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "schema:result": {
+          "description": "Output entity produced by this step (can be referenced as input by a subsequent step).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:object": {
+          "description": "Reference to a prior step whose result is the input for this step (action chaining).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:additionalProperty": {
+          "description": "Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings for the data processing step). Editable parameters are schema:PropertyValueSpecification entries (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/MethodParameter"
+              },
+              {
+                "$ref": "#/$defs/MethodParameterValue"
+              }
+            ]
+          }
+        },
+        "schema:actionProcess": {
+          "$ref": "#/$defs/WorkflowHowTo",
+          "description": "Sub-workflow for this step, expressed as a nested schema:HowTo with its own ordered steps. Use for steps that have a multi-phase internal procedure (e.g. sample preparation with mount, grind, polish, coat)."
+        },
+        "dqv:hasQualityMeasurement": {
+          "description": "Quality measurements specific to this workflow step.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/QualityMeasure"
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "schema:name",
+        "schema:position"
       ]
     }
   }

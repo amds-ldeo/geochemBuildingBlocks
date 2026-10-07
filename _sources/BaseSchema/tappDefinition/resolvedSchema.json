@@ -1910,8 +1910,43 @@
       ]
     },
     "schema:actionProcess": {
-      "$ref": "#/$defs/WorkflowHowTo",
-      "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps."
+      "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps. Exactly one step must be the sample-preparation step -- see MethodWorkflowHowTo.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/WorkflowHowTo"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema:step": {
+              "type": "array",
+              "contains": {
+                "type": "object",
+                "description": "a sample preparation step is required.",
+                "properties": {
+                  "schema:name": {
+                    "const": "Sample preparation"
+                  },
+                  "schema:additionalType": {
+                    "type": "array",
+                    "contains": {
+                      "const": "bios:LabProcess"
+                    }
+                  }
+                },
+                "required": [
+                  "schema:name",
+                  "schema:additionalType"
+                ]
+              },
+              "maxContains": 1
+            }
+          },
+          "required": [
+            "schema:step"
+          ]
+        }
+      ]
     },
     "schema:additionalProperty": {
       "type": "array",
@@ -5736,30 +5771,10 @@
         },
         "schema:step": {
           "type": "array",
-          "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure. Must include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.",
+          "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action + schema:HowToStep describing a distinct phase of the analytical procedure. This shape carries NO sample-preparation requirement, because it is used for a STEP's sub-workflow as well as for a method's top-level workflow; see MethodWorkflowHowTo for the method form that does require one.",
           "items": {
             "$ref": "#/$defs/WorkflowStep"
-          },
-          "contains": {
-            "type": "object",
-            "description": "a sample preparation step is required.",
-            "properties": {
-              "schema:name": {
-                "const": "Sample preparation"
-              },
-              "schema:additionalType": {
-                "type": "array",
-                "contains": {
-                  "const": "bios:LabProcess"
-                }
-              }
-            },
-            "required": [
-              "schema:name",
-              "schema:additionalType"
-            ]
-          },
-          "maxContains": 1
+          }
         }
       },
       "required": [
@@ -5772,11 +5787,12 @@
       "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
       "properties": {
         "@type": {
+          "description": "All THREE are required. cdi:Activity and schema:Action carry the DDI-CDI and schema.org process semantics this model is built on; schema:HowToStep is what schema.org itself expects of a value of schema:step on a schema:HowTo, and omitting it made these steps invalid against the plain schema.org reading -- and against the base cdifProvActivity, whose own step shape requires schema:HowToStep. The two shapes disagreed, which is observable in the examples: 565 steps carried cdi:Activity + schema:Action and 15 carried schema:HowToStep, depending on which side emitted them.",
           "type": "array",
           "items": {
             "type": "string"
           },
-          "minItems": 2,
+          "minItems": 3,
           "allOf": [
             {
               "contains": {
@@ -5786,6 +5802,11 @@
             {
               "contains": {
                 "const": "schema:Action"
+              }
+            },
+            {
+              "contains": {
+                "const": "schema:HowToStep"
               }
             }
           ]

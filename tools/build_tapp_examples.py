@@ -30,6 +30,15 @@ SUP = {"⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5",
        "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9"}
 
 
+# The three @type members $defs/WorkflowStep requires of every workflow step.
+# cdi:Activity and schema:Action carry the DDI-CDI / schema.org process semantics; schema:HowToStep
+# is what schema.org expects of a schema:step value on a schema:HowTo, and the base cdifProvActivity
+# requires it too. Emitting only the first two left these steps invalid against the plain
+# schema.org reading and against the base -- 565 examples carried two members and 15 carried
+# HowToStep alone, depending on which side emitted them. Named once because it was written out at
+# three separate sites, which is how they came to disagree.
+STEP_TYPE = ["cdi:Activity", "schema:Action", "schema:HowToStep"]
+
 def norm(v):
     return " ".join(str(v).split()) if v is not None else ""
 
@@ -220,9 +229,9 @@ def place_parameter(inst, entry, sp):
         steps = proc.setdefault("schema:step", [])
         step = next((s for s in steps if s.get("schema:name") == m.group(1)), None)
         if step is None:
-            # $defs/WorkflowStep: @type must carry both cdi:Activity and schema:Action, and
-            # schema:position is required — a step is an ordered activity, not a bare HowToStep.
-            step = {"@type": ["cdi:Activity", "schema:Action"], "schema:name": m.group(1),
+            # $defs/WorkflowStep requires all three STEP_TYPE members and schema:position: a
+            # step is an ordered activity AND a schema.org HowToStep, not one or the other.
+            step = {"@type": list(STEP_TYPE), "schema:name": m.group(1),
                     "schema:additionalType": ["bios:LabProcess"],
                     "schema:position": len(steps) + 1}
             steps.append(step)
@@ -282,12 +291,12 @@ def ensure_required_steps(inst, sp_by_item):
         if st is None:
             # the overlay pins each step's kind on additionalType (Sample preparation is a
             # bios:LabProcess); a step declared without it cannot satisfy the contains
-            steps.append({"@type": ["cdi:Activity", "schema:Action"], "schema:name": name,
+            steps.append({"@type": list(STEP_TYPE), "schema:name": name,
                           "schema:additionalType": ["bios:LabProcess"], "schema:position": 0})
         else:
             # a step the path interpreter already built (from a step-scoped parameter) carries its
             # name and parameters but not the structural @type/additionalType the contains demands
-            st.setdefault("@type", ["cdi:Activity", "schema:Action"])
+            st.setdefault("@type", list(STEP_TYPE))
             at = st.setdefault("schema:additionalType", [])
             if "bios:LabProcess" not in at:
                 at.append("bios:LabProcess")
