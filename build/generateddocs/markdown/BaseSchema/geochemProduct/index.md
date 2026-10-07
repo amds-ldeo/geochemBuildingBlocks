@@ -808,6 +808,36 @@ allOf:
       items:
         type: object
         properties:
+          schema:actionProcess:
+            description: 'The workflow actually followed by this analysis event, as
+              a schema:HowTo whose schema:step entries are full workflow steps.
+
+              The base cdifProvActivity already supplies a schema:HowTo here, but
+              its step shape carries only @type / name / description / position /
+              url. A geochem analysis event needs the same step surface the TAPP plan
+              uses -- per-step instrument, computational tool, reagent, inputs, result,
+              parameters and sub-workflow -- so the step items are pinned to tappDefinition''s
+              WorkflowStep. Both apply: the base and this intersect under allOf, and
+              neither the base HowTo nor its step is a closed object, so the richer
+              shape adds to it rather than conflicting.
+
+              WorkflowStep, NOT WorkflowHowTo, is deliberate. The requirement for
+              exactly one "Sample preparation" step carrying bios:LabProcess lives
+              on WorkflowHowTo, and it belongs to the TAPP plan -- a protocol must
+              say how the sample was prepared. An analysis EVENT records what was
+              done and may legitimately describe only part of a workflow, so referencing
+              the step shape alone brings the structure without that requirement.
+
+              Only the object form is constrained. schema:actionProcess may also be
+              a string or an @id reference in the base, and `properties` does not
+              apply to a non-object, so those branches stay reachable.'
+            properties:
+              schema:step:
+                type: array
+                items:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/WorkflowStep
+                x-jsonld-id: http://schema.org/step
+            x-jsonld-id: http://schema.org/actionProcess
           prov:used:
             type: array
             description: 'Resources used in the analysis. Each item is one of: an

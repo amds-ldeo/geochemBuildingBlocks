@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.BaseSchema.tabularData - Tabular Data Type",
   "bblockName": "Tabular Data Type",
   "bblockId": "ogch.BaseSchema.tabularData",
-  "generated": "2026-10-07T18:30:26.455104+00:00",
+  "generated": "2026-10-07T22:38:28.760710+00:00",
   "result": false,
   "items": [
     {
@@ -56,7 +56,7 @@
               "exception": "ValidationError",
               "errorMessage": "'cdif:hasPhysicalMapping' is a required property",
               "isError": true,
-              "message": "ValidationError: 'cdif:hasPhysicalMapping' is a required property\n\nFailed validating 'required' in schema['allOf'][1]:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'Tabular data type aligned with CDIF 2026 schema using '\n                    'DDI-CDI and CSVW properties. Typed as '\n                    'cdi:TabularTextDataSet.',\n     'oneOf': [{'properties': {'cdi:isDelimited': {'const': True,\n                                                   'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isDelimited'},\n                               'cdi:isFixedWidth': {'const': False,\n                                                    'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isFixedWidth'}},\n                'required': ['cdi:isDelimited']},\n               {'properties': {'cdi:isDelimited': {'const': False,\n                                                   'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isDelimited'},\n                               'cdi:isFixedWidth': {'const': True,\n                                                    'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isFixedWidth'}},\n                'required': ['cdi:isFixedWidth']}],\n     'properties': {'@type': {'allOf': [{'contains': {'const': 'cdi:TabularTextDataSet'}}],\n                              'items': {'type': 'string'},\n                              'minItems': 2,\n                              'type': 'array'},\n                    'cdi:arrayBase': {'type': 'integer',\n                                      'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/arrayBase'},\n                    'cdi:commentPrefix': {'description': 'Character(s) '\n                                                         'that mark a line '\n                                                         'as a comment.',\n                                          'type': 'string',\n                                          'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/commentPrefix'},\n                    'cdi:delimiter': {'description': 'Field delimiter '\n                                                     '(e.g., \",\" or tab).',\n                                      'type': 'string',\n                                      'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/delimiter'},\n                    'cdi:escapeCharacter': {'description': 'The character '\n                                                           'used to escape '\n                                                           'special '\n                                                           'characters in '\n                                                           'the data. From '\n                                                           'DDI-CDI '\n                                                           'PhysicalSegmentLayout.escapeCharacter.',\n                                            'type': 'string',\n                                            'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/escapeCharacter'},\n                    'cdi:hasHeader': {'default': True,\n                                      'type': 'boolean',\n                                      'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasHeader'},\n                    'cdi:headerIsCaseSensitive': {'default': False,\n                                                  'description': 'Whether '\n                                                                 'column '\n                                                                 'header '\n                                                                 'names '\n                                                                 'are '\n                                                                 'case-sensitive. '\n                                                                 'From '\n                                                                 'DDI-CDI '\n                                                                 'PhysicalSegmentLayout.headerIsCaseSensitive.',\n                                                  'type': 'boolean',\n                                                  'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/headerIsCaseSensitive'},\n                    'cdi:headerRowCount': {'default': 1,\n                                           'type': 'integer',\n                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/headerRowCount'},\n                    'cdi:isDelimited': {'description': 'Schema constraint '\n                                                       'is that one of '\n                                                       \"{'isDelimited','isFixedWidth'} \"\n                                                       'must be present '\n                                                       'with a True value; '\n                                                       'the other one may '\n                                                       'be present or '\n                                                       'omitted, but if '\n                                                       'present must have '\n                                                       'a false value.',\n                                        'type': 'boolean',\n                                        'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isDelimited'},\n                    'cdi:isFixedWidth': {'type': 'boolean',\n                                         'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isFixedWidth'},\n                    'cdi:lineTerminator': {'description': 'Allowed line '\n                                                          'terminators, in '\n                                                          'order (default '\n                                                          '[CRLF, LF]).',\n                                           'items': {'type': 'string'},\n                                           'type': 'array',\n                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/lineTerminator'},\n                    'cdi:quoteCharacter': {'default': '\"',\n                                           'type': 'string',\n                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/quoteCharacter'},\n                    'cdi:skipBlankRows': {'default': False,\n                                          'type': 'boolean',\n                                          'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipBlankRows'},\n                    'cdi:skipDataColumns': {'default': 0,\n                                            'type': 'integer',\n                                            'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipDataColumns'},\n                    'cdi:skipInitialSpace': {'default': True,\n                                             'type': 'boolean',\n                                             'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipInitialSpace'},\n                    'cdi:skipRows': {'default': 0,\n                                     'type': 'integer',\n                                     'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipRows'},\n                    'cdi:tableDirection': {'default': 'Auto',\n                                           'description': 'Direction in '\n                                                          'which columns '\n                                                          'are arranged in '\n                                                          'each row '\n                                                          '(DDI-CDI '\n                                                          'TabularTextDataSet.tableDirection, '\n                                                          'TableDirectionValues '\n                                                          'enumeration).',\n                                           'enum': ['Auto', 'Ltr', 'Rtl'],\n                                           'type': 'string',\n                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/tableDirection'},\n                    'cdi:textDirection': {'description': 'Reading order of '\n                                                         'text within '\n                                                         'cells (DDI-CDI '\n                                                         'TabularTextDataSet.textDirection, '\n                                                         'TextDirectionValues '\n                                                         'enumeration).',\n                                          'enum': ['Auto',\n                                                   'Inherit',\n                                                   'Ltr',\n                                                   'Rtl'],\n                                          'type': 'string',\n                                          'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/textDirection'},\n                    'cdi:treatConsecutiveDelimitersAsOne': {'default': False,\n                                                            'description': 'Whether '\n                                                                           'consecutive '\n                                                                           'delimiters '\n                                                                           'should '\n                                                                           'be '\n                                                                           'treated '\n                                                                           'as '\n                                                                           'a '\n                                                                           'single '\n                                                                           'delimiter. '\n                                                                           'From '\n                                                                           'DDI-CDI '\n                                                                           'PhysicalSegmentLayout.treatConsecutiveDelimitersAsOne.',\n                                                            'type': 'boolean',\n                                                            'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/treatConsecutiveDelimitersAsOne'},\n                    'cdi:trim': {'description': 'Which spaces to remove '\n                                                'from a data value '\n                                                '(DDI-CDI '\n                                                'TabularTextDataSet.trim, '\n                                                'TrimValues enumeration).',\n                                 'enum': ['Both',\n                                          'End',\n                                          'Neither',\n                                          'Start'],\n                                 'type': 'string',\n                                 'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/trim'},\n                    'cdif:hasPhysicalMapping': {'description': 'Links '\n                                                               'variables '\n                                                               'to their '\n                                                               'physical '\n                                                               'representation '\n                                                               'in this '\n                                                               'dataset.',\n                                                'items': {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifPhysicalMapping/schema.yaml'},\n                                                'type': 'array',\n                                                'x-jsonld-id': 'https://w3id.org/cdif/hasPhysicalMapping'},\n                    'countColumns': {'type': 'integer'},\n                    'countRows': {'type': 'integer'}},\n     'required': ['@type', 'cdif:hasPhysicalMapping'],\n     'title': 'Tabular Data Type',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'cdi': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/',\n                           'cdif': 'https://w3id.org/cdif/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['cdi:TabularTextDataSet', 'ada:tabularData'],\n     'ada:componentType': {'@type': 'ada:MCICPMSTabular'},\n     'ada:coordUnits': 'micrometer',\n     'ada:xCoordCol': 'X_um',\n     'ada:yCoordCol': 'Y_um',\n     'cdi:isDelimited': True}"
+              "message": "ValidationError: 'cdif:hasPhysicalMapping' is a required property\n\nFailed validating 'required' in schema['allOf'][1]:\n    {'$defs': {'AdditionalProperty': {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/additionalProperty/schema.yaml'}},\n     '$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'Tabular data type aligned with CDIF 2026 schema using '\n                    'DDI-CDI and CSVW properties. Typed as '\n                    'cdi:TabularTextDataSet.',\n     'oneOf': [{'properties': {'cdi:isDelimited': {'const': True,\n                                                   'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isDelimited'},\n                               'cdi:isFixedWidth': {'const': False,\n                                                    'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isFixedWidth'}},\n                'required': ['cdi:isDelimited']},\n               {'properties': {'cdi:isDelimited': {'const': False,\n                                                   'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isDelimited'},\n                               'cdi:isFixedWidth': {'const': True,\n                                                    'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isFixedWidth'}},\n                'required': ['cdi:isFixedWidth']}],\n     'properties': {'@type': {'allOf': [{'contains': {'const': 'cdi:TabularTextDataSet'}}],\n                              'items': {'type': 'string'},\n                              'minItems': 2,\n                              'type': 'array'},\n                    'cdi:arrayBase': {'type': 'integer',\n                                      'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/arrayBase'},\n                    'cdi:commentPrefix': {'description': 'Character(s) '\n                                                         'that mark a line '\n                                                         'as a comment.',\n                                          'type': 'string',\n                                          'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/commentPrefix'},\n                    'cdi:delimiter': {'description': 'Field delimiter '\n                                                     '(e.g., \",\" or tab).',\n                                      'type': 'string',\n                                      'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/delimiter'},\n                    'cdi:escapeCharacter': {'description': 'The character '\n                                                           'used to escape '\n                                                           'special '\n                                                           'characters in '\n                                                           'the data. From '\n                                                           'DDI-CDI '\n                                                           'PhysicalSegmentLayout.escapeCharacter.',\n                                            'type': 'string',\n                                            'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/escapeCharacter'},\n                    'cdi:hasHeader': {'default': True,\n                                      'type': 'boolean',\n                                      'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasHeader'},\n                    'cdi:headerIsCaseSensitive': {'default': False,\n                                                  'description': 'Whether '\n                                                                 'column '\n                                                                 'header '\n                                                                 'names '\n                                                                 'are '\n                                                                 'case-sensitive. '\n                                                                 'From '\n                                                                 'DDI-CDI '\n                                                                 'PhysicalSegmentLayout.headerIsCaseSensitive.',\n                                                  'type': 'boolean',\n                                                  'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/headerIsCaseSensitive'},\n                    'cdi:headerRowCount': {'default': 1,\n                                           'type': 'integer',\n                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/headerRowCount'},\n                    'cdi:isDelimited': {'description': 'Schema constraint '\n                                                       'is that one of '\n                                                       \"{'isDelimited','isFixedWidth'} \"\n                                                       'must be present '\n                                                       'with a True value; '\n                                                       'the other one may '\n                                                       'be present or '\n                                                       'omitted, but if '\n                                                       'present must have '\n                                                       'a false value.',\n                                        'type': 'boolean',\n                                        'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isDelimited'},\n                    'cdi:isFixedWidth': {'type': 'boolean',\n                                         'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isFixedWidth'},\n                    'cdi:lineTerminator': {'description': 'Allowed line '\n                                                          'terminators, in '\n                                                          'order (default '\n                                                          '[CRLF, LF]).',\n                                           'items': {'type': 'string'},\n                                           'type': 'array',\n                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/lineTerminator'},\n                    'cdi:quoteCharacter': {'default': '\"',\n                                           'type': 'string',\n                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/quoteCharacter'},\n                    'cdi:skipBlankRows': {'default': False,\n                                          'type': 'boolean',\n                                          'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipBlankRows'},\n                    'cdi:skipDataColumns': {'default': 0,\n                                            'type': 'integer',\n                                            'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipDataColumns'},\n                    'cdi:skipInitialSpace': {'default': True,\n                                             'type': 'boolean',\n                                             'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipInitialSpace'},\n                    'cdi:skipRows': {'default': 0,\n                                     'type': 'integer',\n                                     'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/skipRows'},\n                    'cdi:tableDirection': {'default': 'Auto',\n                                           'description': 'Direction in '\n                                                          'which columns '\n                                                          'are arranged in '\n                                                          'each row '\n                                                          '(DDI-CDI '\n                                                          'TabularTextDataSet.tableDirection, '\n                                                          'TableDirectionValues '\n                                                          'enumeration).',\n                                           'enum': ['Auto', 'Ltr', 'Rtl'],\n                                           'type': 'string',\n                                           'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/tableDirection'},\n                    'cdi:textDirection': {'description': 'Reading order of '\n                                                         'text within '\n                                                         'cells (DDI-CDI '\n                                                         'TabularTextDataSet.textDirection, '\n                                                         'TextDirectionValues '\n                                                         'enumeration).',\n                                          'enum': ['Auto',\n                                                   'Inherit',\n                                                   'Ltr',\n                                                   'Rtl'],\n                                          'type': 'string',\n                                          'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/textDirection'},\n                    'cdi:treatConsecutiveDelimitersAsOne': {'default': False,\n                                                            'description': 'Whether '\n                                                                           'consecutive '\n                                                                           'delimiters '\n                                                                           'should '\n                                                                           'be '\n                                                                           'treated '\n                                                                           'as '\n                                                                           'a '\n                                                                           'single '\n                                                                           'delimiter. '\n                                                                           'From '\n                                                                           'DDI-CDI '\n                                                                           'PhysicalSegmentLayout.treatConsecutiveDelimitersAsOne.',\n                                                            'type': 'boolean',\n                                                            'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/treatConsecutiveDelimitersAsOne'},\n                    'cdi:trim': {'description': 'Which spaces to remove '\n                                                'from a data value '\n                                                '(DDI-CDI '\n                                                'TabularTextDataSet.trim, '\n                                                'TrimValues enumeration).',\n                                 'enum': ['Both',\n                                          'End',\n                                          'Neither',\n                                          'Start'],\n                                 'type': 'string',\n                                 'x-jsonld-id': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/trim'},\n                    'cdif:hasPhysicalMapping': {'description': 'Links '\n                                                               'variables '\n                                                               'to their '\n                                                               'physical '\n                                                               'representation '\n                                                               'in this '\n                                                               'dataset.',\n                                                'items': {'$ref': 'https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifPhysicalMapping/schema.yaml'},\n                                                'type': 'array',\n                                                'x-jsonld-id': 'https://w3id.org/cdif/hasPhysicalMapping'},\n                    'schema:additionalProperty': {'description': 'Soft-typed '\n                                                                 'extension '\n                                                                 'properties. '\n                                                                 'The row '\n                                                                 'and '\n                                                                 'column '\n                                                                 'counts '\n                                                                 'live '\n                                                                 'here '\n                                                                 'rather '\n                                                                 'than as '\n                                                                 'bare '\n                                                                 'properties, '\n                                                                 'so that '\n                                                                 'each '\n                                                                 'carries '\n                                                                 'a '\n                                                                 'schema:propertyID '\n                                                                 'identifying '\n                                                                 'the '\n                                                                 'concept '\n                                                                 'it '\n                                                                 'quantifies '\n                                                                 '- DDI '\n                                                                 'Discovery '\n                                                                 'caseQuantity '\n                                                                 'for the '\n                                                                 'row '\n                                                                 'count '\n                                                                 'and '\n                                                                 'variableQuantity '\n                                                                 'for the '\n                                                                 'column '\n                                                                 'count. '\n                                                                 'As bare '\n                                                                 'unprefixed '\n                                                                 '`countRows`/`countColumns` '\n                                                                 'they '\n                                                                 'were the '\n                                                                 'only two '\n                                                                 'properties '\n                                                                 'on this '\n                                                                 'class '\n                                                                 'with no '\n                                                                 'namespace '\n                                                                 'and no '\n                                                                 'definition, '\n                                                                 'so '\n                                                                 'nothing '\n                                                                 'said '\n                                                                 'what '\n                                                                 'they '\n                                                                 'meant or '\n                                                                 'tied '\n                                                                 'them to '\n                                                                 'a '\n                                                                 'vocabulary.',\n                                                  'items': {'$ref': '#/$defs/AdditionalProperty'},\n                                                  'type': 'array',\n                                                  'x-jsonld-id': 'http://schema.org/additionalProperty'}},\n     'required': ['@type', 'cdif:hasPhysicalMapping'],\n     'title': 'Tabular Data Type',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'cdi': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/',\n                           'cdif': 'https://w3id.org/cdif/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['cdi:TabularTextDataSet', 'ada:tabularData'],\n     'ada:componentType': {'@type': 'ada:MCICPMSTabular'},\n     'ada:coordUnits': 'micrometer',\n     'ada:xCoordCol': 'X_um',\n     'ada:yCoordCol': 'Y_um',\n     'cdi:isDelimited': True}"
             }
           ]
         },
@@ -94,17 +94,197 @@
                 "cdifd:tabularDataShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "cdifd:tabularDataShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
                 "cdifd:tabularDataShape": {
                   "nodes": [
-                    "_:Na80ad02b2cf24373a49e25ead389e46a"
+                    "_:N980f8b24ac32434b821e65e7f5a4efe7"
                   ]
+                },
+                "cdifd:tabularDataShape/sh:or/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl:\n - Shape cdifd:tabularDataShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:tabularDataShape/sh:or/rdf:first: *none*\n - Shape cdifd:tabularDataShape: _:Na80ad02b2cf24373a49e25ead389e46a\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl:\n - Shape cdifd:tabularDataShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:tabularDataShape: _:N980f8b24ac32434b821e65e7f5a4efe7\n - Shape cdifd:tabularDataShape/sh:or/rdf:first: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
+              "focusNodes": {
+                "_:n8769b1db7a6c499da9820551888da6d2b28": {
+                  "nodes": []
+                },
+                "_:n8769b1db7a6c499da9820551888da6d2b30": {
+                  "nodes": []
+                },
+                "cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n8769b1db7a6c499da9820551888da6d2b6": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape": {
+                  "nodes": []
+                },
+                "_:n8769b1db7a6c499da9820551888da6d2b14": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n8769b1db7a6c499da9820551888da6d2b21": {
+                  "nodes": []
+                },
+                "_:n8769b1db7a6c499da9820551888da6d2b7": {
+                  "nodes": []
+                },
+                "_:n8769b1db7a6c499da9820551888da6d2b31": {
+                  "nodes": []
+                },
+                "cdifd:CDIFadditionalPropertyShape": {
+                  "nodes": []
+                },
+                "_:n8769b1db7a6c499da9820551888da6d2b20": {
+                  "nodes": []
+                },
+                "_:n8769b1db7a6c499da9820551888da6d2b29": {
+                  "nodes": []
+                },
+                "cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFAddPropertyTermShape": {
+                  "nodes": []
+                },
+                "_:n8769b1db7a6c499da9820551888da6d2b33": {
+                  "nodes": []
+                },
+                "_:n8769b1db7a6c499da9820551888da6d2b13": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n - Shape _:n8769b1db7a6c499da9820551888da6d2b28: *none*\n - Shape _:n8769b1db7a6c499da9820551888da6d2b30: *none*\n - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n8769b1db7a6c499da9820551888da6d2b6: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: *none*\n - Shape _:n8769b1db7a6c499da9820551888da6d2b14: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape _:n8769b1db7a6c499da9820551888da6d2b21: *none*\n - Shape _:n8769b1db7a6c499da9820551888da6d2b7: *none*\n - Shape _:n8769b1db7a6c499da9820551888da6d2b31: *none*\n - Shape cdifd:CDIFadditionalPropertyShape: *none*\n - Shape _:n8769b1db7a6c499da9820551888da6d2b20: *none*\n - Shape _:n8769b1db7a6c499da9820551888da6d2b29: *none*\n - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFAddPropertyTermShape: *none*\n - Shape _:n8769b1db7a6c499da9820551888da6d2b33: *none*\n - Shape _:n8769b1db7a6c499da9820551888da6d2b13: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
+              "focusNodes": {
+                "_:nb97fb920322347f6b1f6bf49239b27bab10": {
+                  "nodes": []
+                },
+                "_:nb97fb920322347f6b1f6bf49239b27bab19": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:nb97fb920322347f6b1f6bf49239b27bab5": {
+                  "nodes": []
+                },
+                "_:nb97fb920322347f6b1f6bf49239b27bab4": {
+                  "nodes": []
+                },
+                "_:nb97fb920322347f6b1f6bf49239b27bab7": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:nb97fb920322347f6b1f6bf49239b27bab26": {
+                  "nodes": []
+                },
+                "_:nb97fb920322347f6b1f6bf49239b27bab8": {
+                  "nodes": []
+                },
+                "_:nb97fb920322347f6b1f6bf49239b27bab6": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n - Shape _:nb97fb920322347f6b1f6bf49239b27bab10: *none*\n - Shape _:nb97fb920322347f6b1f6bf49239b27bab19: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:nb97fb920322347f6b1f6bf49239b27bab5: *none*\n - Shape _:nb97fb920322347f6b1f6bf49239b27bab4: *none*\n - Shape _:nb97fb920322347f6b1f6bf49239b27bab7: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nb97fb920322347f6b1f6bf49239b27bab26: *none*\n - Shape _:nb97fb920322347f6b1f6bf49239b27bab8: *none*\n - Shape _:nb97fb920322347f6b1f6bf49239b27bab6: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl",
+              "focusNodes": {
+                "_:n666d2879008a44d3b0037f5546bfaf6bb10": {
+                  "nodes": []
+                },
+                "_:n666d2879008a44d3b0037f5546bfaf6bb23": {
+                  "nodes": []
+                },
+                "_:n666d2879008a44d3b0037f5546bfaf6bb25": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierTypeTermShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n666d2879008a44d3b0037f5546bfaf6bb20": {
+                  "nodes": []
+                },
+                "_:n666d2879008a44d3b0037f5546bfaf6bb22": {
+                  "nodes": []
+                },
+                "_:n666d2879008a44d3b0037f5546bfaf6bb11": {
+                  "nodes": []
+                },
+                "_:n666d2879008a44d3b0037f5546bfaf6bb21": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n - Shape _:n666d2879008a44d3b0037f5546bfaf6bb10: *none*\n - Shape _:n666d2879008a44d3b0037f5546bfaf6bb23: *none*\n - Shape _:n666d2879008a44d3b0037f5546bfaf6bb25: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n666d2879008a44d3b0037f5546bfaf6bb20: *none*\n - Shape _:n666d2879008a44d3b0037f5546bfaf6bb22: *none*\n - Shape _:n666d2879008a44d3b0037f5546bfaf6bb11: *none*\n - Shape _:n666d2879008a44d3b0037f5546bfaf6bb21: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -133,121 +313,18 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl",
               "focusNodes": {
-                "skosv:conceptBroaderNotSelfShape": {
+                "skosv:prefLabelUniqueLangShape": {
                   "nodes": []
                 },
                 "skosv:ConceptShape": {
                   "nodes": []
                 },
-                "skosv:prefLabelUniqueLangShape": {
+                "skosv:conceptBroaderNotSelfShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:\n - Shape skosv:conceptBroaderNotSelfShape: *none*\n - Shape skosv:ConceptShape: *none*\n - Shape skosv:prefLabelUniqueLangShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
-              "focusNodes": {
-                "_:ndc862bf8ee9d4b68bbbb4c75dc489546b7": {
-                  "nodes": []
-                },
-                "_:ndc862bf8ee9d4b68bbbb4c75dc489546b8": {
-                  "nodes": []
-                },
-                "_:ndc862bf8ee9d4b68bbbb4c75dc489546b5": {
-                  "nodes": []
-                },
-                "_:ndc862bf8ee9d4b68bbbb4c75dc489546b6": {
-                  "nodes": []
-                },
-                "_:ndc862bf8ee9d4b68bbbb4c75dc489546b19": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "_:ndc862bf8ee9d4b68bbbb4c75dc489546b26": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:ndc862bf8ee9d4b68bbbb4c75dc489546b10": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:ndc862bf8ee9d4b68bbbb4c75dc489546b4": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b7: *none*\n - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b8: *none*\n - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b5: *none*\n - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b6: *none*\n - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b19: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b26: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b10: *none*\n - Shape cdifd:CDIFDefinedTermShape: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:ndc862bf8ee9d4b68bbbb4c75dc489546b4: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
-            },
-            {
-              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl",
-              "focusNodes": {
-                "_:n5c28bb7227e54fcfab3a2f7eff985805b20": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:n5c28bb7227e54fcfab3a2f7eff985805b11": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierShape": {
-                  "nodes": []
-                },
-                "_:n5c28bb7227e54fcfab3a2f7eff985805b21": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:n5c28bb7227e54fcfab3a2f7eff985805b10": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierTypeTermShape": {
-                  "nodes": []
-                },
-                "_:n5c28bb7227e54fcfab3a2f7eff985805b23": {
-                  "nodes": []
-                },
-                "_:n5c28bb7227e54fcfab3a2f7eff985805b22": {
-                  "nodes": []
-                },
-                "_:n5c28bb7227e54fcfab3a2f7eff985805b25": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b20: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b11: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape: *none*\n - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b21: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*\n - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b10: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape: *none*\n - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b23: *none*\n - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b22: *none*\n - Shape _:n5c28bb7227e54fcfab3a2f7eff985805b25: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:\n - Shape skosv:prefLabelUniqueLangShape: *none*\n - Shape skosv:ConceptShape: *none*\n - Shape skosv:conceptBroaderNotSelfShape: *none*\n"
             },
             {
               "op": "shacl-report",

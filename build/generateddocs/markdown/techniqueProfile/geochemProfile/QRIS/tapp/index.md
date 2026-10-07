@@ -70,7 +70,8 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
@@ -164,7 +165,8 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
       {
         "@type": [
           "cdi:Activity",
-          "schema:Action"
+          "schema:Action",
+          "schema:HowToStep"
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
@@ -204,7 +206,8 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
