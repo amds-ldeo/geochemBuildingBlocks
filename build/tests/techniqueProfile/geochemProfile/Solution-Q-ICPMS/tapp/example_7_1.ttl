@@ -13,6 +13,12 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -22,12 +28,6 @@
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "tri-acid digestion: 14 M HNO3 + 10 M HCl + 29 M HF; re-dissolution: 14 M HNO3; F1 acetate: 1 M NaOAc + 5 M HOAc; F2 ascorbate: ascorbate solution; F3 H2O2: 30% H2O2 + 1 M ammonium acetate; F4 HCl: 1 M HCl; F4N HNO3: 1 M HNO3" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
