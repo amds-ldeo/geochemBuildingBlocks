@@ -48,7 +48,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/collection/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/collection/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/collection/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/collection/",
   "description": "# Collection Type\n\nDescribes a collection of related files in ADA metadata. Can represent a set of files with identical information models and serialization (a collection), or a heterogeneous set of files constituting a composite dataset. Typed as `ada:collection` and `schema:Collection`.\n",
   "examples": [
@@ -63,20 +63,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/collection/example_1_1.json",
-          "sizeBytes": 525,
-          "code": "{\n  \"@type\": [\"ada:collection\", \"http://schema.org/Collection\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMEDSElementalMaps\"\n  },\n  \"ada:memberTypes\": [\"ada:SEMEDSElementalMap\"],\n  \"ada:nFiles\": 5,\n  \"ada:filelist\": [\n    {\n      \"ada:fileName\": \"map_Fe_Ka.tif\",\n      \"ada:componentType\": \"ada:SEMEDSElementalMap\",\n      \"schema:encodingFormat\": \"image/tiff\"\n    },\n    {\n      \"ada:fileName\": \"map_Si_Ka.tif\",\n      \"ada:componentType\": \"ada:SEMEDSElementalMap\",\n      \"schema:encodingFormat\": \"image/tiff\"\n    }\n  ]\n}\n"
+          "sizeBytes": 510,
+          "code": "{\n  \"@type\": [\"ada:collection\", \"http://schema.org/Collection\"],\n  \"ada:componentType\": \"ada:SEMEDSElementalMaps\",\n  \"ada:memberTypes\": [\"ada:SEMEDSElementalMap\"],\n  \"ada:nFiles\": 5,\n  \"ada:filelist\": [\n    {\n      \"ada:fileName\": \"map_Fe_Ka.tif\",\n      \"ada:componentType\": \"ada:SEMEDSElementalMap\",\n      \"schema:encodingFormat\": [\"image/tiff\"]\n    },\n    {\n      \"ada:fileName\": \"map_Si_Ka.tif\",\n      \"ada:componentType\": \"ada:SEMEDSElementalMap\",\n      \"schema:encodingFormat\": [\"image/tiff\"]\n    }\n  ]\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/collection/example_1_1.jsonld",
-          "sizeBytes": 775,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/collection/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:collection\",\n    \"http://schema.org/Collection\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMEDSElementalMaps\"\n  },\n  \"ada:memberTypes\": [\n    \"ada:SEMEDSElementalMap\"\n  ],\n  \"ada:nFiles\": 5,\n  \"ada:filelist\": [\n    {\n      \"ada:fileName\": \"map_Fe_Ka.tif\",\n      \"ada:componentType\": \"ada:SEMEDSElementalMap\",\n      \"schema:encodingFormat\": \"image/tiff\"\n    },\n    {\n      \"ada:fileName\": \"map_Si_Ka.tif\",\n      \"ada:componentType\": \"ada:SEMEDSElementalMap\",\n      \"schema:encodingFormat\": \"image/tiff\"\n    }\n  ]\n}"
+          "sizeBytes": 792,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/collection/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:collection\",\n    \"http://schema.org/Collection\"\n  ],\n  \"ada:componentType\": \"ada:SEMEDSElementalMaps\",\n  \"ada:memberTypes\": [\n    \"ada:SEMEDSElementalMap\"\n  ],\n  \"ada:nFiles\": 5,\n  \"ada:filelist\": [\n    {\n      \"ada:fileName\": \"map_Fe_Ka.tif\",\n      \"ada:componentType\": \"ada:SEMEDSElementalMap\",\n      \"schema:encodingFormat\": [\n        \"image/tiff\"\n      ]\n    },\n    {\n      \"ada:fileName\": \"map_Si_Ka.tif\",\n      \"ada:componentType\": \"ada:SEMEDSElementalMap\",\n      \"schema:encodingFormat\": [\n        \"image/tiff\"\n      ]\n    }\n  ]\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/collection/example_1_1.ttl",
-          "sizeBytes": 623,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a schema1:Collection,\n        ada:collection ;\n    ada:componentType [ a ada:SEMEDSElementalMaps ] ;\n    ada:filelist [ schema1:encodingFormat \"image/tiff\" ;\n            ada:componentType \"ada:SEMEDSElementalMap\" ;\n            ada:fileName \"map_Si_Ka.tif\" ],\n        [ schema1:encodingFormat \"image/tiff\" ;\n            ada:componentType \"ada:SEMEDSElementalMap\" ;\n            ada:fileName \"map_Fe_Ka.tif\" ] ;\n    ada:memberTypes \"ada:SEMEDSElementalMap\" ;\n    ada:nFiles 5 .\n\n"
+          "sizeBytes": 619,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a schema1:Collection,\n        ada:collection ;\n    ada:componentType \"ada:SEMEDSElementalMaps\" ;\n    ada:filelist [ schema1:encodingFormat \"image/tiff\" ;\n            ada:componentType \"ada:SEMEDSElementalMap\" ;\n            ada:fileName \"map_Si_Ka.tif\" ],\n        [ schema1:encodingFormat \"image/tiff\" ;\n            ada:componentType \"ada:SEMEDSElementalMap\" ;\n            ada:fileName \"map_Fe_Ka.tif\" ] ;\n    ada:memberTypes \"ada:SEMEDSElementalMap\" ;\n    ada:nFiles 5 .\n\n"
         }
       ]
     }

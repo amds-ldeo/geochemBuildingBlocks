@@ -41,7 +41,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/otherFile/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/otherFile/",
   "description": "# Other File Type\n\nDescribes files in non-standard formats that have been approved for submission to the Astromat Archive. Supports EMSA spectral data, OBJ 3D models, STL files, XLSX workbooks, and Neptune Plus exports.\n",
   "examples": [
@@ -56,20 +56,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/otherFile/example_1_1.json",
-          "sizeBytes": 190,
-          "code": "{\n  \"@type\": [\"ada:otherFileType\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:other\"\n  },\n  \"schema:encodingFormat\": \"model/obj\",\n  \"ada:formatDescription\": \"Wavefront OBJ 3D model file\"\n}\n"
+          "sizeBytes": 173,
+          "code": "{\n  \"@type\": [\"ada:otherFileType\"],\n  \"ada:componentType\": \"ada:other\",\n  \"schema:encodingFormat\": [\"model/obj\"],\n  \"ada:formatDescription\": \"Wavefront OBJ 3D model file\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/otherFile/example_1_1.jsonld",
-          "sizeBytes": 427,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/otherFile/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:otherFileType\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:other\"\n  },\n  \"schema:encodingFormat\": \"model/obj\",\n  \"ada:formatDescription\": \"Wavefront OBJ 3D model file\"\n}"
+          "sizeBytes": 418,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/otherFile/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:otherFileType\"\n  ],\n  \"ada:componentType\": \"ada:other\",\n  \"schema:encodingFormat\": [\n    \"model/obj\"\n  ],\n  \"ada:formatDescription\": \"Wavefront OBJ 3D model file\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/otherFile/example_1_1.ttl",
-          "sizeBytes": 258,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] a ada:otherFileType ;\n    schema1:encodingFormat \"model/obj\" ;\n    ada:componentType [ a ada:other ] ;\n    ada:formatDescription \"Wavefront OBJ 3D model file\" .\n\n"
+          "sizeBytes": 254,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] a ada:otherFileType ;\n    schema1:encodingFormat \"model/obj\" ;\n    ada:componentType \"ada:other\" ;\n    ada:formatDescription \"Wavefront OBJ 3D model file\" .\n\n"
         }
       ]
     }

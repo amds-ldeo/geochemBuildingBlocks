@@ -36,14 +36,14 @@
     "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
     ],
-    "cdif.bbr.metadata.skosProperties.skosConcept": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
-    ],
     "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.identifier": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+    ],
+    "cdif.bbr.metadata.skosProperties.skosConcept": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
     ]
   },
   "dependsOn": [
@@ -77,20 +77,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/dataCube/example_1_1.json",
-          "sizeBytes": 185,
-          "code": "{\n  \"@type\": [\"ada:dataCube\", \"cdi:StructuredDataSet\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMEDSElementalMapsCube\"\n  },\n  \"ada:dataComponentResource\": \"cube_SEMEDS_001.hdf5\"\n}\n"
+          "sizeBytes": 151,
+          "code": "{\n  \"@type\": [\"ada:dataCube\", \"cdi:StructuredDataSet\"],\n  \"ada:componentType\": \"ada:dataCube\",\n  \"ada:dataComponentResource\": \"cube_SEMEDS_001.hdf5\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/dataCube/example_1_1.jsonld",
-          "sizeBytes": 495,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:dataCube\",\n    \"cdi:StructuredDataSet\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMEDSElementalMapsCube\"\n  },\n  \"ada:dataComponentResource\": \"cube_SEMEDS_001.hdf5\"\n}"
+          "sizeBytes": 461,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:dataCube\",\n    \"cdi:StructuredDataSet\"\n  ],\n  \"ada:componentType\": \"ada:dataCube\",\n  \"ada:dataComponentResource\": \"cube_SEMEDS_001.hdf5\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/dataCube/example_1_1.ttl",
-          "sizeBytes": 289,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .\n\n[] a cdi:StructuredDataSet,\n        ada:dataCube ;\n    ada:componentType [ a ada:SEMEDSElementalMapsCube ] ;\n    ada:dataComponentResource \"cube_SEMEDS_001.hdf5\" .\n\n"
+          "sizeBytes": 270,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .\n\n[] a cdi:StructuredDataSet,\n        ada:dataCube ;\n    ada:componentType \"ada:dataCube\" ;\n    ada:dataComponentResource \"cube_SEMEDS_001.hdf5\" .\n\n"
         }
       ]
     }

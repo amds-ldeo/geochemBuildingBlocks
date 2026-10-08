@@ -43,7 +43,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/adaProfile/LAF/detail/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/LAF/detail/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/adaProfile/LAF/detail/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/adaProfile/LAF/detail/",
   "description": "# LAF Instrument Detail\n\nLaser Ablation Fluorescence processed/raw data. elementAnalyzed goes in resultTarget.\n",
   "examples": [
@@ -57,20 +57,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/LAF/detail/example_1_1.json",
-          "sizeBytes": 146,
-          "code": "{\n  \"@type\": [\"ada:LAFProcessed\"],\n  \"ada:elementAnalyzed\": \"U\",\n  \"ada:sampleMassConsumed\": \"0.3 mg\",\n  \"ada:sampleType\": \"zircon grain mount\"\n}\n"
+          "sizeBytes": 189,
+          "code": "{\n  \"@type\": [\"ada:LAFProcessed\"],\n  \"ada:componentType\": \"ada:LAFProcessed\",\n  \"ada:elementAnalyzed\": \"U\",\n  \"ada:sampleMassConsumed\": \"0.3 mg\",\n  \"ada:sampleType\": \"zircon grain mount\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/LAF/detail/example_1_1.jsonld",
-          "sizeBytes": 363,
-          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/LAF/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:LAFProcessed\"\n  ],\n  \"ada:elementAnalyzed\": \"U\",\n  \"ada:sampleMassConsumed\": \"0.3 mg\",\n  \"ada:sampleType\": \"zircon grain mount\"\n}"
+          "sizeBytes": 406,
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/LAF/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:LAFProcessed\"\n  ],\n  \"ada:componentType\": \"ada:LAFProcessed\",\n  \"ada:elementAnalyzed\": \"U\",\n  \"ada:sampleMassConsumed\": \"0.3 mg\",\n  \"ada:sampleType\": \"zircon grain mount\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/LAF/detail/example_1_1.ttl",
-          "sizeBytes": 188,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:LAFProcessed ;\n    ada:elementAnalyzed \"U\" ;\n    ada:sampleMassConsumed \"0.3 mg\" ;\n    ada:sampleType \"zircon grain mount\" .\n\n"
+          "sizeBytes": 231,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:LAFProcessed ;\n    ada:componentType \"ada:LAFProcessed\" ;\n    ada:elementAnalyzed \"U\" ;\n    ada:sampleMassConsumed \"0.3 mg\" ;\n    ada:sampleType \"zircon grain mount\" .\n\n"
         }
       ]
     }

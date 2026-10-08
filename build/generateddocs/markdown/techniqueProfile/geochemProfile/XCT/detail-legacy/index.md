@@ -21,6 +21,7 @@ X-ray Computed Tomography image collection with detailed scan parameters.
 ```json
 {
   "@type": ["ada:XCTImageCollection"],
+  "ada:componentType": "ada:XCTImageCollection",
   "ada:instrumentType": "micro-CT",
   "ada:xraySource": "sealed tube",
   "ada:xrayTargetMaterial": "tungsten",
@@ -60,6 +61,7 @@ X-ray Computed Tomography image collection with detailed scan parameters.
   "@type": [
     "ada:XCTImageCollection"
   ],
+  "ada:componentType": "ada:XCTImageCollection",
   "ada:instrumentType": "micro-CT",
   "ada:xraySource": "sealed tube",
   "ada:xrayTargetMaterial": "tungsten",
@@ -94,6 +96,7 @@ X-ray Computed Tomography image collection with detailed scan parameters.
 [] a ada:XCTImageCollection ;
     ada:beamFilterMaterial "copper" ;
     ada:beamFilterThickness 5e-01 ;
+    ada:componentType "ada:XCTImageCollection" ;
     ada:detectorBinning "1x1" ;
     ada:detectorSize "2048x2048" ;
     ada:detectorType "flat panel" ;

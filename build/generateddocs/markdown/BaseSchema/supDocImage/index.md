@@ -21,9 +21,7 @@ A context photography image used as supplemental documentation.
 ```json
 {
   "@type": ["ada:image", "schema:DigitalDocument"],
-  "ada:componentType": {
-    "@type": "ada:contextPhotography"
-  },
+  "ada:componentType": "ada:contextPhotography",
   "ada:numPixelsX": 2048,
   "ada:numPixelsY": 1536,
   "schema:isBasedOn": "sample_context_photo_001.jpg"
@@ -45,9 +43,7 @@ A context photography image used as supplemental documentation.
     "ada:image",
     "schema:DigitalDocument"
   ],
-  "ada:componentType": {
-    "@type": "ada:contextPhotography"
-  },
+  "ada:componentType": "ada:contextPhotography",
   "ada:numPixelsX": 2048,
   "ada:numPixelsY": 1536,
   "schema:isBasedOn": "sample_context_photo_001.jpg"
@@ -63,7 +59,7 @@ A context photography image used as supplemental documentation.
 [] a schema1:DigitalDocument,
         ada:image ;
     schema1:isBasedOn "sample_context_photo_001.jpg" ;
-    ada:componentType [ a ada:contextPhotography ] ;
+    ada:componentType "ada:contextPhotography" ;
     ada:numPixelsX 2048 ;
     ada:numPixelsY 1536 .
 

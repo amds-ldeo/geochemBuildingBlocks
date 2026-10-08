@@ -21,21 +21,19 @@ A collection of SEM-EDS elemental map images with file listing.
 ```json
 {
   "@type": ["ada:collection", "http://schema.org/Collection"],
-  "ada:componentType": {
-    "@type": "ada:SEMEDSElementalMaps"
-  },
+  "ada:componentType": "ada:SEMEDSElementalMaps",
   "ada:memberTypes": ["ada:SEMEDSElementalMap"],
   "ada:nFiles": 5,
   "ada:filelist": [
     {
       "ada:fileName": "map_Fe_Ka.tif",
       "ada:componentType": "ada:SEMEDSElementalMap",
-      "schema:encodingFormat": "image/tiff"
+      "schema:encodingFormat": ["image/tiff"]
     },
     {
       "ada:fileName": "map_Si_Ka.tif",
       "ada:componentType": "ada:SEMEDSElementalMap",
-      "schema:encodingFormat": "image/tiff"
+      "schema:encodingFormat": ["image/tiff"]
     }
   ]
 }
@@ -56,9 +54,7 @@ A collection of SEM-EDS elemental map images with file listing.
     "ada:collection",
     "http://schema.org/Collection"
   ],
-  "ada:componentType": {
-    "@type": "ada:SEMEDSElementalMaps"
-  },
+  "ada:componentType": "ada:SEMEDSElementalMaps",
   "ada:memberTypes": [
     "ada:SEMEDSElementalMap"
   ],
@@ -67,12 +63,16 @@ A collection of SEM-EDS elemental map images with file listing.
     {
       "ada:fileName": "map_Fe_Ka.tif",
       "ada:componentType": "ada:SEMEDSElementalMap",
-      "schema:encodingFormat": "image/tiff"
+      "schema:encodingFormat": [
+        "image/tiff"
+      ]
     },
     {
       "ada:fileName": "map_Si_Ka.tif",
       "ada:componentType": "ada:SEMEDSElementalMap",
-      "schema:encodingFormat": "image/tiff"
+      "schema:encodingFormat": [
+        "image/tiff"
+      ]
     }
   ]
 }
@@ -86,7 +86,7 @@ A collection of SEM-EDS elemental map images with file listing.
 
 [] a schema1:Collection,
         ada:collection ;
-    ada:componentType [ a ada:SEMEDSElementalMaps ] ;
+    ada:componentType "ada:SEMEDSElementalMaps" ;
     ada:filelist [ schema1:encodingFormat "image/tiff" ;
             ada:componentType "ada:SEMEDSElementalMap" ;
             ada:fileName "map_Si_Ka.tif" ],

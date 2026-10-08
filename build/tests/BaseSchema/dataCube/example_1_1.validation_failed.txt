@@ -1,5 +1,5 @@
 Validation report for ogch.BaseSchema.dataCube - Data Cube Type
-Generated 2026-10-08T03:09:48.072788+00:00
+Generated 2026-10-08T23:45:22.431659+00:00
 === Files ===
 Using example_1_1.json from examples
 JSON-LD context is present - uplifting
@@ -8,52 +8,7 @@ Output Turtle example_1_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-
-** Validation error **
-ValidationError: {'@type': 'ada:SEMEDSElementalMapsCube'} is not of type 'string'
-
-Failed validating 'type' in schema['allOf'][0]['properties']['ada:componentType']:
-    {'description': 'ADA componentType for a data cube, as a single '
-                    'string. Allowed values are constrained at the '
-                    'technique-profile level.',
-     'enum': ['ada:FTICRMSCube',
-              'ada:GCMSCube',
-              'ada:L2MSCube',
-              'ada:LCMSRawData',
-              'ada:SEMHRCLCube',
-              'ada:STEMEDSCube',
-              'ada:STEMEDSTomo',
-              'ada:STEMEELSCube',
-              'ada:VNMIRSpectralMap',
-              'ada:dataCube',
-              'ada:analysisLocation',
-              'ada:annotatedImage',
-              'ada:areaOfInterest',
-              'ada:basemap',
-              'ada:calibrationFile',
-              'ada:code',
-              'ada:contextPhotography',
-              'ada:contextVideo',
-              'ada:inputFile',
-              'ada:instrumentMetadata',
-              'ada:logFile',
-              'ada:methodDescription',
-              'ada:other',
-              'ada:plot',
-              'ada:processingMethod',
-              'ada:quickLook',
-              'ada:report',
-              'ada:samplePreparation',
-              'ada:shapefile',
-              'ada:supplementalBasemap',
-              'ada:supplementaryImage',
-              'ada:worldFile',
-              'nil:missing'],
-     'type': 'string',
-     'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'}
-
-On instance['ada:componentType']:
-    {'@type': 'ada:SEMEDSElementalMapsCube'}
+Validation passed
 === End JSON Schema ===
 
 === SHACL ===
@@ -73,12 +28,12 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
   	Severity: sh:Warning
   	Source Shape: [ sh:message Literal("A StructuredDataSet should have physical mappings (cdif:hasPhysicalMapping) linking variables to their physical representation.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path cdif:hasPhysicalMapping ; sh:severity sh:Warning ]
-  	Focus Node: [ ada:componentType [ rdf:type ada:SEMEDSElementalMapsCube ] ; ada:dataComponentResource Literal("cube_SEMEDS_001.hdf5") ; rdf:type ada:dataCube, cdi:StructuredDataSet ]
+  	Focus Node: [ ada:componentType Literal("ada:dataCube") ; ada:dataComponentResource Literal("cube_SEMEDS_001.hdf5") ; rdf:type ada:dataCube, cdi:StructuredDataSet ]
   	Result Path: cdif:hasPhysicalMapping
   	Message: A StructuredDataSet should have physical mappings (cdif:hasPhysicalMapping) linking variables to their physical representation.
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl:
- - Shape cdifd:dataCubeShape: _:Nfe609fc3fce242a89771426907a29ba2
+ - Shape cdifd:dataCubeShape: _:Na2988f047ca64daaa8929d5c69d78101
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl:
   Validation Report
@@ -87,51 +42,51 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl:
  - Shape cdifd:physicalMappingShape: *none*
 
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
- - Shape skosv:prefLabelUniqueLangShape: *none*
- - Shape skosv:ConceptShape: *none*
- - Shape skosv:conceptBroaderNotSelfShape: *none*
-
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
- - Shape _:n7220da2dab8f4acb8bf5f02ef9fbba63b4: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:n7220da2dab8f4acb8bf5f02ef9fbba63b19: *none*
- - Shape _:n7220da2dab8f4acb8bf5f02ef9fbba63b5: *none*
+ - Shape _:nc681ed3a35454e09bc8856f61a287a2fb4: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
- - Shape cdifd:CDIFDefinedTermShape: *none*
- - Shape _:n7220da2dab8f4acb8bf5f02ef9fbba63b10: *none*
- - Shape _:n7220da2dab8f4acb8bf5f02ef9fbba63b7: *none*
- - Shape _:n7220da2dab8f4acb8bf5f02ef9fbba63b8: *none*
- - Shape _:n7220da2dab8f4acb8bf5f02ef9fbba63b6: *none*
- - Shape _:n7220da2dab8f4acb8bf5f02ef9fbba63b26: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape _:nc681ed3a35454e09bc8856f61a287a2fb26: *none*
+ - Shape _:nc681ed3a35454e09bc8856f61a287a2fb7: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:nc681ed3a35454e09bc8856f61a287a2fb8: *none*
+ - Shape _:nc681ed3a35454e09bc8856f61a287a2fb10: *none*
+ - Shape _:nc681ed3a35454e09bc8856f61a287a2fb6: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape _:nc681ed3a35454e09bc8856f61a287a2fb19: *none*
+ - Shape _:nc681ed3a35454e09bc8856f61a287a2fb5: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
- - Shape _:nec9eecd2050045eb8374ca41d3aae485b11: *none*
- - Shape _:nec9eecd2050045eb8374ca41d3aae485b23: *none*
- - Shape cdifd:CDIFIdentifierShape: *none*
- - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:nec9eecd2050045eb8374ca41d3aae485b25: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
- - Shape _:nec9eecd2050045eb8374ca41d3aae485b10: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:nec9eecd2050045eb8374ca41d3aae485b21: *none*
- - Shape _:nec9eecd2050045eb8374ca41d3aae485b22: *none*
- - Shape _:nec9eecd2050045eb8374ca41d3aae485b20: *none*
+ - Shape _:n150a1ecc78964a3e839fe0d0cd4857fab10: *none*
  - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n150a1ecc78964a3e839fe0d0cd4857fab21: *none*
+ - Shape _:n150a1ecc78964a3e839fe0d0cd4857fab20: *none*
+ - Shape _:n150a1ecc78964a3e839fe0d0cd4857fab25: *none*
+ - Shape cdifd:CDIFIdentifierShape: *none*
+ - Shape _:n150a1ecc78964a3e839fe0d0cd4857fab22: *none*
+ - Shape _:n150a1ecc78964a3e839fe0d0cd4857fab23: *none*
+ - Shape _:n150a1ecc78964a3e839fe0d0cd4857fab11: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
+ - Shape skosv:ConceptShape: *none*
+ - Shape skosv:prefLabelUniqueLangShape: *none*
+ - Shape skosv:conceptBroaderNotSelfShape: *none*
 
 === End SHACL ===
 

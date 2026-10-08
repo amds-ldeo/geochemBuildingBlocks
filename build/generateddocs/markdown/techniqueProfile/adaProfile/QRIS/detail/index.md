@@ -21,6 +21,7 @@ QRIS (Raman spectroscopy) calibrated data with illumination and calibration deta
 ```json
 {
   "@type": ["ada:QRISCalibrated"],
+  "ada:componentType": "ada:QRISCalibrated",
   "ada:calibrationFile": "calibration_neon_20240301.csv",
   "ada:pipelineVersion": "2.1.0",
   "ada:focalLength": 300,
@@ -44,6 +45,7 @@ QRIS (Raman spectroscopy) calibrated data with illumination and calibration deta
   "@type": [
     "ada:QRISCalibrated"
   ],
+  "ada:componentType": "ada:QRISCalibrated",
   "ada:calibrationFile": "calibration_neon_20240301.csv",
   "ada:pipelineVersion": "2.1.0",
   "ada:focalLength": 300,
@@ -63,6 +65,7 @@ QRIS (Raman spectroscopy) calibrated data with illumination and calibration deta
 
 [] a ada:QRISCalibrated ;
     ada:calibrationFile "calibration_neon_20240301.csv" ;
+    ada:componentType "ada:QRISCalibrated" ;
     ada:exposureTime 10 ;
     ada:focalLength 300 ;
     ada:illuminationColor "532nm green" ;

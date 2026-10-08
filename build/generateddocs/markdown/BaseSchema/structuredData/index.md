@@ -49,8 +49,8 @@ container, not tabular text).
     "schema:name": "Elemental map cube structure",
     "cdi:has_DataStructureComponent": [
       {"@type": ["cdi:MeasureComponent"], "cdif:name": ["intensity"]},
-      {"@type": ["cdi:DimensionComponent"], "cdif:name": ["x"]},
-      {"@type": ["cdi:DimensionComponent"], "cdif:name": ["y"]}
+      {"@type": ["cdi:DimensionComponent"], "cdif:isDefinedBy_Variable": {"@id": "ex:struct-map-cube-001-var-x"}},
+      {"@type": ["cdi:DimensionComponent"], "cdif:isDefinedBy_Variable": {"@id": "ex:struct-map-cube-001-var-y"}}
     ]
   }
 }
@@ -99,17 +99,17 @@ container, not tabular text).
         "@type": [
           "cdi:DimensionComponent"
         ],
-        "cdif:name": [
-          "x"
-        ]
+        "cdif:isDefinedBy_Variable": {
+          "@id": "ex:struct-map-cube-001-var-x"
+        }
       },
       {
         "@type": [
           "cdi:DimensionComponent"
         ],
-        "cdif:name": [
-          "y"
-        ]
+        "cdif:isDefinedBy_Variable": {
+          "@id": "ex:struct-map-cube-001-var-y"
+        }
       }
     ]
   }
@@ -133,11 +133,11 @@ container, not tabular text).
 
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
     cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
-            cdif:name "y" ],
-        [ a cdi:MeasureComponent ;
-            cdif:name "intensity" ],
+            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ],
         [ a cdi:DimensionComponent ;
-            cdif:name "x" ] ;
+            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-x> ],
+        [ a cdi:MeasureComponent ;
+            cdif:name "intensity" ] ;
     schema1:name "Elemental map cube structure" .
 
 

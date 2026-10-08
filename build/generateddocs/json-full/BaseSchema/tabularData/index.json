@@ -33,8 +33,8 @@
     "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
     ],
-    "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+    "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
@@ -42,11 +42,11 @@
     "cdif.bbr.metadata.schemaorgProperties.identifier": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
     ],
-    "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
-    ],
     "cdif.bbr.metadata.skosProperties.skosConcept": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
     ],
     "ogch.BaseSchema.spatialRegistration": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
@@ -68,7 +68,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/tabularData/",
   "description": "# Tabular Data Type\n\nDescribes tabular/structured data files in ADA metadata. Typed as `cdi:PhysicalDataSet` and `ada:tabularData`. Supports DDI-CDI WideDataStructure for column layout description, spatial registration, and various analytical technique-specific component types.\n",
   "examples": [
@@ -84,20 +84,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/tabularData/example_1_1.json",
-          "sizeBytes": 240,
-          "code": "{\n  \"@type\": [\"cdi:TabularTextDataSet\", \"ada:tabularData\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:MCICPMSTabular\"\n  },\n  \"cdi:isDelimited\": true,\n  \"ada:xCoordCol\": \"X_um\",\n  \"ada:yCoordCol\": \"Y_um\",\n  \"ada:coordUnits\": \"micrometer\"\n}\n"
+          "sizeBytes": 506,
+          "code": "{\n  \"@type\": [\"cdi:TabularTextDataSet\", \"ada:tabularData\"],\n  \"ada:componentType\": \"ada:MCICPMSTabular\",\n  \"cdi:isDelimited\": true,\n  \"ada:xCoordCol\": \"X_um\",\n  \"ada:yCoordCol\": \"Y_um\",\n  \"ada:coordUnits\": \"micrometer\",\n  \"cdif:hasPhysicalMapping\": [\n    {\"@type\": [\"cdif:TextMapping\"], \"cdif:index\": 1,\n     \"cdif:formats_InstanceVariable\": {\"@id\": \"ex:tabularData-var-x\"}},\n    {\"@type\": [\"cdif:TextMapping\"], \"cdif:index\": 2,\n     \"cdif:formats_InstanceVariable\": {\"@id\": \"ex:tabularData-var-y\"}}\n  ]\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/tabularData/example_1_1.jsonld",
-          "sizeBytes": 553,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/context.jsonld\"\n  ],\n  \"@type\": [\n    \"cdi:TabularTextDataSet\",\n    \"ada:tabularData\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:MCICPMSTabular\"\n  },\n  \"cdi:isDelimited\": true,\n  \"ada:xCoordCol\": \"X_um\",\n  \"ada:yCoordCol\": \"Y_um\",\n  \"ada:coordUnits\": \"micrometer\"\n}"
+          "sizeBytes": 921,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"cdi\": \"http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/context.jsonld\"\n  ],\n  \"@type\": [\n    \"cdi:TabularTextDataSet\",\n    \"ada:tabularData\"\n  ],\n  \"ada:componentType\": \"ada:MCICPMSTabular\",\n  \"cdi:isDelimited\": true,\n  \"ada:xCoordCol\": \"X_um\",\n  \"ada:yCoordCol\": \"Y_um\",\n  \"ada:coordUnits\": \"micrometer\",\n  \"cdif:hasPhysicalMapping\": [\n    {\n      \"@type\": [\n        \"cdif:TextMapping\"\n      ],\n      \"cdif:index\": 1,\n      \"cdif:formats_InstanceVariable\": {\n        \"@id\": \"ex:tabularData-var-x\"\n      }\n    },\n    {\n      \"@type\": [\n        \"cdif:TextMapping\"\n      ],\n      \"cdif:index\": 2,\n      \"cdif:formats_InstanceVariable\": {\n        \"@id\": \"ex:tabularData-var-y\"\n      }\n    }\n  ]\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/tabularData/example_1_1.ttl",
-          "sizeBytes": 395,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a cdi:TabularTextDataSet,\n        ada:tabularData ;\n    cdi:isDelimited true ;\n    ada:componentType [ a ada:MCICPMSTabular ] ;\n    ada:coordUnits \"micrometer\" ;\n    ada:xCoordCol \"X_um\" ;\n    ada:yCoordCol \"Y_um\" .\n\n"
+          "sizeBytes": 705,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .\n@prefix cdif: <https://w3id.org/cdif/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a cdi:TabularTextDataSet,\n        ada:tabularData ;\n    cdi:isDelimited true ;\n    ada:componentType \"ada:MCICPMSTabular\" ;\n    ada:coordUnits \"micrometer\" ;\n    ada:xCoordCol \"X_um\" ;\n    ada:yCoordCol \"Y_um\" ;\n    cdif:hasPhysicalMapping [ a cdif:TextMapping ;\n            cdif:formats_InstanceVariable <ex:tabularData-var-y> ;\n            cdif:index 2 ],\n        [ a cdif:TextMapping ;\n            cdif:formats_InstanceVariable <ex:tabularData-var-x> ;\n            cdif:index 1 ] .\n\n"
         }
       ]
     }

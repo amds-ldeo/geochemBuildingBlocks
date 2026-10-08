@@ -21,9 +21,7 @@ A calibration document associated with an analytical session.
 ```json
 {
   "@type": ["ada:document", "schema:DigitalDocument"],
-  "ada:componentType": {
-    "@type": "ada:calibrationFile"
-  },
+  "ada:componentType": "ada:calibrationFile",
   "schema:version": "1.0",
   "schema:isBasedOn": "calibration_original_20230415.pdf"
 }
@@ -44,9 +42,7 @@ A calibration document associated with an analytical session.
     "ada:document",
     "schema:DigitalDocument"
   ],
-  "ada:componentType": {
-    "@type": "ada:calibrationFile"
-  },
+  "ada:componentType": "ada:calibrationFile",
   "schema:version": "1.0",
   "schema:isBasedOn": "calibration_original_20230415.pdf"
 }
@@ -61,7 +57,7 @@ A calibration document associated with an analytical session.
         ada:document ;
     schema1:isBasedOn "calibration_original_20230415.pdf" ;
     schema1:version "1.0" ;
-    ada:componentType [ a ada:calibrationFile ] .
+    ada:componentType "ada:calibrationFile" .
 
 
 ```

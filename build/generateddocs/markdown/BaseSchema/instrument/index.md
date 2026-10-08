@@ -25,10 +25,11 @@ classifications in additionalType.
 ```json
 {
   "@type": ["schema:Thing", "schema:Product"],
+  "@id": "ex:instrument/EPMA",
   "schema:name": "JEOL JXA-8530F Electron Microprobe",
   "schema:description": "Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers",
-  "schema:identifier": "https://www.wikidata.org/wiki/Q116917974",
-  "schema:additionalType": ["nxs:BaseClass/NXinstrument", "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48"]
+  "schema:identifier": ["https://www.wikidata.org/wiki/Q116917974"],
+  "schema:additionalType": ["nxs:BaseClass/NXinstrument", "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48", {"@id": "https://www.wikidata.org/wiki/Q3099911"}]
 }
 
 ```
@@ -47,12 +48,18 @@ classifications in additionalType.
     "schema:Thing",
     "schema:Product"
   ],
+  "@id": "ex:instrument/EPMA",
   "schema:name": "JEOL JXA-8530F Electron Microprobe",
   "schema:description": "Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers",
-  "schema:identifier": "https://www.wikidata.org/wiki/Q116917974",
+  "schema:identifier": [
+    "https://www.wikidata.org/wiki/Q116917974"
+  ],
   "schema:additionalType": [
     "nxs:BaseClass/NXinstrument",
-    "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48"
+    "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48",
+    {
+      "@id": "https://www.wikidata.org/wiki/Q3099911"
+    }
   ]
 }
 ```
@@ -61,9 +68,10 @@ classifications in additionalType.
 ```ttl
 @prefix schema1: <http://schema.org/> .
 
-[] a schema1:Product,
+<ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48",
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48",
         "nxs:BaseClass/NXinstrument" ;
     schema1:description "Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers" ;
     schema1:identifier "https://www.wikidata.org/wiki/Q116917974" ;

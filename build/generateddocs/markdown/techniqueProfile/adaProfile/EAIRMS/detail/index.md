@@ -21,6 +21,7 @@ Elemental Analysis Isotope Ratio Mass Spectrometry collection detail.
 ```json
 {
   "@type": ["ada:EAIRMSCollection"],
+  "ada:componentType": "ada:EAIRMSCollection",
   "ada:massConsumed": "2.5 mg",
   "ada:elementType": "carbon"
 }
@@ -39,6 +40,7 @@ Elemental Analysis Isotope Ratio Mass Spectrometry collection detail.
   "@type": [
     "ada:EAIRMSCollection"
   ],
+  "ada:componentType": "ada:EAIRMSCollection",
   "ada:massConsumed": "2.5 mg",
   "ada:elementType": "carbon"
 }
@@ -49,6 +51,7 @@ Elemental Analysis Isotope Ratio Mass Spectrometry collection detail.
 @prefix ada: <https://ada.astromat.org/metadata/> .
 
 [] a ada:EAIRMSCollection ;
+    ada:componentType "ada:EAIRMSCollection" ;
     ada:elementType "carbon" ;
     ada:massConsumed "2.5 mg" .
 

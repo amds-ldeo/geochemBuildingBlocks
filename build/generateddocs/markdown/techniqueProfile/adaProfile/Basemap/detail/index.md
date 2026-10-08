@@ -21,6 +21,7 @@ A basemap image with RGB channels and pixel scaling for spatial reference.
 ```json
 {
   "@type": ["ada:basemap", "schema:Map"],
+  "ada:componentType": "ada:basemap",
   "schema:description": "BSE basemap image of thin section",
   "ada:pixelUnits": "micrometer",
   "ada:pixelScaleX": 0.5,
@@ -46,6 +47,7 @@ A basemap image with RGB channels and pixel scaling for spatial reference.
     "ada:basemap",
     "schema:Map"
   ],
+  "ada:componentType": "ada:basemap",
   "schema:description": "BSE basemap image of thin section",
   "ada:pixelUnits": "micrometer",
   "ada:pixelScaleX": 0.5,
@@ -68,6 +70,7 @@ A basemap image with RGB channels and pixel scaling for spatial reference.
     ada:channel1 "BSE" ;
     ada:channel2 "" ;
     ada:channel3 "" ;
+    ada:componentType "ada:basemap" ;
     ada:pixelScaleX 5e-01 ;
     ada:pixelScaleY 5e-01 ;
     ada:pixelUnits "micrometer" .

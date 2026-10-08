@@ -21,6 +21,7 @@ Laser Ablation Fluorescence processed data with element and mass details.
 ```json
 {
   "@type": ["ada:LAFProcessed"],
+  "ada:componentType": "ada:LAFProcessed",
   "ada:elementAnalyzed": "U",
   "ada:sampleMassConsumed": "0.3 mg",
   "ada:sampleType": "zircon grain mount"
@@ -40,6 +41,7 @@ Laser Ablation Fluorescence processed data with element and mass details.
   "@type": [
     "ada:LAFProcessed"
   ],
+  "ada:componentType": "ada:LAFProcessed",
   "ada:elementAnalyzed": "U",
   "ada:sampleMassConsumed": "0.3 mg",
   "ada:sampleType": "zircon grain mount"
@@ -51,6 +53,7 @@ Laser Ablation Fluorescence processed data with element and mass details.
 @prefix ada: <https://ada.astromat.org/metadata/> .
 
 [] a ada:LAFProcessed ;
+    ada:componentType "ada:LAFProcessed" ;
     ada:elementAnalyzed "U" ;
     ada:sampleMassConsumed "0.3 mg" ;
     ada:sampleType "zircon grain mount" .

@@ -21,6 +21,7 @@ Point Spread Function Data detail with image names and viewing conditions.
 ```json
 {
   "@type": ["ada:PSFDTabular"],
+  "ada:componentType": "ada:PSFDTabular",
   "ada:imageName": ["crater_overview_001.tif", "crater_overview_002.tif"],
   "ada:imageViewingConditions": "nadir, 50m altitude"
 }
@@ -39,6 +40,7 @@ Point Spread Function Data detail with image names and viewing conditions.
   "@type": [
     "ada:PSFDTabular"
   ],
+  "ada:componentType": "ada:PSFDTabular",
   "ada:imageName": [
     "crater_overview_001.tif",
     "crater_overview_002.tif"
@@ -52,6 +54,7 @@ Point Spread Function Data detail with image names and viewing conditions.
 @prefix ada: <https://ada.astromat.org/metadata/> .
 
 [] a ada:PSFDTabular ;
+    ada:componentType "ada:PSFDTabular" ;
     ada:imageName "crater_overview_001.tif",
         "crater_overview_002.tif" ;
     ada:imageViewingConditions "nadir, 50m altitude" .
