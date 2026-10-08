@@ -1,0 +1,1471 @@
+{
+  "title": "Validation report for ogch.techniqueProfile.geochemProfile.STEM.tapp - Scanning Transmission Electron Microscopy Technique-Aligned Procedure Profile (stemTAPP)",
+  "bblockName": "Scanning Transmission Electron Microscopy Technique-Aligned Procedure Profile (stemTAPP)",
+  "bblockId": "ogch.techniqueProfile.geochemProfile.STEM.tapp",
+  "generated": "2026-10-08T03:09:57.279776+00:00",
+  "result": false,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/techniqueProfile/geochemProfile/STEM/tapp/example_1_1.json",
+        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/STEM/tapp/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examplestemTAPP-HF5000.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 27,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:procedureAuthorDescription' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:procedureAuthorDescription' is a required property\n\nFailed validating 'required' in schema['allOf'][1]:\n    {'properties': {'ada:acceleratingVoltage': {'anyOf': [{'type': 'number'},\n                                                          {'type': 'string'}],\n                                                'description': 'Electron '\n                                                               'beam '\n                                                               'accelerating '\n                                                               'voltage.'},\n                    'ada:analyticalMode': {'description': 'Primary '\n                                                          'analytical '\n                                                          'mode(s) '\n                                                          'executed under '\n                                                          'this procedure. '\n                                                          'Records one '\n                                                          'value for a '\n                                                          'single-mode '\n                                                          'procedure and '\n                                                          'all applicable '\n                                                          'modes for a '\n                                                          'multi-mode one. '\n                                                          'Applies even '\n                                                          'where a '\n                                                          'procedure '\n                                                          'defines no mode '\n                                                          'flag columns.',\n                                           'items': {'type': 'string'},\n                                           'type': 'array'},\n                    'ada:calibrationFactorAndDeterminationMethodDefault': {'description': 'An '\n                                                                                          'externally-calibrated '\n                                                                                          'factor '\n                                                                                          'that '\n                                                                                          'converts '\n                                                                                          'the '\n                                                                                          'measured '\n                                                                                          'quantity '\n                                                                                          'into '\n                                                                                          'the '\n                                                                                          'reported '\n                                                                                          'quantity, '\n                                                                                          'how '\n                                                                                          'it '\n                                                                                          'was '\n                                                                                          'determined, '\n                                                                                          'and '\n                                                                                          'its '\n                                                                                          'uncertainty. '\n                                                                                          'Applies '\n                                                                                          'where '\n                                                                                          'the '\n                                                                                          'conversion '\n                                                                                          'depends '\n                                                                                          'on '\n                                                                                          'a '\n                                                                                          'factor '\n                                                                                          'calibrated '\n                                                                                          'against '\n                                                                                          'a '\n                                                                                          'reference '\n                                                                                          'of '\n                                                                                          'independently '\n                                                                                          'known '\n                                                                                          'value, '\n                                                                                          'rather '\n                                                                                          'than '\n                                                                                          'on '\n                                                                                          'the '\n                                                                                          'instrument '\n                                                                                          'response '\n                                                                                          'alone. '\n                                                                                          'Distinct '\n                                                                                          'from '\n                                                                                          'the '\n                                                                                          'fields '\n                                                                                          'that '\n                                                                                          'name '\n                                                                                          'the '\n                                                                                          'calibration '\n                                                                                          'material '\n                                                                                          'and '\n                                                                                          'that '\n                                                                                          'state '\n                                                                                          'which '\n                                                                                          'approach '\n                                                                                          'applies '\n                                                                                          'to '\n                                                                                          'which '\n                                                                                          'analyte, '\n                                                                                          'where '\n                                                                                          'the '\n                                                                                          'technique '\n                                                                                          'has '\n                                                                                          'them: '\n                                                                                          'this '\n                                                                                          'field '\n                                                                                          'records '\n                                                                                          'the '\n                                                                                          'resulting '\n                                                                                          'factor '\n                                                                                          'itself.',\n                                                                           'type': 'string'},\n                    'ada:constantsAndReferenceValuesUsedDefault': {'description': 'Physical '\n                                                                                  'constants '\n                                                                                  'and '\n                                                                                  'reference '\n                                                                                  'values '\n                                                                                  'used '\n                                                                                  'in '\n                                                                                  'data '\n                                                                                  'reduction '\n                                                                                  'to '\n                                                                                  'calculate '\n                                                                                  'the '\n                                                                                  'final '\n                                                                                  'reported '\n                                                                                  'quantity '\n                                                                                  '(e.g., '\n                                                                                  'decay '\n                                                                                  'constants '\n                                                                                  'for '\n                                                                                  'age '\n                                                                                  'calculation, '\n                                                                                  'standard '\n                                                                                  'isotope '\n                                                                                  'ratios, '\n                                                                                  'or '\n                                                                                  'other '\n                                                                                  'citable '\n                                                                                  'reference '\n                                                                                  'values '\n                                                                                  'used '\n                                                                                  'in '\n                                                                                  'a '\n                                                                                  'correction '\n                                                                                  'or '\n                                                                                  'calculation), '\n                                                                                  'together '\n                                                                                  'with '\n                                                                                  'their '\n                                                                                  'source. '\n                                                                                  'Distinct '\n                                                                                  'from '\n                                                                                  'the '\n                                                                                  'Group '\n                                                                                  '6 '\n                                                                                  'reference-material '\n                                                                                  'fields, '\n                                                                                  'which '\n                                                                                  'document '\n                                                                                  'accepted '\n                                                                                  'values '\n                                                                                  'for '\n                                                                                  'specific '\n                                                                                  'calibration/validation '\n                                                                                  'materials '\n                                                                                  'rather '\n                                                                                  'than '\n                                                                                  'universal '\n                                                                                  'physical '\n                                                                                  'constants. '\n                                                                                  'Record '\n                                                                                  '\"None\" '\n                                                                                  'if '\n                                                                                  'no '\n                                                                                  'citable, '\n                                                                                  'revisable '\n                                                                                  'physical '\n                                                                                  'constants '\n                                                                                  'feed '\n                                                                                  'into '\n                                                                                  'this '\n                                                                                  \"procedure's \"\n                                                                                  'data '\n                                                                                  'reduction.',\n                                                                   'type': 'string'},\n                    'ada:dataProcessingSoftwareDefault': {'description': 'All '\n                                                                         'software '\n                                                                         'applied '\n                                                                         'to '\n                                                                         'the '\n                                                                         'data '\n                                                                         'after '\n                                                                         'acquisition '\n                                                                         'in '\n                                                                         'order '\n                                                                         'to '\n                                                                         'produce '\n                                                                         'the '\n                                                                         'reported '\n                                                                         'quantities, '\n                                                                         'including '\n                                                                         'version '\n                                                                         'numbers. '\n                                                                         'List '\n                                                                         'every '\n                                                                         'package '\n                                                                         'used. '\n                                                                         'Distinct '\n                                                                         'from '\n                                                                         'Acquisition '\n                                                                         'Software, '\n                                                                         'which '\n                                                                         'controls '\n                                                                         'the '\n                                                                         'instrument '\n                                                                         'and '\n                                                                         'collects '\n                                                                         'the '\n                                                                         'raw '\n                                                                         'data.',\n                                                          'type': 'string'},\n                    'ada:procedureAuthorDescription': {'description': 'How '\n                                                                      'this '\n                                                                      'draft '\n                                                                      'was '\n                                                                      'produced.',\n                                                       'type': 'string'},\n                    'ada:reportedVariablesAndUnits': {'description': 'The '\n                                                                     'final '\n                                                                     'variable(s) '\n                                                                     'this '\n                                                                     'procedure '\n                                                                     'reports '\n                                                                     'and '\n                                                                     'their '\n                                                                     'units '\n                                                                     '\u2014 '\n                                                                     'distinct '\n                                                                     'from '\n                                                                     'the '\n                                                                     'fields '\n                                                                     'recording '\n                                                                     'what '\n                                                                     'was '\n                                                                     '*acquired* '\n                                                                     'rather '\n                                                                     'than '\n                                                                     'what '\n                                                                     'is '\n                                                                     'reported. '\n                                                                     'Record '\n                                                                     'every '\n                                                                     'reported '\n                                                                     'variable, '\n                                                                     'including '\n                                                                     'intermediate '\n                                                                     'quantities '\n                                                                     'reported '\n                                                                     'alongside '\n                                                                     'final '\n                                                                     'ones '\n                                                                     '(e.g. '\n                                                                     'both '\n                                                                     'the '\n                                                                     '206Pb/238U '\n                                                                     'ratio '\n                                                                     'and '\n                                                                     'the '\n                                                                     '206Pb/238U '\n                                                                     'date). '\n                                                                     'Where '\n                                                                     'a '\n                                                                     'reported '\n                                                                     'variable '\n                                                                     'is a '\n                                                                     'nominal '\n                                                                     'property '\n                                                                     'with '\n                                                                     'no '\n                                                                     'magnitude '\n                                                                     '(e.g. '\n                                                                     'a '\n                                                                     'mineral '\n                                                                     'identification), '\n                                                                     'record '\n                                                                     'the '\n                                                                     'variable '\n                                                                     'and '\n                                                                     'give '\n                                                                     'the '\n                                                                     'unit '\n                                                                     'as '\n                                                                     \"'N/A \"\n                                                                     '\u2014 '\n                                                                     'nominal '\n                                                                     \"property'.\",\n                                                      'type': 'string'},\n                    'ada:samplePreparationMethodDefault': {'description': 'The '\n                                                                          'form '\n                                                                          'in '\n                                                                          'which '\n                                                                          'the '\n                                                                          'sample '\n                                                                          'is '\n                                                                          'presented '\n                                                                          'to '\n                                                                          'the '\n                                                                          'instrument, '\n                                                                          'and '\n                                                                          'the '\n                                                                          'preparation '\n                                                                          'that '\n                                                                          'brought '\n                                                                          'it '\n                                                                          'to '\n                                                                          'that '\n                                                                          'form '\n                                                                          '\u2014 '\n                                                                          'for '\n                                                                          'example '\n                                                                          'mounting, '\n                                                                          'sectioning, '\n                                                                          'polishing, '\n                                                                          'coating, '\n                                                                          'crushing, '\n                                                                          'fusion, '\n                                                                          'or '\n                                                                          'extraction '\n                                                                          'of '\n                                                                          'an '\n                                                                          'electron-transparent '\n                                                                          'section. '\n                                                                          'Record '\n                                                                          \"'None' \"\n                                                                          'where '\n                                                                          'the '\n                                                                          'material '\n                                                                          'is '\n                                                                          'analysed '\n                                                                          'as '\n                                                                          'received.',\n                                                           'type': 'string'},\n                    'ada:samplingUnitSelectionCriteriaDefault': {'description': 'The '\n                                                                                'rules '\n                                                                                'governing '\n                                                                                'which '\n                                                                                'sampling '\n                                                                                'unit(s) '\n                                                                                'within '\n                                                                                'a '\n                                                                                'sample '\n                                                                                'are '\n                                                                                'selected '\n                                                                                'for '\n                                                                                'analysis, '\n                                                                                'and '\n                                                                                'why. '\n                                                                                'Covers '\n                                                                                'the '\n                                                                                'criteria '\n                                                                                'applied '\n                                                                                'when '\n                                                                                'choosing '\n                                                                                'grains, '\n                                                                                'aliquots, '\n                                                                                'spots, '\n                                                                                'or '\n                                                                                'a '\n                                                                                'region '\n                                                                                'of '\n                                                                                'interest '\n                                                                                '\u2014 '\n                                                                                'size, '\n                                                                                'morphology, '\n                                                                                'clarity, '\n                                                                                'freedom '\n                                                                                'from '\n                                                                                'inclusions '\n                                                                                'or '\n                                                                                'alteration, '\n                                                                                'phase '\n                                                                                'identity, '\n                                                                                'or '\n                                                                                'spatial '\n                                                                                'position. '\n                                                                                'Distinct '\n                                                                                'from '\n                                                                                'Target '\n                                                                                'Material, '\n                                                                                'which '\n                                                                                'states '\n                                                                                'the '\n                                                                                'material '\n                                                                                'type '\n                                                                                'the '\n                                                                                'procedure '\n                                                                                'is '\n                                                                                'designed '\n                                                                                'for, '\n                                                                                'and '\n                                                                                'from '\n                                                                                'Sampling '\n                                                                                'Unit, '\n                                                                                'which '\n                                                                                'names '\n                                                                                'the '\n                                                                                'kind '\n                                                                                'of '\n                                                                                'subdivision '\n                                                                                'one '\n                                                                                'row '\n                                                                                'of '\n                                                                                'reported '\n                                                                                'values '\n                                                                                'corresponds '\n                                                                                'to: '\n                                                                                'this '\n                                                                                'field '\n                                                                                'states '\n                                                                                'how, '\n                                                                                'within '\n                                                                                'such '\n                                                                                'a '\n                                                                                'sample, '\n                                                                                'the '\n                                                                                'unit '\n                                                                                'actually '\n                                                                                'analysed '\n                                                                                'is '\n                                                                                'picked '\n                                                                                'out.',\n                                                                 'type': 'string'},\n                    'ada:samplingUnitType': {'description': 'The kind of '\n                                                            'physical '\n                                                            'subdivision '\n                                                            'of the sample '\n                                                            'to which one '\n                                                            'row of '\n                                                            'reported '\n                                                            'values '\n                                                            'corresponds \u2014 '\n                                                            'the unit that '\n                                                            'is analysed '\n                                                            'and reported, '\n                                                            'as distinct '\n                                                            'from the '\n                                                            'sample as a '\n                                                            'whole. Where '\n                                                            'units nest '\n                                                            '(e.g. '\n                                                            'confined '\n                                                            'tracks within '\n                                                            'grains), '\n                                                            'state both '\n                                                            'levels. The '\n                                                            'units '\n                                                            'themselves '\n                                                            'are listed in '\n                                                            'Sampling Unit '\n                                                            'Name.',\n                                             'type': 'string'},\n                    'schema:additionalProperty': {'allOf': [{'contains': {'$ref': 'https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterTemplates/schema.yaml#/$defs/stem_preAnalysisImagingAndScreeningDefault'},\n                                                             'maxContains': 1,\n                                                             'minContains': 0}],\n                                                  'description': 'Method-level '\n                                                                 'Advanced-protocol '\n                                                                 'parameters. '\n                                                                 'Editable '\n                                                                 'parameters '\n                                                                 'are '\n                                                                 'schema:PropertyValueSpecification '\n                                                                 'entries '\n                                                                 '(\u2026Default '\n                                                                 'name; '\n                                                                 'the '\n                                                                 'per-dataset '\n                                                                 'value '\n                                                                 'lives in '\n                                                                 'the '\n                                                                 'detail '\n                                                                 'block); '\n                                                                 'read-only '\n                                                                 'parameters '\n                                                                 'are '\n                                                                 'schema:PropertyValue '\n                                                                 'entries '\n                                                                 'carrying '\n                                                                 'the '\n                                                                 'fixed '\n                                                                 'protocol '\n                                                                 'value in '\n                                                                 'schema:value.',\n                                                  'items': {'anyOf': [{'$ref': 'https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterTemplates/schema.yaml#/$defs/stem_preAnalysisImagingAndScreeningDefault'}]},\n                                                  'type': 'array'}},\n     'required': ['ada:analyticalMode',\n                  'ada:procedureAuthorDescription',\n                  'ada:acceleratingVoltage'],\n     'type': 'object'}\n\nOn instance:\n    {'@context': {'ada': 'https://ada.astromat.org/metadata/',\n                  'bios': 'https://bioschemas.org/',\n                  'cdi': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/',\n                  'prov': 'http://www.w3.org/ns/prov#',\n                  'schema': 'http://schema.org/'},\n     '@id': 'ex:stemTAPP-HF5000',\n     '@type': ['prov:Plan',\n               'cdi:Activity',\n               'schema:Action',\n               'ada:TAPPDefinition',\n               'bios:LabProtocol'],\n     'ada:acceleratingVoltage': -9999,\n     'ada:analyticalMode': ['missing'],\n     'ada:instrumentManufacturer': 'Hitachi',\n     'ada:instrumentModel': 'HF5000',\n     'schema:creator': {'@type': ['schema:Person'],\n                        'schema:description': 'Draft generated by Claude '\n                                              '(Anthropic) under human '\n                                              'review, from analysis of '\n                                              'ADA metadata records and '\n                                              'the instrumentMetadata '\n                                              'exports attached to them. '\n                                              'Parameter values and tier '\n                                              'assignments are derived, '\n                                              'not authored by the '\n                                              'laboratory.',\n                        'schema:name': 'Claude assisted'},\n     'schema:datePublished': '2024-05-16',\n     'schema:description': 'stemTAPP instance derived from ADA n=365 | '\n                           'Maizey, Beau | University of Arizona | Hitachi '\n                           'HF5000 (25 instrumentMetadata exports) '\n                           '(publication column of '\n                           'STEM_TAPP_draft_v2.csv).',\n     'schema:instrument': [{'@id': 'ex:instrument/STEM',\n                            '@type': ['schema:Product', 'schema:Thing'],\n                            'ada:acceleratingVoltage': '200 kV',\n                            'schema:additionalType': ['STEM',\n                                                      {'@id': 'https://www.wikidata.org/wiki/Q3099911'}],\n                            'schema:name': 'example instrumentName'}],\n     'schema:measurementTechnique': [{'@type': ['schema:DefinedTerm'],\n                                      'schema:name': 'stem',\n                                      'schema:termCode': 'stem'}],\n     'schema:name': 'stem protocol \u2014 HF5000'}"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/BaseSchema/tappDefinition/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
+              "focusNodes": {
+                "cdifd:tappDefinitionShape": {
+                  "nodes": []
+                },
+                "cdifd:WorkflowStepUniqueNamesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:tappDefinitionShape: *none*\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl",
+              "focusNodes": {
+                "_:n722e2828db984913870226592dbdd654b14": {
+                  "nodes": []
+                },
+                "_:n722e2828db984913870226592dbdd654b12": {
+                  "nodes": []
+                },
+                "_:n722e2828db984913870226592dbdd654b5": {
+                  "nodes": []
+                },
+                "cdifd:qualityMeasurementNode": {
+                  "nodes": []
+                },
+                "_:n722e2828db984913870226592dbdd654b11": {
+                  "nodes": []
+                },
+                "_:n722e2828db984913870226592dbdd654b4": {
+                  "nodes": []
+                },
+                "cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n722e2828db984913870226592dbdd654b13": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:\n - Shape _:n722e2828db984913870226592dbdd654b14: *none*\n - Shape _:n722e2828db984913870226592dbdd654b12: *none*\n - Shape _:n722e2828db984913870226592dbdd654b5: *none*\n - Shape cdifd:qualityMeasurementNode: *none*\n - Shape _:n722e2828db984913870226592dbdd654b11: *none*\n - Shape _:n722e2828db984913870226592dbdd654b4: *none*\n - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n722e2828db984913870226592dbdd654b13: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
+              "focusNodes": {
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb10": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb19": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb5": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb26": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb8": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb7": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb6": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb4": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb10: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb19: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb5: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb26: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb8: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb7: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb6: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb4: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb22": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb23": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb11": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb10": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierTypeTermShape": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb25": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb21": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb20": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb22: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb23: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb11: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb10: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb25: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb21: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb20: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFOrganizationShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFOrganizationShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n79bbc05c37b040cdb802c7b4125b4a20b3": {
+                  "nodes": []
+                },
+                "cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:\n - Shape cdifd:CDIFOrganizationShape: *none*\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*\n - Shape _:n79bbc05c37b040cdb802c7b4125b4a20b3: *none*\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl",
+              "focusNodes": {
+                "skosv:prefLabelUniqueLangShape": {
+                  "nodes": []
+                },
+                "skosv:ConceptShape": {
+                  "nodes": []
+                },
+                "skosv:conceptBroaderNotSelfShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:\n - Shape skosv:prefLabelUniqueLangShape: *none*\n - Shape skosv:ConceptShape: *none*\n - Shape skosv:conceptBroaderNotSelfShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl",
+              "graph": "@prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a schema1:Person ;\n                    schema1:description \"Draft generated by Claude (Anthropic) under human review, from analysis of ADA metadata records and the instrumentMetadata exports attached to them. Parameter values and tier assignments are derived, not authored by the laboratory.\" ;\n                    schema1:name \"Claude assisted\" ] ;\n            sh:resultMessage \"A Person should have a contactPoint (schema:ContactPoint or mailto: IRI)\" ;\n            sh:resultPath schema1:contactPoint ;\n            sh:resultSeverity sh:Info ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape cdifd:contactPointProperty ] .\n\n",
+              "isError": true,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Info\n  \tSource Shape: cdifd:contactPointProperty\n  \tFocus Node: [ rdf:type schema1:Person ; schema1:description Literal(\"Draft generated by Claude (Anthropic) under human review, from analysis of ADA metadata records and the instrumentMetadata exports attached to them. Parameter values and tier assignments are derived, not authored by the laboratory.\") ; schema1:name Literal(\"Claude assisted\") ]\n  \tResult Path: schema1:contactPoint\n  \tMessage: A Person should have a contactPoint (schema:ContactPoint or mailto: IRI)\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:affiliationProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:contactPointProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFPersonShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFPersonShape": {
+                  "nodes": [
+                    "<ex:stemTAPP-HF5000>/schema1:creator"
+                  ]
+                },
+                "cdifd:maintainerOrProviderContactPointShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFContactPointShape": {
+                  "nodes": []
+                },
+                "cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n615b8ef5885a4d018250365262c34677b14": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape: <ex:stemTAPP-HF5000>/schema1:creator\n - Shape cdifd:maintainerOrProviderContactPointShape: *none*\n - Shape cdifd:CDIFContactPointShape: *none*\n - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n615b8ef5885a4d018250365262c34677b14: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <ex:instrument/STEM> ;\n            sh:resultMessage \"An instrument must have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"An instrument must have an identifier (schema:identifier).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:identifier ] ] .\n\n",
+              "isError": true,
+              "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:message Literal(\"An instrument must have an identifier (schema:identifier).\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:identifier ]\n  \tFocus Node: <ex:instrument/STEM>\n  \tResult Path: schema1:identifier\n  \tMessage: An instrument must have an identifier (schema:identifier).\n  "
+            },
+            {
+              "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
+              "focusNodes": {
+                "cdifd:adaInstrumentShape": {
+                  "nodes": []
+                },
+                "cdifd:tappInstrumentParamSpecShape": {
+                  "nodes": []
+                },
+                "cdifd:provUsedInstrumentParamValueShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <ex:instrument/STEM> ;\n            sh:resultMessage \"An instrument should have a category classification from a controlled vocabulary (schema:category).\" ;\n            sh:resultPath schema1:category ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"An instrument should have a category classification from a controlled vocabulary (schema:category).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:category ;\n                    sh:severity sh:Warning ] ] .\n\n",
+              "isError": true,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Warning\n  \tSource Shape: [ sh:message Literal(\"An instrument should have a category classification from a controlled vocabulary (schema:category).\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:category ; sh:severity sh:Warning ]\n  \tFocus Node: <ex:instrument/STEM>\n  \tResult Path: schema1:category\n  \tMessage: An instrument should have a category classification from a controlled vocabulary (schema:category).\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl",
+              "focusNodes": {
+                "cdifd:instrumentNode": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:\n - Shape cdifd:instrumentNode: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFEntryPointShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFEntryPointShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFLinkRoleShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFEntryPointShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl:\n - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFEntryPointShape: *none*\n - Shape cdifd:CDIFLinkRoleShape: *none*\n - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:rest/rdf:first: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl",
+              "focusNodes": {
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b17": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b16": {
+                  "nodes": []
+                },
+                "cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b14": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b18": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b20": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b4": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape": {
+                  "nodes": [
+                    "<ex:stemTAPP-HF5000>/schema1:measurementTechnique"
+                  ]
+                },
+                "cdifd:roleNameProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFRoleShape": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b3": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b15": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b17: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b16: *none*\n - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b14: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b18: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b20: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b4: *none*\n - Shape cdifd:CDIFDefinedTermShape: <ex:stemTAPP-HF5000>/schema1:measurementTechnique\n - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFRoleShape: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b3: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b15: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n48d14174e38f4b29b613005090b55122b5": {
+                  "nodes": []
+                },
+                "_:n48d14174e38f4b29b613005090b55122b7": {
+                  "nodes": []
+                },
+                "_:n48d14174e38f4b29b613005090b55122b4": {
+                  "nodes": []
+                },
+                "cdifd:CDIFLabeledLinkShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFRelationShape": {
+                  "nodes": []
+                },
+                "_:n48d14174e38f4b29b613005090b55122b6": {
+                  "nodes": []
+                },
+                "_:n48d14174e38f4b29b613005090b55122b15": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:\n - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n48d14174e38f4b29b613005090b55122b5: *none*\n - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n48d14174e38f4b29b613005090b55122b7: *none*\n - Shape _:n48d14174e38f4b29b613005090b55122b4: *none*\n - Shape cdifd:CDIFLabeledLinkShape: *none*\n - Shape cdifd:CDIFRelationShape: *none*\n - Shape _:n48d14174e38f4b29b613005090b55122b6: *none*\n - Shape _:n48d14174e38f4b29b613005090b55122b15: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
+              "focusNodes": {
+                "cdifd:PropertyIDUriShouldBeIRIShape": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFAddPropertyTermShape": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b21": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b33": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b29": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b14": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b6": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b30": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b28": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape": {
+                  "nodes": [
+                    "<https://www.wikidata.org/wiki/Q3099911>",
+                    "<ex:instrument/STEM>/schema1:additionalType"
+                  ]
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b13": {
+                  "nodes": []
+                },
+                "cdifd:CDIFadditionalPropertyShape": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b7": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b20": {
+                  "nodes": []
+                },
+                "cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b31": {
+                  "nodes": []
+                },
+                "cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n - Shape cdifd:PropertyIDUriShouldBeIRIShape: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFAddPropertyTermShape: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b21: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b33: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b29: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b14: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b6: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b30: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b28: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: <https://www.wikidata.org/wiki/Q3099911>,<ex:instrument/STEM>/schema1:additionalType\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b13: *none*\n - Shape cdifd:CDIFadditionalPropertyShape: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b7: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b20: *none*\n - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b31: *none*\n - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/laboratory/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/BaseSchema/laboratory/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/BaseSchema/laboratory/rules.shacl",
+              "focusNodes": {
+                "cdifd:laboratoryShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/BaseSchema/laboratory/rules.shacl:\n - Shape cdifd:laboratoryShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl",
+              "focusNodes": {
+                "_:n603d05e722004a9dacacbb28251bb354b13": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b9": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b3": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b4": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b10": {
+                  "nodes": []
+                },
+                "cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b24": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b39": {
+                  "nodes": []
+                },
+                "cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b16": {
+                  "nodes": []
+                },
+                "cdifd:geoCoordinatesNode": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b42": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b41": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b38": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b29": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b44": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:spatialExtentProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:geoShapeNode": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape": {
+                  "nodes": [
+                    "<ex:stemTAPP-HF5000>/schema1:measurementTechnique"
+                  ]
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b40": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b15": {
+                  "nodes": []
+                },
+                "cdifd:spatialExtentProperty": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:\n - Shape _:n603d05e722004a9dacacbb28251bb354b13: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b9: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b3: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b4: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b10: *none*\n - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b24: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b39: *none*\n - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b16: *none*\n - Shape cdifd:geoCoordinatesNode: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b42: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b41: *none*\n - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b38: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b29: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b44: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape cdifd:spatialExtentProperty/sh:or/rdf:first: *none*\n - Shape cdifd:geoShapeNode: *none*\n - Shape cdifd:CDIFDefinedTermShape: <ex:stemTAPP-HF5000>/schema1:measurementTechnique\n - Shape _:n603d05e722004a9dacacbb28251bb354b40: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b15: *none*\n - Shape cdifd:spatialExtentProperty: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl",
+              "focusNodes": {
+                "cdifd:fundingShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b3": {
+                  "nodes": []
+                },
+                "cdifd:fundingShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b11": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b5": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b4": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b15": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b13": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b14": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b26": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b25": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b12": {
+                  "nodes": []
+                },
+                "cdifd:fundingShape": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b17": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:\n - Shape cdifd:fundingShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b3: *none*\n - Shape cdifd:fundingShape/sh:or/rdf:first: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b11: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b5: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b4: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b15: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b13: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b14: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b26: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b25: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b12: *none*\n - Shape cdifd:fundingShape: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b17: *none*\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/techniqueProfile/geochemProfile/STEM/tapp/example_2_1.json",
+        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/STEM/tapp/example_2_1.json",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": false,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examplestemTAPP-P1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_2_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_2_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 26,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "'ada:procedureAuthorDescription' is a required property",
+              "isError": true,
+              "message": "ValidationError: 'ada:procedureAuthorDescription' is a required property\n\nFailed validating 'required' in schema['allOf'][1]:\n    {'properties': {'ada:acceleratingVoltage': {'anyOf': [{'type': 'number'},\n                                                          {'type': 'string'}],\n                                                'description': 'Electron '\n                                                               'beam '\n                                                               'accelerating '\n                                                               'voltage.'},\n                    'ada:analyticalMode': {'description': 'Primary '\n                                                          'analytical '\n                                                          'mode(s) '\n                                                          'executed under '\n                                                          'this procedure. '\n                                                          'Records one '\n                                                          'value for a '\n                                                          'single-mode '\n                                                          'procedure and '\n                                                          'all applicable '\n                                                          'modes for a '\n                                                          'multi-mode one. '\n                                                          'Applies even '\n                                                          'where a '\n                                                          'procedure '\n                                                          'defines no mode '\n                                                          'flag columns.',\n                                           'items': {'type': 'string'},\n                                           'type': 'array'},\n                    'ada:calibrationFactorAndDeterminationMethodDefault': {'description': 'An '\n                                                                                          'externally-calibrated '\n                                                                                          'factor '\n                                                                                          'that '\n                                                                                          'converts '\n                                                                                          'the '\n                                                                                          'measured '\n                                                                                          'quantity '\n                                                                                          'into '\n                                                                                          'the '\n                                                                                          'reported '\n                                                                                          'quantity, '\n                                                                                          'how '\n                                                                                          'it '\n                                                                                          'was '\n                                                                                          'determined, '\n                                                                                          'and '\n                                                                                          'its '\n                                                                                          'uncertainty. '\n                                                                                          'Applies '\n                                                                                          'where '\n                                                                                          'the '\n                                                                                          'conversion '\n                                                                                          'depends '\n                                                                                          'on '\n                                                                                          'a '\n                                                                                          'factor '\n                                                                                          'calibrated '\n                                                                                          'against '\n                                                                                          'a '\n                                                                                          'reference '\n                                                                                          'of '\n                                                                                          'independently '\n                                                                                          'known '\n                                                                                          'value, '\n                                                                                          'rather '\n                                                                                          'than '\n                                                                                          'on '\n                                                                                          'the '\n                                                                                          'instrument '\n                                                                                          'response '\n                                                                                          'alone. '\n                                                                                          'Distinct '\n                                                                                          'from '\n                                                                                          'the '\n                                                                                          'fields '\n                                                                                          'that '\n                                                                                          'name '\n                                                                                          'the '\n                                                                                          'calibration '\n                                                                                          'material '\n                                                                                          'and '\n                                                                                          'that '\n                                                                                          'state '\n                                                                                          'which '\n                                                                                          'approach '\n                                                                                          'applies '\n                                                                                          'to '\n                                                                                          'which '\n                                                                                          'analyte, '\n                                                                                          'where '\n                                                                                          'the '\n                                                                                          'technique '\n                                                                                          'has '\n                                                                                          'them: '\n                                                                                          'this '\n                                                                                          'field '\n                                                                                          'records '\n                                                                                          'the '\n                                                                                          'resulting '\n                                                                                          'factor '\n                                                                                          'itself.',\n                                                                           'type': 'string'},\n                    'ada:constantsAndReferenceValuesUsedDefault': {'description': 'Physical '\n                                                                                  'constants '\n                                                                                  'and '\n                                                                                  'reference '\n                                                                                  'values '\n                                                                                  'used '\n                                                                                  'in '\n                                                                                  'data '\n                                                                                  'reduction '\n                                                                                  'to '\n                                                                                  'calculate '\n                                                                                  'the '\n                                                                                  'final '\n                                                                                  'reported '\n                                                                                  'quantity '\n                                                                                  '(e.g., '\n                                                                                  'decay '\n                                                                                  'constants '\n                                                                                  'for '\n                                                                                  'age '\n                                                                                  'calculation, '\n                                                                                  'standard '\n                                                                                  'isotope '\n                                                                                  'ratios, '\n                                                                                  'or '\n                                                                                  'other '\n                                                                                  'citable '\n                                                                                  'reference '\n                                                                                  'values '\n                                                                                  'used '\n                                                                                  'in '\n                                                                                  'a '\n                                                                                  'correction '\n                                                                                  'or '\n                                                                                  'calculation), '\n                                                                                  'together '\n                                                                                  'with '\n                                                                                  'their '\n                                                                                  'source. '\n                                                                                  'Distinct '\n                                                                                  'from '\n                                                                                  'the '\n                                                                                  'Group '\n                                                                                  '6 '\n                                                                                  'reference-material '\n                                                                                  'fields, '\n                                                                                  'which '\n                                                                                  'document '\n                                                                                  'accepted '\n                                                                                  'values '\n                                                                                  'for '\n                                                                                  'specific '\n                                                                                  'calibration/validation '\n                                                                                  'materials '\n                                                                                  'rather '\n                                                                                  'than '\n                                                                                  'universal '\n                                                                                  'physical '\n                                                                                  'constants. '\n                                                                                  'Record '\n                                                                                  '\"None\" '\n                                                                                  'if '\n                                                                                  'no '\n                                                                                  'citable, '\n                                                                                  'revisable '\n                                                                                  'physical '\n                                                                                  'constants '\n                                                                                  'feed '\n                                                                                  'into '\n                                                                                  'this '\n                                                                                  \"procedure's \"\n                                                                                  'data '\n                                                                                  'reduction.',\n                                                                   'type': 'string'},\n                    'ada:dataProcessingSoftwareDefault': {'description': 'All '\n                                                                         'software '\n                                                                         'applied '\n                                                                         'to '\n                                                                         'the '\n                                                                         'data '\n                                                                         'after '\n                                                                         'acquisition '\n                                                                         'in '\n                                                                         'order '\n                                                                         'to '\n                                                                         'produce '\n                                                                         'the '\n                                                                         'reported '\n                                                                         'quantities, '\n                                                                         'including '\n                                                                         'version '\n                                                                         'numbers. '\n                                                                         'List '\n                                                                         'every '\n                                                                         'package '\n                                                                         'used. '\n                                                                         'Distinct '\n                                                                         'from '\n                                                                         'Acquisition '\n                                                                         'Software, '\n                                                                         'which '\n                                                                         'controls '\n                                                                         'the '\n                                                                         'instrument '\n                                                                         'and '\n                                                                         'collects '\n                                                                         'the '\n                                                                         'raw '\n                                                                         'data.',\n                                                          'type': 'string'},\n                    'ada:procedureAuthorDescription': {'description': 'How '\n                                                                      'this '\n                                                                      'draft '\n                                                                      'was '\n                                                                      'produced.',\n                                                       'type': 'string'},\n                    'ada:reportedVariablesAndUnits': {'description': 'The '\n                                                                     'final '\n                                                                     'variable(s) '\n                                                                     'this '\n                                                                     'procedure '\n                                                                     'reports '\n                                                                     'and '\n                                                                     'their '\n                                                                     'units '\n                                                                     '\u2014 '\n                                                                     'distinct '\n                                                                     'from '\n                                                                     'the '\n                                                                     'fields '\n                                                                     'recording '\n                                                                     'what '\n                                                                     'was '\n                                                                     '*acquired* '\n                                                                     'rather '\n                                                                     'than '\n                                                                     'what '\n                                                                     'is '\n                                                                     'reported. '\n                                                                     'Record '\n                                                                     'every '\n                                                                     'reported '\n                                                                     'variable, '\n                                                                     'including '\n                                                                     'intermediate '\n                                                                     'quantities '\n                                                                     'reported '\n                                                                     'alongside '\n                                                                     'final '\n                                                                     'ones '\n                                                                     '(e.g. '\n                                                                     'both '\n                                                                     'the '\n                                                                     '206Pb/238U '\n                                                                     'ratio '\n                                                                     'and '\n                                                                     'the '\n                                                                     '206Pb/238U '\n                                                                     'date). '\n                                                                     'Where '\n                                                                     'a '\n                                                                     'reported '\n                                                                     'variable '\n                                                                     'is a '\n                                                                     'nominal '\n                                                                     'property '\n                                                                     'with '\n                                                                     'no '\n                                                                     'magnitude '\n                                                                     '(e.g. '\n                                                                     'a '\n                                                                     'mineral '\n                                                                     'identification), '\n                                                                     'record '\n                                                                     'the '\n                                                                     'variable '\n                                                                     'and '\n                                                                     'give '\n                                                                     'the '\n                                                                     'unit '\n                                                                     'as '\n                                                                     \"'N/A \"\n                                                                     '\u2014 '\n                                                                     'nominal '\n                                                                     \"property'.\",\n                                                      'type': 'string'},\n                    'ada:samplePreparationMethodDefault': {'description': 'The '\n                                                                          'form '\n                                                                          'in '\n                                                                          'which '\n                                                                          'the '\n                                                                          'sample '\n                                                                          'is '\n                                                                          'presented '\n                                                                          'to '\n                                                                          'the '\n                                                                          'instrument, '\n                                                                          'and '\n                                                                          'the '\n                                                                          'preparation '\n                                                                          'that '\n                                                                          'brought '\n                                                                          'it '\n                                                                          'to '\n                                                                          'that '\n                                                                          'form '\n                                                                          '\u2014 '\n                                                                          'for '\n                                                                          'example '\n                                                                          'mounting, '\n                                                                          'sectioning, '\n                                                                          'polishing, '\n                                                                          'coating, '\n                                                                          'crushing, '\n                                                                          'fusion, '\n                                                                          'or '\n                                                                          'extraction '\n                                                                          'of '\n                                                                          'an '\n                                                                          'electron-transparent '\n                                                                          'section. '\n                                                                          'Record '\n                                                                          \"'None' \"\n                                                                          'where '\n                                                                          'the '\n                                                                          'material '\n                                                                          'is '\n                                                                          'analysed '\n                                                                          'as '\n                                                                          'received.',\n                                                           'type': 'string'},\n                    'ada:samplingUnitSelectionCriteriaDefault': {'description': 'The '\n                                                                                'rules '\n                                                                                'governing '\n                                                                                'which '\n                                                                                'sampling '\n                                                                                'unit(s) '\n                                                                                'within '\n                                                                                'a '\n                                                                                'sample '\n                                                                                'are '\n                                                                                'selected '\n                                                                                'for '\n                                                                                'analysis, '\n                                                                                'and '\n                                                                                'why. '\n                                                                                'Covers '\n                                                                                'the '\n                                                                                'criteria '\n                                                                                'applied '\n                                                                                'when '\n                                                                                'choosing '\n                                                                                'grains, '\n                                                                                'aliquots, '\n                                                                                'spots, '\n                                                                                'or '\n                                                                                'a '\n                                                                                'region '\n                                                                                'of '\n                                                                                'interest '\n                                                                                '\u2014 '\n                                                                                'size, '\n                                                                                'morphology, '\n                                                                                'clarity, '\n                                                                                'freedom '\n                                                                                'from '\n                                                                                'inclusions '\n                                                                                'or '\n                                                                                'alteration, '\n                                                                                'phase '\n                                                                                'identity, '\n                                                                                'or '\n                                                                                'spatial '\n                                                                                'position. '\n                                                                                'Distinct '\n                                                                                'from '\n                                                                                'Target '\n                                                                                'Material, '\n                                                                                'which '\n                                                                                'states '\n                                                                                'the '\n                                                                                'material '\n                                                                                'type '\n                                                                                'the '\n                                                                                'procedure '\n                                                                                'is '\n                                                                                'designed '\n                                                                                'for, '\n                                                                                'and '\n                                                                                'from '\n                                                                                'Sampling '\n                                                                                'Unit, '\n                                                                                'which '\n                                                                                'names '\n                                                                                'the '\n                                                                                'kind '\n                                                                                'of '\n                                                                                'subdivision '\n                                                                                'one '\n                                                                                'row '\n                                                                                'of '\n                                                                                'reported '\n                                                                                'values '\n                                                                                'corresponds '\n                                                                                'to: '\n                                                                                'this '\n                                                                                'field '\n                                                                                'states '\n                                                                                'how, '\n                                                                                'within '\n                                                                                'such '\n                                                                                'a '\n                                                                                'sample, '\n                                                                                'the '\n                                                                                'unit '\n                                                                                'actually '\n                                                                                'analysed '\n                                                                                'is '\n                                                                                'picked '\n                                                                                'out.',\n                                                                 'type': 'string'},\n                    'ada:samplingUnitType': {'description': 'The kind of '\n                                                            'physical '\n                                                            'subdivision '\n                                                            'of the sample '\n                                                            'to which one '\n                                                            'row of '\n                                                            'reported '\n                                                            'values '\n                                                            'corresponds \u2014 '\n                                                            'the unit that '\n                                                            'is analysed '\n                                                            'and reported, '\n                                                            'as distinct '\n                                                            'from the '\n                                                            'sample as a '\n                                                            'whole. Where '\n                                                            'units nest '\n                                                            '(e.g. '\n                                                            'confined '\n                                                            'tracks within '\n                                                            'grains), '\n                                                            'state both '\n                                                            'levels. The '\n                                                            'units '\n                                                            'themselves '\n                                                            'are listed in '\n                                                            'Sampling Unit '\n                                                            'Name.',\n                                             'type': 'string'},\n                    'schema:additionalProperty': {'allOf': [{'contains': {'$ref': 'https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterTemplates/schema.yaml#/$defs/stem_preAnalysisImagingAndScreeningDefault'},\n                                                             'maxContains': 1,\n                                                             'minContains': 0}],\n                                                  'description': 'Method-level '\n                                                                 'Advanced-protocol '\n                                                                 'parameters. '\n                                                                 'Editable '\n                                                                 'parameters '\n                                                                 'are '\n                                                                 'schema:PropertyValueSpecification '\n                                                                 'entries '\n                                                                 '(\u2026Default '\n                                                                 'name; '\n                                                                 'the '\n                                                                 'per-dataset '\n                                                                 'value '\n                                                                 'lives in '\n                                                                 'the '\n                                                                 'detail '\n                                                                 'block); '\n                                                                 'read-only '\n                                                                 'parameters '\n                                                                 'are '\n                                                                 'schema:PropertyValue '\n                                                                 'entries '\n                                                                 'carrying '\n                                                                 'the '\n                                                                 'fixed '\n                                                                 'protocol '\n                                                                 'value in '\n                                                                 'schema:value.',\n                                                  'items': {'anyOf': [{'$ref': 'https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterTemplates/schema.yaml#/$defs/stem_preAnalysisImagingAndScreeningDefault'}]},\n                                                  'type': 'array'}},\n     'required': ['ada:analyticalMode',\n                  'ada:procedureAuthorDescription',\n                  'ada:acceleratingVoltage'],\n     'type': 'object'}\n\nOn instance:\n    {'@context': {'ada': 'https://ada.astromat.org/metadata/',\n                  'bios': 'https://bioschemas.org/',\n                  'cdi': 'http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/',\n                  'prov': 'http://www.w3.org/ns/prov#',\n                  'schema': 'http://schema.org/'},\n     '@id': 'ex:stemTAPP-P1',\n     '@type': ['prov:Plan',\n               'cdi:Activity',\n               'schema:Action',\n               'ada:TAPPDefinition',\n               'bios:LabProtocol'],\n     'ada:acceleratingVoltage': -9999,\n     'ada:analyticalMode': ['missing'],\n     'ada:instrumentManufacturer': 'FEI',\n     'ada:instrumentModel': 'TitanX TEM',\n     'schema:creator': {'@type': ['schema:Person'],\n                        'schema:description': 'Draft generated by Claude '\n                                              '(Anthropic) under human '\n                                              'review, from analysis of '\n                                              'ADA metadata records and '\n                                              'the instrumentMetadata '\n                                              'exports attached to them. '\n                                              'Parameter values and tier '\n                                              'assignments are derived, '\n                                              'not authored by the '\n                                              'laboratory.',\n                        'schema:name': 'Claude assisted'},\n     'schema:datePublished': '2023-12-07',\n     'schema:description': 'stemTAPP instance derived from ADA n=694 | no '\n                           'named analyst | Lawrence Berkeley National '\n                           'Laboratory | FEI TitanX TEM (78 '\n                           'instrumentMetadata exports, dimensions only) '\n                           '(publication column of '\n                           'STEM_TAPP_draft_v2.csv).',\n     'schema:instrument': [{'@id': 'ex:instrument/STEM',\n                            '@type': ['schema:Product', 'schema:Thing'],\n                            'schema:additionalType': ['STEM',\n                                                      {'@id': 'https://www.wikidata.org/wiki/Q3099911'}],\n                            'schema:name': 'missing'}],\n     'schema:measurementTechnique': [{'@type': ['schema:DefinedTerm'],\n                                      'schema:name': 'stem',\n                                      'schema:termCode': 'stem'}],\n     'schema:name': 'stem protocol \u2014 P1'}"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/BaseSchema/tappDefinition/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
+              "focusNodes": {
+                "cdifd:tappDefinitionShape": {
+                  "nodes": []
+                },
+                "cdifd:WorkflowStepUniqueNamesShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:tappDefinitionShape: *none*\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl",
+              "focusNodes": {
+                "_:n722e2828db984913870226592dbdd654b14": {
+                  "nodes": []
+                },
+                "_:n722e2828db984913870226592dbdd654b12": {
+                  "nodes": []
+                },
+                "_:n722e2828db984913870226592dbdd654b5": {
+                  "nodes": []
+                },
+                "cdifd:qualityMeasurementNode": {
+                  "nodes": []
+                },
+                "_:n722e2828db984913870226592dbdd654b11": {
+                  "nodes": []
+                },
+                "_:n722e2828db984913870226592dbdd654b4": {
+                  "nodes": []
+                },
+                "cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n722e2828db984913870226592dbdd654b13": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:\n - Shape _:n722e2828db984913870226592dbdd654b14: *none*\n - Shape _:n722e2828db984913870226592dbdd654b12: *none*\n - Shape _:n722e2828db984913870226592dbdd654b5: *none*\n - Shape cdifd:qualityMeasurementNode: *none*\n - Shape _:n722e2828db984913870226592dbdd654b11: *none*\n - Shape _:n722e2828db984913870226592dbdd654b4: *none*\n - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n722e2828db984913870226592dbdd654b13: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
+              "focusNodes": {
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb10": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb19": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb5": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb26": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb8": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb7": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb6": {
+                  "nodes": []
+                },
+                "_:n6fc162a0ac1a45f1bbccac8cd99e073eb4": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb10: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb19: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb5: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb26: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb8: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb7: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb6: *none*\n - Shape _:n6fc162a0ac1a45f1bbccac8cd99e073eb4: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb22": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb23": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb11": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb10": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierTypeTermShape": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb25": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb21": {
+                  "nodes": []
+                },
+                "_:n37257aa5a62e45dbb3636f222ffadcabb20": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb22: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb23: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb11: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb10: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb25: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb21: *none*\n - Shape _:n37257aa5a62e45dbb3636f222ffadcabb20: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFOrganizationShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFOrganizationShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n79bbc05c37b040cdb802c7b4125b4a20b3": {
+                  "nodes": []
+                },
+                "cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:\n - Shape cdifd:CDIFOrganizationShape: *none*\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*\n - Shape _:n79bbc05c37b040cdb802c7b4125b4a20b3: *none*\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl",
+              "focusNodes": {
+                "skosv:prefLabelUniqueLangShape": {
+                  "nodes": []
+                },
+                "skosv:ConceptShape": {
+                  "nodes": []
+                },
+                "skosv:conceptBroaderNotSelfShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:\n - Shape skosv:prefLabelUniqueLangShape: *none*\n - Shape skosv:ConceptShape: *none*\n - Shape skosv:conceptBroaderNotSelfShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl",
+              "graph": "@prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a schema1:Person ;\n                    schema1:description \"Draft generated by Claude (Anthropic) under human review, from analysis of ADA metadata records and the instrumentMetadata exports attached to them. Parameter values and tier assignments are derived, not authored by the laboratory.\" ;\n                    schema1:name \"Claude assisted\" ] ;\n            sh:resultMessage \"A Person should have a contactPoint (schema:ContactPoint or mailto: IRI)\" ;\n            sh:resultPath schema1:contactPoint ;\n            sh:resultSeverity sh:Info ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape cdifd:contactPointProperty ] .\n\n",
+              "isError": true,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Info\n  \tSource Shape: cdifd:contactPointProperty\n  \tFocus Node: [ rdf:type schema1:Person ; schema1:description Literal(\"Draft generated by Claude (Anthropic) under human review, from analysis of ADA metadata records and the instrumentMetadata exports attached to them. Parameter values and tier assignments are derived, not authored by the laboratory.\") ; schema1:name Literal(\"Claude assisted\") ]\n  \tResult Path: schema1:contactPoint\n  \tMessage: A Person should have a contactPoint (schema:ContactPoint or mailto: IRI)\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:affiliationProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:contactPointProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFPersonShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFPersonShape": {
+                  "nodes": [
+                    "<ex:stemTAPP-P1>/schema1:creator"
+                  ]
+                },
+                "cdifd:maintainerOrProviderContactPointShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFContactPointShape": {
+                  "nodes": []
+                },
+                "cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n615b8ef5885a4d018250365262c34677b14": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape: <ex:stemTAPP-P1>/schema1:creator\n - Shape cdifd:maintainerOrProviderContactPointShape: *none*\n - Shape cdifd:CDIFContactPointShape: *none*\n - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n615b8ef5885a4d018250365262c34677b14: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <ex:instrument/STEM> ;\n            sh:resultMessage \"An instrument must have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"An instrument must have an identifier (schema:identifier).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:identifier ] ] .\n\n",
+              "isError": true,
+              "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:message Literal(\"An instrument must have an identifier (schema:identifier).\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:identifier ]\n  \tFocus Node: <ex:instrument/STEM>\n  \tResult Path: schema1:identifier\n  \tMessage: An instrument must have an identifier (schema:identifier).\n  "
+            },
+            {
+              "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
+              "focusNodes": {
+                "cdifd:adaInstrumentShape": {
+                  "nodes": []
+                },
+                "cdifd:tappInstrumentParamSpecShape": {
+                  "nodes": []
+                },
+                "cdifd:provUsedInstrumentParamValueShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <ex:instrument/STEM> ;\n            sh:resultMessage \"An instrument should have a category classification from a controlled vocabulary (schema:category).\" ;\n            sh:resultPath schema1:category ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"An instrument should have a category classification from a controlled vocabulary (schema:category).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:category ;\n                    sh:severity sh:Warning ] ] .\n\n",
+              "isError": true,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Warning\n  \tSource Shape: [ sh:message Literal(\"An instrument should have a category classification from a controlled vocabulary (schema:category).\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:category ; sh:severity sh:Warning ]\n  \tFocus Node: <ex:instrument/STEM>\n  \tResult Path: schema1:category\n  \tMessage: An instrument should have a category classification from a controlled vocabulary (schema:category).\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl",
+              "focusNodes": {
+                "cdifd:instrumentNode": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:\n - Shape cdifd:instrumentNode: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFEntryPointShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFEntryPointShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFLinkRoleShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFEntryPointShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl:\n - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFEntryPointShape: *none*\n - Shape cdifd:CDIFLinkRoleShape: *none*\n - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:rest/rdf:first: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl",
+              "focusNodes": {
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b17": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b16": {
+                  "nodes": []
+                },
+                "cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b14": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b18": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b20": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b4": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape": {
+                  "nodes": [
+                    "<ex:stemTAPP-P1>/schema1:measurementTechnique"
+                  ]
+                },
+                "cdifd:roleNameProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFRoleShape": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b3": {
+                  "nodes": []
+                },
+                "_:n6b21f6ffadcd4bbcb03ad30d3e02b551b15": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b17: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b16: *none*\n - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b14: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b18: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b20: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b4: *none*\n - Shape cdifd:CDIFDefinedTermShape: <ex:stemTAPP-P1>/schema1:measurementTechnique\n - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFRoleShape: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b3: *none*\n - Shape _:n6b21f6ffadcd4bbcb03ad30d3e02b551b15: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl",
+              "focusNodes": {
+                "cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n48d14174e38f4b29b613005090b55122b5": {
+                  "nodes": []
+                },
+                "_:n48d14174e38f4b29b613005090b55122b7": {
+                  "nodes": []
+                },
+                "_:n48d14174e38f4b29b613005090b55122b4": {
+                  "nodes": []
+                },
+                "cdifd:CDIFLabeledLinkShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFRelationShape": {
+                  "nodes": []
+                },
+                "_:n48d14174e38f4b29b613005090b55122b6": {
+                  "nodes": []
+                },
+                "_:n48d14174e38f4b29b613005090b55122b15": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:\n - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n48d14174e38f4b29b613005090b55122b5: *none*\n - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n48d14174e38f4b29b613005090b55122b7: *none*\n - Shape _:n48d14174e38f4b29b613005090b55122b4: *none*\n - Shape cdifd:CDIFLabeledLinkShape: *none*\n - Shape cdifd:CDIFRelationShape: *none*\n - Shape _:n48d14174e38f4b29b613005090b55122b6: *none*\n - Shape _:n48d14174e38f4b29b613005090b55122b15: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
+              "focusNodes": {
+                "cdifd:PropertyIDUriShouldBeIRIShape": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFAddPropertyTermShape": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b21": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b33": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b29": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b14": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b6": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b30": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b28": {
+                  "nodes": []
+                },
+                "cdifd:AdditionalTypeUriShouldBeIRIShape": {
+                  "nodes": [
+                    "<https://www.wikidata.org/wiki/Q3099911>",
+                    "<ex:instrument/STEM>/schema1:additionalType"
+                  ]
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b13": {
+                  "nodes": []
+                },
+                "cdifd:CDIFadditionalPropertyShape": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b7": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b20": {
+                  "nodes": []
+                },
+                "cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n099c966bf1ec483cb25f2f0b73723906b31": {
+                  "nodes": []
+                },
+                "cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n - Shape cdifd:PropertyIDUriShouldBeIRIShape: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFAddPropertyTermShape: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b21: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b33: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b29: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b14: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b6: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b30: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b28: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: <https://www.wikidata.org/wiki/Q3099911>,<ex:instrument/STEM>/schema1:additionalType\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b13: *none*\n - Shape cdifd:CDIFadditionalPropertyShape: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b7: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b20: *none*\n - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n099c966bf1ec483cb25f2f0b73723906b31: *none*\n - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/laboratory/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/BaseSchema/laboratory/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/BaseSchema/laboratory/rules.shacl",
+              "focusNodes": {
+                "cdifd:laboratoryShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/BaseSchema/laboratory/rules.shacl:\n - Shape cdifd:laboratoryShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl",
+              "focusNodes": {
+                "_:n603d05e722004a9dacacbb28251bb354b13": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b9": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b3": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b4": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b10": {
+                  "nodes": []
+                },
+                "cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b24": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b39": {
+                  "nodes": []
+                },
+                "cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b16": {
+                  "nodes": []
+                },
+                "cdifd:geoCoordinatesNode": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b42": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b41": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b38": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b29": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b44": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:spatialExtentProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:geoShapeNode": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape": {
+                  "nodes": [
+                    "<ex:stemTAPP-P1>/schema1:measurementTechnique"
+                  ]
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b40": {
+                  "nodes": []
+                },
+                "_:n603d05e722004a9dacacbb28251bb354b15": {
+                  "nodes": []
+                },
+                "cdifd:spatialExtentProperty": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:\n - Shape _:n603d05e722004a9dacacbb28251bb354b13: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b9: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b3: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b4: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b10: *none*\n - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b24: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b39: *none*\n - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b16: *none*\n - Shape cdifd:geoCoordinatesNode: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b42: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b41: *none*\n - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b38: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b29: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b44: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape cdifd:spatialExtentProperty/sh:or/rdf:first: *none*\n - Shape cdifd:geoShapeNode: *none*\n - Shape cdifd:CDIFDefinedTermShape: <ex:stemTAPP-P1>/schema1:measurementTechnique\n - Shape _:n603d05e722004a9dacacbb28251bb354b40: *none*\n - Shape _:n603d05e722004a9dacacbb28251bb354b15: *none*\n - Shape cdifd:spatialExtentProperty: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl",
+              "focusNodes": {
+                "cdifd:fundingShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b3": {
+                  "nodes": []
+                },
+                "cdifd:fundingShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b11": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b5": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b4": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b15": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b13": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b14": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b26": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b25": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b12": {
+                  "nodes": []
+                },
+                "cdifd:fundingShape": {
+                  "nodes": []
+                },
+                "_:nb7267dc4b63e406a93371e05f89a4bf5b17": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:\n - Shape cdifd:fundingShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b3: *none*\n - Shape cdifd:fundingShape/sh:or/rdf:first: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b11: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b5: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b4: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b15: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b13: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b14: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b26: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b25: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b12: *none*\n - Shape cdifd:fundingShape: *none*\n - Shape _:nb7267dc4b63e406a93371e05f89a4bf5b17: *none*\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 2,
+    "passed": 0,
+    "failed": 2
+  }
+}
