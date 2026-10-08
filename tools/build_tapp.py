@@ -123,7 +123,8 @@ LAICPMS_ANALYTE_MAP = {
 _IDENTITY_COMMON = {"Protocol Name", "Technique", "Protocol Author", "Laboratory",
                     "Protocol Start Date", "Funding Source for Protocol Development",
                     "Target Material", "Protocol Reference(s)", "Protocol DOI", "Laboratory ID",
-                    "Procedure Name", "Procedure Author", "Procedure Start Date",
+                    "Procedure Name", "Procedure Author", "Procedure Author Description",
+                    "Procedure Start Date",
                     "Funding Source for Procedure Development", "Procedure Reference(s)",
                     "Procedure DOI"}
 
