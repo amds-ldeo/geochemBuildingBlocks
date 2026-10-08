@@ -21,7 +21,10 @@
   "schema:instrument": [
     {
       "schema:additionalType": [
-        "SEM"
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
       "ada:beamCurrentDefault": "~1.5 nA",
@@ -68,7 +71,8 @@
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM"
+      "@id": "ex:instrument/SEM",
+      "schema:name": "example instrumentName"
     }
   ],
   "ada:stageTilt": "70 deg",
@@ -103,7 +107,22 @@
           "bios:LabProcess"
         ],
         "schema:position": 2
+      },
+      {
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": -9999,
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ]
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:measurementTechnique": [
@@ -114,5 +133,22 @@
       "schema:name": "ebsd",
       "schema:termCode": "ebsd"
     }
-  ]
+  ],
+  "ada:acceleratingVoltageDefault": -9999,
+  "ada:analyticalMode": [
+    "missing"
+  ],
+  "ada:beamCurrentDefault": -9999,
+  "ada:crystalStructureFileSourcesDefault": "missing",
+  "ada:dataProcessingSoftwareDefault": "missing",
+  "ada:ebsdCameraGain": -9999,
+  "ada:ebsdCameraSpeedSetting": "missing",
+  "ada:ebsdPatternResolution": "missing",
+  "ada:edsChannelsDefault": -9999,
+  "ada:edsDetector": "missing",
+  "ada:edsProcessTimeDefault": -9999,
+  "ada:houghResolutionDefault": -9999,
+  "ada:maximumMeanAngularDeviation": -9999,
+  "ada:minimumBandsForIndexing": -9999,
+  "ada:samplePreparationMethodDefault": "missing"
 }
