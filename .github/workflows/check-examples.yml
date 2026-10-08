@@ -1,0 +1,121 @@
+# Fail when a committed example does not validate against its own block's schema.
+#
+# This check did not exist until 2026-10-08, and its absence had already cost
+# something concrete. #63 added stemTAPP and ebsdTAPP; its tapp schemas required a
+# root ada:procedureAuthorDescription that none of the three draft instances
+# carried, so all three failed the JSON Schema gate from the day they landed. The
+# pull request was reported as green and merged, because every check it ran was
+# green -- none of them validated an example. The defect sat on main until someone
+# happened to run tools/validate_examples.py by hand.
+#
+# That is the failure mode CLAUDE.md calls out: a rule that never runs looks
+# exactly like a rule that passes. The four existing workflows check whether
+# generated artifacts are CURRENT (check-schema-drift), whether a generator is
+# DETERMINISTIC (check-determinism), and whether the OGC postprocess succeeds
+# (process-bblocks). None of them asks whether the content is VALID.
+#
+# Two things about how this runs, both deliberate:
+#
+#  1. NO --live. validate_examples.py reads each block's committed
+#     resolvedSchema.json by default and re-resolves from source only under
+#     --live. Its own docstring records why: live re-resolution "stopped finishing
+#     at all" once the composition modules widened the reference graph, with three
+#     runs killed after 3, 8 and 9 hours pegged at 100% CPU. The default mode is
+#     also the honest one here -- resolvedSchema.json is what downstream
+#     validators actually read, so it is what should be tested.
+#
+#  2. NO tapp submodule, unlike check-determinism. That job needs tapp/ because
+#     build_tapp_examples reads publication columns out of each .xlsx twin. This
+#     one only reads files already in the tree, so it needs neither the submodule
+#     nor the network -- resolve_schema's _ALLOW_FETCH is False by default and the
+#     remote blocks are served from the committed vendor/remote/ cache.
+name: Check examples validate
+
+on:
+  push:
+    branches: [main]
+  # NO paths filter, matching check-schema-drift and check-determinism, and for the same
+  # reason: if this becomes a REQUIRED check, one that does not run sits pending forever and
+  # deadlocks every pull request that happens to touch none of the listed paths. An example can
+  # also break without being edited -- #63's three broke because a SCHEMA gained a required
+  # property -- so a filter on example paths would have missed the case this exists for.
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: examples-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate committed examples
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate every example against its block's schema
+        id: validate
+        run: |
+          set -o pipefail
+          python tools/validate_examples.py 2>&1 | tee /tmp/validate.log
+
+      # A gate that validated NOTHING would exit 0 and report green, which is the same
+      # failure this workflow exists to stop -- so assert it actually found a corpus. The
+      # floor is a tripwire for "found nothing", not a target: 644 examples pass today, and
+      # the count is expected to move as blocks are added or archived (mBB's went 152 -> 130
+      # when ddiProperties was archived). Raise it only if it starts hiding a real drop.
+      - name: Assert the corpus was actually found
+        if: always() && steps.validate.outcome != 'cancelled'
+        run: |
+          total=$(sed -n 's/.*(of \([0-9]\+\) total).*/\1/p' /tmp/validate.log | tail -1)
+          if [ -z "$total" ]; then
+            echo "::error::validate_examples.py printed no 'Results:' line, so what it did"
+            echo "cannot be established. Treating that as a failure rather than a pass."
+            exit 1
+          fi
+          echo "$total example(s) validated"
+          if [ "$total" -lt 400 ]; then
+            echo "::error::only $total example(s) were found, against 644 when this check was"
+            echo "written. Either a large part of _sources has gone, or the glob stopped"
+            echo "matching -- a gate reporting success over a handful of files is worse than"
+            echo "no gate, because it reads as assurance."
+            exit 1
+          fi
+
+      - name: Explain a failure
+        if: failure() && steps.validate.outcome == 'failure'
+        run: |
+          echo "An example does not validate against its own block's schema."
+          echo
+          echo "The named file and the failing constraint are in the step above. Reproduce it"
+          echo "locally with the same command, or narrow to one block:"
+          echo
+          echo "    python tools/validate_examples.py"
+          echo "    python tools/validate_examples.py -f <block-name-substring>"
+          echo
+          echo "Two causes worth ruling out before editing the example, because both have"
+          echo "happened here:"
+          echo
+          echo "  1. A SCHEMA gained a required property the example was never going to carry."
+          echo "     That is how #63's three draft TAPP instances broke -- build_tapp minted a"
+          echo "     required root property from a sidecar row whose value the path-driven"
+          echo "     example emitter writes somewhere else entirely. Fix the schema, not the"
+          echo "     example, when the information is already present under another path."
+          echo
+          echo "  2. The artifacts are STALE. This job reads each block's committed"
+          echo "     resolvedSchema.json, so an example can fail against a schema that no"
+          echo "     longer matches its source. If check-schema-drift is also red, fix that"
+          echo "     first -- regenerate and re-run, because this result may be about an"
+          echo "     artifact nobody meant to ship."
