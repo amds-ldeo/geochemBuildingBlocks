@@ -21,6 +21,7 @@ Very-Near Mid-IR spectroscopy spectral point measurement with detailed parameter
 ```json
 {
   "@type": ["ada:VNMIRSpectralPoint"],
+  "ada:componentType": "ada:VNMIRSpectralPoint",
   "ada:detector": "MCT",
   "ada:beamsplitter": "KBr",
   "ada:calibrationStandards": "gold mirror",
@@ -56,6 +57,7 @@ Very-Near Mid-IR spectroscopy spectral point measurement with detailed parameter
   "@type": [
     "ada:VNMIRSpectralPoint"
   ],
+  "ada:componentType": "ada:VNMIRSpectralPoint",
   "ada:detector": "MCT",
   "ada:beamsplitter": "KBr",
   "ada:calibrationStandards": "gold mirror",
@@ -86,6 +88,7 @@ Very-Near Mid-IR spectroscopy spectral point measurement with detailed parameter
 [] a ada:VNMIRSpectralPoint ;
     ada:beamsplitter "KBr" ;
     ada:calibrationStandards "gold mirror" ;
+    ada:componentType "ada:VNMIRSpectralPoint" ;
     ada:detector "MCT" ;
     ada:emissionAngle 0e+00 ;
     ada:environmentalPressure 1.01325e+03 ;

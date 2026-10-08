@@ -2,8 +2,8 @@
   "title": "Validation report for ogch.techniqueProfile.adaProfile.ICPOES.detail - ICP-OES Instrument Detail",
   "bblockName": "ICP-OES Instrument Detail",
   "bblockId": "ogch.techniqueProfile.adaProfile.ICPOES.detail",
-  "generated": "2026-10-08T03:09:46.655685+00:00",
-  "result": false,
+  "generated": "2026-10-08T23:16:01.339723+00:00",
+  "result": true,
   "items": [
     {
       "source": {
@@ -15,7 +15,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -40,7 +40,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 3,
+              "size": 4,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -52,11 +52,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "'ada:componentType' is a required property",
-              "isError": true,
-              "message": "ValidationError: 'ada:componentType' is a required property\n\nFailed validating 'required' in schema:\n    {'$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'description': 'Inductively Coupled Plasma Optical Emission '\n                    'Spectrometry. (Extension type, not in v3 source '\n                    'schema.)',\n     'properties': {'ada:componentType': {'anyOf': [{'const': 'ada:ICPOESIntermediateTabular'},\n                                                    {'const': 'ada:ICPOESProcessedTabular'},\n                                                    {'const': 'ada:ICPOESRawTabular'}],\n                                          'x-jsonld-id': 'https://ada.astromat.org/metadata/componentType'},\n                    'ada:dissolutionFactor': {'type': 'number',\n                                              'x-jsonld-id': 'https://ada.astromat.org/metadata/dissolutionFactor'},\n                    'ada:mass': {'type': 'string',\n                                 'x-jsonld-id': 'https://ada.astromat.org/metadata/mass'}},\n     'required': ['ada:componentType'],\n     'title': 'ICP-OES Instrument Detail',\n     'type': 'object',\n     'x-jsonld-prefixes': {'ada': 'https://ada.astromat.org/metadata/',\n                           'schema': 'http://schema.org/'}}\n\nOn instance:\n    {'@type': ['ada:ICPOESProcessedTabular'],\n     'ada:dissolutionFactor': 100.0,\n     'ada:mass': '50.2 mg'}"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -67,9 +65,9 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/techniqueProfile/adaProfile/ICPOES/detail/rules.shacl",
-              "graph": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a ada:ICPOESProcessedTabular ;\n                    ada:dissolutionFactor 1e+02 ;\n                    ada:mass \"50.2 mg\" ] ;\n            sh:resultMessage \"ICP-OES detail nodes must declare ada:componentType.\" ;\n            sh:resultPath ada:componentType ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:maxCount 1 ;\n                    sh:message \"ICP-OES detail nodes must declare ada:componentType.\" ;\n                    sh:minCount 1 ;\n                    sh:path ada:componentType ] ] .\n\n",
-              "isError": true,
-              "message": "Validation result for _sources/techniqueProfile/adaProfile/ICPOES/detail/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"ICP-OES detail nodes must declare ada:componentType.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ada:componentType ]\n  \tFocus Node: [ ada:dissolutionFactor Literal(\"100.0\", datatype=xsd:double) ; ada:mass Literal(\"50.2 mg\") ; rdf:type ada:ICPOESProcessedTabular ]\n  \tResult Path: ada:componentType\n  \tMessage: ICP-OES detail nodes must declare ada:componentType.\n  "
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/techniqueProfile/adaProfile/ICPOES/detail/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
               "shaclFile": "_sources/techniqueProfile/adaProfile/ICPOES/detail/rules.shacl",
@@ -89,7 +87,7 @@
   "globalErrors": {},
   "counts": {
     "total": 1,
-    "passed": 0,
-    "failed": 1
+    "passed": 1,
+    "failed": 0
   }
 }

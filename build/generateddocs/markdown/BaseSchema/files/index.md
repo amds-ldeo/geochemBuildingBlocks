@@ -23,7 +23,7 @@ no schema:contentUrl.
 #### json
 ```json
 {
-  "@type": ["ada:image", "schema:MediaObject"],
+  "@type": ["ada:image", "schema:ImageObject"],
   "schema:name": "ALH84001_BSE_001.tif",
   "schema:encodingFormat": ["image/tiff"],
   "schema:description": "Backscattered electron image of ALH84001 thin section",
@@ -33,9 +33,7 @@ no schema:contentUrl.
     "schema:unitText": "byte"
   },
   "schema:additionalType": ["ada:BSEImage"],
-  "ada:componentType": {
-    "@type": ["ada:BSEImage"]
-  },
+  "ada:componentType": "ada:BSEImage",
   "schema:relatedLink": [
     {
       "@type": ["schema:LinkRole"],
@@ -63,7 +61,7 @@ no schema:contentUrl.
   ],
   "@type": [
     "ada:image",
-    "schema:MediaObject"
+    "schema:ImageObject"
   ],
   "schema:name": "ALH84001_BSE_001.tif",
   "schema:encodingFormat": [
@@ -80,11 +78,7 @@ no schema:contentUrl.
   "schema:additionalType": [
     "ada:BSEImage"
   ],
-  "ada:componentType": {
-    "@type": [
-      "ada:BSEImage"
-    ]
-  },
+  "ada:componentType": "ada:BSEImage",
   "schema:relatedLink": [
     {
       "@type": [
@@ -109,7 +103,7 @@ no schema:contentUrl.
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a schema1:MediaObject,
+[] a schema1:ImageObject,
         ada:image ;
     schema1:additionalType "ada:BSEImage" ;
     schema1:description "Backscattered electron image of ALH84001 thin section" ;
@@ -123,7 +117,7 @@ no schema:contentUrl.
     schema1:size [ a schema1:QuantitativeValue ;
             schema1:unitText "byte" ;
             schema1:value 4521984 ] ;
-    ada:componentType [ a ada:BSEImage ] .
+    ada:componentType "ada:BSEImage" .
 
 
 ```

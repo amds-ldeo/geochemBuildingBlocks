@@ -32,14 +32,14 @@
     "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
     ],
-    "cdif.bbr.metadata.skosProperties.skosConcept": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
-    ],
     "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.identifier": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+    ],
+    "cdif.bbr.metadata.skosProperties.skosConcept": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
     ]
   },
   "dependsOn": [
@@ -57,7 +57,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/laboratory/",
   "description": "# ADA Analysis Laboratory\n\nExtends the core CDIF [spatialExtent](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/) building block for ADA laboratory/facility descriptions. Adds `nxs:BaseClass/NXsource` classification via `schema:additionalType`. Inherits place name, identifier, alternateName, geo coordinates, and GeoSPARQL geometry from core spatialExtent.\n",
   "examples": [
@@ -72,20 +72,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/laboratory/example_1_1.json",
-          "sizeBytes": 263,
-          "code": "{\n  \"@type\": [\"schema:Place\"],\n  \"schema:additionalType\": [\"nxs:BaseClass/NXsource\"],\n  \"schema:name\": [\"Lunar and Planetary Laboratory Electron Microprobe Facility\"],\n  \"schema:alternateName\": \"LPL EPMA Lab\",\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}\n"
+          "sizeBytes": 280,
+          "code": "{\n  \"@type\": [\"schema:Place\"],\n  \"schema:additionalType\": [{\"@id\": \"nxs:base_classes/NXsource.html\"}],\n  \"schema:name\": \"Lunar and Planetary Laboratory Electron Microprobe Facility\",\n  \"schema:alternateName\": [\"LPL EPMA Lab\"],\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/laboratory/example_1_1.jsonld",
-          "sizeBytes": 522,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"https://manual.nexusformat.org/classes/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Place\"\n  ],\n  \"schema:additionalType\": [\n    \"nxs:BaseClass/NXsource\"\n  ],\n  \"schema:name\": [\n    \"Lunar and Planetary Laboratory Electron Microprobe Facility\"\n  ],\n  \"schema:alternateName\": \"LPL EPMA Lab\",\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}"
+          "sizeBytes": 551,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"https://manual.nexusformat.org/classes/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Place\"\n  ],\n  \"schema:additionalType\": [\n    {\n      \"@id\": \"nxs:base_classes/NXsource.html\"\n    }\n  ],\n  \"schema:name\": \"Lunar and Planetary Laboratory Electron Microprobe Facility\",\n  \"schema:alternateName\": [\n    \"LPL EPMA Lab\"\n  ],\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/laboratory/example_1_1.ttl",
-          "sizeBytes": 294,
-          "code": "@prefix schema1: <http://schema.org/> .\n\n[] a schema1:Place ;\n    schema1:additionalType \"nxs:BaseClass/NXsource\" ;\n    schema1:alternateName \"LPL EPMA Lab\" ;\n    schema1:identifier \"https://ror.org/03m2x1q45\" ;\n    schema1:name \"Lunar and Planetary Laboratory Electron Microprobe Facility\" .\n\n"
+          "sizeBytes": 337,
+          "code": "@prefix schema1: <http://schema.org/> .\n\n[] a schema1:Place ;\n    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;\n    schema1:alternateName \"LPL EPMA Lab\" ;\n    schema1:identifier \"https://ror.org/03m2x1q45\" ;\n    schema1:name \"Lunar and Planetary Laboratory Electron Microprobe Facility\" .\n\n"
         }
       ]
     }

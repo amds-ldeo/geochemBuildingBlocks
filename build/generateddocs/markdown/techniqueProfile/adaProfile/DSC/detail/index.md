@@ -21,6 +21,7 @@ Differential Scanning Calorimetry heat flow data detail.
 ```json
 {
   "@type": ["ada:DSCHeatTabular"],
+  "ada:componentType": "ada:DSCHeatTabular",
   "ada:analysisType": "heating"
 }
 
@@ -38,6 +39,7 @@ Differential Scanning Calorimetry heat flow data detail.
   "@type": [
     "ada:DSCHeatTabular"
   ],
+  "ada:componentType": "ada:DSCHeatTabular",
   "ada:analysisType": "heating"
 }
 ```
@@ -47,7 +49,8 @@ Differential Scanning Calorimetry heat flow data detail.
 @prefix ada: <https://ada.astromat.org/metadata/> .
 
 [] a ada:DSCHeatTabular ;
-    ada:analysisType "heating" .
+    ada:analysisType "heating" ;
+    ada:componentType "ada:DSCHeatTabular" .
 
 
 ```

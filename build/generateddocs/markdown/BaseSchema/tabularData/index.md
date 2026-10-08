@@ -21,9 +21,7 @@ A tabular data file containing MC-ICP-MS isotope ratio results.
 ```json
 {
   "@type": ["cdi:TabularTextDataSet", "ada:tabularData"],
-  "ada:componentType": {
-    "@type": "ada:MCICPMSTabular"
-  },
+  "ada:componentType": "ada:MCICPMSTabular",
   "cdi:isDelimited": true,
   "ada:xCoordCol": "X_um",
   "ada:yCoordCol": "Y_um",
@@ -47,9 +45,7 @@ A tabular data file containing MC-ICP-MS isotope ratio results.
     "cdi:TabularTextDataSet",
     "ada:tabularData"
   ],
-  "ada:componentType": {
-    "@type": "ada:MCICPMSTabular"
-  },
+  "ada:componentType": "ada:MCICPMSTabular",
   "cdi:isDelimited": true,
   "ada:xCoordCol": "X_um",
   "ada:yCoordCol": "Y_um",
@@ -66,7 +62,7 @@ A tabular data file containing MC-ICP-MS isotope ratio results.
 [] a cdi:TabularTextDataSet,
         ada:tabularData ;
     cdi:isDelimited true ;
-    ada:componentType [ a ada:MCICPMSTabular ] ;
+    ada:componentType "ada:MCICPMSTabular" ;
     ada:coordUnits "micrometer" ;
     ada:xCoordCol "X_um" ;
     ada:yCoordCol "Y_um" .

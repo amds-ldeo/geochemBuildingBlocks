@@ -21,6 +21,7 @@ Laser-2 Mass Spectrometry cube data with ionization parameters.
 ```json
 {
   "@type": ["ada:L2MSCube"],
+  "ada:componentType": "ada:L2MSCube",
   "ada:sampleName": "Murchison_CM2_grain01",
   "ada:ionizationTimeDelay": 500,
   "ada:massGate": true,
@@ -44,6 +45,7 @@ Laser-2 Mass Spectrometry cube data with ionization parameters.
   "@type": [
     "ada:L2MSCube"
   ],
+  "ada:componentType": "ada:L2MSCube",
   "ada:sampleName": "Murchison_CM2_grain01",
   "ada:ionizationTimeDelay": 500,
   "ada:massGate": true,
@@ -60,6 +62,7 @@ Laser-2 Mass Spectrometry cube data with ionization parameters.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ada:L2MSCube ;
+    ada:componentType "ada:L2MSCube" ;
     ada:ionizationTimeDelay 500 ;
     ada:massGate true ;
     ada:photoionizationWavelength 266 ;

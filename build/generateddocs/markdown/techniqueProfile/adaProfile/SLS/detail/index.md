@@ -21,6 +21,7 @@ Structured Light Scanning shape model with mesh statistics.
 ```json
 {
   "@type": ["ada:SLSShapeModel"],
+  "ada:componentType": "ada:SLSShapeModel",
   "ada:countScans": 24,
   "ada:facets": 524288,
   "ada:unitsOfMeasurement": "millimeter",
@@ -43,6 +44,7 @@ Structured Light Scanning shape model with mesh statistics.
   "@type": [
     "ada:SLSShapeModel"
   ],
+  "ada:componentType": "ada:SLSShapeModel",
   "ada:countScans": 24,
   "ada:facets": 524288,
   "ada:unitsOfMeasurement": "millimeter",
@@ -58,6 +60,7 @@ Structured Light Scanning shape model with mesh statistics.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ada:SLSShapeModel ;
+    ada:componentType "ada:SLSShapeModel" ;
     ada:countScans 24 ;
     ada:facets 524288 ;
     ada:unitsOfMeasurement "millimeter" ;

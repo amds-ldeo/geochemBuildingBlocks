@@ -49,7 +49,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/adaProfile/NanoIR/detail/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoIR/detail/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/adaProfile/NanoIR/detail/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/adaProfile/NanoIR/detail/",
   "description": "# NanoIR Instrument Detail\n\nNano-IR spectroscopy collections with phase analysis.\n",
   "examples": [
@@ -63,20 +63,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/NanoIR/detail/example_1_1.json",
-          "sizeBytes": 90,
-          "code": "{\n  \"@type\": [\"ada:NanoIRBackground\"],\n  \"ada:phaseAnalyzed\": [\"carbonate\", \"silicate\"]\n}\n"
+          "sizeBytes": 137,
+          "code": "{\n  \"@type\": [\"ada:NanoIRBackground\"],\n  \"ada:componentType\": \"ada:NanoIRBackground\",\n  \"ada:phaseAnalyzed\": [\"carbonate\", \"silicate\"]\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/NanoIR/detail/example_1_1.jsonld",
-          "sizeBytes": 322,
-          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoIR/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:NanoIRBackground\"\n  ],\n  \"ada:phaseAnalyzed\": [\n    \"carbonate\",\n    \"silicate\"\n  ]\n}"
+          "sizeBytes": 369,
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoIR/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:NanoIRBackground\"\n  ],\n  \"ada:componentType\": \"ada:NanoIRBackground\",\n  \"ada:phaseAnalyzed\": [\n    \"carbonate\",\n    \"silicate\"\n  ]\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/NanoIR/detail/example_1_1.ttl",
-          "sizeBytes": 138,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:NanoIRBackground ;\n    ada:phaseAnalyzed \"carbonate\",\n        \"silicate\" .\n\n"
+          "sizeBytes": 185,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:NanoIRBackground ;\n    ada:componentType \"ada:NanoIRBackground\" ;\n    ada:phaseAnalyzed \"carbonate\",\n        \"silicate\" .\n\n"
         }
       ]
     }
