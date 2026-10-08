@@ -536,8 +536,24 @@ pipeline regenerates; anything the pipeline owns must come from the generator, n
                                                             description, and the nearest paper
                    exampleadaLAMCICPMSUPb-Sundell2021       Sundell, Gehrels & Pecha 2021,
                                                             doi:10.1111/ggr.12355
+                   exampleebsdTAPP-P0 + exampledetail-P0   14 Curtin method-description
+                                                            documents behind 4,305 references
+                   examplestemTAPP-HF5000 (+ detail)        HyperSpy exports from a Hitachi
+                                                            HF5000 at the University of Arizona
+                   examplestemTAPP-P1 (+ detail)            .ser files from an FEI TitanX at
+                                                            Lawrence Berkeley
                  Describe these as source-derived, and name the source; "hand-authored" implies a
                  person edited the JSON, which is not what happened.
+
+**A source-derived block is NOT fixable by regenerating it, and the loss is silent.** The four STEM
+and EBSD blocks carry protocol constants read out of method-description documents and instrument
+exports, which no generator can invent from a sidecar. Measured 2026-10-08 with the sanctioned
+`regenerate.py --tapp`: `ebsdTAPP` loses **15 JSON paths** of its `-P0` example
+(`ada:ebsdCameraGain`, `ada:beamCurrentDefault`, `ada:crystalStructureFileSourcesDefault`, …) and
+**81** schema paths, `stemTAPP` loses **41**, and generic scaffolding arrives in their place while
+`validate_examples` stays green -- because losing content only makes an instance smaller and more
+permissively valid. Each example's `.provenance.md` carries its own measurement. Read it before
+regenerating anything under STEM or EBSD.
 
 **Two words, two meanings — use them precisely.** *Source-derived* is for content assembled from
 primary sources (the examples above). *Authored* is for a placement or a schema fragment a person
@@ -572,6 +588,14 @@ annotation convention `componentType` uses.
 - `schema:object` (was `schema:mainEntity`) — array of MaterialSample objects (samples analyzed). Required CDIF mbb to extend `cdifProvActivity.schema:object` to also accept arrays of `schema:Thing` per schema.org range; `schema:result` extended symmetrically. Both extensions landed via the propagate-schema run on 2026-04-26.
 
 **Do not re-introduce object-form componentType** (the old design where componentType was `{"@type": "...", ...nested-detail-props...}`). The reverse migration to strings was deliberate; details now sit as siblings.
+
+**`ada:procedureAuthorDescription` is DEPRECATED — use
+`$MethodDefinition.schema:creator.schema:description`.** Who produced a procedure description, and
+how, belongs on the creator, which is where the sidecars already path *Procedure Author Description*
+and where every draft instance carries it. The flat `ada:` property was a second home for the same
+fact: it reached `main` in #63 required by STEM and EBSD alone (2 of 59 `tapp` blocks), carried by no
+example in the repo, and minted by no tool — so every example of both blocks failed its own schema
+until #65 removed it. Do not re-add it, and do not satisfy it by writing the description twice.
 
 `files/schema.yaml`'s outer `anyOf` over base BBs intentionally has no permissive `schema:MediaObject` fallback — without it, parts whose `@type` doesn't match a specific BB will (correctly) fail validation.
 
