@@ -53,7 +53,7 @@ naming the analyst as creator would claim they wrote a TAPP they did not write. 
 
 Note `ada:procedureAuthorDescription` is **deprecated** -- that statement lives at
 `$MethodDefinition.schema:creator.schema:description`, which is what the sidecar paths and what
-this example carries. See `CLAUDE.md` and #66.
+this example carries. See `CLAUDE.md` and #65.
 
 ## Commits
 
