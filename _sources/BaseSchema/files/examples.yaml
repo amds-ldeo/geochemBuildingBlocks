@@ -11,7 +11,7 @@
     - language: json
       code: |
         {
-          "@type": ["ada:image", "schema:MediaObject"],
+          "@type": ["ada:image", "schema:ImageObject"],
           "schema:name": "ALH84001_BSE_001.tif",
           "schema:encodingFormat": ["image/tiff"],
           "schema:description": "Backscattered electron image of ALH84001 thin section",
@@ -21,16 +21,14 @@
             "schema:unitText": "byte"
           },
           "schema:additionalType": ["ada:BSEImage"],
-          "ada:componentType": {
-            "@type": ["ada:BSEImage"]
-          },
+          "ada:componentType": "ada:BSEImage",
           "schema:relatedLink": [
             {
               "@type": ["schema:LinkRole"],
               "schema:linkRelationship": "metadata",
               "schema:target": {
                 "@type": ["schema:EntryPoint"],
-                "schema:encodingFormat": ["application/json"],
+                "schema:encodingFormat": "application/json",
                 "schema:name": "ALH84001_BSE_001_metadata.json"
               }
             }
