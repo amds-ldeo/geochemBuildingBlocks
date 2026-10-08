@@ -573,6 +573,14 @@ annotation convention `componentType` uses.
 
 **Do not re-introduce object-form componentType** (the old design where componentType was `{"@type": "...", ...nested-detail-props...}`). The reverse migration to strings was deliberate; details now sit as siblings.
 
+**`ada:procedureAuthorDescription` is DEPRECATED — use
+`$MethodDefinition.schema:creator.schema:description`.** Who produced a procedure description, and
+how, belongs on the creator, which is where the sidecars already path *Procedure Author Description*
+and where every draft instance carries it. The flat `ada:` property was a second home for the same
+fact: it reached `main` in #63 required by STEM and EBSD alone (2 of 59 `tapp` blocks), carried by no
+example in the repo, and minted by no tool — so every example of both blocks failed its own schema
+until #66 removed it. Do not re-add it, and do not satisfy it by writing the description twice.
+
 `files/schema.yaml`'s outer `anyOf` over base BBs intentionally has no permissive `schema:MediaObject` fallback — without it, parts whose `@type` doesn't match a specific BB will (correctly) fail validation.
 
 ## Multi-repo schema propagation
