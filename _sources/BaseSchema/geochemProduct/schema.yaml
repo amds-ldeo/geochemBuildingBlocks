@@ -414,17 +414,17 @@ allOf:
         description: Geographic extent of resource content.
         type: array
         items:
-          $ref: '#/$defs/SpatialExtent'
+          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/schema.yaml
       "schema:temporalCoverage":
         description: Temporal extent of resource content.
         type: array
         items:
-          $ref: '#/$defs/TemporalExtent'
+          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/schema.yaml
       "dqv:hasQualityMeasurement":
         description: Quality measurements reported to assess the resource.
         type: array
         items:
-          $ref: '#/$defs/QualityMeasure'
+          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/schema.yaml
       "schema:additionalProperty":
         description: >-
           PropertyValue entries describing the DELIVERED DATA rather than the
@@ -622,12 +622,6 @@ $defs:
       required:
         - '@type'
         - schema:name
-  SpatialExtent:
-    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/schema.yaml
-  TemporalExtent:
-    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/schema.yaml
-  QualityMeasure:
-    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/schema.yaml
   PropertyValueEntry:
     description: >-
       One entry of a schema:additionalProperty array: a named value carried on the dataset, on an
