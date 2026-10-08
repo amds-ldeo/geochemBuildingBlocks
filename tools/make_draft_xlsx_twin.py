@@ -23,6 +23,18 @@ structurally poorer than a delivered one.
 
     python tools/make_draft_xlsx_twin.py            # report what is missing
     python tools/make_draft_xlsx_twin.py --write
+
+A twin also goes STALE when its CSV is edited, and nothing used to say so: the CSV is the source
+and the twin was write-once, so editing a Description left the two disagreeing with no complaint
+from any tool. --refresh rebuilds the TAPP sheet of named drafts from their CSVs:
+
+    python tools/make_draft_xlsx_twin.py --refresh STEM EBSD --write
+
+It takes NAMES rather than refreshing everything, deliberately. These are binaries: rewriting all
+30 existing twins in one run would produce a diff nobody can review, to fix the one or two that
+moved. A refresh also keeps each twin's OWN Legends sheet rather than the donor's, because they
+are not all identical -- VNMIR carries a 32-row variant against the common 28 -- and taking the
+donor's would quietly replace it.
 """
 import argparse
 import csv
@@ -42,6 +54,26 @@ def missing():
     for c in sorted(glob.glob(os.path.join(DRAFTS, "*.csv"))):
         if not os.path.exists(os.path.splitext(c)[0] + ".xlsx"):
             out.append(c)
+    return out
+
+
+def existing(tokens):
+    """Draft CSVs that already HAVE a twin and whose name matches one of `tokens`.
+
+    Matching is a case-insensitive substring of the basename, so "STEM" selects
+    STEM_TAPP_draft_v2.csv. A token that matches nothing is an ERROR rather than a silent no-op:
+    a mistyped technique name would otherwise report "0 twins refreshed" and read as success.
+    """
+    have = [c for c in sorted(glob.glob(os.path.join(DRAFTS, "*.csv")))
+            if os.path.exists(os.path.splitext(c)[0] + ".xlsx")]
+    out, unmatched = [], []
+    for t in tokens:
+        hit = [c for c in have if t.lower() in os.path.basename(c).lower()]
+        if not hit:
+            unmatched.append(t)
+        out += [c for c in hit if c not in out]
+    if unmatched:
+        raise SystemExit("no draft with an existing twin matches: %s" % ", ".join(unmatched))
     return out
 
 
@@ -98,17 +130,23 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--donor", default=DONOR, help="twin to copy the Legends sheet from")
+    ap.add_argument("--refresh", nargs="+", metavar="NAME",
+                    help="rebuild the TAPP sheet of named drafts that ALREADY have a twin, from "
+                         "their CSVs, keeping each twin's own Legends sheet")
     a = ap.parse_args()
 
-    todo = missing()
+    todo = existing(a.refresh) if a.refresh else missing()
     if not todo:
         print("every draft TAPP csv already has an .xlsx twin")
         return 0
-    legends = legends_from(a.donor) if a.write else []
-    if a.write:
+    # A refresh reads Legends per twin, below; only a fresh build needs the donor's.
+    legends = [] if (a.refresh or not a.write) else legends_from(a.donor)
+    if a.write and not a.refresh:
         print("Legends copied from %s (%d rows)\n" % (os.path.basename(a.donor), len(legends)))
     bad = 0
     for c in todo:
+        if a.refresh and a.write:
+            legends = legends_from(os.path.splitext(c)[0] + ".xlsx")
         dest, nrows, ncols = build(c, legends, a.write)
         note = ""
         if a.write:
@@ -118,7 +156,7 @@ def main():
                 bad += 1
         print("%-42s %3d rows x %2d cols -> %s%s"
               % (os.path.basename(c), nrows, ncols, os.path.basename(dest), note))
-    print("\n%d twin(s) %s" % (len(todo), "written" if a.write else "would be written"))
+    print("\n%d twin(s) %s" % (len(todo), ("refreshed" if a.refresh else "written") if a.write else "would be written"))
     if a.write:
         print("%d verified, %d failed" % (len(todo) - bad, bad))
     return 1 if bad else 0
