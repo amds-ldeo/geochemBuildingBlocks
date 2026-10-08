@@ -94,6 +94,39 @@ jobs:
             exit 1
           fi
 
+      # The step above cannot see every example. validate_examples.py globs
+      # example*.json, and 46 blocks have no such file -- their examples are
+      # snippets[].code strings inside examples.yaml, which a glob cannot reach.
+      # 26 of those 58 snippets failed their own block's schema when first
+      # measured, among them seven still carrying the retired object-form
+      # ada:componentType and all fourteen adaProfile/*/detail examples missing a
+      # required property. The OGC postprocess did see them -- it wrote a
+      # validation_failed.txt per example -- and still concluded success, so
+      # nothing ever failed. They are at 0 now; this is what keeps them there.
+      - name: Validate the inline examples the glob cannot reach
+        id: inline
+        run: python tools/validate_inline_examples.py 2>&1 | tee /tmp/inline.log
+
+      # Same reasoning as the corpus assertion above. The tool already exits 1 on
+      # finding nothing at all; this catches the subtler case where it still finds
+      # some but the set has collapsed.
+      - name: Assert the inline corpus was actually found
+        if: always() && steps.inline.outcome != 'cancelled'
+        run: |
+          total=$(awk '$2 == "inline" { print $1 }' /tmp/inline.log | tail -1)
+          if [ -z "$total" ]; then
+            echo "::error::validate_inline_examples.py printed no count, so what it"
+            echo "did cannot be established. Treating that as a failure, not a pass."
+            exit 1
+          fi
+          echo "$total inline snippet(s) validated"
+          if [ "$total" -lt 40 ]; then
+            echo "::error::only $total inline snippet(s) were found, against 58 when"
+            echo "this check was written. Either examples.yaml snippets have gone, or"
+            echo "discovery stopped matching."
+            exit 1
+          fi
+
       - name: Explain a failure
         if: failure() && steps.validate.outcome == 'failure'
         run: |
