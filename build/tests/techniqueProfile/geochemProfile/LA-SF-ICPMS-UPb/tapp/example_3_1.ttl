@@ -14,6 +14,13 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "run 1 (major elements); run 2 (trace elements) — two line-scans on the same 400 µm line, each after pre-ablation; 'Every analysis was carried out 3 times' (§2.2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Flat polished thick sections (§2.1)" ;
@@ -29,14 +36,7 @@
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "run 1 (major elements); run 2 (trace elements) — two line-scans on the same 400 µm line, each after pre-ablation; 'Every analysis was carried out 3 times' (§2.2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -63,11 +63,11 @@
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
+            schema1:name "Reported Date Type" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "run 1: line scan, 400 µm; run 2: line scan on top of run 1, 400 µm — 'a second line-scan was completed on top of the first one' (§2.2.3)" ;
     ada:ablationSpotDurationDefault "50 s of sample ablation per 400 µm line, both runs — Table B1" ;

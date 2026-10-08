@@ -2,8 +2,8 @@
   "title": "Validation report for ogch.BaseSchema.modules.mcIcpms - TAPP Composition Module: MCICPMS",
   "bblockName": "TAPP Composition Module: MCICPMS",
   "bblockId": "ogch.BaseSchema.modules.mcIcpms",
-  "generated": "2026-10-08T03:09:42.992559+00:00",
-  "result": false,
+  "generated": "2026-10-08T22:16:45.065395+00:00",
+  "result": true,
   "items": [
     {
       "source": {
@@ -15,7 +15,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -61,7 +61,28 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": []
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/modules/mcIcpms/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/BaseSchema/modules/mcIcpms/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/BaseSchema/modules/mcIcpms/rules.shacl",
+              "focusNodes": {
+                "cdifd:mCICPMSProcedureIdentificationShape": {
+                  "nodes": []
+                },
+                "cdifd:mCICPMSAnalysisIdentificationShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/BaseSchema/modules/mcIcpms/rules.shacl:\n - Shape cdifd:mCICPMSProcedureIdentificationShape: *none*\n - Shape cdifd:mCICPMSAnalysisIdentificationShape: *none*\n"
+            }
+          ]
         }
       ]
     },
@@ -75,7 +96,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -121,20 +142,36 @@
         {
           "name": "SHACL",
           "title": "SHACL",
-          "entries": []
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/modules/mcIcpms/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/BaseSchema/modules/mcIcpms/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/BaseSchema/modules/mcIcpms/rules.shacl",
+              "focusNodes": {
+                "cdifd:mCICPMSProcedureIdentificationShape": {
+                  "nodes": []
+                },
+                "cdifd:mCICPMSAnalysisIdentificationShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/BaseSchema/modules/mcIcpms/rules.shacl:\n - Shape cdifd:mCICPMSProcedureIdentificationShape: *none*\n - Shape cdifd:mCICPMSAnalysisIdentificationShape: *none*\n"
+            }
+          ]
         }
       ]
     }
   ],
-  "globalErrors": {
-    "SHACL": {
-      "isError": true,
-      "message": "Error processing _sources/BaseSchema/modules/mcIcpms/rules.shacl: at line 47 of <>:\nBad syntax (Prefix \"dqv:\" not bound) at ^ in:\n\"...b'  }\\n        \"\"\" ;\\n    ] ;\\n    sh:property [\\n        sh:path '^b'dqv:hasQualityMeasurement ;\\n        sh:minCount 1 ;\\n        '...\""
-    }
-  },
+  "globalErrors": {},
   "counts": {
     "total": 2,
-    "passed": 0,
-    "failed": 2
+    "passed": 2,
+    "failed": 0
   }
 }
