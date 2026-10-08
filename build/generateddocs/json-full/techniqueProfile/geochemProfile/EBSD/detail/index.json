@@ -1,0 +1,79 @@
+
+
+{
+  "itemIdentifier": "ogch.techniqueProfile.geochemProfile.EBSD.detail",
+  "$schema": "metaschema.yaml",
+  "name": "Electron Backscatter Diffraction Analysis Detail",
+  "abstract": "Detail block for EBSD hasPart items. The per-analysis properties are working distance, camera exposure time, map step size and indexing rate; the map step size is usually given in the source's per-sample tables rather than its prose.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-07T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-10-08",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "instrument",
+    "ebsd"
+  ],
+  "sources": [
+    {
+      "title": "EBSD_TAPP_draft_v2.csv (TAPP worksheet)",
+      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
+    }
+  ],
+  "shaclShapes": {},
+  "dependsOn": [
+    "ogch.registry.parameterValues"
+  ],
+  "license": {
+    "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
+  },
+  "schema": {
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/schema.json"
+  },
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/detail/schema.yaml",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/detail/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/EBSD/detail/",
+  "examples": [
+    {
+      "title": "detail example P0",
+      "content": "detail instance derived from ADA n=1354 | Nicholas E Timms | Curtin University | Tescan MIRA3 (14 method-description documents).",
+      "prefixes": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/detail/exampledetail-P0.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/EBSD/detail/example_1_1.json",
+          "sizeBytes": 728,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-P0\",\n  \"@type\": [\n    \"ada:SEMEBSDGrainImageMap\"\n  ],\n  \"ada:componentType\": \"ada:SEMEBSDGrainImageMap\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:ebsdTAPP-P0\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"Nicholas E Timms\",\n  \"ada:analysisStartDate\": \"2023-11-16\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"missing\",\n  \"ada:workingDistance\": 17.8,\n  \"ada:ebsdCameraExposureTime\": 20,\n  \"ada:mapStepSize\": 60,\n  \"ada:ebsdIndexingRate\": \"~45-1005 points per second\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/EBSD/detail/example_1_1.jsonld",
+          "sizeBytes": 852,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    {},\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-P0\",\n  \"@type\": [\n    \"ada:SEMEBSDGrainImageMap\"\n  ],\n  \"ada:componentType\": \"ada:SEMEBSDGrainImageMap\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:ebsdTAPP-P0\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"Nicholas E Timms\",\n  \"ada:analysisStartDate\": \"2023-11-16\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"missing\",\n  \"ada:workingDistance\": 17.8,\n  \"ada:ebsdCameraExposureTime\": 20,\n  \"ada:mapStepSize\": 60,\n  \"ada:ebsdIndexingRate\": \"~45-1005 points per second\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/EBSD/detail/example_1_1.ttl",
+          "sizeBytes": 709,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-P0> a ada:SEMEBSDGrainImageMap ;\n    schema1:measurementTechnique <ex:ebsdTAPP-P0> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"2023-11-16\" ;\n    ada:analyst \"Nicholas E Timms\" ;\n    ada:componentType \"ada:SEMEBSDGrainImageMap\" ;\n    ada:ebsdCameraExposureTime 20 ;\n    ada:ebsdIndexingRate \"~45-1005 points per second\" ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:mapStepSize 60 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"missing\" ;\n    ada:sessionIdentifier \"missing\" ;\n    ada:workingDistance 1.78e+01 .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Electron Backscatter Diffraction Analysis Detail\ndescription: Detail block for EBSD hasPart items. The per-analysis properties are\n  working distance, camera exposure time, map step size and indexing rate; the map\n  step size is usually given in the source's per-sample tables rather than its prose.\nallOf:\n- type: object\n  properties:\n    ada:componentType:\n      anyOf:\n      - const: ada:SEMEBSDGrainImageMap\n    schema:measurementTechnique:\n      type: array\n      items:\n        type: object\n        description: '@id reference to a registered ebsdTAPP TAPP definition.'\n        properties:\n          '@id':\n            type: string\n            format: uri\n        required:\n        - '@id'\n    ada:sessionIdentifier:\n      description: \"Identifier for the analytical session this record describes \\u2014\n        the laboratory's own run, sequence or batch identifier as generated by the\n        instrument or acquisition software. Distinct from any persistent identifier\n        a repository mints on submission.\"\n      type: string\n    ada:analyst:\n      description: Name(s) of the analyst(s) who performed the analysis session. ORCID\n        is recommended for persistent identification.\n      type: string\n    ada:analysisStartDate:\n      description: 'Date on which the analytical session began. For sessions spanning\n        multiple days, use the date of the first session. Format: YYYY-MM-DD.'\n      type: string\n    ada:analysisEndDate:\n      description: 'Date on which the analytical session ended. May equal Analysis\n        Start Date for single-day sessions. Format: YYYY-MM-DD.'\n      type: string\n    ada:fundingSourceForAnalysis:\n      description: Grants and other funding sources that supported the specific sample\n        analyses and data collection reported here. Include grant numbers and funding\n        agencies. Distinct from procedure development funding, which may have been\n        awarded years earlier.\n      type: string\n    ada:sampleName:\n      description: \"Name or identifier of each sample analysed in this session, as\n        used in the laboratory \\u2014 a sample mount, section or aliquot counts as\n        one entry where that is what the laboratory tracks. Should match the identifier\n        used in associated publications or data tables.\"\n      type: string\n    ada:samplingUnitName:\n      description: \"The name or label of each sampling unit analysed in this session,\n        as the laboratory records it, together with the sample it belongs to \\u2014\n        e.g. a spot number, a grain label, a map or region-of-interest name, or an\n        aliquot identifier. Where units are too numerous to name individually, such\n        as map pixels or reconstructed voxels, name the acquisition area they belong\n        to instead.\"\n      type: string\n    ada:workingDistance:\n      description: Working distance during mapping.\n      anyOf:\n      - type: number\n      - type: string\n    ada:ebsdCameraExposureTime:\n      description: Exposure time per EBSD pattern.\n      anyOf:\n      - type: number\n      - type: string\n    ada:mapStepSize:\n      description: Step size of the EBSD map.\n      anyOf:\n      - type: number\n      - type: string\n    ada:ebsdIndexingRate:\n      description: Pattern collection and indexing rate.\n      anyOf:\n      - type: number\n      - type: string\n  required:\n  - ada:componentType\n  - ada:sessionIdentifier\n  - ada:analyst\n  - ada:analysisStartDate\n  - ada:analysisEndDate\n  - ada:fundingSourceForAnalysis\n  - ada:sampleName\n  - ada:samplingUnitName\n  - ada:workingDistance\n  - ada:ebsdCameraExposureTime\n  - ada:mapStepSize\n  - ada:ebsdIndexingRate\n- type: object\n  properties:\n    schema:additionalProperty:\n      type: array\n      description: Per-dataset schema:PropertyValue entries. All optional.\n      items:\n        anyOf:\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_coupledProcedureDoi\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_coupledDatasetOrPublicationReference\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_samplePersistentIdentifier\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_samplePreparationMethod\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_samplingUnitSelectionCriteria\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_preAnalysisImagingAndScreening\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_dataProcessingSoftware\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_calibrationFactorAndDeterminationMethod\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_constantsAndReferenceValuesUsed\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_acceleratingVoltage\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_beamCurrent\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_houghResolution\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_edsChannels\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_edsProcessTime\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/ebsd_crystalStructureFileSources\n        - type: object\n          description: Catch-all for additional schema:PropertyValue entries beyond\n            the ebsdTAPP-derived catalog.\n          properties:\n            '@type':\n              type: array\n              items:\n                type: string\n              contains:\n                const: schema:PropertyValue\n            schema:propertyID:\n              type: object\n              required:\n              - '@id'\n              properties:\n                '@id':\n                  type: string\n                  not:\n                    enum:\n                    - ada:parameter/ebsdTAPP/coupledProcedureDoi\n                    - ada:parameter/ebsdTAPP/coupledDatasetOrPublicationReference\n                    - ada:parameter/ebsdTAPP/samplePersistentIdentifier\n                    - ada:parameter/ebsdTAPP/samplePreparationMethod\n                    - ada:parameter/ebsdTAPP/samplingUnitSelectionCriteria\n                    - ada:parameter/ebsdTAPP/preAnalysisImagingAndScreening\n                    - ada:parameter/ebsdTAPP/dataProcessingSoftware\n                    - ada:parameter/ebsdTAPP/calibrationFactorAndDeterminationMethod\n                    - ada:parameter/ebsdTAPP/constantsAndReferenceValuesUsed\n                    - ada:parameter/ebsdTAPP/acceleratingVoltage\n                    - ada:parameter/ebsdTAPP/beamCurrent\n                    - ada:parameter/ebsdTAPP/houghResolution\n                    - ada:parameter/ebsdTAPP/edsChannels\n                    - ada:parameter/ebsdTAPP/edsProcessTime\n                    - ada:parameter/ebsdTAPP/crystalStructureFileSources\n          required:\n          - '@type'\n          - schema:propertyID\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/techniqueProfile/geochemProfile/EBSD/detail"
+}

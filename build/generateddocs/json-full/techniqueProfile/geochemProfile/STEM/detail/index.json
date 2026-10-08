@@ -1,0 +1,108 @@
+
+
+{
+  "itemIdentifier": "ogch.techniqueProfile.geochemProfile.STEM.detail",
+  "$schema": "metaschema.yaml",
+  "name": "Scanning Transmission Electron Microscopy Analysis Detail",
+  "abstract": "Detail block for STEM hasPart items. Image pixel size and image dimensions are the only properties both laboratories record, and the pixel size appears in m, nm and um, so it needs normalising before values are compared.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-07T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-10-08",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "instrument",
+    "stem"
+  ],
+  "sources": [
+    {
+      "title": "STEM_TAPP_draft_v2.csv (TAPP worksheet)",
+      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
+    }
+  ],
+  "shaclShapes": {},
+  "dependsOn": [
+    "ogch.registry.parameterValues"
+  ],
+  "license": {
+    "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
+  },
+  "schema": {
+    "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/schema.yaml",
+    "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/schema.json"
+  },
+  "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/detail/schema.yaml",
+  "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/resolvedProperties.json",
+  "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/detail/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/STEM/detail/",
+  "examples": [
+    {
+      "title": "detail example HF5000",
+      "content": "detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | Hitachi HF5000 (25 instrumentMetadata exports).",
+      "prefixes": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/detail/exampledetail-HF5000.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/STEM/detail/example_1_1.json",
+          "sizeBytes": 864,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-HF5000\",\n  \"@type\": [\n    \"ada:STEMImage\"\n  ],\n  \"ada:componentType\": \"ada:STEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:stemTAPP-HF5000\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"Maizey; Beau\",\n  \"ada:analysisStartDate\": \"2024-05-16\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"missing\",\n  \"ada:magnification\": 14000,\n  \"ada:dwellTimePerProbePosition\": 4,\n  \"ada:cameraLength\": 37,\n  \"ada:stageXPosition\": -0.1375,\n  \"ada:stageYPosition\": -0.1776,\n  \"ada:stageTiltAlpha\": 0.0,\n  \"ada:stageTiltBeta\": 0.1,\n  \"ada:imagePixelSize\": 0.3696,\n  \"ada:imageWidth\": 2048,\n  \"ada:imageHeight\": 2048\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/STEM/detail/example_1_1.jsonld",
+          "sizeBytes": 988,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    {},\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-HF5000\",\n  \"@type\": [\n    \"ada:STEMImage\"\n  ],\n  \"ada:componentType\": \"ada:STEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:stemTAPP-HF5000\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"Maizey; Beau\",\n  \"ada:analysisStartDate\": \"2024-05-16\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"missing\",\n  \"ada:magnification\": 14000,\n  \"ada:dwellTimePerProbePosition\": 4,\n  \"ada:cameraLength\": 37,\n  \"ada:stageXPosition\": -0.1375,\n  \"ada:stageYPosition\": -0.1776,\n  \"ada:stageTiltAlpha\": 0.0,\n  \"ada:stageTiltBeta\": 0.1,\n  \"ada:imagePixelSize\": 0.3696,\n  \"ada:imageWidth\": 2048,\n  \"ada:imageHeight\": 2048\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/STEM/detail/example_1_1.ttl",
+          "sizeBytes": 854,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-HF5000> a ada:STEMImage ;\n    schema1:measurementTechnique <ex:stemTAPP-HF5000> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"2024-05-16\" ;\n    ada:analyst \"Maizey; Beau\" ;\n    ada:cameraLength 37 ;\n    ada:componentType \"ada:STEMImage\" ;\n    ada:dwellTimePerProbePosition 4 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imageHeight 2048 ;\n    ada:imagePixelSize 3.696e-01 ;\n    ada:imageWidth 2048 ;\n    ada:magnification 14000 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"missing\" ;\n    ada:sessionIdentifier \"missing\" ;\n    ada:stageTiltAlpha 0e+00 ;\n    ada:stageTiltBeta 1e-01 ;\n    ada:stageXPosition -1.375e-01 ;\n    ada:stageYPosition -1.776e-01 .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "detail example P1",
+      "content": "detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley National Laboratory | FEI TitanX TEM (78 instrumentMetadata exports, dimensions only).",
+      "prefixes": {
+        "schema": "http://schema.org/",
+        "ada": "https://ada.astromat.org/metadata/"
+      },
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/detail/exampledetail-P1.json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/STEM/detail/example_2_1.json",
+          "sizeBytes": 858,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-P1\",\n  \"@type\": [\n    \"ada:STEMImage\"\n  ],\n  \"ada:componentType\": \"ada:STEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:stemTAPP-P1\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"2023-12-07\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"missing\",\n  \"ada:magnification\": -9999,\n  \"ada:dwellTimePerProbePosition\": -9999,\n  \"ada:cameraLength\": -9999,\n  \"ada:stageXPosition\": -9999,\n  \"ada:stageYPosition\": -9999,\n  \"ada:stageTiltAlpha\": -9999,\n  \"ada:stageTiltBeta\": -9999,\n  \"ada:imagePixelSize\": 2.2766,\n  \"ada:imageWidth\": 2048,\n  \"ada:imageHeight\": 2048\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/STEM/detail/example_2_1.jsonld",
+          "sizeBytes": 982,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    {},\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-P1\",\n  \"@type\": [\n    \"ada:STEMImage\"\n  ],\n  \"ada:componentType\": \"ada:STEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:stemTAPP-P1\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"2023-12-07\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"missing\",\n  \"ada:magnification\": -9999,\n  \"ada:dwellTimePerProbePosition\": -9999,\n  \"ada:cameraLength\": -9999,\n  \"ada:stageXPosition\": -9999,\n  \"ada:stageYPosition\": -9999,\n  \"ada:stageTiltAlpha\": -9999,\n  \"ada:stageTiltBeta\": -9999,\n  \"ada:imagePixelSize\": 2.2766,\n  \"ada:imageWidth\": 2048,\n  \"ada:imageHeight\": 2048\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/STEM/detail/example_2_1.ttl",
+          "sizeBytes": 839,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-P1> a ada:STEMImage ;\n    schema1:measurementTechnique <ex:stemTAPP-P1> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"2023-12-07\" ;\n    ada:analyst \"missing\" ;\n    ada:cameraLength -9999 ;\n    ada:componentType \"ada:STEMImage\" ;\n    ada:dwellTimePerProbePosition -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imageHeight 2048 ;\n    ada:imagePixelSize 2.2766e+00 ;\n    ada:imageWidth 2048 ;\n    ada:magnification -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"missing\" ;\n    ada:sessionIdentifier \"missing\" ;\n    ada:stageTiltAlpha -9999 ;\n    ada:stageTiltBeta -9999 ;\n    ada:stageXPosition -9999 ;\n    ada:stageYPosition -9999 .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Scanning Transmission Electron Microscopy Analysis Detail\ndescription: Detail block for STEM hasPart items. Image pixel size and image dimensions\n  are the only properties both laboratories record, and the pixel size appears in\n  m, nm and um, so it needs normalising before values are compared.\nallOf:\n- type: object\n  properties:\n    ada:componentType:\n      anyOf:\n      - const: ada:STEMImage\n      - const: ada:STEMEDSCube\n      - const: ada:STEMEELSCube\n      - const: ada:STEMEDSTabular\n      - const: ada:STEMEELSTabular\n      - const: ada:STEMEDSTomo\n    schema:measurementTechnique:\n      type: array\n      items:\n        type: object\n        description: '@id reference to a registered stemTAPP TAPP definition.'\n        properties:\n          '@id':\n            type: string\n            format: uri\n        required:\n        - '@id'\n    ada:sessionIdentifier:\n      description: \"Identifier for the analytical session this record describes \\u2014\n        the laboratory's own run, sequence or batch identifier as generated by the\n        instrument or acquisition software. Distinct from any persistent identifier\n        a repository mints on submission.\"\n      type: string\n    ada:analyst:\n      description: Name(s) of the analyst(s) who performed the analysis session. ORCID\n        is recommended for persistent identification.\n      type: string\n    ada:analysisStartDate:\n      description: 'Date on which the analytical session began. For sessions spanning\n        multiple days, use the date of the first session. Format: YYYY-MM-DD.'\n      type: string\n    ada:analysisEndDate:\n      description: 'Date on which the analytical session ended. May equal Analysis\n        Start Date for single-day sessions. Format: YYYY-MM-DD.'\n      type: string\n    ada:fundingSourceForAnalysis:\n      description: Grants and other funding sources that supported the specific sample\n        analyses and data collection reported here. Include grant numbers and funding\n        agencies. Distinct from procedure development funding, which may have been\n        awarded years earlier.\n      type: string\n    ada:sampleName:\n      description: \"Name or identifier of each sample analysed in this session, as\n        used in the laboratory \\u2014 a sample mount, section or aliquot counts as\n        one entry where that is what the laboratory tracks. Should match the identifier\n        used in associated publications or data tables.\"\n      type: string\n    ada:samplingUnitName:\n      description: \"The name or label of each sampling unit analysed in this session,\n        as the laboratory records it, together with the sample it belongs to \\u2014\n        e.g. a spot number, a grain label, a map or region-of-interest name, or an\n        aliquot identifier. Where units are too numerous to name individually, such\n        as map pixels or reconstructed voxels, name the acquisition area they belong\n        to instead.\"\n      type: string\n    ada:magnification:\n      description: Nominal magnification.\n      anyOf:\n      - type: number\n      - type: string\n    ada:dwellTimePerProbePosition:\n      description: Dwell time per scanned probe position.\n      anyOf:\n      - type: number\n      - type: string\n    ada:cameraLength:\n      description: Camera length.\n      anyOf:\n      - type: number\n      - type: string\n    ada:stageXPosition:\n      description: Stage X position.\n      anyOf:\n      - type: number\n      - type: string\n    ada:stageYPosition:\n      description: Stage Y position.\n      anyOf:\n      - type: number\n      - type: string\n    ada:stageTiltAlpha:\n      description: Primary stage tilt.\n      anyOf:\n      - type: number\n      - type: string\n    ada:stageTiltBeta:\n      description: Secondary stage tilt.\n      anyOf:\n      - type: number\n      - type: string\n    ada:imagePixelSize:\n      description: Physical size of one image pixel.\n      anyOf:\n      - type: number\n      - type: string\n    ada:imageWidth:\n      description: Image width in pixels.\n      anyOf:\n      - type: integer\n      - type: string\n    ada:imageHeight:\n      description: Image height in pixels.\n      anyOf:\n      - type: integer\n      - type: string\n  required:\n  - ada:componentType\n  - ada:sessionIdentifier\n  - ada:analyst\n  - ada:analysisStartDate\n  - ada:analysisEndDate\n  - ada:fundingSourceForAnalysis\n  - ada:sampleName\n  - ada:samplingUnitName\n  - ada:magnification\n  - ada:dwellTimePerProbePosition\n  - ada:cameraLength\n  - ada:stageXPosition\n  - ada:stageYPosition\n  - ada:stageTiltAlpha\n  - ada:stageTiltBeta\n  - ada:imagePixelSize\n  - ada:imageWidth\n  - ada:imageHeight\n- type: object\n  properties:\n    schema:additionalProperty:\n      type: array\n      description: Per-dataset schema:PropertyValue entries. All optional.\n      items:\n        anyOf:\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/stem_coupledProcedureDoi\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/stem_coupledDatasetOrPublicationReference\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/stem_samplePersistentIdentifier\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/stem_samplePreparationMethod\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/stem_samplingUnitSelectionCriteria\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/stem_preAnalysisImagingAndScreening\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/stem_dataProcessingSoftware\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/stem_calibrationFactorAndDeterminationMethod\n        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterValues/schema.yaml#/$defs/stem_constantsAndReferenceValuesUsed\n        - type: object\n          description: Catch-all for additional schema:PropertyValue entries beyond\n            the stemTAPP-derived catalog.\n          properties:\n            '@type':\n              type: array\n              items:\n                type: string\n              contains:\n                const: schema:PropertyValue\n            schema:propertyID:\n              type: object\n              required:\n              - '@id'\n              properties:\n                '@id':\n                  type: string\n                  not:\n                    enum:\n                    - ada:parameter/stemTAPP/coupledProcedureDoi\n                    - ada:parameter/stemTAPP/coupledDatasetOrPublicationReference\n                    - ada:parameter/stemTAPP/samplePersistentIdentifier\n                    - ada:parameter/stemTAPP/samplePreparationMethod\n                    - ada:parameter/stemTAPP/samplingUnitSelectionCriteria\n                    - ada:parameter/stemTAPP/preAnalysisImagingAndScreening\n                    - ada:parameter/stemTAPP/dataProcessingSoftware\n                    - ada:parameter/stemTAPP/calibrationFactorAndDeterminationMethod\n                    - ada:parameter/stemTAPP/constantsAndReferenceValuesUsed\n          required:\n          - '@type'\n          - schema:propertyID\n",
+  "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "gitPath": "_sources/techniqueProfile/geochemProfile/STEM/detail"
+}
