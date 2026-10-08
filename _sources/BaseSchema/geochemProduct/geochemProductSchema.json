@@ -491,21 +491,21 @@
                     "description": "Geographic extent of resource content.",
                     "type": "array",
                     "items": {
-                        "$ref": "#/$defs/SpatialExtent"
+                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/spatialExtentSchema.json"
                     }
                 },
                 "schema:temporalCoverage": {
                     "description": "Temporal extent of resource content.",
                     "type": "array",
                     "items": {
-                        "$ref": "#/$defs/TemporalExtent"
+                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/temporalExtentSchema.json"
                     }
                 },
                 "dqv:hasQualityMeasurement": {
                     "description": "Quality measurements reported to assess the resource.",
                     "type": "array",
                     "items": {
-                        "$ref": "#/$defs/QualityMeasure"
+                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/qualityMeasureSchema.json"
                     }
                 },
                 "schema:additionalProperty": {
@@ -751,15 +751,6 @@
                 "@type",
                 "schema:name"
             ]
-        },
-        "SpatialExtent": {
-            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/spatialExtentSchema.json"
-        },
-        "TemporalExtent": {
-            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/temporalExtentSchema.json"
-        },
-        "QualityMeasure": {
-            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/qualityMeasureSchema.json"
         },
         "PropertyValueEntry": {
             "description": "One entry of a schema:additionalProperty array: a named value carried on the dataset, on an analysis, or on a sample. The three sites above delegate their per-technique CONTENT to the technique profiles -- which property names are allowed, and with what values -- and this def supplies only the ENTRY SHAPE those names are carried in, so that a placement path such as `schema:additionalProperty[schema:name='Map Area'].schema:value` names something the schema has heard of.\nMeasured across all 2047 additionalProperty entries in this repository's examples (2026-10-08): every one carries both '@type' and 'schema:name', and none carries a property outside the set below, so the two required keys are measured rather than assumed. '@type' is always a one-element array.\nDELIBERATELY NOT SEALED. additionalProperties is left open so a technique profile can add a property without every consumer of this block having to learn about it first -- the same reason the sites delegate in the first place. The consequence is that a MISSPELLED property here still validates; what this def buys is that the register's path checker (amds-ldeo/metadata, loaders/map_subject_keys.py) can now tell a real typo from a node that simply declares nothing. Before it existed, those two were the same report, and 18 correct paths were indistinguishable from a wrong one.",
