@@ -83,6 +83,7 @@ TECH_DIR = {
     "svruecTAPP": "SVRUEC",
     "l2msTAPP": "L2MS",
     "sthmAfmTAPP": "STHM-AFM",
+    "stemTAPP": "STEM", "ebsdTAPP": "EBSD",
     "sXrfTAPP": "S-XRF",
     "icMsTAPP": "IC-MS",
     "cpdTAPP": "CPD",
@@ -1088,6 +1089,61 @@ TAPP_CONFIGS = {
                                "analysis-identification properties the Core module places on "
                                "the dataset. No L2MS-specific analysis property is defined "
                                "yet."),
+    },
+    "stemTAPP": {
+        "xlsx": "draftTAPPs/STEM_TAPP_draft_v2.csv",
+        "prefix": "stem",
+        "component_types": ["ada:STEMImage", "ada:STEMEDSCube", "ada:STEMEELSCube",
+                            "ada:STEMEDSTabular", "ada:STEMEELSTabular", "ada:STEMEDSTomo"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Scanning Transmission Electron Microscopy Technique-Aligned Procedure Profile (stemTAPP)",
+        "description": ("Scanning transmission electron microscopy extension of the base TAPP "
+                        "definition. Separate from temTAPP because ADA's six STEM component types "
+                        "record a scanned probe rather than a parallel beam, and the records say so "
+                        "themselves: acquisition_mode is STEM in 23 of the 25 exports that state it. "
+                        "TWO LABORATORY INSTANCES, because the metadata available splits exactly on "
+                        "the lab boundary rather than at random. University of Arizona exports "
+                        "HyperSpy metadata from a Hitachi HF5000 and all 25 carry a full "
+                        "Acquisition_instrument block; Lawrence Berkeley exports .ser files from an "
+                        "FEI TitanX and all 78 carry image dimensions and nothing else. The native "
+                        "layer is therefore seeded for UAZ and deliberately empty for LBNL -- "
+                        "declaring 200 kV technique-wide would assert UAZ's instrument for LBNL's "
+                        "records. Generated from draftTAPPs/STEM_TAPP_draft_v2.csv by "
+                        "tools/build_tapp.py."),
+        "detail_title": "Scanning Transmission Electron Microscopy Analysis Detail",
+        "detail_description": ("Detail block for STEM hasPart items. Image pixel size and image "
+                               "dimensions are the only properties both laboratories record, and "
+                               "the pixel size appears in m, nm and um, so it needs normalising "
+                               "before values are compared."),
+    },
+    "ebsdTAPP": {
+        "xlsx": "draftTAPPs/EBSD_TAPP_draft_v2.csv",
+        "prefix": "ebsd",
+        "component_types": ["ada:SEMEBSDGrainImageMap"],
+        "base_items": _IDENTITY_COMMON,
+        "analyte_map": {},
+        "conditional_mode": "",
+        "enum_props": {},
+        "title": "Electron Backscatter Diffraction Technique-Aligned Procedure Profile (ebsdTAPP)",
+        "description": ("Electron backscatter diffraction extension of the base TAPP definition, "
+                        "for ADA's SEMEBSDGrainImageMap component type. ONE laboratory instance: all "
+                        "14 distinct method-description documents behind 4305 references are from "
+                        "Curtin University, on a Tescan MIRA3 with an Oxford Instruments AZtec v5.1 "
+                        "Symmetry EBSD-EDS system. The native layer is seeded from those documents "
+                        "rather than from ADA subject fields, which carry no EBSD-specific property "
+                        "at all -- the 1354 records hold only channel1-3 and imageType. Constant "
+                        "across all 14 and therefore protocol-level: 70 degree stage tilt, camera "
+                        "gain 2, a 1.2 degree maximum mean angular deviation and an XMax 150 mm SDD "
+                        "detector. Generated from draftTAPPs/EBSD_TAPP_draft_v2.csv by "
+                        "tools/build_tapp.py."),
+        "detail_title": "Electron Backscatter Diffraction Analysis Detail",
+        "detail_description": ("Detail block for EBSD hasPart items. The per-analysis properties are "
+                               "working distance, camera exposure time, map step size and indexing "
+                               "rate; the map step size is usually given in the source's per-sample "
+                               "tables rather than its prose."),
     },
     "sthmAfmTAPP": {
         "xlsx": "draftTAPPs/STHM-AFM_TAPP_draft_v2.csv",

@@ -1,0 +1,52 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Scanning Transmission Electron Microscopy Technique-Aligned Procedure Profile (stemTAPP)
+description: 'Scanning transmission electron microscopy extension of the base TAPP definition. Separate from temTAPP because ADA''s six STEM component types record a scanned probe rather than a parallel beam, and the records say so themselves: acquisition_mode is STEM in 23 of the 25 exports that state it. TWO LABORATORY INSTANCES, because the metadata available splits exactly on the lab boundary rather than at random. University of Arizona exports HyperSpy metadata from a Hitachi HF5000 and all 25 carry a full Acquisition_instrument block; Lawrence Berkeley exports .ser files from an FEI TitanX and all 78 carry image dimensions and nothing else. The native layer is therefore seeded for UAZ and deliberately empty for LBNL -- declaring 200 kV technique-wide would assert UAZ''s instrument for LBNL''s records. Generated from draftTAPPs/STEM_TAPP_draft_v2.csv by tools/build_tapp.py.'
+allOf:
+- $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
+- type: object
+  properties:
+    ada:samplingUnitType:
+      description: The kind of physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels. The units themselves are listed in Sampling Unit Name.
+      type: string
+    ada:samplePreparationMethodDefault:
+      description: The form in which the sample is presented to the instrument, and the preparation that brought it to that form — for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.
+      type: string
+    ada:samplingUnitSelectionCriteriaDefault:
+      description: 'The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.'
+      type: string
+    ada:dataProcessingSoftwareDefault:
+      description: All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.
+      type: string
+    ada:analyticalMode:
+      description: Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Applies even where a procedure defines no mode flag columns.
+      type: array
+      items:
+        type: string
+    ada:reportedVariablesAndUnits:
+      description: The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.
+      type: string
+    ada:calibrationFactorAndDeterminationMethodDefault:
+      description: 'An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.'
+      type: string
+    ada:constantsAndReferenceValuesUsedDefault:
+      description: Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record "None" if no citable, revisable physical constants feed into this procedure's data reduction.
+      type: string
+    ada:acceleratingVoltage:
+      description: Electron beam accelerating voltage.
+      anyOf:
+      - type: number
+      - type: string
+    schema:additionalProperty:
+      type: array
+      description: Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification entries (…Default name; the per-dataset value lives in the detail block); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value in schema:value.
+      items:
+        anyOf:
+        - $ref: ../../../../registry/parameterTemplates/schema.yaml#/$defs/stem_preAnalysisImagingAndScreeningDefault
+      allOf:
+      - contains:
+          $ref: ../../../../registry/parameterTemplates/schema.yaml#/$defs/stem_preAnalysisImagingAndScreeningDefault
+        minContains: 0
+        maxContains: 1
+  required:
+  - ada:analyticalMode
+  - ada:acceleratingVoltage

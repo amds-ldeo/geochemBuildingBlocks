@@ -1,0 +1,27 @@
+{
+  "$schema": "metaschema.yaml",
+  "name": "Scanning Transmission Electron Microscopy Technique-Aligned Procedure Profile (stemTAPP)",
+  "abstract": "Scanning transmission electron microscopy extension of the base TAPP definition. Separate from temTAPP because ADA's six STEM component types record a scanned probe rather than a parallel beam, and the records say so themselves: acquisition_mode is STEM in 23 of the 25 exports that state it. TWO LABORATORY INSTANCES, because the metadata available splits exactly on the lab boundary rather than at random. University of Arizona exports HyperSpy metadata from a Hitachi HF5000 and all 25 carry a full Acquisition_instrument block; Lawrence Berkeley exports .ser files from an FEI TitanX and all 78 carry image dimensions and nothing else. The native layer is therefore seeded for UAZ and deliberately empty for LBNL -- declaring 200 kV technique-wide would assert UAZ's instrument for LBNL's records. Generated from draftTAPPs/STEM_TAPP_draft_v2.csv by tools/build_tapp.py.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-07T00:00:00Z",
+  "itemClass": "schema",
+  "register": "cdif-building-block-register",
+  "version": "0.1",
+  "dateOfLastChange": "2026-06-07",
+  "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+  "maturity": "draft",
+  "scope": "unstable",
+  "tags": [
+    "ada",
+    "astromat",
+    "tapp",
+    "stem",
+    "technique-protocol"
+  ],
+  "sources": [
+    {
+      "title": "STEM_TAPP_draft_v2.csv (TAPP worksheet)",
+      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
+    }
+  ]
+}

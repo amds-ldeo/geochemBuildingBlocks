@@ -1,0 +1,118 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
+  },
+  "@id": "ex:ebsdTAPP-P0",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "ebsd protocol — P0",
+  "schema:description": "ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University | Tescan MIRA3 (14 method-description documents) (publication column of EBSD_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Tescan",
+  "ada:instrumentModel": "Tescan MIRA3",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "SEM"
+      ],
+      "ada:acceleratingVoltageDefault": "20 kV",
+      "ada:beamCurrentDefault": "~1.5 nA",
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "EBSD Detector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "ada:ebsdCameraSpeedSetting": "Speed 1",
+          "ada:ebsdPatternResolution": "622 x 512 pixels",
+          "ada:ebsdCameraGain": "2",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/SEM/part/EBSD-Detector",
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "EDS Detector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:model": {
+            "schema:name": "XMax 150 mm SDD",
+            "@type": [
+              "schema:ProductModel"
+            ]
+          },
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/SEM/part/EDS-Detector",
+          "schema:name": "missing"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM"
+    }
+  ],
+  "ada:stageTilt": "70 deg",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Data acquisition",
+        "ada:edsChannelsDefault": "2024",
+        "ada:edsProcessTimeDefault": "5",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data reduction",
+        "ada:houghResolutionDefault": "60",
+        "ada:minimumBandsForIndexing": "5",
+        "ada:maximumMeanAngularDeviation": "1.2 deg",
+        "ada:crystalStructureFileSourcesDefault": "HKL; ICSD; American Mineralogist",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "ebsd",
+      "schema:termCode": "ebsd"
+    }
+  ]
+}

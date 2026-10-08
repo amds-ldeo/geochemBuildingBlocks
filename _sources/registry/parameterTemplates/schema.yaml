@@ -239,6 +239,35 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
+  ebsd_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/ebsdTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
   epma_analyticalAccuracyDefault:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.
@@ -9206,6 +9235,35 @@ $defs:
         const: uncertaintyPropagationMethodDefault
       schema:name:
         const: Uncertainty Propagation Method
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  stem_preAnalysisImagingAndScreeningDefault:
+    title: Pre-Analysis Imaging and Screening
+    description: Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/stemTAPP/preAnalysisImagingAndScreeningDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: preAnalysisImagingAndScreeningDefault
+      schema:name:
+        const: Pre-Analysis Imaging and Screening
       ada:dataType:
         const: string
       ada:fieldScope:
