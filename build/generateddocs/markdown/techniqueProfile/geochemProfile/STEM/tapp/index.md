@@ -447,9 +447,6 @@ allOf:
         materials rather than universal physical constants. Record "None" if no citable,
         revisable physical constants feed into this procedure's data reduction.
       type: string
-    ada:procedureAuthorDescription:
-      description: How this draft was produced.
-      type: string
     ada:acceleratingVoltage:
       description: Electron beam accelerating voltage.
       anyOf:
@@ -471,7 +468,6 @@ allOf:
         maxContains: 1
   required:
   - ada:analyticalMode
-  - ada:procedureAuthorDescription
   - ada:acceleratingVoltage
 
 ```
