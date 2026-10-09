@@ -127,6 +127,76 @@ jobs:
             exit 1
           fi
 
+      # Neither step above can see this class at all, in either direction.
+      #
+      # CDIF's additionalProperty SHACL reports a URI or CURIE serialized as a string
+      # literal at sh:Violation severity -- 740 of ~2,499 violations, the largest single
+      # class, cleared by #77 across 345 example files. Two things make it invisible to a
+      # corpus of examples. A schema is a set of restrictions, so losing one only makes it
+      # more PERMISSIVE and every instance that validated still validates. And a `contains`
+      # pin that stops MATCHING its converted value makes instances more likely to validate,
+      # not less: the constraint is still present and still bites, it just no longer bites
+      # the thing it was written for. bios:LabProcess was exactly that, and #79 fixed it.
+      #
+      # The violations were also invisible until #67, which fixed five module rules.shacl
+      # files that would not parse. While they did not parse, no shape was ever evaluated.
+      #
+      # docs/ADDITIONALTYPE_POLICY.md states both clauses. Clause 2 is green today and has
+      # no allowlist, so any violation here is a regression. Clause 1 has recorded open debt
+      # in docs/additionaltype_policy_open.json, which fails closed in both directions -- an
+      # unlisted violation fails, and so does a listed entry that no longer violates.
+      - name: Enforce the additionalType / propertyID serialization policy
+        id: policy
+        run: python tools/check_additionaltype_policy.py 2>&1 | tee /tmp/policy.log
+
+      # Same tripwire as the two above: a check that examined nothing exits 0 and reads as
+      # assurance. 2189 declarations today; the floor catches discovery collapsing, not
+      # ordinary movement as blocks are added or archived.
+      - name: Assert the policy check examined the sources
+        if: always() && steps.policy.outcome != 'cancelled'
+        run: |
+          total=$(sed -n 's/^declarations examined *: *\([0-9]\+\).*/\1/p' /tmp/policy.log | tail -1)
+          if [ -z "$total" ]; then
+            echo "::error::check_additionaltype_policy.py printed no count, so what it did"
+            echo "cannot be established. Treating that as a failure rather than a pass."
+            exit 1
+          fi
+          echo "$total declaration(s) examined"
+          if [ "$total" -lt 1500 ]; then
+            echo "::error::only $total declaration(s) were examined, against 2189 when this"
+            echo "check was written. Either a large part of _sources has gone, or the walk"
+            echo "stopped matching."
+            exit 1
+          fi
+
+      - name: Explain a policy failure
+        if: failure() && steps.policy.outcome == 'failure'
+        run: |
+          echo "A schema:additionalType or schema:propertyID declaration breaks the"
+          echo "serialization policy in docs/ADDITIONALTYPE_POLICY.md."
+          echo
+          echo "    python tools/check_additionaltype_policy.py"
+          echo "    python tools/check_additionaltype_policy.py --list   # all, by shape"
+          echo
+          echo "Rule A -- a pinned CURIE or URI must be expressed as an IRI reference."
+          echo "Pin each branch of the discriminator, as #79 did for bios:LabProcess:"
+          echo
+          echo "    contains:"
+          echo "      anyOf:"
+          echo "      - const: bios:LabProcess"
+          echo "      - type: object"
+          echo "        required: ['@id']"
+          echo "        properties: {'@id': {const: bios:LabProcess}}"
+          echo
+          echo "Widening it to {type: object} instead would match ANY member and satisfy the"
+          echo "discriminator silently, which is worse than the narrow form because it fails"
+          echo "nothing. A pin naming a FREE LABEL is correct as a bare string -- the rule"
+          echo "keys on the value, not on the presence of a pin."
+          echo
+          echo "Rule B -- a value-type declaration must admit the IRI-reference form, and the"
+          echo "open sites are recorded in docs/additionaltype_policy_open.json. If you fixed"
+          echo "one, remove its entry in the same change; a stale entry fails on purpose."
+
       - name: Explain a failure
         if: failure() && steps.validate.outcome == 'failure'
         run: |
