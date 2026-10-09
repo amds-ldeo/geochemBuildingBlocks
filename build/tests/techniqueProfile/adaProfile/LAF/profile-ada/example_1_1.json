@@ -22,13 +22,17 @@
   "schema:description": "Example Laser-Assisted Fluorination (LAF) product metadata demonstrating all properties defined by the adaLAF profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
     "Laser Assisted Fluorination (LAF) Processed",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adalaf-example-001",
     "schema:url": "https://doi.org/10.99999/adalaf-example-001"
   },
@@ -136,7 +140,9 @@
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -171,7 +177,9 @@
                 {
                   "@id": "nxs:base_classes/NXinstrument.html"
                 },
-                "ada:LAFInstrument",
+                {
+                  "@id": "ada:LAFInstrument"
+                },
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
@@ -228,7 +236,9 @@
       ],
       "schema:description": "Primary measured quantity from Laser-Assisted Fluorination (LAF) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/laf_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/laf_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -248,7 +258,9 @@
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -301,7 +313,9 @@
           "schema:name": "ALH84001_LAF_001.tif",
           "schema:description": "LAF data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:LAFProcessed"
+            {
+              "@id": "ada:LAFProcessed"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -340,7 +354,9 @@
           "schema:name": "ALH84001_LAF_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:methodDescription"
+            {
+              "@id": "ada:methodDescription"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"

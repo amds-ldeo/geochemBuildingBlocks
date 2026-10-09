@@ -32,13 +32,17 @@
   "schema:description": "Example Noble Gas and Nitrogen Static Mass Spectrometry (NG-NS-MS) product metadata demonstrating all properties defined by the adaNGNSMS profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
     "Noble Gas and Nitrogen Static Mass Spectrometry (NGNSMS) Processed",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adangnsms-example-001",
     "schema:url": "https://doi.org/10.99999/adangnsms-example-001"
   },
@@ -145,7 +149,9 @@
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -180,7 +186,9 @@
                 {
                   "@id": "nxs:base_classes/NXinstrument.html"
                 },
-                "ada:NG-NS-MSInstrument",
+                {
+                  "@id": "ada:NG-NS-MSInstrument"
+                },
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
@@ -237,7 +245,9 @@
       ],
       "schema:description": "Primary measured quantity from Noble Gas and Nitrogen Static Mass Spectrometry (NG-NS-MS) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ng-ns-ms_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ng-ns-ms_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -257,7 +267,9 @@
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -310,7 +322,9 @@
           "schema:name": "ALH84001_NG-NS-MS_001.tif",
           "schema:description": "NG-NS-MS data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:NGNSMSRaw"
+            {
+              "@id": "ada:NGNSMSRaw"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -349,7 +363,9 @@
           "schema:name": "ALH84001_NG-NS-MS_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:methodDescription"
+            {
+              "@id": "ada:methodDescription"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"

@@ -64,7 +64,9 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -150,7 +152,9 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -191,7 +195,7 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;

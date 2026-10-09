@@ -38,13 +38,17 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:description": "Example path-driven SEM product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Scanning Electron Microscopy (SEM) Image",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adaproduct-example-001",
     "schema:url": "https://doi.org/10.99999/adaproduct-example-001"
   },
@@ -152,7 +156,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -258,7 +264,9 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:description": "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -278,7 +286,9 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -314,7 +324,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:name": "Sampling Unit Name",
       "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -331,7 +343,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:name": "Detection Limit",
       "schema:description": "Detection Limit reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -349,7 +363,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:name": "Calibration Factor and Determination Method",
       "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -404,7 +420,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:SEMImage"
+            {
+              "@id": "ada:SEMImage"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -435,7 +453,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:SEMImage"
+            {
+              "@id": "ada:SEMImage"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -568,13 +588,17 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:description": "Example path-driven SEM product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Scanning Electron Microscopy (SEM) Image",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adaproduct-example-001",
     "schema:url": "https://doi.org/10.99999/adaproduct-example-001"
   },
@@ -682,7 +706,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -788,7 +814,9 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:description": "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -808,7 +836,9 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -844,7 +874,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:name": "Sampling Unit Name",
       "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -861,7 +893,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:name": "Detection Limit",
       "schema:description": "Detection Limit reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -879,7 +913,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:name": "Calibration Factor and Determination Method",
       "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -934,7 +970,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:SEMImage"
+            {
+              "@id": "ada:SEMImage"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -965,7 +1003,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:SEMImage"
+            {
+              "@id": "ada:SEMImage"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -1078,8 +1118,8 @@ and technique component types on the archive distribution. Mock data for validat
 
 ex:adaSEMFull-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType "Scanning Electron Microscopy (SEM) Image",
-        "ada:DataDeliveryPackage" ;
+    schema1:additionalType ada:DataDeliveryPackage,
+        "Scanning Electron Microscopy (SEM) Image" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
             schema1:contributor [ a schema1:Person ;
@@ -1122,14 +1162,14 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
                     spdx:checksumValue "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2" ] ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:funder [ a schema1:Organization ;
-                    schema1:additionalType "schema:FundingAgency" ;
+                    schema1:additionalType schema1:FundingAgency ;
                     schema1:name "NASA - National Aeronautics and Space Administration" ] ;
             schema1:identifier [ a schema1:PropertyValue ;
                     schema1:propertyID "award number" ;
                     schema1:value "NNX17AE48G" ] ;
             schema1:name "Astromaterials Curation and Analysis" ] ;
     schema1:identifier [ a schema1:PropertyValue ;
-            schema1:propertyID "https://registry.identifiers.org/registry/doi" ;
+            schema1:propertyID <https://registry.identifiers.org/registry/doi> ;
             schema1:url "https://doi.org/10.99999/adaproduct-example-001" ;
             schema1:value "10.99999/adaproduct-example-001" ] ;
     schema1:keywords [ a schema1:DefinedTerm ;
@@ -1150,14 +1190,14 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "example ebsdPatternQualityThreshold" ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value 1e+00 ],
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "example ebsdPatternQualityThreshold" ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value 1e+00 ] ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1185,7 +1225,7 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
         ada:image ;
-    schema1:additionalType "ada:SEMImage" ;
+    schema1:additionalType ada:SEMImage ;
     schema1:description "ADA data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
     schema1:name "ALH84001_ADA_001.tif" ;
@@ -1200,7 +1240,7 @@ ex:adaProduct-file-001 a schema1:ImageObject,
 ex:adaProduct-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
         ada:document ;
-    schema1:additionalType "ada:SEMImage" ;
+    schema1:additionalType ada:SEMImage ;
     schema1:description "Method description document for this analysis" ;
     schema1:encodingFormat "application/pdf" ;
     schema1:name "ALH84001_ADA_methods.pdf" ;
@@ -1243,7 +1283,7 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
         "Detection Limit",
         "Sampling Unit Name",
         "measurement_value" ;
-    schema1:propertyID "https://ada.astromat.org/vocabulary/variables/ada_primary" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
     schema1:unitText "counts" ;
     schema1:value -9999 ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
@@ -1256,7 +1296,7 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
     schema1:alternateName "X coordinate" ;
     schema1:description "Horizontal position coordinate on sample surface." ;
     schema1:name "position_x" ;
-    schema1:propertyID "https://ada.astromat.org/vocabulary/variables/position_x" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/position_x> ;
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
 
