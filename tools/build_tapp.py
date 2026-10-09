@@ -1659,6 +1659,25 @@ def param_template_def(b, existing):
         "schema:readonlyValue": {"const": not is_dual(b)},
         "ada:tier": {"const": "R"},
     }
+    # The DEFAULT the specification exists to carry. Every other property here is const-pinned,
+    # because the template IS a fixed declaration -- but the default is the one thing that varies
+    # per laboratory (one lab's expected aliquot mass is 50 mg, another's 200 mg), so it is a
+    # typed slot rather than a const, mirroring param_value_def's treatment of schema:value.
+    #
+    # NOT required, unlike schema:value on the analysis side. An analysis that reports no value
+    # reports nothing; a procedure may legitimately declare a parameter with no default, which is
+    # what is_dual and schema:readonlyValue already distinguish. Requiring it would reject every
+    # existing specification that states a parameter without defaulting it.
+    #
+    # Until 2026-10-09 this was absent: all 61 Param_Procedure_* defs across 11 modules, and every
+    # technique-minted procedure parameter, declared @type as schema:PropertyValueSpecification and
+    # then gave it nowhere to put a value -- while all 43 Param_Analysis_* defs declared and
+    # required schema:value. The objects are open, so nothing failed; the defaults were simply
+    # carried by no schema, and 54 sidecar placement paths ending in schema:defaultValue could not
+    # be told apart from a misspelling by any checker.
+    props["schema:defaultValue"] = ({"anyOf": [{"type": "number"}, {"type": "string"}]}
+                                    if b["jtype"] in ("number", "integer")
+                                    else {"type": "string"})
     if b.get("unit") and b["unit"] != "free":
         # a named unit is pinned; "dimensioned but unnamed" only requires that one be given
         props["schema:unitText"] = ({"type": "string"} if b["unit"] == UNIT_UNNAMED
