@@ -244,18 +244,6 @@ Point Spread Function Data with image names and conditions. Defines properties: 
 
 Spatially registered image map with pixel coordinates and component types. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, illuminationType, imageType, numPixelsX, numPixelsY, spatialRegistration. Uses building blocks: detailEPMA (geochemProperties), spatialRegistration (geochemProperties).
 
-### `ogch.techniqueProfile.geochemProfile.EBSD.detail` — Electron Backscatter Diffraction Analysis Detail
-
-**Type:** schema
-
-Detail block for EBSD hasPart items. The per-analysis properties are working distance, camera exposure time, map step size and indexing rate; the map step size is usually given in the source's per-sample tables rather than its prose.
-
-### `ogch.techniqueProfile.geochemProfile.STEM.detail` — Scanning Transmission Electron Microscopy Analysis Detail
-
-**Type:** schema
-
-Detail block for STEM hasPart items. Image pixel size and image dimensions are the only properties both laboratories record, and the pixel size appears in m, nm and um, so it needs normalising before values are compared.
-
 ### `ogch.BaseSchema.laboratory` — ADA Analysis Laboratory
 
 **Type:** schema
@@ -315,18 +303,6 @@ The shared Analyte block of the 2026-08-11 TAPP library, composed by 13 of the s
 **Type:** schema
 
 The shared UPb block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 3 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
-
-### `ogch.techniqueProfile.geochemProfile.EBSD.tapp` — Electron Backscatter Diffraction Technique-Aligned Procedure Profile (ebsdTAPP)
-
-**Type:** schema
-
-Electron backscatter diffraction extension of the base TAPP definition, for ADA's SEMEBSDGrainImageMap component type. ONE laboratory instance: all 14 distinct method-description documents behind 4305 references are from Curtin University, on a Tescan MIRA3 with an Oxford Instruments AZtec v5.1 Symmetry EBSD-EDS system. The native layer is seeded from those documents rather than from ADA subject fields, which carry no EBSD-specific property at all -- the 1354 records hold only channel1-3 and imageType. Constant across all 14 and therefore protocol-level: 70 degree stage tilt, camera gain 2, a 1.2 degree maximum mean angular deviation and an XMax 150 mm SDD detector. Generated from draftTAPPs/EBSD_TAPP_draft_v2.csv by tools/build_tapp.py.
-
-### `ogch.techniqueProfile.geochemProfile.STEM.tapp` — Scanning Transmission Electron Microscopy Technique-Aligned Procedure Profile (stemTAPP)
-
-**Type:** schema
-
-Scanning transmission electron microscopy extension of the base TAPP definition. Separate from temTAPP because ADA's six STEM component types record a scanned probe rather than a parallel beam, and the records say so themselves: acquisition_mode is STEM in 23 of the 25 exports that state it. TWO LABORATORY INSTANCES, because the metadata available splits exactly on the lab boundary rather than at random. University of Arizona exports HyperSpy metadata from a Hitachi HF5000 and all 25 carry a full Acquisition_instrument block; Lawrence Berkeley exports .ser files from an FEI TitanX and all 78 carry image dimensions and nothing else. The native layer is therefore seeded for UAZ and deliberately empty for LBNL -- declaring 200 kV technique-wide would assert UAZ's instrument for LBNL's records. Generated from draftTAPPs/STEM_TAPP_draft_v2.csv by tools/build_tapp.py.
 
 ### `ogch.BaseSchema.geochemProduct` — Geochem Analytical Product
 
@@ -453,6 +429,18 @@ Detail block for EAIRMS hasPart items, carrying the analysis-identification prop
 **Type:** schema
 
 Elemental analysis - isotope ratio mass spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. EAIRMS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything EAIRMS-specific. Generated from draftTAPPs/EAIRMS_TAPP_draft_v2.csv by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.EBSD.detail` — Electron Backscatter Diffraction Analysis Detail
+
+**Type:** schema
+
+Detail block for EBSD hasPart items. The per-analysis properties are working distance, camera exposure time, map step size and indexing rate; the map step size is usually given in the source's per-sample tables rather than its prose.
+
+### `ogch.techniqueProfile.geochemProfile.EBSD.tapp` — Electron Backscatter Diffraction Technique-Aligned Procedure Profile (ebsdTAPP)
+
+**Type:** schema
+
+Electron backscatter diffraction extension of the base TAPP definition, for ADA's SEMEBSDGrainImageMap component type. ONE laboratory instance: all 14 distinct method-description documents behind 4305 references are from Curtin University, on a Tescan MIRA3 with an Oxford Instruments AZtec v5.1 Symmetry EBSD-EDS system. The native layer is seeded from those documents rather than from ADA subject fields, which carry no EBSD-specific property at all -- the 1354 records hold only channel1-3 and imageType. Constant across all 14 and therefore protocol-level: 70 degree stage tilt, camera gain 2, a 1.2 degree maximum mean angular deviation and an XMax 150 mm SDD detector. Generated from draftTAPPs/EBSD_TAPP_draft_v2.csv by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.EPMA.detail` — EPMA Instrument Detail
 
@@ -885,6 +873,18 @@ Detail block for SLS hasPart items, carrying the analysis-identification propert
 **Type:** schema
 
 Structured Light Scanning extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. SLS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything SLS-specific. Generated from draftTAPPs/SLS_TAPP_draft_v2.csv by tools/build_tapp.py.
+
+### `ogch.techniqueProfile.geochemProfile.STEM.detail` — Scanning Transmission Electron Microscopy Analysis Detail
+
+**Type:** schema
+
+Detail block for STEM hasPart items. Image pixel size and image dimensions are the only properties both laboratories record, and the pixel size appears in m, nm and um, so it needs normalising before values are compared.
+
+### `ogch.techniqueProfile.geochemProfile.STEM.tapp` — Scanning Transmission Electron Microscopy Technique-Aligned Procedure Profile (stemTAPP)
+
+**Type:** schema
+
+Scanning transmission electron microscopy extension of the base TAPP definition. Separate from temTAPP because ADA's six STEM component types record a scanned probe rather than a parallel beam, and the records say so themselves: acquisition_mode is STEM in 23 of the 25 exports that state it. TWO LABORATORY INSTANCES, because the metadata available splits exactly on the lab boundary rather than at random. University of Arizona exports HyperSpy metadata from a Hitachi HF5000 and all 25 carry a full Acquisition_instrument block; Lawrence Berkeley exports .ser files from an FEI TitanX and all 78 carry image dimensions and nothing else. The native layer is therefore seeded for UAZ and deliberately empty for LBNL -- declaring 200 kV technique-wide would assert UAZ's instrument for LBNL's records. Generated from draftTAPPs/STEM_TAPP_draft_v2.csv by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.STHM-AFM.detail` — Scanning Thermal Microscopy with AFM Analysis Detail
 
