@@ -21,6 +21,7 @@ NanoSIMS detail with isotope and phase tracking for presolar grain analysis.
 ```json
 {
   "@type": ["ada:NanoSIMSTabular"],
+  "ada:componentType": "ada:NanoSIMSTabular",
   "ada:phaseAnalyzed": ["presolar SiC", "presolar graphite"],
   "ada:isotopeAnalyzed": ["12C", "13C", "28Si", "29Si"]
 }
@@ -39,6 +40,7 @@ NanoSIMS detail with isotope and phase tracking for presolar grain analysis.
   "@type": [
     "ada:NanoSIMSTabular"
   ],
+  "ada:componentType": "ada:NanoSIMSTabular",
   "ada:phaseAnalyzed": [
     "presolar SiC",
     "presolar graphite"
@@ -57,6 +59,7 @@ NanoSIMS detail with isotope and phase tracking for presolar grain analysis.
 @prefix ada: <https://ada.astromat.org/metadata/> .
 
 [] a ada:NanoSIMSTabular ;
+    ada:componentType "ada:NanoSIMSTabular" ;
     ada:isotopeAnalyzed "12C",
         "13C",
         "28Si",

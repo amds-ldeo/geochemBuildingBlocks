@@ -42,7 +42,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/image/",
   "description": "# Image Type\n\nDescribes image objects in ADA metadata with acquisition details and component type classification. Typed as `ada:image` and `schema:ImageObject`. Supports various analytical image types including EPMA, SEM, TEM, STEM, and spectroscopic images.\n",
   "examples": [
@@ -57,20 +57,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/image/example_1_1.json",
-          "sizeBytes": 318,
-          "code": "{\n  \"@type\": [\"ada:image\", \"schema:ImageObject\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMImageCollection\"\n  },\n  \"ada:acquisitionTime\": \"2024-03-15T14:30:00Z\",\n  \"ada:channel1\": \"BSE\",\n  \"ada:pixelSize\": \"0.5 micrometer\",\n  \"ada:illuminationType\": \"Electron beam\",\n  \"ada:imageType\": \"Backscattered electron\"\n}\n"
+          "sizeBytes": 289,
+          "code": "{\n  \"@type\": [\"ada:image\", \"schema:ImageObject\"],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"ada:acquisitionTime\": \"2024-03-15T14:30:00Z\",\n  \"ada:channel1\": \"BSE\",\n  \"ada:pixelSize\": \"0.5 micrometer\",\n  \"ada:illuminationType\": \"Electron beam\",\n  \"ada:imageType\": \"Backscattered electron\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/image/example_1_1.jsonld",
-          "sizeBytes": 555,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:image\",\n    \"schema:ImageObject\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMImageCollection\"\n  },\n  \"ada:acquisitionTime\": \"2024-03-15T14:30:00Z\",\n  \"ada:channel1\": \"BSE\",\n  \"ada:pixelSize\": \"0.5 micrometer\",\n  \"ada:illuminationType\": \"Electron beam\",\n  \"ada:imageType\": \"Backscattered electron\"\n}"
+          "sizeBytes": 526,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:image\",\n    \"schema:ImageObject\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"ada:acquisitionTime\": \"2024-03-15T14:30:00Z\",\n  \"ada:channel1\": \"BSE\",\n  \"ada:pixelSize\": \"0.5 micrometer\",\n  \"ada:illuminationType\": \"Electron beam\",\n  \"ada:imageType\": \"Backscattered electron\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/image/example_1_1.ttl",
-          "sizeBytes": 392,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] a schema1:ImageObject,\n        ada:image ;\n    ada:acquisitionTime \"2024-03-15T14:30:00Z\" ;\n    ada:channel1 \"BSE\" ;\n    ada:componentType [ a ada:SEMImageCollection ] ;\n    ada:illuminationType \"Electron beam\" ;\n    ada:imageType \"Backscattered electron\" ;\n    ada:pixelSize \"0.5 micrometer\" .\n\n"
+          "sizeBytes": 378,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] a schema1:ImageObject,\n        ada:image ;\n    ada:acquisitionTime \"2024-03-15T14:30:00Z\" ;\n    ada:channel1 \"BSE\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:illuminationType \"Electron beam\" ;\n    ada:imageType \"Backscattered electron\" ;\n    ada:pixelSize \"0.5 micrometer\" .\n\n"
         }
       ]
     }

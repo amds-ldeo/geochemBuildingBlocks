@@ -21,10 +21,8 @@ A 3D shape model in OBJ format from structured light scanning.
 ```json
 {
   "@type": ["ada:otherFileType"],
-  "ada:componentType": {
-    "@type": "ada:other"
-  },
-  "schema:encodingFormat": "model/obj",
+  "ada:componentType": "ada:other",
+  "schema:encodingFormat": ["model/obj"],
   "ada:formatDescription": "Wavefront OBJ 3D model file"
 }
 
@@ -43,10 +41,10 @@ A 3D shape model in OBJ format from structured light scanning.
   "@type": [
     "ada:otherFileType"
   ],
-  "ada:componentType": {
-    "@type": "ada:other"
-  },
-  "schema:encodingFormat": "model/obj",
+  "ada:componentType": "ada:other",
+  "schema:encodingFormat": [
+    "model/obj"
+  ],
   "ada:formatDescription": "Wavefront OBJ 3D model file"
 }
 ```
@@ -58,7 +56,7 @@ A 3D shape model in OBJ format from structured light scanning.
 
 [] a ada:otherFileType ;
     schema1:encodingFormat "model/obj" ;
-    ada:componentType [ a ada:other ] ;
+    ada:componentType "ada:other" ;
     ada:formatDescription "Wavefront OBJ 3D model file" .
 
 

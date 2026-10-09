@@ -21,9 +21,7 @@ A spatially registered SEM elemental map image with pixel coordinates and spatia
 ```json
 {
   "@type": ["ada:imageMap", "schema:ImageObject"],
-  "ada:componentType": {
-    "@type": "ada:SEMEDSElementalMap"
-  },
+  "ada:componentType": "ada:SEMEDSElementalMap",
   "ada:acquisitionTime": "2024-03-15T14:35:00Z",
   "ada:channel1": "Fe Ka",
   "ada:illuminationType": "Electron beam",
@@ -57,9 +55,7 @@ A spatially registered SEM elemental map image with pixel coordinates and spatia
     "ada:imageMap",
     "schema:ImageObject"
   ],
-  "ada:componentType": {
-    "@type": "ada:SEMEDSElementalMap"
-  },
+  "ada:componentType": "ada:SEMEDSElementalMap",
   "ada:acquisitionTime": "2024-03-15T14:35:00Z",
   "ada:channel1": "Fe Ka",
   "ada:illuminationType": "Electron beam",
@@ -88,7 +84,7 @@ A spatially registered SEM elemental map image with pixel coordinates and spatia
         ada:imageMap ;
     ada:acquisitionTime "2024-03-15T14:35:00Z" ;
     ada:channel1 "Fe Ka" ;
-    ada:componentType [ a ada:SEMEDSElementalMap ] ;
+    ada:componentType "ada:SEMEDSElementalMap" ;
     ada:illuminationType "Electron beam" ;
     ada:imageType "X-ray intensity map" ;
     ada:numPixelsX 1024 ;

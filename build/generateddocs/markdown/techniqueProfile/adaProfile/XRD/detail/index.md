@@ -21,6 +21,7 @@ X-ray Diffraction tabular data with geometry and wavelength parameters.
 ```json
 {
   "@type": ["ada:XRDTabular"],
+  "ada:componentType": "ada:XRDTabular",
   "ada:geometry": "Bragg-Brentano",
   "ada:sampleMount": "flat plate",
   "ada:stepSize": 0.02,
@@ -42,6 +43,7 @@ X-ray Diffraction tabular data with geometry and wavelength parameters.
   "@type": [
     "ada:XRDTabular"
   ],
+  "ada:componentType": "ada:XRDTabular",
   "ada:geometry": "Bragg-Brentano",
   "ada:sampleMount": "flat plate",
   "ada:stepSize": 0.02,
@@ -56,6 +58,7 @@ X-ray Diffraction tabular data with geometry and wavelength parameters.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ada:XRDTabular ;
+    ada:componentType "ada:XRDTabular" ;
     ada:geometry "Bragg-Brentano" ;
     ada:sampleMount "flat plate" ;
     ada:stepSize 2e-02 ;

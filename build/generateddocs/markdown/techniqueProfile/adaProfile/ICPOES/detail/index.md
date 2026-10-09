@@ -21,6 +21,7 @@ Inductively Coupled Plasma Optical Emission Spectrometry processed data detail.
 ```json
 {
   "@type": ["ada:ICPOESProcessedTabular"],
+  "ada:componentType": "ada:ICPOESProcessedTabular",
   "ada:mass": "50.2 mg",
   "ada:dissolutionFactor": 100.0
 }
@@ -39,6 +40,7 @@ Inductively Coupled Plasma Optical Emission Spectrometry processed data detail.
   "@type": [
     "ada:ICPOESProcessedTabular"
   ],
+  "ada:componentType": "ada:ICPOESProcessedTabular",
   "ada:mass": "50.2 mg",
   "ada:dissolutionFactor": 100.0
 }
@@ -50,6 +52,7 @@ Inductively Coupled Plasma Optical Emission Spectrometry processed data detail.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a ada:ICPOESProcessedTabular ;
+    ada:componentType "ada:ICPOESProcessedTabular" ;
     ada:dissolutionFactor 1e+02 ;
     ada:mass "50.2 mg" .
 

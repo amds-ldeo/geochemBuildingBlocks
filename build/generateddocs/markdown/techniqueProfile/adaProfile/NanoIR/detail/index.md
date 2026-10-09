@@ -21,6 +21,7 @@ Nano-IR background spectroscopy detail with phases analyzed.
 ```json
 {
   "@type": ["ada:NanoIRBackground"],
+  "ada:componentType": "ada:NanoIRBackground",
   "ada:phaseAnalyzed": ["carbonate", "silicate"]
 }
 
@@ -38,6 +39,7 @@ Nano-IR background spectroscopy detail with phases analyzed.
   "@type": [
     "ada:NanoIRBackground"
   ],
+  "ada:componentType": "ada:NanoIRBackground",
   "ada:phaseAnalyzed": [
     "carbonate",
     "silicate"
@@ -50,6 +52,7 @@ Nano-IR background spectroscopy detail with phases analyzed.
 @prefix ada: <https://ada.astromat.org/metadata/> .
 
 [] a ada:NanoIRBackground ;
+    ada:componentType "ada:NanoIRBackground" ;
     ada:phaseAnalyzed "carbonate",
         "silicate" .
 

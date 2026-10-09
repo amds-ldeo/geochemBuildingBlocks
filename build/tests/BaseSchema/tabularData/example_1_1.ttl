@@ -1,12 +1,19 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix cdif: <https://w3id.org/cdif/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a cdi:TabularTextDataSet,
         ada:tabularData ;
     cdi:isDelimited true ;
-    ada:componentType [ a ada:MCICPMSTabular ] ;
+    ada:componentType "ada:MCICPMSTabular" ;
     ada:coordUnits "micrometer" ;
     ada:xCoordCol "X_um" ;
-    ada:yCoordCol "Y_um" .
+    ada:yCoordCol "Y_um" ;
+    cdif:hasPhysicalMapping [ a cdif:TextMapping ;
+            cdif:formats_InstanceVariable <ex:tabularData-var-y> ;
+            cdif:index 2 ],
+        [ a cdif:TextMapping ;
+            cdif:formats_InstanceVariable <ex:tabularData-var-x> ;
+            cdif:index 1 ] .
 

@@ -21,9 +21,7 @@ An SEM backscattered electron image with component type and acquisition details.
 ```json
 {
   "@type": ["ada:image", "schema:ImageObject"],
-  "ada:componentType": {
-    "@type": "ada:SEMImageCollection"
-  },
+  "ada:componentType": "ada:SEMImage",
   "ada:acquisitionTime": "2024-03-15T14:30:00Z",
   "ada:channel1": "BSE",
   "ada:pixelSize": "0.5 micrometer",
@@ -47,9 +45,7 @@ An SEM backscattered electron image with component type and acquisition details.
     "ada:image",
     "schema:ImageObject"
   ],
-  "ada:componentType": {
-    "@type": "ada:SEMImageCollection"
-  },
+  "ada:componentType": "ada:SEMImage",
   "ada:acquisitionTime": "2024-03-15T14:30:00Z",
   "ada:channel1": "BSE",
   "ada:pixelSize": "0.5 micrometer",
@@ -67,7 +63,7 @@ An SEM backscattered electron image with component type and acquisition details.
         ada:image ;
     ada:acquisitionTime "2024-03-15T14:30:00Z" ;
     ada:channel1 "BSE" ;
-    ada:componentType [ a ada:SEMImageCollection ] ;
+    ada:componentType "ada:SEMImage" ;
     ada:illuminationType "Electron beam" ;
     ada:imageType "Backscattered electron" ;
     ada:pixelSize "0.5 micrometer" .

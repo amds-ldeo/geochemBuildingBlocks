@@ -49,7 +49,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/adaProfile/PSFD/detail/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/PSFD/detail/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/adaProfile/PSFD/detail/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/adaProfile/PSFD/detail/",
   "description": "# PSFD Instrument Detail\n\nPoint Spread Function Data with image names and conditions.\n",
   "examples": [
@@ -63,20 +63,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/PSFD/detail/example_1_1.json",
-          "sizeBytes": 165,
-          "code": "{\n  \"@type\": [\"ada:PSFDTabular\"],\n  \"ada:imageName\": [\"crater_overview_001.tif\", \"crater_overview_002.tif\"],\n  \"ada:imageViewingConditions\": \"nadir, 50m altitude\"\n}\n"
+          "sizeBytes": 207,
+          "code": "{\n  \"@type\": [\"ada:PSFDTabular\"],\n  \"ada:componentType\": \"ada:PSFDTabular\",\n  \"ada:imageName\": [\"crater_overview_001.tif\", \"crater_overview_002.tif\"],\n  \"ada:imageViewingConditions\": \"nadir, 50m altitude\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/PSFD/detail/example_1_1.jsonld",
-          "sizeBytes": 395,
-          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/PSFD/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:PSFDTabular\"\n  ],\n  \"ada:imageName\": [\n    \"crater_overview_001.tif\",\n    \"crater_overview_002.tif\"\n  ],\n  \"ada:imageViewingConditions\": \"nadir, 50m altitude\"\n}"
+          "sizeBytes": 437,
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/PSFD/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:PSFDTabular\"\n  ],\n  \"ada:componentType\": \"ada:PSFDTabular\",\n  \"ada:imageName\": [\n    \"crater_overview_001.tif\",\n    \"crater_overview_002.tif\"\n  ],\n  \"ada:imageViewingConditions\": \"nadir, 50m altitude\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/PSFD/detail/example_1_1.ttl",
-          "sizeBytes": 213,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:PSFDTabular ;\n    ada:imageName \"crater_overview_001.tif\",\n        \"crater_overview_002.tif\" ;\n    ada:imageViewingConditions \"nadir, 50m altitude\" .\n\n"
+          "sizeBytes": 255,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:PSFDTabular ;\n    ada:componentType \"ada:PSFDTabular\" ;\n    ada:imageName \"crater_overview_001.tif\",\n        \"crater_overview_002.tif\" ;\n    ada:imageViewingConditions \"nadir, 50m altitude\" .\n\n"
         }
       ]
     }

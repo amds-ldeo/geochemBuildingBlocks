@@ -21,9 +21,7 @@ A multi-dimensional data cube for SEM-EDS elemental map cube data.
 ```json
 {
   "@type": ["ada:dataCube", "cdi:StructuredDataSet"],
-  "ada:componentType": {
-    "@type": "ada:SEMEDSElementalMapsCube"
-  },
+  "ada:componentType": "ada:dataCube",
   "ada:dataComponentResource": "cube_SEMEDS_001.hdf5"
 }
 
@@ -44,9 +42,7 @@ A multi-dimensional data cube for SEM-EDS elemental map cube data.
     "ada:dataCube",
     "cdi:StructuredDataSet"
   ],
-  "ada:componentType": {
-    "@type": "ada:SEMEDSElementalMapsCube"
-  },
+  "ada:componentType": "ada:dataCube",
   "ada:dataComponentResource": "cube_SEMEDS_001.hdf5"
 }
 ```
@@ -58,7 +54,7 @@ A multi-dimensional data cube for SEM-EDS elemental map cube data.
 
 [] a cdi:StructuredDataSet,
         ada:dataCube ;
-    ada:componentType [ a ada:SEMEDSElementalMapsCube ] ;
+    ada:componentType "ada:dataCube" ;
     ada:dataComponentResource "cube_SEMEDS_001.hdf5" .
 
 

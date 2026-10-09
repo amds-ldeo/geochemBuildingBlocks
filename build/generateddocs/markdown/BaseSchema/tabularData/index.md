@@ -21,13 +21,17 @@ A tabular data file containing MC-ICP-MS isotope ratio results.
 ```json
 {
   "@type": ["cdi:TabularTextDataSet", "ada:tabularData"],
-  "ada:componentType": {
-    "@type": "ada:MCICPMSTabular"
-  },
+  "ada:componentType": "ada:MCICPMSTabular",
   "cdi:isDelimited": true,
   "ada:xCoordCol": "X_um",
   "ada:yCoordCol": "Y_um",
-  "ada:coordUnits": "micrometer"
+  "ada:coordUnits": "micrometer",
+  "cdif:hasPhysicalMapping": [
+    {"@type": ["cdif:TextMapping"], "cdif:index": 1,
+     "cdif:formats_InstanceVariable": {"@id": "ex:tabularData-var-x"}},
+    {"@type": ["cdif:TextMapping"], "cdif:index": 2,
+     "cdif:formats_InstanceVariable": {"@id": "ex:tabularData-var-y"}}
+  ]
 }
 
 ```
@@ -47,13 +51,31 @@ A tabular data file containing MC-ICP-MS isotope ratio results.
     "cdi:TabularTextDataSet",
     "ada:tabularData"
   ],
-  "ada:componentType": {
-    "@type": "ada:MCICPMSTabular"
-  },
+  "ada:componentType": "ada:MCICPMSTabular",
   "cdi:isDelimited": true,
   "ada:xCoordCol": "X_um",
   "ada:yCoordCol": "Y_um",
-  "ada:coordUnits": "micrometer"
+  "ada:coordUnits": "micrometer",
+  "cdif:hasPhysicalMapping": [
+    {
+      "@type": [
+        "cdif:TextMapping"
+      ],
+      "cdif:index": 1,
+      "cdif:formats_InstanceVariable": {
+        "@id": "ex:tabularData-var-x"
+      }
+    },
+    {
+      "@type": [
+        "cdif:TextMapping"
+      ],
+      "cdif:index": 2,
+      "cdif:formats_InstanceVariable": {
+        "@id": "ex:tabularData-var-y"
+      }
+    }
+  ]
 }
 ```
 
@@ -61,15 +83,22 @@ A tabular data file containing MC-ICP-MS isotope ratio results.
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix cdif: <https://w3id.org/cdif/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a cdi:TabularTextDataSet,
         ada:tabularData ;
     cdi:isDelimited true ;
-    ada:componentType [ a ada:MCICPMSTabular ] ;
+    ada:componentType "ada:MCICPMSTabular" ;
     ada:coordUnits "micrometer" ;
     ada:xCoordCol "X_um" ;
-    ada:yCoordCol "Y_um" .
+    ada:yCoordCol "Y_um" ;
+    cdif:hasPhysicalMapping [ a cdif:TextMapping ;
+            cdif:formats_InstanceVariable <ex:tabularData-var-y> ;
+            cdif:index 2 ],
+        [ a cdif:TextMapping ;
+            cdif:formats_InstanceVariable <ex:tabularData-var-x> ;
+            cdif:index 1 ] .
 
 
 ```

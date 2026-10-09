@@ -42,7 +42,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/document/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/document/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/document/",
   "description": "# Document Type\n\nDescribes supplemental documents in ADA metadata including calibration files, method descriptions, log files, processing descriptions, and other supplemental information. Typed as `ada:document` and `schema:DigitalDocument`.\n",
   "examples": [
@@ -57,20 +57,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/document/example_1_1.json",
-          "sizeBytes": 209,
-          "code": "{\n  \"@type\": [\"ada:document\", \"schema:DigitalDocument\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:calibrationFile\"\n  },\n  \"schema:version\": \"1.0\",\n  \"schema:isBasedOn\": \"calibration_original_20230415.pdf\"\n}\n"
+          "sizeBytes": 190,
+          "code": "{\n  \"@type\": [\"ada:document\", \"schema:DigitalDocument\"],\n  \"ada:componentType\": \"ada:calibrationFile\",\n  \"schema:version\": \"1.0\",\n  \"schema:isBasedOn\": \"calibration_original_20230415.pdf\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/document/example_1_1.jsonld",
-          "sizeBytes": 449,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:document\",\n    \"schema:DigitalDocument\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:calibrationFile\"\n  },\n  \"schema:version\": \"1.0\",\n  \"schema:isBasedOn\": \"calibration_original_20230415.pdf\"\n}"
+          "sizeBytes": 430,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:document\",\n    \"schema:DigitalDocument\"\n  ],\n  \"ada:componentType\": \"ada:calibrationFile\",\n  \"schema:version\": \"1.0\",\n  \"schema:isBasedOn\": \"calibration_original_20230415.pdf\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/document/example_1_1.ttl",
-          "sizeBytes": 285,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] a schema1:DigitalDocument,\n        ada:document ;\n    schema1:isBasedOn \"calibration_original_20230415.pdf\" ;\n    schema1:version \"1.0\" ;\n    ada:componentType [ a ada:calibrationFile ] .\n\n"
+          "sizeBytes": 281,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] a schema1:DigitalDocument,\n        ada:document ;\n    schema1:isBasedOn \"calibration_original_20230415.pdf\" ;\n    schema1:version \"1.0\" ;\n    ada:componentType \"ada:calibrationFile\" .\n\n"
         }
       ]
     }

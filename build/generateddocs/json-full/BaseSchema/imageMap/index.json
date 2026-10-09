@@ -49,7 +49,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/imageMap/",
   "description": "# Image Map Type\n\nDescribes spatially registered image maps with pixel coordinates, component type classification (including EPMA details), and spatial registration metadata. Extends the basic image type with pixel dimensions and spatial registration.\n",
   "examples": [
@@ -64,20 +64,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/imageMap/example_1_1.json",
-          "sizeBytes": 587,
-          "code": "{\n  \"@type\": [\"ada:imageMap\", \"schema:ImageObject\"],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMEDSElementalMap\"\n  },\n  \"ada:acquisitionTime\": \"2024-03-15T14:35:00Z\",\n  \"ada:channel1\": \"Fe Ka\",\n  \"ada:illuminationType\": \"Electron beam\",\n  \"ada:imageType\": \"X-ray intensity map\",\n  \"ada:numPixelsX\": 1024,\n  \"ada:numPixelsY\": 768,\n  \"ada:spatialRegistration\": {\n    \"ada:originX\": 0.0,\n    \"ada:originY\": 0.0,\n    \"ada:pixelScaleX\": 0.25,\n    \"ada:pixelScaleY\": 0.25,\n    \"ada:pixelUnits\": \"micrometer\",\n    \"ada:originLocation\": \"upperLeft\",\n    \"ada:coordDef\": \"pixel-defined\"\n  }\n}\n"
+          "sizeBytes": 568,
+          "code": "{\n  \"@type\": [\"ada:imageMap\", \"schema:ImageObject\"],\n  \"ada:componentType\": \"ada:SEMEDSElementalMap\",\n  \"ada:acquisitionTime\": \"2024-03-15T14:35:00Z\",\n  \"ada:channel1\": \"Fe Ka\",\n  \"ada:illuminationType\": \"Electron beam\",\n  \"ada:imageType\": \"X-ray intensity map\",\n  \"ada:numPixelsX\": 1024,\n  \"ada:numPixelsY\": 768,\n  \"ada:spatialRegistration\": {\n    \"ada:originX\": 0.0,\n    \"ada:originY\": 0.0,\n    \"ada:pixelScaleX\": 0.25,\n    \"ada:pixelScaleY\": 0.25,\n    \"ada:pixelUnits\": \"micrometer\",\n    \"ada:originLocation\": \"upperLeft\",\n    \"ada:coordDef\": \"pixel-defined\"\n  }\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/imageMap/example_1_1.jsonld",
-          "sizeBytes": 827,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:imageMap\",\n    \"schema:ImageObject\"\n  ],\n  \"ada:componentType\": {\n    \"@type\": \"ada:SEMEDSElementalMap\"\n  },\n  \"ada:acquisitionTime\": \"2024-03-15T14:35:00Z\",\n  \"ada:channel1\": \"Fe Ka\",\n  \"ada:illuminationType\": \"Electron beam\",\n  \"ada:imageType\": \"X-ray intensity map\",\n  \"ada:numPixelsX\": 1024,\n  \"ada:numPixelsY\": 768,\n  \"ada:spatialRegistration\": {\n    \"ada:originX\": 0.0,\n    \"ada:originY\": 0.0,\n    \"ada:pixelScaleX\": 0.25,\n    \"ada:pixelScaleY\": 0.25,\n    \"ada:pixelUnits\": \"micrometer\",\n    \"ada:originLocation\": \"upperLeft\",\n    \"ada:coordDef\": \"pixel-defined\"\n  }\n}"
+          "sizeBytes": 808,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:imageMap\",\n    \"schema:ImageObject\"\n  ],\n  \"ada:componentType\": \"ada:SEMEDSElementalMap\",\n  \"ada:acquisitionTime\": \"2024-03-15T14:35:00Z\",\n  \"ada:channel1\": \"Fe Ka\",\n  \"ada:illuminationType\": \"Electron beam\",\n  \"ada:imageType\": \"X-ray intensity map\",\n  \"ada:numPixelsX\": 1024,\n  \"ada:numPixelsY\": 768,\n  \"ada:spatialRegistration\": {\n    \"ada:originX\": 0.0,\n    \"ada:originY\": 0.0,\n    \"ada:pixelScaleX\": 0.25,\n    \"ada:pixelScaleY\": 0.25,\n    \"ada:pixelUnits\": \"micrometer\",\n    \"ada:originLocation\": \"upperLeft\",\n    \"ada:coordDef\": \"pixel-defined\"\n  }\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/imageMap/example_1_1.ttl",
-          "sizeBytes": 749,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a schema1:ImageObject,\n        ada:imageMap ;\n    ada:acquisitionTime \"2024-03-15T14:35:00Z\" ;\n    ada:channel1 \"Fe Ka\" ;\n    ada:componentType [ a ada:SEMEDSElementalMap ] ;\n    ada:illuminationType \"Electron beam\" ;\n    ada:imageType \"X-ray intensity map\" ;\n    ada:numPixelsX 1024 ;\n    ada:numPixelsY 768 ;\n    ada:spatialRegistration [ ada:coordDef \"pixel-defined\" ;\n            ada:originLocation \"upperLeft\" ;\n            ada:originX 0e+00 ;\n            ada:originY 0e+00 ;\n            ada:pixelScaleX 2.5e-01 ;\n            ada:pixelScaleY 2.5e-01 ;\n            ada:pixelUnits \"micrometer\" ] .\n\n"
+          "sizeBytes": 745,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a schema1:ImageObject,\n        ada:imageMap ;\n    ada:acquisitionTime \"2024-03-15T14:35:00Z\" ;\n    ada:channel1 \"Fe Ka\" ;\n    ada:componentType \"ada:SEMEDSElementalMap\" ;\n    ada:illuminationType \"Electron beam\" ;\n    ada:imageType \"X-ray intensity map\" ;\n    ada:numPixelsX 1024 ;\n    ada:numPixelsY 768 ;\n    ada:spatialRegistration [ ada:coordDef \"pixel-defined\" ;\n            ada:originLocation \"upperLeft\" ;\n            ada:originX 0e+00 ;\n            ada:originY 0e+00 ;\n            ada:pixelScaleX 2.5e-01 ;\n            ada:pixelScaleY 2.5e-01 ;\n            ada:pixelUnits \"micrometer\" ] .\n\n"
         }
       ]
     }

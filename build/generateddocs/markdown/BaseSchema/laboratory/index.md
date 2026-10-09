@@ -22,9 +22,9 @@ NeXus NXsource classification in additionalType.
 ```json
 {
   "@type": ["schema:Place"],
-  "schema:additionalType": ["nxs:BaseClass/NXsource"],
-  "schema:name": ["Lunar and Planetary Laboratory Electron Microprobe Facility"],
-  "schema:alternateName": "LPL EPMA Lab",
+  "schema:additionalType": [{"@id": "nxs:base_classes/NXsource.html"}],
+  "schema:name": "Lunar and Planetary Laboratory Electron Microprobe Facility",
+  "schema:alternateName": ["LPL EPMA Lab"],
   "schema:identifier": "https://ror.org/03m2x1q45"
 }
 
@@ -44,12 +44,14 @@ NeXus NXsource classification in additionalType.
     "schema:Place"
   ],
   "schema:additionalType": [
-    "nxs:BaseClass/NXsource"
+    {
+      "@id": "nxs:base_classes/NXsource.html"
+    }
   ],
-  "schema:name": [
-    "Lunar and Planetary Laboratory Electron Microprobe Facility"
+  "schema:name": "Lunar and Planetary Laboratory Electron Microprobe Facility",
+  "schema:alternateName": [
+    "LPL EPMA Lab"
   ],
-  "schema:alternateName": "LPL EPMA Lab",
   "schema:identifier": "https://ror.org/03m2x1q45"
 }
 ```
@@ -59,7 +61,7 @@ NeXus NXsource classification in additionalType.
 @prefix schema1: <http://schema.org/> .
 
 [] a schema1:Place ;
-    schema1:additionalType "nxs:BaseClass/NXsource" ;
+    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
     schema1:alternateName "LPL EPMA Lab" ;
     schema1:identifier "https://ror.org/03m2x1q45" ;
     schema1:name "Lunar and Planetary Laboratory Electron Microprobe Facility" .

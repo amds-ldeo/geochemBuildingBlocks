@@ -43,7 +43,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/adaProfile/EAIRMS/detail/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/EAIRMS/detail/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/adaProfile/EAIRMS/detail/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/adaProfile/EAIRMS/detail/",
   "description": "# EA-IRMS Instrument Detail\n\nElemental Analysis Isotope Ratio Mass Spectrometry collection.\n",
   "examples": [
@@ -57,20 +57,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/EAIRMS/detail/example_1_1.json",
-          "sizeBytes": 103,
-          "code": "{\n  \"@type\": [\"ada:EAIRMSCollection\"],\n  \"ada:massConsumed\": \"2.5 mg\",\n  \"ada:elementType\": \"carbon\"\n}\n"
+          "sizeBytes": 150,
+          "code": "{\n  \"@type\": [\"ada:EAIRMSCollection\"],\n  \"ada:componentType\": \"ada:EAIRMSCollection\",\n  \"ada:massConsumed\": \"2.5 mg\",\n  \"ada:elementType\": \"carbon\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/EAIRMS/detail/example_1_1.jsonld",
-          "sizeBytes": 323,
-          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/EAIRMS/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:EAIRMSCollection\"\n  ],\n  \"ada:massConsumed\": \"2.5 mg\",\n  \"ada:elementType\": \"carbon\"\n}"
+          "sizeBytes": 370,
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/EAIRMS/detail/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:EAIRMSCollection\"\n  ],\n  \"ada:componentType\": \"ada:EAIRMSCollection\",\n  \"ada:massConsumed\": \"2.5 mg\",\n  \"ada:elementType\": \"carbon\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/adaProfile/EAIRMS/detail/example_1_1.ttl",
-          "sizeBytes": 145,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:EAIRMSCollection ;\n    ada:elementType \"carbon\" ;\n    ada:massConsumed \"2.5 mg\" .\n\n"
+          "sizeBytes": 192,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n\n[] a ada:EAIRMSCollection ;\n    ada:componentType \"ada:EAIRMSCollection\" ;\n    ada:elementType \"carbon\" ;\n    ada:massConsumed \"2.5 mg\" .\n\n"
         }
       ]
     }
