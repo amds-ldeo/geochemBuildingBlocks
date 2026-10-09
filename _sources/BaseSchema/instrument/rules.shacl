@@ -32,9 +32,18 @@ cdifd:adaInstrumentShape
     sh:property [
         sh:path schema:identifier ;
         sh:minCount 1 ;
-        sh:message "An instrument must have an identifier (schema:identifier)." ;
+        # Advisory, not a hard requirement. 1010 instrument nodes in the corpus
+        # carry a real manufacturer and model but no schema:identifier, against
+        # 237 that have one, and many are publication-derived: a paper naming
+        # "JEOL JXA-8900 Superprobe" states no instrument ID, and there is none
+        # to transcribe. A sh:Violation there asserts a completeness the sources
+        # cannot supply, and the alternative -- padding a nil sentinel to clear
+        # the check -- would satisfy the shape while asserting that an
+        # identifiable instrument is unidentified.
+        sh:severity sh:Warning ;
+        sh:message "An instrument should have an identifier (schema:identifier)." ;
     ] ;
-    sh:message "ADA instrument nodes (schema:Product used in prov:Activity) must have a name and identifier." ;
+    sh:message "ADA instrument nodes (schema:Product used in prov:Activity) must have a name; an identifier is advisory." ;
     .
 
 # Context-dependent shape of instrument schema:additionalProperty entries.
