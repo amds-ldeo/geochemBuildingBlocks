@@ -1,0 +1,36 @@
+{
+  "_note": "Recorded open debt for check_additionaltype_policy.py rule B: declarations that still constrain schema:additionalType / schema:propertyID to a bare string, so an identifier cannot be serialized there as an IRI reference. These are the 5 sites of issue #77 that were never widened -- the other 3 were, in #78, #79 and #86. Nothing currently violates the SHACL at any of them, because the values they carry are free labels the emitter correctly refuses to convert; they are a UNIFORMITY gap, not a live defect. The checker fails on a violation that is not listed here, AND on a listed entry that no longer violates, so this file cannot silently rot. Shrinking it is the point: remove an entry in the same change that widens the site.",
+  "_intended_fix": "Route each one through CDIF's cdifConceptOrTermOrString, which admits string | {@id} | schema:DefinedTerm | inline cdif:Concept, rather than adding another local anyOf[string, {@id}]. See docs/ADDITIONALTYPE_POLICY.md; clause 1 depends on mBB publishing that $def for cross-repo reference.",
+  "open": [
+    {
+      "file": "_sources/BaseSchema/tappDefinition/schema.yaml",
+      "pointer": "/properties/schema:object/items/anyOf/2/properties/schema:additionalType",
+      "carries": "MaterialSample (111 occurrences)",
+      "reason": "The only value is 'MaterialSample', which the CDIF shape names twice as the canonical free label that must NOT be converted. Widening is for uniformity; no value here will change."
+    },
+    {
+      "file": "_sources/BaseSchema/geochemProduct/schema.yaml",
+      "pointer": "/allOf/4/properties/prov:wasGeneratedBy/items/properties/schema:object/items/properties/schema:additionalType",
+      "carries": "MaterialSample (111 occurrences)",
+      "reason": "The same instance node as the tappDefinition entry above, governed by both schemas. Same free label, same reasoning."
+    },
+    {
+      "file": "_sources/BaseSchema/geochemProduct/schema.yaml",
+      "pointer": "/allOf/4/properties/schema:distribution/items/properties/schema:additionalType",
+      "carries": "nothing -- the property is never emitted at this node",
+      "reason": "Its description points at the componentType vocabulary, whose terms ARE CURIEs (ada:report, ada:imageMap). So this is the one of the five where a real identifier is expected to land, and widening it is a precondition for ever emitting one."
+    },
+    {
+      "file": "_sources/BaseSchema/tappDefinition/schema.yaml",
+      "pointer": "/$defs/Reagent/properties/schema:identifier/anyOf/1/properties/schema:propertyID",
+      "carries": "Smithsonian catalog (6 occurrences)",
+      "reason": "A free label naming a catalog; the space makes it un-IRI-able as written. Whether that catalog should have a URI scheme identifier is an ADA content question, separate from serialization."
+    },
+    {
+      "file": "_sources/BaseSchema/geochemProduct/schema.yaml",
+      "pointer": "/$defs/UsedReagent/properties/schema:identifier/anyOf/1/properties/schema:propertyID",
+      "carries": "nothing -- the property is never emitted at this node",
+      "reason": "The used-reagent counterpart of the Reagent entry above. No values today."
+    }
+  ]
+}
