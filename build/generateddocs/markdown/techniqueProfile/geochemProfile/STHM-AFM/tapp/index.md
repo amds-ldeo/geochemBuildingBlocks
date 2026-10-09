@@ -52,6 +52,7 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -68,8 +69,7 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
@@ -131,6 +131,7 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -147,8 +148,7 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",

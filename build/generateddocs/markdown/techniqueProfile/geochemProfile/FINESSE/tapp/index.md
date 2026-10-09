@@ -55,6 +55,7 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -71,8 +72,7 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -143,6 +143,7 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -159,8 +160,7 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

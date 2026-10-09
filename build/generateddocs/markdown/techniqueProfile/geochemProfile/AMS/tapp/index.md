@@ -68,6 +68,7 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -84,8 +85,7 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -169,6 +169,7 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -185,8 +186,7 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

@@ -68,6 +68,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -84,8 +85,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -169,6 +169,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -185,8 +186,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

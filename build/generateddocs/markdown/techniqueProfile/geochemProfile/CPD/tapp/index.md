@@ -52,6 +52,7 @@ cpdTAPP instance derived from ADA n=10 | no named analyst | NASA Johnson Space C
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -68,8 +69,7 @@ cpdTAPP instance derived from ADA n=10 | no named analyst | NASA Johnson Space C
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
@@ -131,6 +131,7 @@ cpdTAPP instance derived from ADA n=10 | no named analyst | NASA Johnson Space C
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -147,8 +148,7 @@ cpdTAPP instance derived from ADA n=10 | no named analyst | NASA Johnson Space C
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",

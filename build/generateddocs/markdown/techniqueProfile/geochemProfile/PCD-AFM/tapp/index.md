@@ -55,6 +55,7 @@ pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State Uni
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -71,8 +72,7 @@ pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State Uni
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -143,6 +143,7 @@ pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State Uni
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -159,8 +160,7 @@ pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State Uni
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

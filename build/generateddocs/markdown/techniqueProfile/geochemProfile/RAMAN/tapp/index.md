@@ -69,6 +69,7 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -85,8 +86,7 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -171,6 +171,7 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -187,8 +188,7 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

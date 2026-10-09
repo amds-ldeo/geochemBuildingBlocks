@@ -55,6 +55,7 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -71,8 +72,7 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -143,6 +143,7 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -159,8 +160,7 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

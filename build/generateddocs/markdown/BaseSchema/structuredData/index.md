@@ -133,11 +133,11 @@ container, not tabular text).
 
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
     cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
-            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ],
-        [ a cdi:DimensionComponent ;
             cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-x> ],
         [ a cdi:MeasureComponent ;
-            cdif:name "intensity" ] ;
+            cdif:name "intensity" ],
+        [ a cdi:DimensionComponent ;
+            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ] ;
     schema1:name "Elemental map cube structure" .
 
 

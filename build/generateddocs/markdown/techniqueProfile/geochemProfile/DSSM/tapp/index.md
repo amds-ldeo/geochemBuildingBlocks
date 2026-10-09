@@ -55,6 +55,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -71,8 +72,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -143,6 +143,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -159,8 +160,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

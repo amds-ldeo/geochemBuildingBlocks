@@ -66,6 +66,7 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -82,8 +83,7 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:exposureTimeDefault": -9999,
@@ -164,6 +164,7 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -180,8 +181,7 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:exposureTimeDefault": -9999,
