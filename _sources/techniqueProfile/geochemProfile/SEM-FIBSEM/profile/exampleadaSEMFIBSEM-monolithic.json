@@ -22,13 +22,17 @@
   "schema:description": "Monolithic single-file SEMFIBSEM dataset: one schema:DataDownload that is the dataset, with ada:componentType and cdi:isStructuredBy on the distribution and no schema:hasPart. Mock data.",
   "schema:additionalType": [
     "Focused ion beam-scanning electron microscopy",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adaproduct-example-001",
     "schema:url": "https://doi.org/10.99999/adaproduct-example-001"
   },
@@ -136,7 +140,9 @@
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -240,7 +246,9 @@
       ],
       "schema:description": "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -260,7 +268,9 @@
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -277,7 +287,9 @@
       "schema:name": "Sampling Unit Name",
       "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",

@@ -401,6 +401,11 @@ def build_pathdriven(tapp, write_registries=True):
     # A HowTo built by the sentinel pass above carries no schema:name, which
     # CDIF's SHACL requires of every schema:HowTo. Named here rather than in
     # fill_nested_required, whose contract is JSON-Schema-required properties.
+    # Identifier values on schema:additionalType / schema:propertyID go out as IRI
+    # references, which every site now admits after #77 step 1.
+    bte.idify_uri_values(tapp_inst)
+    bte.idify_uri_values(detail_inst)
+
     h1 = bte.name_unnamed_howtos(tapp_inst)
     h2 = bte.name_unnamed_howtos(detail_inst)
     if h1 or h2:
