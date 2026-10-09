@@ -3,7 +3,7 @@
   "name": "ADA Geochemistry Building Blocks repository",
   "abstract": "Building blocks for Astromat Data Archive (ADA) geochemistry metadata profiles,\nusing the OGC Building Blocks pattern.\n",
   "description": "Modular schema components for ADA analytical technique metadata. Imports shared\nschema.org and CDIF property building blocks from the CDIF Building Blocks repository.\n",
-  "modified": "2026-10-09T16:11:12.160016",
+  "modified": "2026-10-09T19:11:09.482474",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"d25453cad0e4972e6a638db3dca636f023f9397a",
@@ -2390,120 +2390,6 @@
       }
     },
     {
-      "itemIdentifier": "ogch.techniqueProfile.geochemProfile.EBSD.detail",
-      "$schema": "metaschema.yaml",
-      "name": "Electron Backscatter Diffraction Analysis Detail",
-      "abstract": "Detail block for EBSD hasPart items. The per-analysis properties are working distance, camera exposure time, map step size and indexing rate; the map step size is usually given in the source's per-sample tables rather than its prose.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-06-07T00:00:00Z",
-      "itemClass": "schema",
-      "register": "cdif-building-block-register",
-      "version": "0.1",
-      "dateOfLastChange": "2026-10-09",
-      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
-      "maturity": "draft",
-      "scope": "unstable",
-      "tags": [
-        "ada",
-        "astromat",
-        "instrument",
-        "ebsd"
-      ],
-      "sources": [
-        {
-          "title": "EBSD_TAPP_draft_v2.csv (TAPP worksheet)",
-          "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
-        }
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogch.registry.parameterValues"
-      ],
-      "license": {
-        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
-      },
-      "schema": {
-        "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/schema.yaml",
-        "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/schema.json"
-      },
-      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/detail/schema.yaml",
-      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/resolvedProperties.json",
-      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/detail/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/EBSD/detail/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/techniqueProfile/geochemProfile/EBSD/detail/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/techniqueProfile/geochemProfile/EBSD/detail/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.techniqueProfile.geochemProfile.EBSD.detail"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogch.techniqueProfile.geochemProfile.STEM.detail",
-      "$schema": "metaschema.yaml",
-      "name": "Scanning Transmission Electron Microscopy Analysis Detail",
-      "abstract": "Detail block for STEM hasPart items. Image pixel size and image dimensions are the only properties both laboratories record, and the pixel size appears in m, nm and um, so it needs normalising before values are compared.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-06-07T00:00:00Z",
-      "itemClass": "schema",
-      "register": "cdif-building-block-register",
-      "version": "0.1",
-      "dateOfLastChange": "2026-10-09",
-      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
-      "maturity": "draft",
-      "scope": "unstable",
-      "tags": [
-        "ada",
-        "astromat",
-        "instrument",
-        "stem"
-      ],
-      "sources": [
-        {
-          "title": "STEM_TAPP_draft_v2.csv (TAPP worksheet)",
-          "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
-        }
-      ],
-      "shaclShapes": {},
-      "dependsOn": [
-        "bblocks://ogch.registry.parameterValues"
-      ],
-      "license": {
-        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
-      },
-      "schema": {
-        "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/schema.yaml",
-        "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/schema.json"
-      },
-      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/detail/schema.yaml",
-      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/resolvedProperties.json",
-      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/detail/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/STEM/detail/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/techniqueProfile/geochemProfile/STEM/detail/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/techniqueProfile/geochemProfile/STEM/detail/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.techniqueProfile.geochemProfile.STEM.detail"
-        }
-      }
-    },
-    {
       "itemIdentifier": "ogch.BaseSchema.laboratory",
       "$schema": "metaschema.yaml",
       "name": "ADA Analysis Laboratory",
@@ -3519,224 +3405,6 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.BaseSchema.modules.uPb"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogch.techniqueProfile.geochemProfile.EBSD.tapp",
-      "$schema": "metaschema.yaml",
-      "name": "Electron Backscatter Diffraction Technique-Aligned Procedure Profile (ebsdTAPP)",
-      "abstract": "Electron backscatter diffraction extension of the base TAPP definition, for ADA's SEMEBSDGrainImageMap component type. ONE laboratory instance: all 14 distinct method-description documents behind 4305 references are from Curtin University, on a Tescan MIRA3 with an Oxford Instruments AZtec v5.1 Symmetry EBSD-EDS system. The native layer is seeded from those documents rather than from ADA subject fields, which carry no EBSD-specific property at all -- the 1354 records hold only channel1-3 and imageType. Constant across all 14 and therefore protocol-level: 70 degree stage tilt, camera gain 2, a 1.2 degree maximum mean angular deviation and an XMax 150 mm SDD detector. Generated from draftTAPPs/EBSD_TAPP_draft_v2.csv by tools/build_tapp.py.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-06-07T00:00:00Z",
-      "itemClass": "schema",
-      "register": "cdif-building-block-register",
-      "version": "0.1",
-      "dateOfLastChange": "2026-10-09",
-      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
-      "maturity": "draft",
-      "scope": "unstable",
-      "tags": [
-        "ada",
-        "astromat",
-        "tapp",
-        "ebsd",
-        "technique-protocol"
-      ],
-      "sources": [
-        {
-          "title": "EBSD_TAPP_draft_v2.csv (TAPP worksheet)",
-          "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
-        }
-      ],
-      "shaclShapes": {
-        "ogch.BaseSchema.tappDefinition": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tappDefinition/rules.shacl"
-        ],
-        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "ogch.BaseSchema.instrument": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.instrument": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
-        ],
-        "ogch.BaseSchema.laboratory": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
-        ]
-      },
-      "dependsOn": [
-        "bblocks://ogch.BaseSchema.tappDefinition",
-        "bblocks://ogch.registry.parameterTemplates"
-      ],
-      "license": {
-        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
-      },
-      "schema": {
-        "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/tapp/schema.yaml",
-        "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/tapp/schema.json"
-      },
-      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/tapp/schema.yaml",
-      "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/tapp/context.jsonld",
-      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/tapp/resolvedProperties.json",
-      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/tapp/",
-      "validationPassed": false,
-      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/EBSD/tapp/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/techniqueProfile/geochemProfile/EBSD/tapp/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/techniqueProfile/geochemProfile/EBSD/tapp/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.techniqueProfile.geochemProfile.EBSD.tapp"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogch.techniqueProfile.geochemProfile.STEM.tapp",
-      "$schema": "metaschema.yaml",
-      "name": "Scanning Transmission Electron Microscopy Technique-Aligned Procedure Profile (stemTAPP)",
-      "abstract": "Scanning transmission electron microscopy extension of the base TAPP definition. Separate from temTAPP because ADA's six STEM component types record a scanned probe rather than a parallel beam, and the records say so themselves: acquisition_mode is STEM in 23 of the 25 exports that state it. TWO LABORATORY INSTANCES, because the metadata available splits exactly on the lab boundary rather than at random. University of Arizona exports HyperSpy metadata from a Hitachi HF5000 and all 25 carry a full Acquisition_instrument block; Lawrence Berkeley exports .ser files from an FEI TitanX and all 78 carry image dimensions and nothing else. The native layer is therefore seeded for UAZ and deliberately empty for LBNL -- declaring 200 kV technique-wide would assert UAZ's instrument for LBNL's records. Generated from draftTAPPs/STEM_TAPP_draft_v2.csv by tools/build_tapp.py.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-06-07T00:00:00Z",
-      "itemClass": "schema",
-      "register": "cdif-building-block-register",
-      "version": "0.1",
-      "dateOfLastChange": "2026-10-09",
-      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
-      "maturity": "draft",
-      "scope": "unstable",
-      "tags": [
-        "ada",
-        "astromat",
-        "tapp",
-        "stem",
-        "technique-protocol"
-      ],
-      "sources": [
-        {
-          "title": "STEM_TAPP_draft_v2.csv (TAPP worksheet)",
-          "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
-        }
-      ],
-      "shaclShapes": {
-        "ogch.BaseSchema.tappDefinition": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tappDefinition/rules.shacl"
-        ],
-        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.identifier": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-        ],
-        "cdif.bbr.metadata.skosProperties.skosConcept": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.organization": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.person": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-        ],
-        "ogch.BaseSchema.instrument": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.instrument": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
-        ],
-        "ogch.BaseSchema.laboratory": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/rules.shacl"
-        ],
-        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
-        ]
-      },
-      "dependsOn": [
-        "bblocks://ogch.BaseSchema.tappDefinition",
-        "bblocks://ogch.registry.parameterTemplates"
-      ],
-      "license": {
-        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
-      },
-      "schema": {
-        "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/tapp/schema.yaml",
-        "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/tapp/schema.json"
-      },
-      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/tapp/schema.yaml",
-      "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/tapp/context.jsonld",
-      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/tapp/resolvedProperties.json",
-      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/tapp/",
-      "validationPassed": false,
-      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/STEM/tapp/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/techniqueProfile/geochemProfile/STEM/tapp/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/techniqueProfile/geochemProfile/STEM/tapp/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.techniqueProfile.geochemProfile.STEM.tapp"
         }
       }
     },
@@ -7977,6 +7645,425 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.techniqueProfile.geochemProfile.EAIRMS.tapp"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogch.techniqueProfile.geochemProfile.EBSD.detail",
+      "$schema": "metaschema.yaml",
+      "name": "Electron Backscatter Diffraction Analysis Detail",
+      "abstract": "Detail block for EBSD hasPart items. The per-analysis properties are working distance, camera exposure time, map step size and indexing rate; the map step size is usually given in the source's per-sample tables rather than its prose.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-06-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "cdif-building-block-register",
+      "version": "0.1",
+      "dateOfLastChange": "2026-10-09",
+      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+      "maturity": "draft",
+      "scope": "unstable",
+      "tags": [
+        "ada",
+        "astromat",
+        "instrument",
+        "ebsd"
+      ],
+      "sources": [
+        {
+          "title": "EBSD_TAPP_draft_v2.csv (TAPP worksheet)",
+          "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
+        }
+      ],
+      "shaclShapes": {
+        "ogch.BaseSchema.instrument": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.instrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        ],
+        "ogch.BaseSchema.modules.calibrationFactor": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/calibrationFactor/rules.shacl"
+        ],
+        "ogch.BaseSchema.modules.core": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/core/rules.shacl"
+        ],
+        "ogch.BaseSchema.geochemProduct": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.generatedBy": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.webAPI": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.action": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+        ],
+        "ogch.BaseSchema.creativeWork": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/creativeWork/rules.shacl"
+        ],
+        "ogch.BaseSchema.laboratory": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/rules.shacl"
+        ],
+        "ogch.BaseSchema.spatialRegistration": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.tabularData": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/rules.shacl"
+        ],
+        "ogch.BaseSchema.tappDefinition": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tappDefinition/rules.shacl"
+        ],
+        "ogch.BaseSchema.modules.samplingUnitSelection": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/samplingUnitSelection/rules.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogch.BaseSchema.instrument",
+        "bblocks://ogch.BaseSchema.modules.calibrationFactor",
+        "bblocks://ogch.BaseSchema.modules.core",
+        "bblocks://ogch.BaseSchema.modules.samplingUnitSelection"
+      ],
+      "license": {
+        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
+      },
+      "schema": {
+        "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/schema.yaml",
+        "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/schema.json"
+      },
+      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/detail/schema.yaml",
+      "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/context.jsonld",
+      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/resolvedProperties.json",
+      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/detail/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/EBSD/detail/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/techniqueProfile/geochemProfile/EBSD/detail/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/techniqueProfile/geochemProfile/EBSD/detail/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.techniqueProfile.geochemProfile.EBSD.detail"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogch.techniqueProfile.geochemProfile.EBSD.tapp",
+      "$schema": "metaschema.yaml",
+      "name": "Electron Backscatter Diffraction Technique-Aligned Procedure Profile (ebsdTAPP)",
+      "abstract": "Electron backscatter diffraction extension of the base TAPP definition, for ADA's SEMEBSDGrainImageMap component type. ONE laboratory instance: all 14 distinct method-description documents behind 4305 references are from Curtin University, on a Tescan MIRA3 with an Oxford Instruments AZtec v5.1 Symmetry EBSD-EDS system. The native layer is seeded from those documents rather than from ADA subject fields, which carry no EBSD-specific property at all -- the 1354 records hold only channel1-3 and imageType. Constant across all 14 and therefore protocol-level: 70 degree stage tilt, camera gain 2, a 1.2 degree maximum mean angular deviation and an XMax 150 mm SDD detector. Generated from draftTAPPs/EBSD_TAPP_draft_v2.csv by tools/build_tapp.py.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-06-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "cdif-building-block-register",
+      "version": "0.1",
+      "dateOfLastChange": "2026-10-09",
+      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+      "maturity": "draft",
+      "scope": "unstable",
+      "tags": [
+        "ada",
+        "astromat",
+        "tapp",
+        "ebsd",
+        "technique-protocol"
+      ],
+      "sources": [
+        {
+          "title": "EBSD_TAPP_draft_v2.csv (TAPP worksheet)",
+          "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
+        }
+      ],
+      "shaclShapes": {
+        "ogch.BaseSchema.modules.calibrationFactor": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/calibrationFactor/rules.shacl"
+        ],
+        "ogch.BaseSchema.modules.core": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/core/rules.shacl"
+        ],
+        "ogch.BaseSchema.geochemProduct": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.generatedBy": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.webAPI": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.action": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.instrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+        ],
+        "ogch.BaseSchema.creativeWork": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/creativeWork/rules.shacl"
+        ],
+        "ogch.BaseSchema.instrument": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
+        ],
+        "ogch.BaseSchema.laboratory": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/rules.shacl"
+        ],
+        "ogch.BaseSchema.spatialRegistration": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.tabularData": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/rules.shacl"
+        ],
+        "ogch.BaseSchema.tappDefinition": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tappDefinition/rules.shacl"
+        ],
+        "ogch.BaseSchema.modules.samplingUnitSelection": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/samplingUnitSelection/rules.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogch.BaseSchema.modules.calibrationFactor",
+        "bblocks://ogch.BaseSchema.modules.core",
+        "bblocks://ogch.BaseSchema.modules.samplingUnitSelection",
+        "bblocks://ogch.BaseSchema.tappDefinition"
+      ],
+      "license": {
+        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
+      },
+      "schema": {
+        "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/tapp/schema.yaml",
+        "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/tapp/schema.json"
+      },
+      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/tapp/schema.yaml",
+      "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/tapp/context.jsonld",
+      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/tapp/resolvedProperties.json",
+      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/EBSD/tapp/",
+      "validationPassed": false,
+      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/EBSD/tapp/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/techniqueProfile/geochemProfile/EBSD/tapp/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/techniqueProfile/geochemProfile/EBSD/tapp/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.techniqueProfile.geochemProfile.EBSD.tapp"
         }
       }
     },
@@ -23364,6 +23451,425 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.techniqueProfile.geochemProfile.SLS.tapp"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogch.techniqueProfile.geochemProfile.STEM.detail",
+      "$schema": "metaschema.yaml",
+      "name": "Scanning Transmission Electron Microscopy Analysis Detail",
+      "abstract": "Detail block for STEM hasPart items. Image pixel size and image dimensions are the only properties both laboratories record, and the pixel size appears in m, nm and um, so it needs normalising before values are compared.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-06-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "cdif-building-block-register",
+      "version": "0.1",
+      "dateOfLastChange": "2026-10-09",
+      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+      "maturity": "draft",
+      "scope": "unstable",
+      "tags": [
+        "ada",
+        "astromat",
+        "instrument",
+        "stem"
+      ],
+      "sources": [
+        {
+          "title": "STEM_TAPP_draft_v2.csv (TAPP worksheet)",
+          "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
+        }
+      ],
+      "shaclShapes": {
+        "ogch.BaseSchema.instrument": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.instrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        ],
+        "ogch.BaseSchema.modules.calibrationFactor": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/calibrationFactor/rules.shacl"
+        ],
+        "ogch.BaseSchema.modules.core": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/core/rules.shacl"
+        ],
+        "ogch.BaseSchema.geochemProduct": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.generatedBy": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.webAPI": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.action": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+        ],
+        "ogch.BaseSchema.creativeWork": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/creativeWork/rules.shacl"
+        ],
+        "ogch.BaseSchema.laboratory": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/rules.shacl"
+        ],
+        "ogch.BaseSchema.spatialRegistration": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.tabularData": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/rules.shacl"
+        ],
+        "ogch.BaseSchema.tappDefinition": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tappDefinition/rules.shacl"
+        ],
+        "ogch.BaseSchema.modules.samplingUnitSelection": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/samplingUnitSelection/rules.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogch.BaseSchema.instrument",
+        "bblocks://ogch.BaseSchema.modules.calibrationFactor",
+        "bblocks://ogch.BaseSchema.modules.core",
+        "bblocks://ogch.BaseSchema.modules.samplingUnitSelection"
+      ],
+      "license": {
+        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
+      },
+      "schema": {
+        "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/schema.yaml",
+        "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/schema.json"
+      },
+      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/detail/schema.yaml",
+      "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/context.jsonld",
+      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/resolvedProperties.json",
+      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/detail/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/STEM/detail/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/techniqueProfile/geochemProfile/STEM/detail/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/techniqueProfile/geochemProfile/STEM/detail/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.techniqueProfile.geochemProfile.STEM.detail"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogch.techniqueProfile.geochemProfile.STEM.tapp",
+      "$schema": "metaschema.yaml",
+      "name": "Scanning Transmission Electron Microscopy Technique-Aligned Procedure Profile (stemTAPP)",
+      "abstract": "Scanning transmission electron microscopy extension of the base TAPP definition. Separate from temTAPP because ADA's six STEM component types record a scanned probe rather than a parallel beam, and the records say so themselves: acquisition_mode is STEM in 23 of the 25 exports that state it. TWO LABORATORY INSTANCES, because the metadata available splits exactly on the lab boundary rather than at random. University of Arizona exports HyperSpy metadata from a Hitachi HF5000 and all 25 carry a full Acquisition_instrument block; Lawrence Berkeley exports .ser files from an FEI TitanX and all 78 carry image dimensions and nothing else. The native layer is therefore seeded for UAZ and deliberately empty for LBNL -- declaring 200 kV technique-wide would assert UAZ's instrument for LBNL's records. Generated from draftTAPPs/STEM_TAPP_draft_v2.csv by tools/build_tapp.py.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-06-07T00:00:00Z",
+      "itemClass": "schema",
+      "register": "cdif-building-block-register",
+      "version": "0.1",
+      "dateOfLastChange": "2026-10-09",
+      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+      "maturity": "draft",
+      "scope": "unstable",
+      "tags": [
+        "ada",
+        "astromat",
+        "tapp",
+        "stem",
+        "technique-protocol"
+      ],
+      "sources": [
+        {
+          "title": "STEM_TAPP_draft_v2.csv (TAPP worksheet)",
+          "link": "https://github.com/amds-ldeo/geochemBuildingBlocks/tree/main/docs"
+        }
+      ],
+      "shaclShapes": {
+        "ogch.BaseSchema.modules.calibrationFactor": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/calibrationFactor/rules.shacl"
+        ],
+        "ogch.BaseSchema.modules.core": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/core/rules.shacl"
+        ],
+        "ogch.BaseSchema.geochemProduct": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.identifier": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+        ],
+        "cdif.bbr.metadata.skosProperties.skosConcept": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.organization": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.person": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.derivedFrom": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+        ],
+        "cdif.bbr.metadata.provProperties.generatedBy": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.webAPI": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.action": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifEnumerationDomain": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifEnumerationDomain/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
+        ],
+        "cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/rules.shacl"
+        ],
+        "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.instrument": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+        ],
+        "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+        ],
+        "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+        ],
+        "ogch.BaseSchema.creativeWork": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/creativeWork/rules.shacl"
+        ],
+        "ogch.BaseSchema.instrument": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
+        ],
+        "ogch.BaseSchema.laboratory": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/rules.shacl"
+        ],
+        "ogch.BaseSchema.spatialRegistration": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.tabularData": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/rules.shacl"
+        ],
+        "ogch.BaseSchema.tappDefinition": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tappDefinition/rules.shacl"
+        ],
+        "ogch.BaseSchema.modules.samplingUnitSelection": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/samplingUnitSelection/rules.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogch.BaseSchema.modules.calibrationFactor",
+        "bblocks://ogch.BaseSchema.modules.core",
+        "bblocks://ogch.BaseSchema.modules.samplingUnitSelection",
+        "bblocks://ogch.BaseSchema.tappDefinition"
+      ],
+      "license": {
+        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
+      },
+      "schema": {
+        "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/tapp/schema.yaml",
+        "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/tapp/schema.json"
+      },
+      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/tapp/schema.yaml",
+      "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/tapp/context.jsonld",
+      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/tapp/resolvedProperties.json",
+      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/STEM/tapp/",
+      "validationPassed": false,
+      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/STEM/tapp/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/techniqueProfile/geochemProfile/STEM/tapp/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/techniqueProfile/geochemProfile/STEM/tapp/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.techniqueProfile.geochemProfile.STEM.tapp"
         }
       }
     },

@@ -7,62 +7,342 @@
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json"
     },
     {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
       "type": "object",
       "properties": {
-        "ada:samplingUnitType": {
-          "description": "The kind of physical subdivision of the sample to which one row of reported values corresponds \u2014 the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels. The units themselves are listed in Sampling Unit Name.",
-          "type": "string"
+        "schema:creator": {
+          "type": "object",
+          "properties": {
+            "schema:description": {
+              "description": "Provenance of this TAPP definition: how the definition itself came to be, as distinct from the method it describes. Use it to state that the definition was transcribed from a published protocol, derived from existing metadata records rather than authored by the laboratory, or produced automatically and reviewed by a person. Optional -- a laboratory-authored TAPP needs nothing here. Recorded on schema:creator.schema:description.",
+              "type": "string",
+              "readOnly": true
+            }
+          },
+          "required": [
+            "schema:description"
+          ]
         },
-        "ada:samplePreparationMethodDefault": {
-          "description": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form \u2014 for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.",
-          "type": "string"
+        "ada:targetMaterial": {
+          "description": "General description of the material type(s) this procedure is designed to analyse.",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Silicate mineral",
+                "Silicate glass",
+                "Oxide",
+                "Sulfide",
+                "Carbonate",
+                "Phosphate",
+                "Metal or alloy",
+                "Organic matter",
+                "Bulk regolith or soil",
+                "Meteorite (bulk)",
+                "Ice or hydrate",
+                "Synthetic analogue",
+                "N/A",
+                "None",
+                "missing"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "readOnly": true
         },
-        "ada:samplingUnitSelectionCriteriaDefault": {
-          "description": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest \u2014 size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.",
-          "type": "string"
-        },
-        "ada:dataProcessingSoftwareDefault": {
-          "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
-          "type": "string"
-        },
-        "ada:analyticalMode": {
-          "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Applies even where a procedure defines no mode flag columns.",
+        "schema:object": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "@type": {
+                      "contains": {
+                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:additionalProperty": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/Param_Procedure_preAnalysisImagingAndScreening"
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.json#/$defs/Param_Procedure_preAnalysisImagingAndScreening"
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
           }
         },
-        "ada:reportedVariablesAndUnits": {
-          "description": "The final variable(s) this procedure reports and their units \u2014 distinct from the fields recording what was *acquired* rather than what is reported. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A \u2014 nominal property'.",
-          "type": "string"
+        "ada:instrumentManufacturer": {
+          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+          "type": "string",
+          "enum": [
+            "WITec",
+            "Renishaw",
+            "HORIBA",
+            "Bruker",
+            "Thermo Fisher Scientific",
+            "Custom-built",
+            "Unknown",
+            "N/A",
+            "None",
+            "missing"
+          ],
+          "readOnly": true
         },
-        "ada:calibrationFactorAndDeterminationMethodDefault": {
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-          "type": "string"
+        "ada:instrumentModel": {
+          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
+          "type": "string",
+          "readOnly": true
         },
         "ada:constantsAndReferenceValuesUsedDefault": {
           "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
           "type": "string"
         },
-        "ada:acceleratingVoltageDefault": {
-          "description": "Electron beam accelerating voltage.",
-          "anyOf": [
+        "schema:instrument": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "SEM"
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "ada:acceleratingVoltageDefault": {
+                      "description": "Electron beam accelerating voltage.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "ada:beamCurrentDefault": {
+                      "description": "Beam current at the sample.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:hasPart": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "EBSD Detector"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "ada:ebsdCameraSpeedSetting": {
+                                  "description": "Named camera speed mode of the EBSD detector. Recorded separately from the pattern resolution it implies: the two are distinct settings even though the source states them together as \"Speed 1 (622 x 512 pixels)\".",
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "Speed 1",
+                                        "missing"
+                                      ],
+                                      "readOnly": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "enum": [
+                                          "Speed 1",
+                                          "missing"
+                                        ],
+                                        "readOnly": true
+                                      }
+                                    }
+                                  ]
+                                },
+                                "ada:ebsdPatternResolution": {
+                                  "description": "Pattern resolution in detector pixels, the second half of the source's \"Speed 1 (622 x 512 pixels)\".",
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "readOnly": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "readOnly": true
+                                      }
+                                    }
+                                  ]
+                                },
+                                "ada:ebsdCameraGain": {
+                                  "description": "Gain applied to the EBSD camera.",
+                                  "anyOf": [
+                                    {
+                                      "type": "integer"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "readOnly": true
+                                }
+                              },
+                              "required": [
+                                "ada:ebsdCameraGain",
+                                "ada:ebsdCameraSpeedSetting",
+                                "ada:ebsdPatternResolution"
+                              ]
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "EDS Detector"
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:model": {
+                                  "type": "object",
+                                  "properties": {
+                                    "schema:name": {
+                                      "description": "EDS detector coupled to the EBSD system.",
+                                      "type": "string",
+                                      "readOnly": true
+                                    }
+                                  },
+                                  "required": [
+                                    "schema:name"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "schema:model"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "EBSD Detector"
+                                }
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        },
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "EDS Detector"
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "ada:acceleratingVoltageDefault",
+                    "ada:beamCurrentDefault"
+                  ]
+                }
+              }
+            ]
+          },
+          "allOf": [
             {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:beamCurrentDefault": {
-          "description": "Beam current at the sample.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
+              "contains": {
+                "properties": {
+                  "schema:additionalType": {
+                    "contains": {
+                      "const": "SEM"
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                  }
+                },
+                "required": [
+                  "schema:additionalType"
+                ]
+              }
             }
           ]
         },
@@ -75,128 +355,171 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
-        "ada:ebsdCameraSpeedSetting": {
-          "description": "Named camera speed mode of the EBSD detector. Recorded separately from the pattern resolution it implies: the two are distinct settings even though the source states them together as \"Speed 1 (622 x 512 pixels)\".",
-          "type": "string"
-        },
-        "ada:ebsdPatternResolution": {
-          "description": "Pattern resolution in detector pixels, the second half of the source's \"Speed 1 (622 x 512 pixels)\".",
-          "type": "string"
-        },
-        "ada:ebsdCameraGain": {
-          "description": "Gain applied to the EBSD camera.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:houghResolutionDefault": {
-          "description": "Hough transform resolution used for band detection.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:minimumBandsForIndexing": {
-          "description": "Minimum number of Kikuchi bands required to index a pattern.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:maximumMeanAngularDeviation": {
-          "description": "Upper threshold on mean angular deviation (MAD) for an accepted solution.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:edsDetector": {
-          "description": "EDS detector coupled to the EBSD system.",
-          "type": "string"
-        },
-        "ada:edsChannelsDefault": {
-          "description": "Number of channels EDS spectra are collected on.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:edsProcessTimeDefault": {
-          "description": "AZtec process time setting for EDS.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:crystalStructureFileSourcesDefault": {
-          "description": "Databases the match units / crystal structure files were drawn from.",
-          "type": "string"
-        },
-        "schema:additionalProperty": {
-          "type": "array",
-          "description": "Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification entries (\u2026Default name; the per-dataset value lives in the detail block); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value in schema:value.",
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterTemplates/schema.json#/$defs/ebsd_preAnalysisImagingAndScreeningDefault"
-              }
-            ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/registry/parameterTemplates/schema.json#/$defs/ebsd_preAnalysisImagingAndScreeningDefault"
+        "schema:actionProcess": {
+          "type": "object",
+          "properties": {
+            "schema:step": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/WorkflowStep"
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Data reduction"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "ada:houghResolutionDefault": {
+                          "description": "Hough transform resolution used for band detection.",
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "ada:minimumBandsForIndexing": {
+                          "description": "Minimum number of Kikuchi bands required to index a pattern.",
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ],
+                          "readOnly": true
+                        },
+                        "ada:maximumMeanAngularDeviation": {
+                          "description": "Upper threshold on mean angular deviation (MAD) for an accepted solution.",
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ],
+                          "readOnly": true
+                        },
+                        "ada:crystalStructureFileSourcesDefault": {
+                          "description": "Databases the match units / crystal structure files were drawn from.",
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:crystalStructureFileSourcesDefault",
+                        "ada:houghResolutionDefault",
+                        "ada:maximumMeanAngularDeviation",
+                        "ada:minimumBandsForIndexing"
+                      ]
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Data acquisition"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "ada:edsChannelsDefault": {
+                          "description": "Number of channels EDS spectra are collected on.",
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "ada:edsProcessTimeDefault": {
+                          "description": "AZtec process time setting for EDS.",
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:edsChannelsDefault",
+                        "ada:edsProcessTimeDefault"
+                      ]
+                    }
+                  }
+                ]
               },
-              "minContains": 0,
-              "maxContains": 1
+              "allOf": [
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Data reduction"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Data acquisition"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                }
+              ]
             }
-          ]
+          }
         }
       },
       "required": [
-        "ada:samplePreparationMethodDefault",
-        "ada:dataProcessingSoftwareDefault",
-        "ada:analyticalMode",
-        "ada:acceleratingVoltageDefault",
-        "ada:beamCurrentDefault",
-        "ada:stageTilt",
-        "ada:ebsdCameraSpeedSetting",
-        "ada:ebsdPatternResolution",
-        "ada:ebsdCameraGain",
-        "ada:houghResolutionDefault",
-        "ada:minimumBandsForIndexing",
-        "ada:maximumMeanAngularDeviation",
-        "ada:edsDetector",
-        "ada:edsChannelsDefault",
-        "ada:edsProcessTimeDefault",
-        "ada:crystalStructureFileSourcesDefault"
+        "ada:targetMaterial",
+        "ada:instrumentManufacturer",
+        "ada:instrumentModel",
+        "ada:constantsAndReferenceValuesUsedDefault",
+        "ada:stageTilt"
       ]
     }
   ]

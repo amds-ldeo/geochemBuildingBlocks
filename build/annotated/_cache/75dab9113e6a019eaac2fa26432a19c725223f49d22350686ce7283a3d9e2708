@@ -3,7 +3,7 @@
   "name": "CDIF Building Blocks repository",
   "abstract": "Repository assembling building block for CDIF metadata and profiles, using OGC building block patterns 2025-10-20\n",
   "description": "Includes a set of property modules implementing various metadata content requirements form the CDIF Discovery profile using schema.org entities and properties. \n",
-  "modified": "2026-10-08T21:25:06.513114",
+  "modified": "2026-10-09T19:02:36.125424",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"d25453cad0e4972e6a638db3dca636f023f9397a",
@@ -34,7 +34,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "",
       "sources": [
         {
@@ -83,6 +83,57 @@
       "resolvedSchema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/resolvedSchema.json"
     },
     {
+      "itemIdentifier": "cdif.bbr.metadata.cdifDataType.objectReference",
+      "$schema": "metaschema.yaml",
+      "name": "Object Reference",
+      "abstract": "Canonical strict JSON-LD node reference: an object carrying only @id (and optionally @type).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-08-12T00:00:00Z",
+      "itemClass": "schema",
+      "register": "cdif-building-block-register",
+      "version": "0.1",
+      "dateOfLastChange": "2026-10-09",
+      "sources": [
+        {
+          "title": "CDIF book",
+          "link": "https://cross-domain-interoperability-framework.github.io/cdifbook/metadata/schemaorgimplementation.html#schema-org-implementation-of-cdif-metadata"
+        }
+      ],
+      "maturity": "draft",
+      "scope": "unstable",
+      "tags": [
+        "templates"
+      ],
+      "shaclShapes": {},
+      "license": {
+        "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
+      },
+      "ldContext": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/objectReference/context.jsonld",
+      "schema": {
+        "application/yaml": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml",
+        "application/json": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.json"
+      },
+      "sourceSchema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/objectReference/schema.yaml",
+      "sourceLdContext": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/objectReference/context.jsonld",
+      "sourceFiles": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/objectReference/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/blob/main/build/tests/bbr/metadata/cdifDataType/objectReference/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/generateddocs/markdown/bbr/metadata/cdifDataType/objectReference/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/generateddocs/json-full/bbr/metadata/cdifDataType/objectReference/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/bblock/cdif.bbr.metadata.cdifDataType.objectReference"
+        }
+      }
+    },
+    {
       "itemIdentifier": "cdif.bbr.metadata.skosProperties.skosConcept",
       "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/refs/heads/master/ogc/bblocks/metadata-schema.yaml",
       "name": "SKOS Concept",
@@ -92,7 +143,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "sources": [
         {
@@ -157,7 +208,7 @@
       "itemClass": "datatype",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -205,57 +256,6 @@
       "resolvedSchema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataFingerprint/resolvedSchema.json"
     },
     {
-      "itemIdentifier": "cdif.bbr.metadata.cdifDataType.objectReference",
-      "$schema": "metaschema.yaml",
-      "name": "Object Reference",
-      "abstract": "Canonical strict JSON-LD node reference: an object carrying only @id (and optionally @type).",
-      "status": "under-development",
-      "dateTimeAddition": "2026-08-12T00:00:00Z",
-      "itemClass": "schema",
-      "register": "cdif-building-block-register",
-      "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
-      "sources": [
-        {
-          "title": "CDIF book",
-          "link": "https://cross-domain-interoperability-framework.github.io/cdifbook/metadata/schemaorgimplementation.html#schema-org-implementation-of-cdif-metadata"
-        }
-      ],
-      "maturity": "draft",
-      "scope": "unstable",
-      "tags": [
-        "templates"
-      ],
-      "shaclShapes": {},
-      "license": {
-        "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
-      },
-      "ldContext": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/objectReference/context.jsonld",
-      "schema": {
-        "application/yaml": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml",
-        "application/json": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.json"
-      },
-      "sourceSchema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/objectReference/schema.yaml",
-      "sourceLdContext": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/objectReference/context.jsonld",
-      "sourceFiles": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/objectReference/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/blob/main/build/tests/bbr/metadata/cdifDataType/objectReference/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/generateddocs/markdown/bbr/metadata/cdifDataType/objectReference/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/generateddocs/json-full/bbr/metadata/cdifDataType/objectReference/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/bblock/cdif.bbr.metadata.cdifDataType.objectReference"
-        }
-      }
-    },
-    {
       "itemIdentifier": "cdif.bbr.metadata.provProperties.generatedBy",
       "$schema": "metaschema.yaml",
       "name": "Properties for PROV was generated by",
@@ -265,7 +265,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -325,7 +325,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -382,7 +382,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -439,7 +439,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -497,7 +497,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -551,7 +551,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -606,6 +606,70 @@
       "resolvedSchema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/resolvedSchema.json"
     },
     {
+      "itemIdentifier": "cdif.bbr.metadata.cdifDataType.cdifKey",
+      "$schema": "metaschema.yaml",
+      "name": "CDIF Key",
+      "abstract": "Profile of ddi-cdi Key/PrimaryKey: a CDIF Key is the role of an ordered set of cdi:InstanceVariables (referenced via cdifInstanceVariable) that uniquely identify a data instance. Defines properties: @type, cdif:isComposedOf. Each cdif:ComponentPosition entry carries cdif:indexes (the InstanceVariable) and cdif:value (the integer position). Composes building block: cdifInstanceVariable (cdifDataType).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-05-10T00:00:00Z",
+      "itemClass": "schema",
+      "register": "cdif-building-block-register",
+      "version": "0.1",
+      "dateOfLastChange": "2026-10-09",
+      "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
+      "maturity": "draft",
+      "scope": "unstable",
+      "tags": [
+        "cdif",
+        "key",
+        "primary-key",
+        "ddi-cdi"
+      ],
+      "sources": [
+        {
+          "title": "DDI-CDI 1.0 Specification",
+          "link": "https://ddialliance.org/Specification/DDI-CDI/1.0/"
+        }
+      ],
+      "shaclShapes": {
+        "cdif.bbr.metadata.cdifDataType.cdifKey": [
+          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://cdif.bbr.metadata.cdifDataType.objectReference"
+      ],
+      "license": {
+        "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
+      },
+      "ldContext": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifKey/context.jsonld",
+      "schema": {
+        "application/yaml": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifKey/schema.yaml",
+        "application/json": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifKey/schema.json"
+      },
+      "sourceSchema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/schema.yaml",
+      "sourceLdContext": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/context.jsonld",
+      "resolvedSchemaProperties": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifKey/resolvedProperties.json",
+      "sourceFiles": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/blob/main/build/tests/bbr/metadata/cdifDataType/cdifKey/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/generateddocs/markdown/bbr/metadata/cdifDataType/cdifKey/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/generateddocs/json-full/bbr/metadata/cdifDataType/cdifKey/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/bblock/cdif.bbr.metadata.cdifDataType.cdifKey"
+        }
+      },
+      "resolvedSchema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/resolvedSchema.json"
+    },
+    {
       "itemIdentifier": "cdif.bbr.metadata.skosProperties.skosCollection",
       "$schema": "https://raw.githubusercontent.com/opengeospatial/bblocks-postprocess/refs/heads/master/ogc/bblocks/metadata-schema.yaml",
       "name": "SKOS Collection",
@@ -615,7 +679,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "sources": [
         {
@@ -681,7 +745,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "sources": [
         {
@@ -743,70 +807,6 @@
       "resolvedSchema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConceptScheme/resolvedSchema.json"
     },
     {
-      "itemIdentifier": "cdif.bbr.metadata.cdifDataType.cdifKey",
-      "$schema": "metaschema.yaml",
-      "name": "CDIF Key",
-      "abstract": "Profile of ddi-cdi Key/PrimaryKey: a CDIF Key is the role of an ordered set of cdi:InstanceVariables (referenced via cdifInstanceVariable) that uniquely identify a data instance. Defines properties: @type, cdif:isComposedOf. Each cdif:ComponentPosition entry carries cdif:indexes (the InstanceVariable) and cdif:value (the integer position). Composes building block: cdifInstanceVariable (cdifDataType).",
-      "status": "under-development",
-      "dateTimeAddition": "2026-05-10T00:00:00Z",
-      "itemClass": "schema",
-      "register": "cdif-building-block-register",
-      "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
-      "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
-      "maturity": "draft",
-      "scope": "unstable",
-      "tags": [
-        "cdif",
-        "key",
-        "primary-key",
-        "ddi-cdi"
-      ],
-      "sources": [
-        {
-          "title": "DDI-CDI 1.0 Specification",
-          "link": "https://ddialliance.org/Specification/DDI-CDI/1.0/"
-        }
-      ],
-      "shaclShapes": {
-        "cdif.bbr.metadata.cdifDataType.cdifKey": [
-          "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
-        ]
-      },
-      "dependsOn": [
-        "bblocks://cdif.bbr.metadata.cdifDataType.objectReference"
-      ],
-      "license": {
-        "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/LICENSE"
-      },
-      "ldContext": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifKey/context.jsonld",
-      "schema": {
-        "application/yaml": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifKey/schema.yaml",
-        "application/json": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifKey/schema.json"
-      },
-      "sourceSchema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/schema.yaml",
-      "sourceLdContext": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/context.jsonld",
-      "resolvedSchemaProperties": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifKey/resolvedProperties.json",
-      "sourceFiles": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/blob/main/build/tests/bbr/metadata/cdifDataType/cdifKey/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/generateddocs/markdown/bbr/metadata/cdifDataType/cdifKey/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/generateddocs/json-full/bbr/metadata/cdifDataType/cdifKey/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/bblock/cdif.bbr.metadata.cdifDataType.cdifKey"
-        }
-      },
-      "resolvedSchema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/resolvedSchema.json"
-    },
-    {
       "itemIdentifier": "cdif.bbr.metadata.schemaorgProperties.action",
       "$schema": "metaschema.yaml",
       "name": "Action properties",
@@ -816,7 +816,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -877,7 +877,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "sources": [
         {
@@ -913,6 +913,7 @@
         ]
       },
       "dependsOn": [
+        "bblocks://cdif.bbr.metadata.cdifDataType.objectReference",
         "bblocks://cdif.bbr.metadata.schemaorgProperties.definedTerm",
         "bblocks://cdif.bbr.metadata.skosProperties.skosConcept"
       ],
@@ -955,7 +956,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -1023,7 +1024,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -1091,7 +1092,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -1159,7 +1160,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -1227,7 +1228,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "sources": [
         {
@@ -1293,7 +1294,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "sources": [
         {
@@ -1363,7 +1364,7 @@
       "isTypeLibrary": true,
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -1452,7 +1453,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -1525,7 +1526,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -1610,7 +1611,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -1683,7 +1684,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -1754,7 +1755,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "sources": [
         {
           "title": "schema.org",
@@ -1828,7 +1829,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "sources": [
         {
           "title": "schema.org LinkRole",
@@ -1901,7 +1902,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "sources": [
         {
           "title": "schema.org",
@@ -1971,7 +1972,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -2043,7 +2044,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "1.0",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -2119,7 +2120,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -2195,7 +2196,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -2268,7 +2269,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -2348,7 +2349,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -2421,7 +2422,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -2498,7 +2499,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "sources": [
         {
           "title": "OpenAPI Specification 3.1 schema",
@@ -2582,7 +2583,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -2657,7 +2658,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -2731,7 +2732,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -2818,7 +2819,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -2892,7 +2893,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "1.0",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -2970,7 +2971,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -3055,7 +3056,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -3133,7 +3134,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.2",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "sources": [
         {
@@ -3222,7 +3223,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -3306,7 +3307,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.2",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "sources": [
         {
           "title": "CDIF book",
@@ -3384,7 +3385,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -3462,7 +3463,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -3540,7 +3541,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -3622,7 +3623,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -3712,7 +3713,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "sources": [
         {
@@ -3818,7 +3819,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "1.0",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -3904,7 +3905,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.2",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -4013,7 +4014,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "sources": [
         {
           "title": "schema.org",
@@ -4135,7 +4136,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -4223,7 +4224,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -4335,7 +4336,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -4447,7 +4448,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "1.0",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -4541,7 +4542,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -4667,7 +4668,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -4817,7 +4818,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -4926,7 +4927,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -5027,7 +5028,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "1.0",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -5144,7 +5145,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/usgin/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -5255,7 +5256,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "1.0",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -5375,7 +5376,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks",
       "maturity": "draft",
       "scope": "unstable",
@@ -5540,7 +5541,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "0.1",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://github.com/opengeospatial/bblock-template",
       "sources": [
         {
@@ -5735,7 +5736,7 @@
       "itemClass": "schema",
       "register": "cdif-building-block-register",
       "version": "1.0",
-      "dateOfLastChange": "2026-10-08",
+      "dateOfLastChange": "2026-10-09",
       "link": "https://w3id.org/cdif/xasDocument/1.0",
       "sources": [
         {
