@@ -2069,8 +2069,25 @@
                       "schema:additionalType": {
                         "type": "array",
                         "contains": {
-                          "enum": [
-                            "bios:LabProcess"
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "bios:LabProcess"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "enum": [
+                                    "bios:LabProcess"
+                                  ]
+                                }
+                              }
+                            }
                           ]
                         },
                         "x-jsonld-id": "http://schema.org/additionalType"
@@ -2145,10 +2162,26 @@
               "x-jsonld-id": "http://schema.org/position"
             },
             "schema:additionalType": {
-              "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps).",
+              "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for; the `contains` on the method's schema:step accepts either serialization, so widening here cannot orphan the sample-preparation requirement.",
               "type": "array",
               "items": {
-                "type": "string"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "@id"
+                    ],
+                    "properties": {
+                      "@id": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
               },
               "x-jsonld-id": "http://schema.org/additionalType"
             },
@@ -3965,8 +3998,25 @@
                       "schema:additionalType": {
                         "type": "array",
                         "contains": {
-                          "enum": [
-                            "bios:LabProcess"
+                          "anyOf": [
+                            {
+                              "enum": [
+                                "bios:LabProcess"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "enum": [
+                                    "bios:LabProcess"
+                                  ]
+                                }
+                              }
+                            }
                           ]
                         },
                         "x-jsonld-id": "http://schema.org/additionalType"
@@ -4041,10 +4091,26 @@
               "x-jsonld-id": "http://schema.org/position"
             },
             "schema:additionalType": {
-              "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps).",
+              "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for; the `contains` on the method's schema:step accepts either serialization, so widening here cannot orphan the sample-preparation requirement.",
               "type": "array",
               "items": {
-                "type": "string"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "@id"
+                    ],
+                    "properties": {
+                      "@id": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
               },
               "x-jsonld-id": "http://schema.org/additionalType"
             },
