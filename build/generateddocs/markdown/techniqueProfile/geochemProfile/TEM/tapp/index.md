@@ -90,7 +90,8 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Size, and irradiation state — \"We selected individual magnetite grains from the irradiated regions that were large enough (>15 μm) to extract FIB sections\" (p.3)",
   "schema:object": [
@@ -411,7 +412,8 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Size, and irradiation state \u2014 \"We selected individual magnetite grains from the irradiated regions that were large enough (>15 \u03bcm) to extract FIB sections\" (p.3)",
   "schema:object": [
@@ -657,6 +659,7 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -904,7 +907,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
@@ -1280,7 +1284,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
@@ -1564,21 +1569,22 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsEnergyRangeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensionsDefault> ;
     schema1:datePublished "missing" ;
@@ -1849,7 +1855,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
@@ -2201,7 +2208,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
@@ -2461,6 +2469,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -2717,7 +2726,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — this laboratory crushed its material rather than sectioning it (\"TEM samples were prepared by crushing the grain\", p.10), and no rule is given for which grains were taken",
   "schema:object": [
@@ -3070,7 +3080,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this laboratory crushed its material rather than sectioning it (\"TEM samples were prepared by crushing the grain\", p.10), and no rule is given for which grains were taken",
   "schema:object": [
@@ -3344,6 +3355,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -3601,7 +3613,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
@@ -3946,7 +3959,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
@@ -4212,20 +4226,21 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensionsDefault> ;
     schema1:datePublished "missing" ;
@@ -4276,10 +4291,10 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    bios:computationalTool [ schema1:name "Thermo System7 (EDS quantification)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Thermo System7" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Thermo System7" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Thermo System7 (EDS quantification)" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/TEM> a schema1:Product,
         schema1:Thing ;
@@ -4461,7 +4476,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Exposure of the target phase at the surface — \"We prepared a FIB section (11_5A_1) from an area where the iron sulfides (5 mm width) are exposed on the surface of grain\" (p.3)",
   "schema:object": [
@@ -4766,7 +4782,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Exposure of the target phase at the surface \u2014 \"We prepared a FIB section (11_5A_1) from an area where the iron sulfides (5 mm width) are exposed on the surface of grain\" (p.3)",
   "schema:object": [
@@ -4995,6 +5012,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -5218,7 +5236,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase identity within the one section — the quantitative EDX analyses are of \"the iron sulfides\" exposed at the space-weathered surface (p.3); no finer rule is given for the analysed points",
   "schema:object": [
@@ -5541,7 +5560,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase identity within the one section \u2014 the quantitative EDX analyses are of \"the iron sulfides\" exposed at the space-weathered surface (p.3); no finer rule is given for the analysed points",
   "schema:object": [
@@ -5788,6 +5808,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -6021,7 +6042,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Position within the one section — mapping targets the space-weathered rim and the phases beneath it, the section having been cut where \"the iron sulfides ... are exposed on the surface of grain\" (p.3)",
   "schema:object": [
@@ -6348,7 +6370,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Position within the one section \u2014 mapping targets the space-weathered rim and the phases beneath it, the section having been cut where \"the iron sulfides ... are exposed on the surface of grain\" (p.3)",
   "schema:object": [
@@ -6599,20 +6622,21 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "\"ARM\" designation implies probe Cs-correction (JEOL naming convention) but corrector type/details not stated; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (ADF imaging); STEM-EDS (spectrum image map); HR-STEM; ada:edsAcquisitionModeDefault = Spectrum image (map)." ;
     schema1:instrument <ex:instrument/TEM> ;
@@ -6835,7 +6859,8 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the particles were allocated rather than chosen (\"We were allocated particles RA-QD02-0125 and RA-QD02-0211\", p.2), and no rule is given for the ultramicrotome sections taken from them",
   "schema:object": [
@@ -7209,7 +7234,8 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the particles were allocated rather than chosen (\"We were allocated particles RA-QD02-0125 and RA-QD02-0211\", p.2), and no rule is given for the ultramicrotome sections taken from them",
   "schema:object": [
@@ -7508,6 +7534,7 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -7781,7 +7808,8 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Presence of an impact feature — of 25 glass beads, \"A micrometeorite impact crater was observed on the surface of one of these 25 glass beads (CE5C0600YJFM00304) using an optical microscope\" (p.5), and \"An ultra-thin foil of the micrometeorite impact crater was prepared for TEM observations\" (p.6)",
   "schema:object": [
@@ -8126,7 +8154,8 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Presence of an impact feature \u2014 of 25 glass beads, \"A micrometeorite impact crater was observed on the surface of one of these 25 glass beads (CE5C0600YJFM00304) using an optical microscope\" (p.5), and \"An ultra-thin foil of the micrometeorite impact crater was prepared for TEM observations\" (p.6)",
   "schema:object": [
@@ -8397,20 +8426,21 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "EDS quantification via Velox 2.14 using Brown-Powell ionization cross-section model; FIB foil preparation and STEM imaging at 30 kV/0.4 nA also performed on FEI Scios FIB/SEM (Institute of Geochemistry, CAS) as a coupled step prior to TEM analysis on Talos F200S Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping); ada:edsAcquisitionModeDefault = Spectrum image (map); ada:edsQuantificationMethod = Brown–Powell ionization cross-section model (implemented in Velox 2.14)." ;
@@ -8645,7 +8675,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting, and avoidance of earlier beam damage — sections were cut at phases \"identified in the polished section by SEM/EDS\", and \"Additionally, we selected the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); two sections target carbonates, the others \"regions containing micrometer-sized secondary phases such as Ca-phosphates ... and magnetite\" (p.3)",
   "schema:object": [
@@ -8977,7 +9008,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting, and avoidance of earlier beam damage \u2014 sections were cut at phases \"identified in the polished section by SEM/EDS\", and \"Additionally, we selected the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); two sections target carbonates, the others \"regions containing micrometer-sized secondary phases such as Ca-phosphates ... and magnetite\" (p.3)",
   "schema:object": [
@@ -9230,20 +9262,21 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "FIB sections transferred to Cu TEM half-grids (not standard full grids); nanodiffraction used 0.1–0.3 mrad convergence angle in STEM mode (quasi-parallel beam); some carbonate compositions and modulation measurements reported using Molecular Foundry TitanX EDS (see separate column) Reported detail: ada:analyticalSubModeDefault = DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction)." ;
     schema1:instrument <ex:instrument/TEM> ;
@@ -9471,7 +9504,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting — the mapping is of the carbonate-bearing sections, \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5–10 nm (at the Molecular Foundry)\" (p.2)",
   "schema:object": [
@@ -9821,7 +9855,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting \u2014 the mapping is of the carbonate-bearing sections, \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5\u201310 nm (at the Molecular Foundry)\" (p.2)",
   "schema:object": [
@@ -10096,6 +10131,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -10349,7 +10385,8 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "None, stated explicitly — \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)",
   "schema:object": [
@@ -10713,7 +10750,8 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "None, stated explicitly \u2014 \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)",
   "schema:object": [
@@ -10999,20 +11037,21 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Crushing / dispersion on grid" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> ;
@@ -11075,9 +11114,9 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "TS Velox" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         [ schema1:name "TS Velox" ;
-            ada:toolRole "acquisition" ] .
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/TEM> a schema1:Product,
         schema1:Thing ;
@@ -11262,7 +11301,8 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Picked in the SEM first, by lasering dose and phase — \"We identified regions of interest in the SEM for further investigation in the TEM\", and the four sections comprise a 1× lasered matrix region, a 5× lasered matrix region \"dominated by phyllosilicates\", a 5× lasered sulfide grain and a 5× lasered olivine grain (p.4)",
   "schema:object": [
@@ -11624,7 +11664,8 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Picked in the SEM first, by lasering dose and phase \u2014 \"We identified regions of interest in the SEM for further investigation in the TEM\", and the four sections comprise a 1\u00d7 lasered matrix region, a 5\u00d7 lasered matrix region \"dominated by phyllosilicates\", a 5\u00d7 lasered sulfide grain and a 5\u00d7 lasered olivine grain (p.4)",
   "schema:object": [
@@ -11912,20 +11953,21 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
@@ -12188,7 +12230,8 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:measurementTechnique": [
     {
@@ -12459,7 +12502,8 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:measurementTechnique": [
     {
@@ -12640,6 +12684,7 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -12848,7 +12893,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Zoning, seen in CL before extraction — \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)",
   "schema:object": [
@@ -13178,7 +13224,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Zoning, seen in CL before extraction \u2014 \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)",
   "schema:object": [
@@ -13433,20 +13480,21 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5–7 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007. Reported detail: ada:spectroscopicDetectorDefault = EDS (JEOL 60 mm² SDD); ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping; ada:edsAcquisitionModeDefault = Spectrum imaging (EDS elemental maps); false-color RGB maps." ;
     schema1:instrument <ex:instrument/TEM> ;
@@ -13672,7 +13720,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Zoning, seen in CL before extraction — \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)",
   "schema:object": [
@@ -14012,7 +14061,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Zoning, seen in CL before extraction \u2014 \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)",
   "schema:object": [
@@ -14277,6 +14327,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -14533,7 +14584,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Position on the space-weathered surface — the section was cut through \"The space-weathered surface of the sample, containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx,”\" which \"was first protected with a 1–2 lm thick layer of electron beam deposited amorphous carbon\" (p.3)",
   "schema:object": [
@@ -14882,7 +14934,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Position on the space-weathered surface \u2014 the section was cut through \"The space-weathered surface of the sample, containing a pyroxene grain labeled \u201c1pyx\u201d and a surface-adhered pyroxene grain labeled \u201c2pyx,\u201d\" which \"was first protected with a 1\u20132 lm thick layer of electron beam deposited amorphous carbon\" (p.3)",
   "schema:object": [
@@ -15143,6 +15196,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -15392,7 +15446,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Position on the space-weathered surface — the section was cut through \"The space-weathered surface of the sample, containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx,”\" which \"was first protected with a 1–2 lm thick layer of electron beam deposited amorphous carbon\" (p.3)",
   "schema:object": [
@@ -15786,7 +15841,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Position on the space-weathered surface \u2014 the section was cut through \"The space-weathered surface of the sample, containing a pyroxene grain labeled \u201c1pyx\u201d and a surface-adhered pyroxene grain labeled \u201c2pyx,\u201d\" which \"was first protected with a 1\u20132 lm thick layer of electron beam deposited amorphous carbon\" (p.3)",
   "schema:object": [
@@ -16105,6 +16161,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -16384,7 +16441,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — \"Two grains were selected from CE-5 lunar soil (CE5C0400YJFM00505)\" (p.2), but no criterion is given for the choice; the only stated constraint is on the dispersed material, \"Several lunar soil grains smaller than 50 μm were dispersed on aluminum double-sided tape\" (p.2)",
   "schema:object": [
@@ -16705,7 +16763,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 \"Two grains were selected from CE-5 lunar soil (CE5C0400YJFM00505)\" (p.2), but no criterion is given for the choice; the only stated constraint is on the dispersed material, \"Several lunar soil grains smaller than 50 \u03bcm were dispersed on aluminum double-sided tape\" (p.2)",
   "schema:object": [
@@ -16952,6 +17011,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -17182,7 +17242,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Continuity with the earlier analyses — \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5)",
   "schema:object": [
@@ -17546,7 +17607,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Continuity with the earlier analyses \u2014 \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5)",
   "schema:object": [
@@ -17836,20 +17898,21 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;

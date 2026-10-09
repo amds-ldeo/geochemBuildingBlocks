@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.techniqueProfile.geochemProfile.UVFM.tapp - UV Fluorescence Microscopy Technique-Aligned Procedure Profile (uvfmTAPP)",
   "bblockName": "UV Fluorescence Microscopy Technique-Aligned Procedure Profile (uvfmTAPP)",
   "bblockId": "ogch.techniqueProfile.geochemProfile.UVFM.tapp",
-  "generated": "2026-10-09T02:51:26.518571+00:00",
+  "generated": "2026-10-09T05:15:06.118571+00:00",
   "result": false,
   "items": [
     {
@@ -40,7 +40,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 36,
+              "size": 37,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -82,7 +82,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
-              "graph": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix bios: <https://bioschemas.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <ex:uvfmTAPP-P0> ;\n            sh:resultMessage \"Core requires ada:analyticalMode on the procedure.\" ;\n            sh:resultPath ada:analyticalMode ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"Core requires ada:analyticalMode on the procedure.\" ;\n                    sh:minCount 1 ;\n                    sh:path ada:analyticalMode ;\n                    sh:severity sh:Warning ] ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <ex:uvfmTAPP-P0> ;\n            sh:resultMessage \"Core requires bios:computationalTool on the procedure.\" ;\n            sh:resultPath bios:computationalTool ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"Core requires bios:computationalTool on the procedure.\" ;\n                    sh:minCount 1 ;\n                    sh:path bios:computationalTool ;\n                    sh:severity sh:Warning ] ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <ex:uvfmTAPP-P0> ;\n            sh:resultMessage \"Core requires ada:reportedProperties on the procedure.\" ;\n            sh:resultPath ada:reportedProperties ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"Core requires ada:reportedProperties on the procedure.\" ;\n                    sh:minCount 1 ;\n                    sh:path ada:reportedProperties ;\n                    sh:severity sh:Warning ] ] .\n\n",
+              "graph": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix bios: <https://bioschemas.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <ex:uvfmTAPP-P0> ;\n            sh:resultMessage \"Core requires ada:analyticalMode on the procedure.\" ;\n            sh:resultPath ada:analyticalMode ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"Core requires ada:analyticalMode on the procedure.\" ;\n                    sh:minCount 1 ;\n                    sh:path ada:analyticalMode ;\n                    sh:severity sh:Warning ] ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <ex:uvfmTAPP-P0> ;\n            sh:resultMessage \"Core requires ada:reportedProperties on the procedure.\" ;\n            sh:resultPath ada:reportedProperties ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"Core requires ada:reportedProperties on the procedure.\" ;\n                    sh:minCount 1 ;\n                    sh:path ada:reportedProperties ;\n                    sh:severity sh:Warning ] ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <ex:uvfmTAPP-P0> ;\n            sh:resultMessage \"Core requires bios:computationalTool on the procedure.\" ;\n            sh:resultPath bios:computationalTool ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"Core requires bios:computationalTool on the procedure.\" ;\n                    sh:minCount 1 ;\n                    sh:path bios:computationalTool ;\n                    sh:severity sh:Warning ] ] .\n\n",
               "isError": true,
               "message": "Validation result for _sources/BaseSchema/modules/core/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (3):\n  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Warning\n  \tSource Shape: [ sh:message Literal(\"Core requires ada:analyticalMode on the procedure.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ada:analyticalMode ; sh:severity sh:Warning ]\n  \tFocus Node: <ex:uvfmTAPP-P0>\n  \tResult Path: ada:analyticalMode\n  \tMessage: Core requires ada:analyticalMode on the procedure.\n  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Warning\n  \tSource Shape: [ sh:message Literal(\"Core requires ada:reportedProperties on the procedure.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ada:reportedProperties ; sh:severity sh:Warning ]\n  \tFocus Node: <ex:uvfmTAPP-P0>\n  \tResult Path: ada:reportedProperties\n  \tMessage: Core requires ada:reportedProperties on the procedure.\n  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Warning\n  \tSource Shape: [ sh:message Literal(\"Core requires bios:computationalTool on the procedure.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path bios:computationalTool ; sh:severity sh:Warning ]\n  \tFocus Node: <ex:uvfmTAPP-P0>\n  \tResult Path: bios:computationalTool\n  \tMessage: Core requires bios:computationalTool on the procedure.\n  "
             },
@@ -116,16 +116,46 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl",
               "focusNodes": {
-                "_:n7975bf3672c14581a524d1777272c9acb40": {
+                "cdifd:resourceIdentifierProperty/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "cdifd:CDIFSubjectOfPlacementShape/sh:property/sh:qualifiedValueShape": {
+                "cdifd:CDIFSubjectOfPlacementShape/sh:property/sh:not": {
                   "nodes": []
                 },
-                "_:n7975bf3672c14581a524d1777272c9acb27": {
+                "cdifd:CDIFSubjectOfPlacementShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDatasetMandatoryShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFCatalogRecordShape": {
                   "nodes": []
                 },
                 "cdifd:rightsProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:ne32189b2a568437aae8ca2c36d435fcdb23": {
+                  "nodes": []
+                },
+                "_:ne32189b2a568437aae8ca2c36d435fcdb27": {
+                  "nodes": []
+                },
+                "soso:DatasetNS3Shape": {
+                  "nodes": []
+                },
+                "_:ne32189b2a568437aae8ca2c36d435fcdb24": {
+                  "nodes": []
+                },
+                "soso:DatasetNS2Shape": {
+                  "nodes": []
+                },
+                "_:ne32189b2a568437aae8ca2c36d435fcdb40": {
+                  "nodes": []
+                },
+                "_:ne32189b2a568437aae8ca2c36d435fcdb29": {
+                  "nodes": []
+                },
+                "soso:DatasetNS1Shape": {
                   "nodes": []
                 },
                 "cdifd:rightsProperty/sh:or/rdf:rest/rdf:first": {
@@ -134,42 +164,12 @@
                 "cdifd:resourceIdentifierProperty/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "_:n7975bf3672c14581a524d1777272c9acb24": {
-                  "nodes": []
-                },
-                "cdifd:CDIFSubjectOfPlacementShape/sh:property/sh:not": {
-                  "nodes": []
-                },
-                "soso:DatasetNS2Shape": {
-                  "nodes": []
-                },
-                "soso:DatasetNS3Shape": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDatasetMandatoryShape": {
-                  "nodes": []
-                },
-                "soso:DatasetNS1Shape": {
-                  "nodes": []
-                },
-                "cdifd:CDIFCatalogRecordShape": {
-                  "nodes": []
-                },
-                "_:n7975bf3672c14581a524d1777272c9acb23": {
-                  "nodes": []
-                },
-                "cdifd:resourceIdentifierProperty/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFSubjectOfPlacementShape": {
-                  "nodes": []
-                },
-                "_:n7975bf3672c14581a524d1777272c9acb29": {
+                "cdifd:CDIFSubjectOfPlacementShape/sh:property/sh:qualifiedValueShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl:\n - Shape _:n7975bf3672c14581a524d1777272c9acb40: *none*\n - Shape cdifd:CDIFSubjectOfPlacementShape/sh:property/sh:qualifiedValueShape: *none*\n - Shape _:n7975bf3672c14581a524d1777272c9acb27: *none*\n - Shape cdifd:rightsProperty/sh:or/rdf:first: *none*\n - Shape cdifd:rightsProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:resourceIdentifierProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n7975bf3672c14581a524d1777272c9acb24: *none*\n - Shape cdifd:CDIFSubjectOfPlacementShape/sh:property/sh:not: *none*\n - Shape soso:DatasetNS2Shape: *none*\n - Shape soso:DatasetNS3Shape: *none*\n - Shape cdifd:CDIFDatasetMandatoryShape: *none*\n - Shape soso:DatasetNS1Shape: *none*\n - Shape cdifd:CDIFCatalogRecordShape: *none*\n - Shape _:n7975bf3672c14581a524d1777272c9acb23: *none*\n - Shape cdifd:resourceIdentifierProperty/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFSubjectOfPlacementShape: *none*\n - Shape _:n7975bf3672c14581a524d1777272c9acb29: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl:\n - Shape cdifd:resourceIdentifierProperty/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFSubjectOfPlacementShape/sh:property/sh:not: *none*\n - Shape cdifd:CDIFSubjectOfPlacementShape: *none*\n - Shape cdifd:CDIFDatasetMandatoryShape: *none*\n - Shape cdifd:CDIFCatalogRecordShape: *none*\n - Shape cdifd:rightsProperty/sh:or/rdf:first: *none*\n - Shape _:ne32189b2a568437aae8ca2c36d435fcdb23: *none*\n - Shape _:ne32189b2a568437aae8ca2c36d435fcdb27: *none*\n - Shape soso:DatasetNS3Shape: *none*\n - Shape _:ne32189b2a568437aae8ca2c36d435fcdb24: *none*\n - Shape soso:DatasetNS2Shape: *none*\n - Shape _:ne32189b2a568437aae8ca2c36d435fcdb40: *none*\n - Shape _:ne32189b2a568437aae8ca2c36d435fcdb29: *none*\n - Shape soso:DatasetNS1Shape: *none*\n - Shape cdifd:rightsProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:resourceIdentifierProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFSubjectOfPlacementShape/sh:property/sh:qualifiedValueShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -198,45 +198,45 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl",
               "focusNodes": {
-                "cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:n35e4ea2edc1842368203a9ae9200746bb19": {
-                  "nodes": []
-                },
-                "_:n35e4ea2edc1842368203a9ae9200746bb6": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:n35e4ea2edc1842368203a9ae9200746bb4": {
-                  "nodes": []
-                },
-                "_:n35e4ea2edc1842368203a9ae9200746bb5": {
-                  "nodes": []
-                },
-                "_:n35e4ea2edc1842368203a9ae9200746bb10": {
-                  "nodes": []
-                },
-                "_:n35e4ea2edc1842368203a9ae9200746bb26": {
+                "_:nacaea567ac02480db21dabfce351e1e5b6": {
                   "nodes": []
                 },
                 "cdifd:CDIFDefinedTermShape": {
                   "nodes": []
                 },
-                "_:n35e4ea2edc1842368203a9ae9200746bb7": {
+                "cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:n35e4ea2edc1842368203a9ae9200746bb8": {
+                "_:nacaea567ac02480db21dabfce351e1e5b8": {
+                  "nodes": []
+                },
+                "_:nacaea567ac02480db21dabfce351e1e5b4": {
+                  "nodes": []
+                },
+                "_:nacaea567ac02480db21dabfce351e1e5b5": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:nacaea567ac02480db21dabfce351e1e5b10": {
+                  "nodes": []
+                },
+                "_:nacaea567ac02480db21dabfce351e1e5b19": {
+                  "nodes": []
+                },
+                "_:nacaea567ac02480db21dabfce351e1e5b7": {
+                  "nodes": []
+                },
+                "_:nacaea567ac02480db21dabfce351e1e5b26": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n35e4ea2edc1842368203a9ae9200746bb19: *none*\n - Shape _:n35e4ea2edc1842368203a9ae9200746bb6: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:n35e4ea2edc1842368203a9ae9200746bb4: *none*\n - Shape _:n35e4ea2edc1842368203a9ae9200746bb5: *none*\n - Shape _:n35e4ea2edc1842368203a9ae9200746bb10: *none*\n - Shape _:n35e4ea2edc1842368203a9ae9200746bb26: *none*\n - Shape cdifd:CDIFDefinedTermShape: *none*\n - Shape _:n35e4ea2edc1842368203a9ae9200746bb7: *none*\n - Shape _:n35e4ea2edc1842368203a9ae9200746bb8: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:\n - Shape _:nacaea567ac02480db21dabfce351e1e5b6: *none*\n - Shape cdifd:CDIFDefinedTermShape: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nacaea567ac02480db21dabfce351e1e5b8: *none*\n - Shape _:nacaea567ac02480db21dabfce351e1e5b4: *none*\n - Shape _:nacaea567ac02480db21dabfce351e1e5b5: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:nacaea567ac02480db21dabfce351e1e5b10: *none*\n - Shape _:nacaea567ac02480db21dabfce351e1e5b19: *none*\n - Shape _:nacaea567ac02480db21dabfce351e1e5b7: *none*\n - Shape _:nacaea567ac02480db21dabfce351e1e5b26: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -248,48 +248,48 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl",
               "focusNodes": {
-                "_:n6639fd9dfa104a2689663ff22dea3b08b25": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierShape": {
-                  "nodes": []
-                },
-                "_:n6639fd9dfa104a2689663ff22dea3b08b20": {
-                  "nodes": []
-                },
                 "cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "_:n6639fd9dfa104a2689663ff22dea3b08b11": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierTypeTermShape": {
-                  "nodes": []
-                },
-                "_:n6639fd9dfa104a2689663ff22dea3b08b23": {
-                  "nodes": []
-                },
-                "_:n6639fd9dfa104a2689663ff22dea3b08b21": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first": {
+                "_:na7921244b92e49d69890f4ae96cd2652b10": {
                   "nodes": []
                 },
                 "cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:n6639fd9dfa104a2689663ff22dea3b08b22": {
+                "_:na7921244b92e49d69890f4ae96cd2652b23": {
                   "nodes": []
                 },
-                "_:n6639fd9dfa104a2689663ff22dea3b08b10": {
+                "cdifd:CDIFIdentifierTypeTermShape": {
+                  "nodes": []
+                },
+                "_:na7921244b92e49d69890f4ae96cd2652b25": {
+                  "nodes": []
+                },
+                "_:na7921244b92e49d69890f4ae96cd2652b11": {
+                  "nodes": []
+                },
+                "_:na7921244b92e49d69890f4ae96cd2652b20": {
+                  "nodes": []
+                },
+                "_:na7921244b92e49d69890f4ae96cd2652b21": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape": {
+                  "nodes": []
+                },
+                "_:na7921244b92e49d69890f4ae96cd2652b22": {
+                  "nodes": []
+                },
+                "cdifd:CDIFIdentifierShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n - Shape _:n6639fd9dfa104a2689663ff22dea3b08b25: *none*\n - Shape cdifd:CDIFIdentifierShape: *none*\n - Shape _:n6639fd9dfa104a2689663ff22dea3b08b20: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n6639fd9dfa104a2689663ff22dea3b08b11: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape: *none*\n - Shape _:n6639fd9dfa104a2689663ff22dea3b08b23: *none*\n - Shape _:n6639fd9dfa104a2689663ff22dea3b08b21: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n6639fd9dfa104a2689663ff22dea3b08b22: *none*\n - Shape _:n6639fd9dfa104a2689663ff22dea3b08b10: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:na7921244b92e49d69890f4ae96cd2652b10: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:na7921244b92e49d69890f4ae96cd2652b23: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape: *none*\n - Shape _:na7921244b92e49d69890f4ae96cd2652b25: *none*\n - Shape _:na7921244b92e49d69890f4ae96cd2652b11: *none*\n - Shape _:na7921244b92e49d69890f4ae96cd2652b20: *none*\n - Shape _:na7921244b92e49d69890f4ae96cd2652b21: *none*\n - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFIdentifierShape: *none*\n - Shape _:na7921244b92e49d69890f4ae96cd2652b22: *none*\n - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -301,10 +301,10 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl",
               "focusNodes": {
-                "skosv:ConceptShape": {
+                "skosv:prefLabelUniqueLangShape": {
                   "nodes": []
                 },
-                "skosv:prefLabelUniqueLangShape": {
+                "skosv:ConceptShape": {
                   "nodes": []
                 },
                 "skosv:conceptBroaderNotSelfShape": {
@@ -312,7 +312,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:\n - Shape skosv:ConceptShape: *none*\n - Shape skosv:prefLabelUniqueLangShape: *none*\n - Shape skosv:conceptBroaderNotSelfShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:\n - Shape skosv:prefLabelUniqueLangShape: *none*\n - Shape skosv:ConceptShape: *none*\n - Shape skosv:conceptBroaderNotSelfShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -324,21 +324,21 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl",
               "focusNodes": {
-                "cdifd:CDIFOrganizationShape/sh:or/rdf:first": {
+                "cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "_:n62cba3f95c254ab1a23a0719fba74b38b3": {
+                "_:nc5022dd4c26e4bbead35a718bb22cd25b3": {
+                  "nodes": []
+                },
+                "cdifd:CDIFOrganizationShape/sh:or/rdf:first": {
                   "nodes": []
                 },
                 "cdifd:CDIFOrganizationShape": {
                   "nodes": []
-                },
-                "cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*\n - Shape _:n62cba3f95c254ab1a23a0719fba74b38b3: *none*\n - Shape cdifd:CDIFOrganizationShape: *none*\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:nc5022dd4c26e4bbead35a718bb22cd25b3: *none*\n - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFOrganizationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -350,13 +350,16 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl",
               "focusNodes": {
-                "_:nb336bb1798664ab8911b0226d0eb309bb14": {
+                "cdifd:CDIFContactPointShape": {
                   "nodes": []
                 },
-                "cdifd:contactPointProperty/sh:or/rdf:first": {
+                "cdifd:affiliationProperty/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first": {
+                "cdifd:CDIFPersonShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
                 "cdifd:CDIFPersonShape": {
@@ -364,22 +367,19 @@
                     "<ex:uvfmTAPP-P0>/schema1:creator"
                   ]
                 },
-                "cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
                 "cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "cdifd:CDIFPersonShape/sh:or/rdf:first": {
+                "cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "cdifd:affiliationProperty/sh:or/rdf:first": {
+                "_:nb4cee859266b47f49966fffcddeb43b6b14": {
                   "nodes": []
                 },
                 "cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "cdifd:CDIFContactPointShape": {
+                "cdifd:contactPointProperty/sh:or/rdf:first": {
                   "nodes": []
                 },
                 "cdifd:maintainerOrProviderContactPointShape": {
@@ -387,7 +387,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:\n - Shape _:nb336bb1798664ab8911b0226d0eb309bb14: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*\n - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape: <ex:uvfmTAPP-P0>/schema1:creator\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFContactPointShape: *none*\n - Shape cdifd:maintainerOrProviderContactPointShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:\n - Shape cdifd:CDIFContactPointShape: *none*\n - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFPersonShape: <ex:uvfmTAPP-P0>/schema1:creator\n - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nb4cee859266b47f49966fffcddeb43b6b14: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*\n - Shape cdifd:maintainerOrProviderContactPointShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -399,21 +399,21 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl",
               "focusNodes": {
-                "cdifd:derivedFromProperty/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "_:nfe8c33b407be44408e01c6735eb6a472b4": {
-                  "nodes": []
-                },
                 "cdifd:derivedFromProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n6eaf79f9c9814996948ced9a78d8f57db4": {
                   "nodes": []
                 },
                 "cdifd:derivedFromProperty": {
                   "nodes": []
+                },
+                "cdifd:derivedFromProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl:\n - Shape cdifd:derivedFromProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:nfe8c33b407be44408e01c6735eb6a472b4: *none*\n - Shape cdifd:derivedFromProperty/sh:or/rdf:first: *none*\n - Shape cdifd:derivedFromProperty: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl:\n - Shape cdifd:derivedFromProperty/sh:or/rdf:first: *none*\n - Shape _:n6eaf79f9c9814996948ced9a78d8f57db4: *none*\n - Shape cdifd:derivedFromProperty: *none*\n - Shape cdifd:derivedFromProperty/sh:or/rdf:rest/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -425,25 +425,25 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl",
               "focusNodes": {
+                "_:nd6f289d9ffe545a9a793ca6ea144534ab15": {
+                  "nodes": []
+                },
                 "cdifd:CDIFLabeledLinkShape": {
                   "nodes": []
                 },
+                "_:nd6f289d9ffe545a9a793ca6ea144534ab5": {
+                  "nodes": []
+                },
+                "_:nd6f289d9ffe545a9a793ca6ea144534ab7": {
+                  "nodes": []
+                },
+                "_:nd6f289d9ffe545a9a793ca6ea144534ab4": {
+                  "nodes": []
+                },
+                "_:nd6f289d9ffe545a9a793ca6ea144534ab6": {
+                  "nodes": []
+                },
                 "cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:n586b0ad712d942d5aa923631b7cf5389b6": {
-                  "nodes": []
-                },
-                "_:n586b0ad712d942d5aa923631b7cf5389b4": {
-                  "nodes": []
-                },
-                "_:n586b0ad712d942d5aa923631b7cf5389b7": {
-                  "nodes": []
-                },
-                "_:n586b0ad712d942d5aa923631b7cf5389b5": {
-                  "nodes": []
-                },
-                "_:n586b0ad712d942d5aa923631b7cf5389b15": {
                   "nodes": []
                 },
                 "cdifd:CDIFRelationShape": {
@@ -451,7 +451,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:\n - Shape cdifd:CDIFLabeledLinkShape: *none*\n - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n586b0ad712d942d5aa923631b7cf5389b6: *none*\n - Shape _:n586b0ad712d942d5aa923631b7cf5389b4: *none*\n - Shape _:n586b0ad712d942d5aa923631b7cf5389b7: *none*\n - Shape _:n586b0ad712d942d5aa923631b7cf5389b5: *none*\n - Shape _:n586b0ad712d942d5aa923631b7cf5389b15: *none*\n - Shape cdifd:CDIFRelationShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:\n - Shape _:nd6f289d9ffe545a9a793ca6ea144534ab15: *none*\n - Shape cdifd:CDIFLabeledLinkShape: *none*\n - Shape _:nd6f289d9ffe545a9a793ca6ea144534ab5: *none*\n - Shape _:nd6f289d9ffe545a9a793ca6ea144534ab7: *none*\n - Shape _:nd6f289d9ffe545a9a793ca6ea144534ab4: *none*\n - Shape _:nd6f289d9ffe545a9a793ca6ea144534ab6: *none*\n - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFRelationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -463,82 +463,82 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl",
               "focusNodes": {
-                "cdifd:generatedByNode": {
+                "_:n5f5fbbfd084b4cdb8027c991ec1bf273b4": {
                   "nodes": []
                 },
-                "_:n25da954ffd7048d69774d66b897354a5b5": {
+                "_:n5f5fbbfd084b4cdb8027c991ec1bf273b5": {
                   "nodes": []
                 },
                 "cdifd:generatedByNode/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:n25da954ffd7048d69774d66b897354a5b4": {
+                "cdifd:generatedByNode": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl:\n - Shape cdifd:generatedByNode: *none*\n - Shape _:n25da954ffd7048d69774d66b897354a5b5: *none*\n - Shape cdifd:generatedByNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n25da954ffd7048d69774d66b897354a5b4: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl:\n - Shape _:n5f5fbbfd084b4cdb8027c991ec1bf273b4: *none*\n - Shape _:n5f5fbbfd084b4cdb8027c991ec1bf273b5: *none*\n - Shape cdifd:generatedByNode/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:generatedByNode: *none*\n"
             },
             {
               "op": "shacl-report",
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl",
-              "graph": "@prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode _:Ndc7064a7297d4d13a796c309d560d6ca ;\n            sh:resultMessage \"A Term must have a name (label) or an identifier. It should have both!.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape cdifd:CDIFDefinedTermShape ;\n            sh:value _:Ndc7064a7297d4d13a796c309d560d6ca ] .\n\n_:Ndc7064a7297d4d13a796c309d560d6ca a schema1:DefinedTerm ;\n    schema1:termCode \"UV Fluorescence Microscopy\" .\n\n",
+              "graph": "@prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode _:Nd5fbdc820ab54b36bebe72f8864843a9 ;\n            sh:resultMessage \"A Term must have a name (label) or an identifier. It should have both!.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape cdifd:CDIFDefinedTermShape ;\n            sh:value _:Nd5fbdc820ab54b36bebe72f8864843a9 ] .\n\n_:Nd5fbdc820ab54b36bebe72f8864843a9 a schema1:DefinedTerm ;\n    schema1:termCode \"UV Fluorescence Microscopy\" .\n\n",
               "isError": true,
               "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: cdifd:CDIFDefinedTermShape\n  \tFocus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal(\"UV Fluorescence Microscopy\") ]\n  \tValue Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal(\"UV Fluorescence Microscopy\") ]\n  \tMessage: A Term must have a name (label) or an identifier. It should have both!.\n  "
             },
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl",
               "focusNodes": {
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:naff02e1c066f459e8ea4433683bf85ecb4": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "_:naff02e1c066f459e8ea4433683bf85ecb16": {
-                  "nodes": []
-                },
-                "_:naff02e1c066f459e8ea4433683bf85ecb14": {
-                  "nodes": []
-                },
-                "cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "_:naff02e1c066f459e8ea4433683bf85ecb3": {
-                  "nodes": []
-                },
-                "_:naff02e1c066f459e8ea4433683bf85ecb20": {
-                  "nodes": []
-                },
-                "cdifd:roleNameProperty/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "_:naff02e1c066f459e8ea4433683bf85ecb17": {
-                  "nodes": []
-                },
                 "cdifd:CDIFDefinedTermShape": {
                   "nodes": [
                     "<ex:uvfmTAPP-P0>/schema1:measurementTechnique"
                   ]
                 },
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n13cbdf8a1e994dff8b3e53f2de37fc6fb3": {
+                  "nodes": []
+                },
+                "_:n13cbdf8a1e994dff8b3e53f2de37fc6fb15": {
+                  "nodes": []
+                },
+                "cdifd:roleNameProperty/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n13cbdf8a1e994dff8b3e53f2de37fc6fb4": {
+                  "nodes": []
+                },
+                "_:n13cbdf8a1e994dff8b3e53f2de37fc6fb18": {
+                  "nodes": []
+                },
+                "cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n13cbdf8a1e994dff8b3e53f2de37fc6fb20": {
+                  "nodes": []
+                },
+                "_:n13cbdf8a1e994dff8b3e53f2de37fc6fb16": {
+                  "nodes": []
+                },
+                "_:n13cbdf8a1e994dff8b3e53f2de37fc6fb17": {
+                  "nodes": []
+                },
                 "cdifd:CDIFRoleShape": {
                   "nodes": []
                 },
-                "_:naff02e1c066f459e8ea4433683bf85ecb15": {
+                "_:n13cbdf8a1e994dff8b3e53f2de37fc6fb14": {
                   "nodes": []
                 },
-                "_:naff02e1c066f459e8ea4433683bf85ecb18": {
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:naff02e1c066f459e8ea4433683bf85ecb4: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:naff02e1c066f459e8ea4433683bf85ecb16: *none*\n - Shape _:naff02e1c066f459e8ea4433683bf85ecb14: *none*\n - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:naff02e1c066f459e8ea4433683bf85ecb3: *none*\n - Shape _:naff02e1c066f459e8ea4433683bf85ecb20: *none*\n - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*\n - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:naff02e1c066f459e8ea4433683bf85ecb17: *none*\n - Shape cdifd:CDIFDefinedTermShape: <ex:uvfmTAPP-P0>/schema1:measurementTechnique\n - Shape cdifd:CDIFRoleShape: *none*\n - Shape _:naff02e1c066f459e8ea4433683bf85ecb15: *none*\n - Shape _:naff02e1c066f459e8ea4433683bf85ecb18: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:\n - Shape cdifd:CDIFDefinedTermShape: <ex:uvfmTAPP-P0>/schema1:measurementTechnique\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n13cbdf8a1e994dff8b3e53f2de37fc6fb3: *none*\n - Shape _:n13cbdf8a1e994dff8b3e53f2de37fc6fb15: *none*\n - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*\n - Shape _:n13cbdf8a1e994dff8b3e53f2de37fc6fb4: *none*\n - Shape _:n13cbdf8a1e994dff8b3e53f2de37fc6fb18: *none*\n - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n13cbdf8a1e994dff8b3e53f2de37fc6fb20: *none*\n - Shape _:n13cbdf8a1e994dff8b3e53f2de37fc6fb16: *none*\n - Shape _:n13cbdf8a1e994dff8b3e53f2de37fc6fb17: *none*\n - Shape cdifd:CDIFRoleShape: *none*\n - Shape _:n13cbdf8a1e994dff8b3e53f2de37fc6fb14: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -570,6 +570,9 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl",
               "focusNodes": {
+                "cdifd:CDIFLinkRoleShape": {
+                  "nodes": []
+                },
                 "cdifd:CDIFEntryPointShape": {
                   "nodes": []
                 },
@@ -578,13 +581,10 @@
                 },
                 "cdifd:CDIFEntryPointShape/sh:or/rdf:first": {
                   "nodes": []
-                },
-                "cdifd:CDIFLinkRoleShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl:\n - Shape cdifd:CDIFEntryPointShape: *none*\n - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFLinkRoleShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl:\n - Shape cdifd:CDIFLinkRoleShape: *none*\n - Shape cdifd:CDIFEntryPointShape: *none*\n - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -596,37 +596,28 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl",
               "focusNodes": {
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb11": {
+                "_:n68c42294b7fc4c728128a7c6887f57b0b3": {
                   "nodes": []
                 },
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb4": {
+                "_:n68c42294b7fc4c728128a7c6887f57b0b4": {
                   "nodes": []
                 },
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb3": {
+                "_:n68c42294b7fc4c728128a7c6887f57b0b5": {
                   "nodes": []
                 },
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb17": {
+                "_:n68c42294b7fc4c728128a7c6887f57b0b13": {
                   "nodes": []
                 },
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb13": {
+                "_:n68c42294b7fc4c728128a7c6887f57b0b11": {
+                  "nodes": []
+                },
+                "_:n68c42294b7fc4c728128a7c6887f57b0b17": {
                   "nodes": []
                 },
                 "cdifd:fundingShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "cdifd:fundingShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb26": {
-                  "nodes": []
-                },
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb5": {
-                  "nodes": []
-                },
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb14": {
-                  "nodes": []
-                },
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb25": {
+                "_:n68c42294b7fc4c728128a7c6887f57b0b26": {
                   "nodes": []
                 },
                 "cdifd:fundingShape": {
@@ -634,15 +625,24 @@
                     "<ex:uvfmTAPP-P0>/schema1:funding"
                   ]
                 },
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb12": {
+                "cdifd:fundingShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "_:na4ca95a7ceb24d5f85ffb8c23b5c14edb15": {
+                "_:n68c42294b7fc4c728128a7c6887f57b0b15": {
+                  "nodes": []
+                },
+                "_:n68c42294b7fc4c728128a7c6887f57b0b25": {
+                  "nodes": []
+                },
+                "_:n68c42294b7fc4c728128a7c6887f57b0b14": {
+                  "nodes": []
+                },
+                "_:n68c42294b7fc4c728128a7c6887f57b0b12": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb11: *none*\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb4: *none*\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb3: *none*\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb17: *none*\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb13: *none*\n - Shape cdifd:fundingShape/sh:or/rdf:first: *none*\n - Shape cdifd:fundingShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb26: *none*\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb5: *none*\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb14: *none*\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb25: *none*\n - Shape cdifd:fundingShape: <ex:uvfmTAPP-P0>/schema1:funding\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb12: *none*\n - Shape _:na4ca95a7ceb24d5f85ffb8c23b5c14edb15: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b3: *none*\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b4: *none*\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b5: *none*\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b13: *none*\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b11: *none*\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b17: *none*\n - Shape cdifd:fundingShape/sh:or/rdf:first: *none*\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b26: *none*\n - Shape cdifd:fundingShape: <ex:uvfmTAPP-P0>/schema1:funding\n - Shape cdifd:fundingShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b15: *none*\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b25: *none*\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b14: *none*\n - Shape _:n68c42294b7fc4c728128a7c6887f57b0b12: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -654,76 +654,76 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl",
               "focusNodes": {
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b11": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b29": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b31": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b28": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b34": {
+                  "nodes": []
+                },
                 "cdifd:webAPINode/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:na499d80338854781ac126eb5b420c8c3b32": {
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b33": {
                   "nodes": []
                 },
-                "_:na499d80338854781ac126eb5b420c8c3b18": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b35": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b31": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b34": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b24": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b11": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b25": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b28": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b17": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b27": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b3": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b4": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b30": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b10": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b26": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b29": {
-                  "nodes": []
-                },
-                "_:na499d80338854781ac126eb5b420c8c3b33": {
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b10": {
                   "nodes": []
                 },
                 "cdifd:webAPINode": {
                   "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b35": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b4": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b26": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b25": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b32": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b18": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b27": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b24": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b3": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b30": {
+                  "nodes": []
+                },
+                "_:n3d048f4eb57b42af8c6cba053563f2f3b17": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl:\n - Shape cdifd:webAPINode/sh:property/sh:or/rdf:first: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b32: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b18: *none*\n - Shape cdifd:webAPINode/sh:property/sh:or/rdf:first: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b35: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b31: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b34: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b24: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b11: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b25: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b28: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b17: *none*\n - Shape cdifd:webAPINode/sh:property/sh:or/rdf:first: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b27: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b3: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b4: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b30: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b10: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b26: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b29: *none*\n - Shape _:na499d80338854781ac126eb5b420c8c3b33: *none*\n - Shape cdifd:webAPINode/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:webAPINode: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl:\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b11: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b29: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b31: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b28: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b34: *none*\n - Shape cdifd:webAPINode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b33: *none*\n - Shape cdifd:webAPINode/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:webAPINode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b10: *none*\n - Shape cdifd:webAPINode: *none*\n - Shape cdifd:webAPINode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b35: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b4: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b26: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b25: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b32: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b18: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b27: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b24: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b3: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b30: *none*\n - Shape _:n3d048f4eb57b42af8c6cba053563f2f3b17: *none*\n"
             },
             {
               "op": "shacl-report",
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/Activity>,\n                        schema1:Action,\n                        schema1:HowToStep ;\n                    schema1:additionalType \"bios:LabProcess\" ;\n                    schema1:description \"missing\" ;\n                    schema1:name \"Sample preparation\" ;\n                    schema1:position 1 ] ;\n            sh:resultMessage \"Less than 1 values on [ rdf:type cdi:Activity, schema1:Action, schema1:HowToStep ; schema1:additionalType Literal(\\\"bios:LabProcess\\\") ; schema1:description Literal(\\\"missing\\\") ; schema1:name Literal(\\\"Sample preparation\\\") ; schema1:position Literal(\\\"1\\\", datatype=xsd:integer) ]->schema1:target\" ;\n            sh:resultPath schema1:target ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:ne40bb94574f04058abe40e4b863c5f31b2 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <ex:uvfmTAPP-P0> ;\n            sh:resultMessage \"Less than 1 values on <ex:uvfmTAPP-P0>->schema1:target\" ;\n            sh:resultPath schema1:target ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:ne40bb94574f04058abe40e4b863c5f31b2 ] .\n\n_:N1adf453849f5452da6a1b7fac3e7f1bc sh:datatype xsd:string ;\n    sh:path schema1:httpMethod .\n\n_:N2671414602f942568348f0d8963956fa sh:datatype xsd:string ;\n    sh:path schema1:contentType .\n\n_:N63340d468085434c9a7100928f75c988 sh:datatype xsd:string ;\n    sh:message \"A web service distribution must include a URL; the CDIF schema allows URL Templates\" ;\n    sh:minCount 1 ;\n    sh:path schema1:urlTemplate .\n\n_:ne40bb94574f04058abe40e4b863c5f31b2 sh:class schema1:EntryPoint ;\n    sh:minCount 1 ;\n    sh:path schema1:target ;\n    sh:property _:N1adf453849f5452da6a1b7fac3e7f1bc,\n        _:N2671414602f942568348f0d8963956fa,\n        _:N63340d468085434c9a7100928f75c988 .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/Activity>,\n                        schema1:Action,\n                        schema1:HowToStep ;\n                    schema1:additionalType \"bios:LabProcess\" ;\n                    schema1:description \"missing\" ;\n                    schema1:name \"Sample preparation\" ;\n                    schema1:position 1 ] ;\n            sh:resultMessage \"Less than 1 values on [ rdf:type cdi:Activity, schema1:Action, schema1:HowToStep ; schema1:additionalType Literal(\\\"bios:LabProcess\\\") ; schema1:description Literal(\\\"missing\\\") ; schema1:name Literal(\\\"Sample preparation\\\") ; schema1:position Literal(\\\"1\\\", datatype=xsd:integer) ]->schema1:target\" ;\n            sh:resultPath schema1:target ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n9bb9d21e7273408ebdfeddf6bfc66279b2 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <ex:uvfmTAPP-P0> ;\n            sh:resultMessage \"Less than 1 values on <ex:uvfmTAPP-P0>->schema1:target\" ;\n            sh:resultPath schema1:target ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n9bb9d21e7273408ebdfeddf6bfc66279b2 ] .\n\n_:N3196d1a64ec9477d9bc4b397fd111da0 sh:datatype xsd:string ;\n    sh:message \"A web service distribution must include a URL; the CDIF schema allows URL Templates\" ;\n    sh:minCount 1 ;\n    sh:path schema1:urlTemplate .\n\n_:N376a871bd53c44b9bc95cccf7cc9ddf5 sh:datatype xsd:string ;\n    sh:path schema1:contentType .\n\n_:Nfdd60eed2dab4c399062ac1885fe7e9c sh:datatype xsd:string ;\n    sh:path schema1:httpMethod .\n\n_:n9bb9d21e7273408ebdfeddf6bfc66279b2 sh:class schema1:EntryPoint ;\n    sh:minCount 1 ;\n    sh:path schema1:target ;\n    sh:property _:N3196d1a64ec9477d9bc4b397fd111da0,\n        _:N376a871bd53c44b9bc95cccf7cc9ddf5,\n        _:Nfdd60eed2dab4c399062ac1885fe7e9c .\n\n",
               "isError": true,
-              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (2):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:class schema1:EntryPoint ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:target ; sh:property [ sh:datatype xsd:string ; sh:message Literal(\"A web service distribution must include a URL; the CDIF schema allows URL Templates\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:urlTemplate ], [ sh:datatype xsd:string ; sh:path schema1:contentType ], [ sh:datatype xsd:string ; sh:path schema1:httpMethod ] ]\n  \tFocus Node: [ rdf:type cdi:Activity, schema1:Action, schema1:HowToStep ; schema1:additionalType Literal(\"bios:LabProcess\") ; schema1:description Literal(\"missing\") ; schema1:name Literal(\"Sample preparation\") ; schema1:position Literal(\"1\", datatype=xsd:integer) ]\n  \tResult Path: schema1:target\n  \tMessage: Less than 1 values on [ rdf:type cdi:Activity, schema1:Action, schema1:HowToStep ; schema1:additionalType Literal(\"bios:LabProcess\") ; schema1:description Literal(\"missing\") ; schema1:name Literal(\"Sample preparation\") ; schema1:position Literal(\"1\", datatype=xsd:integer) ]->schema1:target\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:class schema1:EntryPoint ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:target ; sh:property [ sh:datatype xsd:string ; sh:message Literal(\"A web service distribution must include a URL; the CDIF schema allows URL Templates\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:urlTemplate ], [ sh:datatype xsd:string ; sh:path schema1:contentType ], [ sh:datatype xsd:string ; sh:path schema1:httpMethod ] ]\n  \tFocus Node: <ex:uvfmTAPP-P0>\n  \tResult Path: schema1:target\n  \tMessage: Less than 1 values on <ex:uvfmTAPP-P0>->schema1:target\n  "
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (2):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:class schema1:EntryPoint ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:target ; sh:property [ sh:datatype xsd:string ; sh:message Literal(\"A web service distribution must include a URL; the CDIF schema allows URL Templates\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:urlTemplate ], [ sh:datatype xsd:string ; sh:path schema1:contentType ], [ sh:datatype xsd:string ; sh:path schema1:httpMethod ] ]\n  \tFocus Node: <ex:uvfmTAPP-P0>\n  \tResult Path: schema1:target\n  \tMessage: Less than 1 values on <ex:uvfmTAPP-P0>->schema1:target\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:class schema1:EntryPoint ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:target ; sh:property [ sh:datatype xsd:string ; sh:message Literal(\"A web service distribution must include a URL; the CDIF schema allows URL Templates\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:urlTemplate ], [ sh:datatype xsd:string ; sh:path schema1:contentType ], [ sh:datatype xsd:string ; sh:path schema1:httpMethod ] ]\n  \tFocus Node: [ rdf:type cdi:Activity, schema1:Action, schema1:HowToStep ; schema1:additionalType Literal(\"bios:LabProcess\") ; schema1:description Literal(\"missing\") ; schema1:name Literal(\"Sample preparation\") ; schema1:position Literal(\"1\", datatype=xsd:integer) ]\n  \tResult Path: schema1:target\n  \tMessage: Less than 1 values on [ rdf:type cdi:Activity, schema1:Action, schema1:HowToStep ; schema1:additionalType Literal(\"bios:LabProcess\") ; schema1:description Literal(\"missing\") ; schema1:name Literal(\"Sample preparation\") ; schema1:position Literal(\"1\", datatype=xsd:integer) ]->schema1:target\n  "
             },
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl",
@@ -745,36 +745,36 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl",
               "focusNodes": {
-                "cdifd:CDIFDataDescriptionConformsToShape": {
-                  "nodes": []
-                },
-                "cdifd:dataDescriptionDatasetShape": {
-                  "nodes": []
-                },
                 "cdifd:dataDescriptionVariableShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:nc5c5bbb394674f5ab9a266c841d5bbe2b5": {
                   "nodes": []
                 },
                 "cdifd:structuredDataSetLocatorMappingShape": {
                   "nodes": []
                 },
-                "_:nd1babdc5d2a1408ca553f34ab7e27b08b6": {
-                  "nodes": []
-                },
-                "cdifd:dataDescriptionVariableShape": {
-                  "nodes": []
-                },
-                "_:nd1babdc5d2a1408ca553f34ab7e27b08b5": {
+                "_:nc5c5bbb394674f5ab9a266c841d5bbe2b6": {
                   "nodes": []
                 },
                 "cdifd:structuredDataSetLocatorMappingShape/sh:property/sh:node": {
                   "nodes": []
                 },
+                "cdifd:dataDescriptionVariableShape": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDataDescriptionConformsToShape": {
+                  "nodes": []
+                },
                 "cdifd:datasetScopeStatisticsShape": {
+                  "nodes": []
+                },
+                "cdifd:dataDescriptionDatasetShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl:\n - Shape cdifd:CDIFDataDescriptionConformsToShape: *none*\n - Shape cdifd:dataDescriptionDatasetShape: *none*\n - Shape cdifd:dataDescriptionVariableShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:structuredDataSetLocatorMappingShape: *none*\n - Shape _:nd1babdc5d2a1408ca553f34ab7e27b08b6: *none*\n - Shape cdifd:dataDescriptionVariableShape: *none*\n - Shape _:nd1babdc5d2a1408ca553f34ab7e27b08b5: *none*\n - Shape cdifd:structuredDataSetLocatorMappingShape/sh:property/sh:node: *none*\n - Shape cdifd:datasetScopeStatisticsShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl:\n - Shape cdifd:dataDescriptionVariableShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nc5c5bbb394674f5ab9a266c841d5bbe2b5: *none*\n - Shape cdifd:structuredDataSetLocatorMappingShape: *none*\n - Shape _:nc5c5bbb394674f5ab9a266c841d5bbe2b6: *none*\n - Shape cdifd:structuredDataSetLocatorMappingShape/sh:property/sh:node: *none*\n - Shape cdifd:dataDescriptionVariableShape: *none*\n - Shape cdifd:CDIFDataDescriptionConformsToShape: *none*\n - Shape cdifd:datasetScopeStatisticsShape: *none*\n - Shape cdifd:dataDescriptionDatasetShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -786,84 +786,84 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl",
               "focusNodes": {
-                "cdifd:CDIFInstanceVariableShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:QualifiesCoherenceShape": {
-                  "nodes": []
-                },
-                "_:n10714f670c4949a185a6dc013e13ab55b73": {
-                  "nodes": []
-                },
-                "_:n10714f670c4949a185a6dc013e13ab55b13": {
-                  "nodes": []
-                },
-                "_:n10714f670c4949a185a6dc013e13ab55b11": {
-                  "nodes": []
-                },
-                "_:n10714f670c4949a185a6dc013e13ab55b66": {
-                  "nodes": []
-                },
-                "_:n10714f670c4949a185a6dc013e13ab55b70": {
-                  "nodes": []
-                },
-                "_:n10714f670c4949a185a6dc013e13ab55b17": {
-                  "nodes": []
-                },
-                "_:n10714f670c4949a185a6dc013e13ab55b16": {
-                  "nodes": []
-                },
-                "cdifd:CDIFxasInstanceVariableShape/sh:property/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:QualifiesRequiredForAttributeShape": {
+                "_:ne0413181c95645bc812a82cda932a05eb71": {
                   "nodes": []
                 },
                 "cdifd:QualifiesNotAllowedWithoutAttributeShape": {
                   "nodes": []
                 },
-                "_:n10714f670c4949a185a6dc013e13ab55b71": {
+                "_:ne0413181c95645bc812a82cda932a05eb15": {
                   "nodes": []
                 },
-                "_:n10714f670c4949a185a6dc013e13ab55b75": {
+                "cdifd:CDIFxasInstanceVariableShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:n10714f670c4949a185a6dc013e13ab55b14": {
-                  "nodes": []
-                },
-                "cdifd:CDIFInstanceVariableShape": {
-                  "nodes": []
-                },
-                "_:n10714f670c4949a185a6dc013e13ab55b10": {
-                  "nodes": []
-                },
-                "_:n10714f670c4949a185a6dc013e13ab55b67": {
+                "_:ne0413181c95645bc812a82cda932a05eb18": {
                   "nodes": []
                 },
                 "cdifd:CDIFxasInstanceVariableShape": {
                   "nodes": []
                 },
-                "_:n10714f670c4949a185a6dc013e13ab55b69": {
+                "_:ne0413181c95645bc812a82cda932a05eb14": {
                   "nodes": []
                 },
                 "cdifd:InstanceVariableRepresentedVariableExclusivityShape": {
                   "nodes": []
                 },
-                "_:n10714f670c4949a185a6dc013e13ab55b20": {
+                "cdifd:QualifiesCoherenceShape": {
                   "nodes": []
                 },
-                "_:n10714f670c4949a185a6dc013e13ab55b72": {
+                "_:ne0413181c95645bc812a82cda932a05eb72": {
                   "nodes": []
                 },
-                "_:n10714f670c4949a185a6dc013e13ab55b18": {
+                "_:ne0413181c95645bc812a82cda932a05eb16": {
                   "nodes": []
                 },
-                "_:n10714f670c4949a185a6dc013e13ab55b15": {
+                "_:ne0413181c95645bc812a82cda932a05eb66": {
+                  "nodes": []
+                },
+                "_:ne0413181c95645bc812a82cda932a05eb67": {
+                  "nodes": []
+                },
+                "_:ne0413181c95645bc812a82cda932a05eb13": {
+                  "nodes": []
+                },
+                "_:ne0413181c95645bc812a82cda932a05eb20": {
+                  "nodes": []
+                },
+                "_:ne0413181c95645bc812a82cda932a05eb10": {
+                  "nodes": []
+                },
+                "_:ne0413181c95645bc812a82cda932a05eb11": {
+                  "nodes": []
+                },
+                "cdifd:CDIFInstanceVariableShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:ne0413181c95645bc812a82cda932a05eb75": {
+                  "nodes": []
+                },
+                "_:ne0413181c95645bc812a82cda932a05eb70": {
+                  "nodes": []
+                },
+                "cdifd:CDIFInstanceVariableShape": {
+                  "nodes": []
+                },
+                "_:ne0413181c95645bc812a82cda932a05eb17": {
+                  "nodes": []
+                },
+                "_:ne0413181c95645bc812a82cda932a05eb73": {
+                  "nodes": []
+                },
+                "cdifd:QualifiesRequiredForAttributeShape": {
+                  "nodes": []
+                },
+                "_:ne0413181c95645bc812a82cda932a05eb69": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl:\n - Shape cdifd:CDIFInstanceVariableShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:QualifiesCoherenceShape: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b73: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b13: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b11: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b66: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b70: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b17: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b16: *none*\n - Shape cdifd:CDIFxasInstanceVariableShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:QualifiesRequiredForAttributeShape: *none*\n - Shape cdifd:QualifiesNotAllowedWithoutAttributeShape: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b71: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b75: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b14: *none*\n - Shape cdifd:CDIFInstanceVariableShape: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b10: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b67: *none*\n - Shape cdifd:CDIFxasInstanceVariableShape: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b69: *none*\n - Shape cdifd:InstanceVariableRepresentedVariableExclusivityShape: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b20: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b72: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b18: *none*\n - Shape _:n10714f670c4949a185a6dc013e13ab55b15: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl:\n - Shape _:ne0413181c95645bc812a82cda932a05eb71: *none*\n - Shape cdifd:QualifiesNotAllowedWithoutAttributeShape: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb15: *none*\n - Shape cdifd:CDIFxasInstanceVariableShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb18: *none*\n - Shape cdifd:CDIFxasInstanceVariableShape: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb14: *none*\n - Shape cdifd:InstanceVariableRepresentedVariableExclusivityShape: *none*\n - Shape cdifd:QualifiesCoherenceShape: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb72: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb16: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb66: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb67: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb13: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb20: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb10: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb11: *none*\n - Shape cdifd:CDIFInstanceVariableShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb75: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb70: *none*\n - Shape cdifd:CDIFInstanceVariableShape: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb17: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb73: *none*\n - Shape cdifd:QualifiesRequiredForAttributeShape: *none*\n - Shape _:ne0413181c95645bc812a82cda932a05eb69: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -875,10 +875,10 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl",
               "focusNodes": {
-                "cdifd:cdifStatisticsShape": {
+                "cdifd:cdifCategoryStatisticShape": {
                   "nodes": []
                 },
-                "cdifd:cdifCategoryStatisticShape": {
+                "cdifd:cdifStatisticsShape": {
                   "nodes": []
                 },
                 "cdifd:cdifStatisticsCollectionShape": {
@@ -886,7 +886,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl:\n - Shape cdifd:cdifStatisticsShape: *none*\n - Shape cdifd:cdifCategoryStatisticShape: *none*\n - Shape cdifd:cdifStatisticsCollectionShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl:\n - Shape cdifd:cdifCategoryStatisticShape: *none*\n - Shape cdifd:cdifStatisticsShape: *none*\n - Shape cdifd:cdifStatisticsCollectionShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -898,66 +898,66 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl",
               "focusNodes": {
-                "_:nf1b1b052f62f4901aae452628986c017b37": {
+                "_:n1727b25547dc4a05bb802e44627ed928b52": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b10": {
+                "_:n1727b25547dc4a05bb802e44627ed928b7": {
+                  "nodes": []
+                },
+                "_:n1727b25547dc4a05bb802e44627ed928b8": {
                   "nodes": []
                 },
                 "cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b14": {
+                "_:n1727b25547dc4a05bb802e44627ed928b9": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b45": {
+                "_:n1727b25547dc4a05bb802e44627ed928b37": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b5": {
+                "_:n1727b25547dc4a05bb802e44627ed928b38": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b44": {
+                "_:n1727b25547dc4a05bb802e44627ed928b5": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b51": {
+                "_:n1727b25547dc4a05bb802e44627ed928b12": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b9": {
-                  "nodes": []
-                },
-                "_:nf1b1b052f62f4901aae452628986c017b12": {
-                  "nodes": []
-                },
-                "_:nf1b1b052f62f4901aae452628986c017b7": {
-                  "nodes": []
-                },
-                "_:nf1b1b052f62f4901aae452628986c017b30": {
+                "_:n1727b25547dc4a05bb802e44627ed928b10": {
                   "nodes": []
                 },
                 "cdifd:CDIFVariableMeasuredShape": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b38": {
+                "_:n1727b25547dc4a05bb802e44627ed928b51": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b52": {
+                "_:n1727b25547dc4a05bb802e44627ed928b45": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b4": {
+                "_:n1727b25547dc4a05bb802e44627ed928b11": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b29": {
+                "_:n1727b25547dc4a05bb802e44627ed928b44": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b8": {
+                "_:n1727b25547dc4a05bb802e44627ed928b30": {
                   "nodes": []
                 },
-                "_:nf1b1b052f62f4901aae452628986c017b11": {
+                "_:n1727b25547dc4a05bb802e44627ed928b29": {
+                  "nodes": []
+                },
+                "_:n1727b25547dc4a05bb802e44627ed928b4": {
+                  "nodes": []
+                },
+                "_:n1727b25547dc4a05bb802e44627ed928b14": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl:\n - Shape _:nf1b1b052f62f4901aae452628986c017b37: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b10: *none*\n - Shape cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b14: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b45: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b5: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b44: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b51: *none*\n - Shape cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b9: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b12: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b7: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b30: *none*\n - Shape cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFVariableMeasuredShape: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b38: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b52: *none*\n - Shape cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b4: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b29: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b8: *none*\n - Shape _:nf1b1b052f62f4901aae452628986c017b11: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl:\n - Shape _:n1727b25547dc4a05bb802e44627ed928b52: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b7: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b8: *none*\n - Shape cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b9: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b37: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b38: *none*\n - Shape cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b5: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b12: *none*\n - Shape cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b10: *none*\n - Shape cdifd:CDIFVariableMeasuredShape: *none*\n - Shape cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b51: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b45: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b11: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b44: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b30: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b29: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b4: *none*\n - Shape _:n1727b25547dc4a05bb802e44627ed928b14: *none*\n - Shape cdifd:CDIFVariableMeasuredShape/sh:property/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1003,15 +1003,15 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl",
               "focusNodes": {
-                "cdifd:cdifSentinelValueDomainShape": {
+                "cdifd:cdifSubstantiveValueDomainShape": {
                   "nodes": []
                 },
-                "cdifd:cdifSubstantiveValueDomainShape": {
+                "cdifd:cdifSentinelValueDomainShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl:\n - Shape cdifd:cdifSentinelValueDomainShape: *none*\n - Shape cdifd:cdifSubstantiveValueDomainShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl:\n - Shape cdifd:cdifSubstantiveValueDomainShape: *none*\n - Shape cdifd:cdifSentinelValueDomainShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1049,15 +1049,15 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl",
               "focusNodes": {
-                "cdifd:CDIFCodelistShape": {
+                "cdifd:CDIFCodelistConceptShape": {
                   "nodes": []
                 },
-                "cdifd:CDIFCodelistConceptShape": {
+                "cdifd:CDIFCodelistShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl:\n - Shape cdifd:CDIFCodelistShape: *none*\n - Shape cdifd:CDIFCodelistConceptShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl:\n - Shape cdifd:CDIFCodelistConceptShape: *none*\n - Shape cdifd:CDIFCodelistShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1069,13 +1069,7 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl",
               "focusNodes": {
-                "cdifd:cdifDataStructure_DataStructureShape": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDataStructureConformsToShape": {
-                  "nodes": []
-                },
-                "cdifd:cdifDataStructure_LongDataStructureShape": {
+                "cdifd:cdifDataStructure_DimensionalDataStructureShape": {
                   "nodes": []
                 },
                 "cdifd:cdifDataStructure_ForeignKeyShape": {
@@ -1084,15 +1078,21 @@
                 "cdifd:cdifDataStructure_inlineStructureShape": {
                   "nodes": []
                 },
-                "cdifd:cdifDataStructure_DimensionalDataStructureShape": {
+                "cdifd:cdifDataStructure_DataStructureShape": {
                   "nodes": []
                 },
                 "cdifd:cdifDataStructure_WideDataStructureShape": {
                   "nodes": []
+                },
+                "cdifd:CDIFDataStructureConformsToShape": {
+                  "nodes": []
+                },
+                "cdifd:cdifDataStructure_LongDataStructureShape": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl:\n - Shape cdifd:cdifDataStructure_DataStructureShape: *none*\n - Shape cdifd:CDIFDataStructureConformsToShape: *none*\n - Shape cdifd:cdifDataStructure_LongDataStructureShape: *none*\n - Shape cdifd:cdifDataStructure_ForeignKeyShape: *none*\n - Shape cdifd:cdifDataStructure_inlineStructureShape: *none*\n - Shape cdifd:cdifDataStructure_DimensionalDataStructureShape: *none*\n - Shape cdifd:cdifDataStructure_WideDataStructureShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl:\n - Shape cdifd:cdifDataStructure_DimensionalDataStructureShape: *none*\n - Shape cdifd:cdifDataStructure_ForeignKeyShape: *none*\n - Shape cdifd:cdifDataStructure_inlineStructureShape: *none*\n - Shape cdifd:cdifDataStructure_DataStructureShape: *none*\n - Shape cdifd:cdifDataStructure_WideDataStructureShape: *none*\n - Shape cdifd:CDIFDataStructureConformsToShape: *none*\n - Shape cdifd:cdifDataStructure_LongDataStructureShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1104,18 +1104,18 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl",
               "focusNodes": {
-                "cdifd:cdifDimensionComponentShape": {
+                "cdifd:cdifIdentifierComponentShape": {
                   "nodes": []
                 },
                 "cdifd:cdifVariableDescriptorComponentShape": {
                   "nodes": []
                 },
-                "cdifd:cdifIdentifierComponentShape": {
+                "cdifd:cdifDimensionComponentShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl:\n - Shape cdifd:cdifDimensionComponentShape: *none*\n - Shape cdifd:cdifVariableDescriptorComponentShape: *none*\n - Shape cdifd:cdifIdentifierComponentShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl:\n - Shape cdifd:cdifIdentifierComponentShape: *none*\n - Shape cdifd:cdifVariableDescriptorComponentShape: *none*\n - Shape cdifd:cdifDimensionComponentShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1127,15 +1127,15 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl",
               "focusNodes": {
-                "cdifd:cdifDescriptorValueDomainShape": {
+                "cdifd:cdifDescriptorVariableShape": {
                   "nodes": []
                 },
-                "cdifd:cdifDescriptorVariableShape": {
+                "cdifd:cdifDescriptorValueDomainShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl:\n - Shape cdifd:cdifDescriptorValueDomainShape: *none*\n - Shape cdifd:cdifDescriptorVariableShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl:\n - Shape cdifd:cdifDescriptorVariableShape: *none*\n - Shape cdifd:cdifDescriptorValueDomainShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1147,18 +1147,18 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl",
               "focusNodes": {
-                "cdifd:cdifRepresentedVariable_UnitTypeShape": {
+                "cdifd:cdifRepresentedVariable_ConceptSystemShape": {
                   "nodes": []
                 },
                 "cdifd:cdifRepresentedVariable_RepresentedVariableShape": {
                   "nodes": []
                 },
-                "cdifd:cdifRepresentedVariable_ConceptSystemShape": {
+                "cdifd:cdifRepresentedVariable_UnitTypeShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl:\n - Shape cdifd:cdifRepresentedVariable_UnitTypeShape: *none*\n - Shape cdifd:cdifRepresentedVariable_RepresentedVariableShape: *none*\n - Shape cdifd:cdifRepresentedVariable_ConceptSystemShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl:\n - Shape cdifd:cdifRepresentedVariable_ConceptSystemShape: *none*\n - Shape cdifd:cdifRepresentedVariable_RepresentedVariableShape: *none*\n - Shape cdifd:cdifRepresentedVariable_UnitTypeShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1170,18 +1170,18 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl",
               "focusNodes": {
-                "cdifd:CDIFManifestConformsToShape": {
+                "cdifd:CDIFArchiveHasPartShape": {
                   "nodes": []
                 },
                 "cdifd:CDIFManifestShape": {
                   "nodes": []
                 },
-                "cdifd:CDIFArchiveHasPartShape": {
+                "cdifd:CDIFManifestConformsToShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl:\n - Shape cdifd:CDIFManifestConformsToShape: *none*\n - Shape cdifd:CDIFManifestShape: *none*\n - Shape cdifd:CDIFArchiveHasPartShape: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl:\n - Shape cdifd:CDIFArchiveHasPartShape: *none*\n - Shape cdifd:CDIFManifestShape: *none*\n - Shape cdifd:CDIFManifestConformsToShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1210,18 +1210,18 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl",
               "focusNodes": {
-                "cdifd:tabularDataShape/sh:or/rdf:rest/rdf:first": {
+                "cdifd:tabularDataShape/sh:or/rdf:first": {
                   "nodes": []
                 },
                 "cdifd:tabularDataShape": {
                   "nodes": []
                 },
-                "cdifd:tabularDataShape/sh:or/rdf:first": {
+                "cdifd:tabularDataShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl:\n - Shape cdifd:tabularDataShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:tabularDataShape: *none*\n - Shape cdifd:tabularDataShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl:\n - Shape cdifd:tabularDataShape/sh:or/rdf:first: *none*\n - Shape cdifd:tabularDataShape: *none*\n - Shape cdifd:tabularDataShape/sh:or/rdf:rest/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1233,10 +1233,34 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl",
               "focusNodes": {
+                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
                 "cdifd:CDIFadditionalPropertyShape": {
                   "nodes": []
                 },
+                "cdifd:CDIFAddPropertyTermShape": {
+                  "nodes": []
+                },
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b31": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape": {
+                  "nodes": []
+                },
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b33": {
+                  "nodes": []
+                },
                 "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b28": {
+                  "nodes": []
+                },
+                "cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b21": {
                   "nodes": []
                 },
                 "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first": {
@@ -1245,62 +1269,38 @@
                 "cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first": {
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b30": {
                   "nodes": []
                 },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b31": {
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b6": {
                   "nodes": []
                 },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b6": {
-                  "nodes": []
-                },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b28": {
-                  "nodes": []
-                },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b20": {
-                  "nodes": []
-                },
-                "cdifd:CDIFAddPropertyTermShape": {
-                  "nodes": []
-                },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b21": {
-                  "nodes": []
-                },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b33": {
-                  "nodes": []
-                },
-                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b7": {
-                  "nodes": []
-                },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b30": {
-                  "nodes": []
-                },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b14": {
-                  "nodes": []
-                },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b29": {
-                  "nodes": []
-                },
-                "cdifd:PropertyIDUriShouldBeIRIShape": {
-                  "nodes": []
-                },
-                "_:n7e5f014d4c2045c6aa67b4f69f51b240b13": {
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b29": {
                   "nodes": []
                 },
                 "cdifd:AdditionalTypeUriShouldBeIRIShape": {
                   "nodes": [
                     "<ex:uvfmTAPP-P0>/schema1:actionProcess/schema1:step/schema1:additionalType"
                   ]
+                },
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b13": {
+                  "nodes": []
+                },
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b7": {
+                  "nodes": []
+                },
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b14": {
+                  "nodes": []
+                },
+                "cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "_:n52174df6cacd413e8bb0d7c3c1009e49b20": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n - Shape cdifd:CDIFadditionalPropertyShape: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b31: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b6: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b28: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b20: *none*\n - Shape cdifd:CDIFAddPropertyTermShape: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b21: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b33: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b7: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b30: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b14: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b29: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape: *none*\n - Shape _:n7e5f014d4c2045c6aa67b4f69f51b240b13: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: <ex:uvfmTAPP-P0>/schema1:actionProcess/schema1:step/schema1:additionalType\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFadditionalPropertyShape: *none*\n - Shape cdifd:CDIFAddPropertyTermShape: *none*\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b31: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape: *none*\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b33: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b28: *none*\n - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b21: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b30: *none*\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b6: *none*\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b29: *none*\n - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: <ex:uvfmTAPP-P0>/schema1:actionProcess/schema1:step/schema1:additionalType\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b13: *none*\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b7: *none*\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b14: *none*\n - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*\n - Shape _:n52174df6cacd413e8bb0d7c3c1009e49b20: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1325,41 +1325,43 @@
             {
               "op": "shacl-report",
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a schema1:HowTo ;\n                    schema1:step [ a <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/Activity>,\n                                schema1:Action,\n                                schema1:HowToStep ;\n                            schema1:additionalType \"bios:LabProcess\" ;\n                            schema1:description \"missing\" ;\n                            schema1:name \"Sample preparation\" ;\n                            schema1:position 1 ] ] ;\n            sh:resultMessage \"A HowTo methodology must have a schema:name\" ;\n            sh:resultPath schema1:name ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:message \"A HowTo methodology must have a schema:name\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:name ;\n                    sh:severity sh:Violation ] ] .\n\n",
-              "isError": true,
-              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:datatype xsd:string ; sh:message Literal(\"A HowTo methodology must have a schema:name\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path schema1:name ; sh:severity sh:Violation ]\n  \tFocus Node: [ rdf:type schema1:HowTo ; schema1:step [ rdf:type cdi:Activity, schema1:Action, schema1:HowToStep ; schema1:additionalType Literal(\"bios:LabProcess\") ; schema1:description Literal(\"missing\") ; schema1:name Literal(\"Sample preparation\") ; schema1:position Literal(\"1\", datatype=xsd:integer) ] ]\n  \tResult Path: schema1:name\n  \tMessage: A HowTo methodology must have a schema:name\n  "
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl",
               "focusNodes": {
-                "_:nd6a40e347a794fadbac6937ffd3205f5b13": {
-                  "nodes": []
-                },
-                "_:nd6a40e347a794fadbac6937ffd3205f5b22": {
+                "_:n8762879bd9454f0399496cd585a0eb86b35": {
                   "nodes": []
                 },
                 "cdifd:cdifProvActivityShape/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:nd6a40e347a794fadbac6937ffd3205f5b4": {
+                "_:n8762879bd9454f0399496cd585a0eb86b12": {
                   "nodes": []
                 },
-                "_:nd6a40e347a794fadbac6937ffd3205f5b35": {
+                "_:n8762879bd9454f0399496cd585a0eb86b21": {
+                  "nodes": []
+                },
+                "cdifd:cdifProvHowToShape": {
+                  "nodes": [
+                    "<ex:uvfmTAPP-P0>/schema1:actionProcess"
+                  ]
+                },
+                "_:n8762879bd9454f0399496cd585a0eb86b23": {
+                  "nodes": []
+                },
+                "_:n8762879bd9454f0399496cd585a0eb86b5": {
+                  "nodes": []
+                },
+                "_:n8762879bd9454f0399496cd585a0eb86b22": {
+                  "nodes": []
+                },
+                "_:n8762879bd9454f0399496cd585a0eb86b36": {
                   "nodes": []
                 },
                 "cdifd:cdifProvActivityShape": {
-                  "nodes": []
-                },
-                "_:nd6a40e347a794fadbac6937ffd3205f5b12": {
-                  "nodes": []
-                },
-                "_:nd6a40e347a794fadbac6937ffd3205f5b21": {
-                  "nodes": []
-                },
-                "_:nd6a40e347a794fadbac6937ffd3205f5b5": {
-                  "nodes": []
-                },
-                "_:nd6a40e347a794fadbac6937ffd3205f5b36": {
                   "nodes": []
                 },
                 "cdifd:cdifProvHowToStepShape": {
@@ -1367,17 +1369,15 @@
                     "<ex:uvfmTAPP-P0>/schema1:actionProcess/schema1:step"
                   ]
                 },
-                "cdifd:cdifProvHowToShape": {
-                  "nodes": [
-                    "<ex:uvfmTAPP-P0>/schema1:actionProcess"
-                  ]
+                "_:n8762879bd9454f0399496cd585a0eb86b13": {
+                  "nodes": []
                 },
-                "_:nd6a40e347a794fadbac6937ffd3205f5b23": {
+                "_:n8762879bd9454f0399496cd585a0eb86b4": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl:\n - Shape _:nd6a40e347a794fadbac6937ffd3205f5b13: *none*\n - Shape _:nd6a40e347a794fadbac6937ffd3205f5b22: *none*\n - Shape cdifd:cdifProvActivityShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:cdifProvActivityShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nd6a40e347a794fadbac6937ffd3205f5b4: *none*\n - Shape cdifd:cdifProvActivityShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:cdifProvActivityShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:nd6a40e347a794fadbac6937ffd3205f5b35: *none*\n - Shape cdifd:cdifProvActivityShape: *none*\n - Shape _:nd6a40e347a794fadbac6937ffd3205f5b12: *none*\n - Shape _:nd6a40e347a794fadbac6937ffd3205f5b21: *none*\n - Shape _:nd6a40e347a794fadbac6937ffd3205f5b5: *none*\n - Shape _:nd6a40e347a794fadbac6937ffd3205f5b36: *none*\n - Shape cdifd:cdifProvHowToStepShape: <ex:uvfmTAPP-P0>/schema1:actionProcess/schema1:step\n - Shape cdifd:cdifProvHowToShape: <ex:uvfmTAPP-P0>/schema1:actionProcess\n - Shape _:nd6a40e347a794fadbac6937ffd3205f5b23: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl:\n - Shape _:n8762879bd9454f0399496cd585a0eb86b35: *none*\n - Shape cdifd:cdifProvActivityShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n8762879bd9454f0399496cd585a0eb86b12: *none*\n - Shape _:n8762879bd9454f0399496cd585a0eb86b21: *none*\n - Shape cdifd:cdifProvActivityShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:cdifProvActivityShape/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:cdifProvHowToShape: <ex:uvfmTAPP-P0>/schema1:actionProcess\n - Shape _:n8762879bd9454f0399496cd585a0eb86b23: *none*\n - Shape _:n8762879bd9454f0399496cd585a0eb86b5: *none*\n - Shape _:n8762879bd9454f0399496cd585a0eb86b22: *none*\n - Shape cdifd:cdifProvActivityShape/sh:property/sh:or/rdf:first: *none*\n - Shape _:n8762879bd9454f0399496cd585a0eb86b36: *none*\n - Shape cdifd:cdifProvActivityShape: *none*\n - Shape cdifd:cdifProvHowToStepShape: <ex:uvfmTAPP-P0>/schema1:actionProcess/schema1:step\n - Shape _:n8762879bd9454f0399496cd585a0eb86b13: *none*\n - Shape _:n8762879bd9454f0399496cd585a0eb86b4: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1399,49 +1399,35 @@
             {
               "op": "shacl-report",
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl",
-              "graph": "@prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode _:Ndc7064a7297d4d13a796c309d560d6ca ;\n            sh:resultMessage \"A Term must have a name (label) or an identifier. It should have both!.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape cdifd:CDIFDefinedTermShape ;\n            sh:value _:Ndc7064a7297d4d13a796c309d560d6ca ] .\n\n_:Ndc7064a7297d4d13a796c309d560d6ca a schema1:DefinedTerm ;\n    schema1:termCode \"UV Fluorescence Microscopy\" .\n\n",
+              "graph": "@prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode _:Nd5fbdc820ab54b36bebe72f8864843a9 ;\n            sh:resultMessage \"A Term must have a name (label) or an identifier. It should have both!.\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:OrConstraintComponent ;\n            sh:sourceShape cdifd:CDIFDefinedTermShape ;\n            sh:value _:Nd5fbdc820ab54b36bebe72f8864843a9 ] .\n\n_:Nd5fbdc820ab54b36bebe72f8864843a9 a schema1:DefinedTerm ;\n    schema1:termCode \"UV Fluorescence Microscopy\" .\n\n",
               "isError": true,
               "message": "Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: cdifd:CDIFDefinedTermShape\n  \tFocus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal(\"UV Fluorescence Microscopy\") ]\n  \tValue Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal(\"UV Fluorescence Microscopy\") ]\n  \tMessage: A Term must have a name (label) or an identifier. It should have both!.\n  "
             },
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl",
               "focusNodes": {
-                "_:n346eec68156049589b245e2dbb55540cb9": {
+                "_:n2de32386b9d34501b54890eb8b035406b3": {
                   "nodes": []
                 },
-                "_:n346eec68156049589b245e2dbb55540cb40": {
+                "_:n2de32386b9d34501b54890eb8b035406b16": {
                   "nodes": []
                 },
-                "_:n346eec68156049589b245e2dbb55540cb15": {
+                "_:n2de32386b9d34501b54890eb8b035406b9": {
                   "nodes": []
                 },
-                "_:n346eec68156049589b245e2dbb55540cb4": {
+                "_:n2de32386b9d34501b54890eb8b035406b41": {
                   "nodes": []
                 },
-                "_:n346eec68156049589b245e2dbb55540cb41": {
+                "_:n2de32386b9d34501b54890eb8b035406b10": {
                   "nodes": []
                 },
-                "_:n346eec68156049589b245e2dbb55540cb38": {
+                "_:n2de32386b9d34501b54890eb8b035406b4": {
                   "nodes": []
                 },
-                "_:n346eec68156049589b245e2dbb55540cb39": {
+                "cdifd:geoShapeNode": {
                   "nodes": []
                 },
-                "_:n346eec68156049589b245e2dbb55540cb24": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape": {
-                  "nodes": [
-                    "<ex:uvfmTAPP-P0>/schema1:measurementTechnique"
-                  ]
-                },
-                "_:n346eec68156049589b245e2dbb55540cb10": {
-                  "nodes": []
-                },
-                "_:n346eec68156049589b245e2dbb55540cb42": {
-                  "nodes": []
-                },
-                "_:n346eec68156049589b245e2dbb55540cb29": {
+                "_:n2de32386b9d34501b54890eb8b035406b29": {
                   "nodes": []
                 },
                 "cdifd:spatialExtentProperty": {
@@ -1449,42 +1435,56 @@
                     "<ex:uvfmTAPP-P0>/schema1:location"
                   ]
                 },
-                "_:n346eec68156049589b245e2dbb55540cb13": {
-                  "nodes": []
-                },
-                "cdifd:geoCoordinatesNode": {
-                  "nodes": []
-                },
                 "cdifd:spatialExtentProperty/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:n346eec68156049589b245e2dbb55540cb44": {
+                "_:n2de32386b9d34501b54890eb8b035406b38": {
                   "nodes": []
                 },
-                "cdifd:geoShapeNode": {
-                  "nodes": []
-                },
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                "_:n2de32386b9d34501b54890eb8b035406b40": {
                   "nodes": []
                 },
                 "cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:n346eec68156049589b245e2dbb55540cb3": {
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:n346eec68156049589b245e2dbb55540cb16": {
+                "_:n2de32386b9d34501b54890eb8b035406b15": {
+                  "nodes": []
+                },
+                "_:n2de32386b9d34501b54890eb8b035406b39": {
+                  "nodes": []
+                },
+                "_:n2de32386b9d34501b54890eb8b035406b44": {
+                  "nodes": []
+                },
+                "cdifd:CDIFDefinedTermShape": {
+                  "nodes": [
+                    "<ex:uvfmTAPP-P0>/schema1:measurementTechnique"
+                  ]
+                },
+                "cdifd:geoCoordinatesNode": {
+                  "nodes": []
+                },
+                "_:n2de32386b9d34501b54890eb8b035406b24": {
+                  "nodes": []
+                },
+                "_:n2de32386b9d34501b54890eb8b035406b13": {
                   "nodes": []
                 },
                 "cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "cdifd:CDIFDefinedTermShape/sh:or/rdf:first": {
+                "cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
+                "_:n2de32386b9d34501b54890eb8b035406b42": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:\n - Shape _:n346eec68156049589b245e2dbb55540cb9: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb40: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb15: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb4: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb41: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb38: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb39: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb24: *none*\n - Shape cdifd:CDIFDefinedTermShape: <ex:uvfmTAPP-P0>/schema1:measurementTechnique\n - Shape _:n346eec68156049589b245e2dbb55540cb10: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb42: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb29: *none*\n - Shape cdifd:spatialExtentProperty: <ex:uvfmTAPP-P0>/schema1:location\n - Shape _:n346eec68156049589b245e2dbb55540cb13: *none*\n - Shape cdifd:geoCoordinatesNode: *none*\n - Shape cdifd:spatialExtentProperty/sh:or/rdf:first: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb44: *none*\n - Shape cdifd:geoShapeNode: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb3: *none*\n - Shape _:n346eec68156049589b245e2dbb55540cb16: *none*\n - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:\n - Shape _:n2de32386b9d34501b54890eb8b035406b3: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b16: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b9: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b41: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b10: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b4: *none*\n - Shape cdifd:geoShapeNode: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b29: *none*\n - Shape cdifd:spatialExtentProperty: <ex:uvfmTAPP-P0>/schema1:location\n - Shape cdifd:spatialExtentProperty/sh:or/rdf:first: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b38: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b40: *none*\n - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b15: *none*\n - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b39: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b44: *none*\n - Shape cdifd:CDIFDefinedTermShape: <ex:uvfmTAPP-P0>/schema1:measurementTechnique\n - Shape cdifd:geoCoordinatesNode: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b24: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b13: *none*\n - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape _:n2de32386b9d34501b54890eb8b035406b42: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1496,33 +1496,33 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl",
               "focusNodes": {
-                "cdifd:qualityMeasurementNode": {
+                "_:n064fc58d664c496a93794457ab4b7997b14": {
                   "nodes": []
                 },
                 "cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:n337987d8789e491ca5ea27c55fc7ccbab4": {
+                "_:n064fc58d664c496a93794457ab4b7997b13": {
                   "nodes": []
                 },
-                "_:n337987d8789e491ca5ea27c55fc7ccbab11": {
+                "cdifd:qualityMeasurementNode": {
                   "nodes": []
                 },
-                "_:n337987d8789e491ca5ea27c55fc7ccbab14": {
+                "_:n064fc58d664c496a93794457ab4b7997b11": {
                   "nodes": []
                 },
-                "_:n337987d8789e491ca5ea27c55fc7ccbab5": {
+                "_:n064fc58d664c496a93794457ab4b7997b12": {
                   "nodes": []
                 },
-                "_:n337987d8789e491ca5ea27c55fc7ccbab12": {
+                "_:n064fc58d664c496a93794457ab4b7997b5": {
                   "nodes": []
                 },
-                "_:n337987d8789e491ca5ea27c55fc7ccbab13": {
+                "_:n064fc58d664c496a93794457ab4b7997b4": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:\n - Shape cdifd:qualityMeasurementNode: *none*\n - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n337987d8789e491ca5ea27c55fc7ccbab4: *none*\n - Shape _:n337987d8789e491ca5ea27c55fc7ccbab11: *none*\n - Shape _:n337987d8789e491ca5ea27c55fc7ccbab14: *none*\n - Shape _:n337987d8789e491ca5ea27c55fc7ccbab5: *none*\n - Shape _:n337987d8789e491ca5ea27c55fc7ccbab12: *none*\n - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n337987d8789e491ca5ea27c55fc7ccbab13: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:\n - Shape _:n064fc58d664c496a93794457ab4b7997b14: *none*\n - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n064fc58d664c496a93794457ab4b7997b13: *none*\n - Shape cdifd:qualityMeasurementNode: *none*\n - Shape _:n064fc58d664c496a93794457ab4b7997b11: *none*\n - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n064fc58d664c496a93794457ab4b7997b12: *none*\n - Shape _:n064fc58d664c496a93794457ab4b7997b5: *none*\n - Shape _:n064fc58d664c496a93794457ab4b7997b4: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1534,39 +1534,39 @@
             {
               "shaclFile": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl",
               "focusNodes": {
+                "_:na9dfa435abe54ff88abbb67e11da8ab9b17": {
+                  "nodes": []
+                },
+                "_:na9dfa435abe54ff88abbb67e11da8ab9b4": {
+                  "nodes": []
+                },
+                "_:na9dfa435abe54ff88abbb67e11da8ab9b5": {
+                  "nodes": []
+                },
+                "cdifd:timePositionNode": {
+                  "nodes": []
+                },
+                "cdifd:temporalExtentProperty/sh:or/rdf:rest/rdf:first": {
+                  "nodes": []
+                },
                 "cdifd:temporalExtentProperty/sh:or/rdf:first": {
                   "nodes": []
                 },
                 "cdifd:timePositionNode/sh:property/sh:or/rdf:first": {
                   "nodes": []
                 },
-                "_:n34c71faedeab4059a6a2c33947fb2f56b4": {
-                  "nodes": []
-                },
-                "_:n34c71faedeab4059a6a2c33947fb2f56b5": {
-                  "nodes": []
-                },
-                "_:n34c71faedeab4059a6a2c33947fb2f56b17": {
-                  "nodes": []
-                },
-                "cdifd:timeIntervalNode": {
-                  "nodes": []
-                },
-                "_:n34c71faedeab4059a6a2c33947fb2f56b3": {
-                  "nodes": []
-                },
-                "cdifd:temporalExtentProperty/sh:or/rdf:rest/rdf:first": {
-                  "nodes": []
-                },
-                "cdifd:timePositionNode": {
+                "_:na9dfa435abe54ff88abbb67e11da8ab9b3": {
                   "nodes": []
                 },
                 "cdifd:timeInstantNode": {
                   "nodes": []
+                },
+                "cdifd:timeIntervalNode": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl:\n - Shape cdifd:temporalExtentProperty/sh:or/rdf:first: *none*\n - Shape cdifd:timePositionNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:n34c71faedeab4059a6a2c33947fb2f56b4: *none*\n - Shape _:n34c71faedeab4059a6a2c33947fb2f56b5: *none*\n - Shape _:n34c71faedeab4059a6a2c33947fb2f56b17: *none*\n - Shape cdifd:timeIntervalNode: *none*\n - Shape _:n34c71faedeab4059a6a2c33947fb2f56b3: *none*\n - Shape cdifd:temporalExtentProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:timePositionNode: *none*\n - Shape cdifd:timeInstantNode: *none*\n"
+              "message": "Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl:\n - Shape _:na9dfa435abe54ff88abbb67e11da8ab9b17: *none*\n - Shape _:na9dfa435abe54ff88abbb67e11da8ab9b4: *none*\n - Shape _:na9dfa435abe54ff88abbb67e11da8ab9b5: *none*\n - Shape cdifd:timePositionNode: *none*\n - Shape cdifd:temporalExtentProperty/sh:or/rdf:rest/rdf:first: *none*\n - Shape cdifd:temporalExtentProperty/sh:or/rdf:first: *none*\n - Shape cdifd:timePositionNode/sh:property/sh:or/rdf:first: *none*\n - Shape _:na9dfa435abe54ff88abbb67e11da8ab9b3: *none*\n - Shape cdifd:timeInstantNode: *none*\n - Shape cdifd:timeIntervalNode: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1595,18 +1595,18 @@
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
-                "cdifd:tappInstrumentParamSpecShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
                 "cdifd:provUsedInstrumentParamValueShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:tappInstrumentParamSpecShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
             },
             {
               "op": "shacl-report",

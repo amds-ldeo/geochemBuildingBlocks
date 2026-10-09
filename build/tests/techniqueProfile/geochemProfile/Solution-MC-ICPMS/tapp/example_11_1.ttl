@@ -11,7 +11,20 @@
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Parr bomb (3:1 7 M HNO3 : 28 M HF, 1 day at 150 °C and 2 days at 210 °C); aqua regia (dried, taken up for two more days on a hotplate); NaOH fusion (Si portion, silver crucibles, 720 °C, 13 min) — Methods" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "Parr bomb: 3:1 7 M HNO3 : 28 M HF; aqua regia: aqua regia; NaOH fusion: NaOH, then Milli-Q water and HNO3" ] ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -33,19 +46,7 @@
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Parr bomb (3:1 7 M HNO3 : 28 M HF, 1 day at 150 °C and 2 days at 210 °C); aqua regia (dried, taken up for two more days on a hotplate); NaOH fusion (Si portion, silver crucibles, 720 °C, 13 min) — Methods" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Parr bomb: 3:1 7 M HNO3 : 28 M HF; aqua regia: aqua regia; NaOH fusion: NaOH, then Milli-Q water and HNO3" ] ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,

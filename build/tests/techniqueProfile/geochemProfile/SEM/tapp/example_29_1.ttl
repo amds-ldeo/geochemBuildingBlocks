@@ -11,7 +11,15 @@
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -29,14 +37,7 @@
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <ex:instrument/SEM> ;

@@ -82,7 +82,8 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -180,7 +181,8 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -211,6 +213,7 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;

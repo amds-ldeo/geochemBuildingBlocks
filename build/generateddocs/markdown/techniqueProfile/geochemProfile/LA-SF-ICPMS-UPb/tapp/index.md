@@ -468,7 +468,8 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:measurementTechnique": [
     {
@@ -1044,7 +1045,8 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:measurementTechnique": [
     {
@@ -1167,6 +1169,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1178,19 +1181,19 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -1217,13 +1220,13 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "raster: raster scan over a few millimeters; Ge spots: spot — §2.2" ;
     ada:ablationSpotDurationDefault "20 s for the Ge spots — 'analyzed at 50 Hz for 20 s' (§2.2); the raster duration is not stated" ;
@@ -2079,7 +2082,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:measurementTechnique": [
     {
@@ -2773,7 +2777,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:measurementTechnique": [
     {
@@ -2886,6 +2891,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -2900,17 +2906,17 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Flat polished thick sections (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                    schema1:description "map — a single pass: 'The laser scanned a grid of parallel, adjacent lines' (§2.2.2)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "map — a single pass: 'The laser scanned a grid of parallel, adjacent lines' (§2.2.2)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -2934,14 +2940,14 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Calibration Factor and Determination Method" ],
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+            schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Reported Date Type" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "missing" ] ;
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "all: grid of parallel, adjacent lines — §2.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'" ;
     ada:ablationSpotDurationDefault "N/A — mapping mode" ;
@@ -3436,7 +3442,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Position relative to the metal-olivine rim — the line scans run \"from the olivine rim in the direction of the olivine core\" on large olivine crystals sited from the μXRF maps (p.4); the surface is pre-ablated before each analysis (p.3)",
   "schema:additionalProperty": [
@@ -4149,7 +4156,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Position relative to the metal-olivine rim \u2014 the line scans run \"from the olivine rim in the direction of the olivine core\" on large olivine crystals sited from the \u03bcXRF maps (p.4); the surface is pre-ablated before each analysis (p.3)",
   "schema:additionalProperty": [
@@ -4723,13 +4731,17 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "run 1 (major elements); run 2 (trace elements) — two line-scans on the same 400 µm line, each after pre-ablation; 'Every analysis was carried out 3 times' (§2.2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -4742,13 +4754,10 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ] ] ;
+                    schema1:description "run 1 (major elements); run 2 (trace elements) — two line-scans on the same 400 µm line, each after pre-ablation; 'Every analysis was carried out 3 times' (§2.2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -4773,13 +4782,13 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
+            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Reported Date Type" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "run 1: line scan, 400 µm; run 2: line scan on top of run 1, 400 µm — 'a second line-scan was completed on top of the first one' (§2.2.3)" ;
     ada:ablationSpotDurationDefault "50 s of sample ablation per 400 µm line, both runs — Table B1" ;
@@ -5731,7 +5740,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:measurementTechnique": [
     {
@@ -6422,7 +6432,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:measurementTechnique": [
     {
@@ -6536,6 +6547,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -6547,19 +6559,19 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -7103,7 +7115,8 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Freedom from inclusions, checked by SEM beforehand — the grains were \"low in inclusions, [but] were not devoid of them\", so \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5)",
   "schema:additionalProperty": [
@@ -7763,7 +7776,8 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Freedom from inclusions, checked by SEM beforehand \u2014 the grains were \"low in inclusions, [but] were not devoid of them\", so \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5)",
   "schema:additionalProperty": [
@@ -8273,18 +8287,8 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -8299,7 +8303,18 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
                     schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -8321,12 +8336,12 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Mittlefehldt (2024) GCA; Lee (Rice University) Excel data reduction spreadsheet" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
@@ -9054,7 +9069,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
   "ada:analysisSequenceDefault": "3 × NIST SRM 612 and 3 × North Chile, then blocks of ten unknowns, each followed by 2 × NIST SRM 612 and 2 × North Chile — Experimental section",
@@ -9721,7 +9737,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min\u207b\u00b9 (MFC 1) + 0.7 l min\u207b\u00b9 (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
   "ada:analysisSequenceDefault": "3 \u00d7 NIST SRM 612 and 3 \u00d7 North Chile, then blocks of ten unknowns, each followed by 2 \u00d7 NIST SRM 612 and 2 \u00d7 North Chile \u2014 Experimental section",
@@ -9994,6 +10011,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -10043,13 +10061,13 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             schema1:target [ schema1:name "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Reported Date Type" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "all: spot — Experimental section" ;
     ada:ablationSpotDurationDefault "40 s — '20 s of blank measurement (laser-firing with the shutter closed), followed by 40 s of sample ablation'" ;
@@ -10779,7 +10797,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell",
   "ada:analysisSequenceDefault": "1 min background, 3 × NIST SRM 612, 3 × North Chile, a 30 min measurement over the unknown area, then 3 × North Chile, 3 × NIST SRM 612 and background — Experimental section",
@@ -11446,7 +11465,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min\u207b\u00b9 (MFC 1) + 0.7 l min\u207b\u00b9 (MFC 2) in HelEx II cell",
   "ada:analysisSequenceDefault": "1 min background, 3 \u00d7 NIST SRM 612, 3 \u00d7 North Chile, a 30 min measurement over the unknown area, then 3 \u00d7 North Chile, 3 \u00d7 NIST SRM 612 and background \u2014 Experimental section",
@@ -11719,15 +11739,15 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -11739,11 +11759,12 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -11767,14 +11788,14 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "all: scanning (elemental mapping) — Experimental section" ;
     ada:ablationSpotDurationDefault "N/A — mapping mode" ;
