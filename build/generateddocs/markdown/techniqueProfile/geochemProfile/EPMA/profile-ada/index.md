@@ -65,13 +65,17 @@ validation and testing.
   "schema:description": "Example Electron Microprobe Analysis (EPMA) product metadata demonstrating properties defined by the adaEPMA profile. Mock data for testing and validation.",
   "schema:additionalType": [
     "Electron Microprobe Analysis (EPMA)",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adaicpms-example-001",
     "schema:url": "https://doi.org/10.99999/adaicpms-example-001"
   },
@@ -178,7 +182,9 @@ validation and testing.
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -270,7 +276,9 @@ validation and testing.
       ],
       "schema:description": "Primary measured quantity from Inductively Coupled Plasma Mass Spectrometry (ICP-MS) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/icpms_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/icpms_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -290,7 +298,9 @@ validation and testing.
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -343,7 +353,9 @@ validation and testing.
           "schema:name": "ALH84001_ICPMS_001.tif",
           "schema:description": "ICPMS data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:HRICPMSProcessed"
+            {
+              "@id": "ada:HRICPMSProcessed"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -382,7 +394,9 @@ validation and testing.
           "schema:name": "ALH84001_ICPMS_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:methodDescription"
+            {
+              "@id": "ada:methodDescription"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -494,13 +508,17 @@ validation and testing.
   "schema:description": "Example Electron Microprobe Analysis (EPMA) product metadata demonstrating properties defined by the adaEPMA profile. Mock data for testing and validation.",
   "schema:additionalType": [
     "Electron Microprobe Analysis (EPMA)",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adaicpms-example-001",
     "schema:url": "https://doi.org/10.99999/adaicpms-example-001"
   },
@@ -607,7 +625,9 @@ validation and testing.
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -699,7 +719,9 @@ validation and testing.
       ],
       "schema:description": "Primary measured quantity from Inductively Coupled Plasma Mass Spectrometry (ICP-MS) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/icpms_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/icpms_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -719,7 +741,9 @@ validation and testing.
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -772,7 +796,9 @@ validation and testing.
           "schema:name": "ALH84001_ICPMS_001.tif",
           "schema:description": "ICPMS data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:HRICPMSProcessed"
+            {
+              "@id": "ada:HRICPMSProcessed"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -811,7 +837,9 @@ validation and testing.
           "schema:name": "ALH84001_ICPMS_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:methodDescription"
+            {
+              "@id": "ada:methodDescription"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -902,8 +930,8 @@ validation and testing.
 
 ex:adaEPMA-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType "Electron Microprobe Analysis (EPMA)",
-        "ada:DataDeliveryPackage" ;
+    schema1:additionalType ada:DataDeliveryPackage,
+        "Electron Microprobe Analysis (EPMA)" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
             schema1:contributor [ a schema1:Person ;
@@ -945,14 +973,14 @@ ex:adaEPMA-example-001 a schema1:Dataset,
                     spdx:checksumValue "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2" ] ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:funder [ a schema1:Organization ;
-                    schema1:additionalType "schema:FundingAgency" ;
+                    schema1:additionalType schema1:FundingAgency ;
                     schema1:name "NASA - National Aeronautics and Space Administration" ] ;
             schema1:identifier [ a schema1:PropertyValue ;
                     schema1:propertyID "award number" ;
                     schema1:value "NNX17AE48G" ] ;
             schema1:name "Astromaterials Curation and Analysis" ] ;
     schema1:identifier [ a schema1:PropertyValue ;
-            schema1:propertyID "https://registry.identifiers.org/registry/doi" ;
+            schema1:propertyID <https://registry.identifiers.org/registry/doi> ;
             schema1:url "https://doi.org/10.99999/adaicpms-example-001" ;
             schema1:value "10.99999/adaicpms-example-001" ] ;
     schema1:keywords [ a schema1:DefinedTerm ;
@@ -991,7 +1019,7 @@ ex:adaICPMS-file-001 a cdi:TabularTextDataSet,
         schema1:MediaObject,
         ada:tabularData ;
     cdi:isDelimited true ;
-    schema1:additionalType "ada:HRICPMSProcessed" ;
+    schema1:additionalType ada:HRICPMSProcessed ;
     schema1:description "ICPMS data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
     schema1:name "ALH84001_ICPMS_001.tif" ;
@@ -1009,7 +1037,7 @@ ex:adaICPMS-file-001 a cdi:TabularTextDataSet,
 ex:adaICPMS-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
         ada:document ;
-    schema1:additionalType "ada:methodDescription" ;
+    schema1:additionalType ada:methodDescription ;
     schema1:description "Method description document for this analysis" ;
     schema1:encodingFormat "application/pdf" ;
     schema1:name "ALH84001_ICPMS_methods.pdf" ;
@@ -1045,7 +1073,7 @@ ex:adaICPMS-var-001 a cdi:InstanceVariable,
     schema1:alternateName "ICPMS primary measurement" ;
     schema1:description "Primary measured quantity from Inductively Coupled Plasma Mass Spectrometry (ICP-MS) analysis. This is example mock data for testing." ;
     schema1:name "measurement_value" ;
-    schema1:propertyID "https://ada.astromat.org/vocabulary/variables/icpms_primary" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/icpms_primary> ;
     schema1:unitText "counts" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
@@ -1057,7 +1085,7 @@ ex:adaICPMS-var-002 a cdi:InstanceVariable,
     schema1:alternateName "X coordinate" ;
     schema1:description "Horizontal position coordinate on sample surface." ;
     schema1:name "position_x" ;
-    schema1:propertyID "https://ada.astromat.org/vocabulary/variables/position_x" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/position_x> ;
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
 

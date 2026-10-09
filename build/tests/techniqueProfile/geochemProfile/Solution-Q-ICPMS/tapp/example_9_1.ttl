@@ -15,25 +15,10 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "HF-HNO3 attack (0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water, 3 h in an ultrasonic bath, then capped 12 h at 120 °C and 5 days at 220 °C, dried at 100 °C); HNO3-HCl step (0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O, sealed, 150 °C for 1 day, dried at 100 °C); HNO3 step (0.2 mL HNO3 + 0.2 mL H2O, 80 °C for 1 day, dried at 90 °C); final uptake (5 mL 0.5 M HNO3) — Acid digestion" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
@@ -42,7 +27,22 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Group-1; Group-2; Group-3 — the grouping of Yokoyama, Nagashima, et al. (2023), each on its own solution" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ] ] ;

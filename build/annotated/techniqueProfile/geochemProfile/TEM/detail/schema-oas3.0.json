@@ -1382,10 +1382,26 @@
           "x-jsonld-id": "http://schema.org/dateModified"
         },
         "schema:additionalType": {
-          "description": "Further classification of the activity type (e.g. schema:CreateAction for a production method).",
+          "description": "Further classification of the activity type (e.g. schema:CreateAction for a production method). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for. This was the last of the eight sites in #77 still rejecting the @id form -- with it widened, the conversion probe goes from 344/345 to 345/345.",
           "type": "array",
           "items": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@id"
+                ],
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
           },
           "x-jsonld-id": "http://schema.org/additionalType"
         },
@@ -4631,10 +4647,26 @@
           "x-jsonld-id": "http://schema.org/dateModified"
         },
         "schema:additionalType": {
-          "description": "Further classification of the activity type (e.g. schema:CreateAction for a production method).",
+          "description": "Further classification of the activity type (e.g. schema:CreateAction for a production method). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for. This was the last of the eight sites in #77 still rejecting the @id form -- with it widened, the conversion probe goes from 344/345 to 345/345.",
           "type": "array",
           "items": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@id"
+                ],
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
           },
           "x-jsonld-id": "http://schema.org/additionalType"
         },

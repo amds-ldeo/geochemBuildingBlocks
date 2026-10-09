@@ -81,7 +81,9 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -194,7 +196,9 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -245,7 +249,7 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
@@ -358,7 +362,9 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -471,7 +477,9 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -522,7 +530,7 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
@@ -635,7 +643,9 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -748,7 +758,9 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -799,7 +811,7 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
@@ -912,7 +924,9 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -1025,7 +1039,9 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -1076,7 +1092,7 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;

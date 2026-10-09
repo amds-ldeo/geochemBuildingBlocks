@@ -228,7 +228,9 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -241,7 +243,9 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -492,7 +496,9 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -505,7 +511,9 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -547,17 +555,17 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v83.csv)." ;
@@ -867,7 +875,9 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -880,7 +890,9 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -1111,7 +1123,9 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -1124,7 +1138,9 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -1167,17 +1183,17 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -1483,7 +1499,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -1496,7 +1514,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -1733,7 +1753,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -1746,7 +1768,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -1788,14 +1812,14 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
@@ -2106,7 +2130,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -2119,7 +2145,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -2356,7 +2384,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -2369,7 +2399,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -2411,14 +2443,14 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
@@ -2895,7 +2927,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           "schema:HowToStep"
         ],
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1
       },
@@ -2907,7 +2941,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -3321,7 +3357,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           "schema:HowToStep"
         ],
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1
       },
@@ -3333,7 +3371,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -3386,14 +3426,14 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ] ] ;
@@ -3459,10 +3499,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> ;
             ada:targetSpeciesDeclaration "N — no element set is stated for the SEM-EDS spot analyses; the list 'Mg, Si, Fe, Ni, S, Na, Ca, Al' formerly here is not in the paper" ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -3981,7 +4021,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           "schema:HowToStep"
         ],
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1
       },
@@ -3993,7 +4035,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -4407,7 +4451,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           "schema:HowToStep"
         ],
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1
       },
@@ -4419,7 +4465,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -4471,17 +4519,17 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -4553,10 +4601,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -4901,7 +4949,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           "schema:HowToStep"
         ],
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1
       },
@@ -4913,7 +4963,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -5161,7 +5213,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           "schema:HowToStep"
         ],
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1
       },
@@ -5173,7 +5227,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -5226,14 +5282,14 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
@@ -5275,10 +5331,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford AZtec" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford AZtec" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford AZtec (Point & ID programme)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5547,7 +5603,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           "schema:HowToStep"
         ],
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1
       },
@@ -5559,7 +5617,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -5807,7 +5867,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           "schema:HowToStep"
         ],
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1
       },
@@ -5819,7 +5881,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -5873,14 +5937,14 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ] ] ;
@@ -5922,10 +5986,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -6110,7 +6174,9 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -6123,7 +6189,9 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -6357,7 +6425,9 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -6370,7 +6440,9 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         ],
         "schema:name": "Data reduction",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 2,
         "ada:detectionLimitMethod": "missing"
@@ -6494,17 +6566,17 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
     schema1:instrument <ex:instrument/SEM> ;

@@ -81,7 +81,9 @@ their delivery-packaging vocabulary (see adaProduct).
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/geochemproduct-example-001",
     "schema:url": "https://doi.org/10.99999/geochemproduct-example-001"
   },
@@ -202,7 +204,9 @@ their delivery-packaging vocabulary (see adaProduct).
       ],
       "schema:description": "Measured element concentration from the analysis. Example mock data for testing.",
       "schema:propertyID": [
-        "https://example.org/vocabulary/variables/concentration"
+        {
+          "@id": "https://example.org/vocabulary/variables/concentration"
+        }
       ],
       "schema:unitText": "ppm",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -346,7 +350,9 @@ their delivery-packaging vocabulary (see adaProduct).
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/geochemproduct-example-001",
     "schema:url": "https://doi.org/10.99999/geochemproduct-example-001"
   },
@@ -467,7 +473,9 @@ their delivery-packaging vocabulary (see adaProduct).
       ],
       "schema:description": "Measured element concentration from the analysis. Example mock data for testing.",
       "schema:propertyID": [
-        "https://example.org/vocabulary/variables/concentration"
+        {
+          "@id": "https://example.org/vocabulary/variables/concentration"
+        }
       ],
       "schema:unitText": "ppm",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -611,7 +619,7 @@ ex:geochemProduct-example-001 a schema1:Dataset,
                     spdx:algorithm "SHA256" ;
                     spdx:checksumValue "b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3" ] ] ;
     schema1:identifier [ a schema1:PropertyValue ;
-            schema1:propertyID "https://registry.identifiers.org/registry/doi" ;
+            schema1:propertyID <https://registry.identifiers.org/registry/doi> ;
             schema1:url "https://doi.org/10.99999/geochemproduct-example-001" ;
             schema1:value "10.99999/geochemproduct-example-001" ] ;
     schema1:keywords "analytical data",
@@ -676,7 +684,7 @@ ex:geochemProduct-var-001 a cdi:InstanceVariable,
     schema1:alternateName "element concentration" ;
     schema1:description "Measured element concentration from the analysis. Example mock data for testing." ;
     schema1:name "concentration" ;
-    schema1:propertyID "https://example.org/vocabulary/variables/concentration" ;
+    schema1:propertyID <https://example.org/vocabulary/variables/concentration> ;
     schema1:unitText "ppm" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 

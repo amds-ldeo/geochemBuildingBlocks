@@ -15,25 +15,25 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Pettke (2012) — §3.2" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: Pettke (2012) — §3.2" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Li2B4O7 flux (350.0 ± 0.3 mg) and powdered sample (10.00 ± 0.03 mg) weighed into a small Pt–Au crucible, mixed with a glass rod, NH4Br solution added as a releasing agent, and fused into a mini glass disk on an M4 automatic fluxer; the disk measured for major elements by WD-XRF, then its surface cleaned with ethanol before fs-LA-ICP-MS (§2.3)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -61,13 +61,13 @@
             schema1:target [ schema1:name "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
+            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "all: Single spot — Table 1 'Ablation mode'" ;
     ada:ablationSpotDurationDefault "45 s ablation (after 25 s gas blank; 25 s washout between analyses)" ;

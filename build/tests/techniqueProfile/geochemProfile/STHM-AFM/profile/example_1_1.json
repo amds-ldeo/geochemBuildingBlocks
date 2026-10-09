@@ -22,13 +22,17 @@
   "schema:description": "Example path-driven STHMAFM product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Scanning Thermal Microscopy with AFM",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adaproduct-example-001",
     "schema:url": "https://doi.org/10.99999/adaproduct-example-001"
   },
@@ -136,7 +140,9 @@
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -172,7 +178,9 @@
                 {
                   "@id": "nxs:base_classes/NXinstrument.html"
                 },
-                "ada:ADAInstrument",
+                {
+                  "@id": "ada:ADAInstrument"
+                },
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
@@ -237,7 +245,9 @@
       ],
       "schema:description": "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -257,7 +267,9 @@
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -274,7 +286,9 @@
       "schema:name": "Sampling Unit Name",
       "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -291,7 +305,9 @@
       "schema:name": "Calibration Factor and Determination Method",
       "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -346,7 +362,9 @@
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:SThMCollection"
+            {
+              "@id": "ada:SThMCollection"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -377,7 +395,9 @@
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:SThMCollection"
+            {
+              "@id": "ada:SThMCollection"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"

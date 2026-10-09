@@ -75,13 +75,17 @@ Mock data for validation and testing.
   "schema:description": "Example X-ray Computed Tomography (XCT) product metadata demonstrating all properties defined by the adaXCT profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
     "X-ray Computed Tomography (XCT) Image Collection",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adaxct-example-001",
     "schema:url": "https://doi.org/10.99999/adaxct-example-001"
   },
@@ -189,7 +193,9 @@ Mock data for validation and testing.
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -281,7 +287,9 @@ Mock data for validation and testing.
       ],
       "schema:description": "Primary measured quantity from X-ray Computed Tomography (XCT) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/xct_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/xct_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -301,7 +309,9 @@ Mock data for validation and testing.
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -354,7 +364,9 @@ Mock data for validation and testing.
           "schema:name": "ALH84001_XCT_001.tif",
           "schema:description": "XCT data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:XCTImageCollection"
+            {
+              "@id": "ada:XCTImageCollection"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -385,7 +397,9 @@ Mock data for validation and testing.
           "schema:name": "ALH84001_XCT_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:methodDescription"
+            {
+              "@id": "ada:methodDescription"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -497,13 +511,17 @@ Mock data for validation and testing.
   "schema:description": "Example X-ray Computed Tomography (XCT) product metadata demonstrating all properties defined by the adaXCT profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
     "X-ray Computed Tomography (XCT) Image Collection",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adaxct-example-001",
     "schema:url": "https://doi.org/10.99999/adaxct-example-001"
   },
@@ -611,7 +629,9 @@ Mock data for validation and testing.
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -703,7 +723,9 @@ Mock data for validation and testing.
       ],
       "schema:description": "Primary measured quantity from X-ray Computed Tomography (XCT) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/xct_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/xct_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -723,7 +745,9 @@ Mock data for validation and testing.
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -776,7 +800,9 @@ Mock data for validation and testing.
           "schema:name": "ALH84001_XCT_001.tif",
           "schema:description": "XCT data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:XCTImageCollection"
+            {
+              "@id": "ada:XCTImageCollection"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -807,7 +833,9 @@ Mock data for validation and testing.
           "schema:name": "ALH84001_XCT_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:methodDescription"
+            {
+              "@id": "ada:methodDescription"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -898,8 +926,8 @@ Mock data for validation and testing.
 
 ex:adaXCT-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType "X-ray Computed Tomography (XCT) Image Collection",
-        "ada:DataDeliveryPackage" ;
+    schema1:additionalType ada:DataDeliveryPackage,
+        "X-ray Computed Tomography (XCT) Image Collection" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
             schema1:contributor [ a schema1:Person ;
@@ -941,14 +969,14 @@ ex:adaXCT-example-001 a schema1:Dataset,
                     spdx:checksumValue "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2" ] ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:funder [ a schema1:Organization ;
-                    schema1:additionalType "schema:FundingAgency" ;
+                    schema1:additionalType schema1:FundingAgency ;
                     schema1:name "NASA - National Aeronautics and Space Administration" ] ;
             schema1:identifier [ a schema1:PropertyValue ;
                     schema1:propertyID "award number" ;
                     schema1:value "NNX17AE48G" ] ;
             schema1:name "Astromaterials Curation and Analysis" ] ;
     schema1:identifier [ a schema1:PropertyValue ;
-            schema1:propertyID "https://registry.identifiers.org/registry/doi" ;
+            schema1:propertyID <https://registry.identifiers.org/registry/doi> ;
             schema1:url "https://doi.org/10.99999/adaxct-example-001" ;
             schema1:value "10.99999/adaxct-example-001" ] ;
     schema1:keywords [ a schema1:DefinedTerm ;
@@ -987,7 +1015,7 @@ ex:adaXCT-example-001 a schema1:Dataset,
 ex:adaXCT-file-001 a schema1:Collection,
         schema1:MediaObject,
         ada:collection ;
-    schema1:additionalType "ada:XCTImageCollection" ;
+    schema1:additionalType ada:XCTImageCollection ;
     schema1:description "XCT data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
     schema1:name "ALH84001_XCT_001.tif" ;
@@ -1002,7 +1030,7 @@ ex:adaXCT-file-001 a schema1:Collection,
 ex:adaXCT-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
         ada:document ;
-    schema1:additionalType "ada:methodDescription" ;
+    schema1:additionalType ada:methodDescription ;
     schema1:description "Method description document for this analysis" ;
     schema1:encodingFormat "application/pdf" ;
     schema1:name "ALH84001_XCT_methods.pdf" ;
@@ -1038,7 +1066,7 @@ ex:adaXCT-var-001 a cdi:InstanceVariable,
     schema1:alternateName "XCT primary measurement" ;
     schema1:description "Primary measured quantity from X-ray Computed Tomography (XCT) analysis. This is example mock data for testing." ;
     schema1:name "measurement_value" ;
-    schema1:propertyID "https://ada.astromat.org/vocabulary/variables/xct_primary" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/xct_primary> ;
     schema1:unitText "counts" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
@@ -1050,7 +1078,7 @@ ex:adaXCT-var-002 a cdi:InstanceVariable,
     schema1:alternateName "X coordinate" ;
     schema1:description "Horizontal position coordinate on sample surface." ;
     schema1:name "position_x" ;
-    schema1:propertyID "https://ada.astromat.org/vocabulary/variables/position_x" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/position_x> ;
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
 

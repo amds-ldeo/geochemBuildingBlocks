@@ -78,7 +78,9 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -183,7 +185,9 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -229,7 +233,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
@@ -333,7 +337,9 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -438,7 +444,9 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -484,7 +492,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
@@ -588,7 +596,9 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -693,7 +703,9 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
         ],
         "schema:name": "Sample preparation",
         "schema:additionalType": [
-          "bios:LabProcess"
+          {
+            "@id": "bios:LabProcess"
+          }
         ],
         "schema:position": 1,
         "schema:description": "missing"
@@ -739,7 +751,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;

@@ -22,13 +22,17 @@
   "schema:description": "Example X-ray Computed Tomography (XCT) product metadata demonstrating all properties defined by the adaXCT profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
     "X-ray Computed Tomography (XCT) Image Collection",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.99999/adaxct-example-001",
     "schema:url": "https://doi.org/10.99999/adaxct-example-001"
   },
@@ -136,7 +140,9 @@
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -228,7 +234,9 @@
       ],
       "schema:description": "Primary measured quantity from X-ray Computed Tomography (XCT) analysis. This is example mock data for testing.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/xct_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/xct_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -248,7 +256,9 @@
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -301,7 +311,9 @@
           "schema:name": "ALH84001_XCT_001.tif",
           "schema:description": "XCT data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:XCTImageCollection"
+            {
+              "@id": "ada:XCTImageCollection"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -332,7 +344,9 @@
           "schema:name": "ALH84001_XCT_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:methodDescription"
+            {
+              "@id": "ada:methodDescription"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
