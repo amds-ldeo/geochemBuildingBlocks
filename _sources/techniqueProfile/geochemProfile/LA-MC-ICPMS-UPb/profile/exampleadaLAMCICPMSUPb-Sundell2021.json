@@ -22,13 +22,17 @@
   "schema:description": "Zircon U-Pb dates acquired by multi-collector LA-ICP-MS at 120, 300, 600 and 1200 analyses per hour (30, 12, 6 and 3 s per analysis), demonstrated on twelve zircon reference materials with dates from ~3465 to ~28 Ma and on detrital zircons from sandstone sample CP40. Mean offset from high-precision dates rises from 0.9% to 1.1% with rate; mean random 1s uncertainty from 0.6% to 1.3%.",
   "schema:additionalType": [
     "Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
     ],
-    "schema:propertyID": "https://registry.identifiers.org/registry/doi",
+    "schema:propertyID": {
+      "@id": "https://registry.identifiers.org/registry/doi"
+    },
     "schema:value": "10.1111/ggr.12355",
     "schema:url": "https://doi.org/10.1111/ggr.12355"
   },
@@ -134,7 +138,9 @@
           "schema:Organization"
         ],
         "schema:additionalType": [
-          "schema:FundingAgency"
+          {
+            "@id": "schema:FundingAgency"
+          }
         ],
         "schema:name": "NASA - National Aeronautics and Space Administration"
       }
@@ -642,7 +648,9 @@
       ],
       "schema:description": "Identifier of the sampling unit each row reports -- one laser-ablation spot of the Sundell, Gehrels & Pecha 2021 session. The procedure states only the KIND of sampling unit; which unit a result belongs to, and hence which target material it sampled, can be stated only in the data table, so the identifier is a measured variable rather than procedure metadata.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/samplingUnitName"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/samplingUnitName"
+        }
       ],
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#string",
       "cdi:role": "IdentifierComponent",
@@ -660,7 +668,9 @@
       ],
       "schema:description": "Horizontal position coordinate on sample surface.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/position_x"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/position_x"
+        }
       ],
       "schema:unitText": "um",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -677,7 +687,9 @@
       "schema:name": "Goodness-of-Fit or Dispersion Statistic",
       "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -695,7 +707,9 @@
       "schema:name": "Radiogenic Fraction of Measured Signal",
       "schema:description": "Radiogenic Fraction of Measured Signal reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -713,7 +727,9 @@
       "schema:name": "Age Datum / Reference Epoch",
       "schema:description": "Age Datum / Reference Epoch reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -731,7 +747,9 @@
       "schema:name": "Limit of Quantification (LOQ) Method",
       "schema:description": "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -749,7 +767,9 @@
       "schema:name": "Detection Limit",
       "schema:description": "Detection Limit reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -767,7 +787,9 @@
       "schema:name": "Calibration Factor and Determination Method",
       "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -785,7 +807,9 @@
       "schema:name": "Age Calculation Method",
       "schema:description": "Age Calculation Method reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -803,7 +827,9 @@
       "schema:name": "Reported Date Type",
       "schema:description": "Reported Date Type reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -821,7 +847,9 @@
       "schema:name": "Inherited or Initial Signal Correction",
       "schema:description": "Inherited or Initial Signal Correction reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -839,7 +867,9 @@
       "schema:name": "Age Model",
       "schema:description": "Age Model reported for this dataset. Example value.",
       "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        {
+          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
+        }
       ],
       "schema:unitText": "counts",
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
@@ -894,7 +924,9 @@
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:LAICPMSGeochronTabular"
+            {
+              "@id": "ada:LAICPMSGeochronTabular"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -925,7 +957,9 @@
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:LAICPMSGeochronTabular"
+            {
+              "@id": "ada:LAICPMSGeochronTabular"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"

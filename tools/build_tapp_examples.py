@@ -834,6 +834,68 @@ def fill_required_sentinels(inst, tapp_dir):
             inst[key] = got
 
 
+# A value on schema:additionalType or schema:propertyID that IS an identifier has to be
+# serialized as a JSON-LD IRI reference, not as a string literal. CDIF's
+# schemaorgProperties/additionalProperty SHACL reports a bare literal at sh:Violation
+# severity -- 740 of ~2,499 violations in the build, the largest single class -- because
+# "ada:DataDeliveryPackage" as a string stays a literal that merely LOOKS like a URI and
+# resolves to nothing.
+#
+# The shape is equally explicit that free labels must NOT be converted: "MaterialSample",
+# "award number", "Electron Source", "SEM", "Torch" are names, not identifiers, and stay
+# strings. _IS_IRI is therefore deliberately conservative -- a prefix, a colon and no
+# whitespace. Measured over the corpus it separates 1,542 identifier occurrences from
+# 1,397 free-label ones with nothing misfiled either way.
+#
+# Only safe because every schema site these two properties are written to now admits
+# anyOf[string, {@id}] (#77 step 1, completed in the commit before this one). Running it
+# earlier would have traded 740 SHACL violations for 272 hard JSON Schema failures.
+_IS_IRI = re.compile(r"^[A-Za-z][\w.-]*:[^\s]+$")
+_IRI_PROPS = ("schema:additionalType", "schema:propertyID")
+
+
+def _as_iri_ref(value):
+    """{"@id": value} when value is an identifier, else value untouched."""
+    if isinstance(value, str) and _IS_IRI.match(value):
+        return {"@id": value}
+    return value
+
+
+def idify_uri_values(inst):
+    """Serialize identifier values on _IRI_PROPS as IRI references. Returns the count.
+
+    A post-pass rather than an edit at each write site: these values are set in many
+    places across build_tapp, _tapp_lib and the path-driven emitter, and one pass over
+    the finished instance cannot miss a site the way hunting them individually would.
+    Idempotent -- a value already in {"@id": ...} form is left alone -- so a later full
+    regeneration converges rather than double-wrapping.
+    """
+    converted = 0
+
+    def walk(node):
+        nonlocal converted
+        if isinstance(node, dict):
+            for key, value in list(node.items()):
+                if key in _IRI_PROPS:
+                    if isinstance(value, list):
+                        new = [_as_iri_ref(v) for v in value]
+                        converted += sum(1 for a, b in zip(value, new) if a is not b)
+                        node[key] = new
+                    else:
+                        new = _as_iri_ref(value)
+                        if new is not value:
+                            converted += 1
+                        node[key] = new
+                else:
+                    walk(value)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value)
+
+    walk(inst)
+    return converted
+
+
 def name_unnamed_howtos(inst):
     """Give every schema:HowTo a schema:name, which CDIF's SHACL requires.
 
@@ -1525,6 +1587,7 @@ def main():
             # ProductModel -- so re-run it, then let the validator-driven pass take the rest.
             type_instrument_tree(inst)
             ex.fill_required_types(inst, tapp_res)
+        idify_uri_values(inst)
         fp = os.path.join(TAPP_DIR, f"example{tapp}-{code}.json")
         with open(fp, "w", encoding="utf-8", newline="\n") as f:
             json.dump(inst, f, indent=2, ensure_ascii=False)
@@ -1545,6 +1608,7 @@ def main():
             sentinel_pinned_members(dinst, detail_res)
             type_instrument_tree(dinst)
             ex.fill_required_types(dinst, detail_res)
+        idify_uri_values(dinst)
         with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),
                   "w", encoding="utf-8", newline="\n") as f:
             json.dump(dinst, f, indent=2, ensure_ascii=False)
