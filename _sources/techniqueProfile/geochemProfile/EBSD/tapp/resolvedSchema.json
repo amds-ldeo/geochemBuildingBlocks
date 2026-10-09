@@ -3576,62 +3576,784 @@
       ]
     },
     {
+      "title": "Core on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
+        "schema:name": {
+          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — target species, material, or feature.",
+          "type": "string"
+        },
+        "schema:measurementTechnique": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:termCode": {
+                "description": "Top-level analytical technique identifier.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "schema:termCode"
+            ]
+          }
+        },
+        "schema:creator": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schema:name"
+          ]
+        },
+        "schema:location": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Name of the laboratory or institution hosting the instrument.",
+              "type": "string"
+            },
+            "schema:identifier": {
+              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schema:name"
+          ]
+        },
+        "schema:datePublished": {
+          "description": "First date this procedure configuration was used in production.",
+          "type": "string"
+        },
+        "schema:funding": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "schema:relatedLink": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "techniquePublication"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "coupledTechnique"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Name the instrument, laboratory or purpose alongside each technique where known, and join multiple techniques with '; '. Enter \"None\" if no coupling is intended.",
+                          "type": "string"
+                        },
+                        "schema:description": {
+                          "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
         "ada:samplingUnitType": {
           "description": "The kind of physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels. The units themselves are listed in Sampling Unit Name.",
           "type": "string"
         },
-        "ada:samplePreparationMethodDefault": {
-          "description": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form — for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.",
-          "type": "string"
-        },
-        "ada:samplingUnitSelectionCriteriaDefault": {
-          "description": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.",
-          "type": "string"
-        },
-        "ada:dataProcessingSoftwareDefault": {
-          "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
-          "type": "string"
-        },
-        "ada:analyticalMode": {
-          "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Applies even where a procedure defines no mode flag columns.",
+        "bios:computationalTool": {
           "type": "array",
           "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                }
+              }
+            ],
+            "required": [
+              "ada:toolRole"
+            ]
+          }
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Applies even where a procedure defines no mode flag columns.",
             "type": "string"
           }
         },
-        "ada:reportedVariablesAndUnits": {
-          "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+        "ada:reportedProperties": {
+          "type": "array",
+          "items": {
+            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+            "type": "string"
+          }
+        },
+        "schema:description": {
+          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
           "type": "string"
         },
-        "ada:calibrationFactorAndDeterminationMethodDefault": {
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+        "schema:actionProcess": {
+          "type": "object",
+          "properties": {
+            "schema:step": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/WorkflowStep"
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Sample preparation"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:description": {
+                          "description": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form — for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.",
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "schema:description"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Sample preparation"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "ada:samplingUnitType",
+        "schema:datePublished",
+        "schema:name"
+      ]
+    },
+    {
+      "title": "SamplingUnitSelection on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "ada:samplingUnitSelectionCriteriaDefault": {
+          "description": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.",
           "type": "string"
+        }
+      },
+      "required": [
+        "ada:samplingUnitSelectionCriteriaDefault"
+      ]
+    },
+    {
+      "title": "CalibrationFactor on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Calibration Factor and Determination Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:defaultValue": {
+                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "schema:defaultValue"
+                  ]
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:name": {
+                    "const": "Calibration Factor and Determination Method"
+                  }
+                },
+                "required": [
+                  "schema:name"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema:creator": {
+          "type": "object",
+          "properties": {
+            "schema:description": {
+              "description": "Provenance of this TAPP definition: how the definition itself came to be, as distinct from the method it describes. Use it to state that the definition was transcribed from a published protocol, derived from existing metadata records rather than authored by the laboratory, or produced automatically and reviewed by a person. Optional -- a laboratory-authored TAPP needs nothing here. Recorded on schema:creator.schema:description.",
+              "type": "string",
+              "readOnly": true
+            }
+          },
+          "required": [
+            "schema:description"
+          ]
+        },
+        "ada:targetMaterial": {
+          "description": "General description of the material type(s) this procedure is designed to analyse.",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Silicate mineral",
+                "Silicate glass",
+                "Oxide",
+                "Sulfide",
+                "Carbonate",
+                "Phosphate",
+                "Metal or alloy",
+                "Organic matter",
+                "Bulk regolith or soil",
+                "Meteorite (bulk)",
+                "Ice or hydrate",
+                "Synthetic analogue",
+                "N/A",
+                "None",
+                "missing"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "readOnly": true
+        },
+        "schema:object": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "@type": {
+                      "contains": {
+                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:additionalProperty": {
+                      "type": "array",
+                      "items": {
+                        "title": "Pre-Analysis Imaging and Screening",
+                        "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "const": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault"
+                          },
+                          "@type": {
+                            "const": [
+                              "schema:PropertyValueSpecification"
+                            ]
+                          },
+                          "schema:valueName": {
+                            "const": "preAnalysisImagingAndScreeningDefault"
+                          },
+                          "schema:name": {
+                            "const": "Pre-Analysis Imaging and Screening"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "ada:fieldScope": {
+                            "const": "session"
+                          },
+                          "schema:readonlyValue": {
+                            "const": false
+                          },
+                          "ada:tier": {
+                            "const": "R"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType",
+                          "ada:fieldScope"
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "title": "Pre-Analysis Imaging and Screening",
+                            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "preAnalysisImagingAndScreeningDefault"
+                              },
+                              "schema:name": {
+                                "const": "Pre-Analysis Imaging and Screening"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "ada:instrumentManufacturer": {
+          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+          "type": "string",
+          "enum": [
+            "WITec",
+            "Renishaw",
+            "HORIBA",
+            "Bruker",
+            "Thermo Fisher Scientific",
+            "Custom-built",
+            "Unknown",
+            "N/A",
+            "None",
+            "missing"
+          ],
+          "readOnly": true
+        },
+        "ada:instrumentModel": {
+          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
+          "type": "string",
+          "readOnly": true
         },
         "ada:constantsAndReferenceValuesUsedDefault": {
           "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
           "type": "string"
         },
-        "ada:acceleratingVoltageDefault": {
-          "description": "Electron beam accelerating voltage.",
-          "anyOf": [
+        "schema:instrument": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "SEM"
+                      },
+                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "ada:acceleratingVoltageDefault": {
+                      "description": "Electron beam accelerating voltage.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "ada:beamCurrentDefault": {
+                      "description": "Beam current at the sample.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "schema:hasPart": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "EBSD Detector"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "ada:ebsdCameraSpeedSetting": {
+                                  "description": "Named camera speed mode of the EBSD detector. Recorded separately from the pattern resolution it implies: the two are distinct settings even though the source states them together as \"Speed 1 (622 x 512 pixels)\".",
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "Speed 1",
+                                        "missing"
+                                      ],
+                                      "readOnly": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "enum": [
+                                          "Speed 1",
+                                          "missing"
+                                        ],
+                                        "readOnly": true
+                                      }
+                                    }
+                                  ]
+                                },
+                                "ada:ebsdPatternResolution": {
+                                  "description": "Pattern resolution in detector pixels, the second half of the source's \"Speed 1 (622 x 512 pixels)\".",
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "readOnly": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "readOnly": true
+                                      }
+                                    }
+                                  ]
+                                },
+                                "ada:ebsdCameraGain": {
+                                  "description": "Gain applied to the EBSD camera.",
+                                  "anyOf": [
+                                    {
+                                      "type": "integer"
+                                    },
+                                    {
+                                      "type": "string"
+                                    }
+                                  ],
+                                  "readOnly": true
+                                }
+                              },
+                              "required": [
+                                "ada:ebsdCameraGain",
+                                "ada:ebsdCameraSpeedSetting",
+                                "ada:ebsdPatternResolution"
+                              ]
+                            }
+                          },
+                          {
+                            "if": {
+                              "properties": {
+                                "schema:additionalType": {
+                                  "contains": {
+                                    "const": "EDS Detector"
+                                  },
+                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
+                            },
+                            "then": {
+                              "properties": {
+                                "schema:model": {
+                                  "type": "object",
+                                  "properties": {
+                                    "schema:name": {
+                                      "description": "EDS detector coupled to the EBSD system.",
+                                      "type": "string",
+                                      "readOnly": true
+                                    }
+                                  },
+                                  "required": [
+                                    "schema:name"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "schema:model"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "EBSD Detector"
+                                }
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        },
+                        {
+                          "contains": {
+                            "properties": {
+                              "schema:additionalType": {
+                                "contains": {
+                                  "const": "EDS Detector"
+                                },
+                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                              }
+                            },
+                            "required": [
+                              "schema:additionalType"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "ada:acceleratingVoltageDefault",
+                    "ada:beamCurrentDefault"
+                  ]
+                }
+              }
+            ]
+          },
+          "allOf": [
             {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:beamCurrentDefault": {
-          "description": "Beam current at the sample.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
+              "contains": {
+                "properties": {
+                  "schema:additionalType": {
+                    "contains": {
+                      "const": "SEM"
+                    },
+                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                  }
+                },
+                "required": [
+                  "schema:additionalType"
+                ]
+              }
             }
           ]
         },
@@ -3644,204 +4366,171 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "readOnly": true
         },
-        "ada:ebsdCameraSpeedSetting": {
-          "description": "Named camera speed mode of the EBSD detector. Recorded separately from the pattern resolution it implies: the two are distinct settings even though the source states them together as \"Speed 1 (622 x 512 pixels)\".",
-          "type": "string"
-        },
-        "ada:ebsdPatternResolution": {
-          "description": "Pattern resolution in detector pixels, the second half of the source's \"Speed 1 (622 x 512 pixels)\".",
-          "type": "string"
-        },
-        "ada:ebsdCameraGain": {
-          "description": "Gain applied to the EBSD camera.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:houghResolutionDefault": {
-          "description": "Hough transform resolution used for band detection.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:minimumBandsForIndexing": {
-          "description": "Minimum number of Kikuchi bands required to index a pattern.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:maximumMeanAngularDeviation": {
-          "description": "Upper threshold on mean angular deviation (MAD) for an accepted solution.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:edsDetector": {
-          "description": "EDS detector coupled to the EBSD system.",
-          "type": "string"
-        },
-        "ada:edsChannelsDefault": {
-          "description": "Number of channels EDS spectra are collected on.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:edsProcessTimeDefault": {
-          "description": "AZtec process time setting for EDS.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:crystalStructureFileSourcesDefault": {
-          "description": "Databases the match units / crystal structure files were drawn from.",
-          "type": "string"
-        },
-        "schema:additionalProperty": {
-          "type": "array",
-          "description": "Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification entries (…Default name; the per-dataset value lives in the detail block); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value in schema:value.",
-          "items": {
-            "anyOf": [
-              {
-                "title": "Pre-Analysis Imaging and Screening",
-                "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+        "schema:actionProcess": {
+          "type": "object",
+          "properties": {
+            "schema:step": {
+              "type": "array",
+              "items": {
                 "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/ebsdTAPP/preAnalysisImagingAndScreeningDefault"
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/WorkflowStep"
                   },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Data reduction"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "ada:houghResolutionDefault": {
+                          "description": "Hough transform resolution used for band detection.",
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "ada:minimumBandsForIndexing": {
+                          "description": "Minimum number of Kikuchi bands required to index a pattern.",
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ],
+                          "readOnly": true
+                        },
+                        "ada:maximumMeanAngularDeviation": {
+                          "description": "Upper threshold on mean angular deviation (MAD) for an accepted solution.",
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ],
+                          "readOnly": true
+                        },
+                        "ada:crystalStructureFileSourcesDefault": {
+                          "description": "Databases the match units / crystal structure files were drawn from.",
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:crystalStructureFileSourcesDefault",
+                        "ada:houghResolutionDefault",
+                        "ada:maximumMeanAngularDeviation",
+                        "ada:minimumBandsForIndexing"
+                      ]
+                    }
                   },
-                  "schema:valueName": {
-                    "const": "preAnalysisImagingAndScreeningDefault"
-                  },
-                  "schema:name": {
-                    "const": "Pre-Analysis Imaging and Screening"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Data acquisition"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "ada:edsChannelsDefault": {
+                          "description": "Number of channels EDS spectra are collected on.",
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "ada:edsProcessTimeDefault": {
+                          "description": "AZtec process time setting for EDS.",
+                          "anyOf": [
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:edsChannelsDefault",
+                        "ada:edsProcessTimeDefault"
+                      ]
+                    }
                   }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              }
-            ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "title": "Pre-Analysis Imaging and Screening",
-                "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/ebsdTAPP/preAnalysisImagingAndScreeningDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "preAnalysisImagingAndScreeningDefault"
-                  },
-                  "schema:name": {
-                    "const": "Pre-Analysis Imaging and Screening"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
                 ]
               },
-              "minContains": 0,
-              "maxContains": 1
+              "allOf": [
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Data reduction"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                },
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Data acquisition"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                }
+              ]
             }
-          ]
+          }
         }
       },
       "required": [
-        "ada:samplePreparationMethodDefault",
-        "ada:dataProcessingSoftwareDefault",
-        "ada:analyticalMode",
-        "ada:acceleratingVoltageDefault",
-        "ada:beamCurrentDefault",
-        "ada:stageTilt",
-        "ada:ebsdCameraSpeedSetting",
-        "ada:ebsdPatternResolution",
-        "ada:ebsdCameraGain",
-        "ada:houghResolutionDefault",
-        "ada:minimumBandsForIndexing",
-        "ada:maximumMeanAngularDeviation",
-        "ada:edsDetector",
-        "ada:edsChannelsDefault",
-        "ada:edsProcessTimeDefault",
-        "ada:crystalStructureFileSourcesDefault"
+        "ada:targetMaterial",
+        "ada:instrumentManufacturer",
+        "ada:instrumentModel",
+        "ada:constantsAndReferenceValuesUsedDefault",
+        "ada:stageTilt"
       ]
     }
   ],
@@ -6555,6 +7244,758 @@
         }
       ]
     },
+    "WorkflowStep": {
+      "type": "object",
+      "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
+      "properties": {
+        "@type": {
+          "description": "All THREE are required. cdi:Activity and schema:Action carry the DDI-CDI and schema.org process semantics this model is built on; schema:HowToStep is what schema.org itself expects of a value of schema:step on a schema:HowTo, and omitting it made these steps invalid against the plain schema.org reading -- and against the base cdifProvActivity, whose own step shape requires schema:HowToStep. The two shapes disagreed, which is observable in the examples: 565 steps carried cdi:Activity + schema:Action and 15 carried schema:HowToStep, depending on which side emitted them.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 3,
+          "allOf": [
+            {
+              "contains": {
+                "const": "cdi:Activity"
+              }
+            },
+            {
+              "contains": {
+                "const": "schema:Action"
+              }
+            },
+            {
+              "contains": {
+                "const": "schema:HowToStep"
+              }
+            }
+          ]
+        },
+        "@id": {
+          "type": "string"
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Name of this workflow step (e.g. \"Sample preparation\")."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Detailed description of what this step involves."
+        },
+        "schema:position": {
+          "type": "integer",
+          "description": "Ordinal position in the workflow sequence (1-based)."
+        },
+        "schema:additionalType": {
+          "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for; the `contains` on the method's schema:step accepts either serialization, so widening here cannot orphan the sample-preparation requirement.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@id"
+                ],
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "schema:instrument": {
+          "description": "Instrument or equipment used in this step.",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Instrument"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            }
+          ]
+        },
+        "bios:computationalTool": {
+          "description": "Software tools used in this step.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "description": "Software application used for data acquisition, reduction, or processing. Follows Bioschemas ComputationalTool pattern.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "schema:SoftwareApplication"
+                }
+              },
+              "@id": {
+                "type": "string"
+              },
+              "schema:name": {
+                "type": "string",
+                "description": "Name of the software (e.g. \"Probe for EPMA\")."
+              },
+              "schema:version": {
+                "type": "string",
+                "description": "Software version string (e.g. \"12.9.5\")."
+              },
+              "schema:description": {
+                "type": "string",
+                "description": "Role or purpose of this tool in the method."
+              },
+              "schema:url": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL to the software product or documentation."
+              },
+              "ada:toolRole": {
+                "type": "string",
+                "enum": [
+                  "acquisition",
+                  "dataReduction",
+                  "processing",
+                  "visualization"
+                ],
+                "description": "Role this software plays in the analytical workflow."
+              }
+            },
+            "required": [
+              "schema:name"
+            ]
+          }
+        },
+        "bios:reagent": {
+          "description": "Reference materials, standards, or reagents used in this step.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "description": "A reference material, calibration standard, or chemical reagent. Follows Bioschemas reagent pattern with extensions for geochemistry reference materials.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "description": "What the material IS, independent of the role it plays here (that is ada:reagentRole). One of the three kinds must be present: schema:DefinedTerm for a material identified by a registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen or purchased lot (Smithsonian NMNH number, IGSN, in-house standard); schema:ChemicalSubstance for a bulk chemical or coating stock.",
+                "contains": {
+                  "enum": [
+                    "schema:DefinedTerm",
+                    "schema:Product",
+                    "schema:ChemicalSubstance"
+                  ]
+                }
+              },
+              "@id": {
+                "type": "string",
+                "description": "Persistent identifier (e.g. IGSN, GeoReM URL)."
+              },
+              "schema:name": {
+                "type": "string",
+                "description": "Name of the material (e.g. \"San Carlos olivine\")."
+              },
+              "schema:description": {
+                "type": "string"
+              },
+              "schema:identifier": {
+                "description": "Formal identifier (IGSN, catalog number, GeoReM ID).",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "minItems": 1
+                      },
+                      "schema:propertyID": {
+                        "type": "string"
+                      },
+                      "schema:value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "schema:termCode": {
+                "type": "string",
+                "description": "Registry code for the material on the schema:DefinedTerm path (e.g. \"SRM 610\", \"ATHO-G\")."
+              },
+              "schema:inDefinedTermSet": {
+                "description": "The registry the schema:termCode belongs to (GeoReM, NIST SRM catalogue, USGS RM list).",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "schema:name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "ada:reagentRole": {
+                "type": "string",
+                "enum": [
+                  "primaryStandard",
+                  "secondaryStandard",
+                  "interferenceStandard",
+                  "blankMaterial",
+                  "coatingMaterial",
+                  "referenceMaterial",
+                  "reagent"
+                ],
+                "description": "Role of this material in the method."
+              },
+              "schema:citation": {
+                "description": "Publication reference for the standard's accepted values.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "schema:name": {
+                        "type": "string"
+                      },
+                      "schema:url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "@type",
+              "schema:name"
+            ]
+          }
+        },
+        "prov:used": {
+          "description": "Input entities consumed or referenced by this step (e.g. prepared sample from a prior step).",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "schema:result": {
+          "description": "Output entity produced by this step (can be referenced as input by a subsequent step).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:object": {
+          "description": "Reference to a prior step whose result is the input for this step (action chaining).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:additionalProperty": {
+          "description": "Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings for the data processing step). Editable parameters are schema:PropertyValueSpecification entries (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:PropertyValueSpecification"
+                    },
+                    "minItems": 1
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "Human-readable display label (e.g. \"Accelerating Voltage\")."
+                  },
+                  "schema:valueName": {
+                    "type": "string",
+                    "description": "Machine-readable parameter name for serialization (e.g. \"acceleratingVoltage\")."
+                  },
+                  "schema:description": {
+                    "type": "string",
+                    "description": "Guidance text shown to the user in the form."
+                  },
+                  "schema:propertyID": {
+                    "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "$ref": "#/$defs/PropertyIDValue"
+                    }
+                  },
+                  "schema:inDefinedTermSet": {
+                    "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "description": "Object reference to a vocabulary defined elsewhere.",
+                        "properties": {
+                          "@id": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ]
+                      },
+                      {
+                        "description": "Schema for a labeled link, a profile of schema.org/CreativeWork: a resolvable URL with an optional name and description. Optionally carries the DCAT relation surface (dcat:hadRole, dcterms:relation) for a link that expresses a typed relationship rather than a plain reference.\nThose two properties were a separate block, cdifDataType/cdifReference, which was an allOf of this schema plus exactly those two optional properties and nothing else -- its dcat:Relationship co-type mandate had already been removed because it made every labeled link unsatisfiable and broke every schema:license example that followed schema.org's own advice. Since both are optional, folding them in here changes no document's validity while removing a block and five levels of $defs/Reference indirection. cdifReference was retired 2026-09-23.",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+                            "default": [
+                              "schema:CreativeWork"
+                            ],
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "minItems": 1,
+                            "anyOf": [
+                              {
+                                "contains": {
+                                  "const": "schema:CreativeWork"
+                                }
+                              },
+                              {
+                                "contains": {
+                                  "const": "dcat:Relationship"
+                                }
+                              }
+                            ]
+                          },
+                          "schema:name": {
+                            "type": "string"
+                          },
+                          "schema:description": {
+                            "type": "string"
+                          },
+                          "schema:url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "dcat:hadRole": {
+                            "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+                            "anyOf": [
+                              {
+                                "$ref": "#/$defs/DcatRole"
+                              },
+                              {
+                                "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+                              }
+                            ]
+                          },
+                          "dcterms:relation": {
+                            "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+                            "anyOf": [
+                              {
+                                "title": "Object Reference",
+                                "description": "A reference to a node defined elsewhere, by its @id.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "type": "string",
+                                    "description": "resolvable @id of the referenced node"
+                                  }
+                                },
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "string",
+                                "format": "uri"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "@type"
+                        ],
+                        "allOf": [
+                          {
+                            "if": {
+                              "required": [
+                                "@type"
+                              ],
+                              "properties": {
+                                "@type": {
+                                  "contains": {
+                                    "const": "schema:CreativeWork"
+                                  }
+                                }
+                              }
+                            },
+                            "then": {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+                        "properties": {
+                          "@type": {
+                            "const": "schema:DefinedTermSet"
+                          },
+                          "schema:hasDefinedTerm": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "@type": {
+                                  "const": "schema:DefinedTerm"
+                                },
+                                "schema:termCode": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@type",
+                                "schema:termCode"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "@type",
+                          "schema:hasDefinedTerm"
+                        ]
+                      }
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "description": "The default value for this parameter. For constant parameters (readonlyValue=true), this is the fixed value. For editable parameters, this is the pre-filled default.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "boolean"
+                      }
+                    ]
+                  },
+                  "schema:readonlyValue": {
+                    "type": "boolean",
+                    "description": "true = constant, fixed for every session (read-only in form). false = editable (default or optional depending on valueRequired)."
+                  },
+                  "schema:valueRequired": {
+                    "type": "boolean",
+                    "description": "true = must be provided (mandatory). false = optional. Combined with readonlyValue: readonly+required = constant mandatory; !readonly+required = editable mandatory; !readonly+!required = optional."
+                  },
+                  "schema:minValue": {
+                    "type": "number",
+                    "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in ada:targetSpeciesTemplate."
+                  },
+                  "schema:maxValue": {
+                    "type": "number",
+                    "description": "Maximum allowed numeric value. Upper bound of valid range."
+                  },
+                  "schema:stepValue": {
+                    "type": "number",
+                    "description": "Granularity expected of the value (e.g. 0.1 for nA)."
+                  },
+                  "schema:valuePattern": {
+                    "type": "string",
+                    "description": "Regex pattern for validating string values."
+                  },
+                  "schema:multipleValues": {
+                    "type": "boolean",
+                    "description": "Whether multiple values are allowed (default false)."
+                  },
+                  "ada:fieldScope": {
+                    "type": "string",
+                    "enum": [
+                      "method",
+                      "session",
+                      "element"
+                    ],
+                    "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
+                  },
+                  "ada:category": {
+                    "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/$defs/DefinedTerm"
+                      }
+                    ]
+                  },
+                  "ada:dataType": {
+                    "type": "string",
+                    "enum": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "date",
+                      "uri"
+                    ],
+                    "description": "Expected data type for the parameter value."
+                  },
+                  "schema:unitText": {
+                    "type": "string",
+                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
+                  },
+                  "schema:unitCode": {
+                    "description": "URI for unit of measure (QUDT preferred).",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/$defs/DefinedTerm"
+                      }
+                    ]
+                  },
+                  "ada:cdifPropertyPath": {
+                    "type": "string",
+                    "description": "The CDIF building block property path this parameter maps to. Used for JSON-LD serialisation."
+                  },
+                  "ada:tier": {
+                    "type": "string",
+                    "enum": [
+                      "M",
+                      "R",
+                      "O"
+                    ],
+                    "description": "Mandatory / Recommended / Optional tier from the metadata profile. Informs validation strictness."
+                  }
+                },
+                "required": [
+                  "schema:name",
+                  "ada:fieldScope",
+                  "ada:dataType"
+                ]
+              },
+              {
+                "type": "object",
+                "description": "A read-only method parameter carrying the fixed protocol value, typed as schema:PropertyValue. Used for Advanced-protocol parameters that the analyst cannot change (the value is set by the protocol). The value is in schema:value; the human-readable label is in schema:name. Contrast with MethodParameter (schema:PropertyValueSpecification), used for editable parameters.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:PropertyValue"
+                    },
+                    "minItems": 1
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "Human-readable display label (e.g. \"Ablation Cell Type\")."
+                  },
+                  "schema:propertyID": {
+                    "description": "URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "$ref": "#/$defs/PropertyIDValue"
+                    }
+                  },
+                  "schema:value": {
+                    "description": "The fixed protocol value for this read-only parameter."
+                  },
+                  "schema:unitText": {
+                    "type": "string",
+                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
+                  }
+                },
+                "required": [
+                  "schema:name",
+                  "schema:value"
+                ]
+              }
+            ]
+          }
+        },
+        "schema:actionProcess": {
+          "$ref": "#/$defs/WorkflowHowTo",
+          "description": "Sub-workflow for this step, expressed as a nested schema:HowTo with its own ordered steps. Use for steps that have a multi-phase internal procedure (e.g. sample preparation with mount, grind, polish, coat)."
+        },
+        "dqv:hasQualityMeasurement": {
+          "description": "Quality measurements specific to this workflow step.",
+          "type": "array",
+          "items": {
+            "title": "definitions for simple quality measure property",
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "dqv:QualityMeasurement"
+                },
+                "minItems": 1
+              },
+              "dqv:isMeasurementOf": {
+                "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "description": "a resolvable reference to a representation of a quality measure"
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                  }
+                ]
+              },
+              "dqv:value": {
+                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "dqv:isMeasurementOf",
+              "dqv:value"
+            ]
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "schema:name",
+        "schema:position"
+      ]
+    },
     "Instrument_Identifier": {
       "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
       "type": "object",
@@ -7757,758 +9198,6 @@
       "required": [
         "@value",
         "@language"
-      ]
-    },
-    "WorkflowStep": {
-      "type": "object",
-      "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
-      "properties": {
-        "@type": {
-          "description": "All THREE are required. cdi:Activity and schema:Action carry the DDI-CDI and schema.org process semantics this model is built on; schema:HowToStep is what schema.org itself expects of a value of schema:step on a schema:HowTo, and omitting it made these steps invalid against the plain schema.org reading -- and against the base cdifProvActivity, whose own step shape requires schema:HowToStep. The two shapes disagreed, which is observable in the examples: 565 steps carried cdi:Activity + schema:Action and 15 carried schema:HowToStep, depending on which side emitted them.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 3,
-          "allOf": [
-            {
-              "contains": {
-                "const": "cdi:Activity"
-              }
-            },
-            {
-              "contains": {
-                "const": "schema:Action"
-              }
-            },
-            {
-              "contains": {
-                "const": "schema:HowToStep"
-              }
-            }
-          ]
-        },
-        "@id": {
-          "type": "string"
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "Name of this workflow step (e.g. \"Sample preparation\")."
-        },
-        "schema:description": {
-          "type": "string",
-          "description": "Detailed description of what this step involves."
-        },
-        "schema:position": {
-          "type": "integer",
-          "description": "Ordinal position in the workflow sequence (1-based)."
-        },
-        "schema:additionalType": {
-          "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for; the `contains` on the method's schema:step accepts either serialization, so widening here cannot orphan the sample-preparation requirement.",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "@id"
-                ],
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              }
-            ]
-          }
-        },
-        "schema:instrument": {
-          "description": "Instrument or equipment used in this step.",
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Instrument"
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
-            }
-          ]
-        },
-        "bios:computationalTool": {
-          "description": "Software tools used in this step.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "description": "Software application used for data acquisition, reduction, or processing. Follows Bioschemas ComputationalTool pattern.",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "contains": {
-                  "const": "schema:SoftwareApplication"
-                }
-              },
-              "@id": {
-                "type": "string"
-              },
-              "schema:name": {
-                "type": "string",
-                "description": "Name of the software (e.g. \"Probe for EPMA\")."
-              },
-              "schema:version": {
-                "type": "string",
-                "description": "Software version string (e.g. \"12.9.5\")."
-              },
-              "schema:description": {
-                "type": "string",
-                "description": "Role or purpose of this tool in the method."
-              },
-              "schema:url": {
-                "type": "string",
-                "format": "uri",
-                "description": "URL to the software product or documentation."
-              },
-              "ada:toolRole": {
-                "type": "string",
-                "enum": [
-                  "acquisition",
-                  "dataReduction",
-                  "processing",
-                  "visualization"
-                ],
-                "description": "Role this software plays in the analytical workflow."
-              }
-            },
-            "required": [
-              "schema:name"
-            ]
-          }
-        },
-        "bios:reagent": {
-          "description": "Reference materials, standards, or reagents used in this step.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "description": "A reference material, calibration standard, or chemical reagent. Follows Bioschemas reagent pattern with extensions for geochemistry reference materials.",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "minItems": 1,
-                "description": "What the material IS, independent of the role it plays here (that is ada:reagentRole). One of the three kinds must be present: schema:DefinedTerm for a material identified by a registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen or purchased lot (Smithsonian NMNH number, IGSN, in-house standard); schema:ChemicalSubstance for a bulk chemical or coating stock.",
-                "contains": {
-                  "enum": [
-                    "schema:DefinedTerm",
-                    "schema:Product",
-                    "schema:ChemicalSubstance"
-                  ]
-                }
-              },
-              "@id": {
-                "type": "string",
-                "description": "Persistent identifier (e.g. IGSN, GeoReM URL)."
-              },
-              "schema:name": {
-                "type": "string",
-                "description": "Name of the material (e.g. \"San Carlos olivine\")."
-              },
-              "schema:description": {
-                "type": "string"
-              },
-              "schema:identifier": {
-                "description": "Formal identifier (IGSN, catalog number, GeoReM ID).",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "minItems": 1
-                      },
-                      "schema:propertyID": {
-                        "type": "string"
-                      },
-                      "schema:value": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
-              },
-              "schema:termCode": {
-                "type": "string",
-                "description": "Registry code for the material on the schema:DefinedTerm path (e.g. \"SRM 610\", \"ATHO-G\")."
-              },
-              "schema:inDefinedTermSet": {
-                "description": "The registry the schema:termCode belongs to (GeoReM, NIST SRM catalogue, USGS RM list).",
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "schema:name": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
-              },
-              "ada:reagentRole": {
-                "type": "string",
-                "enum": [
-                  "primaryStandard",
-                  "secondaryStandard",
-                  "interferenceStandard",
-                  "blankMaterial",
-                  "coatingMaterial",
-                  "referenceMaterial",
-                  "reagent"
-                ],
-                "description": "Role of this material in the method."
-              },
-              "schema:citation": {
-                "description": "Publication reference for the standard's accepted values.",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "schema:name": {
-                        "type": "string"
-                      },
-                      "schema:url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            "required": [
-              "@type",
-              "schema:name"
-            ]
-          }
-        },
-        "prov:used": {
-          "description": "Input entities consumed or referenced by this step (e.g. prepared sample from a prior step).",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              }
-            ]
-          }
-        },
-        "schema:result": {
-          "description": "Output entity produced by this step (can be referenced as input by a subsequent step).",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        },
-        "schema:object": {
-          "description": "Reference to a prior step whose result is the input for this step (action chaining).",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        },
-        "schema:additionalProperty": {
-          "description": "Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings for the data processing step). Editable parameters are schema:PropertyValueSpecification entries (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value.",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "object",
-                "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:PropertyValueSpecification"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "type": "string",
-                    "description": "Human-readable display label (e.g. \"Accelerating Voltage\")."
-                  },
-                  "schema:valueName": {
-                    "type": "string",
-                    "description": "Machine-readable parameter name for serialization (e.g. \"acceleratingVoltage\")."
-                  },
-                  "schema:description": {
-                    "type": "string",
-                    "description": "Guidance text shown to the user in the form."
-                  },
-                  "schema:propertyID": {
-                    "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                      "$ref": "#/$defs/PropertyIDValue"
-                    }
-                  },
-                  "schema:inDefinedTermSet": {
-                    "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-                    "anyOf": [
-                      {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "description": "Object reference to a vocabulary defined elsewhere.",
-                        "properties": {
-                          "@id": {
-                            "type": "string",
-                            "format": "uri"
-                          }
-                        },
-                        "required": [
-                          "@id"
-                        ]
-                      },
-                      {
-                        "description": "Schema for a labeled link, a profile of schema.org/CreativeWork: a resolvable URL with an optional name and description. Optionally carries the DCAT relation surface (dcat:hadRole, dcterms:relation) for a link that expresses a typed relationship rather than a plain reference.\nThose two properties were a separate block, cdifDataType/cdifReference, which was an allOf of this schema plus exactly those two optional properties and nothing else -- its dcat:Relationship co-type mandate had already been removed because it made every labeled link unsatisfiable and broke every schema:license example that followed schema.org's own advice. Since both are optional, folding them in here changes no document's validity while removing a block and five levels of $defs/Reference indirection. cdifReference was retired 2026-09-23.",
-                        "type": "object",
-                        "properties": {
-                          "@type": {
-                            "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
-                            "default": [
-                              "schema:CreativeWork"
-                            ],
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "minItems": 1,
-                            "anyOf": [
-                              {
-                                "contains": {
-                                  "const": "schema:CreativeWork"
-                                }
-                              },
-                              {
-                                "contains": {
-                                  "const": "dcat:Relationship"
-                                }
-                              }
-                            ]
-                          },
-                          "schema:name": {
-                            "type": "string"
-                          },
-                          "schema:description": {
-                            "type": "string"
-                          },
-                          "schema:url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "dcat:hadRole": {
-                            "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
-                            "anyOf": [
-                              {
-                                "$ref": "#/$defs/DcatRole"
-                              },
-                              {
-                                "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
-                              }
-                            ]
-                          },
-                          "dcterms:relation": {
-                            "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
-                            "anyOf": [
-                              {
-                                "title": "Object Reference",
-                                "description": "A reference to a node defined elsewhere, by its @id.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "description": "resolvable @id of the referenced node"
-                                  }
-                                },
-                                "required": [
-                                  "@id"
-                                ],
-                                "additionalProperties": false
-                              },
-                              {
-                                "type": "string",
-                                "format": "uri"
-                              }
-                            ]
-                          }
-                        },
-                        "required": [
-                          "@type"
-                        ],
-                        "allOf": [
-                          {
-                            "if": {
-                              "required": [
-                                "@type"
-                              ],
-                              "properties": {
-                                "@type": {
-                                  "contains": {
-                                    "const": "schema:CreativeWork"
-                                  }
-                                }
-                              }
-                            },
-                            "then": {
-                              "required": [
-                                "schema:url"
-                              ]
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-                        "properties": {
-                          "@type": {
-                            "const": "schema:DefinedTermSet"
-                          },
-                          "schema:hasDefinedTerm": {
-                            "type": "array",
-                            "minItems": 1,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "@type": {
-                                  "const": "schema:DefinedTerm"
-                                },
-                                "schema:termCode": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "@type",
-                                "schema:termCode"
-                              ]
-                            }
-                          }
-                        },
-                        "required": [
-                          "@type",
-                          "schema:hasDefinedTerm"
-                        ]
-                      }
-                    ]
-                  },
-                  "schema:defaultValue": {
-                    "description": "The default value for this parameter. For constant parameters (readonlyValue=true), this is the fixed value. For editable parameters, this is the pre-filled default.",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "boolean"
-                      }
-                    ]
-                  },
-                  "schema:readonlyValue": {
-                    "type": "boolean",
-                    "description": "true = constant, fixed for every session (read-only in form). false = editable (default or optional depending on valueRequired)."
-                  },
-                  "schema:valueRequired": {
-                    "type": "boolean",
-                    "description": "true = must be provided (mandatory). false = optional. Combined with readonlyValue: readonly+required = constant mandatory; !readonly+required = editable mandatory; !readonly+!required = optional."
-                  },
-                  "schema:minValue": {
-                    "type": "number",
-                    "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in ada:targetSpeciesTemplate."
-                  },
-                  "schema:maxValue": {
-                    "type": "number",
-                    "description": "Maximum allowed numeric value. Upper bound of valid range."
-                  },
-                  "schema:stepValue": {
-                    "type": "number",
-                    "description": "Granularity expected of the value (e.g. 0.1 for nA)."
-                  },
-                  "schema:valuePattern": {
-                    "type": "string",
-                    "description": "Regex pattern for validating string values."
-                  },
-                  "schema:multipleValues": {
-                    "type": "boolean",
-                    "description": "Whether multiple values are allowed (default false)."
-                  },
-                  "ada:fieldScope": {
-                    "type": "string",
-                    "enum": [
-                      "method",
-                      "session",
-                      "element"
-                    ],
-                    "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
-                  },
-                  "ada:category": {
-                    "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "$ref": "#/$defs/DefinedTerm"
-                      }
-                    ]
-                  },
-                  "ada:dataType": {
-                    "type": "string",
-                    "enum": [
-                      "string",
-                      "number",
-                      "integer",
-                      "boolean",
-                      "date",
-                      "uri"
-                    ],
-                    "description": "Expected data type for the parameter value."
-                  },
-                  "schema:unitText": {
-                    "type": "string",
-                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
-                  },
-                  "schema:unitCode": {
-                    "description": "URI for unit of measure (QUDT preferred).",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "$ref": "#/$defs/DefinedTerm"
-                      }
-                    ]
-                  },
-                  "ada:cdifPropertyPath": {
-                    "type": "string",
-                    "description": "The CDIF building block property path this parameter maps to. Used for JSON-LD serialisation."
-                  },
-                  "ada:tier": {
-                    "type": "string",
-                    "enum": [
-                      "M",
-                      "R",
-                      "O"
-                    ],
-                    "description": "Mandatory / Recommended / Optional tier from the metadata profile. Informs validation strictness."
-                  }
-                },
-                "required": [
-                  "schema:name",
-                  "ada:fieldScope",
-                  "ada:dataType"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "A read-only method parameter carrying the fixed protocol value, typed as schema:PropertyValue. Used for Advanced-protocol parameters that the analyst cannot change (the value is set by the protocol). The value is in schema:value; the human-readable label is in schema:name. Contrast with MethodParameter (schema:PropertyValueSpecification), used for editable parameters.",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:PropertyValue"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "type": "string",
-                    "description": "Human-readable display label (e.g. \"Ablation Cell Type\")."
-                  },
-                  "schema:propertyID": {
-                    "description": "URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                      "$ref": "#/$defs/PropertyIDValue"
-                    }
-                  },
-                  "schema:value": {
-                    "description": "The fixed protocol value for this read-only parameter."
-                  },
-                  "schema:unitText": {
-                    "type": "string",
-                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
-                  }
-                },
-                "required": [
-                  "schema:name",
-                  "schema:value"
-                ]
-              }
-            ]
-          }
-        },
-        "schema:actionProcess": {
-          "$ref": "#/$defs/WorkflowHowTo",
-          "description": "Sub-workflow for this step, expressed as a nested schema:HowTo with its own ordered steps. Use for steps that have a multi-phase internal procedure (e.g. sample preparation with mount, grind, polish, coat)."
-        },
-        "dqv:hasQualityMeasurement": {
-          "description": "Quality measurements specific to this workflow step.",
-          "type": "array",
-          "items": {
-            "title": "definitions for simple quality measure property",
-            "type": "object",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "contains": {
-                  "const": "dqv:QualityMeasurement"
-                },
-                "minItems": 1
-              },
-              "dqv:isMeasurementOf": {
-                "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "description": "a resolvable reference to a representation of a quality measure"
-                      }
-                    }
-                  },
-                  {
-                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
-                  }
-                ]
-              },
-              "dqv:value": {
-                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "number"
-                  },
-                  {
-                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
-                  }
-                ]
-              }
-            },
-            "required": [
-              "dqv:isMeasurementOf",
-              "dqv:value"
-            ]
-          }
-        }
-      },
-      "required": [
-        "@type",
-        "schema:name",
-        "schema:position"
       ]
     }
   }

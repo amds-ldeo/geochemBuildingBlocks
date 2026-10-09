@@ -3576,154 +3576,631 @@
       ]
     },
     {
+      "title": "Core on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
+        "schema:name": {
+          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — target species, material, or feature.",
+          "type": "string"
+        },
+        "schema:measurementTechnique": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:termCode": {
+                "description": "Top-level analytical technique identifier.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "schema:termCode"
+            ]
+          }
+        },
+        "schema:creator": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schema:name"
+          ]
+        },
+        "schema:location": {
+          "type": "object",
+          "properties": {
+            "schema:name": {
+              "description": "Name of the laboratory or institution hosting the instrument.",
+              "type": "string"
+            },
+            "schema:identifier": {
+              "description": "Persistent identifier for the laboratory (e.g., ROR ID).",
+              "type": "string"
+            }
+          },
+          "required": [
+            "schema:name"
+          ]
+        },
+        "schema:datePublished": {
+          "description": "First date this procedure configuration was used in production.",
+          "type": "string"
+        },
+        "schema:funding": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:name": {
+                "description": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "schema:relatedLink": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "techniquePublication"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "schema:linkRelationship": {
+                      "const": "coupledTechnique"
+                    }
+                  },
+                  "required": [
+                    "schema:linkRelationship"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:target": {
+                      "type": "object",
+                      "properties": {
+                        "schema:name": {
+                          "description": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Name the instrument, laboratory or purpose alongside each technique where known, and join multiple techniques with '; '. Enter \"None\" if no coupling is intended.",
+                          "type": "string"
+                        },
+                        "schema:description": {
+                          "description": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
         "ada:samplingUnitType": {
           "description": "The kind of physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels. The units themselves are listed in Sampling Unit Name.",
           "type": "string"
         },
-        "ada:samplePreparationMethodDefault": {
-          "description": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form — for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.",
-          "type": "string"
-        },
-        "ada:samplingUnitSelectionCriteriaDefault": {
-          "description": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.",
-          "type": "string"
-        },
-        "ada:dataProcessingSoftwareDefault": {
-          "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
-          "type": "string"
-        },
-        "ada:analyticalMode": {
-          "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Applies even where a procedure defines no mode flag columns.",
+        "bios:computationalTool": {
           "type": "array",
           "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "acquisition"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "ada:toolRole": {
+                      "const": "dataReduction"
+                    }
+                  },
+                  "required": [
+                    "ada:toolRole"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                }
+              }
+            ],
+            "required": [
+              "ada:toolRole"
+            ]
+          }
+        },
+        "ada:analyticalMode": {
+          "type": "array",
+          "items": {
+            "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Applies even where a procedure defines no mode flag columns.",
             "type": "string"
           }
         },
-        "ada:reportedVariablesAndUnits": {
-          "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
-          "type": "string"
-        },
-        "ada:calibrationFactorAndDeterminationMethodDefault": {
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
-          "type": "string"
-        },
-        "ada:constantsAndReferenceValuesUsedDefault": {
-          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-          "type": "string"
-        },
-        "ada:acceleratingVoltage": {
-          "description": "Electron beam accelerating voltage.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "schema:additionalProperty": {
+        "ada:reportedProperties": {
           "type": "array",
-          "description": "Method-level Advanced-protocol parameters. Editable parameters are schema:PropertyValueSpecification entries (…Default name; the per-dataset value lives in the detail block); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value in schema:value.",
           "items": {
-            "anyOf": [
-              {
-                "title": "Pre-Analysis Imaging and Screening",
-                "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
+            "type": "string"
+          }
+        },
+        "schema:description": {
+          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+          "type": "string"
+        },
+        "schema:actionProcess": {
+          "type": "object",
+          "properties": {
+            "schema:step": {
+              "type": "array",
+              "items": {
                 "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/stemTAPP/preAnalysisImagingAndScreeningDefault"
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/WorkflowStep"
                   },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "preAnalysisImagingAndScreeningDefault"
-                  },
-                  "schema:name": {
-                    "const": "Pre-Analysis Imaging and Screening"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
+                  {
+                    "if": {
+                      "properties": {
+                        "schema:name": {
+                          "const": "Sample preparation"
+                        }
+                      },
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    "then": {
+                      "properties": {
+                        "schema:description": {
+                          "description": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form — for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.",
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "schema:description"
+                      ]
+                    }
                   }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
                 ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "const": "Sample preparation"
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "ada:samplingUnitType",
+        "schema:datePublished",
+        "schema:name"
+      ]
+    },
+    {
+      "title": "SamplingUnitSelection on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "ada:samplingUnitSelectionCriteriaDefault": {
+          "description": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ada:samplingUnitSelectionCriteriaDefault"
+      ]
+    },
+    {
+      "title": "CalibrationFactor on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:name": {
+                      "const": "Calibration Factor and Determination Method"
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:defaultValue": {
+                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "schema:defaultValue"
+                  ]
+                }
               }
             ]
           },
           "allOf": [
             {
               "contains": {
-                "title": "Pre-Analysis Imaging and Screening",
-                "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
-                "type": "object",
                 "properties": {
-                  "@id": {
-                    "const": "ada:parameter/stemTAPP/preAnalysisImagingAndScreeningDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "preAnalysisImagingAndScreeningDefault"
-                  },
                   "schema:name": {
-                    "const": "Pre-Analysis Imaging and Screening"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
+                    "const": "Calibration Factor and Determination Method"
                   }
                 },
                 "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
+                  "schema:name"
                 ]
-              },
-              "minContains": 0,
-              "maxContains": 1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema:creator": {
+          "type": "object",
+          "properties": {
+            "schema:description": {
+              "description": "Provenance of this TAPP definition: how the definition itself came to be, as distinct from the method it describes. Use it to state that the definition was transcribed from a published protocol, derived from existing metadata records rather than authored by the laboratory, or produced automatically and reviewed by a person. Optional -- a laboratory-authored TAPP needs nothing here. Recorded on schema:creator.schema:description.",
+              "type": "string",
+              "readOnly": true
+            }
+          },
+          "required": [
+            "schema:description"
+          ]
+        },
+        "ada:targetMaterial": {
+          "description": "General description of the material type(s) this procedure is designed to analyse.",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Silicate mineral",
+                "Silicate glass",
+                "Oxide",
+                "Sulfide",
+                "Carbonate",
+                "Phosphate",
+                "Metal or alloy",
+                "Organic matter",
+                "Bulk regolith or soil",
+                "Meteorite (bulk)",
+                "Ice or hydrate",
+                "Synthetic analogue",
+                "N/A",
+                "None",
+                "missing"
+              ]
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "readOnly": true
+        },
+        "schema:object": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "@type": {
+                      "contains": {
+                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:additionalProperty": {
+                      "type": "array",
+                      "items": {
+                        "title": "Pre-Analysis Imaging and Screening",
+                        "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "const": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault"
+                          },
+                          "@type": {
+                            "const": [
+                              "schema:PropertyValueSpecification"
+                            ]
+                          },
+                          "schema:valueName": {
+                            "const": "preAnalysisImagingAndScreeningDefault"
+                          },
+                          "schema:name": {
+                            "const": "Pre-Analysis Imaging and Screening"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "ada:fieldScope": {
+                            "const": "session"
+                          },
+                          "schema:readonlyValue": {
+                            "const": false
+                          },
+                          "ada:tier": {
+                            "const": "R"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType",
+                          "ada:fieldScope"
+                        ]
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "title": "Pre-Analysis Imaging and Screening",
+                            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "const": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault"
+                              },
+                              "@type": {
+                                "const": [
+                                  "schema:PropertyValueSpecification"
+                                ]
+                              },
+                              "schema:valueName": {
+                                "const": "preAnalysisImagingAndScreeningDefault"
+                              },
+                              "schema:name": {
+                                "const": "Pre-Analysis Imaging and Screening"
+                              },
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": false
+                              },
+                              "ada:tier": {
+                                "const": "R"
+                              }
+                            },
+                            "required": [
+                              "@id",
+                              "@type",
+                              "schema:valueName",
+                              "schema:name",
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
+                          },
+                          "minContains": 0,
+                          "maxContains": 1
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "ada:instrumentManufacturer": {
+          "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+          "type": "string",
+          "enum": [
+            "WITec",
+            "Renishaw",
+            "HORIBA",
+            "Bruker",
+            "Thermo Fisher Scientific",
+            "Custom-built",
+            "Unknown",
+            "N/A",
+            "None",
+            "missing"
+          ],
+          "readOnly": true
+        },
+        "ada:instrumentModel": {
+          "description": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.",
+          "type": "string",
+          "readOnly": true
+        },
+        "ada:constantsAndReferenceValuesUsedDefault": {
+          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+          "type": "string"
+        },
+        "schema:instrument": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "const": "STEM"
+                      }
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "ada:acceleratingVoltage": {
+                      "description": "Electron beam accelerating voltage.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "readOnly": true
+                    }
+                  },
+                  "required": [
+                    "ada:acceleratingVoltage"
+                  ]
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:additionalType": {
+                    "contains": {
+                      "const": "STEM"
+                    }
+                  }
+                },
+                "required": [
+                  "schema:additionalType"
+                ]
+              }
             }
           ]
         }
       },
       "required": [
-        "ada:analyticalMode",
-        "ada:acceleratingVoltage"
+        "ada:targetMaterial",
+        "ada:instrumentManufacturer",
+        "ada:instrumentModel",
+        "ada:constantsAndReferenceValuesUsedDefault"
       ]
     }
   ],
@@ -7480,167 +7957,6 @@
         }
       ]
     },
-    "AdditionalProperty_DefinedTerm": {
-      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:DefinedTerm"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "text label for the term that is useful to human user"
-        },
-        "schema:identifier": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:PropertyValue"
-                  },
-                  "minItems": 1
-                },
-                "schema:propertyID": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "object",
-                      "additionalProperties": false,
-                      "required": [
-                        "@id"
-                      ],
-                      "properties": {
-                        "@id": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  ],
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                },
-                "schema:value": {
-                  "type": "string",
-                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                },
-                "schema:url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                }
-              },
-              "allOf": [
-                {
-                  "required": [
-                    "@type"
-                  ]
-                },
-                {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "schema:value"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:url"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "schema:inDefinedTermSet": {
-          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        },
-        "schema:termCode": {
-          "type": "string",
-          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-        }
-      },
-      "allOf": [
-        {
-          "required": [
-            "@type"
-          ]
-        },
-        {
-          "anyOf": [
-            {
-              "required": [
-                "schema:name"
-              ]
-            },
-            {
-              "required": [
-                "schema:identifier"
-              ]
-            },
-            {
-              "required": [
-                "schema:termCode"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "LanguageTaggedValue": {
-      "type": "object",
-      "description": "An RDF literal value with a language tag, serialized as a JSON-LD value object.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "description": "The text content."
-        },
-        "@language": {
-          "type": "string",
-          "description": "BCP 47 language tag (e.g. en, fr, de)."
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
-    },
     "WorkflowStep": {
       "type": "object",
       "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
@@ -8391,6 +8707,167 @@
         "@type",
         "schema:name",
         "schema:position"
+      ]
+    },
+    "AdditionalProperty_DefinedTerm": {
+      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:DefinedTerm"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "text label for the term that is useful to human user"
+        },
+        "schema:identifier": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:PropertyValue"
+                  },
+                  "minItems": 1
+                },
+                "schema:propertyID": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                },
+                "schema:value": {
+                  "type": "string",
+                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                },
+                "schema:url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:value"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:url"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "schema:inDefinedTermSet": {
+          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:termCode": {
+          "type": "string",
+          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+        }
+      },
+      "allOf": [
+        {
+          "required": [
+            "@type"
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "schema:name"
+              ]
+            },
+            {
+              "required": [
+                "schema:identifier"
+              ]
+            },
+            {
+              "required": [
+                "schema:termCode"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "LanguageTaggedValue": {
+      "type": "object",
+      "description": "An RDF literal value with a language tag, serialized as a JSON-LD value object.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "description": "The text content."
+        },
+        "@language": {
+          "type": "string",
+          "description": "BCP 47 language tag (e.g. en, fr, de)."
+        }
+      },
+      "required": [
+        "@value",
+        "@language"
       ]
     }
   }
