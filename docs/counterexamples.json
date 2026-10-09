@@ -169,6 +169,21 @@
       },
       "expect": "@type",
       "why": "A workflow step must carry all THREE @type members. cdi:Activity and schema:Action give the DDI-CDI and schema.org process semantics; schema:HowToStep is what schema.org expects of a schema:step value on a schema:HowTo, and the base cdifProvActivity requires it too. The two sides disagreed for a long time without anything failing -- 565 steps carried the first two and 15 carried HowToStep alone, depending on which emitter wrote them. This case fails the moment the third member stops being required."
+    },
+    {
+      "id": "sample-prep-id-form-must-still-discriminate",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/schema:actionProcess/schema:step/0/schema:additionalType",
+        "value": [
+          {
+            "@id": "bios:NotLabProcess"
+          }
+        ]
+      },
+      "expect": "contains",
+      "why": "The sample-preparation discriminator was widened to accept either serialization of bios:LabProcess -- the bare CURIE or a JSON-LD IRI reference -- because CDIF's SHACL asks for the latter and the JSON Schema previously forbade it. A widened `contains` is exactly the 'if too broad' hazard: written loosely it would match ANY step object and silently satisfy the requirement, failing nothing. This pins the new branch by giving it the right SHAPE and the wrong VALUE: {\"@id\": \"bios:NotLabProcess\"} must still be rejected on `contains`. Its sibling case method-workflow-requires-sample-prep pins that removing the step entirely is rejected; this pins that the @id branch discriminates rather than merely accepting objects."
     }
   ]
 }

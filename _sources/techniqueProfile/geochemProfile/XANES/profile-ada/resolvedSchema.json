@@ -14730,7 +14730,22 @@
                                             "schema:additionalType": {
                                               "type": "array",
                                               "contains": {
-                                                "const": "bios:LabProcess"
+                                                "anyOf": [
+                                                  {
+                                                    "const": "bios:LabProcess"
+                                                  },
+                                                  {
+                                                    "type": "object",
+                                                    "required": [
+                                                      "@id"
+                                                    ],
+                                                    "properties": {
+                                                      "@id": {
+                                                        "const": "bios:LabProcess"
+                                                      }
+                                                    }
+                                                  }
+                                                ]
                                               }
                                             }
                                           },
@@ -18535,7 +18550,22 @@
                                             "schema:additionalType": {
                                               "type": "array",
                                               "contains": {
-                                                "const": "bios:LabProcess"
+                                                "anyOf": [
+                                                  {
+                                                    "const": "bios:LabProcess"
+                                                  },
+                                                  {
+                                                    "type": "object",
+                                                    "required": [
+                                                      "@id"
+                                                    ],
+                                                    "properties": {
+                                                      "@id": {
+                                                        "const": "bios:LabProcess"
+                                                      }
+                                                    }
+                                                  }
+                                                ]
                                               }
                                             }
                                           },
@@ -28091,10 +28121,26 @@
           "description": "Ordinal position in the workflow sequence (1-based)."
         },
         "schema:additionalType": {
-          "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps).",
+          "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for; the `contains` on the method's schema:step accepts either serialization, so widening here cannot orphan the sample-preparation requirement.",
           "type": "array",
           "items": {
-            "type": "string"
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@id"
+                ],
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
           }
         },
         "schema:instrument": {
