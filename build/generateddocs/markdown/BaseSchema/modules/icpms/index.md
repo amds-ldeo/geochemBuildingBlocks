@@ -147,9 +147,9 @@ The procedure half of the ICPMS module, with every property populated. Generated
             schema1:hasPart [ schema1:additionalType "example value" ;
                     schema1:name "example value" ] ] ;
     schema1:variableMeasured [ schema1:defaultValue "example value" ;
-            schema1:name "Uncertainty Propagation Method" ],
+            schema1:name "Limit of Quantification (LOQ) Method" ],
         [ schema1:defaultValue "example value" ;
-            schema1:name "Limit of Quantification (LOQ) Method" ] ;
+            schema1:name "Uncertainty Propagation Method" ] ;
     ada:analysisSequenceDefault "example value" ;
     ada:blankBackgroundCorrectionMethod "example value" ;
     ada:calibrationMeasurementFrequency "example value" ;
@@ -976,6 +976,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1039,6 +1042,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1106,6 +1112,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1143,6 +1152,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1218,6 +1230,11 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+        x-jsonld-id: http://schema.org/defaultValue
       schema:unitText:
         const: L/min
         x-jsonld-id: http://schema.org/unitText
@@ -1292,6 +1309,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1365,6 +1385,11 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+        x-jsonld-id: http://schema.org/defaultValue
       schema:unitText:
         const: L/min
         x-jsonld-id: http://schema.org/unitText
@@ -1437,6 +1462,11 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+        x-jsonld-id: http://schema.org/defaultValue
       schema:unitText:
         const: L/min
         x-jsonld-id: http://schema.org/unitText
@@ -1507,6 +1537,11 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+        x-jsonld-id: http://schema.org/defaultValue
       schema:unitText:
         const: W
         x-jsonld-id: http://schema.org/unitText
@@ -1547,6 +1582,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1587,6 +1625,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1652,6 +1693,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1688,6 +1732,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1794,6 +1841,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1834,6 +1884,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1899,6 +1952,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -1936,6 +1992,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'

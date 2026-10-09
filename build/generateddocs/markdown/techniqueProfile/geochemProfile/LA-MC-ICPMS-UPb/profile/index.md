@@ -38,9 +38,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:description": "Example path-driven LAMCICPMSUPB product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
-    {
-      "@id": "ada:DataDeliveryPackage"
-    }
+    "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
     "@type": [
@@ -196,6 +194,9 @@ and technique component types on the archive distribution. Mock data for validat
                 },
                 "ICPMS",
                 "Laser Ablation System",
+                {
+                  "@id": "ada:ADAInstrument"
+                },
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
@@ -521,9 +522,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            {
-              "@id": "ada:LAICPMSGeochronTabular"
-            }
+            "ada:LAICPMSGeochronTabular"
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -554,9 +553,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            {
-              "@id": "ada:LAICPMSGeochronTabular"
-            }
+            "ada:LAICPMSGeochronTabular"
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -687,9 +684,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:description": "Example path-driven LAMCICPMSUPB product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
-    {
-      "@id": "ada:DataDeliveryPackage"
-    }
+    "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
     "@type": [
@@ -845,6 +840,9 @@ and technique component types on the archive distribution. Mock data for validat
                 },
                 "ICPMS",
                 "Laser Ablation System",
+                {
+                  "@id": "ada:ADAInstrument"
+                },
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
@@ -1170,9 +1168,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            {
-              "@id": "ada:LAICPMSGeochronTabular"
-            }
+            "ada:LAICPMSGeochronTabular"
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -1203,9 +1199,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            {
-              "@id": "ada:LAICPMSGeochronTabular"
-            }
+            "ada:LAICPMSGeochronTabular"
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -1316,8 +1310,8 @@ and technique component types on the archive distribution. Mock data for validat
 
 ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType ada:DataDeliveryPackage,
-        "Multi-Collector Inductively Coupled Plasma Mass Spectrometry" ;
+    schema1:additionalType "Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
+        "ada:DataDeliveryPackage" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
             schema1:contributor [ a schema1:Person ;
@@ -1387,12 +1381,12 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "example oxideProduction" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "example peakFlatness" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example oxideProduction" ] ;
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1419,7 +1413,7 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
         ada:image ;
-    schema1:additionalType ada:LAICPMSGeochronTabular ;
+    schema1:additionalType "ada:LAICPMSGeochronTabular" ;
     schema1:description "ADA data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
     schema1:name "ALH84001_ADA_001.tif" ;
@@ -1434,7 +1428,7 @@ ex:adaProduct-file-001 a schema1:ImageObject,
 ex:adaProduct-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
         ada:document ;
-    schema1:additionalType ada:LAICPMSGeochronTabular ;
+    schema1:additionalType "ada:LAICPMSGeochronTabular" ;
     schema1:description "Method description document for this analysis" ;
     schema1:encodingFormat "application/pdf" ;
     schema1:name "ALH84001_ADA_methods.pdf" ;
@@ -1509,7 +1503,8 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
 
 <https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
+    schema1:additionalType ada:ADAInstrument,
+        <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
         <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Laser Ablation System" ;

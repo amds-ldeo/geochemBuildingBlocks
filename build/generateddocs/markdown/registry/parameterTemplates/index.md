@@ -47,6 +47,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -81,6 +83,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -115,6 +119,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -149,6 +155,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -183,6 +191,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -217,6 +227,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -251,6 +263,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -285,6 +299,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -319,6 +335,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -350,6 +368,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -381,6 +401,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -411,6 +433,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -443,6 +467,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -475,6 +501,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: "\xB5m x \xB5m"
     required:
@@ -508,6 +538,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -542,6 +574,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -575,6 +609,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -607,6 +645,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -638,6 +678,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -670,6 +712,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -704,6 +748,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -735,6 +781,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -769,6 +817,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -803,6 +853,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -837,6 +889,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -871,6 +925,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -905,6 +961,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -939,6 +997,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -973,6 +1033,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1007,6 +1069,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1041,6 +1105,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1074,6 +1140,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1107,6 +1175,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1139,6 +1209,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1173,6 +1245,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1206,6 +1280,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -1243,6 +1321,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1275,6 +1355,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1306,6 +1388,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1337,6 +1421,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: dimensionless
     required:
@@ -1369,6 +1457,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1401,6 +1491,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1431,6 +1523,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1466,6 +1560,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1498,6 +1594,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mJ
     required:
@@ -1531,6 +1631,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1564,6 +1666,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: L/min
     required:
@@ -1600,6 +1706,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1632,6 +1740,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1666,6 +1776,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -1698,6 +1812,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1732,6 +1848,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1764,6 +1882,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mL/min
     required:
@@ -1797,6 +1919,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1828,6 +1952,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1858,6 +1984,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1891,6 +2019,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1925,6 +2055,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1958,6 +2090,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1990,6 +2124,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2024,6 +2160,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2057,6 +2195,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -2094,6 +2236,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2126,6 +2270,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2157,6 +2303,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2187,6 +2335,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2219,6 +2369,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2249,6 +2401,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2284,6 +2438,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2316,6 +2472,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mJ
     required:
@@ -2349,6 +2509,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2382,6 +2544,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: L/min
     required:
@@ -2418,6 +2584,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2450,6 +2618,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2484,6 +2654,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -2516,6 +2690,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2550,6 +2726,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2582,6 +2760,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mL/min
     required:
@@ -2615,6 +2797,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2646,6 +2830,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2676,6 +2862,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2709,6 +2897,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2743,6 +2933,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2776,6 +2968,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2809,6 +3003,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2841,6 +3037,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2875,6 +3073,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2908,6 +3108,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -2942,6 +3146,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2973,6 +3179,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3004,6 +3212,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: dimensionless
     required:
@@ -3036,6 +3248,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3068,6 +3282,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3098,6 +3314,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3133,6 +3351,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3165,6 +3385,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mJ
     required:
@@ -3198,6 +3422,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3231,6 +3457,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: L/min
     required:
@@ -3267,6 +3497,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3299,6 +3531,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3333,6 +3567,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -3365,6 +3603,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3399,6 +3639,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3435,6 +3677,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3467,6 +3711,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mL/min
     required:
@@ -3500,6 +3748,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3531,6 +3781,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3561,6 +3813,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3594,6 +3848,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3628,6 +3884,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3661,6 +3919,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3693,6 +3953,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3727,6 +3989,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3760,6 +4024,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -3794,6 +4062,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3825,6 +4095,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3855,6 +4127,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3887,6 +4161,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3917,6 +4193,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3952,6 +4230,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3984,6 +4264,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mJ
     required:
@@ -4017,6 +4301,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4050,6 +4336,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: L/min
     required:
@@ -4086,6 +4376,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4118,6 +4410,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4152,6 +4446,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -4184,6 +4482,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4218,6 +4518,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4254,6 +4556,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4286,6 +4590,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mL/min
     required:
@@ -4319,6 +4627,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4350,6 +4660,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4380,6 +4692,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4413,6 +4727,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4447,6 +4763,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4480,6 +4798,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4513,6 +4833,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4547,6 +4869,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4580,6 +4904,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -4614,6 +4942,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4645,6 +4975,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4676,6 +5008,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: dimensionless
     required:
@@ -4708,6 +5044,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4740,6 +5078,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4770,6 +5110,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4805,6 +5147,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4837,6 +5181,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mJ
     required:
@@ -4870,6 +5218,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4903,6 +5253,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: L/min
     required:
@@ -4939,6 +5293,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4971,6 +5327,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5005,6 +5363,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -5037,6 +5399,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5071,6 +5435,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5107,6 +5473,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5138,6 +5506,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5169,6 +5539,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5199,6 +5571,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5232,6 +5606,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5266,6 +5642,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5299,6 +5677,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5333,6 +5713,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5366,6 +5748,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -5400,6 +5786,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5431,6 +5819,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5461,6 +5851,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5493,6 +5885,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5523,6 +5917,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5558,6 +5954,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5590,6 +5988,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mJ
     required:
@@ -5623,6 +6025,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5656,6 +6060,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: L/min
     required:
@@ -5692,6 +6100,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5724,6 +6134,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5758,6 +6170,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -5790,6 +6206,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5824,6 +6242,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5860,6 +6280,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5891,6 +6313,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5922,6 +6346,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5952,6 +6378,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5985,6 +6413,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6019,6 +6449,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6050,6 +6482,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6084,6 +6518,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6114,6 +6550,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6144,6 +6582,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6175,6 +6615,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -6208,6 +6652,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6245,6 +6691,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6277,6 +6725,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6311,6 +6761,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6341,6 +6793,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6371,6 +6825,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6403,6 +6859,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: "\xB0"
     required:
@@ -6435,6 +6895,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6470,6 +6932,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6501,6 +6965,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6532,6 +6998,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mm
     required:
@@ -6564,6 +7034,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mm
     required:
@@ -6599,6 +7073,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6630,6 +7106,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: W
     required:
@@ -6666,6 +7146,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6700,6 +7182,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6734,6 +7218,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6768,6 +7254,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6802,6 +7290,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6836,6 +7326,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6870,6 +7362,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6904,6 +7398,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6938,6 +7434,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6972,6 +7470,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7006,6 +7506,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7040,6 +7542,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7074,6 +7578,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7108,6 +7614,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7139,6 +7647,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7170,6 +7680,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7200,6 +7712,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7232,6 +7746,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7264,6 +7780,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: "\xB5m x \xB5m"
     required:
@@ -7297,6 +7817,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7328,6 +7850,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -7364,6 +7890,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7397,6 +7925,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -7431,6 +7963,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7462,6 +7996,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7494,6 +8030,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7528,6 +8066,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7559,6 +8099,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7593,6 +8135,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7624,6 +8168,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -7657,6 +8205,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7686,6 +8236,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: ms
     required:
@@ -7719,6 +8273,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7750,6 +8306,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -7786,6 +8346,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7817,6 +8379,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7848,6 +8412,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7878,6 +8444,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7910,6 +8478,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -7942,6 +8512,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: "\xB5m x \xB5m"
     required:
@@ -7975,6 +8549,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8006,6 +8582,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -8039,6 +8619,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8073,6 +8655,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8106,6 +8690,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -8140,6 +8728,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8169,6 +8759,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: ms
     required:
@@ -8202,6 +8796,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8233,6 +8829,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8264,6 +8862,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -8298,6 +8900,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8332,6 +8936,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8363,6 +8969,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8397,6 +9005,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8431,6 +9041,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8464,6 +9076,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8496,6 +9110,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8530,6 +9146,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8563,6 +9181,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -8600,6 +9222,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8632,6 +9256,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8663,6 +9289,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8694,6 +9322,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: dimensionless
     required:
@@ -8728,6 +9360,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8758,6 +9392,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8793,6 +9429,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8824,6 +9462,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8857,6 +9497,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: L/min
     required:
@@ -8893,6 +9537,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8925,6 +9571,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -8957,6 +9605,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mL/min
     required:
@@ -8989,6 +9641,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mg or mL
     required:
@@ -9022,6 +9678,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9052,6 +9710,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9086,6 +9746,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9119,6 +9781,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9151,6 +9815,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9185,6 +9851,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9218,6 +9886,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -9252,6 +9924,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9283,6 +9957,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9315,6 +9991,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9345,6 +10023,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9380,6 +10060,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9411,6 +10093,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9444,6 +10128,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: L/min
     required:
@@ -9480,6 +10168,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9512,6 +10202,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9546,6 +10238,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -9582,6 +10278,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9614,6 +10312,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mL/min
     required:
@@ -9646,6 +10348,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mg or mL
     required:
@@ -9679,6 +10385,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9709,6 +10417,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9743,6 +10453,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9776,6 +10488,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9810,6 +10524,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9843,6 +10559,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -9877,6 +10597,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9908,6 +10630,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9940,6 +10664,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9970,6 +10696,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10005,6 +10733,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10036,6 +10766,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10069,6 +10801,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: L/min
     required:
@@ -10105,6 +10841,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10137,6 +10875,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10171,6 +10911,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -10207,6 +10951,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10237,6 +10983,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: mg or mL
     required:
@@ -10270,6 +11020,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10300,6 +11052,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10334,6 +11088,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10368,6 +11124,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10402,6 +11160,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10436,6 +11196,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10470,6 +11232,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10501,6 +11265,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10531,6 +11297,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10566,6 +11334,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10597,6 +11367,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -10629,6 +11403,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10661,6 +11437,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: s
     required:
@@ -10694,6 +11474,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10727,6 +11509,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10758,6 +11542,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -10790,6 +11578,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10821,6 +11611,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10852,6 +11644,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10882,6 +11676,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10913,6 +11709,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10947,6 +11745,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10978,6 +11778,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: degrees
     required:
@@ -11013,6 +11817,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11042,6 +11848,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11080,6 +11888,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11110,6 +11920,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11139,6 +11951,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11169,6 +11983,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: ms
     required:
@@ -11202,6 +12020,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11232,6 +12052,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: pA or nA
     required:
@@ -11268,6 +12092,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: nm
     required:
@@ -11300,6 +12128,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         const: pixels x pixels
     required:
@@ -11334,6 +12166,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11364,6 +12198,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11398,6 +12234,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11432,6 +12270,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11466,6 +12306,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11500,6 +12342,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11530,6 +12374,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -11562,6 +12410,10 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
       schema:unitText:
         type: string
     required:
@@ -11598,6 +12450,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11632,6 +12486,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11666,6 +12522,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'

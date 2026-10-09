@@ -15,17 +15,17 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ;
-                    ada:edsChannelsDefault "2024" ;
-                    ada:edsProcessTimeDefault "5" ],
+                    schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ;
+                    ada:edsChannelsDefault "2024" ;
+                    ada:edsProcessTimeDefault "5" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -56,10 +56,10 @@
     ada:samplingUnitType "missing" ;
     ada:stageTilt "70 deg" ;
     ada:targetMaterial "missing" ;
-    bios:computationalTool [ schema1:name "AZtecCrystal" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "AZtecCrystal" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
