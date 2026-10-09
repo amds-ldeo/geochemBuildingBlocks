@@ -215,9 +215,9 @@ The procedure half of the Core module, with every property populated. Generated 
     ada:reportedProperties "example value" ;
     ada:samplingUnitType "example value" ;
     bios:computationalTool [ schema1:name "example value" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         [ schema1:name "example value" ;
-            ada:toolRole "acquisition" ] .
+            ada:toolRole "dataReduction" ] .
 
 
 ```
@@ -1146,6 +1146,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'

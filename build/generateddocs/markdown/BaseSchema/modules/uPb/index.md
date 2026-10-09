@@ -181,6 +181,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -219,6 +222,9 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
