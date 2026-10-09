@@ -86,7 +86,8 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -198,7 +199,8 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -239,6 +241,7 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -360,7 +363,8 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -472,7 +476,8 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -513,6 +518,7 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -634,7 +640,8 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -746,7 +753,8 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -787,6 +795,7 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -908,7 +917,8 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -1020,7 +1030,8 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -1061,6 +1072,7 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;

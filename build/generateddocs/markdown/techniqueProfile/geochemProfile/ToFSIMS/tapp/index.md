@@ -79,7 +79,8 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
@@ -168,7 +169,8 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
@@ -193,6 +195,7 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;

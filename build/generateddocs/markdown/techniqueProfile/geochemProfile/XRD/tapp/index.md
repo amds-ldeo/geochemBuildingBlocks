@@ -83,7 +83,8 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -187,7 +188,8 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -223,6 +225,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -335,7 +338,8 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -439,7 +443,8 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -475,6 +480,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -587,7 +593,8 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -691,7 +698,8 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -727,6 +735,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;

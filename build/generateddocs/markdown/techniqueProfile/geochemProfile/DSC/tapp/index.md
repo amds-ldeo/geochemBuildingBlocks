@@ -82,7 +82,8 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -180,7 +181,8 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ]
+    ],
+    "schema:name": "missing"
   },
   "schema:variableMeasured": [
     {
@@ -211,6 +213,7 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
