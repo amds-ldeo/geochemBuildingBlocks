@@ -398,6 +398,14 @@ def build_pathdriven(tapp, write_registries=True):
         ex.fill_required_types(tapp_inst, tapp_sch)
         ex.fill_required_types(detail_inst, detail_sch)
 
+    # A HowTo built by the sentinel pass above carries no schema:name, which
+    # CDIF's SHACL requires of every schema:HowTo. Named here rather than in
+    # fill_nested_required, whose contract is JSON-Schema-required properties.
+    h1 = bte.name_unnamed_howtos(tapp_inst)
+    h2 = bte.name_unnamed_howtos(detail_inst)
+    if h1 or h2:
+        print(f"  named {h1 + h2} unnamed schema:HowTo node(s)")
+
     _write_json(os.path.join(b.TAPP_DIR, f"example{tapp}-P0.json"), tapp_inst)
     _write_json(os.path.join(b.DETAIL_DIR, f"exampledetail{short}-P0.json"), detail_inst)
 

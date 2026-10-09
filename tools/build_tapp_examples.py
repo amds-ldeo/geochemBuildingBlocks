@@ -225,7 +225,17 @@ def place_parameter(inst, entry, sp):
         return True          # selector declared but instrument absent: drop rather than misplace
     m = _STEP_SEL.search(sp)
     if m:
-        proc = inst.setdefault("schema:actionProcess", {"@type": ["schema:HowTo"], "schema:step": []})
+        proc = inst.setdefault(
+            "schema:actionProcess",
+            # CDIF's cdifProvActivity SHACL requires schema:name on any
+            # schema:HowTo (sh:targetClass schema:HowTo, minCount 1). The JSON
+            # Schema does not, so no fill pass supplied it and 230 generated
+            # HowTo nodes shipped without one. Safe as a sentinel here because
+            # NOTHING keys a discriminator on a HowTo's own name: 0 of 3268
+            # schema:name discriminators in the repo, against 131 that key on a
+            # STEP name, where a sentinel would mint a second, separate step.
+            {"@type": ["schema:HowTo"], "schema:name": SENTINEL_TEXT,
+             "schema:step": []})
         steps = proc.setdefault("schema:step", [])
         step = next((s for s in steps if s.get("schema:name") == m.group(1)), None)
         if step is None:
@@ -284,7 +294,17 @@ def ensure_required_steps(inst, sp_by_item):
         return
     order = ["Sample preparation", "Data acquisition", "Data reduction"]
     uniq = sorted(set(wanted), key=lambda s: (order.index(s) if s in order else len(order), s))
-    proc = inst.setdefault("schema:actionProcess", {"@type": ["schema:HowTo"], "schema:step": []})
+    proc = inst.setdefault(
+        "schema:actionProcess",
+        # CDIF's cdifProvActivity SHACL requires schema:name on any
+        # schema:HowTo (sh:targetClass schema:HowTo, minCount 1). The JSON
+        # Schema does not, so no fill pass supplied it and 230 generated
+        # HowTo nodes shipped without one. Safe as a sentinel here because
+        # NOTHING keys a discriminator on a HowTo's own name: 0 of 3268
+        # schema:name discriminators in the repo, against 131 that key on a
+        # STEP name, where a sentinel would mint a second, separate step.
+        {"@type": ["schema:HowTo"], "schema:name": SENTINEL_TEXT,
+         "schema:step": []})
     steps = proc.setdefault("schema:step", [])
     for name in uniq:
         st = next((s for s in steps if s.get("schema:name") == name), None)
@@ -812,6 +832,36 @@ def fill_required_sentinels(inst, tapp_dir):
         got = sentinel_for(sub)
         if got is not None:
             inst[key] = got
+
+
+def name_unnamed_howtos(inst):
+    """Give every schema:HowTo a schema:name, which CDIF's SHACL requires.
+
+    The two creation sites above now set it, but a HowTo can also be built by
+    fill_nested_required when the JSON Schema requires schema:actionProcess and
+    the instance has none -- which is how every synthetic -P0 example got a bare
+    {"@type": ["schema:HowTo"]}. That path cannot supply the name, because
+    schema:name is not JSON-Schema-required there; only the SHACL asks for it.
+
+    Returns how many nodes were named. Mutates in place.
+    """
+    named = 0
+
+    def walk(node):
+        nonlocal named
+        if isinstance(node, dict):
+            types = node.get("@type")
+            if isinstance(types, list) and "schema:HowTo" in types and "schema:name" not in node:
+                node["schema:name"] = SENTINEL_TEXT
+                named += 1
+            for value in node.values():
+                walk(value)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value)
+
+    walk(inst)
+    return named
 
 
 def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
