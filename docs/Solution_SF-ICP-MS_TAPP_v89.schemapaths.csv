@@ -66,7 +66,7 @@ Triple Scanning Mode,Advanced,Read-Only,Controlled list,$MethodDefinition.schema
 Dwell Time per Mass,Basic,Editable,Numeric (ms) / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],inferred,shared,"Analyte-specific field | root repaired 2026-09-13: was '$.', which schema_path_parser rejects (root := ""$MethodDefinition"" | ""$Dataset""), so the row was silently emitting nothing. Siblings are unanimous on $MethodDefinition",monitored property
 Number of Scans per Replicate,Basic,Read-Only,Integer,$MethodDefinition.ada:numberOfScansPerReplicate,inferred,,,acquisition pass
 Number of Replicates,Advanced,Basic,Integer,$MethodDefinition.ada:numberOfReplicatesPerSample,inferred,shared,,
-Analysis Sequence,Basic,Editable,Text (free),$MethodDefinition.ada:sampleSequenceDesign,inferred,shared,,
+Analysis Sequence,Basic,Editable,Text (free),,module,shared,placement owned by Module ICPMS,
 Wash Time Between Samples,Basic,Read-Only,Numeric (s),,module,shared,placement owned by Module SolutionIntroduction,
 Internal Standard Element,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,acquisition pass
 Internal Standard Concentration,Advanced,Read-Only,Numeric (µg/L),$MethodDefinition.schema:additionalProperty[schema:name='Internal Standard Concentration'].schema:value,inferred,shared,,
