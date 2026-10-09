@@ -52,6 +52,7 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -68,8 +69,7 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
@@ -131,6 +131,7 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -147,8 +148,7 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",

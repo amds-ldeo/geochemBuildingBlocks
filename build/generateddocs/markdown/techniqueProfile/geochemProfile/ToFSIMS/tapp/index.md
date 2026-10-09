@@ -65,6 +65,7 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -81,8 +82,7 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
@@ -157,6 +157,7 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -173,8 +174,7 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",

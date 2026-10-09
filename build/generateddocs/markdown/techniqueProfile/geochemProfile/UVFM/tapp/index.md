@@ -65,6 +65,7 @@ uvfmTAPP instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cen
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -81,8 +82,7 @@ uvfmTAPP instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cen
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
@@ -157,6 +157,7 @@ uvfmTAPP instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cen
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -173,8 +174,7 @@ uvfmTAPP instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cen
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",

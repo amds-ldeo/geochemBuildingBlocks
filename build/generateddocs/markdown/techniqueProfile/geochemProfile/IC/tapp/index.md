@@ -68,6 +68,7 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -84,8 +85,7 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -169,6 +169,7 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -185,8 +186,7 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

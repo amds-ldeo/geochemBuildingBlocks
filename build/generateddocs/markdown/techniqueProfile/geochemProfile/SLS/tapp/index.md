@@ -65,6 +65,7 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -81,8 +82,7 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
@@ -157,6 +157,7 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -173,8 +174,7 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",

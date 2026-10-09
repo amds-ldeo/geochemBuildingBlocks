@@ -184,8 +184,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -543,7 +542,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 98Mo/96Mo = 1.453173 using the exponential law, plus bracketing against the Alfa Aesar standard",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -676,6 +674,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   "ada:uncertaintyLevel": "2 s.d. for external reproducibility (n = 24 for Mo, n = 14 for Ba)",
   "ada:blankBackgroundCorrectionMethod": "On-peak-zero baseline integrations subtracted",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2 — 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'"
   ],
@@ -882,8 +881,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -1241,7 +1239,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 98Mo/96Mo = 1.453173 using the exponential law, plus bracketing against the Alfa Aesar standard",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -1374,6 +1371,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   "ada:uncertaintyLevel": "2 s.d. for external reproducibility (n = 24 for Mo, n = 14 for Ba)",
   "ada:blankBackgroundCorrectionMethod": "On-peak-zero baseline integrations subtracted",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2 \u2014 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'"
   ],
@@ -1411,17 +1409,13 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1442,10 +1436,13 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -1988,8 +1985,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -2467,7 +2463,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Each sample bracketed by standards analysed immediately before and after, with 2% HNO3 blanks aspirated periodically through the session — §2.4, §3.2",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing with matrix-matched purified S solutions, linear interpolation between the biases of two neighbouring standards, sample and standard matched within ~20% in intensity at ~10 V — §2.4, §3.1",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -2580,6 +2575,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
   "ada:uncertaintyLevel": "1σ internal precision for individual analyses, 2σ external reproducibility for replicates — §2.4",
   "ada:blankBackgroundCorrectionMethod": "Average on-peak-zero background from periodic 2% HNO3 blanks, measured on the low-mass shoulder, subtracted per isotope off-line — ~30–50 mV on ³²S (§2.4, §3.1)",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Each sample bracketed by standards analysed immediately before and after, with 2% HNO3 blanks aspirated periodically through the session — §2.4, §3.2",
   "ada:secondaryReferenceMaterialDefault": [
     "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po — Table 3"
   ],
@@ -2810,8 +2806,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -3289,7 +3284,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Each sample bracketed by standards analysed immediately before and after, with 2% HNO3 blanks aspirated periodically through the session \u2014 \u00a72.4, \u00a73.2",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing with matrix-matched purified S solutions, linear interpolation between the biases of two neighbouring standards, sample and standard matched within ~20% in intensity at ~10 V \u2014 \u00a72.4, \u00a73.1",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -3402,6 +3396,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
   "ada:uncertaintyLevel": "1\u03c3 internal precision for individual analyses, 2\u03c3 external reproducibility for replicates \u2014 \u00a72.4",
   "ada:blankBackgroundCorrectionMethod": "Average on-peak-zero background from periodic 2% HNO3 blanks, measured on the low-mass shoulder, subtracted per isotope off-line \u2014 ~30\u201350 mV on \u00b3\u00b2S (\u00a72.4, \u00a73.1)",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Each sample bracketed by standards analysed immediately before and after, with 2% HNO3 blanks aspirated periodically through the session \u2014 \u00a72.4, \u00a73.2",
   "ada:secondaryReferenceMaterialDefault": [
     "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po \u2014 Table 3"
   ],
@@ -3438,25 +3433,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -3471,10 +3448,27 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
@@ -4120,8 +4114,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -4552,7 +4545,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
       }
     ]
   },
-  "ada:analysisSequenceDefault": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549 using the exponential law, with IRMM-524a bracketing",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -4676,6 +4668,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
   "ada:uncertaintyLevel": "95% confidence interval from Student's t — over n = 10–35 repeat measurements of each sample solution (§2.3)",
   "ada:blankBackgroundCorrectionMethod": "On-peak zero from a blank solution subtracted from all measurements",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2 — §2.1"
   ],
@@ -4912,8 +4905,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -5344,7 +5336,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
       }
     ]
   },
-  "ada:analysisSequenceDefault": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549 using the exponential law, with IRMM-524a bracketing",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -5468,6 +5459,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
   "ada:uncertaintyLevel": "95% confidence interval from Student's t \u2014 over n = 10\u201335 repeat measurements of each sample solution (\u00a72.3)",
   "ada:blankBackgroundCorrectionMethod": "On-peak zero from a blank solution subtracted from all measurements",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2 \u2014 \u00a72.1"
   ],
@@ -5502,15 +5494,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -5528,6 +5512,13 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
                     schema1:description "MR; HR — 'either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex Ω desolvating nebulizer system (dry plasma, HR-mode, Ni cones)' (§2.3)" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -6123,8 +6114,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -6429,7 +6419,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing — \"On average, LREEs were measured nine times bracketed by OL-REE isotope standard spaced apart by 300-s rinsing time\"",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing, each sample ratio normalised to the average of the two bracketing OL-REE standards, diluted to the same concentration in the same acid — 'SSB is advantageous over the double-spike approach because one can distinguish mass-dependent fractionation from isotopic anomalies'",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -6591,6 +6580,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
   "ada:calibrationMeasurementFrequency": "Every sample, spaced by 300 s rinsing",
   "ada:blankBackgroundCorrectionMethod": "Background corrected off-line in a spreadsheet, from the 60 s baseline — 'correcting for background and isobaric interferences'",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing — \"On average, LREEs were measured nine times bracketed by OL-REE isotope standard spaced apart by 300-s rinsing time\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BCR-2 — 'processed with the CAIs'"
   ],
@@ -6793,8 +6783,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -7099,7 +7088,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing \u2014 \"On average, LREEs were measured nine times bracketed by OL-REE isotope standard spaced apart by 300-s rinsing time\"",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing, each sample ratio normalised to the average of the two bracketing OL-REE standards, diluted to the same concentration in the same acid \u2014 'SSB is advantageous over the double-spike approach because one can distinguish mass-dependent fractionation from isotopic anomalies'",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -7261,6 +7249,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
   "ada:calibrationMeasurementFrequency": "Every sample, spaced by 300 s rinsing",
   "ada:blankBackgroundCorrectionMethod": "Background corrected off-line in a spreadsheet, from the 60 s baseline \u2014 'correcting for background and isobaric interferences'",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing \u2014 \"On average, LREEs were measured nine times bracketed by OL-REE isotope standard spaced apart by 300-s rinsing time\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BCR-2 \u2014 'processed with the CAIs'"
   ],
@@ -7295,7 +7284,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -7303,15 +7291,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
                     schema1:description "CAIs extracted from Allende slabs with a stainless steel dental tool and powdered, digested, REEs recovered from the U/TEVA matrix cut, extracted on TODGA and separated by two-step FPLC on Ln-Spec — Materials and Methods, after Tissot et al. (34)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -7329,7 +7308,16 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "main configuration; subconfiguration — for Dy and Yb 'a subconfiguration was used to monitor isobaric interferences'; the cup configurations are in table S2" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -7840,8 +7828,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -8189,7 +8176,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
       }
     ]
   },
-  "ada:analysisSequenceDefault": "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank",
   "ada:massBiasCorrectionStrategy": "91Zr-96Zr double spike inversion, with ZrNIST bracketing after inversion",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -8325,6 +8311,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
   "ada:calibrationMeasurementFrequency": "Every sample — \"Each sample measurement was individually bracketed\"",
   "ada:blankBackgroundCorrectionMethod": "On-peak-zero correction using mean acid blank intensities",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -8550,8 +8537,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -8899,7 +8885,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
       }
     ]
   },
-  "ada:analysisSequenceDefault": "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank",
   "ada:massBiasCorrectionStrategy": "91Zr-96Zr double spike inversion, with ZrNIST bracketing after inversion",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -9035,6 +9020,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
   "ada:calibrationMeasurementFrequency": "Every sample \u2014 \"Each sample measurement was individually bracketed\"",
   "ada:blankBackgroundCorrectionMethod": "On-peak-zero correction using mean acid blank intensities",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -9068,8 +9054,19 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "chemical abrasion (19 zircons for U-Pb, annealed at 900 °C for 60 h, then leached in 29 M HF in a Parr vessel at 215 °C for 12 h); U-Pb dissolution (dated crystals, 29 M HF in microcapsules in a Parr vessel, 215 °C, 48 h); Zr-only dissolution (crystals not dated, fluxed in 20% HNO3 at 60 °C for 2 h, then 29 M HF in microcapsules in a Parr vessel, 215 °C, 60 h); spike equilibration (with the ⁹¹Zr–⁹⁶Zr spike, fluxed at 140 °C overnight, dried down twice and redigested) — Materials and Methods" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "chemical abrasion: 29 M HF; U-Pb dissolution: 29 M HF; Zr-only dissolution: 20% HNO3, then 29 M HF; spike equilibration: N" ] ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -9086,18 +9083,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "chemical abrasion (19 zircons for U-Pb, annealed at 900 °C for 60 h, then leached in 29 M HF in a Parr vessel at 215 °C for 12 h); U-Pb dissolution (dated crystals, 29 M HF in microcapsules in a Parr vessel, 215 °C, 48 h); Zr-only dissolution (crystals not dated, fluxed in 20% HNO3 at 60 °C for 2 h, then 29 M HF in microcapsules in a Parr vessel, 215 °C, 60 h); spike equilibration (with the ⁹¹Zr–⁹⁶Zr spike, fluxed at 140 °C overnight, dried down twice and redigested) — Materials and Methods" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "chemical abrasion: 29 M HF; U-Pb dissolution: 29 M HF; Zr-only dissolution: 20% HNO3, then 29 M HF; spike equilibration: N" ] ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -9652,8 +9637,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -10048,7 +10032,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing, with the 0.3 M HNO3 dilution acid measured before and after each sample and standard under identical conditions — A.3",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against NIST SRM984",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -10148,6 +10131,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   "ada:uncertaintyLevel": "2σ/√n — σ from the standards treated as samples, n the replicates of the sample",
   "ada:blankBackgroundCorrectionMethod": "Average intensity of the two bracketing 0.3 M HNO3 blank measurements subtracted from each sample and standard — background 0.001–0.003 V on ⁸⁵Rb",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing, with the 0.3 M HNO3 dilution acid measured before and after each sample and standard under identical conditions — A.3",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984, Allende — A.4"
   ],
@@ -10375,8 +10359,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -10771,7 +10754,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing, with the 0.3 M HNO3 dilution acid measured before and after each sample and standard under identical conditions \u2014 A.3",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against NIST SRM984",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -10871,6 +10853,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   "ada:uncertaintyLevel": "2\u03c3/\u221an \u2014 \u03c3 from the standards treated as samples, n the replicates of the sample",
   "ada:blankBackgroundCorrectionMethod": "Average intensity of the two bracketing 0.3 M HNO3 blank measurements subtracted from each sample and standard \u2014 background 0.001\u20130.003 V on \u2078\u2075Rb",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing, with the 0.3 M HNO3 dilution acid measured before and after each sample and standard under identical conditions \u2014 A.3",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984, Allende \u2014 A.4"
   ],
@@ -10906,15 +10889,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -10931,6 +10906,13 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
                     schema1:description "Whole-rock powder" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -11897,8 +11879,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:massBiasCorrectionStrategy": "Internal normalisation, applied offline in Excel with the abundance-sensitivity and W/Re corrections — §3.1, §3.5",
   "ada:monitoredPropertyTemplate": {
@@ -12641,8 +12622,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:massBiasCorrectionStrategy": "Internal normalisation, applied offline in Excel with the abundance-sensitivity and W/Re corrections \u2014 \u00a73.1, \u00a73.5",
   "ada:monitoredPropertyTemplate": {
@@ -12808,25 +12788,22 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "N/A - reference material solutions, no digestion." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N/A — reference material solutions in 3 or 5 mol/l Teflon-distilled HCl" ] ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "N/A — reference material solutions, no solid preparation" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupGainCalibrationMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -12837,12 +12814,14 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupGainCalibrationMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "N/A - reference material solutions, no digestion." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — reference material solutions in 3 or 5 mol/l Teflon-distilled HCl" ] ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
@@ -13750,8 +13729,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:massBiasCorrectionStrategy": "Internal normalisation, processed on-line with the W and Re corrections — §3.2",
   "ada:monitoredPropertyTemplate": {
@@ -14439,8 +14417,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:massBiasCorrectionStrategy": "Internal normalisation, processed on-line with the W and Re corrections \u2014 \u00a73.2",
   "ada:monitoredPropertyTemplate": {
@@ -14606,7 +14583,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -14614,13 +14590,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
                     schema1:description "sequence 1; sequence 2 — 'masses 183W to 189Os collected in the first sequence and 188Os to 192Os collected in the second sequence with a 4 s magnet settle time between sequences' (§3.2)" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "N/A — reference material solutions, no solid preparation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -14639,7 +14608,14 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "N/A — reference material solutions, no solid preparation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -15168,8 +15144,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -15615,7 +15590,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
   "ada:massBiasCorrectionStrategy": "\"Measurements were made using standard-sample bracketing to correct for instrumental mass bias\"",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -15722,6 +15696,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
   "ada:calibrationMeasurementFrequency": "Every sample (bracketing), plus an external pure Rb solution \"during each analytical session\"",
   "ada:blankBackgroundCorrectionMethod": "Instrumental background measured at the beginning of and throughout each session (typically < 1 mV on 85Rb) and subtracted — §2.3",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution — §2.3"
   ],
@@ -15938,8 +15913,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -16385,7 +16359,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
   "ada:massBiasCorrectionStrategy": "\"Measurements were made using standard-sample bracketing to correct for instrumental mass bias\"",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -16492,6 +16465,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
   "ada:calibrationMeasurementFrequency": "Every sample (bracketing), plus an external pure Rb solution \"during each analytical session\"",
   "ada:blankBackgroundCorrectionMethod": "Instrumental background measured at the beginning of and throughout each session (typically < 1 mV on 85Rb) and subtracted \u2014 \u00a72.3",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution \u2014 \u00a72.3"
   ],
@@ -16526,7 +16500,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -16542,10 +16515,12 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "spray chamber; APEX — 'measured using both the spray chamber and the APEX sample introduction systems' in most cases (§2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -16556,12 +16531,10 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "spray chamber; APEX — 'measured using both the spray chamber and the APEX sample introduction systems' in most cases (§2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -17165,8 +17138,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -17539,7 +17511,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 94Zr/90Zr = 0.3381 using the exponential law; an initial Mo correction uses a mass bias relative to 91Zr/90Zr = 0.21798; results reported by standard sample bracketing to NIST SRM 3169",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -17670,6 +17641,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
   "ada:oxideProductionMethodAndThreshold": "Argide and Ar-Ar-oxide interferences on 94Zr and 96Zr minimised by tuning; no numeric threshold stated",
   "ada:blankBackgroundCorrectionMethod": "\"An on-peak background correction was performed\"; background corrections averaged 0.3, 2 and 98 ppm for 91Zr/90Zr, 92Zr/90Zr and 96Zr/90Zr",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony"
   ],
@@ -17897,8 +17869,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -18271,7 +18242,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 94Zr/90Zr = 0.3381 using the exponential law; an initial Mo correction uses a mass bias relative to 91Zr/90Zr = 0.21798; results reported by standard sample bracketing to NIST SRM 3169",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -18402,6 +18372,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
   "ada:oxideProductionMethodAndThreshold": "Argide and Ar-Ar-oxide interferences on 94Zr and 96Zr minimised by tuning; no numeric threshold stated",
   "ada:blankBackgroundCorrectionMethod": "\"An on-peak background correction was performed\"; background corrections averaged 0.3, 2 and 98 ppm for 91Zr/90Zr, 92Zr/90Zr and 96Zr/90Zr",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony"
   ],
@@ -18436,26 +18407,20 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "hotplate HF–HNO3 (Ryugu, 180 °C, 3–7 days); HNO3–HCl (120 °C, 12 h); HNO3–H2O2 dissolution; high-PT HF–HNO3 (Tagish Lake, Tarda, octagonal-body Savillex vials, 220 °C, about a week); Parr bomb (Ivuna PB, BCR-2, AGV-1, HF–HNO3, 170 °C); Ivuna high-PT (HF–HNO3 for 3 days, then HCl for 2 days, Savillex vial in an oven at 160 °C) — BHVO-2 in HF–HNO3 on a hotplate" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "hotplate HF–HNO3: concentrated HF–HNO3; HNO3–HCl: HNO3–HCl; HNO3–H2O2 dissolution: HNO3–H2O2; high-PT HF–HNO3: concentrated HF–HNO3; Parr bomb: concentrated HF–HNO3; Ivuna high-PT: concentrated HF–HNO3, then concentrated HCl" ] ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -18469,10 +18434,15 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "hotplate HF–HNO3 (Ryugu, 180 °C, 3–7 days); HNO3–HCl (120 °C, 12 h); HNO3–H2O2 dissolution; high-PT HF–HNO3 (Tagish Lake, Tarda, octagonal-body Savillex vials, 220 °C, about a week); Parr bomb (Ivuna PB, BCR-2, AGV-1, HF–HNO3, 170 °C); Ivuna high-PT (HF–HNO3 for 3 days, then HCl for 2 days, Savillex vial in an oven at 160 °C) — BHVO-2 in HF–HNO3 on a hotplate" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "hotplate HF–HNO3: concentrated HF–HNO3; HNO3–HCl: HNO3–HCl; HNO3–H2O2 dissolution: HNO3–H2O2; high-PT HF–HNO3: concentrated HF–HNO3; Parr bomb: concentrated HF–HNO3; Ivuna high-PT: concentrated HF–HNO3, then concentrated HCl" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -19024,8 +18994,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -19413,7 +19382,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing — against IRMM-014, SRM979 and DTS-2b; the normalisation is not restated (Fe follows Schiller et al.)",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -19566,6 +19534,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   "ada:uncertaintyLevel": "\"the mean and 2 x standard error (SE) of ten individual standard-bracketed sample analyses\"",
   "ada:blankBackgroundCorrectionMethod": "On-peak baseline measured before each analysis",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO2, DTS-2b — 'processed alongside the samples'"
   ],
@@ -19782,8 +19751,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -20171,7 +20139,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing \u2014 against IRMM-014, SRM979 and DTS-2b; the normalisation is not restated (Fe follows Schiller et al.)",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -20324,6 +20291,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   "ada:uncertaintyLevel": "\"the mean and 2 x standard error (SE) of ten individual standard-bracketed sample analyses\"",
   "ada:blankBackgroundCorrectionMethod": "On-peak baseline measured before each analysis",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO2, DTS-2b \u2014 'processed alongside the samples'"
   ],
@@ -20360,23 +20328,20 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Fe; Cr; Mg — separate introduction systems and acquisition settings (Methods)" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits — Methods" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -20392,10 +20357,12 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits — Methods" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -20964,8 +20931,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -21266,7 +21232,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against NIST SRM 3141a",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -21373,6 +21338,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   "ada:uncertaintyLevel": "N — ± values on δ⁴¹K without a stated convention",
   "ada:calibrationMeasurementFrequency": "Every sample (bracketing)",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
@@ -21601,8 +21567,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -21903,7 +21868,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against NIST SRM 3141a",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -22010,6 +21974,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   "ada:uncertaintyLevel": "N \u2014 \u00b1 values on \u03b4\u2074\u00b9K without a stated convention",
   "ada:calibrationMeasurementFrequency": "Every sample (bracketing)",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
@@ -22048,17 +22013,18 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "HF–HNO3 attack (3:2 concentrated HF : double-distilled HNO3 in PFA vials, hotplate, 150 °C, ~1 week); H2O2 step (dried under a heat lamp, 1 mL concentrated HNO3 with 1 mL H2O2 added in 0.1 mL increments); HCl step (dried, dissolved in double-distilled HCl); final uptake (dried, 5 mL 2% HNO3) — after Lauretta et al. (2024)" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HF–HNO3 attack: 3:2 HF : HNO3; H2O2 step: concentrated HNO3 + H2O2; HCl step: HCl; final uptake: 2% HNO3" ] ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -22076,15 +22042,13 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HF–HNO3 attack (3:2 concentrated HF : double-distilled HNO3 in PFA vials, hotplate, 150 °C, ~1 week); H2O2 step (dried under a heat lamp, 1 mL concentrated HNO3 with 1 mL H2O2 added in 0.1 mL increments); HCl step (dried, dissolved in double-distilled HCl); final uptake (dried, 5 mL 2% HNO3) — after Lauretta et al. (2024)" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF–HNO3 attack: 3:2 HF : HNO3; H2O2 step: concentrated HNO3 + H2O2; HCl step: HCl; final uptake: 2% HNO3" ] ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault>,
@@ -22576,8 +22540,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -22881,7 +22844,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
   "ada:massBiasCorrectionStrategy": "\"To correct for instrument mass bias, the sample–standard bracketing technique was used for all analyses\"",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -23004,6 +22966,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   "ada:finalSolutionMatrix": "K: 200 ppb; Cu: 100 ppb; Zn: 200 ppb — samples and standards; the acid is not stated",
   "ada:uncertaintyLevel": "2 s.d. — Bennu values carry 2 s.e. in the main text",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
@@ -23219,8 +23182,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -23524,7 +23486,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
   "ada:massBiasCorrectionStrategy": "\"To correct for instrument mass bias, the sample\u2013standard bracketing technique was used for all analyses\"",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
@@ -23647,6 +23608,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   "ada:finalSolutionMatrix": "K: 200 ppb; Cu: 100 ppb; Zn: 200 ppb \u2014 samples and standards; the acid is not stated",
   "ada:uncertaintyLevel": "2 s.d. \u2014 Bennu values carry 2 s.e. in the main text",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
@@ -23684,8 +23646,16 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -23710,16 +23680,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "One digest split two ways: about half at WUSTL for K, Cu and Zn, half to LLNL and on to ETH Zurich — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
@@ -24208,8 +24169,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -24868,8 +24828,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     ],
     "@type": [
       "schema:HowTo"
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:object": [
     {
@@ -25350,19 +25309,13 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HF–HNO3 attack (concentrated HF and HNO3 3:1, closed beaker, 170 °C, 48 h); HNO3–HCl flux (concentrated HNO3 and HCl, 1 ml H2O2 added slowly during the HNO3 flux to remove organics); final uptake (5 ml 0.5 M HNO3) — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF–HNO3 attack: 3:1 concentrated HF : HNO3; HNO3–HCl flux: concentrated HNO3 and HCl, with H2O2; final uptake: 0.5 M HNO3" ] ],
+                    schema1:description "configuration 1; configuration 2 — 'Titanium isotopes were collected in two cup configurations'" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -25375,10 +25328,15 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "configuration 1; configuration 2 — 'Titanium isotopes were collected in two cup configurations'" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "HF–HNO3 attack (concentrated HF and HNO3 3:1, closed beaker, 170 °C, 48 h); HNO3–HCl flux (concentrated HNO3 and HCl, 1 ml H2O2 added slowly during the HNO3 flux to remove organics); final uptake (5 ml 0.5 M HNO3) — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HF–HNO3 attack: 3:1 concentrated HF : HNO3; HNO3–HCl flux: concentrated HNO3 and HCl, with H2O2; final uptake: 0.5 M HNO3" ] ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;

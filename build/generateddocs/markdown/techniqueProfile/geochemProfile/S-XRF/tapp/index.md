@@ -52,6 +52,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -68,8 +69,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
@@ -131,6 +131,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -147,8 +148,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",

@@ -69,6 +69,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -85,8 +86,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -176,6 +176,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -192,8 +193,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -328,6 +328,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -344,8 +345,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -435,6 +435,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -451,8 +452,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -587,6 +587,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -603,8 +604,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -694,6 +694,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -710,8 +711,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

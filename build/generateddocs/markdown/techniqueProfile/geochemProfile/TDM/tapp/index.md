@@ -55,6 +55,7 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -71,8 +72,7 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -143,6 +143,7 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -159,8 +160,7 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

@@ -68,6 +68,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -84,8 +85,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -169,6 +169,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -185,8 +186,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {

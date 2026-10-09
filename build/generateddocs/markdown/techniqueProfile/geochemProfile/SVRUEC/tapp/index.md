@@ -68,6 +68,7 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -84,8 +85,7 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
@@ -169,6 +169,7 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
     "@type": [
       "schema:HowTo"
     ],
+    "schema:name": "missing",
     "schema:step": [
       {
         "@type": [
@@ -185,8 +186,7 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
         "schema:position": 1,
         "schema:description": "missing"
       }
-    ],
-    "schema:name": "missing"
+    ]
   },
   "schema:variableMeasured": [
     {
