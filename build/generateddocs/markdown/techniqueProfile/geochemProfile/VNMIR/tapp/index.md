@@ -1213,6 +1213,8 @@ allOf:
                         const: false
                       ada:tier:
                         const: R
+                      schema:defaultValue:
+                        type: string
                     required:
                     - '@id'
                     - '@type'
@@ -1243,6 +1245,8 @@ allOf:
                         const: false
                       ada:tier:
                         const: R
+                      schema:defaultValue:
+                        type: string
                     required:
                     - '@id'
                     - '@type'
@@ -1275,6 +1279,8 @@ allOf:
                         const: false
                       ada:tier:
                         const: R
+                      schema:defaultValue:
+                        type: string
                     required:
                     - '@id'
                     - '@type'
@@ -1308,6 +1314,8 @@ allOf:
                         const: false
                       ada:tier:
                         const: R
+                      schema:defaultValue:
+                        type: string
                     required:
                     - '@id'
                     - '@type'
@@ -1460,6 +1468,10 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
             schema:unitText:
               type: string
           required:
@@ -1491,6 +1503,10 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
             schema:unitText:
               type: string
           required:
@@ -1556,6 +1572,10 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
             schema:unitText:
               type: string
           required:
@@ -1590,6 +1610,10 @@ allOf:
               const: false
             ada:tier:
               const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
             schema:unitText:
               type: string
           required:

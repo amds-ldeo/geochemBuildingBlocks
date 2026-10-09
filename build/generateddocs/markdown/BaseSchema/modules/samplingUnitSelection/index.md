@@ -193,6 +193,8 @@ $defs:
       ada:tier:
         const: R
         x-jsonld-id: https://ada.astromat.org/metadata/tier
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'

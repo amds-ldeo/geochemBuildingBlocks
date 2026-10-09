@@ -38,9 +38,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:description": "Example path-driven EPMA product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Electron Microprobe Analysis (EPMA)",
-    {
-      "@id": "ada:DataDeliveryPackage"
-    }
+    "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
     "@type": [
@@ -195,6 +193,9 @@ and technique component types on the archive distribution. Mock data for validat
                   "@id": "nxs:base_classes/NXinstrument.html"
                 },
                 "EPMA",
+                {
+                  "@id": "ada:ADAInstrument"
+                },
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
@@ -420,9 +421,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            {
-              "@id": "ada:EPMAImage"
-            }
+            "ada:EPMAImage"
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -453,9 +452,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            {
-              "@id": "ada:EPMAImage"
-            }
+            "ada:EPMAImage"
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -573,9 +570,7 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:description": "Example path-driven EPMA product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Electron Microprobe Analysis (EPMA)",
-    {
-      "@id": "ada:DataDeliveryPackage"
-    }
+    "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
     "@type": [
@@ -730,6 +725,9 @@ and technique component types on the archive distribution. Mock data for validat
                   "@id": "nxs:base_classes/NXinstrument.html"
                 },
                 "EPMA",
+                {
+                  "@id": "ada:ADAInstrument"
+                },
                 {
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
@@ -955,9 +953,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            {
-              "@id": "ada:EPMAImage"
-            }
+            "ada:EPMAImage"
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -988,9 +984,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            {
-              "@id": "ada:EPMAImage"
-            }
+            "ada:EPMAImage"
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -1088,8 +1082,8 @@ and technique component types on the archive distribution. Mock data for validat
 
 ex:adaEPMA-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType ada:DataDeliveryPackage,
-        "Electron Microprobe Analysis (EPMA)" ;
+    schema1:additionalType "Electron Microprobe Analysis (EPMA)",
+        "ada:DataDeliveryPackage" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
             schema1:contributor [ a schema1:Person ;
@@ -1186,7 +1180,7 @@ ex:adaEPMA-example-001 a schema1:Dataset,
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
         ada:image ;
-    schema1:additionalType ada:EPMAImage ;
+    schema1:additionalType "ada:EPMAImage" ;
     schema1:description "ADA data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
     schema1:name "ALH84001_ADA_001.tif" ;
@@ -1201,7 +1195,7 @@ ex:adaProduct-file-001 a schema1:ImageObject,
 ex:adaProduct-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
         ada:document ;
-    schema1:additionalType ada:EPMAImage ;
+    schema1:additionalType "ada:EPMAImage" ;
     schema1:description "Method description document for this analysis" ;
     schema1:encodingFormat "application/pdf" ;
     schema1:name "ALH84001_ADA_methods.pdf" ;
@@ -1267,7 +1261,8 @@ ex:epmaTAPP-P0 a prov:Entity,
 
 <https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
+    schema1:additionalType ada:ADAInstrument,
+        <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
         <https://www.wikidata.org/wiki/Q3099911>,
         "EPMA" ;
     schema1:identifier "ex:instrument-ada-001" ;

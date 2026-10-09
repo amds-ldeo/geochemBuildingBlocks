@@ -251,6 +251,8 @@ $defs:
         const: true
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -317,6 +319,8 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
     required:
     - '@id'
     - '@type'

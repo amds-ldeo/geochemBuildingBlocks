@@ -227,6 +227,9 @@ $defs:
         x-jsonld-id: http://schema.org/readonlyValue
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -297,6 +300,11 @@ $defs:
         x-jsonld-id: http://schema.org/readonlyValue
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+        x-jsonld-id: http://schema.org/defaultValue
       schema:unitText:
         const: mL/min
         x-jsonld-id: http://schema.org/unitText
@@ -338,6 +346,9 @@ $defs:
         x-jsonld-id: http://schema.org/readonlyValue
       ada:tier:
         const: R
+      schema:defaultValue:
+        type: string
+        x-jsonld-id: http://schema.org/defaultValue
     required:
     - '@id'
     - '@type'
@@ -408,6 +419,11 @@ $defs:
         x-jsonld-id: http://schema.org/readonlyValue
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+        x-jsonld-id: http://schema.org/defaultValue
       schema:unitText:
         const: mL/min
         x-jsonld-id: http://schema.org/unitText
@@ -481,6 +497,11 @@ $defs:
         x-jsonld-id: http://schema.org/readonlyValue
       ada:tier:
         const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+        x-jsonld-id: http://schema.org/defaultValue
       schema:unitText:
         const: V
         x-jsonld-id: http://schema.org/unitText
