@@ -705,6 +705,11 @@ NEVER_SENTINEL = {"@type", "@id", "@context"}
 # The honest state is no rows plus ada:targetSpeciesDeclaration holding the statement verbatim,
 # which is exactly what that field was added for. An empty array still satisfies `required`; where
 # a schema genuinely demands members it says minItems, which sentinel_for still honours.
+# Properties whose value is an ORDINAL -- derivable from where the member sits, never sentinelled.
+# Kept beside NEVER_SENTINEL and EMPTY_ARRAY_SENTINEL because it is the same kind of statement:
+# which properties the generic sentinel must not be allowed to answer.
+ORDINAL_FROM_PATH = {"schema:position"}
+
 EMPTY_ARRAY_SENTINEL = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
                         "ada:defaultReportedProperties", "ada:defaultTargetMaterials"}
 
@@ -926,6 +931,41 @@ def name_unnamed_howtos(inst):
     return named
 
 
+def pinned_const(sub, depth=3):
+    """The value a subschema pins, looking THROUGH anyOf/oneOf, or None.
+
+    A discriminator is pinned one level down as {"type": "array", "contains": {...}}, and the
+    `contains` itself may be an anyOf of equivalent serializations rather than a bare const:
+
+        "schema:additionalType": {"type": "array", "contains": {"anyOf": [
+            {"const": "bios:LabProcess"},
+            {"type": "object", "required": ["@id"],
+             "properties": {"@id": {"const": "bios:LabProcess"}}}]}}
+
+    That shape arrived when the schema began accepting the plain CURIE or its JSON-LD IRI-reference
+    form. The caller tested `"const" in contains`, which is False for an anyOf, so the synthesised
+    step was again born without schema:additionalType and the sentinel pass filled ["missing"] --
+    the identical symptom the comment below already describes from the previous round. Reading
+    through the branches is what stops it recurring the next time a serialization is added.
+
+    Returns the first const or enum value found, preferring a plain scalar over an {@id} object
+    because that is what the step builders themselves emit (see STEP_TYPE sites above).
+    """
+    if not isinstance(sub, dict) or depth <= 0:
+        return None
+    if "const" in sub:
+        return sub["const"]
+    enum = sub.get("enum")
+    if isinstance(enum, list) and enum:
+        return enum[0]
+    for key in ("anyOf", "oneOf"):
+        for branch in (sub.get(key) or []):
+            got = pinned_const(branch, depth - 1)
+            if got is not None:
+                return got
+    return None
+
+
 def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
     """Fill every absent required property AT ANY DEPTH with its sentinel.
 
@@ -959,8 +999,8 @@ def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
                             continue
                         if "const" in v:
                             item[k] = v["const"]
-                        elif (v.get("type") == "array" and isinstance(v.get("contains"), dict)
-                              and "const" in v["contains"]):
+                        elif (v.get("type") == "array"
+                              and pinned_const(v.get("contains")) is not None):
                             # An array property pins its discriminator ONE LEVEL DOWN, as
                             # {"type": "array", "contains": {"const": "bios:LabProcess"}} -- the
                             # shape _type_const() already documents for instrument additionalType.
@@ -970,7 +1010,9 @@ def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
                             # satisfies the `contains` no better than absence did. That was the
                             # remaining -P0 failure in all three *-UPb TAPPs after the fabricated
                             # step at index 0 was fixed.
-                            item[k] = [v["contains"]["const"]]
+                            # pinned_const reads through an anyOf, so a `contains` that offers
+                            # the CURIE and its {@id} form alike still yields the token.
+                            item[k] = [pinned_const(v.get("contains"))]
                     if not item:
                         continue
                     arr = inst
@@ -1015,6 +1057,21 @@ def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
                     sub = (c.schema.get("properties") or {}).get(key) or {}
                     if key in EMPTY_ARRAY_SENTINEL:
                         got = []
+                    elif key in ORDINAL_FROM_PATH:
+                        # An ORDERED member's index is not a transcription gap, it is where the
+                        # member sits -- and the validator error already says where that is, in
+                        # the last integer of its absolute_path. sentinel_by_jtype types this as
+                        # an integer and so returned -9999, which every synthetic -P0 shipped: a
+                        # step claiming position -9999 in a list of two. It validates (an integer
+                        # is an integer), so no gate ever objected.
+                        #
+                        # The real step builders renumber 1..n after sorting, but that runs BEFORE
+                        # this pass, so a member this pass fills was never renumbered. Positions
+                        # are 1-based here, matching those builders.
+                        idx = next((q for q in reversed(list(c.absolute_path))
+                                    if isinstance(q, int)), None)
+                        got = (idx + 1) if idx is not None else sentinel_by_jtype(
+                            jtype_by_prop.get(key), sub, resolved_schema)
                     else:
                         got = sentinel_by_jtype(jtype_by_prop.get(key), sub, resolved_schema)
                     if got is not None and key not in parent:
