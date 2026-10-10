@@ -42,14 +42,26 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TPROF = os.path.join(ROOT, "_sources", "techniqueProfile")
 SENTINELS = {"missing", "nil:missing", "-9999", "n/a", "none", ""}
-# A sentinel that NAMES its field is still a sentinel: "test value <property>" alongside the bare "missing".
-SENTINEL_TEXT_PREFIX = "test value "
+# A sentinel that NAMES its field is still a sentinel: "no value available: <property>"
+# alongside the bare "missing". The prefix is imported, never restated.
+# The script directory is NOT on sys.path under `python -I` (isolated mode implies -P), so a
+# project-local import needs it stated. Both sibling modules already do this; these two did not,
+# because until the sentinel vocabulary was centralised they imported nothing project-local.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import _tapp_lib as _sent          # the one definition of the sentinel vocabulary
+SENTINEL_TEXT_PREFIX = _sent.SENTINEL_TEXT_PREFIX
 
 
 def is_sentinel(v):
     """Membership OR prefix. A step whose name is a sentinel is unnamed, however it is spelled."""
     low = str(v or "").strip().lower()
-    return low in SENTINELS or low.startswith(SENTINEL_TEXT_PREFIX)
+    # Membership is checked case-insensitively here (a step name is free text); the prefix half
+    # goes through _tapp_lib so a rename cannot leave this copy behind. Both spellings are tried
+    # because is_text_sentinel is case-SENSITIVE by design -- it guards vocabularies, where the
+    # exact string matters.
+    return (low in SENTINELS
+            or _sent.is_text_sentinel(str(v or "").strip())
+            or _sent.is_text_sentinel(low))
 
 
 def _const_name(node):

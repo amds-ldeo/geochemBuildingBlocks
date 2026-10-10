@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
 import schema_path_parser as spp
 import schema_path_emitter as e
+import _tapp_lib as _sent   # the one definition of the sentinel vocabulary
 
 ROOT = e.ROOT
 
@@ -61,8 +62,9 @@ def instance_from_def(s):
     if t in ("number", "integer"):
         return 1
     if "anyOf" in s:
-        return 1 if any(br.get("type") in ("number", "integer") for br in s["anyOf"]) else "example value"
-    return "example value"
+        return (1 if any(br.get("type") in ("number", "integer") for br in s["anyOf"])
+                else _sent.SENTINEL_TEXT_UNNAMED)
+    return _sent.SENTINEL_TEXT_UNNAMED
 
 
 _MODPARAM_CACHE = {}
@@ -230,7 +232,11 @@ def placeholder(m, item, sidecar):
         return 1
     if "numeric" in dl or "number" in dl:
         return 1.0
-    return f"example {name}"
+    # The fifth spelling of the text sentinel, and the one no consumer was filtering: "example
+    # <name>" looked like an illustrative value rather than an absent one. A synthetic -P0 has no
+    # source at all, so "no value available" is the honest reading, and sharing the prefix means
+    # the vocabulary filters now catch it.
+    return _sent.SENTINEL_TEXT_PREFIX + name
 
 
 def quantitative_placeholder(dtype):
@@ -1064,7 +1070,11 @@ def fill_structural_gaps(inst, resolved_schema, max_passes=6):
                 node = _at(inst, list(err.absolute_path) + rel)
                 if cand.validator == "required" and "'schema:name'" in cand.message:
                     if isinstance(node, dict) and "schema:name" not in node:
-                        node["schema:name"] = "example instrumentName"
+                        # Named for the PROPERTY, not for the node type. This read "example
+                        # instrumentName", which was wrong twice: the branch fires on any node
+                        # missing a required schema:name, not only an instrument, and it read as
+                        # an illustrative value rather than an absent one. 502 nodes carried it.
+                        node["schema:name"] = _sent.SENTINEL_TEXT_PREFIX + "schema:name"
                         added += 1
                         break
                 # a labeledLink / identifier requires a resolvable URL the sidecar never carries (a

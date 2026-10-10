@@ -29,6 +29,57 @@ from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
+# ---------------------------------------------------------------------------------------------
+# THE SENTINEL VOCABULARY, DEFINED ONCE. Seven producers wrote a text sentinel in four different
+# spellings: "test value <name>" (four modules with their own copy of the prefix),
+# "example <name>", the fixed "example value" in two schema samplers, and a hardcoded
+# "example instrumentName". Only the first was filtered anywhere. That is the drift
+# this repository keeps paying for: a producer changes the string, a consumer still compares
+# against the old one, and the consequence is not a missed filter but a WRONG VOCABULARY -- the
+# sentinel gets minted as a skos:Concept and published as an allowed term.
+#
+# SENTINEL_TEXT MUST STAY EXACTLY "missing". vocab_obj appends that literal to every generated
+# enum, so it is the only string a controlled slot accepts. It is not a wording choice and it
+# cannot be made self-describing without changing every enum in the corpus.
+#
+# The NAMED prefix is free text, so it can say what it is. It read "test value <property>", which
+# tells a reader of a published example that someone was testing -- the example looks unfinished
+# rather than deliberately incomplete. "no value available: <property>" says the field is required
+# and no source supplies it, which is the actual situation and true of both producers: a
+# publication example whose source is silent, and a synthetic -P0 that has no source at all.
+SENTINEL_TEXT = "missing"
+SENTINEL_TEXT_PREFIX = "no value available: "
+# Older artifacts, and anything published before the rename. Kept recognised rather than migrated,
+# because a consumer reading a stale file must still filter the sentinel out of a vocabulary; the
+# cost of forgetting is a published term, and the cost of keeping them is two string comparisons.
+LEGACY_TEXT_PREFIXES = ("test value ", "example ")
+
+# The NAMELESS form, for call sites that have no property name to put in the sentinel. The schema
+# samplers in build_module_bb and schema_path_example_emitter are the users: both stand in for a
+# string leaf whose shape they could not determine, and both also return this on a give-up path
+# (recursion past depth 12, an unresolvable $ref, a non-dict schema). They returned the literal
+# "example value", which reads as an illustrative value someone chose rather than as an absent
+# one -- and on a give-up path that reading is actively wrong.
+#
+# These samplers often DO know the property key, from the props dict they are iterating; they just
+# do not pass it down. Threading it would give the named form here too and is worth doing, but it
+# is a change to two recursive functions rather than to a constant, so it is deliberately not
+# bundled in with a rename.
+SENTINEL_TEXT_UNNAMED = SENTINEL_TEXT_PREFIX + "unnamed property"
+
+
+def is_text_sentinel(v) -> bool:
+    """True for any text sentinel: the bare word, the current named form, or a legacy one.
+
+    A PREFIX test, not equality. Every consumer here began as an equality test against "missing",
+    and naming the field made the value per-property -- so each one silently stopped matching.
+    """
+    if not isinstance(v, str):
+        return False
+    return (v == SENTINEL_TEXT
+            or v.startswith(SENTINEL_TEXT_PREFIX)
+            or v.startswith(LEGACY_TEXT_PREFIXES))
+
 # group-by-technique layout: each TAPP lives at techniqueProfile/<tech>/{tapp,detail,profile};
 # catalogs+vocab under registry/; base schemas under BaseSchema/.
 TECH_DIR = {
@@ -559,11 +610,11 @@ def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
     (`ada:vocab/<tapp>/<name>`)."""
     scheme_id = f"ada:vocab/{TAPP_NAME}/{vname}"
     concepts = [concept_obj(scheme_id, t, t)
-                # A sentinel that NAMES its field is still a sentinel: "test value <property>" alongside the bare "missing".
-                # An equality test here would mint the named form as an allowed value.
+                # A sentinel that NAMES its field is still a sentinel. is_text_sentinel covers the
+                # bare word, the named form and the legacy spellings; an equality test here would
+                # mint the named form as an allowed value.
                 for t in terms
-                if t not in ("N/A", "None", "missing")
-                and not str(t).startswith("test value ")]
+                if t not in ("N/A", "None") and not is_text_sentinel(str(t))]
     return concept_scheme_obj(scheme_id, label, desc or f"Allowed values for {label}.", concepts)
 
 

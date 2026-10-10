@@ -64,24 +64,44 @@ BASE = "https://w3id.org/geochem/1.0/tapp"
 # first three; Unknown/Other/Yes/No recur across more fields than any real term and behave
 # the same way, so they are treated alike rather than minted twenty times over.
 # A sentinel that names its field is still a sentinel. is_sentinel() below is a PREFIX test for
-# the "test value <property>" form, because an equality test against this set stops matching the
-# moment the sentinel becomes per-property -- and a term that slips through is published as real.
-SENTINEL_TEXT_PREFIX = "test value "
+# the named form -- "no value available: <property>" today, "test value <property>" before
+# 2026-10-10 -- because an equality test against this set stops matching the moment the sentinel
+# becomes per-property, and a term that slips through is published as real. The prefix comes from
+# _tapp_lib so a rename cannot leave this copy behind; it recognises the legacy spellings too.
+# The script directory is NOT on sys.path under `python -I` (isolated mode implies -P), so a
+# project-local import needs it stated. Both sibling modules already do this; these two did not,
+# because until the sentinel vocabulary was centralised they imported nothing project-local.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import _tapp_lib as _sent          # the one definition of the sentinel vocabulary
+SENTINEL_TEXT_PREFIX = _sent.SENTINEL_TEXT_PREFIX
 SENTINELS = {"n/a", "none", "missing", "unknown", "other", "yes", "no",
              "not applicable", "not reported"}
 
 def is_sentinel(name):
     """True for a transcription sentinel, by PREFIX as well as by membership.
 
-    A sentinel that NAMES its field is still a sentinel: "test value <property>" alongside the bare "missing".
+    A sentinel that NAMES its field is still a sentinel: "no value available: <property>"
+    alongside the bare "missing".
     Comparing only against SENTINELS stopped matching the moment the text sentinel became
     per-property, and the consequence is not a missed filter but a WRONG VOCABULARY: the string
     would be minted as a skos:Concept and published as an allowed term.
+
+    The PREFIX half goes through _tapp_lib, which knows the current named form AND the legacy
+    spellings. Testing SENTINEL_TEXT_PREFIX directly here was not enough and is exactly the bug
+    this docstring warns about, one level up: importing the constant kept this module in step with
+    the CURRENT prefix while silently dropping the two older ones, so a term carried over from a
+    stale workbook or an unregenerated artifact would have been minted as a real concept. Sharing
+    a constant is not the same as sharing the predicate.
     """
     if not name:
         return False
-    low = str(name).strip().lower()
-    return low in SENTINELS or low.startswith(SENTINEL_TEXT_PREFIX)
+    raw = str(name).strip()
+    low = raw.lower()
+    # Both cases, because _tapp_lib is case-sensitive by design -- it guards vocabularies, where
+    # the exact string is what gets published.
+    return (low in SENTINELS
+            or _sent.is_text_sentinel(raw)
+            or _sent.is_text_sentinel(low))
 
 
 def slug(s):
