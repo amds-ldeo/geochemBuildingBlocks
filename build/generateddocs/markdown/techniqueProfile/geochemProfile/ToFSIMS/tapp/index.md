@@ -84,11 +84,11 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -176,11 +176,11 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -209,7 +209,7 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Rickard, William" ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University | IONTOF M6 (publication column of ToFSIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = IONTOF." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Australian Research Council LIEF190100053; Space Science and Technology Centre and the John de Laeter Centre at Curtin University." ] ;
@@ -218,11 +218,11 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Time-of-Flight Secondary Ion Mass Spectrometer" ] ;
     schema1:name "tofsims protocol — P0" ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "IONTOF M6" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

@@ -14,6 +14,17 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "test value schema:description" ;
                     schema1:name "Data acquisition" ;
@@ -26,18 +37,7 @@
                     schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -46,7 +46,7 @@
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Mittlefehldt" ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "The files documenting the analysis parameters (gas flows, laser power, etc.) were lost during an extended shutdown of the JSC ICP-MS laboratory; the grains are the EMPA grain mounts, 'low in inclusions, [but] not devoid of them' (§3.3)" ;
     schema1:instrument <ex:instrument/ICPMS>,
         <ex:instrument/Laser-Ablation-System> ;
@@ -61,25 +61,25 @@
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "test value schema:value" ],
         [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "test value schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
-    ada:ablationPitDepthRateDefault "missing" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "test value schema:value" ] ;
+    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: spot mode — 'The laser was run in spot mode' (§3.3)" ;
     ada:ablationSpotDurationDefault "N — parameters lost" ;
     ada:ageCalculationMethod "N — the procedure reports no date" ;
     ada:analysisSequenceDefault "N — the Marjalahti control belongs to the EMPA work (§3.1)" ;
     ada:backgroundCountTimeDefault "N — the analysis parameters were lost (§3.3)" ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
+    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
     ada:calibrationMeasurementFrequency "N — parameters lost" ;
     ada:carrierGasFlowRateDefault "N — parameters lost" ;
     ada:inheritedOrInitialSignalCorrectionDefault "N — the procedure reports no date" ;
     ada:internalStandardApproach "all: single element, its concentration from EMPA — '25Mg was used as the indexing element for quantification with the EMPA data used as the standardizing values' (§3.3)" ;
     ada:internalStandardElement "all: Mg (²⁵Mg) — §3.3" ;
-    ada:massBiasCorrectionStrategy "missing" ;
+    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "all: medium resolution (m/Δm of 4000) — §3.3" ;
     ada:massesMeasuredDefault "²⁵Mg → Mg; ²⁷Al → Al; ³¹P → P; ⁴³Ca → Ca; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁴⁹Ti → Ti; ⁵¹V → V; ⁵²Cr → Cr; ⁵³Cr → Cr; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶¹Ni → Ni; ⁶²Ni → Ni; ⁶⁴Zn → Zn; ⁶⁶Zn → Zn; ⁶⁹Ga → Ga; ⁷¹Ga → Ga — 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (§3.3)" ;
     ada:numberOfAcquisitionPasses -9999 ;
@@ -87,7 +87,7 @@
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedDateType "N — the procedure reports no date" ;
     ada:reportedProperties "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (µg/g) — olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (§4)" ;
-    ada:sampleIntroduction "missing" ;
+    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Freedom from inclusions, checked by SEM beforehand — the grains were \"low in inclusions, [but] were not devoid of them\", so \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5)" ;
     ada:samplingUnitType "Grain (olivine grain fragment) > Spot — \"The laser was run in spot mode with a 75 µm spot size\" (p.5); results are reported as average analyses per sample, and individual spots carry labels such as \"laser spot 059-Pa-1\" (p.8). Line scans across grain fragments were also run (p.3)" ;
     ada:signalIntegrationIntervalMethod "Time steps with enhanced count rates from inclusions or heterogeneity excluded — 'Analysis time steps that had enhanced count rates due to inclusions or heterogeneity were excluded from the data reduction'; inclusions show as 'time steps with enhanced P, Ca, Co, Ni and/or Zn count rates' (§3.3)" ;
@@ -134,7 +134,7 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "missing" ;
+    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "Excel spreadsheets developed by C.-T. A. Lee (Rice University)" ;
             ada:toolRole "dataReduction" ] .
 

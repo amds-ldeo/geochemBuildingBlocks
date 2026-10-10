@@ -14,6 +14,13 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
@@ -26,21 +33,14 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "test value schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Navarro, Enzweiler, Crósta et al." ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Mapping over regions with diverse phases of Augusto Pestana; Fe + Ni + Co = 100% normalisation 'is mandatory when acquiring elemental maps of multiphasic samples'" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the acknowledgements name CNPq grant 316191/2021-3 (J.E.) and support for a conference presentation; neither is for procedure development" ] ;
@@ -57,7 +57,7 @@
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: scanning (elemental mapping) — Experimental section" ;
     ada:ablationSpotDurationDefault "N/A — mapping mode" ;
     ada:analysisSequenceDefault "1 min background, 3 × NIST SRM 612, 3 × North Chile, a 30 min measurement over the unknown area, then 3 × North Chile, 3 × NIST SRM 612 and background — Experimental section" ;
@@ -65,20 +65,20 @@
     ada:blankBackgroundCorrectionMethod "1 min background at the start and end of the mapping sequence — Experimental section" ;
     ada:calibrationMeasurementFrequency "Before and after the 30 min map — Experimental section" ;
     ada:carrierGasFlowRateDefault "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell" ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: sum normalization, Fe + Ni + Co = 100% — 'In the final step, sum normalization was applied to the major constituents of iron meteorites, specifically Fe + Ni + Co = 100%. This ... eliminated the conventional practice of needing an internal standard'" ;
     ada:internalStandardElement "all: none — Fe + Ni + Co sum normalisation" ;
-    ada:massBiasCorrectionStrategy "missing" ;
+    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "all: low resolution (300) — Table 2" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:rasterLineSpacingDefault "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
+    ada:rasterLineSpacingDefault "test value ada:rasterLineSpacingDefault" ;
     ada:reportedProperties "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5" ;
-    ada:sampleIntroduction "missing" ;
+    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Representativeness, and phase diversity — \"the approach of rastering large areas may improve representative sampling compared with spot analysis\" (p.2), and the mapping is \"conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1)" ;
     ada:samplingUnitType "Region of interest > Phase — \"elemental mapping, conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1); the map is read for the phases it resolves, \"even without prior knowledge regarding natural structural variations\" (p.1)" ;
     ada:secondaryReferenceMaterialDefault "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -127,7 +127,7 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "missing" ;
+    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
             ada:toolRole "dataReduction" ] .
 

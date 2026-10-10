@@ -14,21 +14,21 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction." ;
     schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
@@ -41,7 +41,7 @@
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> ] ;
     ada:analyticalMode "Multi-volume stitching" ;
-    ada:applicableSampleDimensionRange "missing" ;
+    ada:applicableSampleDimensionRange "test value ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Software BHC applied during reconstruction" ;
     ada:detectorType "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)" ;
     ada:exposureTimePerProjectionDefault -9999 ;
@@ -51,7 +51,7 @@
     ada:reconstructionAlgorithm "missing" ;
     ada:rotationModeDefault "Continuous rotation" ;
     ada:rotationRangeDefault -9999 ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)" ;
     ada:segmentationMethodDefault "missing" ;
     ada:targetFeature "Voids, lithic clasts, stratigraphic layers in core" ;

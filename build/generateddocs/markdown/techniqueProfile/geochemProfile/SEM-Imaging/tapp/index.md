@@ -200,11 +200,11 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -408,11 +408,11 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -435,17 +435,17 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -463,8 +463,8 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "globule morphology (nominal); globule size (µm); surface structure (nominal) — Globule morphology, size and surface structure (nominal, with sizes in µm) — the imaging is used \"to characterize the globule forms and external structures\" (p.1)" ;
     ada:sampleTiltAngle -9999 ;
@@ -711,11 +711,11 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -920,11 +920,11 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -948,17 +948,17 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -976,8 +976,8 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "texture (nominal); phase distribution (nominal); grain size (µm); modal abundance (vol%) — Texture and phase distribution (nominal), with grain sizes in µm and a modal estimate by area — e.g. \"subhedral crystals of Fe-bearing olivine (Fa11–25, 37 vol %), up to 10.8 µm in size\" (p.2)" ;
     ada:sampleTiltAngle -9999 ;
@@ -1250,10 +1250,10 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -1484,10 +1484,10 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -1509,20 +1509,20 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -1540,8 +1540,8 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "crystal structure (nominal); crystal orientation (nominal); cell constants (Å) — Crystal structure and orientation of the alloy phases (nominal), acquired for \"Structural information\" at 20 kV and 6 nA with ~30 nm spatial resolution for the diffracted electrons (p.2)" ;
     ada:sampleTiltAngle "70 degrees" ;
@@ -1825,11 +1825,11 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -2056,11 +2056,11 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -2094,7 +2094,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
                     schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2110,8 +2110,8 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "CL emission bands (nm); CL colour (nominal); CL zoning (nominal) — Cathodoluminescence emission bands, reported by wavelength (nm) and colour — \"two broad emission bands at approximately 630 nm (impurity center of divalent Mn ions) in the red region and above 700 nm (trivalent Cr ions) in the red–IR region\", with grain cores giving \"a characteristic broad band emission at 400 nm\" (p.1); the CL colour and its spatial zoning are nominal properties" ;
     ada:sampleTiltAngle -9999 ;
@@ -2407,11 +2407,11 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     }
   ],
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -2653,11 +2653,11 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     }
   ],
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -2680,18 +2680,18 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -2709,8 +2709,8 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     ada:clIntegrationTimeDefault "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)" ;
     ada:clWavelengthRange "300–850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)" ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "CL colour (nominal); CL zoning (nominal) — Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels — \"red (600–850 nm, including near-infrared from 700–850 nm), green (500…\", detected \"in the range 300–850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)" ;
     ada:sampleTiltAngle -9999 ;
@@ -2724,10 +2724,10 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -2974,11 +2974,11 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -3183,11 +3183,11 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -3211,17 +3211,17 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -3239,8 +3239,8 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "textural relationships (nominal) — 'Backscattered electron (BSE) imaging and elemental X-ray mapping provide graphical representations of elemental distribution' (p.3); the Leo 440's X-ray maps are recorded under the EDS Mapping column" ;
     ada:sampleTiltAngle -9999 ;
@@ -3487,11 +3487,11 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -3696,11 +3696,11 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -3724,17 +3724,17 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -3752,8 +3752,8 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "textural relationships (nominal) — Textural relationships at higher resolution (nominal) — the stage is \"higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), reporting mineralogy and texture rather than a magnitude" ;
     ada:sampleTiltAngle -9999 ;
@@ -4013,11 +4013,11 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -4235,11 +4235,11 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -4262,18 +4262,18 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -4291,8 +4291,8 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "pore type (nominal); pore morphology (nominal); pore size (nm) — Pore type and morphology (nominal: \"secondary gas pores in organic matter and shrinkage-induced pores around quartz and clay minerals\", \"dissolution-created pores and intercrystalline pores\", p.1), with pore sizes in nm" ;
     ada:sampleTiltAngle -9999 ;
@@ -4560,11 +4560,11 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -4782,11 +4782,11 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -4809,18 +4809,18 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -4838,8 +4838,8 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "pore type (nominal); pore morphology (nominal); pore size (nm) — Pore type and morphology at higher resolution (nominal), with pore sizes in nm — \"the shrinkage-induced pores are mainly mesopores\" (p.1)" ;
     ada:sampleTiltAngle -9999 ;
@@ -5097,11 +5097,11 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -5309,11 +5309,11 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -5336,17 +5336,17 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -5364,8 +5364,8 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "textural relationships (nominal); phase assemblage (nominal); grain size (µm) — Textural relationships and phase assemblage (nominal) — the imaging documents the metal assemblage in which the new minerals occur, with grain sizes in µm (Fig. 2, p.3)" ;
     ada:sampleTiltAngle -9999 ;
@@ -5633,10 +5633,10 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -5858,10 +5858,10 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -5895,7 +5895,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
                     schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -5913,7 +5913,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
     ada:ebsdPhaseListDefault "Hollisterite (C2/m FeAl3); kryachkoite (Cmc21 (Al,Cu)Fe6); stolperite (Pm3m AlCu)" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "crystal structure identification (nominal); unit-cell parameters (Å, Å3); mean angular deviation (degrees) — Crystal structure identification with unit-cell parameters (Å and Å3) and the fit quality as mean angular deviation (degrees) — e.g. \"with a mean angular deviation of 0.30°~0.45°, revealing the cell parameters: a = 15.60 Å, b = 7.94 Å, c = 12.51 Å\" and cell volume (p.3)" ;
@@ -6190,11 +6190,11 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -6417,11 +6417,11 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -6455,7 +6455,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -6473,8 +6473,8 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "texture (nominal); phase distribution (nominal) — Textures and phase distribution across the slab (nominal), imaged at 20.00 kV and mosaicked into 10 BSE images covering the SPIM area (p.3)" ;
     ada:sampleTiltAngle -9999 ;
@@ -6729,11 +6729,11 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -6937,11 +6937,11 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -6964,17 +6964,17 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -6992,8 +6992,8 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "surface topography (nominal); texture (nominal) — Surface topography and texture (nominal), imaged \"enlarged up to ×200,000 and resolved up to 5 nm\" (p.3)" ;
     ada:sampleTiltAngle -9999 ;
@@ -7245,11 +7245,11 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -7459,11 +7459,11 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -7496,7 +7496,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -7514,8 +7514,8 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "particle texture (nominal); phase occurrence (nominal); grain size (µm) — Particle textures and phase occurrences (nominal), with grain sizes in µm — angular, hummocky and other particle types imaged for the regions of interest (Fig. 1, p.2)" ;
     ada:sampleTiltAngle -9999 ;
@@ -7763,11 +7763,11 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -7971,11 +7971,11 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -8008,7 +8008,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -8026,8 +8026,8 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "surface morphology (nominal); texture (nominal) — Particle surface morphology and texture (nominal) — pitted sulfide surfaces and particle shapes (p.2)" ;
     ada:sampleTiltAngle -9999 ;
@@ -8273,11 +8273,11 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -8481,11 +8481,11 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -8508,17 +8508,17 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -8536,8 +8536,8 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "phase distribution (nominal); texture (nominal); grain size (µm) — Phase distribution and texture within the polished sections (nominal), with grain sizes in µm (Fig. 1, p.2)" ;
     ada:sampleTiltAngle -9999 ;
@@ -8799,11 +8799,11 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -9023,11 +9023,11 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
+  "ada:ebsdDetectorConfiguration": "test value ada:ebsdDetectorConfiguration",
+  "ada:ebsdPhaseListDefault": "test value ada:ebsdPhaseListDefault",
   "ada:ebsdStepSizeDefault": -9999,
   "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -9060,7 +9060,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -9078,8 +9078,8 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:reportedProperties "panchromatic CL images; monochromatic CL images; hyperspectral CL; luminescence zoning (nominal) — Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1–4 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe–Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) — nominal" ;
     ada:sampleTiltAngle -9999 ;

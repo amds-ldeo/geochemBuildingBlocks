@@ -14,6 +14,13 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
@@ -27,14 +34,7 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Polished thin section (two-volume cell)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -44,7 +44,7 @@
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Zhang et al. (China Univ. of Geosciences Wuhan)" ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability Reported detail: ada:isobaricInterferenceCorrectionsApplied = Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "National Natural Science Foundation of China (NSFC)" ] ;
@@ -61,16 +61,16 @@
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Transect — continuous line scan at 2–6 µm s⁻¹" ;
     ada:ablationSpotDurationDefault -9999 ;
     ada:analysisSequenceDefault "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis" ;
     ada:analyticalAccuracy "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion" ;
     ada:analyticalMode "Transect" ;
     ada:backgroundCountTimeDefault "30 cycles × 0.524 s ≈ 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)" ;
-    ada:betweenSessionPrecision "missing" ;
+    ada:betweenSessionPrecision "test value ada:betweenSessionPrecision" ;
     ada:blankBackgroundCorrectionMethod "First 30 cycles (no laser ablation) used for background collection; background Kr⁺ signals removed by correction; no additional Kr peak stripping applied" ;
-    ada:calibrationMeasurementFrequency "missing" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He, 0.90 l min⁻¹ (two-volume cell)" ;
     ada:constantsAndReferenceValuesUsedDefault "⁸⁷Rb decay constant 1.393 ± 0.004 x 10⁻¹¹ yr⁻¹ (Nebel et al. 2011), p.1; ⁸⁸Sr/⁸⁶Sr = 8.37520933 for mass fractionation correction (p.4); ⁸⁷Rb/⁸⁵Rb = 0.385706 and ⁸⁶Sr/⁸⁸Sr = 0.119351 for the ⁸⁷Rb/⁸⁶Sr calculation (p.4); natural ⁸⁷Rb/⁸⁵Rb of 0.38571 cited for the interference-correction principle (p.1)" ;
     ada:elementalFractionationCorrection "all: Rb/Sr fractionation corrected externally with a series of reference glasses, with no explicit downhole correction — the femtosecond laser substantially reduces elemental fractionation; the exponential law corrects Sr isotope mass bias (⁸⁸Sr/⁸⁶Sr = 8.37521)" ;
@@ -95,8 +95,8 @@
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     ada:numberOfAcquisitionPasses "1" ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:rasterLineSpacingDefault "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
+    ada:rasterLineSpacingDefault "test value ada:rasterLineSpacingDefault" ;
     ada:reportedProperties "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3" ;
     ada:sampleIntroduction "He filled into the two-volume ablation cell; Ar mixed into the sample-out line downstream of the ablation chamber before the torch; a signal-smoothing device downstream of the sample cell (Hu et al. 2015) that 'significantly reduced the short-term variability of the signal'; 12 ml min⁻¹ N₂ added to the carrier gas via a simple Y connector behind the signal-smoothing device (p.3)" ;
     ada:samplingUnitSelectionCriteriaDefault "Random selection among the target phases — 'The plagioclases, pyroxenes, and ilmenites in NWA 10597 were measured randomly' (p.7); target phases are plagioclase, pyroxene, ilmenite and glass (abstract; p.7-8)" ;

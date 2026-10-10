@@ -80,11 +80,11 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -168,11 +168,11 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -199,7 +199,7 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
                     schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of TDM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02n2fzt79" ;
@@ -209,12 +209,12 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
     schema1:name "tdm protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)" ;
     ada:reportedProperties "Time Stamp (sec) | Temperature (K) | Magnetic Field (Oe) | Pressure (Torr) | Pressure (Pa) | DC Moment Fixed Ctr (emu) | DC Moment Err Fixed Ctr (emu) | DC Fixed Fit (unitless) | DC Scan Time (s) | DC Number of Points | Temperature (K), 5-300 K, ZFC | DC Moment Fixed Ctr (emu), 5-300 K, ZFC" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

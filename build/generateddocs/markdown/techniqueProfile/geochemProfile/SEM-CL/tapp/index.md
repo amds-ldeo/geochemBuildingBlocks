@@ -71,11 +71,11 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -150,11 +150,11 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -181,7 +181,7 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
                     schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM (publication column of SEM-CL_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = JEOL." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02feahw73" ;
@@ -189,11 +189,11 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "SEM Cathodoluminescence Spectroscopy" ] ;
     schema1:name "semCl protocol — JSM7000" ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "JEOL JSM7000F FEG-SEM" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

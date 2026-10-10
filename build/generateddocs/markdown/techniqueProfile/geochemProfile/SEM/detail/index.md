@@ -52,7 +52,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -105,7 +105,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -141,7 +141,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     ada:samplingUnitName "Sample name only — the Tagish Lake \"carbonaceous residue was attached to an Al-SEM stub\" (p.2); globules are identified by figure panel (\"A) Single sphere, B) three coalesced spheres, C) cluster of spheres …\", Fig. 1, p.2), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Garvie2008> schema1:identifier "test value schema:identifier" .
 
@@ -192,7 +192,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "N — a sample-preparation procedure produces sections, not results to combine",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -245,7 +245,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -281,7 +281,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     ada:samplingUnitName "Sample name only — the Tagish Lake carbonaceous residue on \"an Al-SEM stub\" (p.2); the globules sectioned by FIB are not given labels in the text" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Garvie2008-2> schema1:identifier "test value schema:identifier" .
 
@@ -332,7 +332,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -385,7 +385,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -421,7 +421,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:samplingUnitName "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Genge2025> schema1:identifier "test value schema:identifier" .
 
@@ -472,7 +472,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -525,7 +525,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -561,7 +561,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:samplingUnitName "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Genge2025-2> schema1:identifier "test value schema:identifier" .
 
@@ -612,7 +612,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -665,7 +665,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -701,7 +701,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:samplingUnitName "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Genge2025-3> schema1:identifier "test value schema:identifier" .
 
@@ -752,7 +752,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -805,7 +805,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -841,7 +841,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     ada:samplingUnitName "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Gucsik2013> schema1:identifier "test value schema:identifier" .
 
@@ -892,7 +892,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -945,7 +945,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -981,7 +981,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     ada:samplingUnitName "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Gucsik2013-2> schema1:identifier "test value schema:identifier" .
 
@@ -1032,7 +1032,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -1085,7 +1085,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -1121,7 +1121,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
     ada:samplingUnitName "Sample name only — \"polished thin sections\" of Tagish Lake (p.2), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM-CL" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Izawa2010> schema1:identifier "test value schema:identifier" .
 
@@ -1172,7 +1172,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -1225,7 +1225,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -1261,7 +1261,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Izawa2010-2> schema1:identifier "test value schema:identifier" .
 
@@ -1312,7 +1312,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -1365,7 +1365,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -1401,7 +1401,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Izawa2010-3> schema1:identifier "test value schema:identifier" .
 
@@ -1452,7 +1452,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -1505,7 +1505,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -1541,7 +1541,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Izawa2010-4> schema1:identifier "test value schema:identifier" .
 
@@ -1592,7 +1592,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -1645,7 +1645,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -1681,7 +1681,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Izawa2010-5> schema1:identifier "test value schema:identifier" .
 
@@ -1732,7 +1732,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -1785,7 +1785,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -1821,7 +1821,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); the 3D pore-network model \"only focuses on the coal sample #1\" (p.8)" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Liu2017> schema1:identifier "test value schema:identifier" .
 
@@ -1872,7 +1872,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -1925,7 +1925,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -1961,7 +1961,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Liu2017-2> schema1:identifier "test value schema:identifier" .
 
@@ -2012,7 +2012,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -2065,7 +2065,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -2101,7 +2101,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Liu2017-3> schema1:identifier "test value schema:identifier" .
 
@@ -2152,7 +2152,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -2205,7 +2205,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -2241,7 +2241,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     ada:samplingUnitName "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Ma2017> schema1:identifier "test value schema:identifier" .
 
@@ -2292,7 +2292,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:ebsdMeanAngularDeviation": 0.3,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -2345,7 +2345,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:ebsdMeanAngularDeviation": 0.3,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -2381,7 +2381,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     ada:samplingUnitName "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Ma2017-2> schema1:identifier "test value schema:identifier" .
 
@@ -2432,7 +2432,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -2485,7 +2485,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -2521,7 +2521,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
     ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Pascucci2026> schema1:identifier "test value schema:identifier" .
 
@@ -2572,7 +2572,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -2625,7 +2625,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -2661,7 +2661,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Pascucci2026-2> schema1:identifier "test value schema:identifier" .
 
@@ -2712,7 +2712,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -2765,7 +2765,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -2801,7 +2801,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Pascucci2026-3> schema1:identifier "test value schema:identifier" .
 
@@ -2852,7 +2852,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -2905,7 +2905,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -2941,7 +2941,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
     ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Pascucci2026-4> schema1:identifier "test value schema:identifier" .
 
@@ -2992,7 +2992,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -3045,7 +3045,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -3081,7 +3081,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
     ada:samplingUnitName "Sample name only — \"subbituminous coal (SC) and high-volatile bituminous coal (HBC)\" (p.1), one FIB-SEM volume each; the numbered images (e.g. \"1st\", \"300th\" of sample SC, p.2) are slices, not units" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Zhou2017> schema1:identifier "test value schema:identifier" .
 
@@ -3132,7 +3132,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -3185,7 +3185,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -3221,7 +3221,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:samplingUnitName "N — the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Zega2025> schema1:identifier "test value schema:identifier" .
 
@@ -3272,7 +3272,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -3325,7 +3325,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -3361,7 +3361,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:samplingUnitName "N — the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Zega2025-2> schema1:identifier "test value schema:identifier" .
 
@@ -3412,7 +3412,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -3465,7 +3465,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -3501,7 +3501,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:samplingUnitName "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Zega2025-3> schema1:identifier "test value schema:identifier" .
 
@@ -3552,7 +3552,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -3605,7 +3605,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -3641,7 +3641,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:samplingUnitName "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Zega2025-4> schema1:identifier "test value schema:identifier" .
 
@@ -3692,7 +3692,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -3745,7 +3745,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -3781,7 +3781,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:samplingUnitName "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Zega2025-5> schema1:identifier "test value schema:identifier" .
 
@@ -3832,7 +3832,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "N — a sample-preparation procedure produces sections, not results to combine",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -3885,7 +3885,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -3921,7 +3921,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:samplingUnitName "N — \"All sections were extracted from varied regions of matrix within the particles\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Zega2025-6> schema1:identifier "test value schema:identifier" .
 
@@ -3972,7 +3972,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "N — a sample-preparation procedure produces sections, not results to combine",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -4025,7 +4025,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -4061,7 +4061,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:samplingUnitName "N — \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Zega2025-7> schema1:identifier "test value schema:identifier" .
 
@@ -4112,7 +4112,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "N — a sample-preparation procedure produces sections, not results to combine",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -4165,7 +4165,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -4201,7 +4201,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:samplingUnitName "N — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Zega2025-8> schema1:identifier "test value schema:identifier" .
 
@@ -4252,7 +4252,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -4305,7 +4305,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -4341,7 +4341,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:samplingUnitName "N — the cathodoluminescence passage names no specimen (p.9)" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Zega2025-9> schema1:identifier "test value schema:identifier" .
 
@@ -4392,7 +4392,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 
 ```
@@ -4445,7 +4445,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
-  "ada:voxelSize": "missing"
+  "ada:voxelSize": "test value ada:voxelSize"
 }
 ```
 
@@ -4481,7 +4481,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:samplingUnitName "Labelled: \"Bennu sample OREX-501018-100\" (Extended Data Fig. 8 caption, p.27), \"aggregate QL material pressed onto a gold (Au) foil mount\" (p.10); the presolar-grain regions are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "missing" .
+    ada:voxelSize "test value ada:voxelSize" .
 
 <ex:semTAPP-Barnes2025> schema1:identifier "test value schema:identifier" .
 

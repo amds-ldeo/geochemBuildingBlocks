@@ -80,11 +80,11 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -168,11 +168,11 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -199,7 +199,7 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
                     schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of CAPD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02n2fzt79" ;
@@ -209,12 +209,12 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     schema1:name "capd protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)" ;
     ada:reportedProperties "T [K] Raw Data | T [K] Raw Data Error | Capacitance [pF] Raw data | Capacitance [pF] Raw data Error | T [K] Data | T [K] Data Error | a [1/K] | a [1/K] x 10^-6 | T [K] dilatometer calibration (avg) | Capacitance [pF] dilatometer calibration (avg) | T [K] OFHC Cu Std. Reference | a [1/K] OFHC Cu Std. Reference" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 
