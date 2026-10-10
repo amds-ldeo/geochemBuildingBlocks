@@ -14,11 +14,10 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al., calculated for each acquisition in iolite 4 — 'the LOD must be calculated for each acquisition'; Table 3 gives the medians" ],
+                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -30,17 +29,18 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: Longerich et al., calculated for each acquisition in iolite 4 — 'the LOD must be calculated for each acquisition'; Table 3 gives the medians" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Navarro, Enzweiler, Crósta et al." ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Two measurement standards complement each other: North Chile for matrix similarity and NIST SRM 612 for its well-known composition; Fe + Ni + Co = 100% normalisation removes the need for an internal standard" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the acknowledgements name CNPq grant 316191/2021-3 (J.E.) and support for a conference presentation; neither is for procedure development" ] ;
@@ -57,7 +57,7 @@
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: spot — Experimental section" ;
     ada:ablationSpotDurationDefault "40 s — '20 s of blank measurement (laser-firing with the shutter closed), followed by 40 s of sample ablation'" ;
     ada:analysisSequenceDefault "3 × NIST SRM 612 and 3 × North Chile, then blocks of ten unknowns, each followed by 2 × NIST SRM 612 and 2 × North Chile — Experimental section" ;
@@ -65,20 +65,20 @@
     ada:blankBackgroundCorrectionMethod "20 s blank before each spot, laser firing with the shutter closed; LODs calculated per acquisition in iolite 4 — Experimental section" ;
     ada:calibrationMeasurementFrequency "Every ten unknowns (about every 15 min) — calibration blocks bracket blocks of ten unknowns; 'every 15 min calibration block'" ;
     ada:carrierGasFlowRateDefault "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch" ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: sum normalization, Fe + Ni + Co = 100% — 'In the final step, sum normalization was applied to the major constituents of iron meteorites, specifically Fe + Ni + Co = 100%. This ... eliminated the conventional practice of needing an internal standard'" ;
     ada:internalStandardElement "all: none — Fe + Ni + Co sum normalisation" ;
-    ada:massBiasCorrectionStrategy "missing" ;
+    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "all: low resolution (300) — Table 2" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedProperties "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5" ;
-    ada:sampleIntroduction "missing" ;
+    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Phase targeting, as the stated alternative to rastering — \"depending on the specific objectives, spot sampling at specific phases may also fulfill the analytical requirements\", against the problem that irons have an \"inherent natural inhomogeneity, a result of their lamellar exsolution patterns\" (p.2)" ;
     ada:samplingUnitType "Whole sample (polished ~1 cm fragment) > Spot — \"fragments about 1 cm were mounted in epoxy resin, polished, and cleaned with ultrapure water\" (p.3); the reported quantity is the meteorite's bulk composition for chemical classification (Table 1, p.2)" ;
     ada:secondaryReferenceMaterialDefault "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -127,7 +127,7 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "missing" ;
+    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
             ada:toolRole "dataReduction" ] .
 

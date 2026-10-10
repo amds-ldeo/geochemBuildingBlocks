@@ -373,7 +373,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -910,7 +910,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -1163,10 +1163,10 @@ ex:adaSolutionSFICPMS-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example oxideProduction" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "example oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1240,7 +1240,7 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
-    schema1:defaultValue "missing" ;
+    schema1:defaultValue "test value schema:defaultValue" ;
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
         "Detection Limit reported for this dataset. Example value.",
         "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",

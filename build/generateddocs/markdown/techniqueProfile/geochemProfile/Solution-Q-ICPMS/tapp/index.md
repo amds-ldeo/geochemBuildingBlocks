@@ -723,13 +723,13 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "schema:datePublished": "missing"
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -1456,13 +1456,13 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "schema:datePublished": "missing"
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -1484,6 +1484,13 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard — clean-room conditions (§3.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -1496,28 +1503,21 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard — clean-room conditions (§3.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "test value schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Auto lens voltages optimised on a 10 ng/ml Mg, Co, Rh, Ce, Pb and U solution; As and Te measured in 4.80 ml sample solution plus 0.20 ml ethanol; HF boiled before sub-boiling distillation to remove volatile As — §3.1, §3.2, §3.3 Reported detail: ada:signalCollectionMode = Peak hopping, one point per peak — §3.1; ada:driftCorrectionMethod = Rh internal standard, and a calibration solution analysed repeatedly as a drift monitor over the run — drift minimised by flushing a rock solution for 30 min before tuning (§3.1)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -1531,10 +1531,10 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\"" ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
-    ada:calibrationMeasurementFrequency "missing" ;
+    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "None — the digest is analysed directly (§3.3)" ;
     ada:driftCorrectionMethod "N/A" ;
     ada:finalSolutionMatrix "all: 1.5 ml HNO3 and 2.5 ml water made up to 50 ml with ultra-pure water and 0.50 ml of 1.0 µg/ml Rh — §3.3" ;
@@ -1563,7 +1563,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
     ada:samplingUnitType "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml" ;
     ada:secondaryReferenceMaterialDefault "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 — five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (§3.4)" ;
     ada:signalCollectionMode "Peak hopping" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "andesite",
                 "basalt",
                 "diabase",
@@ -2587,8 +2587,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
     }
   ],
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "schema:datePublished": "missing"
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -3270,8 +3270,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
     }
   ],
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "schema:datePublished": "missing"
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -3291,6 +3291,13 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Ten to twenty tests handpicked, crushed gently, cleaned of clays (water, methanol) and silicates, reductively and oxidatively cleaned, rinsed twice in 0.001 M HNO3 and dissolved in 200 µl 0.075 M HNO3. 20 µl diluted for Ca by ICP-AES, the remainder diluted to 100 ppm Ca — §2" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -3315,16 +3322,9 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "dissolution: 0.075 M HNO3 — §2" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Ten to twenty tests handpicked, crushed gently, cleaned of clays (water, methanol) and silicates, reductively and oxidatively cleaned, rinsed twice in 0.001 M HNO3 and dissolved in 200 µl 0.075 M HNO3. 20 µl diluted for Ca by ICP-AES, the remainder diluted to 100 ppm Ca — §2" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                            schema1:name "dissolution: 0.075 M HNO3 — §2" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Cetac ASX-100 autosampler; auto lens on; 0.03 mm ID pump tubing at 12 rpm; Ca matrix effects tested over 60–240 ppm Ca (Table 1, §2, §3.5) Reported detail: ada:signalCollectionMode = Peak hopping — Table 1; ada:driftCorrectionMethod = Drift monitors of intermediate concentration every 3 samples, corrected off-line by linear interpolation between two consecutive monitors — §3.4." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -3382,7 +3382,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
     ada:samplingUnitType "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)" ;
     ada:secondaryReferenceMaterialDefault "N — precision and accuracy are assessed on external standards of known ratio (Table 2); core-top results are compared with published data (Table 4)" ;
     ada:signalCollectionMode "Peak hopping" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "foraminiferal calcite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -4210,13 +4210,13 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:blankBackgroundCorrectionMethod": "missing",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "schema:datePublished": "missing"
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -4778,13 +4778,13 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:blankBackgroundCorrectionMethod": "missing",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "schema:datePublished": "missing"
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -4806,12 +4806,10 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3s of the background signal of 0.5 mol/l HNO3, average of eight sessions — Results" ],
+                    schema1:description "Rock powders decomposed with the Sm spike; NIST glasses crushed roughly in a silicon nitride mortar, chips hand-picked, washed and dried; solutions diluted with 0.5 mol/l HNO3 to a dilution factor ≥ 1000 — clean room at PML; NIST SRM 610 decomposed without spike, the Sm spike added to its solution" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -4822,10 +4820,12 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Rock powders decomposed with the Sm spike; NIST glasses crushed roughly in a silicon nitride mortar, chips hand-picked, washed and dried; solutions diluted with 0.5 mol/l HNO3 to a dilution factor ≥ 1000 — clean room at PML; NIST SRM 610 decomposed without spike, the Sm spike added to its solution" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3s of the background signal of 0.5 mol/l HNO3, average of eight sessions — Results" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -4838,7 +4838,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "ultrasonic HF-HClO4: HF + HClO4; bomb HF: HF; HClO4 drying: HClO4; final uptake: 0.5 mol/l HNO3" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "ICP operating conditions as in Makishima and Nakamura (2006); pseudo-flow injection with transient signals integrated as total counts, ~0.013 ml per measurement; an evaporation test showed no loss of Cd, In, Tl or Bi (ratios 0.996–0.999, Table 2) Reported detail: ada:driftCorrectionMethod = Mass discrimination corrected with the mean elemental ratios of the calibrator measured before and after each sample — step (d)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -4858,7 +4858,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "Multi-element standard solution after every third sample, Mo standard solution after every sixth sample — each measurement ~6 min, including ~200 s wash" ;
     ada:analyticalMode "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\"" ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
+    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
     ada:calibrationMeasurementFrequency "After every third sample" ;
     ada:chromatographicSeparationApplied "None (direct analysis)" ;
     ada:driftCorrectionMethod "N/A" ;
@@ -4893,7 +4893,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
     ada:samplingUnitType "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"" ;
     ada:secondaryReferenceMaterialDefault "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 — the chondrites are samples" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "andesite",
                 "basalt",
                 "carbonaceous chondrite",
@@ -5509,18 +5509,18 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:finalSolutionMatrix": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
+  "ada:finalSolutionMatrix": "test value ada:finalSolutionMatrix",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
   "ada:washTimeBetweenSamples": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -5946,18 +5946,18 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:finalSolutionMatrix": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
+  "ada:finalSolutionMatrix": "test value ada:finalSolutionMatrix",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
   "ada:washTimeBetweenSamples": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -5989,6 +5989,13 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "test value schema:description" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -5997,15 +6004,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:position 1 ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "The Zn-isotope procedure digests ~35 mg of bulk powder in HNO3-HF at 120 °C for ~48 h; the digestion for the elemental analysis is not stated — Methods Reported detail: ada:driftCorrectionMethod = Sc, In and Re internal standards — Methods." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -6020,23 +6020,23 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"The sample was introduced into a Scott spray chamber through a MicroMist nebulizer at an uptake rate of 0.2 mL/min\"" ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
-    ada:calibrationMeasurementFrequency "missing" ;
+    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "N — the chemical purification described is for the Zn isotopes" ;
     ada:driftCorrectionMethod "N/A" ;
-    ada:finalSolutionMatrix "missing" ;
+    ada:finalSolutionMatrix "test value ada:finalSolutionMatrix" ;
     ada:internalStandardElement "all: Sc, In, Re — 'added to the sample solutions to correct for any signal drift and matrix effects' (Methods)" ;
     ada:isotopeDilutionSpike "None" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "N — concentrations in µg/g in the text (e.g. '[Zn] = 309 µg/g'); the list is in Tables S1–S2" ;
     ada:samplingUnitType "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -6941,8 +6941,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   ],
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "schema:datePublished": "missing"
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -7693,8 +7693,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   ],
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "schema:datePublished": "missing"
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -7716,13 +7716,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
@@ -7742,6 +7735,13 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
@@ -7749,7 +7749,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "all: 3σ, calculated for silicate samples at the dilution factor of ~340 where matrix effects are absent — §3.6" ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6) Reported detail: ada:signalCollectionMode = 1 point per mass — Table 1a; ada:driftCorrectionMethod = Mass discrimination from the standard solution average, usually without drift over 2 h; when drift was observed, the standard measured before and after the sample was averaged — §2.7, §2.8." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -7811,7 +7811,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     ada:samplingUnitType "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites" ;
     ada:secondaryReferenceMaterialDefault "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — §2.3; the chondrites are samples" ;
     ada:signalCollectionMode "N/A" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "andesite",
                 "basalt",
                 "carbonaceous chondrite",
@@ -8626,21 +8626,21 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:chromatographicSeparationApplied": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
+  "ada:chromatographicSeparationApplied": "test value ada:chromatographicSeparationApplied",
   "ada:driftCorrectionMethod": "missing",
-  "ada:isotopeDilutionSpike": "missing",
+  "ada:isotopeDilutionSpike": "test value ada:isotopeDilutionSpike",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
   "ada:washTimeBetweenSamples": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -9155,21 +9155,21 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:chromatographicSeparationApplied": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
+  "ada:chromatographicSeparationApplied": "test value ada:chromatographicSeparationApplied",
   "ada:driftCorrectionMethod": "missing",
-  "ada:isotopeDilutionSpike": "missing",
+  "ada:isotopeDilutionSpike": "test value ada:isotopeDilutionSpike",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
   "ada:washTimeBetweenSamples": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -9191,22 +9191,10 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "tri-acid digestion (30 mg in closed PP DigiTUBEs on a heating block, 2 h at 110 °C, with 750 µL 14 M HNO3, 1.5 mL 10 M HCl and 2.5 mL 29 M HF); re-dissolution (evaporated at 120 °C, re-dissolved with 250 µL 14 M HNO3 and heating, brought to 10 mL with Milli-Q water); microwave digestion (40–50 mg, START 1500, 3 mL 65% HNO3, 0.5 mL 30% H2O2, 0.25 mL 40% HF and 0.5 mL Milli-Q water, ramped to 210 °C and held 10 min, cooled overnight); Se recovery (evaporated to dryness at 70 °C in PTFE vessels, recovered with 270 µL 65% HNO3 at 70 °C for 1 h, made up to 6 mL) — §2.2; the first two steps for Te, the last two for Se" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "tri-acid digestion: 14 M HNO3 + 10 M HCl + 29 M HF; re-dissolution: 14 M HNO3; microwave digestion: HNO3 + H2O2 + HF; Se recovery: 65% HNO3 — §2.2" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "SPM recovered by centrifugation, oven dried, ground in agate mortars and totally digested: tri-acid for Te, microwave for Se (Se is volatile above 70 °C) — §2.2" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -9218,11 +9206,23 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    schema1:description "SPM recovered by centrifugation, oven dried, ground in agate mortars and totally digested: tri-acid for Te, microwave for Se (Se is volatile above 70 °C) — §2.2" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "tri-acid digestion (30 mg in closed PP DigiTUBEs on a heating block, 2 h at 110 °C, with 750 µL 14 M HNO3, 1.5 mL 10 M HCl and 2.5 mL 29 M HF); re-dissolution (evaporated at 120 °C, re-dissolved with 250 µL 14 M HNO3 and heating, brought to 10 mL with Milli-Q water); microwave digestion (40–50 mg, START 1500, 3 mL 65% HNO3, 0.5 mL 30% H2O2, 0.25 mL 40% HF and 0.5 mL Milli-Q water, ramped to 210 °C and held 10 min, cooled overnight); Se recovery (evaporated to dryness at 70 °C in PTFE vessels, recovered with 270 µL 65% HNO3 at 70 °C for 1 h, made up to 6 mL) — §2.2; the first two steps for Te, the last two for Se" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "tri-acid digestion: 14 M HNO3 + 10 M HCl + 29 M HF; re-dissolution: 14 M HNO3; microwave digestion: HNO3 + H2O2 + HF; Se recovery: 65% HNO3 — §2.2" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v94.csv)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -9236,15 +9236,15 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
-    ada:calibrationMeasurementFrequency "missing" ;
-    ada:chromatographicSeparationApplied "missing" ;
+    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:chromatographicSeparationApplied "test value ada:chromatographicSeparationApplied" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "N — Te digests brought to 10 mL with Milli-Q water, Se digests to 6 mL (§2.2)" ;
     ada:internalStandardElement "all: 103Rh — 'to correct for matrix effects' (§2.3)" ;
-    ada:isotopeDilutionSpike "missing" ;
+    ada:isotopeDilutionSpike "test value ada:isotopeDilutionSpike" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
                 [ ],
@@ -9263,12 +9263,12 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
                 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "Te, Se — particulate concentrations from the digestates; units not stated for this instrument" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:secondaryReferenceMaterialDefault "NCS 73307 — stream sediment, for the total digestions" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -9962,19 +9962,19 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
   "ada:driftCorrectionMethod": "missing",
-  "ada:internalStandardElement": "missing",
-  "ada:isotopeDilutionSpike": "missing",
+  "ada:internalStandardElement": "test value ada:internalStandardElement",
+  "ada:isotopeDilutionSpike": "test value ada:isotopeDilutionSpike",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
   "ada:washTimeBetweenSamples": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -10487,19 +10487,19 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
   "ada:driftCorrectionMethod": "missing",
-  "ada:internalStandardElement": "missing",
-  "ada:isotopeDilutionSpike": "missing",
+  "ada:internalStandardElement": "test value ada:internalStandardElement",
+  "ada:isotopeDilutionSpike": "test value ada:isotopeDilutionSpike",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
   "ada:washTimeBetweenSamples": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -10521,13 +10521,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "SPM recovered by centrifugation, oven dried (70 °C), ground in agate mortars and aliquoted for tri-acid total digestion and parallel selective extractions (two replicates per extraction mode) — §2.2, Table 1" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -10541,18 +10534,25 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                    schema1:description "KED; O2 mode — '126Te measured in KED-mode (He)'; '125Te ... in mass-shift O2-mode'; Se 'with the O2-mode' (§2.3, §2.4)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "KED; O2 mode — '126Te measured in KED-mode (He)'; '125Te ... in mass-shift O2-mode'; Se 'with the O2-mode' (§2.3, §2.4)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "SPM recovered by centrifugation, oven dried (70 °C), ground in agate mortars and aliquoted for tri-acid total digestion and parallel selective extractions (two replicates per extraction mode) — §2.2, Table 1" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v94.csv)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -10566,15 +10566,15 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
-    ada:calibrationMeasurementFrequency "missing" ;
+    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "None" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "N — digests brought to 10 mL with Milli-Q water; extracts in their extraction reagents" ;
-    ada:internalStandardElement "missing" ;
-    ada:isotopeDilutionSpike "missing" ;
+    ada:internalStandardElement "test value ada:internalStandardElement" ;
+    ada:isotopeDilutionSpike "test value ada:isotopeDilutionSpike" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
                 [ ] ;
@@ -10592,12 +10592,12 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
                 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses "2" ;
     ada:numberOfReplicatesPerSample -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "Te, Se (mg/kg) — particulate concentrations" ;
     ada:samplingUnitType "Weighed sediment aliquot — 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction" ;
     ada:secondaryReferenceMaterialDefault "NIST 1643f, NCS 73307, NIST 1640a — freshwater, stream sediment and freshwater" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "sediment" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -11170,20 +11170,20 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:chromatographicSeparationApplied": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
+  "ada:chromatographicSeparationApplied": "test value ada:chromatographicSeparationApplied",
   "ada:driftCorrectionMethod": "missing",
-  "ada:isotopeDilutionSpike": "missing",
+  "ada:isotopeDilutionSpike": "test value ada:isotopeDilutionSpike",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "ada:uncertaintyLevel": "missing",
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
   "ada:washTimeBetweenSamples": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -11575,20 +11575,20 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:chromatographicSeparationApplied": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
+  "ada:chromatographicSeparationApplied": "test value ada:chromatographicSeparationApplied",
   "ada:driftCorrectionMethod": "missing",
-  "ada:isotopeDilutionSpike": "missing",
+  "ada:isotopeDilutionSpike": "test value ada:isotopeDilutionSpike",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "ada:uncertaintyLevel": "missing",
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
   "ada:washTimeBetweenSamples": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -11611,20 +11611,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
@@ -11634,10 +11620,24 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Te run; Se run — dissolved Te 'directly analysed by ICP-MS (X-Series II, Thermo Fisher Scientific)' (§2.3), no laboratory named; dissolved Se on the 'XSeries 2, Thermo Fisher Scientific, KIT' (§2.4)" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v94.csv)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -11647,24 +11647,24 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
     schema1:name "solutionQicpms protocol — P7" ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
-    ada:calibrationMeasurementFrequency "missing" ;
-    ada:chromatographicSeparationApplied "missing" ;
+    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:chromatographicSeparationApplied "test value ada:chromatographicSeparationApplied" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "Te run: seawater matrices diluted in 2% HNO3, freshwater analysed directly; Se run: N — §2.3" ;
     ada:internalStandardElement "Se run: 103Rh and 115In; Te run: N — §2.4" ;
-    ada:isotopeDilutionSpike "missing" ;
+    ada:isotopeDilutionSpike "test value ada:isotopeDilutionSpike" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfAcquisitionPasses "2" ;
     ada:numberOfReplicatesPerSample -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "Te, Se (µg/L) — dissolved concentrations" ;
     ada:samplingUnitType "N — sub-sampled water aliquots" ;
     ada:secondaryReferenceMaterialDefault "CRM-TMDW, NIST 1643f — drinking water and freshwater" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "estuarine water" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -11691,7 +11691,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
-    ada:uncertaintyLevel "missing" ;
+    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
     ada:washTimeBetweenSamples -9999 .
 
 <ex:instrument/ICPMS> a schema1:Product,
@@ -12300,18 +12300,18 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:chromatographicSeparationApplied": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
+  "ada:chromatographicSeparationApplied": "test value ada:chromatographicSeparationApplied",
   "ada:driftCorrectionMethod": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
   "ada:washTimeBetweenSamples": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -12813,18 +12813,18 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:chromatographicSeparationApplied": "missing",
+  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
+  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
+  "ada:chromatographicSeparationApplied": "test value ada:chromatographicSeparationApplied",
   "ada:driftCorrectionMethod": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
+  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
+  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
   "ada:washTimeBetweenSamples": -9999,
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -12853,11 +12853,10 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -12873,11 +12872,12 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard — Methods" ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -12891,11 +12891,11 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
-    ada:calibrationMeasurementFrequency "missing" ;
-    ada:chromatographicSeparationApplied "missing" ;
+    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:chromatographicSeparationApplied "test value ada:chromatographicSeparationApplied" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "Group-1: 0.5 M HNO3, DF 20,000; Group-2: 0.5 M HNO3, DF 200,000; Group-3: 0.5 M HNO3 with ~0.05 M HF, DF 20,000 — digests in 5 mL 0.5 M HNO3 at DF 1200–3400" ;
     ada:internalStandardElement "Group-1: 103Rh, with the 113In–203Tl ID-IS; Group-2: 103Rh; Group-3: 91Zr and 179Hf, for Nb and Ta — Methods" ;
@@ -12903,12 +12903,12 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
     ada:massCyclesPerReplicate -9999 ;
     ada:numberOfAcquisitionPasses "3" ;
     ada:numberOfReplicatesPerSample -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "Li, Be, Sc, Ga, As, Se, Rb, Sr, Y, Ag, Cd, In, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Tl, Pb, Bi, Th, U, Na, Mg, Al, P, K, Ca, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ti, Zr, Nb, Hf, Mo (µg/g) — Table 1; 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%)'" ;
     ada:samplingUnitType "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende" ;
     ada:secondaryReferenceMaterialDefault "Smithsonian Allende powder — 20 mg, dissolved and measured under the same procedure, n = 5" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;

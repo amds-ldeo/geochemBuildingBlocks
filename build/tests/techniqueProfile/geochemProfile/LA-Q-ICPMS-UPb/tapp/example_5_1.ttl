@@ -14,13 +14,6 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
@@ -36,7 +29,14 @@
                     schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
@@ -44,7 +44,7 @@
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)" ;
     schema1:instrument <ex:instrument/ICPMS>,
         <ex:instrument/Laser-Ablation-System> ;
@@ -63,14 +63,14 @@
                     schema1:name "EPMA (EMP)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
         [ schema1:name "Age Calculation Method" ;
-            schema1:value "test value schema:value" ],
-        [ schema1:defaultValue "test value schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
-    ada:ablationPitDepthRateDefault "missing" ;
+            schema1:value "test value schema:value" ] ;
+    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)" ;
     ada:ablationSpotDurationDefault "N — not stated" ;
     ada:ageCalculationMethod "N — the procedure reports no date" ;
@@ -82,14 +82,14 @@
     ada:inheritedOrInitialSignalCorrectionDefault "N — the procedure reports no date" ;
     ada:internalStandardApproach "all: normalization to 100 wt% oxide total — 'For silicates and oxides, trace element abundances were calculated by normalization to 100 wt% oxide total' (Methods, p.4)" ;
     ada:internalStandardElement "all: none — oxide-total normalization (Methods, p.4)" ;
-    ada:massBiasCorrectionStrategy "missing" ;
+    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
     ada:massesMeasuredDefault "N — only ⁴⁰Ca is named, as the phosphate internal standard" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "N — not stated" ;
     ada:rasterLineSpacingDefault "N/A — spot analysis" ;
     ada:reportedDateType "N — the procedure reports no date" ;
     ada:reportedProperties "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U (ppm) — trace element abundances in ppm, glass averages with 1σ and n in Table 3; mineral data in Table S1, not in the archived PDF" ;
-    ada:sampleIntroduction "missing" ;
+    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "N — spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units" ;
     ada:samplingUnitType "Phase > Spot — \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF" ;
     ada:secondaryReferenceMaterialDefault "N — not stated" ;
@@ -168,7 +168,7 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "missing" ;
+    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
             ada:toolRole "dataReduction" ] .
 

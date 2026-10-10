@@ -93,11 +93,11 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -194,11 +194,11 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -227,7 +227,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Marrocchi, Yves" ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7 (publication column of SIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = CAMECA." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)." ] ;
@@ -238,12 +238,12 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
     schema1:name "sims protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "CAMECA IMS-1270E7" ;
     ada:reportedProperties "Analysis Name | error | d18O corr | 2SE | d17O corr | D17O corr" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

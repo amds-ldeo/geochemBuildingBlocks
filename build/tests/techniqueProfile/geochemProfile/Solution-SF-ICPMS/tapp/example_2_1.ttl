@@ -22,15 +22,10 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HCl-HNO3 attack (1.5 ml 6 M HCl + 0.5 ml 8 M HNO3, 130 °C, 48 h); re-dissolution (evaporated at 130 °C close to dryness, then 1.5 ml 10 M HCl) — §2.3.1, for magnetite and pyrite; FER-2 took 1 ml 28 M HF + 1 ml 8 M HNO3 at 130 °C for at least 48 h, then 1.5 ml 10 M HCl for 24 h" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl — §2.3.1" ] ],
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -41,12 +36,17 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "HCl-HNO3 attack (1.5 ml 6 M HCl + 0.5 ml 8 M HNO3, 130 °C, 48 h); re-dissolution (evaporated at 130 °C close to dryness, then 1.5 ml 10 M HCl) — §2.3.1, for magnetite and pyrite; FER-2 took 1 ml 28 M HF + 1 ml 8 M HNO3 at 130 °C for at least 48 h, then 1.5 ml 10 M HCl for 24 h" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl — §2.3.1" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = Rh internal standard — 'In order to correct the instrumental drift, the internal standard concentration of Rh was kept constant at 5 ng mL−1 in the sample, calibration, and blank solutions' (§2.2)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -60,10 +60,10 @@
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"Sample uptake rate 200 uL min-1\"; \"The components of the sample introduction system: nebulizer, spray chamber, torch, and the cones\"" ;
     ada:blankBackgroundCorrectionMethod "N — a blank solution in 2% HNO3 is part of the calibration set (§2.2); the blank correction is not described" ;
-    ada:calibrationMeasurementFrequency "missing" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "AG1-X8 anion exchange resin + TRUspec resin (stated section 2.3.2)" ;
     ada:driftCorrectionMethod "N/A" ;
     ada:finalSolutionMatrix "all: 2% HNO3 containing 5 ng/mL Rh — §2.3.2" ;
@@ -72,11 +72,11 @@
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:numberOfScansPerReplicate -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Ge, Rb, Sr, Y, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (µg/g) — Table 3 (FER-2) in µg g⁻¹; the unit of Table 4 (samples) is not stated in its header" ;
     ada:samplingUnitType "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\"" ;
     ada:secondaryReferenceMaterialDefault "FER-2 — iron-formation reference material (CCRMP), 'used to validate of the proposed method' (§2.2)" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "magnetite",
                 "pyrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;

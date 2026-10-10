@@ -14,22 +14,6 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3 SD of the reagent blank — Table 5, for a 12 mL sample" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "test value schema:description" ;
@@ -41,10 +25,26 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3 SD of the reagent blank — Table 5, for a 12 mL sample" ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Off-line pre-concentration on Toyopearl AF-Chelate-650M resin; enriched isotope spikes added before extraction; standard additions for Mn and Co (§2.2–2.3) Reported detail: ada:driftCorrectionMethod = Elution acid, an enriched-isotope standard and a natural-abundance commercial standard measured every 10–12 samples — 'to assess instrument drift and mass bias' (§2.4)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -58,10 +58,10 @@
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"Nebuliser PFA microflow (PFA-100), Elemental Scientific\"; \"Nebuliser sample uptake rate 150 uL min-1\"; \"Autosampler CETAC ASX-100\". The flow-injection manifold of sec 2.2 is the offline pre-concentration step, not the ICP-MS introduction: \"prevented the online coupling of the flow injection system directly to an ICP-MS\"" ;
     ada:blankBackgroundCorrectionMethod "All sample concentrations corrected for the ammonium acetate buffer and the extraction procedure (flow manifold, chelating resin, elution acid), which includes the ICP-MS background — §2.5" ;
-    ada:calibrationMeasurementFrequency "missing" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "Toyopearl AF-Chelate-650M chelating resin (pre-concentration from seawater; stated section 2.2)" ;
     ada:driftCorrectionMethod "N/A" ;
     ada:finalSolutionMatrix "all: 1.0 M HNO3 — 'extracted trace elements were eluted with 1 mL of 1.0 M Q-HNO3' (§2.2)" ;
@@ -74,7 +74,7 @@
     ada:reportedProperties "Mn, Fe, Co, Ni, Cu, Zn, Cd, Pb (nM, dissolved) — dissolved concentrations in seawater" ;
     ada:samplingUnitType "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\"" ;
     ada:secondaryReferenceMaterialDefault "NASS-5; SAFe S1; SAFe D2 — NASS-5 (NRCC certified open-ocean seawater) and the SAFe inter-comparison samples (§2.6)" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Open-ocean seawater" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;

@@ -15,17 +15,6 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "test value ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "test value ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "test value ada:protectiveCoatingDepositionDefault" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "test value ada:detectionLimitMethod" ;
@@ -36,9 +25,20 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "test value schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "test value ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "test value ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "test value ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -57,12 +57,12 @@
     ada:clAcquisitionMode "Multi-channel pseudo-color" ;
     ada:clIntegrationTimeDefault "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)" ;
     ada:clWavelengthRange "300–850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)" ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
+    ada:ebsdDetectorConfiguration "test value ada:ebsdDetectorConfiguration" ;
+    ada:ebsdPhaseListDefault "test value ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "missing" ;
+    ada:imageRegistration3DDefault "test value ada:imageRegistration3DDefault" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N/A — this procedure is CL Mapping. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns" ;
@@ -87,10 +87,10 @@
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "~10 mm" ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;

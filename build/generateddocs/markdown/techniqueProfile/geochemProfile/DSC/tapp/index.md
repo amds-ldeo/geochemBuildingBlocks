@@ -93,11 +93,11 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -194,11 +194,11 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -227,7 +227,7 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Biele, Jens" ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = PerkinsElmer." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
@@ -238,12 +238,12 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     schema1:name "dsc protocol — DSC8000" ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "PerkinsElmer DSC 8000" ;
     ada:reportedProperties "T | Standard Deviation | Step Scan 1 Cp [J/g/K] | Step Scan 2 Cp [J/g/K] | Step Scan 3 Cp [J/g/K] | Averaged Cp [J/g/K]" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

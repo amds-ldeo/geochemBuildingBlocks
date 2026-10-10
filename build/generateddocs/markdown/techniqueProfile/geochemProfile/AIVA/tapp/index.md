@@ -84,11 +84,11 @@ aivaTAPP instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space 
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -176,11 +176,11 @@ aivaTAPP instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space 
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -209,7 +209,7 @@ aivaTAPP instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space 
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Blumenfeld, Erika" ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "aivaTAPP instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space Center | Fujifilm GFX 100s (publication column of AIVA_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Fujifilm." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
@@ -218,11 +218,11 @@ aivaTAPP instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space 
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Advanced Imaging & Visualization of Astromaterials" ] ;
     schema1:name "aiva protocol — P0" ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Fujifilm GFX 100s" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

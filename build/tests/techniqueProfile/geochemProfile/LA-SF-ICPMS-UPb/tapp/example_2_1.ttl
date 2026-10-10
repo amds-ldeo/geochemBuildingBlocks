@@ -14,13 +14,6 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "map — a single pass: 'The laser scanned a grid of parallel, adjacent lines' (§2.2.2)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
@@ -35,7 +28,14 @@
                     schema1:description "Flat polished thick sections (§2.1)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "map — a single pass: 'The laser scanned a grid of parallel, adjacent lines' (§2.2.2)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -44,7 +44,7 @@
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al." ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Cool plasma (800 W) mapping with a lateral resolution of approximately 20 µm; P-rich veinlets masked before averaging (§2.2.2, §3.1)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the BELSPO, FWO, BOF-UGent and Humboldt support is for the study as a whole and is recorded under Funding Source for Analysis" ] ;
@@ -59,15 +59,15 @@
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+            schema1:value "test value schema:value" ],
+        [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "test value schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "test value schema:value" ] ;
-    ada:ablationPitDepthRateDefault "missing" ;
+            schema1:name "Reported Date Type" ] ;
+    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: grid of parallel, adjacent lines — §2.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'" ;
     ada:ablationSpotDurationDefault "N/A — mapping mode" ;
     ada:ageCalculationMethod "N — the procedure reports no date" ;
@@ -79,18 +79,18 @@
     ada:inheritedOrInitialSignalCorrectionDefault "N — the procedure reports no date" ;
     ada:internalStandardApproach "all: sum normalization of MgO, FeO, SiO2 and P2O5 to 100 wt% in each pixel (Liu et al., 2008) — the oxide sum is a 'virtual, evenly distributed IS' (App. C1, equations 1–2)" ;
     ada:internalStandardElement "all: none — a virtual internal standard from the oxide sum (App. C1)" ;
-    ada:massBiasCorrectionStrategy "missing" ;
+    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "all: low resolution (M/ΔM = 300) — Table B1" ;
     ada:massesMeasuredDefault "²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁶⁰Ni → Ni; ⁷¹Ga → Ga; ¹³⁹La → La; ¹⁵³Eu → Eu; ¹⁹⁵Pt → Pt — 'a total scan cycle time of 1.944 s for 14 nuclides' (§2.2.2)" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "Adjacent lines — 'a grid of parallel, adjacent lines using a 20 µm × 20 µm square-masked laser spot' (§2.2.2)" ;
     ada:reportedDateType "N — the procedure reports no date" ;
     ada:reportedProperties "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, µg/g); Fa#; principal-component scores — '2D concentration matrices of all target elements'; pure-olivine averages in Table E1" ;
-    ada:sampleIntroduction "missing" ;
+    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Position relative to the metal-olivine rim, sited on a prior μXRF survey — \"The locations for LA-ICP-MS mapping were selected to be close to the metal-olivine rims of large olivine crystals with the laser beam rastering from the olivine rim in the direction of the olivine core\", at locations \"indicated on the larger μXRF maps as black rectangles\" (p.4)" ;
     ada:samplingUnitType "Grain (individual olivine crystal) > Region of interest (2D map) — \"2D trace element mapping of olivine crystals\" (p.1); the reported dataset is \"seven 2D element maps of PMG olivine crystals\", filtered and median-smoothed before analysis (p.6)" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Pallasite olivine" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -136,7 +136,7 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "missing" ;
+    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C1)" ;
             ada:toolRole "dataReduction" ] .
 

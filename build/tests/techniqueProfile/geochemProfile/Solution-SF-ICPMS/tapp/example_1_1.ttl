@@ -14,6 +14,15 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
                     schema1:name "Sample preparation" ;
@@ -30,15 +39,6 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "test value schema:description" ;
                     schema1:name "Data acquisition" ;
@@ -46,7 +46,7 @@
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)" ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -61,10 +61,10 @@
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"The Attom was operated with a Glass Expansion cyclonic spray chamber and glass nebulizer (uptake rate 0.33 ml/min)\"; \"both operated in wet plasma mode\"; ESI SC-2 DX autosampler" ;
     ada:blankBackgroundCorrectionMethod "Blank determination before each sample acquisition (average 900 cps on 208Pb, equivalent to 1.8 ppt Pb); on-line baseline correction — §2.4" ;
-    ada:calibrationMeasurementFrequency "missing" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "None — the SC-SF-ICP-MS splits were analysed unseparated; the anion-exchange separation (§2.3) was for MC-ICP-MS" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "all: 2% HNO3 doped with 1 ppb Tl — §2.4" ;
@@ -73,11 +73,11 @@
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample "1 — one acquisition of 30 sets of 2000 sweeps (§2.4)" ;
     ada:numberOfScansPerReplicate "all: 30 sets of 2000 sweeps — total analysis time 4.5 min (§2.4)" ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb — dimensionless Pb isotope ratios (§2.4)" ;
     ada:samplingUnitType "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"" ;
     ada:secondaryReferenceMaterialDefault "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Soil samples" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;

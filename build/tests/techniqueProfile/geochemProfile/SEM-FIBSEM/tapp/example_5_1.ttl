@@ -14,6 +14,15 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
+                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
                     schema1:name "Sample preparation" ;
@@ -24,17 +33,8 @@
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
-                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:position 2 ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <ex:instrument/FIBSEM>,
         <ex:instrument/SEM> ;
@@ -50,7 +50,7 @@
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:dwellTimePerPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "missing" ;
+    ada:imageRegistration3DDefault "test value ada:imageRegistration3DDefault" ;
     ada:reportedProperties "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.9)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states only how particles were mounted, \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), and no rule for choosing where to cut" ;
     ada:samplingUnitType "Grain (Bennu particle) > Sub-volume (FIB section) — \"Bennu particles were placed on PELCO carbon conductive tabs\" for extraction (p.9)" ;

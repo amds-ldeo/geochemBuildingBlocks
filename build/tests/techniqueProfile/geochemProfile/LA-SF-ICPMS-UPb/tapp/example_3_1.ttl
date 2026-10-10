@@ -24,19 +24,19 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "run 1 (major elements); run 2 (trace elements) — two line-scans on the same 400 µm line, each after pre-ablation; 'Every analysis was carried out 3 times' (§2.2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Flat polished thick sections (§2.1)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "run 1 (major elements); run 2 (trace elements) — two line-scans on the same 400 µm line, each after pre-ablation; 'Every analysis was carried out 3 times' (§2.2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -45,7 +45,7 @@
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al." ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Two line-scan runs on the same line after pre-ablation: run 1 (30 µm, medium resolution) gives the major elements and Cr, which normalises run 2 (130 µm, low resolution) for the trace elements (§2.2.3, App. C2)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the BELSPO, FWO, BOF-UGent and Humboldt support is for the study as a whole and is recorded under Funding Source for Analysis" ] ;
@@ -61,14 +61,14 @@
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
-            schema1:value "test value schema:value" ],
-        [ schema1:defaultValue "test value schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
-    ada:ablationPitDepthRateDefault "missing" ;
+            schema1:value "test value schema:value" ] ;
+    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "run 1: line scan, 400 µm; run 2: line scan on top of run 1, 400 µm — 'a second line-scan was completed on top of the first one' (§2.2.3)" ;
     ada:ablationSpotDurationDefault "50 s of sample ablation per 400 µm line, both runs — Table B1" ;
     ada:ageCalculationMethod "N — the procedure reports no date" ;
@@ -80,18 +80,18 @@
     ada:inheritedOrInitialSignalCorrectionDefault "N — the procedure reports no date" ;
     ada:internalStandardApproach "run 1: sum normalization of the oxides to 100 wt% (Liu et al., 2008); run 2: single element from run 1 — §2.2.3, App. C2" ;
     ada:internalStandardElement "run 1: none (oxide sum); run 2: Cr (concentration from run 1) — §2.2.3" ;
-    ada:massBiasCorrectionStrategy "missing" ;
+    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "run 1: medium resolution (M/ΔM = 4000); run 2: low resolution (M/ΔM = 300) — §2.2.3" ;
     ada:massesMeasuredDefault "²⁵Mg → Mg; ²⁹Si → Si; ³¹P → P; ⁴⁴Ca → Ca; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁷Li → Li; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ²³²Th → Th; ²³⁸U → U — run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (§2.2.3), ⁵³Cr also in run 2 (Table B1)" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — line scan + spot; not 2D mapping" ;
     ada:reportedDateType "N — the procedure reports no date" ;
     ada:reportedProperties "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (µg/g); Fa# — Table 1, 'the average from 3 replicate measurements'" ;
-    ada:sampleIntroduction "missing" ;
+    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Position relative to the metal-olivine rim — the line scans run \"from the olivine rim in the direction of the olivine core\" on large olivine crystals sited from the μXRF maps (p.4); the surface is pre-ablated before each analysis (p.3)" ;
     ada:samplingUnitType "Grain (individual olivine crystal) > Region of interest (line scan) — \"a second line-scan was completed on top of the first one, using a laser spot of 130 μm diameter ... and a translation speed of 10 μm s−1\" (p.3)" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Pallasite olivine" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -165,7 +165,7 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "missing" ;
+    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C2)" ;
             ada:toolRole "dataReduction" ] .
 

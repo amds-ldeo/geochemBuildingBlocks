@@ -80,11 +80,11 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -168,11 +168,11 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -199,7 +199,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
                     schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgary | Test Resources electromechanical press (Model 313Q) (publication column of DSSM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Test." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/03yjb2x39" ;
@@ -209,12 +209,12 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     schema1:name "dssm protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Test Resources electromechanical press (Model 313Q)" ;
     ada:reportedProperties "Time (s) | Uncorrected Load (N) | Corrected Load (N) | Uncorrected Stress (MPa) | Corrected Stress (MPa) | Load (N) | Stress (MPa) | Displacement (mm) | Strain" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

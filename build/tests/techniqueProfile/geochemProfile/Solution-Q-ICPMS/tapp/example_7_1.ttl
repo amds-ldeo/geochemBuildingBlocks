@@ -14,13 +14,6 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "SPM recovered by centrifugation, oven dried (70 °C), ground in agate mortars and aliquoted for tri-acid total digestion and parallel selective extractions (two replicates per extraction mode) — §2.2, Table 1" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -34,18 +27,25 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                    schema1:description "KED; O2 mode — '126Te measured in KED-mode (He)'; '125Te ... in mass-shift O2-mode'; Se 'with the O2-mode' (§2.3, §2.4)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "KED; O2 mode — '126Te measured in KED-mode (He)'; '125Te ... in mass-shift O2-mode'; Se 'with the O2-mode' (§2.3, §2.4)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "SPM recovered by centrifugation, oven dried (70 °C), ground in agate mortars and aliquoted for tri-acid total digestion and parallel selective extractions (two replicates per extraction mode) — §2.2, Table 1" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v94.csv)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -59,15 +59,15 @@
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
-    ada:calibrationMeasurementFrequency "missing" ;
+    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "None" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "N — digests brought to 10 mL with Milli-Q water; extracts in their extraction reagents" ;
-    ada:internalStandardElement "missing" ;
-    ada:isotopeDilutionSpike "missing" ;
+    ada:internalStandardElement "test value ada:internalStandardElement" ;
+    ada:isotopeDilutionSpike "test value ada:isotopeDilutionSpike" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
                 [ ] ;
@@ -85,12 +85,12 @@
                 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses "2" ;
     ada:numberOfReplicatesPerSample -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "Te, Se (mg/kg) — particulate concentrations" ;
     ada:samplingUnitType "Weighed sediment aliquot — 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction" ;
     ada:secondaryReferenceMaterialDefault "NIST 1643f, NCS 73307, NIST 1640a — freshwater, stream sediment and freshwater" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "sediment" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;

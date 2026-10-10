@@ -414,7 +414,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -434,7 +434,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "schema:value": "test value schema:value"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -454,7 +454,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -474,7 +474,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -1056,7 +1056,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -1076,7 +1076,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "schema:value": "test value schema:value"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -1096,7 +1096,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -1116,7 +1116,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -1452,7 +1452,7 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
-    schema1:defaultValue "missing" ;
+    schema1:defaultValue "test value schema:defaultValue" ;
     schema1:description "Age Calculation Method reported for this dataset. Example value.",
         "Age Datum / Reference Epoch reported for this dataset. Example value.",
         "Calibration Factor and Determination Method reported for this dataset. Example value.",
@@ -1476,7 +1476,6 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
     schema1:unitText "counts" ;
     schema1:value -9999,
-        "missing",
         "test value schema:value" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 

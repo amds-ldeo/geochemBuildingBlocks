@@ -14,18 +14,6 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "HNO3 attack (5 ml 50% HNO3, hot plate below 70 °C, to dryness); HNO3–HCl digestion (3 ml concentrated HNO3 + 2 ml 50% HCl, sealed PTFE vessel, 70 °C, to dryness); re-dissolution (4 ml 2% HNO3, AgCl from Ag2S removed by centrifugation) — §2.2" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HNO3 attack: 50% HNO3; HNO3–HCl digestion: concentrated HNO3 + 50% HCl; re-dissolution: 2% HNO3 — §2.2" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "test value schema:description" ;
@@ -46,7 +34,19 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "HNO3 attack (5 ml 50% HNO3, hot plate below 70 °C, to dryness); HNO3–HCl digestion (3 ml concentrated HNO3 + 2 ml 50% HCl, sealed PTFE vessel, 70 °C, to dryness); re-dissolution (4 ml 2% HNO3, AgCl from Ag2S removed by centrifugation) — §2.2" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HNO3 attack: 50% HNO3; HNO3–HCl digestion: concentrated HNO3 + 50% HCl; re-dissolution: 2% HNO3 — §2.2" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
@@ -55,7 +55,7 @@
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Laser half: NewWave UP213 (213 nm), He carrier, 60 µm spot, 180 × 80 µm raster, 5 µm/s, 10 Hz, ~9–10 J/cm², ablated aerosol mixed with 2% HNO3 in the spray chamber — Table 1" ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -78,10 +78,10 @@
     ada:analysisSequenceDefault "Each sample bracketed by standards analysed immediately before and after, with 2% HNO3 blanks aspirated periodically through the session — §2.4, §3.2" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "Average on-peak-zero background from periodic 2% HNO3 blanks, measured on the low-mass shoulder, subtracted per isotope off-line — ~30–50 mV on ³²S (§2.4, §3.1)" ;
-    ada:calibrationMeasurementFrequency "missing" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "Yes, AG50-X8 (H+) cation exchange, 2.5 ml resin conditioned with 1.4 N HNO3; S and oxyanions pass, matrix retained; yield 98 ± 4% (§2.2)" ;
     ada:finalSolutionMatrix "all: 2% HNO3 — a 50 ppm S stock (§2.2); standards at 20 ppm S" ;
-    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
+    ada:internalNormalizationElementAndIsotopeRatio "test value ada:internalNormalizationElementAndIsotopeRatio" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:massBiasCorrectionStrategy "Standard-sample bracketing with matrix-matched purified S solutions, linear interpolation between the biases of two neighbouring standards, sample and standard matched within ~20% in intensity at ~10 V — §2.4, §3.1" ;
@@ -101,11 +101,11 @@
                 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "δ34S, δ33S — ‰ on the V-CDT scale (§2.4)" ;
     ada:samplingUnitType "Purified solution aliquot — \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 µg of S\" taken for column purification" ;
     ada:secondaryReferenceMaterialDefault "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po — Table 3" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "elemental sulfur",
                 "seawater",
                 "sulfate",

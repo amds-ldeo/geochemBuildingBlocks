@@ -84,11 +84,11 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -176,11 +176,11 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -209,7 +209,7 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Clemett, Simon" ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Center | uL2MS instrument (publication column of L2MS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = uL." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
@@ -218,11 +218,11 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Microprobe Two-Step Laser Mass Spectrometry" ] ;
     schema1:name "l2ms protocol — P0" ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "uL2MS instrument" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

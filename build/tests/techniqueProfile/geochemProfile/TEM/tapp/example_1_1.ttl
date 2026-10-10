@@ -14,18 +14,18 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:position 1 ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Probe size <1 nm stated for STEM-EDS maps and profiles (Sec 2.6) Reported detail: ada:analyticalSubModeDefault = BF-TEM; HRTEM (TEM Imaging); HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Line scan; Spectrum image (map)." ;
     schema1:instrument <ex:instrument/TEM> ;
     schema1:location [ a schema1:Place ;
@@ -49,12 +49,12 @@
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
     ada:edsAcquisitionModeDefault "Spectrum image" ;
-    ada:edsCalibrationStandardDefault "missing" ;
+    ada:edsCalibrationStandardDefault "test value ada:edsCalibrationStandardDefault" ;
     ada:edsQuantificationMethod "Cliff-Lorimer (k-factor)" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
-    ada:eelsEnergyLossRangeDefault "missing" ;
+    ada:eelsEnergyLossRangeDefault "test value ada:eelsEnergyLossRangeDefault" ;
     ada:phaseIdentificationMethod "Manual d-spacing comparison: HRTEM lattice fringes; 2.5 Å → magnetite (311); 1.4 Å and 2.0 Å → metallic iron (110) and (200); 2.9 Å / 2.5 Å / 1.6 Å → magnetite (220)/(311)/(511)" ;
     ada:reportedProperties "Fe concentration (at%); O concentration (at%); rim thickness (nm); d-spacing (Å); defect microstructure (nominal) — Fe and O concentrations across the altered rim (at%, from quantitative EDS maps and line profiles quantified by the Cliff-Lorimer method, p.3); rim thickness (nm — \"a ~50 nm rim on the magnetite surface\", p.9); d-spacings from HRTEM (Å: \"2.9 Å, 2.5 Å, and 1.6 Å\", p.9); and the defect microstructure as a nominal property (\"elongated defects\" in a crystalline rim, p.9)" ;
     ada:samplingUnitSelectionCriteriaDefault "Size, and irradiation state — \"We selected individual magnetite grains from the irradiated regions that were large enough (>15 μm) to extract FIB sections\" (p.3)" ;

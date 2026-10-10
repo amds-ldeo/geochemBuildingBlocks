@@ -85,16 +85,16 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
   "ada:exposureTimeDefault": -9999,
   "ada:focalLength": -9999,
   "ada:illuminationColour": "missing",
   "ada:illuminationLevelDefault": -9999,
-  "ada:reflectanceStandardDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:reflectanceStandardDefault": "test value ada:reflectanceStandardDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -183,16 +183,16 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
   "ada:exposureTimeDefault": -9999,
   "ada:focalLength": -9999,
   "ada:illuminationColour": "missing",
   "ada:illuminationLevelDefault": -9999,
-  "ada:reflectanceStandardDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:reflectanceStandardDefault": "test value ada:reflectanceStandardDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -221,7 +221,7 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Golish, Dathon | Fulford, Ruby" ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center | Quantitative Reflectance Imaging System (publication column of QRIS_TAPP_draft_v2.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)" ] ;
@@ -231,16 +231,16 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Quantitative Reflectance Imaging System" ] ;
     schema1:name "qris protocol — Golish2024" ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:exposureTimeDefault -9999 ;
     ada:focalLength -9999 ;
     ada:illuminationColour "missing" ;
     ada:illuminationLevelDefault -9999 ;
     ada:instrumentManufacturer "Custom-built" ;
     ada:instrumentModel "Quantitative Reflectance Imaging System" ;
-    ada:reflectanceStandardDefault "missing" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:reflectanceStandardDefault "test value ada:reflectanceStandardDefault" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

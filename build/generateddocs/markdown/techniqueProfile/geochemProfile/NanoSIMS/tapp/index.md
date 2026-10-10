@@ -93,11 +93,11 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -194,11 +194,11 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -227,7 +227,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Nguyen, Ann" ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoSIMS 50L (publication column of NanoSIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = NanoSIMS." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "STFC Grant ST/Y000188/1" ] ;
@@ -238,12 +238,12 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     schema1:name "nanosims protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(OU)NanoSIMS 50L" ;
     ada:reportedProperties "Sample Name | X | Y | Z | 16O Counts | 17O/16O Ratio" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

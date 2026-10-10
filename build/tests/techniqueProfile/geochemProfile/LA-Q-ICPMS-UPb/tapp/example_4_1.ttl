@@ -14,6 +14,15 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
                     schema1:name "Sample preparation" ;
@@ -25,16 +34,7 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "test value schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -43,7 +43,7 @@
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Li, Xu, Xiong et al." ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the CAS Strategic Priority Research Program and NSFC grants support the study as a whole and are recorded under Funding Source for Analysis" ] ;
@@ -66,31 +66,31 @@
             schema1:value "test value schema:value" ],
         [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ] ;
-    ada:ablationPitDepthRateDefault "missing" ;
+    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "N — ablation mode not explicitly stated" ;
     ada:ablationSpotDurationDefault -9999 ;
     ada:ageCalculationMethod "N — the procedure reports no date" ;
     ada:analysisSequenceDefault "N — NIST 610 is the external standard and NIST 612 and BCR-2G the monitoring standards (§2.2.2); the sequence is not described" ;
     ada:backgroundCountTimeDefault -9999 ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
-    ada:calibrationMeasurementFrequency "missing" ;
+    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
+    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He; flow not stated — 'Helium served as the carrier gas, to which nitrogen or argon gas was mixed for sensitivity optimization' (§2.2.2)" ;
     ada:inheritedOrInitialSignalCorrectionDefault "N — the procedure reports no date" ;
     ada:internalStandardApproach "all: an element measured by EMP — 'with Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); which element serves the glass and which the sulfide is not stated" ;
     ada:internalStandardElement "all: Si, Fe — 'Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); the assignment to glass or sulfide is not stated" ;
-    ada:massBiasCorrectionStrategy "missing" ;
+    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
     ada:massesMeasuredDefault "N — the isotopes measured are not stated" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedDateType "N — the procedure reports no date" ;
     ada:reportedProperties "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched sulfide per run (Table 1, p.3), which with the coexisting glass give the sulfide/melt partition coefficient DAu (dimensionless, p.2)" ;
-    ada:sampleIntroduction "missing" ;
+    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Sulfide grains larger than 20 µm, wider than the beam — '20 μm for sulfides, selecting grain sizes larger than 20 µm for the latter' (§2.2.2)" ;
     ada:samplingUnitType "Phase (quenched sulfide of one experimental run) > Spot — \"20 μm for sulfides, selecting grain sizes larger than 20 µm for the latter\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)" ;
     ada:secondaryReferenceMaterialDefault "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "experimental sulfide" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -123,7 +123,7 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "missing" .
+    ada:uncertaintyLevel "test value ada:uncertaintyLevel" .
 
 <ex:instrument/ICPMS> a schema1:Product,
         schema1:Thing ;

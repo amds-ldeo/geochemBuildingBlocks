@@ -27,7 +27,7 @@
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensionsDefault> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7)." ;
     schema1:instrument <ex:instrument/TEM> ;
     schema1:location [ a schema1:Place ;
@@ -56,8 +56,8 @@
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
-    ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "missing" ;
+    ada:eelsEnergyLossRangeDefault "test value ada:eelsEnergyLossRangeDefault" ;
+    ada:phaseIdentificationMethod "test value ada:phaseIdentificationMethod" ;
     ada:reportedProperties "phase identification (nominal); d-spacing (nm); phase composition (At%); sulfide polytype (nominal); Fe3+/ΣFe — Phase identifications and their structures from HRTEM and SAED (nominal, with d-spacings in nm — serpentine 0.7 nm and saponite 1.0 nm, Fig. 3, p.4); phase compositions from STEM-EDS, plotted as atomic proportions (At%: Mg, Fe, Si+Al for the sheet silicates, Fig. 4, p.4); sulfide polytypes (nominal, e.g. pyrrhotite 4C, 5C; Fig. 5, p.5); Fe3+/ΣFe from Fe L2,3 XANES mapping (Fig. 4, p.4)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Phase — the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)" ;
@@ -75,10 +75,10 @@
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    bios:computationalTool [ schema1:name "Thermo System7 (EDS quantification)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Thermo System7" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Thermo System7" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Thermo System7 (EDS quantification)" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/TEM> a schema1:Product,
         schema1:Thing ;

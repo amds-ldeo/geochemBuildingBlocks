@@ -14,15 +14,6 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Flat polished thick sections (§2.1)" ;
                     schema1:name "Sample preparation" ;
@@ -34,7 +25,16 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -43,7 +43,7 @@
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al." ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "No phosphate reference material exists, so glasses calibrate (App. C3); grains identified as stanfieldite or merrillite from a Ca/(Ca + Mg) plot (§3.4)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the BELSPO, FWO, BOF-UGent and Humboldt support is for the study as a whole and is recorded under Funding Source for Analysis" ] ;
@@ -58,15 +58,15 @@
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:name "Age Calculation Method" ;
             schema1:value "test value schema:value" ],
         [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "test value schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:defaultValue "test value schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "missing" ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
+    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: single spot ablation — §2.2.4" ;
     ada:ablationSpotDurationDefault "20 s spot ablation (plus 10 s washout); 25 cycles acquisition" ;
     ada:ageCalculationMethod "N — the procedure reports no date" ;
@@ -78,18 +78,18 @@
     ada:inheritedOrInitialSignalCorrectionDefault "N — the procedure reports no date" ;
     ada:internalStandardApproach "all: sum normalization of the element oxides to 100 wt% (Liu et al., 2008) — App. C3" ;
     ada:internalStandardElement "all: none — oxide-sum normalisation (App. C3)" ;
-    ada:massBiasCorrectionStrategy "missing" ;
-    ada:massResolutionAssignment "missing" ;
+    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
+    ada:massResolutionAssignment "test value ada:massResolutionAssignment" ;
     ada:massesMeasuredDefault "²³Na → Na; ²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ³⁹K → K; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁵Rb → Rb; ⁸⁸Sr → Sr; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ²⁰⁸Pb → Pb; ²³²Th → Th; ²³⁸U → U — §2.2.4" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedDateType "N — the procedure reports no date" ;
     ada:reportedProperties "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g); phosphate mineral (nominal) — Table 2, each 'single parallel measurement' listed per grain" ;
-    ada:sampleIntroduction "missing" ;
+    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Mineral identity, from the μXRF survey — phosphates are located as \"thin elongate inclusions in the kamacite-taenite metal matrix (e.g., μXRF map of Imilac at Fig. 1)\", the identification resting \"on the intensities of the Kα lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca and P)\" (p.4)" ;
     ada:samplingUnitType "Grain (phosphate crystal) > Spot — compositions are reported per named phosphate grain (\"Ph1\" … \"Ph4\", with \"stanf\" or \"merr\"), each an average of numbered \"single parallel measurement\" spots (Table 2, p.10)" ;
-    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "merrillite",
                 "stanfieldite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
@@ -165,7 +165,7 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "missing" ;
+    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C3)" ;
             ada:toolRole "dataReduction" ] .
 

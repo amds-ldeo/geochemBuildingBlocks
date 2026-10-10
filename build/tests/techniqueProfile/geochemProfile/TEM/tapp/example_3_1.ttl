@@ -14,21 +14,21 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Beam energy range 80–300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Spectrum image (map)." ;
     schema1:instrument <ex:instrument/TEM> ;
     schema1:location [ a schema1:Place ;
@@ -52,13 +52,13 @@
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
     ada:edsAcquisitionModeDefault "Spectrum image" ;
-    ada:edsCalibrationStandardDefault "missing" ;
+    ada:edsCalibrationStandardDefault "test value ada:edsCalibrationStandardDefault" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
-    ada:eelsEnergyLossRangeDefault "missing" ;
-    ada:phaseIdentificationMethod "missing" ;
+    ada:eelsEnergyLossRangeDefault "test value ada:eelsEnergyLossRangeDefault" ;
+    ada:phaseIdentificationMethod "test value ada:phaseIdentificationMethod" ;
     ada:reportedProperties "elemental distribution; phase composition (At%); phase identification (nominal) — Elemental distributions from STEM/EDS maps acquired over minutes to hours and combined in Python (p.10), reported as phase compositions in atomic proportions (At%) and as the phases resolved from them (nominal, Fig. 4, p.4)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Phase — the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)" ;

@@ -71,11 +71,11 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -150,11 +150,11 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -181,7 +181,7 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
                     schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State University | NI: Ultra Nanoindentation Tester (UNHT3) manufactured by Anton Paar (publication column of NI-MI_TAPP_draft_v2.csv)." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/03efmqc40" ;
@@ -189,11 +189,11 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Nanoindentation and Microindentation" ] ;
     schema1:name "niMi protocol — P0" ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Renishaw" ;
     ada:instrumentModel "NI: Ultra Nanoindentation Tester (UNHT3) manufactured by Anton Paar" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

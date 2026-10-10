@@ -14,18 +14,18 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
-    schema1:datePublished "missing" ;
+                    schema1:position 1 ] ] ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University). Reported detail: ada:spectroscopicDetectorDefault = EDS detector (model not specified); ada:analyticalSubModeDefault = HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis); ada:edsAcquisitionModeDefault = EDS chemical mapping (Fe distribution)." ;
     schema1:instrument <ex:instrument/TEM> ;
     schema1:location [ a schema1:Place ;
@@ -49,12 +49,12 @@
     ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
     ada:edsAcquisitionModeDefault "Map" ;
-    ada:edsCalibrationStandardDefault "missing" ;
+    ada:edsCalibrationStandardDefault "test value ada:edsCalibrationStandardDefault" ;
     ada:edsQuantificationMethod "missing" ;
     ada:eelsAcquisitionModeDefault "missing" ;
     ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
-    ada:eelsEnergyLossRangeDefault "missing" ;
+    ada:eelsEnergyLossRangeDefault "test value ada:eelsEnergyLossRangeDefault" ;
     ada:phaseIdentificationMethod "FFT of DF image lattice fringes for phase ID (olivine d-spacings); EDS composition maps" ;
     ada:reportedProperties "elemental maps; phase identification (nominal); lattice spacing — Nanoscale composition and structure of the FIB foils from STEM with EDS (p.2), reported as elemental maps (notably Fe) and the phases resolved from them (nominal), with lattice spacings from FFT identifying olivine in a glass matrix containing np-Fe0 (Fig. 1, p.3)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — \"Two grains were selected from CE-5 lunar soil (CE5C0400YJFM00505)\" (p.2), but no criterion is given for the choice; the only stated constraint is on the dispersed material, \"Several lunar soil grains smaller than 50 μm were dispersed on aluminum double-sided tape\" (p.2)" ;

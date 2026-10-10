@@ -80,11 +80,11 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 
 ```
@@ -168,11 +168,11 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
       "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
+  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "test value ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:datePublished": "test value schema:datePublished"
 }
 ```
 
@@ -199,7 +199,7 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
                     schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
+    schema1:datePublished "test value schema:datePublished" ;
     schema1:description "finesseTAPP instance derived from ADA n=8 | no named analyst | Open University | FINESSE (publication column of FINESSE_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FINESSE." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/05mzfcs16" ;
@@ -209,12 +209,12 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
     schema1:name "finesse protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "missing" ;
+    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "FINESSE" ;
     ada:reportedProperties "Filename | Temperature | C ng | delta13C | delta3C 2 sigma error | N ng | delta15N | delta15N 2 sigma error" ;
-    ada:samplingUnitSelectionCriteriaDefault "missing" ;
-    ada:samplingUnitType "missing" ;
+    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "test value ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 
