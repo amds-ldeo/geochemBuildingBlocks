@@ -1967,16 +1967,7 @@
               "type": "string"
             },
             {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "@id"
-              ],
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
             }
           ],
           "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings.",
@@ -2060,16 +2051,7 @@
               "type": "string"
             },
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
             }
           ],
           "x-jsonld-id": "http://schema.org/inDefinedTermSet"
@@ -2491,16 +2473,7 @@
                 "type": "string"
               },
               {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
               }
             ]
           },
@@ -2614,16 +2587,7 @@
                 "type": "string"
               },
               {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
               }
             ]
           },
@@ -2842,16 +2806,11 @@
         "schema:funder": {
           "anyOf": [
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
+              "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable",
+              "allOf": [
+                {
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                 }
-              },
-              "required": [
-                "@id"
               ]
             },
             {
@@ -2921,17 +2880,12 @@
               "type": "string"
             },
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "a resolvable reference to a representation of a quality measure"
+              "description": "a resolvable reference to a representation of a quality measure",
+              "allOf": [
+                {
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                 }
-              }
+              ]
             },
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure/$defs/DefinedTerm"
@@ -2966,6 +2920,23 @@
         "schema": "http://schema.org/"
       },
       "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml",
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "cdif.bbr.metadata.cdifDataType.objectReference": {
+      "title": "Object Reference",
+      "description": "A reference to a node defined elsewhere, by its @id.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "resolvable @id of the referenced node"
+        }
+      },
+      "required": [
+        "@id"
+      ],
+      "additionalProperties": false,
+      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "cdif.bbr.metadata.schemaorgProperties.instrument": {
@@ -3049,16 +3020,7 @@
                 "type": "string"
               },
               {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "@id"
-                ],
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
               }
             ]
           },
@@ -3193,16 +3155,11 @@
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/InstrumentComponent"
               },
               {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "Reference to a sub-component defined elsewhere."
+                "description": "Reference to a sub-component defined elsewhere.",
+                "allOf": [
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                   }
-                },
-                "required": [
-                  "@id"
                 ]
               }
             ]
@@ -3236,18 +3193,13 @@
               "x-jsonld-id": "http://schema.org/dateModified"
             },
             "schema:about": {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "Reference back to the instrument @id."
+              "description": "Reference back to the instrument @id.",
+              "x-jsonld-id": "http://schema.org/about",
+              "allOf": [
+                {
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                 }
-              },
-              "x-jsonld-id": "http://schema.org/about"
+              ]
             },
             "dcterms:conformsTo": {
               "description": "Schema or profile this metadata record conforms to.",
@@ -3258,16 +3210,7 @@
                     "type": "string"
                   },
                   {
-                    "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                   }
                 ]
               }
@@ -3448,16 +3391,7 @@
                         "type": "string"
                       },
                       {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "required": [
-                          "@id"
-                        ],
-                        "properties": {
-                          "@id": {
-                            "type": "string"
-                          }
-                        }
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                       }
                     ]
                   },
@@ -3707,17 +3641,12 @@
               }
             },
             "geosparql:crs": {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "identifier string for coordinate reference system, e.g., 'CRS84'"
+              "description": "identifier string for coordinate reference system, e.g., 'CRS84'",
+              "allOf": [
+                {
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                 }
-              }
+              ]
             }
           },
           "required": [
@@ -3778,23 +3707,6 @@
       "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "cdif.bbr.metadata.cdifDataType.objectReference": {
-      "title": "Object Reference",
-      "description": "A reference to a node defined elsewhere, by its @id.",
-      "type": "object",
-      "properties": {
-        "@id": {
-          "type": "string",
-          "description": "resolvable @id of the referenced node"
-        }
-      },
-      "required": [
-        "@id"
-      ],
-      "additionalProperties": false,
-      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml",
-      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
-    },
     "cdif.bbr.metadata.schemaorgProperties.agentInRole": {
       "description": "For more granularity on how a person contributed to a Dataset, use schema:Role. The schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this blog post (http://blog.schema.org/2014/06/introducing-role.html). see https://github.com/ESIPFed/science-on-schema.org/blob/develop/guides/Dataset.md#roles-of-people",
       "type": "object",
@@ -3825,16 +3737,11 @@
         "schema:contributor": {
           "anyOf": [
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "IRI reference to a Person or Organization defined elsewhere"
+              "description": "IRI reference to a Person or Organization defined elsewhere",
+              "allOf": [
+                {
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                 }
-              },
-              "required": [
-                "@id"
               ]
             },
             {
@@ -3940,16 +3847,7 @@
               "type": "string"
             },
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
             },
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm"
@@ -4316,30 +4214,12 @@
               "description": "Concept scheme(s) this concept belongs to.",
               "anyOf": [
                 {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "@id": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id"
-                  ]
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                 },
                 {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id"
-                    ]
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                   }
                 }
               ],
@@ -4349,30 +4229,12 @@
               "description": "Concept scheme(s) for which this is a top concept.",
               "anyOf": [
                 {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "@id": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "@id"
-                  ]
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                 },
                 {
                   "type": "array",
                   "items": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id"
-                    ]
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                   }
                 }
               ],
@@ -4417,17 +4279,11 @@
           ]
         },
         "ConceptRef": {
-          "type": "object",
-          "additionalProperties": false,
           "description": "A reference to a SKOS Concept by URI.",
-          "properties": {
-            "@id": {
-              "type": "string",
-              "description": "URI of the referenced concept."
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
             }
-          },
-          "required": [
-            "@id"
           ]
         },
         "LanguageTaggedValue": {

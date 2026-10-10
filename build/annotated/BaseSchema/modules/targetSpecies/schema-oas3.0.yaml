@@ -1654,13 +1654,7 @@ x-defs:
       schema:propertyID:
         anyOf:
         - type: string
-        - type: object
-          additionalProperties: false
-          required:
-          - '@id'
-          properties:
-            '@id':
-              type: string
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         description: In this context for the schema:PropertyValue, this field is an
           identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/
           for interoperability. URI-shape values MUST be serialized as JSON-LD IRI
@@ -1731,13 +1725,7 @@ x-defs:
           above explicitly anticipates both.'
         anyOf:
         - type: string
-        - type: object
-          required:
-          - '@id'
-          additionalProperties: false
-          properties:
-            '@id':
-              type: string
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         x-jsonld-id: http://schema.org/inDefinedTermSet
       schema:termCode:
         type: string
@@ -2096,13 +2084,7 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - type: object
-            required:
-            - '@id'
-            additionalProperties: false
-            properties:
-              '@id':
-                type: string
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         x-jsonld-id: http://schema.org/sameAs
     allOf:
     - required:
@@ -2173,13 +2155,7 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - type: object
-            required:
-            - '@id'
-            additionalProperties: false
-            properties:
-              '@id':
-                type: string
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         x-jsonld-id: http://schema.org/sameAs
     allOf:
     - required:
@@ -2390,15 +2366,10 @@ x-defs:
         x-jsonld-id: http://schema.org/name
       schema:funder:
         anyOf:
-        - type: object
-          additionalProperties: false
-          properties:
-            '@id':
-              type: string
-              description: a identifier for an agent defined in this metadata, or
-                externally; must be dereferenceable
-          required:
-          - '@id'
+        - description: a identifier for an agent defined in this metadata, or externally;
+            must be dereferenceable
+          allOf:
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Person
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant/$defs/Organization
         x-jsonld-id: http://schema.org/funder
@@ -2437,15 +2408,9 @@ x-defs:
           ID ref, or as a Defined Term
         anyOf:
         - type: string
-        - type: object
-          required:
-          - '@id'
-          additionalProperties: false
-          properties:
-            '@id':
-              type: string
-              description: a resolvable reference to a representation of a quality
-                measure
+        - description: a resolvable reference to a representation of a quality measure
+          allOf:
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure/$defs/DefinedTerm
       dqv:value:
         description: the reported result of the quality measure, as a string, a number,
@@ -2463,6 +2428,19 @@ x-defs:
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+  cdif.bbr.metadata.cdifDataType.objectReference:
+    title: Object Reference
+    description: A reference to a node defined elsewhere, by its @id.
+    type: object
+    properties:
+      '@id':
+        type: string
+        description: resolvable @id of the referenced node
+    required:
+    - '@id'
+    additionalProperties: false
+    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.instrument:
     title: Instrument Description
@@ -2525,13 +2503,7 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - type: object
-            additionalProperties: false
-            required:
-            - '@id'
-            properties:
-              '@id':
-                type: string
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         x-jsonld-id: http://schema.org/alternateName
       schema:identifier:
         description: Formal identifier(s) for this instrument. Use PropertyValue for
@@ -2627,14 +2599,9 @@ x-defs:
         items:
           anyOf:
           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/InstrumentComponent
-          - type: object
-            additionalProperties: false
-            properties:
-              '@id':
-                type: string
-                description: Reference to a sub-component defined elsewhere.
-            required:
-            - '@id'
+          - description: Reference to a sub-component defined elsewhere.
+            allOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         x-jsonld-id: http://schema.org/hasPart
       schema:relatedLink:
         type: array
@@ -2660,28 +2627,17 @@ x-defs:
             description: Date this metadata record was last modified (ISO 8601).
             x-jsonld-id: http://schema.org/dateModified
           schema:about:
-            type: object
-            required:
-            - '@id'
-            additionalProperties: false
-            properties:
-              '@id':
-                type: string
-                description: Reference back to the instrument @id.
+            description: Reference back to the instrument @id.
             x-jsonld-id: http://schema.org/about
+            allOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
           dcterms:conformsTo:
             description: Schema or profile this metadata record conforms to.
             type: array
             items:
               anyOf:
               - type: string
-              - type: object
-                required:
-                - '@id'
-                additionalProperties: false
-                properties:
-                  '@id':
-                    type: string
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         required:
         - '@type'
         x-jsonld-id: http://schema.org/subjectOf
@@ -2827,13 +2783,7 @@ x-defs:
                 items:
                   anyOf:
                   - type: string
-                  - type: object
-                    additionalProperties: false
-                    required:
-                    - '@id'
-                    properties:
-                      '@id':
-                        type: string
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
                 contains:
                   enum:
                   - schema:ProductModel
@@ -3022,15 +2972,10 @@ x-defs:
                 type: string
                 description: a WKT geometry description string, e.g. 'POINT(-76 -18)'
           geosparql:crs:
-            type: object
-            required:
-            - '@id'
-            additionalProperties: false
-            properties:
-              '@id':
-                type: string
-                description: identifier string for coordinate reference system, e.g.,
-                  'CRS84'
+            description: identifier string for coordinate reference system, e.g.,
+              'CRS84'
+            allOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         required:
         - geosparql:asWKT
     anyOf:
@@ -3064,19 +3009,6 @@ x-defs:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.cdifDataType.objectReference:
-    title: Object Reference
-    description: A reference to a node defined elsewhere, by its @id.
-    type: object
-    properties:
-      '@id':
-        type: string
-        description: resolvable @id of the referenced node
-    required:
-    - '@id'
-    additionalProperties: false
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.agentInRole:
     description: For more granularity on how a person contributed to a Dataset, use
       schema:Role. The schema.org documentation does not state that the Role type
@@ -3101,14 +3033,9 @@ x-defs:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole/$defs/cdifConceptOrTermOrString
       schema:contributor:
         anyOf:
-        - type: object
-          additionalProperties: false
-          properties:
-            '@id':
-              type: string
-              description: IRI reference to a Person or Organization defined elsewhere
-          required:
-          - '@id'
+        - description: IRI reference to a Person or Organization defined elsewhere
+          allOf:
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
         x-jsonld-id: http://schema.org/contributor
@@ -3173,13 +3100,7 @@ x-defs:
       propertyID_item:
         anyOf:
         - type: string
-        - type: object
-          required:
-          - '@id'
-          additionalProperties: false
-          properties:
-            '@id':
-              type: string
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
     x-jsonld-prefixes:
       schema: http://schema.org/
@@ -3408,42 +3329,18 @@ x-defs:
           skos:inScheme:
             description: Concept scheme(s) this concept belongs to.
             anyOf:
-            - type: object
-              additionalProperties: false
-              properties:
-                '@id':
-                  type: string
-              required:
-              - '@id'
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
             - type: array
               items:
-                type: object
-                additionalProperties: false
-                properties:
-                  '@id':
-                    type: string
-                required:
-                - '@id'
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
             x-jsonld-id: http://www.w3.org/2004/02/skos/core#inScheme
           skos:topConceptOf:
             description: Concept scheme(s) for which this is a top concept.
             anyOf:
-            - type: object
-              additionalProperties: false
-              properties:
-                '@id':
-                  type: string
-              required:
-              - '@id'
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
             - type: array
               items:
-                type: object
-                additionalProperties: false
-                properties:
-                  '@id':
-                    type: string
-                required:
-                - '@id'
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
             x-jsonld-id: http://www.w3.org/2004/02/skos/core#topConceptOf
           skos:broader:
             description: Broader (parent) concepts in the hierarchy. Items are inline
@@ -3469,15 +3366,9 @@ x-defs:
         - skos:definition
         - skos:inScheme
       ConceptRef:
-        type: object
-        additionalProperties: false
         description: A reference to a SKOS Concept by URI.
-        properties:
-          '@id':
-            type: string
-            description: URI of the referenced concept.
-        required:
-        - '@id'
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
       LanguageTaggedValue:
         type: object
         description: An RDF literal value with a language tag, serialized as a JSON-LD
