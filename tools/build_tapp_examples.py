@@ -731,6 +731,22 @@ SENTINEL_URI = "nil:missing"
 SENTINEL_TEXT_PREFIX = "test value "
 
 
+def text_sentinel(name, sub=None, root=None):
+    """The text sentinel for a property: named where that is safe, bare otherwise.
+
+    One place decides it, because the rule has two halves that must not drift apart: a named
+    sentinel is clearer, and it is INVALID wherever the schema pins the permitted terms --
+    _tapp_lib.py:1408 appends exactly "missing" to every generated enum, so nothing else is an
+    allowed value there.
+
+    Without a name there is nothing to say, so the bare word stands. That is the case for every
+    call that reaches sentinel_for with no property in hand.
+    """
+    if not name or constrains_terms(sub, root):
+        return SENTINEL_TEXT
+    return SENTINEL_TEXT_PREFIX + name
+
+
 def constrains_terms(sub, root=None, depth=4):
     """True when a subschema pins permitted terms ANYWHERE, not only at its top level.
 
@@ -772,11 +788,11 @@ SENTINEL_TEXT = "missing"
 SENTINEL_NUMERIC = -9999
 
 
-def sentinel_by_jtype(jtype, sub, root=None):
+def sentinel_by_jtype(jtype, sub, root=None, name=None):
     """The sentinel for a property whose workbook Data Type is known, else fall back to the schema."""
     if jtype == "uri":
         return SENTINEL_URI
-    return sentinel_for(sub, root=root)
+    return sentinel_for(sub, root=root, name=name)
 
 
 def _deref(sub, root):
@@ -805,7 +821,7 @@ def _deref(sub, root):
     return sub
 
 
-def sentinel_for(sub, depth=4, root=None):
+def sentinel_for(sub, depth=4, root=None, name=None):
     """The sentinel a subschema will actually accept, or None if no scalar can stand in.
 
     Follows the SCHEMA rather than the workbook's Data Type: the same field is a bare string in one
@@ -839,12 +855,12 @@ def sentinel_for(sub, depth=4, root=None):
             # An empty array satisfies `required` without inventing anything. Where the schema
             # genuinely demands members it says so with minItems, which is still honoured below.
             return []
-        inner = sentinel_for(items, depth, root)
+        inner = sentinel_for(items, depth, root, name=name)
         return None if inner is None else [inner]
     if t in ("number", "integer"):
         return SENTINEL_NUMERIC
     if t == "string":
-        return SENTINEL_TEXT
+        return text_sentinel(name, sub, root)
     if t == "boolean":
         return False        # a required boolean with no reported value defaults to false (not applied)
     if t == "object":
@@ -859,7 +875,7 @@ def sentinel_for(sub, depth=4, root=None):
             if k in NEVER_SENTINEL:
                 continue
             inner = (sub.get("properties") or {}).get(k) or {}
-            got = sentinel_for(inner, depth - 1, root)
+            got = sentinel_for(inner, depth - 1, root, name=k)
             if got is not None:
                 obj[k] = got
         if not obj:
@@ -874,10 +890,11 @@ def sentinel_for(sub, depth=4, root=None):
             return {"@id": SENTINEL_URI}
         return obj
     for branch in (sub.get("anyOf") or sub.get("oneOf") or []):
-        got = sentinel_for(branch, depth, root)
+        got = sentinel_for(branch, depth, root, name=name)
         if got is not None:
             return got
-    return SENTINEL_TEXT if t is None and not sub.get("properties") else None
+    return (text_sentinel(name, sub, root)
+            if t is None and not sub.get("properties") else None)
 
 
 def fill_required_sentinels(inst, tapp_dir):
@@ -887,7 +904,10 @@ def fill_required_sentinels(inst, tapp_dir):
     for key, sub in sorted(_required_scalar_props(tapp_dir)[0].items()):
         if key in inst:
             continue
-        got = sentinel_for(sub)
+        # The key is right here; passing it is what lets a text sentinel name its field. This
+        # loop had the pair and discarded half of it, which is why naming the sentinel inside
+        # sentinel_for reached only 3 further values until this line changed.
+        got = sentinel_for(sub, name=key)
         if got is not None:
             inst[key] = got
 
@@ -1126,19 +1146,12 @@ def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
                         got = (idx + 1) if idx is not None else sentinel_by_jtype(
                             jtype_by_prop.get(key), sub, resolved_schema)
                     else:
-                        got = sentinel_by_jtype(jtype_by_prop.get(key), sub, resolved_schema)
-                        # Name the field, except where an enum pins the permitted terms: there
-                        # the only valid sentinel is the one the schema generator appended.
-                        # `sub` is the subschema from the ERROR's schema, and it is {} whenever the
-                        # `required` list and the `properties` sit in different branches -- which
-                        # is common here. An empty sub does not mean "unconstrained", it means "we
-                        # cannot tell", and treating the two alike put a named sentinel into two
-                        # enum-pinned step properties (ada:liftOutMethod, ada:ebsdIndexingMethod).
-                        # Name the field only when the subschema is VISIBLE and demonstrably free
-                        # text; otherwise the bare word, which every generated enum admits.
-                        if (got == SENTINEL_TEXT and sub
-                                and not constrains_terms(sub, resolved_schema)):
-                            got = SENTINEL_TEXT_PREFIX + key
+                        # The name goes IN rather than being patched on afterwards, so one
+                        # function decides named-vs-bare for every site -- the two halves of that
+                        # rule (clearer when named, INVALID where an enum pins the terms) must not
+                        # drift apart in two places.
+                        got = sentinel_by_jtype(jtype_by_prop.get(key), sub, resolved_schema,
+                                                name=key)
                     if got is not None and key not in parent:
                         parent[key] = got
                         changed += 1
@@ -1353,7 +1366,10 @@ def sentinel_pinned_members(inst, resolved_schema):
                         continue
                     if isinstance(d, dict) and "enum" in d:
                         continue
-                    val = sentinel_for(d, root=resolved_schema)
+                    # `leaf` is the property name, so the sentinel can say which leaf it stands
+                    # in for. const- and enum-pinned leaves already returned above, so anything
+                    # reaching here is free text.
+                    val = sentinel_for(d, root=resolved_schema, name=leaf)
                     if val is not None:
                         n[leaf] = val
                         filled += 1
