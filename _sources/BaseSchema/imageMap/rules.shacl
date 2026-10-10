@@ -65,16 +65,16 @@ cdifd:imageMapShape
         sh:message "ImageMap should specify imageType." ;
     ] ;
     sh:property [
-        sh:path ada:numPixelsX ;
-        sh:datatype xsd:integer ;
+        sh:path schema:width ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
         sh:severity sh:Warning ;
-        sh:message "ImageMap should specify numPixelsX." ;
+        sh:message "ImageMap should specify width, a schema:QuantitativeValue in pixels, which supersedes the retired ada:numPixelsX." ;
     ] ;
     sh:property [
-        sh:path ada:numPixelsY ;
-        sh:datatype xsd:integer ;
+        sh:path schema:height ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
         sh:severity sh:Warning ;
-        sh:message "ImageMap should specify numPixelsY." ;
+        sh:message "ImageMap should specify height, a schema:QuantitativeValue in pixels, which supersedes the retired ada:numPixelsY." ;
     ] ;
     sh:property [
         sh:path ada:spatialRegistration ;

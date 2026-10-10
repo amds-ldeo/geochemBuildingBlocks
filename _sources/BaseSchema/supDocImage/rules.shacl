@@ -29,16 +29,16 @@ cdifd:supDocImageShape
     ] ;
     sh:message "Supplemental document image nodes (ada:image + schema:DigitalDocument) should have a componentType." ;
     sh:property [
-        sh:path ada:numPixelsX ;
-        sh:datatype xsd:integer ;
-                sh:severity sh:Warning ;
-        sh:message "Supplemental doc image should specify numPixelsX." ;
+        sh:path schema:width ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+        sh:severity sh:Warning ;
+        sh:message "Supplemental doc image should specify width, a schema:QuantitativeValue in pixels, which supersedes the retired ada:numPixelsX." ;
     ] ;
     sh:property [
-        sh:path ada:numPixelsY ;
-        sh:datatype xsd:integer ;
+        sh:path schema:height ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
         sh:severity sh:Warning ;
-        sh:message "Supplemental doc image should specify numPixelsY." ;
+        sh:message "Supplemental doc image should specify height, a schema:QuantitativeValue in pixels, which supersedes the retired ada:numPixelsY." ;
     ] ;
     sh:property [
         sh:path schema:isBasedOn ;
