@@ -26,7 +26,7 @@ detail instance derived from ADA n=1354 | Nicholas E Timms | Curtin University |
   "schema:measurementTechnique": [
     {
       "@id": "ex:ebsdTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -66,7 +66,7 @@ detail instance derived from ADA n=1354 | Nicholas E Timms | Curtin University |
   "schema:measurementTechnique": [
     {
       "@id": "ex:ebsdTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -104,7 +104,7 @@ detail instance derived from ADA n=1354 | Nicholas E Timms | Curtin University |
     ada:sessionIdentifier "missing" ;
     ada:workingDistance 1.78e+01 .
 
-<ex:ebsdTAPP-P0> schema1:identifier "missing" .
+<ex:ebsdTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

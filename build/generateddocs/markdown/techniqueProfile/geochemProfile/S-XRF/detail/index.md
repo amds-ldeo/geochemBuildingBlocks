@@ -26,7 +26,7 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
   "schema:measurementTechnique": [
     {
       "@id": "ex:sXrfTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240117_S-XRF_ESRF_OREX-800045-101_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
   "schema:measurementTechnique": [
     {
       "@id": "ex:sXrfTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240117_S-XRF_ESRF_OREX-800045-101_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240117_S-XRF_ESRF_OREX-800045-101_1" .
 
-<ex:sXrfTAPP-P0> schema1:identifier "missing" .
+<ex:sXrfTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

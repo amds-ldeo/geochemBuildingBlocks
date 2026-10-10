@@ -80,7 +80,7 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
@@ -172,7 +172,7 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
@@ -204,7 +204,7 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;

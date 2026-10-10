@@ -26,7 +26,7 @@ detail instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | I
   "schema:measurementTechnique": [
     {
       "@id": "ex:litTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241022_lit_nu_orex-800118-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | I
   "schema:measurementTechnique": [
     {
       "@id": "ex:litTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241022_lit_nu_orex-800118-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | I
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241022_lit_nu_orex-800118-0_1" .
 
-<ex:litTAPP-P0> schema1:identifier "missing" .
+<ex:litTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

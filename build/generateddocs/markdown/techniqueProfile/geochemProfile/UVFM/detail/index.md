@@ -26,7 +26,7 @@ detail instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cente
   "schema:measurementTechnique": [
     {
       "@id": "ex:uvfmTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231002_uvfm_jsc-ares_orex-501006-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cente
   "schema:measurementTechnique": [
     {
       "@id": "ex:uvfmTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231002_uvfm_jsc-ares_orex-501006-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cente
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231002_uvfm_jsc-ares_orex-501006-0_1" .
 
-<ex:uvfmTAPP-P0> schema1:identifier "missing" .
+<ex:uvfmTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

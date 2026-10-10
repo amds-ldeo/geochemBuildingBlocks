@@ -26,7 +26,7 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
   "schema:measurementTechnique": [
     {
       "@id": "ex:xrdTAPP-King2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
   "schema:measurementTechnique": [
     {
       "@id": "ex:xrdTAPP-King2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1" .
 
-<ex:xrdTAPP-King2024> schema1:identifier "missing" .
+<ex:xrdTAPP-King2024> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -114,7 +114,7 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
   "schema:measurementTechnique": [
     {
       "@id": "ex:xrdTAPP-King2024-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20230928_xrd_jsc-ares_orex-500005-0_1",
@@ -150,7 +150,7 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
   "schema:measurementTechnique": [
     {
       "@id": "ex:xrdTAPP-King2024-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20230928_xrd_jsc-ares_orex-500005-0_1",
@@ -179,7 +179,7 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20230928_xrd_jsc-ares_orex-500005-0_1" .
 
-<ex:xrdTAPP-King2024-2> schema1:identifier "missing" .
+<ex:xrdTAPP-King2024-2> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -202,7 +202,7 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
   "schema:measurementTechnique": [
     {
       "@id": "ex:xrdTAPP-King2023",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231124_xrd_nhm_orex-800032-110_1",
@@ -238,7 +238,7 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
   "schema:measurementTechnique": [
     {
       "@id": "ex:xrdTAPP-King2023",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231124_xrd_nhm_orex-800032-110_1",
@@ -267,7 +267,7 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231124_xrd_nhm_orex-800032-110_1" .
 
-<ex:xrdTAPP-King2023> schema1:identifier "missing" .
+<ex:xrdTAPP-King2023> schema1:identifier "test value schema:identifier" .
 
 
 ```

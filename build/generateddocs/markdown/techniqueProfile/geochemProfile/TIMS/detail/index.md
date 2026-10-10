@@ -26,7 +26,7 @@ detail instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Tri
   "schema:measurementTechnique": [
     {
       "@id": "ex:timsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250113_TIMS_ETHZ_OREX-800117-110_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Tri
   "schema:measurementTechnique": [
     {
       "@id": "ex:timsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250113_TIMS_ETHZ_OREX-800117-110_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Tri
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250113_TIMS_ETHZ_OREX-800117-110_1" .
 
-<ex:timsTAPP-P0> schema1:identifier "missing" .
+<ex:timsTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

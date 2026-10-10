@@ -87,14 +87,14 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
@@ -202,14 +202,14 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
@@ -250,7 +250,7 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -265,7 +265,7 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Hiroi2023" ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
@@ -368,14 +368,14 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
@@ -483,14 +483,14 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
@@ -531,7 +531,7 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -546,7 +546,7 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Hiroi2023-2" ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
@@ -649,14 +649,14 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
@@ -764,14 +764,14 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
@@ -812,7 +812,7 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -827,7 +827,7 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Milliken2024" ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
@@ -930,14 +930,14 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
@@ -1045,14 +1045,14 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
@@ -1093,7 +1093,7 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -1108,7 +1108,7 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Keller2024" ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;

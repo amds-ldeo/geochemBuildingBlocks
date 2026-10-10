@@ -26,7 +26,7 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Eckley2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -64,7 +64,7 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Eckley2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -97,7 +97,7 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
-<ex:labxctTAPP-Eckley2024> schema1:identifier "missing" .
+<ex:labxctTAPP-Eckley2024> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -120,7 +120,7 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Genge2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -173,7 +173,7 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Genge2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -222,7 +222,7 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
-<ex:labxctTAPP-Genge2025> schema1:identifier "missing" .
+<ex:labxctTAPP-Genge2025> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -250,7 +250,7 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Neuman2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -290,7 +290,7 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Neuman2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -328,7 +328,7 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
     ada:subVolumeOverlap "~380 slices per sub-volume overlap" ;
     ada:voiApplied "Full core length per sub-volume" .
 
-<ex:labxctTAPP-Neuman2025> schema1:identifier "missing" .
+<ex:labxctTAPP-Neuman2025> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -351,7 +351,7 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Neuman2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -390,7 +390,7 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Neuman2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -426,7 +426,7 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full core length per sub-volume" .
 
-<ex:labxctTAPP-Neuman2025-2> schema1:identifier "missing" .
+<ex:labxctTAPP-Neuman2025-2> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -449,7 +449,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Shearer2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -502,7 +502,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Shearer2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -551,7 +551,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
-<ex:labxctTAPP-Shearer2024> schema1:identifier "missing" .
+<ex:labxctTAPP-Shearer2024> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -579,7 +579,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Shearer2024-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -632,7 +632,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Shearer2024-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -681,7 +681,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
-<ex:labxctTAPP-Shearer2024-2> schema1:identifier "missing" .
+<ex:labxctTAPP-Shearer2024-2> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -709,7 +709,7 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Tomkinson2015",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -762,7 +762,7 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Tomkinson2015",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -811,7 +811,7 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy" .
 
-<ex:labxctTAPP-Tomkinson2015> schema1:identifier "missing" .
+<ex:labxctTAPP-Tomkinson2015> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -839,7 +839,7 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Glavin2023",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -892,7 +892,7 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Glavin2023",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -941,7 +941,7 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full vial volume (2000 × 2000 × 2000 voxels)" .
 
-<ex:labxctTAPP-Glavin2023> schema1:identifier "missing" .
+<ex:labxctTAPP-Glavin2023> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -969,7 +969,7 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Dias2019",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1022,7 +1022,7 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Dias2019",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1071,7 +1071,7 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "5.39 mm³ total analyzed volume (NWA 8277)" .
 
-<ex:labxctTAPP-Dias2019> schema1:identifier "missing" .
+<ex:labxctTAPP-Dias2019> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1099,7 +1099,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Richard2019",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1152,7 +1152,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Richard2019",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1201,7 +1201,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
-<ex:labxctTAPP-Richard2019> schema1:identifier "missing" .
+<ex:labxctTAPP-Richard2019> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1229,7 +1229,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Richard2019-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1282,7 +1282,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Richard2019-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1331,7 +1331,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
-<ex:labxctTAPP-Richard2019-2> schema1:identifier "missing" .
+<ex:labxctTAPP-Richard2019-2> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1359,7 +1359,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Richard2019-3",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1412,7 +1412,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Richard2019-3",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1461,7 +1461,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
-<ex:labxctTAPP-Richard2019-3> schema1:identifier "missing" .
+<ex:labxctTAPP-Richard2019-3> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1489,7 +1489,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Richard2019-4",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1542,7 +1542,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Richard2019-4",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1591,7 +1591,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume per sample" .
 
-<ex:labxctTAPP-Richard2019-4> schema1:identifier "missing" .
+<ex:labxctTAPP-Richard2019-4> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1619,7 +1619,7 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Tait2014",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1672,7 +1672,7 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
   "schema:measurementTechnique": [
     {
       "@id": "ex:labxctTAPP-Tait2014",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1721,7 +1721,7 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full 8 mm core volume" .
 
-<ex:labxctTAPP-Tait2014> schema1:identifier "missing" .
+<ex:labxctTAPP-Tait2014> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;

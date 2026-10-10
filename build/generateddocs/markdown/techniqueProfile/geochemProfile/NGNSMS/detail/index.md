@@ -26,7 +26,7 @@ detail instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Pet
   "schema:measurementTechnique": [
     {
       "@id": "ex:ngnsmsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240118_ng-ns-ms_cnrs-crpg_orex-803034-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Pet
   "schema:measurementTechnique": [
     {
       "@id": "ex:ngnsmsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240118_ng-ns-ms_cnrs-crpg_orex-803034-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Pet
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240118_ng-ns-ms_cnrs-crpg_orex-803034-0_1" .
 
-<ex:ngnsmsTAPP-P0> schema1:identifier "missing" .
+<ex:ngnsmsTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

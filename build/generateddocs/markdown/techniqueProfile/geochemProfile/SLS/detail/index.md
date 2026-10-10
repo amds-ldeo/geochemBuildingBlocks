@@ -26,7 +26,7 @@ detail instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (UA
   "schema:measurementTechnique": [
     {
       "@id": "ex:slsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240229_sls_uaz_orex-800021-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (UA
   "schema:measurementTechnique": [
     {
       "@id": "ex:slsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240229_sls_uaz_orex-800021-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (UA
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240229_sls_uaz_orex-800021-0_1" .
 
-<ex:slsTAPP-P0> schema1:identifier "missing" .
+<ex:slsTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

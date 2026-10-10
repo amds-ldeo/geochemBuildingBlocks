@@ -26,7 +26,7 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
   "schema:measurementTechnique": [
     {
       "@id": "ex:vnmirTAPP-Hiroi2023",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240514_vnmir_brown_orex-803124-0_1 | 20240918_vnmir_brown_orex-803119-100_1 | (+8 more)",
@@ -67,7 +67,7 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
   "schema:measurementTechnique": [
     {
       "@id": "ex:vnmirTAPP-Hiroi2023",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240514_vnmir_brown_orex-803124-0_1 | 20240918_vnmir_brown_orex-803119-100_1 | (+8 more)",
@@ -107,7 +107,7 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
     ada:sessionIdentifier "20240514_vnmir_brown_orex-803124-0_1 | 20240918_vnmir_brown_orex-803119-100_1 | (+8 more)" ;
     ada:vacuumExposedSample "missing" .
 
-<ex:vnmirTAPP-Hiroi2023> schema1:identifier "missing" .
+<ex:vnmirTAPP-Hiroi2023> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -130,7 +130,7 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
   "schema:measurementTechnique": [
     {
       "@id": "ex:vnmirTAPP-Hiroi2023-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)",
@@ -171,7 +171,7 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
   "schema:measurementTechnique": [
     {
       "@id": "ex:vnmirTAPP-Hiroi2023-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)",
@@ -211,7 +211,7 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
     ada:sessionIdentifier "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)" ;
     ada:vacuumExposedSample "missing" .
 
-<ex:vnmirTAPP-Hiroi2023-2> schema1:identifier "missing" .
+<ex:vnmirTAPP-Hiroi2023-2> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -234,7 +234,7 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
   "schema:measurementTechnique": [
     {
       "@id": "ex:vnmirTAPP-Milliken2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231113_vnmir_brown_orex-800029-0_1",
@@ -275,7 +275,7 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
   "schema:measurementTechnique": [
     {
       "@id": "ex:vnmirTAPP-Milliken2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231113_vnmir_brown_orex-800029-0_1",
@@ -315,7 +315,7 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
     ada:sessionIdentifier "20231113_vnmir_brown_orex-800029-0_1" ;
     ada:vacuumExposedSample "missing" .
 
-<ex:vnmirTAPP-Milliken2024> schema1:identifier "missing" .
+<ex:vnmirTAPP-Milliken2024> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -338,7 +338,7 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
   "schema:measurementTechnique": [
     {
       "@id": "ex:vnmirTAPP-Keller2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20230929_vnmir_jsc-ares_orex-501006-0_1",
@@ -379,7 +379,7 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
   "schema:measurementTechnique": [
     {
       "@id": "ex:vnmirTAPP-Keller2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20230929_vnmir_jsc-ares_orex-501006-0_1",
@@ -419,7 +419,7 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
     ada:sessionIdentifier "20230929_vnmir_jsc-ares_orex-501006-0_1" ;
     ada:vacuumExposedSample "missing" .
 
-<ex:vnmirTAPP-Keller2024> schema1:identifier "missing" .
+<ex:vnmirTAPP-Keller2024> schema1:identifier "test value schema:identifier" .
 
 
 ```

@@ -83,14 +83,14 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -184,14 +184,14 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -222,7 +222,7 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -236,7 +236,7 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Inductively coupled plasma - optical emission spectrometry" ] ;
     schema1:name "icpoes protocol — CAP6300" ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:instrumentManufacturer "Thermo Fisher Scientific" ;

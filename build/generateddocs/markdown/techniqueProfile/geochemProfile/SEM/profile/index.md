@@ -246,7 +246,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:edsDeadTime": -9999,
-      "ada:proceduralBlankLevel": "missing",
+      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -793,7 +793,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:edsDeadTime": -9999,
-      "ada:proceduralBlankLevel": "missing",
+      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -1184,14 +1184,14 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "example ebsdPatternQualityThreshold" ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "example ebsdPatternQualityThreshold" ] ;
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value 1e+00 ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1211,7 +1211,7 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:semTAPP-P0 ;
             ada:edsDeadTime -9999 ;
-            ada:proceduralBlankLevel "missing" ] ;
+            ada:proceduralBlankLevel "test value ada:proceduralBlankLevel" ] ;
     ada:imageStackDimenstions "example voxelSizeAndImageStackDimensions" ;
     ada:mapDimensions 1e+00 ;
     ada:voxelSize "example voxelSizeAndImageStackDimensions" .

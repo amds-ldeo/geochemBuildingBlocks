@@ -246,7 +246,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:deadTime": -9999,
-      "ada:proceduralBlankLevel": "missing",
+      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -779,7 +779,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:deadTime": -9999,
-      "ada:proceduralBlankLevel": "missing",
+      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -1177,7 +1177,7 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:semCompositionTAPP-P0 ;
             ada:deadTime -9999 ;
-            ada:proceduralBlankLevel "missing" ] ;
+            ada:proceduralBlankLevel "test value ada:proceduralBlankLevel" ] ;
     ada:mapDimensions 1e+00 .
 
 ex:adaProduct-file-001 a schema1:ImageObject,

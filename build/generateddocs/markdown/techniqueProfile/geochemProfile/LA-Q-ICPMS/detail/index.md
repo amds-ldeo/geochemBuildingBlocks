@@ -26,7 +26,7 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Nakanishi2022",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -109,7 +109,7 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Nakanishi2022",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -207,7 +207,7 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "N — the 2SE is stated for individual measurements (p.4), not for a standard" .
 
-<ex:laQicpmsTAPP-Nakanishi2022> schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Nakanishi2022> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -240,7 +240,7 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Liu2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -323,7 +323,7 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Liu2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -421,7 +421,7 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: RSD better than 10% for most elements] — §3.5, Fig. 5b; higher RSDs for Zn in GSR-1, Tm, Yb and Lu in GSR-3, Lu in AGV-2, and Ta and U in W-2A" .
 
-<ex:laQicpmsTAPP-Liu2024> schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Liu2024> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -454,7 +454,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Liu2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -537,7 +537,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Liu2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -635,7 +635,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laQicpmsTAPP-Liu2025> schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Liu2025> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -668,7 +668,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Liu2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -751,7 +751,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Liu2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -849,7 +849,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laQicpmsTAPP-Liu2025-2> schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Liu2025-2> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -882,7 +882,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Liu2016",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -965,7 +965,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Liu2016",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1063,7 +1063,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
     ada:transectLength "N/A — spot analysis" ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laQicpmsTAPP-Liu2016> schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Liu2016> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -1096,7 +1096,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Liu2016-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1179,7 +1179,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-Liu2016-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1277,7 +1277,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
     ada:transectLength "N/A — spot analysis" ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laQicpmsTAPP-Liu2016-2> schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Liu2016-2> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -1310,7 +1310,7 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-P6",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "N — 20 analytical sessions over 3 months referenced, no identifier stated",
@@ -1365,7 +1365,7 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
   "schema:measurementTechnique": [
     {
       "@id": "ex:laQicpmsTAPP-P6",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "N \u2014 20 analytical sessions over 3 months referenced, no identifier stated",
@@ -1433,7 +1433,7 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: 1.5–8.1%]; Otter Lake, NW-1, MAP-3 [common-Hf-corrected single-spot age: 9.2–36.0%] — isochron age uncertainties of 3.5–10% for the garnet samples" .
 
-<ex:laQicpmsTAPP-P6> schema1:identifier "missing" .
+<ex:laQicpmsTAPP-P6> schema1:identifier "test value schema:identifier" .
 
 
 ```

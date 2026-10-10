@@ -26,7 +26,7 @@ detail instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space Cen
   "schema:measurementTechnique": [
     {
       "@id": "ex:psfdTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250220_psfd_jsc-ares_multisample_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space Cen
   "schema:measurementTechnique": [
     {
       "@id": "ex:psfdTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250220_psfd_jsc-ares_multisample_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space Cen
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250220_psfd_jsc-ares_multisample_1" .
 
-<ex:psfdTAPP-P0> schema1:identifier "missing" .
+<ex:psfdTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

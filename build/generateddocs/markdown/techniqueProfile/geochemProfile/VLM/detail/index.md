@@ -26,7 +26,7 @@ detail instance derived from ADA n=10 | Haenecour, Pierre | University of Arizon
   "schema:measurementTechnique": [
     {
       "@id": "ex:vlmTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240320_vlm_uaz_orex-501085-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=10 | Haenecour, Pierre | University of Arizon
   "schema:measurementTechnique": [
     {
       "@id": "ex:vlmTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240320_vlm_uaz_orex-501085-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=10 | Haenecour, Pierre | University of Arizon
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240320_vlm_uaz_orex-501085-0_1" .
 
-<ex:vlmTAPP-P0> schema1:identifier "missing" .
+<ex:vlmTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

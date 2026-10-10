@@ -26,7 +26,7 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Ma2015",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -74,7 +74,7 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Ma2015",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -128,7 +128,7 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "each unit is named by its material: tissintite (wormy, rimming), maskelynite (three settings), pigeonite, fayalite — Table 1" .
 
-<ex:epmaTAPP-Ma2015> schema1:identifier "missing" .
+<ex:epmaTAPP-Ma2015> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -151,7 +151,7 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Hu2020",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -199,7 +199,7 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Hu2020",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -253,7 +253,7 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Hu2020> schema1:identifier "missing" .
+<ex:epmaTAPP-Hu2020> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -276,7 +276,7 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Liu2016",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -324,7 +324,7 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Liu2016",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -378,7 +378,7 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Liu2016> schema1:identifier "missing" .
+<ex:epmaTAPP-Liu2016> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -401,7 +401,7 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Liu2016-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -449,7 +449,7 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Liu2016-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -503,7 +503,7 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Liu2016-2> schema1:identifier "missing" .
+<ex:epmaTAPP-Liu2016-2> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -526,7 +526,7 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Ma2017",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -574,7 +574,7 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Ma2017",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -628,7 +628,7 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "liebermannite (type, second and third occurrences); lingunite (next to type liebermannite); maskelynite (near type and near second liebermannite) — Table 1" .
 
-<ex:epmaTAPP-Ma2017> schema1:identifier "missing" .
+<ex:epmaTAPP-Ma2017> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -651,7 +651,7 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Frank2023",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -699,7 +699,7 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Frank2023",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -753,7 +753,7 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Frank2023> schema1:identifier "missing" .
+<ex:epmaTAPP-Frank2023> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -776,7 +776,7 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Broussard2026",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -824,7 +824,7 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Broussard2026",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -878,7 +878,7 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Broussard2026> schema1:identifier "missing" .
+<ex:epmaTAPP-Broussard2026> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -901,7 +901,7 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Seifert2026",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -949,7 +949,7 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Seifert2026",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1003,7 +1003,7 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "Phosphate (apatite) for every grain, Ap. #1 onward — Table 1" .
 
-<ex:epmaTAPP-Seifert2026> schema1:identifier "missing" .
+<ex:epmaTAPP-Seifert2026> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -1026,7 +1026,7 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Pang2016",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1074,7 +1074,7 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Pang2016",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1128,7 +1128,7 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Pang2016> schema1:identifier "missing" .
+<ex:epmaTAPP-Pang2016> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -1151,7 +1151,7 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-McCoy2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1199,7 +1199,7 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-McCoy2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1253,7 +1253,7 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-McCoy2025> schema1:identifier "missing" .
+<ex:epmaTAPP-McCoy2025> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -1276,7 +1276,7 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-McCoy2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1324,7 +1324,7 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-McCoy2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1378,7 +1378,7 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-McCoy2025-2> schema1:identifier "missing" .
+<ex:epmaTAPP-McCoy2025-2> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -1401,7 +1401,7 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Zega2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1449,7 +1449,7 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Zega2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1503,7 +1503,7 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Zega2025> schema1:identifier "missing" .
+<ex:epmaTAPP-Zega2025> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -1526,7 +1526,7 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Barnes2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1574,7 +1574,7 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Barnes2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1628,7 +1628,7 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Barnes2025> schema1:identifier "missing" .
+<ex:epmaTAPP-Barnes2025> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -1651,7 +1651,7 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Barnes2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1699,7 +1699,7 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Barnes2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1753,7 +1753,7 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Barnes2025-2> schema1:identifier "missing" .
+<ex:epmaTAPP-Barnes2025-2> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -1776,7 +1776,7 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Neuman2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1824,7 +1824,7 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
   "schema:measurementTechnique": [
     {
       "@id": "ex:epmaTAPP-Neuman2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1878,7 +1878,7 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Neuman2025> schema1:identifier "missing" .
+<ex:epmaTAPP-Neuman2025> schema1:identifier "test value schema:identifier" .
 
 
 ```
