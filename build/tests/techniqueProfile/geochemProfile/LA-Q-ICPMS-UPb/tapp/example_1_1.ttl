@@ -14,10 +14,12 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -29,12 +31,10 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    schema1:description "test value schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -64,13 +64,13 @@
             schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "test value schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "test value schema:value" ],
         [ schema1:defaultValue "test value schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "test value schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'ablated by a spot analysis mode' (p.3)" ;
     ada:ablationSpotDurationDefault -9999 ;

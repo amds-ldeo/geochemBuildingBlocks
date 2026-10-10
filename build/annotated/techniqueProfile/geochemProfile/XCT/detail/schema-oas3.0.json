@@ -8818,8 +8818,13 @@
     },
     "ogch.BaseSchema.spatialRegistration": {
       "title": "Spatial Registration Type",
-      "description": "Defines pixel coordinate system registration including origin coordinates, pixel scales, and coordinate definition type for spatially registered images and maps.",
+      "description": "The affine transform from an image's pixel coordinates to a coordinate reference system defined on the sample -- origin, pixel scales, rotation and axis sense -- for spatially registered images and maps.\nMODELLED ON A WORLD FILE, the sidecar a GIS writes beside a raster (.tfw, ESRI .wld), whose six parameters are exactly an affine transform. In world-file letters:\n\n    x_crs = ada:originX + ada:pixelScaleX * col + ada:pixelRotationX * row     (C, A, B)\n    y_crs = ada:originY + ada:pixelRotationY * col + ada:pixelScaleY * row     (F, D, E)\n\nDEPARTURES FROM THE WORLD-FILE CONVENTION. Three, each of which says more rather than less -- and each of which a converter has to handle deliberately, because none is a straight copy:\n\n  1. ORIGIN CORNER IS DECLARED, NOT ASSUMED. A world file assumes C,F is the centre of the\n     upper-left pixel. Here ada:originLocation states the corner (upperLeft, upperRight,\n     lowerLeft, lowerRight, center) and ada:coordDef states what the coordinates are measured\n     from. Reading a .tfw therefore means WRITING originLocation: upperLeft explicitly; it is\n     not implied.\n\n  2. ada:pixelScaleY IS A MAGNITUDE, NOT A SIGNED VALUE. A world file conventionally makes E\n     negative to encode the y-axis flip. Here the axis sense is carried by ada:originLocation,\n     so the sign is NOT part of the scale. Importing E means taking its absolute value and\n     recording the flip as a corner; exporting means re-applying the sign. Copying E straight\n     into ada:pixelScaleY silently halves nothing and mirrors everything.\n\n  3. UNITS ARE CARRIED, WHERE A WORLD FILE HAS NONE. ada:pixelUnits and ada:coordUnits state\n     both sides of the scale. A world file is unitless and takes its units from the raster CRS,\n     so an import has to source them from elsewhere and cannot leave them absent -- which is\n     why ada:pixelUnits is in the inline required list.\n\nSCALING AND REGISTRATION ARE SEPARABLE, and $defs/Scaling below is the half that is meaningful on an UNREGISTERED image: a plain ada:image has a pixel size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement. Registration is the other half -- where the image sits on the sample, and how its axes relate to the sample's -- and only a map can assert it. The root schema here is scaling PLUS registration and is what the imageMap block references; the image block references $defs/Scaling. One property name, two shapes, so a placement path through either branch resolves.",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/schema-oas3.0.json#/x-defs/ogch.BaseSchema.spatialRegistration/$defs/Scaling"
+        }
+      ],
       "properties": {
         "ada:basemap": {
           "type": "string",
@@ -8828,14 +8833,17 @@
         },
         "ada:originX": {
           "type": "number",
+          "description": "CRS x of the origin pixel (world-file C). Which pixel that is, is stated by ada:originLocation rather than assumed to be the upper-left.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/originX"
         },
         "ada:originY": {
           "type": "number",
+          "description": "CRS y of the origin pixel (world-file F).",
           "x-jsonld-id": "https://ada.astromat.org/metadata/originY"
         },
         "ada:originZ": {
           "type": "number",
+          "description": "CRS z of the origin pixel, where the registration is to a three-dimensional frame. A world file has no equivalent, and a planar thin section does not need one.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/originZ"
         },
         "ada:coordDef": {
@@ -8845,35 +8853,74 @@
         },
         "ada:coordUnits": {
           "type": "string",
+          "description": "Units of the CRS coordinates, i.e. of originX/Y/Z. A world file carries no units.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/coordUnits"
         },
-        "ada:pixelUnits": {
-          "type": "string",
-          "x-jsonld-id": "https://ada.astromat.org/metadata/pixelUnits"
-        },
-        "ada:pixelScaleX": {
+        "ada:pixelRotationX": {
           "type": "number",
-          "x-jsonld-id": "https://ada.astromat.org/metadata/pixelScaleX"
+          "description": "The x-component of one ROW step (world-file B): how far CRS x moves per row, which is zero when the image axes are parallel to the sample axes. Non-zero whenever the stage was rotated relative to the sample frame -- the case a scale-and-origin model cannot express at all, which is why both off-diagonal terms are declared here rather than assumed away.",
+          "x-jsonld-id": "https://ada.astromat.org/metadata/pixelRotationX"
         },
-        "ada:pixelScaleY": {
+        "ada:pixelRotationY": {
           "type": "number",
-          "x-jsonld-id": "https://ada.astromat.org/metadata/pixelScaleY"
+          "description": "The y-component of one COLUMN step (world-file D): how far CRS y moves per column, zero for an axis-aligned image. Optional, and absent means zero, so a registration that omits both rotation terms is the axis-aligned case -- which is what every record carries today.",
+          "x-jsonld-id": "https://ada.astromat.org/metadata/pixelRotationY"
         },
         "ada:originLocation": {
           "type": "string",
           "description": "The location of the origin pixel of an image. Range: upperLeft, upperRight, lowerLeft, lowerRight, center",
           "x-jsonld-id": "https://ada.astromat.org/metadata/originLocation"
+        },
+        "ada:worldFile": {
+          "type": "string",
+          "description": "Link to an EXTERNAL world file that carries the affine transform, instead of stating the six parameters inline -- a .tfw beside a GeoTIFF, an ESRI .wld, or any sidecar of that form. Use it when the transform already exists as a file the instrument or the processing software wrote: restating those numbers by hand is a second copy that can disagree with the first, and the file is the authority.\nA record states the transform ONE way or the other, which the anyOf below enforces: either the inline parameters (origin, scales, corner, coordinate definition) or this reference. Both together is permitted and is not recommended -- nothing can adjudicate a disagreement between them, and the inline copy is the one that goes stale.\nREAD THE DEPARTURES BELOW BEFORE TRUSTING A ROUND TRIP. A world file is not quite what this object says, so importing one into the inline terms, or writing one out from them, needs the sign and the unit handled deliberately rather than copied.",
+          "x-jsonld-id": "https://ada.astromat.org/metadata/worldFile"
         }
       },
-      "required": [
-        "ada:originX",
-        "ada:originY",
-        "ada:pixelScaleX",
-        "ada:pixelScaleY",
-        "ada:pixelUnits",
-        "ada:originLocation",
-        "ada:coordDef"
+      "anyOf": [
+        {
+          "title": "Inline affine transform",
+          "required": [
+            "ada:originX",
+            "ada:originY",
+            "ada:pixelScaleX",
+            "ada:pixelScaleY",
+            "ada:pixelUnits",
+            "ada:originLocation",
+            "ada:coordDef"
+          ]
+        },
+        {
+          "title": "Reference to an external world file",
+          "required": [
+            "ada:worldFile"
+          ]
+        }
       ],
+      "$defs": {
+        "Scaling": {
+          "title": "Pixel Scaling",
+          "description": "Pixel size and its units: the half of a spatial registration an UNREGISTERED image can state. Nothing is required, because an image may know its scale or not, and demanding one would make the property unusable on the images that do not -- which is exactly why the image block carried no spatialRegistration at all before this split, the only available shape having required an origin, a corner and a coordinate definition.",
+          "type": "object",
+          "properties": {
+            "ada:pixelUnits": {
+              "type": "string",
+              "description": "Units of ada:pixelScaleX/Y, e.g. nm, um, mm. Normalise before comparing values.",
+              "x-jsonld-id": "https://ada.astromat.org/metadata/pixelUnits"
+            },
+            "ada:pixelScaleX": {
+              "type": "number",
+              "description": "CRS units per column step (world-file A).",
+              "x-jsonld-id": "https://ada.astromat.org/metadata/pixelScaleX"
+            },
+            "ada:pixelScaleY": {
+              "type": "number",
+              "description": "CRS units per row step (world-file E). A world file conventionally makes this NEGATIVE to encode the y-axis flip; here the sense is carried by ada:originLocation, so this is a magnitude.",
+              "x-jsonld-id": "https://ada.astromat.org/metadata/pixelScaleY"
+            }
+          }
+        }
+      },
       "x-jsonld-prefixes": {
         "ada": "https://ada.astromat.org/metadata/"
       },

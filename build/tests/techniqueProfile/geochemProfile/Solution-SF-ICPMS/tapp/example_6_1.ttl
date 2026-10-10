@@ -14,18 +14,6 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "hotplate HF-HNO3 (non-refractory samples of basaltic composition, 12 h at 130 °C in closed 15 ml Savillex PFA vials); bomb HF-HNO3 (samples with refractory minerals such as granites, stirred 7 days at 180 °C in Parr bombs, reopened after 3 days and refilled with 0.5 ml HF); fluoride removal (re-dissolved in a few drops of 14 mol/l HNO3 and evaporated to incipient dryness, repeated twice); chloride conversion (2 ml 6 mol/l HCl heated at 80 °C, then evaporated at 50 °C); final uptake (5 ml 7 mol/l HNO3) — Samples and sample preparation" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "hotplate HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1–3), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution — cleanroom, twice sub-boiled acids (Samples and sample preparation)" ;
                     schema1:name "Sample preparation" ;
@@ -45,7 +33,19 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR — Limits of detection" ] ] ;
+                    ada:detectionLimitMethod "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR — Limits of detection" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "hotplate HF-HNO3 (non-refractory samples of basaltic composition, 12 h at 130 °C in closed 15 ml Savillex PFA vials); bomb HF-HNO3 (samples with refractory minerals such as granites, stirred 7 days at 180 °C in Parr bombs, reopened after 3 days and refilled with 0.5 ml HF); fluoride removal (re-dissolved in a few drops of 14 mol/l HNO3 and evaporated to incipient dryness, repeated twice); chloride conversion (2 ml 6 mol/l HCl heated at 80 °C, then evaporated at 50 °C); final uptake (5 ml 7 mol/l HNO3) — Samples and sample preparation" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "hotplate HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
     schema1:datePublished "test value schema:datePublished" ;
     schema1:description "Magnetic jump followed by electric scan (Table 3); acquisition 10 min per sample; ca. 20 min per sample in all, a mass spectrometer efficiency of almost 90% Reported detail: ada:driftCorrectionMethod = N — 'Instrumental drift of SF-ICP-MS has only a negligible effect on the reproducibility of ID determined concentrations since isotope ratios are used'." ;
