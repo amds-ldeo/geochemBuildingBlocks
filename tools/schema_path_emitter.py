@@ -583,8 +583,84 @@ def with_sentinel(values):
     return out
 
 
+# A Data Type that means schema:QuantitativeValue -- a number WITH its unit, as an object, not a
+# bare scalar. Every other Data Type maps to a scalar JSON type, which is why a pixel count came
+# out as anyOf[integer, string] while the base blocks declared schema:width as a QuantitativeValue
+# object: a value satisfying either violated the other, and nothing caught it because the two
+# blocks validate separately.
+#
+# THE DECIDING REASON IS SCHEMA.ORG ITSELF: the expected range of schema:width and schema:height is
+# schema:QuantitativeValue (or schema:Distance). A bare integer is not merely ambiguous there, it is
+# off-range for the property -- so a generator that can only emit scalars cannot express these two
+# properties correctly at all. The unit argument that geochemProduct already records ("the same
+# property carries physical dimensions elsewhere, so the unit has to be stated") is the second
+# reason, not the first.
+#
+# Matched as a SUFFIX token so it composes with the existing vocabulary rather than replacing it:
+# "Integer (QuantitativeValue)" and "Numeric (nm) (QuantitativeValue)" both work, and the unit named
+# in the cell still reaches schema:unitText.
+QV_TOKEN = "quantitativevalue"
+
+
+def is_quantitative(dtype):
+    """True when a Data Type cell asks for a QuantitativeValue object.
+
+    A separate predicate rather than a new jtype() return value, deliberately: jtype feeds
+    ada:dataType as a const and a dozen `in ("number", "integer")` tests across five tools, so a
+    new token there would change emitted schemas far from this property. The scalar type a cell
+    also names stays available for schema:value inside the object.
+    """
+    return QV_TOKEN in (dtype or "").lower().replace(" ", "")
+
+
+def quantitative_leaf(desc, dtype):
+    """A schema:QuantitativeValue object, shaped exactly as BaseSchema/image $defs/PixelDimension.
+
+    Kept in step with that declaration on purpose. The two are not $ref-linked -- this emitter
+    writes technique overlays and cannot reference a base block by pointer from here -- so the only
+    thing holding them together is that they are the same shape.
+
+    ONE DIFFERENCE IS INTENDED, and it is named here so a reader comparing the two does not try to
+    reconcile it: schema:value is `integer` when the cell says Integer, where PixelDimension says
+    `number`. That narrows rather than conflicts -- every integer is a number, so the two compose
+    to `integer` under allOf and a pixel count is correctly refused a fractional value. Everything
+    else, @type included, is byte-identical; a sweep that finds any OTHER difference has found
+    drift.
+    """
+    inner = "number" if ("integer" not in (dtype or "").lower()) else "integer"
+    s = {
+        "type": "object",
+        "properties": {
+            "@type": {"type": "array", "items": {"type": "string"},
+                      "contains": {"const": "schema:QuantitativeValue"}, "minItems": 1},
+            "schema:value": {"type": inner},
+            "schema:unitText": {"type": "string"},
+        },
+    }
+    # Ask for the unit with the QV token REMOVED. build_tapp.unit takes the first parenthetical, so
+    # "Integer (QuantitativeValue)" handed it back "QuantitativeValue" and pinned
+    # schema:unitText: {const: "QuantitativeValue"} -- a nonsense unit, on a shape that otherwise
+    # looked exactly right. The pipeline exited 0 and the emitted object passed every check, because
+    # nothing validates that a unit string names a unit.
+    bare = re.sub(r"\(\s*quantitativevalue\s*\)", "", dtype or "", flags=re.I)
+    unit = b.unit(bare) if hasattr(b, "unit") else None
+    # The cell named the unit, so pin it; a cell that only says a unit EXISTS leaves it free. The
+    # UNIT_UNNAMED test mirrors build_tapp.param_template_def rather than restating it, because
+    # omitting it pinned schema:unitText to the literal "<unnamed unit>" -- a const no instance can
+    # ever satisfy, which turns "unit not fixed here" into "this property is unsatisfiable".
+    if unit and unit not in ("free", b.UNIT_UNNAMED):
+        s["properties"]["schema:unitText"] = {"const": unit}
+    if desc:
+        s = {"description": desc, **s}
+    return s
+
+
 def leaf_for(desc, dtype, enum=None, default=None):
     dl = (dtype or "").lower()
+    # Checked before the scalar branches, because a QuantitativeValue cell also names a scalar type
+    # ("Integer (QuantitativeValue)") and would otherwise be caught by the integer branch below.
+    if is_quantitative(dtype) and not enum:
+        return quantitative_leaf(desc, dtype)
     if enum:
         strict = {"type": "string", "enum": with_sentinel(enum)}
         # "Controlled list / Text": the controlled vocabulary is guidance, but free text is
