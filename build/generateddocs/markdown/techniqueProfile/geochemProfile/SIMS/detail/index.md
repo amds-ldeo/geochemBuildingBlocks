@@ -26,7 +26,7 @@ detail instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Pe
   "schema:measurementTechnique": [
     {
       "@id": "ex:simsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240422_sims_cnrs-crpg_orex-800045-103_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Pe
   "schema:measurementTechnique": [
     {
       "@id": "ex:simsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240422_sims_cnrs-crpg_orex-800045-103_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Pe
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240422_sims_cnrs-crpg_orex-800045-103_1" .
 
-<ex:simsTAPP-P0> schema1:identifier "missing" .
+<ex:simsTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

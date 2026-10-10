@@ -26,7 +26,7 @@ detail instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agile
   "schema:measurementTechnique": [
     {
       "@id": "ex:gcmsTAPP-Agilent5977",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241121_gc-ms_tu_orex-800107-108_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agile
   "schema:measurementTechnique": [
     {
       "@id": "ex:gcmsTAPP-Agilent5977",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241121_gc-ms_tu_orex-800107-108_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agile
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241121_gc-ms_tu_orex-800107-108_1" .
 
-<ex:gcmsTAPP-Agilent5977> schema1:identifier "missing" .
+<ex:gcmsTAPP-Agilent5977> schema1:identifier "test value schema:identifier" .
 
 
 ```

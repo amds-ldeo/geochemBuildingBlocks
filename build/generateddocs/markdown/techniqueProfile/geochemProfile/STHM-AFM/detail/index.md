@@ -26,7 +26,7 @@ detail instance derived from ADA n=483 | no named analyst | York University | Pa
   "schema:measurementTechnique": [
     {
       "@id": "ex:sthmAfmTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250523_STHM-AFM_YU_OREX-800088-5_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=483 | no named analyst | York University | Pa
   "schema:measurementTechnique": [
     {
       "@id": "ex:sthmAfmTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250523_STHM-AFM_YU_OREX-800088-5_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=483 | no named analyst | York University | Pa
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250523_STHM-AFM_YU_OREX-800088-5_1" .
 
-<ex:sthmAfmTAPP-P0> schema1:identifier "missing" .
+<ex:sthmAfmTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

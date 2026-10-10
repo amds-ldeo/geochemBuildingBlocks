@@ -26,7 +26,7 @@ detail instance derived from ADA n=10 | no named analyst | NASA Johnson Space Ce
   "schema:measurementTechnique": [
     {
       "@id": "ex:cpdTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231016_CPD_JSC-ARES_OREX-580001-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=10 | no named analyst | NASA Johnson Space Ce
   "schema:measurementTechnique": [
     {
       "@id": "ex:cpdTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231016_CPD_JSC-ARES_OREX-580001-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=10 | no named analyst | NASA Johnson Space Ce
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231016_CPD_JSC-ARES_OREX-580001-0_1" .
 
-<ex:cpdTAPP-P0> schema1:identifier "missing" .
+<ex:cpdTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

@@ -26,7 +26,7 @@ detail instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pur
   "schema:measurementTechnique": [
     {
       "@id": "ex:amsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240409_ams_pu_multisample_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pur
   "schema:measurementTechnique": [
     {
       "@id": "ex:amsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240409_ams_pu_multisample_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pur
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240409_ams_pu_multisample_1" .
 
-<ex:amsTAPP-P0> schema1:identifier "missing" .
+<ex:amsTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

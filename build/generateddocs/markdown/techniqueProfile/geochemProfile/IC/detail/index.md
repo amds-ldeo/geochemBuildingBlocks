@@ -26,7 +26,7 @@ detail instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
   "schema:measurementTechnique": [
     {
       "@id": "ex:icTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240215_ic_jsc-ares_orex-803001-111_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
   "schema:measurementTechnique": [
     {
       "@id": "ex:icTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240215_ic_jsc-ares_orex-803001-111_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240215_ic_jsc-ares_orex-803001-111_1" .
 
-<ex:icTAPP-P0> schema1:identifier "missing" .
+<ex:icTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

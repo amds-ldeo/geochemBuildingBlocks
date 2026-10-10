@@ -26,7 +26,7 @@ detail instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Ther
   "schema:measurementTechnique": [
     {
       "@id": "ex:argtTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250108_argt_cuwa_orex-803373-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Ther
   "schema:measurementTechnique": [
     {
       "@id": "ex:argtTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250108_argt_cuwa_orex-803373-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Ther
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250108_argt_cuwa_orex-803373-0_1" .
 
-<ex:argtTAPP-P0> schema1:identifier "missing" .
+<ex:argtTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

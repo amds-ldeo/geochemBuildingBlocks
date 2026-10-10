@@ -26,7 +26,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Genge2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -74,7 +74,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Genge2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -128,7 +128,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Genge2025> schema1:identifier "missing" .
+<ex:semCompositionTAPP-Genge2025> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -151,7 +151,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Gucsik2013",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -199,7 +199,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Gucsik2013",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -253,7 +253,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Gucsik2013> schema1:identifier "missing" .
+<ex:semCompositionTAPP-Gucsik2013> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -276,7 +276,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Izawa2010",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -324,7 +324,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Izawa2010",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -378,7 +378,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Izawa2010> schema1:identifier "missing" .
+<ex:semCompositionTAPP-Izawa2010> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -401,7 +401,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Izawa2010-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -449,7 +449,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Izawa2010-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -503,7 +503,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Izawa2010-2> schema1:identifier "missing" .
+<ex:semCompositionTAPP-Izawa2010-2> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -526,7 +526,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Pascucci2026",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -574,7 +574,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Pascucci2026",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -628,7 +628,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Pascucci2026> schema1:identifier "missing" .
+<ex:semCompositionTAPP-Pascucci2026> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -651,7 +651,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Pascucci2026-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -699,7 +699,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Pascucci2026-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -753,7 +753,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Pascucci2026-2> schema1:identifier "missing" .
+<ex:semCompositionTAPP-Pascucci2026-2> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -776,7 +776,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Zega2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -824,7 +824,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Zega2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -878,7 +878,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Zega2025> schema1:identifier "missing" .
+<ex:semCompositionTAPP-Zega2025> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -901,7 +901,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Zega2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -949,7 +949,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Zega2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1003,7 +1003,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Zega2025-2> schema1:identifier "missing" .
+<ex:semCompositionTAPP-Zega2025-2> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -1026,7 +1026,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Barnes2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1074,7 +1074,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "schema:measurementTechnique": [
     {
       "@id": "ex:semCompositionTAPP-Barnes2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1128,7 +1128,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Barnes2025> schema1:identifier "missing" .
+<ex:semCompositionTAPP-Barnes2025> schema1:identifier "test value schema:identifier" .
 
 
 ```

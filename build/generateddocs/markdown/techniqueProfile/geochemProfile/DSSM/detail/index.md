@@ -26,7 +26,7 @@ detail instance derived from ADA n=2 | no named analyst | University of Calgary 
   "schema:measurementTechnique": [
     {
       "@id": "ex:dssmTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250328_DSSM_UCa_OREX-800123-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=2 | no named analyst | University of Calgary 
   "schema:measurementTechnique": [
     {
       "@id": "ex:dssmTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250328_DSSM_UCa_OREX-800123-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=2 | no named analyst | University of Calgary 
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250328_DSSM_UCa_OREX-800123-0_1" .
 
-<ex:dssmTAPP-P0> schema1:identifier "missing" .
+<ex:dssmTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

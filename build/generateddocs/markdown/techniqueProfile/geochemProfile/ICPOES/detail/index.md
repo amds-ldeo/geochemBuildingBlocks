@@ -26,7 +26,7 @@ detail instance derived from ADA n=12 | Welten, Kees | University of California,
   "schema:measurementTechnique": [
     {
       "@id": "ex:icpoesTAPP-CAP6300",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231219_icp-oes_ucb_multisample_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=12 | Welten, Kees | University of California,
   "schema:measurementTechnique": [
     {
       "@id": "ex:icpoesTAPP-CAP6300",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231219_icp-oes_ucb_multisample_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=12 | Welten, Kees | University of California,
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231219_icp-oes_ucb_multisample_1" .
 
-<ex:icpoesTAPP-CAP6300> schema1:identifier "missing" .
+<ex:icpoesTAPP-CAP6300> schema1:identifier "test value schema:identifier" .
 
 
 ```

@@ -26,7 +26,7 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Zhang2022",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -112,7 +112,7 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Zhang2022",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -216,7 +216,7 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laSficpmsUPbTAPP-Zhang2022> schema1:identifier "missing" .
+<ex:laSficpmsUPbTAPP-Zhang2022> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -249,7 +249,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -335,7 +335,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -439,7 +439,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021> schema1:identifier "missing" .
+<ex:laSficpmsUPbTAPP-Chernonozhkin2021> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -472,7 +472,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -558,7 +558,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -662,7 +662,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
     ada:transectLength "Line scan length: 400 µm (runs 1 and 2; 34 runs adjusted to measure 400 µm line + blank + washout)" ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-2> schema1:identifier "missing" .
+<ex:laSficpmsUPbTAPP-Chernonozhkin2021-2> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -695,7 +695,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021-3",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -781,7 +781,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021-3",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -885,7 +885,7 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-3> schema1:identifier "missing" .
+<ex:laSficpmsUPbTAPP-Chernonozhkin2021-3> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -918,7 +918,7 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Mittlefehldt2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1004,7 +1004,7 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Mittlefehldt2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1108,7 +1108,7 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "N — within-session precision not formally assessed" .
 
-<ex:laSficpmsUPbTAPP-Mittlefehldt2024> schema1:identifier "missing" .
+<ex:laSficpmsUPbTAPP-Mittlefehldt2024> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -1141,7 +1141,7 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Navarro2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1227,7 +1227,7 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Navarro2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1331,7 +1331,7 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "N — precision is stated for samples: RSD <15% for 20 spots in Arraias except Cr (20%), Ir (16%) and Os (20%), and better than 20% for the other meteorites" .
 
-<ex:laSficpmsUPbTAPP-Navarro2024> schema1:identifier "missing" .
+<ex:laSficpmsUPbTAPP-Navarro2024> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -1364,7 +1364,7 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Navarro2024-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1450,7 +1450,7 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
   "schema:measurementTechnique": [
     {
       "@id": "ex:laSficpmsUPbTAPP-Navarro2024-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -1554,7 +1554,7 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laSficpmsUPbTAPP-Navarro2024-2> schema1:identifier "missing" .
+<ex:laSficpmsUPbTAPP-Navarro2024-2> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;

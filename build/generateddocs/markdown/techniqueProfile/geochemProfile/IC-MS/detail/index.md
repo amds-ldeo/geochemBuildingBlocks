@@ -26,7 +26,7 @@ detail instance derived from ADA n=47 | no named analyst | Japan Agency for Mari
   "schema:measurementTechnique": [
     {
       "@id": "ex:icMsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250127_IC-MS_JAMSTEC_OREX-800023-100_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=47 | no named analyst | Japan Agency for Mari
   "schema:measurementTechnique": [
     {
       "@id": "ex:icMsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250127_IC-MS_JAMSTEC_OREX-800023-100_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=47 | no named analyst | Japan Agency for Mari
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250127_IC-MS_JAMSTEC_OREX-800023-100_1" .
 
-<ex:icMsTAPP-P0> schema1:identifier "missing" .
+<ex:icMsTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

@@ -26,7 +26,7 @@ detail instance derived from ADA n=16 | Greenwood, Richard | Open University | T
   "schema:measurementTechnique": [
     {
       "@id": "ex:lafTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240124_laf_ou_orex-501042-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=16 | Greenwood, Richard | Open University | T
   "schema:measurementTechnique": [
     {
       "@id": "ex:lafTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240124_laf_ou_orex-501042-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=16 | Greenwood, Richard | Open University | T
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240124_laf_ou_orex-501042-0_1" .
 
-<ex:lafTAPP-P0> schema1:identifier "missing" .
+<ex:lafTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

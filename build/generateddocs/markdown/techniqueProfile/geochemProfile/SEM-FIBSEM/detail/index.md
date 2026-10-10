@@ -26,7 +26,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Garvie2008",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -63,7 +63,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Garvie2008",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -94,7 +94,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-<ex:semFibsemTAPP-Garvie2008> schema1:identifier "missing" .
+<ex:semFibsemTAPP-Garvie2008> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -117,7 +117,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Liu2017",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -154,7 +154,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Liu2017",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -185,7 +185,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness" .
 
-<ex:semFibsemTAPP-Liu2017> schema1:identifier "missing" .
+<ex:semFibsemTAPP-Liu2017> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -208,7 +208,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Zhou2017",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -245,7 +245,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Zhou2017",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -276,7 +276,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm" .
 
-<ex:semFibsemTAPP-Zhou2017> schema1:identifier "missing" .
+<ex:semFibsemTAPP-Zhou2017> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -299,7 +299,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Zega2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -336,7 +336,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Zega2025",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -367,7 +367,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-<ex:semFibsemTAPP-Zega2025> schema1:identifier "missing" .
+<ex:semFibsemTAPP-Zega2025> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -390,7 +390,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Zega2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -427,7 +427,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Zega2025-2",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -458,7 +458,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-<ex:semFibsemTAPP-Zega2025-2> schema1:identifier "missing" .
+<ex:semFibsemTAPP-Zega2025-2> schema1:identifier "test value schema:identifier" .
 
 
 ```
@@ -481,7 +481,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Zega2025-3",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -518,7 +518,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "schema:measurementTechnique": [
     {
       "@id": "ex:semFibsemTAPP-Zega2025-3",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -549,7 +549,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-<ex:semFibsemTAPP-Zega2025-3> schema1:identifier "missing" .
+<ex:semFibsemTAPP-Zega2025-3> schema1:identifier "test value schema:identifier" .
 
 
 ```

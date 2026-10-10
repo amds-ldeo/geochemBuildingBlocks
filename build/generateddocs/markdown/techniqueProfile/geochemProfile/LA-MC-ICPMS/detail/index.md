@@ -26,7 +26,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "schema:measurementTechnique": [
     {
       "@id": "ex:laMcicpmsTAPP-Zhang2022",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -123,7 +123,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "schema:measurementTechnique": [
     {
       "@id": "ex:laMcicpmsTAPP-Zhang2022",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -237,7 +237,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
     ada:transectLength "Variable; analyses of plagioclase, pyroxene, glass in two lunar meteorites (NWA 10597 and NWA 6950); line length varies by mineral grain size" ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "all [⁸⁷Sr/⁸⁶Sr, ⁸⁷Rb/⁸⁶Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] — regression in Fig. 3; relative errors for ⁸⁷Rb/⁸⁶Sr ±3% for most reference glasses, and for ⁸⁷Sr/⁸⁶Sr <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1" .
 
-<ex:laMcicpmsTAPP-Zhang2022> schema1:identifier "missing" .
+<ex:laMcicpmsTAPP-Zhang2022> schema1:identifier "test value schema:identifier" .
 
 <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement> a schema1:PropertyValue ;
     schema1:name "Number of Blocks per Measurement" ;

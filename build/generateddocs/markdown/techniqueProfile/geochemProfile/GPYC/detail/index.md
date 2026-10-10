@@ -26,7 +26,7 @@ detail instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center |
   "schema:measurementTechnique": [
     {
       "@id": "ex:gpycTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240221_gpyc_jsc-ares_orex-800019-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center |
   "schema:measurementTechnique": [
     {
       "@id": "ex:gpycTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240221_gpyc_jsc-ares_orex-800019-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center |
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240221_gpyc_jsc-ares_orex-800019-0_1" .
 
-<ex:gpycTAPP-P0> schema1:identifier "missing" .
+<ex:gpycTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

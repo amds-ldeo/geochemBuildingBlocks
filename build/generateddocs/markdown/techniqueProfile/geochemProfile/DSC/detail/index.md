@@ -26,7 +26,7 @@ detail instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkins
   "schema:measurementTechnique": [
     {
       "@id": "ex:dscTAPP-DSC8000",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241111_dsc_nu_orex-803224-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkins
   "schema:measurementTechnique": [
     {
       "@id": "ex:dscTAPP-DSC8000",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241111_dsc_nu_orex-803224-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkins
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241111_dsc_nu_orex-803224-0_1" .
 
-<ex:dscTAPP-DSC8000> schema1:identifier "missing" .
+<ex:dscTAPP-DSC8000> schema1:identifier "test value schema:identifier" .
 
 
 ```

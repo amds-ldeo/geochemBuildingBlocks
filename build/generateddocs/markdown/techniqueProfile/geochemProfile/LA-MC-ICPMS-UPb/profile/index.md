@@ -246,7 +246,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:proceduralBlankLevel": "missing",
+      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -334,7 +334,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "schema:value": "test value schema:value"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -354,7 +354,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "schema:value": "test value schema:value"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -374,7 +374,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "schema:value": "test value schema:value"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -892,7 +892,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:proceduralBlankLevel": "missing",
+      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -980,7 +980,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "schema:value": "test value schema:value"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -1000,7 +1000,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "schema:value": "test value schema:value"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -1020,7 +1020,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "schema:value": "test value schema:value"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -1381,10 +1381,10 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "example oxideProduction" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "example peakFlatness" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
@@ -1405,7 +1405,7 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:laMcicpmsUPbTAPP-P0 ;
-            ada:proceduralBlankLevel "missing" ] ;
+            ada:proceduralBlankLevel "test value ada:proceduralBlankLevel" ] ;
     ada:reportedDateType "Weighted mean 206Pb/238U" ;
     ada:sensitivityYield 1e+00 ;
     ada:spotDiameterMeasured 1e+00 .
@@ -1486,7 +1486,8 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
     schema1:unitText "counts" ;
     schema1:value -9999,
-        "missing" ;
+        "missing",
+        "test value schema:value" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 ex:adaProduct-var-002 a cdi:InstanceVariable,

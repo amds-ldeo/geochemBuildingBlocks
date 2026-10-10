@@ -83,14 +83,14 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -184,14 +184,14 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -222,7 +222,7 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -236,7 +236,7 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry" ] ;
     schema1:name "fticrms protocol — P0" ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:instrumentManufacturer "Unknown" ;

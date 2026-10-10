@@ -26,7 +26,7 @@ detail instance derived from ADA n=2 | Crowther, Sarah | University of Mancheste
   "schema:measurementTechnique": [
     {
       "@id": "ex:ritofngmsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240116_ri-tof-ngms_uom_orex-803060-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=2 | Crowther, Sarah | University of Mancheste
   "schema:measurementTechnique": [
     {
       "@id": "ex:ritofngmsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240116_ri-tof-ngms_uom_orex-803060-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=2 | Crowther, Sarah | University of Mancheste
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240116_ri-tof-ngms_uom_orex-803060-0_1" .
 
-<ex:ritofngmsTAPP-P0> schema1:identifier "missing" .
+<ex:ritofngmsTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

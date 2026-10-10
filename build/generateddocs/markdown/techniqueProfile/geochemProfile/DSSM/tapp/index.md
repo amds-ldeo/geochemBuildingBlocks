@@ -70,14 +70,14 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -158,14 +158,14 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -196,7 +196,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
@@ -207,7 +207,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Direct Shear Strength Measurement" ] ;
     schema1:name "dssm protocol — P0" ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:instrumentManufacturer "Unknown" ;

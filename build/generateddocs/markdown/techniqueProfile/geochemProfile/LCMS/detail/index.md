@@ -26,7 +26,7 @@ detail instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Ther
   "schema:measurementTechnique": [
     {
       "@id": "ex:lcmsTAPP-Ultimate3000",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240301_lc-ms_ku_orex-800044-101_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Ther
   "schema:measurementTechnique": [
     {
       "@id": "ex:lcmsTAPP-Ultimate3000",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240301_lc-ms_ku_orex-800044-101_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Ther
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240301_lc-ms_ku_orex-800044-101_1" .
 
-<ex:lcmsTAPP-Ultimate3000> schema1:identifier "missing" .
+<ex:lcmsTAPP-Ultimate3000> schema1:identifier "test value schema:identifier" .
 
 
 ```

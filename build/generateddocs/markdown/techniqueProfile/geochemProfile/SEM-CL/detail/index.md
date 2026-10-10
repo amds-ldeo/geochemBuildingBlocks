@@ -26,7 +26,7 @@ detail instance derived from ADA n=26 | no named analyst | CNRS - Centre de Rech
   "schema:measurementTechnique": [
     {
       "@id": "ex:semClTAPP-JSM7000",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=26 | no named analyst | CNRS - Centre de Rech
   "schema:measurementTechnique": [
     {
       "@id": "ex:semClTAPP-JSM7000",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=26 | no named analyst | CNRS - Centre de Rech
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2" .
 
-<ex:semClTAPP-JSM7000> schema1:identifier "missing" .
+<ex:semClTAPP-JSM7000> schema1:identifier "test value schema:identifier" .
 
 
 ```

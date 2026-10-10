@@ -246,7 +246,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:deadTime": -9999,
-      "ada:proceduralBlankLevel": "missing",
+      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -778,7 +778,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:deadTime": -9999,
-      "ada:proceduralBlankLevel": "missing",
+      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -1175,7 +1175,7 @@ ex:adaEPMA-example-001 a schema1:Dataset,
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:epmaTAPP-P0 ;
             ada:deadTime -9999 ;
-            ada:proceduralBlankLevel "missing" ] .
+            ada:proceduralBlankLevel "test value ada:proceduralBlankLevel" ] .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,

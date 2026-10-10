@@ -26,7 +26,7 @@ detail instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholt
   "schema:measurementTechnique": [
     {
       "@id": "ex:ramanTAPP-Liss2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240823_raman_hmgu_orex-803141-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholt
   "schema:measurementTechnique": [
     {
       "@id": "ex:ramanTAPP-Liss2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240823_raman_hmgu_orex-803141-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholt
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240823_raman_hmgu_orex-803141-0_1" .
 
-<ex:ramanTAPP-Liss2024> schema1:identifier "missing" .
+<ex:ramanTAPP-Liss2024> schema1:identifier "test value schema:identifier" .
 
 
 ```

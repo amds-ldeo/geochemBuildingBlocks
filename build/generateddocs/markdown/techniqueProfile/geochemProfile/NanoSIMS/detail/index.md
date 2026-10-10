@@ -26,7 +26,7 @@ detail instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoS
   "schema:measurementTechnique": [
     {
       "@id": "ex:nanosimsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240111_nanosims_ou_orex-501059-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoS
   "schema:measurementTechnique": [
     {
       "@id": "ex:nanosimsTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240111_nanosims_ou_orex-501059-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoS
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240111_nanosims_ou_orex-501059-0_1" .
 
-<ex:nanosimsTAPP-P0> schema1:identifier "missing" .
+<ex:nanosimsTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

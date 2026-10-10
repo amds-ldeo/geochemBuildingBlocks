@@ -26,7 +26,7 @@ detail instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary |
   "schema:measurementTechnique": [
     {
       "@id": "ex:svruecTAPP-Model5077",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241216_sv-ruec_uca_orex-800123-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary |
   "schema:measurementTechnique": [
     {
       "@id": "ex:svruecTAPP-Model5077",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241216_sv-ruec_uca_orex-800123-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary |
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241216_sv-ruec_uca_orex-800123-0_1" .
 
-<ex:svruecTAPP-Model5077> schema1:identifier "missing" .
+<ex:svruecTAPP-Model5077> schema1:identifier "test value schema:identifier" .
 
 
 ```

@@ -52,7 +52,8 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
   "ada:dataType": "string",
   "ada:fieldScope": "session",
   "schema:readonlyValue": true,
-  "ada:tier": "R"
+  "ada:tier": "R",
+  "schema:defaultValue": "example value"
 }
 ```
 
@@ -75,7 +76,8 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
   "ada:dataType": "string",
   "ada:fieldScope": "session",
   "schema:readonlyValue": true,
-  "ada:tier": "R"
+  "ada:tier": "R",
+  "schema:defaultValue": "example value"
 }
 ```
 
@@ -86,6 +88,7 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
     schema1:name "Detector Configuration" ;
     schema1:readonlyValue true ;
     schema1:valueName "detectorConfiguration" ;
@@ -166,7 +169,8 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
   "ada:dataType": "string",
   "ada:fieldScope": "session",
   "schema:readonlyValue": false,
-  "ada:tier": "R"
+  "ada:tier": "R",
+  "schema:defaultValue": "example value"
 }
 ```
 
@@ -189,7 +193,8 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
   "ada:dataType": "string",
   "ada:fieldScope": "session",
   "schema:readonlyValue": false,
-  "ada:tier": "R"
+  "ada:tier": "R",
+  "schema:defaultValue": "example value"
 }
 ```
 
@@ -200,6 +205,7 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
     schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
     schema1:readonlyValue false ;
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;

@@ -26,7 +26,7 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
   "schema:measurementTechnique": [
     {
       "@id": "ex:qrisTAPP-Golish2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
   "schema:measurementTechnique": [
     {
       "@id": "ex:qrisTAPP-Golish2024",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)" .
 
-<ex:qrisTAPP-Golish2024> schema1:identifier "missing" .
+<ex:qrisTAPP-Golish2024> schema1:identifier "test value schema:identifier" .
 
 
 ```

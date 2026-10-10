@@ -26,7 +26,7 @@ detail instance derived from ADA n=10 | no named analyst | Arizona State Univers
   "schema:measurementTechnique": [
     {
       "@id": "ex:pcdAfmTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241217_PCD-AFM_ASU_multiSample_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=10 | no named analyst | Arizona State Univers
   "schema:measurementTechnique": [
     {
       "@id": "ex:pcdAfmTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20241217_PCD-AFM_ASU_multiSample_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=10 | no named analyst | Arizona State Univers
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241217_PCD-AFM_ASU_multiSample_1" .
 
-<ex:pcdAfmTAPP-P0> schema1:identifier "missing" .
+<ex:pcdAfmTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```

@@ -84,14 +84,14 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -191,14 +191,14 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -234,7 +234,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -249,7 +249,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "X-ray diffraction" ] ;
     schema1:name "xrd protocol — King2024" ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:diffractometerGeometry "missing" ;
@@ -343,14 +343,14 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -450,14 +450,14 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -493,7 +493,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -508,7 +508,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "X-ray diffraction" ] ;
     schema1:name "xrd protocol — King2024-2" ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:diffractometerGeometry "missing" ;
@@ -602,14 +602,14 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -709,14 +709,14 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
           }
         ],
         "schema:position": 1,
-        "schema:description": "missing"
+        "schema:description": "test value schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
+      "schema:defaultValue": "test value schema:defaultValue"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -752,7 +752,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "missing" ;
+                    schema1:description "test value schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -767,7 +767,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "X-ray diffraction" ] ;
     schema1:name "xrd protocol — King2023" ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:diffractometerGeometry "missing" ;

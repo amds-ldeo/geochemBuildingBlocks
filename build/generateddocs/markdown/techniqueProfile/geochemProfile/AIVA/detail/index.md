@@ -26,7 +26,7 @@ detail instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space Ce
   "schema:measurementTechnique": [
     {
       "@id": "ex:aivaTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240122_aiva_jsc-ares_multisample_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space Ce
   "schema:measurementTechnique": [
     {
       "@id": "ex:aivaTAPP-P0",
-      "schema:identifier": "missing"
+      "schema:identifier": "test value schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240122_aiva_jsc-ares_multisample_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space Ce
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240122_aiva_jsc-ares_multisample_1" .
 
-<ex:aivaTAPP-P0> schema1:identifier "missing" .
+<ex:aivaTAPP-P0> schema1:identifier "test value schema:identifier" .
 
 
 ```
