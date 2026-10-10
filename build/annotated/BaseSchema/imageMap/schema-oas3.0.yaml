@@ -1,4 +1,197 @@
 x-defs:
+  ogch.BaseSchema.image:
+    title: Image Type
+    description: Image objects with acquisition details and component type classification.
+      Typed as ada:image and schema:ImageObject.
+    type: object
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        minItems: 2
+        allOf:
+        - contains:
+            enum:
+            - ada:image
+        - contains:
+            enum:
+            - schema:ImageObject
+        description: GeneralType for images
+      ada:acquisitionTime:
+        type: string
+        x-jsonld-id: https://ada.astromat.org/metadata/acquisitionTime
+      ada:componentType:
+        type: string
+        enum:
+        - ada:AIVAImage
+        - ada:BSEImage
+        - ada:CLImage
+        - ada:CPDImage
+        - ada:EPMAESPCPlot
+        - ada:EPMAImage
+        - ada:FIBSEMImage
+        - ada:GCMSChromatogram
+        - ada:GCMSSpectraPlot
+        - ada:L2MSOverviewImage
+        - ada:L2MSSpectraPlot
+        - ada:LAICPMSImage
+        - ada:LCMSChromatogram
+        - ada:LCMSVisualization
+        - ada:LITImage
+        - ada:NanoIRBackground
+        - ada:NanoSIMSImage
+        - ada:PSFDContextImage
+        - ada:QRISCalibrated
+        - ada:QRISCalibratedImage
+        - ada:QRISFlatFieldImage
+        - ada:QRISRaw
+        - ada:QRISRawImage
+        - ada:SEMEDSPointSpectraPlot
+        - ada:SEMFIBIonImage
+        - ada:SEMHRCLimage
+        - ada:SEMImage
+        - ada:SIMSProcessedImage
+        - ada:SLSShapeModelImage
+        - ada:STEMEDSSpectraPlot
+        - ada:STEMEELSSpectraPlot
+        - ada:STEMImage
+        - ada:SVRUECWaveformPlot
+        - ada:SXRF2DImage
+        - ada:TEMDiffractionPattern
+        - ada:TEMImage
+        - ada:TEMPatternsImage
+        - ada:TOFSIMSIonImages
+        - ada:TOFSIMSMassSpectrumPlot
+        - ada:UVFMImage
+        - ada:VLMImage
+        - ada:VNMIROverviewImage
+        - ada:VNMIRSpectraPlot
+        - ada:XANESImageStack
+        - ada:XANESStackOverviewImage
+        - ada:XRDDiffractionPattern
+        - ada:XRDIndexedImage
+        - ada:plot
+        - ada:analysisLocation
+        - ada:annotatedImage
+        - ada:areaOfInterest
+        - ada:basemap
+        - ada:calibrationFile
+        - ada:code
+        - ada:contextPhotography
+        - ada:contextVideo
+        - ada:inputFile
+        - ada:instrumentMetadata
+        - ada:logFile
+        - ada:methodDescription
+        - ada:other
+        - ada:processingMethod
+        - ada:quickLook
+        - ada:report
+        - ada:samplePreparation
+        - ada:shapefile
+        - ada:supplementalBasemap
+        - ada:supplementaryImage
+        - ada:worldFile
+        - nil:missing
+        description: ADA componentType for an image, as a single string. Allowed values
+          are constrained at the technique-profile level.
+        x-jsonld-id: https://ada.astromat.org/metadata/componentType
+      ada:channel1:
+        type: string
+        x-jsonld-id: https://ada.astromat.org/metadata/channel1
+      ada:channel2:
+        type: string
+        x-jsonld-id: https://ada.astromat.org/metadata/channel2
+      ada:channel3:
+        type: string
+        x-jsonld-id: https://ada.astromat.org/metadata/channel3
+      schema:width:
+        description: Width of the raster, in pixels.
+        x-jsonld-id: http://schema.org/width
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension
+      schema:height:
+        description: Height of the raster, in pixels.
+        x-jsonld-id: http://schema.org/height
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension
+      ada:illuminationType:
+        type: string
+        description: Type of illumination used to create the image. Examples include
+          Visible light, Cross-polarized visible light, ultraviolet light, Electron
+          beam, X-ray.
+        x-jsonld-id: https://ada.astromat.org/metadata/illuminationType
+      ada:imageType:
+        type: string
+        description: Specifies the nature of the sample's response to the illumination
+          that was detected and measured.
+        x-jsonld-id: https://ada.astromat.org/metadata/imageType
+      ada:spatialRegistration:
+        description: 'Pixel size and its units. SCALING ONLY -- the half of a spatial
+          registration an unregistered image can state. A plain image has a pixel
+          size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement,
+          but an image does not say where it sits on the sample or how its axes relate
+          to the sample axes. The imageMap block references the full shape, which
+          adds the origin, the origin corner, the coordinate definition and the two
+          rotation terms, and whose required list demands them.
+
+          Same property NAME on both branches on purpose: a placement path such as
+          schema:hasPart[@type=ada:image|ada:imageMap].ada:spatialRegistration.ada:pixelScaleX
+          then resolves through either, which is what the subject-key register and
+          the TAPP sidecars both target. Before this, the image branch declared no
+          spatialRegistration at all -- not because a pixel scale is meaningless on
+          an image, but because the only available shape required an origin and a
+          corner, so an image could not use it without asserting a registration it
+          does not have.'
+        x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.spatialRegistration/$defs/Scaling
+    required:
+    - '@type'
+    - ada:componentType
+    $defs:
+      PixelDimension:
+        title: Pixel Dimension
+        description: 'A raster dimension in pixels, as a schema:QuantitativeValue.
+          ONE declaration, referenced by every block that needs it, so the shape cannot
+          drift between them -- which it already had: geochemProduct declared schema:width
+          as this object while a draft technique block declared it as anyOf[integer,
+          string], and a value satisfying either violated the other. Nothing caught
+          that, because the two blocks are validated separately.
+
+          A QuantitativeValue rather than a bare integer, following the reason geochemProduct
+          already records: the same schema.org property carries physical dimensions
+          elsewhere, so the unit has to be stated rather than assumed to be pixels
+          -- and schema:size beside it already takes this shape.
+
+          schema:width and schema:height are used in preference to the ada: equivalents
+          they replace (ada:numPixelsX, ada:numPixelsY, ada:pixelSize), because a
+          schema.org property that applies is preferred to a minted one. Nothing is
+          lost: no example carried the ada: forms.'
+        type: object
+        properties:
+          '@type':
+            type: array
+            items:
+              type: string
+            contains:
+              enum:
+              - schema:QuantitativeValue
+            minItems: 1
+          schema:value:
+            type: number
+            description: The dimension in pixels.
+            x-jsonld-id: http://schema.org/value
+          schema:unitText:
+            type: string
+            description: Unit of measure, e.g. 'pixel'.
+            x-jsonld-id: http://schema.org/unitText
+    x-jsonld-prefixes:
+      schema: http://schema.org/
+      ada: https://ada.astromat.org/metadata/
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.spatialRegistration:
     title: Spatial Registration Type
     description: "The affine transform from an image's pixel coordinates to a coordinate
@@ -226,12 +419,16 @@ properties:
     type: string
     description: Specifies the nature of the sample's response to the illumination.
     x-jsonld-id: https://ada.astromat.org/metadata/imageType
-  ada:numPixelsX:
-    type: integer
-    x-jsonld-id: https://ada.astromat.org/metadata/numPixelsX
-  ada:numPixelsY:
-    type: integer
-    x-jsonld-id: https://ada.astromat.org/metadata/numPixelsY
+  schema:width:
+    description: Width of the raster, in pixels.
+    x-jsonld-id: http://schema.org/width
+    allOf:
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension
+  schema:height:
+    description: Height of the raster, in pixels.
+    x-jsonld-id: http://schema.org/height
+    allOf:
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension
   ada:spatialRegistration:
     x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
     allOf:

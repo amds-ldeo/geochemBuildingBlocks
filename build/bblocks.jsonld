@@ -213,7 +213,7 @@
   "name": "Building Blocks - ADA Geochemistry Building Blocks repository",
   "abstract": "Building blocks for Astromat Data Archive (ADA) geochemistry metadata profiles,\nusing the OGC Building Blocks pattern.\n",
   "description": "Modular schema components for ADA analytical technique metadata. Imports shared\nschema.org and CDIF property building blocks from the CDIF Building Blocks repository.\n",
-  "modified": "2026-10-10T18:19:16.344522",
+  "modified": "2026-10-10T21:18:31.429550",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"d25453cad0e4972e6a638db3dca636f023f9397a",
@@ -636,103 +636,6 @@
         "bblocks:BBlock"
       ],
       "skos:prefLabel": "Other File Type",
-      "openAPIDocument": null,
-      "ontology": null,
-      "rdfData": [],
-      "dependsOn": null,
-      "isProfileOf": null,
-      "skos:topConceptOf": {
-        "@id": "https://amds-ldeo.github.io/geochemBuildingBlocks/"
-      }
-    },
-    {
-      "itemIdentifier": "ogch.BaseSchema.supDocImage",
-      "$schema": "metaschema.yaml",
-      "name": "Supplemental Document Image Type",
-      "abstract": "Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-02-05T00:00:00Z",
-      "itemClass": "schema",
-      "register": "cdif-building-block-register",
-      "version": "0.1",
-      "dateOfLastChange": "2026-10-10",
-      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
-      "maturity": "draft",
-      "scope": "unstable",
-      "tags": [
-        "ada",
-        "astromat",
-        "image",
-        "supplemental"
-      ],
-      "sources": [
-        {
-          "title": "ADA Metadata Schema v3",
-          "link": "https://github.com/amds-ldeo/metadata"
-        }
-      ],
-      "shaclShapes": [
-        {
-          "prof:hasArtifact": [
-            "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/supDocImage/rules.shacl"
-          ],
-          "rdfs:seeAlso": "bblocks://ogch.BaseSchema.supDocImage",
-          "prof:hasRole": "role:validation",
-          "dct:format": "text/turtle",
-          "dct:conformsTo": "shacl:"
-        }
-      ],
-      "license": {
-        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
-      },
-      "ldContext": {
-        "prof:hasArtifact": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/context.jsonld",
-        "prof:hasRole": "role:mapping",
-        "dct:format": "application/ld+json",
-        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
-      },
-      "schema": [
-        {
-          "prof:hasArtifact": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/schema.yaml",
-          "prof:hasRole": "role:schema",
-          "dct:format": "application/yaml",
-          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
-        },
-        {
-          "prof:hasArtifact": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/schema.json",
-          "prof:hasRole": "role:schema",
-          "dct:format": "application/json",
-          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
-        }
-      ],
-      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/supDocImage/schema.yaml",
-      "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/supDocImage/context.jsonld",
-      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/resolvedProperties.json",
-      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/supDocImage/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/supDocImage/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/BaseSchema/supDocImage/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/BaseSchema/supDocImage/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.BaseSchema.supDocImage"
-        }
-      },
-      "@id": "bblocks://ogch.BaseSchema.supDocImage",
-      "@type": [
-        "bblocks:Schema",
-        "skos:Concept",
-        "dcat:Dataset",
-        "bblocks:BBlock"
-      ],
-      "skos:prefLabel": "Supplemental Document Image Type",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -3963,6 +3866,15 @@
         },
         {
           "prof:hasArtifact": [
+            "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogch.BaseSchema.image",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
             "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogch.BaseSchema.spatialRegistration",
@@ -3972,6 +3884,7 @@
         }
       ],
       "dependsOn": [
+        "bblocks://ogch.BaseSchema.image",
         "bblocks://ogch.BaseSchema.spatialRegistration"
       ],
       "license": {
@@ -4025,6 +3938,123 @@
         "bblocks:BBlock"
       ],
       "skos:prefLabel": "Image Map Type",
+      "openAPIDocument": null,
+      "ontology": null,
+      "rdfData": [],
+      "isProfileOf": null,
+      "skos:topConceptOf": {
+        "@id": "https://amds-ldeo.github.io/geochemBuildingBlocks/"
+      }
+    },
+    {
+      "itemIdentifier": "ogch.BaseSchema.supDocImage",
+      "$schema": "metaschema.yaml",
+      "name": "Supplemental Document Image Type",
+      "abstract": "Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-02-05T00:00:00Z",
+      "itemClass": "schema",
+      "register": "cdif-building-block-register",
+      "version": "0.1",
+      "dateOfLastChange": "2026-10-10",
+      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+      "maturity": "draft",
+      "scope": "unstable",
+      "tags": [
+        "ada",
+        "astromat",
+        "image",
+        "supplemental"
+      ],
+      "sources": [
+        {
+          "title": "ADA Metadata Schema v3",
+          "link": "https://github.com/amds-ldeo/metadata"
+        }
+      ],
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/supDocImage/rules.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogch.BaseSchema.supDocImage",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogch.BaseSchema.image",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogch.BaseSchema.spatialRegistration",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
+      "dependsOn": [
+        "bblocks://ogch.BaseSchema.image"
+      ],
+      "license": {
+        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
+      },
+      "ldContext": {
+        "prof:hasArtifact": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/context.jsonld",
+        "prof:hasRole": "role:mapping",
+        "dct:format": "application/ld+json",
+        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
+      },
+      "schema": [
+        {
+          "prof:hasArtifact": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/schema.yaml",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/yaml",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        },
+        {
+          "prof:hasArtifact": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/schema.json",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/json",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        }
+      ],
+      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/supDocImage/schema.yaml",
+      "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/supDocImage/context.jsonld",
+      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/resolvedProperties.json",
+      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/supDocImage/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/supDocImage/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/BaseSchema/supDocImage/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/BaseSchema/supDocImage/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.BaseSchema.supDocImage"
+        }
+      },
+      "@id": "bblocks://ogch.BaseSchema.supDocImage",
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept",
+        "dcat:Dataset",
+        "bblocks:BBlock"
+      ],
+      "skos:prefLabel": "Supplemental Document Image Type",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -118329,9 +118359,6 @@
       "@id": "bblocks://ogch.BaseSchema.otherFile"
     },
     {
-      "@id": "bblocks://ogch.BaseSchema.supDocImage"
-    },
-    {
       "@id": "bblocks://ogch.BaseSchema.spatialRegistration"
     },
     {
@@ -118432,6 +118459,9 @@
     },
     {
       "@id": "bblocks://ogch.BaseSchema.imageMap"
+    },
+    {
+      "@id": "bblocks://ogch.BaseSchema.supDocImage"
     },
     {
       "@id": "bblocks://ogch.BaseSchema.laboratory"

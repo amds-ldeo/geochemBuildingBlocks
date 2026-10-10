@@ -103,9 +103,14 @@ properties:
   ada:channel3:
     type: string
     x-jsonld-id: https://ada.astromat.org/metadata/channel3
-  ada:pixelSize:
-    type: string
-    x-jsonld-id: https://ada.astromat.org/metadata/pixelSize
+  schema:width:
+    description: Width of the raster, in pixels.
+    $ref: '#/$defs/PixelDimension'
+    x-jsonld-id: http://schema.org/width
+  schema:height:
+    description: Height of the raster, in pixels.
+    $ref: '#/$defs/PixelDimension'
+    x-jsonld-id: http://schema.org/height
   ada:illuminationType:
     type: string
     description: Type of illumination used to create the image. Examples include Visible
@@ -136,6 +141,42 @@ properties:
 required:
 - '@type'
 - ada:componentType
+$defs:
+  PixelDimension:
+    title: Pixel Dimension
+    description: 'A raster dimension in pixels, as a schema:QuantitativeValue. ONE
+      declaration, referenced by every block that needs it, so the shape cannot drift
+      between them -- which it already had: geochemProduct declared schema:width as
+      this object while a draft technique block declared it as anyOf[integer, string],
+      and a value satisfying either violated the other. Nothing caught that, because
+      the two blocks are validated separately.
+
+      A QuantitativeValue rather than a bare integer, following the reason geochemProduct
+      already records: the same schema.org property carries physical dimensions elsewhere,
+      so the unit has to be stated rather than assumed to be pixels -- and schema:size
+      beside it already takes this shape.
+
+      schema:width and schema:height are used in preference to the ada: equivalents
+      they replace (ada:numPixelsX, ada:numPixelsY, ada:pixelSize), because a schema.org
+      property that applies is preferred to a minted one. Nothing is lost: no example
+      carried the ada: forms.'
+    type: object
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          const: schema:QuantitativeValue
+        minItems: 1
+      schema:value:
+        type: number
+        description: The dimension in pixels.
+        x-jsonld-id: http://schema.org/value
+      schema:unitText:
+        type: string
+        description: Unit of measure, e.g. 'pixel'.
+        x-jsonld-id: http://schema.org/unitText
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

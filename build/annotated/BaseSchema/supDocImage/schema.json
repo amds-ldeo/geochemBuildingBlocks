@@ -56,13 +56,15 @@
       "description": "ADA componentType for a supplemental document image, as a single string. Allowed values are constrained at the technique-profile level.",
       "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
     },
-    "ada:numPixelsX": {
-      "type": "integer",
-      "x-jsonld-id": "https://ada.astromat.org/metadata/numPixelsX"
+    "schema:width": {
+      "description": "Width of the raster, in pixels.",
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.json#/$defs/PixelDimension",
+      "x-jsonld-id": "http://schema.org/width"
     },
-    "ada:numPixelsY": {
-      "type": "integer",
-      "x-jsonld-id": "https://ada.astromat.org/metadata/numPixelsY"
+    "schema:height": {
+      "description": "Height of the raster, in pixels.",
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.json#/$defs/PixelDimension",
+      "x-jsonld-id": "http://schema.org/height"
     },
     "schema:isBasedOn": {
       "type": "string",

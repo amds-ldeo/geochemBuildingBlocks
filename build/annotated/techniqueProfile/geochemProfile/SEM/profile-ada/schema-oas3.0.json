@@ -6644,9 +6644,23 @@
           "type": "string",
           "x-jsonld-id": "https://ada.astromat.org/metadata/channel3"
         },
-        "ada:pixelSize": {
-          "type": "string",
-          "x-jsonld-id": "https://ada.astromat.org/metadata/pixelSize"
+        "schema:width": {
+          "description": "Width of the raster, in pixels.",
+          "x-jsonld-id": "http://schema.org/width",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile-ada/schema-oas3.0.json#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension"
+            }
+          ]
+        },
+        "schema:height": {
+          "description": "Height of the raster, in pixels.",
+          "x-jsonld-id": "http://schema.org/height",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile-ada/schema-oas3.0.json#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension"
+            }
+          ]
         },
         "ada:illuminationType": {
           "type": "string",
@@ -6672,6 +6686,37 @@
         "@type",
         "ada:componentType"
       ],
+      "$defs": {
+        "PixelDimension": {
+          "title": "Pixel Dimension",
+          "description": "A raster dimension in pixels, as a schema:QuantitativeValue. ONE declaration, referenced by every block that needs it, so the shape cannot drift between them -- which it already had: geochemProduct declared schema:width as this object while a draft technique block declared it as anyOf[integer, string], and a value satisfying either violated the other. Nothing caught that, because the two blocks are validated separately.\nA QuantitativeValue rather than a bare integer, following the reason geochemProduct already records: the same schema.org property carries physical dimensions elsewhere, so the unit has to be stated rather than assumed to be pixels -- and schema:size beside it already takes this shape.\nschema:width and schema:height are used in preference to the ada: equivalents they replace (ada:numPixelsX, ada:numPixelsY, ada:pixelSize), because a schema.org property that applies is preferred to a minted one. Nothing is lost: no example carried the ada: forms.",
+          "type": "object",
+          "properties": {
+            "@type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "contains": {
+                "enum": [
+                  "schema:QuantitativeValue"
+                ]
+              },
+              "minItems": 1
+            },
+            "schema:value": {
+              "type": "number",
+              "description": "The dimension in pixels.",
+              "x-jsonld-id": "http://schema.org/value"
+            },
+            "schema:unitText": {
+              "type": "string",
+              "description": "Unit of measure, e.g. 'pixel'.",
+              "x-jsonld-id": "http://schema.org/unitText"
+            }
+          }
+        }
+      },
       "x-jsonld-prefixes": {
         "schema": "http://schema.org/",
         "ada": "https://ada.astromat.org/metadata/"
@@ -6774,13 +6819,23 @@
           "description": "Specifies the nature of the sample's response to the illumination.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/imageType"
         },
-        "ada:numPixelsX": {
-          "type": "integer",
-          "x-jsonld-id": "https://ada.astromat.org/metadata/numPixelsX"
+        "schema:width": {
+          "description": "Width of the raster, in pixels.",
+          "x-jsonld-id": "http://schema.org/width",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile-ada/schema-oas3.0.json#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension"
+            }
+          ]
         },
-        "ada:numPixelsY": {
-          "type": "integer",
-          "x-jsonld-id": "https://ada.astromat.org/metadata/numPixelsY"
+        "schema:height": {
+          "description": "Height of the raster, in pixels.",
+          "x-jsonld-id": "http://schema.org/height",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile-ada/schema-oas3.0.json#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension"
+            }
+          ]
         },
         "ada:spatialRegistration": {
           "x-jsonld-id": "https://ada.astromat.org/metadata/spatialRegistration",
@@ -7289,13 +7344,23 @@
           "description": "ADA componentType for a supplemental document image, as a single string. Allowed values are constrained at the technique-profile level.",
           "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
         },
-        "ada:numPixelsX": {
-          "type": "integer",
-          "x-jsonld-id": "https://ada.astromat.org/metadata/numPixelsX"
+        "schema:width": {
+          "description": "Width of the raster, in pixels.",
+          "x-jsonld-id": "http://schema.org/width",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile-ada/schema-oas3.0.json#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension"
+            }
+          ]
         },
-        "ada:numPixelsY": {
-          "type": "integer",
-          "x-jsonld-id": "https://ada.astromat.org/metadata/numPixelsY"
+        "schema:height": {
+          "description": "Height of the raster, in pixels.",
+          "x-jsonld-id": "http://schema.org/height",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile-ada/schema-oas3.0.json#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension"
+            }
+          ]
         },
         "schema:isBasedOn": {
           "type": "string",

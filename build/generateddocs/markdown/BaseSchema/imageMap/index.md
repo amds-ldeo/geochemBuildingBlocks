@@ -179,12 +179,14 @@ properties:
     type: string
     description: Specifies the nature of the sample's response to the illumination.
     x-jsonld-id: https://ada.astromat.org/metadata/imageType
-  ada:numPixelsX:
-    type: integer
-    x-jsonld-id: https://ada.astromat.org/metadata/numPixelsX
-  ada:numPixelsY:
-    type: integer
-    x-jsonld-id: https://ada.astromat.org/metadata/numPixelsY
+  schema:width:
+    description: Width of the raster, in pixels.
+    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml#/$defs/PixelDimension
+    x-jsonld-id: http://schema.org/width
+  schema:height:
+    description: Height of the raster, in pixels.
+    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml#/$defs/PixelDimension
+    x-jsonld-id: http://schema.org/height
   ada:spatialRegistration:
     $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration

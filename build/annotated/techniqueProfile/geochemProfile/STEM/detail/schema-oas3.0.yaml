@@ -11022,14 +11022,36 @@ allOf:
           properties:
             schema:width:
               description: Image width in pixels.
-              anyOf:
-              - type: integer
-              - type: string
+              type: object
+              properties:
+                '@type':
+                  type: array
+                  items:
+                    type: string
+                  contains:
+                    enum:
+                    - schema:QuantitativeValue
+                  minItems: 1
+                schema:value:
+                  type: integer
+                schema:unitText:
+                  type: string
             schema:height:
               description: Image height in pixels.
-              anyOf:
-              - type: integer
-              - type: string
+              type: object
+              properties:
+                '@type':
+                  type: array
+                  items:
+                    type: string
+                  contains:
+                    enum:
+                    - schema:QuantitativeValue
+                  minItems: 1
+                schema:value:
+                  type: integer
+                schema:unitText:
+                  type: string
           required:
           - schema:height
           - schema:width
