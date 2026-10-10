@@ -87,6 +87,94 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+      # THE Data Type CHECKS LIVE HERE BECAUSE THE DATA DOES. They compare each sidecar's Data
+      # Type column against its workbook's, and the delivered workbooks are under
+      # "tapp/Current TAPPs" -- this is the only job that populates that submodule.
+      #
+      # They were put in check-examples.yml first, which does not, and the floor tripwire caught
+      # it on the first run: 1637 pairs compared against 3477 locally. Worth recording that the
+      # tripwire is the only thing that caught it -- with the delivered tables absent, every
+      # remaining pair agreed and the check itself reported a clean 0 disagreements. It would have
+      # gone green over less than half its corpus, which is the exact failure the floors in both
+      # these workflows exist to stop, and it took a floor to find it in a check that has one.
+      #
+      # Placed before the two regeneration passes so a Data Type defect fails in seconds rather
+      # than after six minutes of work it would invalidate anyway.
+      # Neither of the two Data Type columns is validated against the other, and only one is
+      # read. schema_path_emitter._load_rows and build_tapp.unit take it from the WORKBOOK; the
+      # in docs/<name>.schemapaths.csv is seeded from the workbook by bootstrap_schemapaths.py and
+      # then frozen, so one hand-edit of either file diverges them permanently with no signal.
+      #
+      # 17 items had diverged when this was added: the sidecar NAMED the unit (`Numeric (kV)`)
+      # while the workbook only asserted one existed (`Number + unit`). Reconciling them changed
+      # no emitted schema -- all 17 sit on a direct `ada:<name>Default` property, which drops the
+      # unit, rather than on the `schema:additionalProperty` placement that pins it as a const. The
+      # gate is still worth having, for the reason the divergence lasted: editing the unread file
+      # regenerates clean and changes nothing, so neither file can tell you it is the stale one.
+      #
+      # --emitters covers a second reading of the same cell, and that one DID ship a failure: the
+      # schema emitter learned that a cell can mean a QuantitativeValue object and the example
+      # emitter kept returning a bare 1, so a -P0 example failed the schema generated from its own
+      # cell. Both run with --self-test first, because both report 0 and a 0 from a check that
+      # cannot fire is this repository's most expensive failure mode.
+      - name: Prove the Data Type check can fire
+        run: python tools/check_data_type_agreement.py --self-test
+
+      - name: Check each sidecar Data Type against its workbook
+        id: dtypes
+        run: |
+          set -o pipefail
+          python tools/check_data_type_agreement.py --emitters --strict 2>&1 | tee /tmp/dtypes.log
+
+      # Same tripwire as every other step here: a check that compared nothing exits 0 and reads
+      # as assurance. 3477 items are compared today; the floor catches pairing collapsing -- a
+      # sidecar rename, or a workbook moving out of the two directories workbook_for searches --
+      # not ordinary movement as TAPPs are added.
+      - name: Assert the Data Type comparison found its pairs
+        if: always() && steps.dtypes.outcome != 'cancelled'
+        run: |
+          total=$(sed -n 's/^items whose Data Type agrees *: *\([0-9]\+\).*/\1/p' /tmp/dtypes.log | tail -1)
+          if [ -z "$total" ]; then
+            echo "::error::check_data_type_agreement.py printed no count, so what it did cannot"
+            echo "be established. Treating that as a failure rather than a pass."
+            exit 1
+          fi
+          echo "$total item(s) compared"
+          if [ "$total" -lt 2500 ]; then
+            echo "::error::only $total item(s) were compared, against 3477 when this check was"
+            echo "written. Either sidecars stopped pairing with their workbooks, or the Data Type"
+            echo "column was renamed -- in which case _column returns {} and every pair agrees"
+            echo "vacuously."
+            exit 1
+          fi
+
+      - name: Explain a Data Type failure
+        if: failure() && steps.dtypes.outcome == 'failure'
+        run: |
+          echo "A sidecar Data Type disagrees with its workbook's."
+          echo
+          echo "    python tools/check_data_type_agreement.py"
+          echo
+          echo "The WORKBOOK is the file that is read, so decide which value is right and put it"
+          echo "THERE. Editing only the sidecar regenerates clean and changes nothing."
+          echo
+          echo "For a draft under draftTAPPs/ both files are ours and the sidecar may well hold"
+          echo "the better value -- it did in all 17 cases that prompted this check. For a"
+          echo "delivered table under tapp/Current TAPPs/ the workbook IS the delivery: fix the"
+          echo "sidecar instead, and do not quietly reword a delivered cell."
+          echo
+          echo "After editing a draft workbook, refresh its .xlsx twin in the same change:"
+          echo
+          echo "    python tools/make_draft_xlsx_twin.py --refresh <NAME> --write"
+          echo
+          echo "check-determinism reads the twin, not the .csv, so a stale twin fails there"
+          echo "instead -- with an error that points at the generator rather than at this edit."
+          echo
+          echo "If instead the failure names a Data Type cell whose EXAMPLE fails its own schema,"
+          echo "nothing in the workbooks is wrong: schema_path_emitter.leaf_for and"
+          echo "schema_path_example_emitter.placeholder disagree about what that cell asks for."
+          echo "Fix whichever is wrong, and have the example emitter IMPORT the predicate from the"
+          echo "schema emitter rather than restate the test -- restating it is how they drifted."
 
       - name: Pass 1 (PYTHONHASHSEED=1)
         env:
