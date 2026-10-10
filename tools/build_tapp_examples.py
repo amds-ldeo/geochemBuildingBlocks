@@ -718,9 +718,14 @@ SENTINEL_URI = "nil:missing"
 
 
 # A text sentinel that NAMES the field it stands in for. "missing" alone says a value was not
-# reported; "test value schema:description" also says which value, which is what a reader of a
-# synthetic -P0 example needs -- 405 of its text sentinels sat on free-text properties where the
-# bare word gave no clue what the slot was.
+# reported; "no value available: schema:description" also says which value, which is what a
+# reader of a synthetic -P0 example needs -- 405 of its text sentinels sat on free-text properties
+# where the bare word gave no clue what the slot was.
+#
+# The wording was "test value <property>" until 2026-10-10. It was accurate about the mechanism and
+# wrong about the meaning: a reader of a PUBLISHED block saw "test value" and read the example as
+# unfinished, when the field is required and genuinely has no source. Only the named prefix moved;
+# the bare SENTINEL_TEXT cannot, because every generated enum admits exactly "missing".
 #
 # NOT used where the property carries an enum. tools/_tapp_lib.py:1408 appends exactly "missing"
 # to every generated enum so the sentinel is a valid term, so an arbitrary string would fail the
@@ -728,7 +733,11 @@ SENTINEL_URI = "nil:missing"
 # enum-constrained property and 81 of those are schema:name -- the structural discriminator every
 # `if {schema:name: {const: ...}}` branch keys on, where an invented name matches no branch and
 # inherits none of its constraints. Those keep the bare word.
-SENTINEL_TEXT_PREFIX = "test value "
+# Imported, not restated: _tapp_lib owns the sentinel vocabulary because five modules used to
+# carry their own copy of this string and a consumer that misses a rename publishes the sentinel
+# as a real term.
+import _tapp_lib as _sent
+SENTINEL_TEXT_PREFIX = _sent.SENTINEL_TEXT_PREFIX
 
 
 def text_sentinel(name, sub=None, root=None):
@@ -780,11 +789,16 @@ def is_text_sentinel(v):
     Every consumer that recognised sentinels compared against the literal "missing"
     (build_ada_vocabulary.SENTINELS, _tapp_lib term filtering, check_step_names.SENTINELS, the
     enum snapping below). Naming the field makes the value per-property, so an equality test
-    silently stops matching and a "test value ..." string reaches a published vocabulary as a
-    real term. Both forms are accepted so old files stay recognised through the transition.
+    silently stops matching and the named string reaches a published vocabulary as a real term.
+    Delegates to _tapp_lib, which accepts the bare word, the current named form and the legacy
+    spellings, so an artifact written before the rename is still recognised.
     """
-    return isinstance(v, str) and (v == SENTINEL_TEXT or v.startswith(SENTINEL_TEXT_PREFIX))
-SENTINEL_TEXT = "missing"
+    return _sent.is_text_sentinel(v)
+
+
+# Exactly "missing": vocab_obj appends that literal to every generated enum, so a controlled slot
+# accepts nothing else. Aliased from _tapp_lib rather than re-declared.
+SENTINEL_TEXT = _sent.SENTINEL_TEXT
 SENTINEL_NUMERIC = -9999
 
 

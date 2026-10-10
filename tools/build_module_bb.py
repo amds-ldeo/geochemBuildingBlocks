@@ -38,6 +38,7 @@ import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
+import _tapp_lib as _sent   # the one definition of the sentinel vocabulary
 import migrate_sidecar as ms
 import schema_path_emitter as e
 import schema_path_parser as spp
@@ -387,7 +388,8 @@ def _flatten(sch, base_dir, root, seen, depth):
     where X is itself `{title, description, allOf: [...]}` whose properties are
     a level deeper again. Collecting only the immediate members finds no
     `properties` and samples the whole thing as a scalar, which is how
-    `"schema:instrument": ["example value"]` was produced.
+    `"schema:instrument": ["no value available: unnamed property"]` was produced
+    (the literal was `"example value"` before 2026-10-10).
 
     A branch that is only a condition is left out: if/then describes when a
     constraint applies, not what the value is, and the array handler turns
@@ -429,20 +431,21 @@ def _sample(sch, base_dir=None, root=None, _seen=None, _depth=0):
     or `{allOf: [{$ref: ...}, {...}]}` -- comes out whole. Without that, every
     such node fell through to the scalar default: icpms and laserAblation each
     shipped an AnalysisIdentification example with
-    `"schema:instrument": ["example value"]` where an Instrument object belongs,
+    `"schema:instrument": ["no value available: unnamed property"]` where an
+    Instrument object belongs,
     and @type came out a string where an array of two pinned terms was required.
     """
     if _depth > 12 or not isinstance(sch, dict):
-        return "example value"
+        return _sent.SENTINEL_TEXT_UNNAMED
 
     if "$ref" in sch:
         seen = _seen or frozenset()
         key = (base_dir, sch["$ref"])
         if key in seen:                     # recursive schema: stop rather than unroll
-            return "example value"
+            return _sent.SENTINEL_TEXT_UNNAMED
         target, new_base = _load_ref(sch["$ref"], base_dir, root)
         if target is None:
-            return "example value"
+            return _sent.SENTINEL_TEXT_UNNAMED
         sibling = {k: v for k, v in sch.items() if k != "$ref"}
         merged = {**target, **sibling} if sibling else target
         new_root = target if isinstance(target, dict) and "$defs" in target else root
@@ -500,14 +503,14 @@ def _sample(sch, base_dir=None, root=None, _seen=None, _depth=0):
     if len(parts) > 1:                       # allOf of scalars / refs only
         for p in parts[1:]:
             got = _sample(p, base_dir, root, _seen, _depth + 1)
-            if got != "example value":
+            if got != _sent.SENTINEL_TEXT_UNNAMED:
                 return got
 
     if t == "boolean":
         return True
     if t in ("number", "integer"):
         return 1
-    return "example value"
+    return _sent.SENTINEL_TEXT_UNNAMED
 
 
 def emit_parameter_defs(module, params):
