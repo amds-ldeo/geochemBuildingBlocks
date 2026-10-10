@@ -34,12 +34,6 @@ Supplemental documents for calibration, methods, and analysis info. Defines prop
 
 Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
 
-### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
-
-**Type:** schema
-
-Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
-
 ### `ogch.BaseSchema.spatialRegistration` — Spatial Registration Type
 
 **Type:** schema
@@ -243,6 +237,12 @@ ADA image with componentType classification for analytical images. Defines prope
 **Type:** schema
 
 Spatially registered image map with pixel coordinates and component types. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, illuminationType, imageType, numPixelsX, numPixelsY, spatialRegistration. Uses building blocks: detailEPMA (geochemProperties), spatialRegistration (geochemProperties).
+
+### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
+
+**Type:** schema
+
+Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
 
 ### `ogch.BaseSchema.laboratory` — ADA Analysis Laboratory
 

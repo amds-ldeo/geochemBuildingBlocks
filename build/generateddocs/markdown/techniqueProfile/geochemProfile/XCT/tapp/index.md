@@ -1309,15 +1309,15 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
@@ -2468,17 +2468,17 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
@@ -5254,15 +5254,15 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -5905,15 +5905,15 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
