@@ -715,6 +715,59 @@ EMPTY_ARRAY_SENTINEL = {"ada:defaultTargetSpecies", "ada:defaultMonitoredPropert
 
 
 SENTINEL_URI = "nil:missing"
+
+
+# A text sentinel that NAMES the field it stands in for. "missing" alone says a value was not
+# reported; "test value schema:description" also says which value, which is what a reader of a
+# synthetic -P0 example needs -- 405 of its text sentinels sat on free-text properties where the
+# bare word gave no clue what the slot was.
+#
+# NOT used where the property carries an enum. tools/_tapp_lib.py:1408 appends exactly "missing"
+# to every generated enum so the sentinel is a valid term, so an arbitrary string would fail the
+# very schema the example demonstrates. Measured 2026-10-09: 82 occurrences sit on an
+# enum-constrained property and 81 of those are schema:name -- the structural discriminator every
+# `if {schema:name: {const: ...}}` branch keys on, where an invented name matches no branch and
+# inherits none of its constraints. Those keep the bare word.
+SENTINEL_TEXT_PREFIX = "test value "
+
+
+def constrains_terms(sub, root=None, depth=4):
+    """True when a subschema pins permitted terms ANYWHERE, not only at its top level.
+
+    sub.get("enum") is the wrong test and cost 89 failing examples: an enum is routinely nested
+    inside an anyOf offering the scalar and the array form, as
+      {"anyOf": [{"type": "string", "enum": [...]}, {"type": "array", "items": {"enum": [...]}}]}
+    so the top-level lookup returns None and a named sentinel lands in a controlled slot. This is
+    the same shape as the contains.anyOf discriminator fixed alongside it -- a constraint one level
+    down from where the obvious lookup checks.
+    """
+    if not isinstance(sub, dict) or depth <= 0:
+        return False
+    if root is not None:
+        sub = _deref(sub, root)
+        if not isinstance(sub, dict):
+            return False
+    if isinstance(sub.get("enum"), list) or "const" in sub:
+        return True
+    for key in ("anyOf", "oneOf", "allOf"):
+        for branch in (sub.get(key) or []):
+            if constrains_terms(branch, root, depth - 1):
+                return True
+    if isinstance(sub.get("items"), dict):
+        return constrains_terms(sub["items"], root, depth - 1)
+    return False
+
+
+def is_text_sentinel(v):
+    """True for either text sentinel. A PREFIX test, not an equality test.
+
+    Every consumer that recognised sentinels compared against the literal "missing"
+    (build_ada_vocabulary.SENTINELS, _tapp_lib term filtering, check_step_names.SENTINELS, the
+    enum snapping below). Naming the field makes the value per-property, so an equality test
+    silently stops matching and a "test value ..." string reaches a published vocabulary as a
+    real term. Both forms are accepted so old files stay recognised through the transition.
+    """
+    return isinstance(v, str) and (v == SENTINEL_TEXT or v.startswith(SENTINEL_TEXT_PREFIX))
 SENTINEL_TEXT = "missing"
 SENTINEL_NUMERIC = -9999
 
@@ -1074,6 +1127,18 @@ def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
                             jtype_by_prop.get(key), sub, resolved_schema)
                     else:
                         got = sentinel_by_jtype(jtype_by_prop.get(key), sub, resolved_schema)
+                        # Name the field, except where an enum pins the permitted terms: there
+                        # the only valid sentinel is the one the schema generator appended.
+                        # `sub` is the subschema from the ERROR's schema, and it is {} whenever the
+                        # `required` list and the `properties` sit in different branches -- which
+                        # is common here. An empty sub does not mean "unconstrained", it means "we
+                        # cannot tell", and treating the two alike put a named sentinel into two
+                        # enum-pinned step properties (ada:liftOutMethod, ada:ebsdIndexingMethod).
+                        # Name the field only when the subschema is VISIBLE and demonstrably free
+                        # text; otherwise the bare word, which every generated enum admits.
+                        if (got == SENTINEL_TEXT and sub
+                                and not constrains_terms(sub, resolved_schema)):
+                            got = SENTINEL_TEXT_PREFIX + key
                     if got is not None and key not in parent:
                         parent[key] = got
                         changed += 1
@@ -1352,7 +1417,7 @@ def conform_nested_enums(inst, resolved_schema, max_passes=4):
                 continue
             snapped, _ = _snap_enum(val, enum)
             if snapped is None:
-                snapped = next((o for o in ("Unknown", "N/A", "None", "missing") if o in enum), None)
+                snapped = next((o for o in ("Unknown", "N/A", "None", SENTINEL_TEXT) if o in enum), None)
             if snapped is not None and snapped != val:
                 parent[path[-1]] = snapped
                 changed += 1

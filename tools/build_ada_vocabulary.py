@@ -63,8 +63,25 @@ BASE = "https://w3id.org/geochem/1.0/tapp"
 # Not concepts: the absence of a value rather than one of them. vocab_obj already drops the
 # first three; Unknown/Other/Yes/No recur across more fields than any real term and behave
 # the same way, so they are treated alike rather than minted twenty times over.
+# A sentinel that names its field is still a sentinel. is_sentinel() below is a PREFIX test for
+# the "test value <property>" form, because an equality test against this set stops matching the
+# moment the sentinel becomes per-property -- and a term that slips through is published as real.
+SENTINEL_TEXT_PREFIX = "test value "
 SENTINELS = {"n/a", "none", "missing", "unknown", "other", "yes", "no",
              "not applicable", "not reported"}
+
+def is_sentinel(name):
+    """True for a transcription sentinel, by PREFIX as well as by membership.
+
+    A sentinel that NAMES its field is still a sentinel: "test value <property>" alongside the bare "missing".
+    Comparing only against SENTINELS stopped matching the moment the text sentinel became
+    per-property, and the consequence is not a missed filter but a WRONG VOCABULARY: the string
+    would be minted as a skos:Concept and published as an allowed term.
+    """
+    if not name:
+        return False
+    low = str(name).strip().lower()
+    return low in SENTINELS or low.startswith(SENTINEL_TEXT_PREFIX)
 
 
 def slug(s):
@@ -96,7 +113,7 @@ def term_technique_index(reg):
     for _, (tapp, _, j) in reg.items():
         for c in j["skos:hasTopConcept"]:
             n = (c.get("skos:notation") or "").strip()
-            if n and n.lower() not in SENTINELS:
+            if n and not is_sentinel(n):
                 idx[n].add(tapp or "_shared")
     return idx
 
@@ -113,7 +130,7 @@ def build(tapp, reg, term_techs):
             n = (c.get("skos:notation") or "").strip()
             if not n:
                 continue
-            if n.lower() in SENTINELS:
+            if is_sentinel(n):
                 stats["sentinel"] += 1
                 continue
             shared = len(term_techs[n]) > 1
@@ -162,7 +179,7 @@ def notations(j):
     """The real terms in a codelist -- sentinels are absences, not concepts."""
     return frozenset(n for n in ((c.get("skos:notation") or "").strip()
                                  for c in j["skos:hasTopConcept"])
-                     if n and n.lower() not in SENTINELS)
+                     if n and not is_sentinel(n))
 
 
 def check_stability(reg, term_techs):

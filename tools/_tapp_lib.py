@@ -559,7 +559,11 @@ def vocab_obj(vname: str, label: str, desc: str, terms: list[str]) -> dict:
     (`ada:vocab/<tapp>/<name>`)."""
     scheme_id = f"ada:vocab/{TAPP_NAME}/{vname}"
     concepts = [concept_obj(scheme_id, t, t)
-                for t in terms if t not in ("N/A", "None", "missing")]
+                # A sentinel that NAMES its field is still a sentinel: "test value <property>" alongside the bare "missing".
+                # An equality test here would mint the named form as an allowed value.
+                for t in terms
+                if t not in ("N/A", "None", "missing")
+                and not str(t).startswith("test value ")]
     return concept_scheme_obj(scheme_id, label, desc or f"Allowed values for {label}.", concepts)
 
 

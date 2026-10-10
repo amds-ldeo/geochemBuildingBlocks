@@ -42,6 +42,14 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TPROF = os.path.join(ROOT, "_sources", "techniqueProfile")
 SENTINELS = {"missing", "nil:missing", "-9999", "n/a", "none", ""}
+# A sentinel that NAMES its field is still a sentinel: "test value <property>" alongside the bare "missing".
+SENTINEL_TEXT_PREFIX = "test value "
+
+
+def is_sentinel(v):
+    """Membership OR prefix. A step whose name is a sentinel is unnamed, however it is spelled."""
+    low = str(v or "").strip().lower()
+    return low in SENTINELS or low.startswith(SENTINEL_TEXT_PREFIX)
 
 
 def _const_name(node):
