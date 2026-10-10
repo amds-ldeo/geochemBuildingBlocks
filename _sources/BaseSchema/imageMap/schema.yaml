@@ -71,10 +71,12 @@ properties:
     type: string
     description: >-
       Specifies the nature of the sample's response to the illumination.
-  'ada:numPixelsX':
-    type: integer
-  'ada:numPixelsY':
-    type: integer
+  'schema:width':
+    description: Width of the raster, in pixels.
+    $ref: "../image/schema.yaml#/$defs/PixelDimension"
+  'schema:height':
+    description: Height of the raster, in pixels.
+    $ref: "../image/schema.yaml#/$defs/PixelDimension"
   'ada:spatialRegistration':
     $ref: ../spatialRegistration/schema.yaml
 required:

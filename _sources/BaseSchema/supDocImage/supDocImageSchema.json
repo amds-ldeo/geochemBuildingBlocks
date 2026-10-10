@@ -55,11 +55,13 @@
             ],
             "description": "ADA componentType for a supplemental document image, as a single string. Allowed values are constrained at the technique-profile level."
         },
-        "ada:numPixelsX": {
-            "type": "integer"
+        "schema:width": {
+            "description": "Width of the raster, in pixels.",
+            "$ref": "../image/schema.yaml#/$defs/PixelDimension"
         },
-        "ada:numPixelsY": {
-            "type": "integer"
+        "schema:height": {
+            "description": "Height of the raster, in pixels.",
+            "$ref": "../image/schema.yaml#/$defs/PixelDimension"
         },
         "schema:isBasedOn": {
             "type": "string",

@@ -1,4 +1,4 @@
-﻿Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes,Key by
+Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes,Key by
 Procedure Name,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
 Technique,Basic,Read-Only,Controlled list,,module,,placement owned by Module Core,
 Laboratory,Basic,Editable,Text (free),,module,,placement owned by Module Core,
@@ -46,5 +46,5 @@ Stage Y Position,N/A,Basic,Numeric,$Dataset.prov:wasGeneratedBy.schema:additiona
 Stage Tilt Alpha,N/A,Basic,Numeric (deg),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Stage Tilt Alpha'].schema:value,inferred,,tier rule: the analysis value is an additionalProperty,
 Stage Tilt Beta,N/A,Basic,Numeric (deg),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Stage Tilt Beta'].schema:value,inferred,,tier rule: the analysis value is an additionalProperty,
 Image Pixel Size,N/A,Basic,Numeric (nm),$Dataset.schema:distribution.schema:hasPart[@type='ada:image'].ada:spatialRegistration.ada:pixelScaleX,inferred,,"a property of the image file, not of the activity. Deliberately the SAME target as the subject-key register's settled pixelScaleX row, so the TAPP and the register agree; source records it in m, nm and um and it must be normalised",
-Image Width,N/A,Basic,Integer,$Dataset.schema:distribution.schema:hasPart.schema:width,inferred,,"a property of the image file. Split from a single Image Dimensions item so it maps 1:1, and deliberately the same target as the subject-key register's settled numPixelsX row",
-Image Height,N/A,Basic,Integer,$Dataset.schema:distribution.schema:hasPart.schema:height,inferred,,the height half of the split; same target as the register's settled numPixelsY row,
+Image Width,N/A,Basic,Integer (QuantitativeValue),$Dataset.schema:distribution.schema:hasPart.schema:width,inferred,,"a property of the image file. Split from a single Image Dimensions item so it maps 1:1, and deliberately the same target as the subject-key register's settled numPixelsX row",
+Image Height,N/A,Basic,Integer (QuantitativeValue),$Dataset.schema:distribution.schema:hasPart.schema:height,inferred,,the height half of the split; same target as the register's settled numPixelsY row,

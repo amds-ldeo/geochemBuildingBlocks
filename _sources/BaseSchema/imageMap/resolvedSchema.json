@@ -83,11 +83,55 @@
       "type": "string",
       "description": "Specifies the nature of the sample's response to the illumination."
     },
-    "ada:numPixelsX": {
-      "type": "integer"
+    "schema:width": {
+      "title": "Pixel Dimension",
+      "description": "Width of the raster, in pixels.",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:QuantitativeValue"
+          },
+          "minItems": 1
+        },
+        "schema:value": {
+          "type": "number",
+          "description": "The dimension in pixels."
+        },
+        "schema:unitText": {
+          "type": "string",
+          "description": "Unit of measure, e.g. 'pixel'."
+        }
+      }
     },
-    "ada:numPixelsY": {
-      "type": "integer"
+    "schema:height": {
+      "title": "Pixel Dimension",
+      "description": "Height of the raster, in pixels.",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:QuantitativeValue"
+          },
+          "minItems": 1
+        },
+        "schema:value": {
+          "type": "number",
+          "description": "The dimension in pixels."
+        },
+        "schema:unitText": {
+          "type": "string",
+          "description": "Unit of measure, e.g. 'pixel'."
+        }
+      }
     },
     "ada:spatialRegistration": {
       "title": "Spatial Registration Type",

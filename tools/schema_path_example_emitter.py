@@ -218,11 +218,35 @@ def placeholder(m, item, sidecar):
             return enum[0]
     if dl.startswith("bool"):
         return True
+    # A QuantitativeValue Data Type wants an OBJECT, so it has to be caught before the scalar
+    # branches below -- "Integer (QuantitativeValue)" contains "integer" and would otherwise return
+    # a bare 1. That is exactly what shipped: the schema emitter learned the shape and this did
+    # not, so STEM's -P0 wrote schema:width: 1 against a schema requiring an object and failed its
+    # own generated schema. The two emitters read the SAME cell and must agree on what it asks for,
+    # which is why the token test is imported from schema_path_emitter rather than restated here.
+    if e.is_quantitative(m.get("dt")):
+        return quantitative_placeholder(m.get("dt"))
     if "integer" in dl:
         return 1
     if "numeric" in dl or "number" in dl:
         return 1.0
     return f"example {name}"
+
+
+def quantitative_placeholder(dtype):
+    """An instance satisfying e.quantitative_leaf for the same Data Type cell.
+
+    The unit is taken from the schema the emitter builds, not re-derived: where that pins a const
+    the example must carry exactly that string, and where it leaves unitText free any string will
+    do. Reading it back off the schema means a change to how the unit is pinned cannot leave the
+    example behind -- which is the failure this function exists to repair.
+    """
+    leaf = e.quantitative_leaf(None, dtype)
+    ut = leaf["properties"]["schema:unitText"]
+    inner = leaf["properties"]["schema:value"].get("type")
+    return {"@type": ["schema:QuantitativeValue"],
+            "schema:value": 1 if inner == "integer" else 1.0,
+            "schema:unitText": ut.get("const", "pixel")}
 
 
 def _split_top_level(v):
