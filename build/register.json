@@ -3,7 +3,7 @@
   "name": "ADA Geochemistry Building Blocks repository",
   "abstract": "Building blocks for Astromat Data Archive (ADA) geochemistry metadata profiles,\nusing the OGC Building Blocks pattern.\n",
   "description": "Modular schema components for ADA analytical technique metadata. Imports shared\nschema.org and CDIF property building blocks from the CDIF Building Blocks repository.\n",
-  "modified": "2026-10-10T14:32:10.493786",
+  "modified": "2026-10-10T18:19:16.344522",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"d25453cad0e4972e6a638db3dca636f023f9397a",
@@ -199,65 +199,6 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.BaseSchema.document"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogch.BaseSchema.image",
-      "$schema": "metaschema.yaml",
-      "name": "Image Type",
-      "abstract": "ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-02-05T00:00:00Z",
-      "itemClass": "schema",
-      "register": "cdif-building-block-register",
-      "version": "0.1",
-      "dateOfLastChange": "2026-10-10",
-      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
-      "maturity": "draft",
-      "scope": "unstable",
-      "tags": [
-        "ada",
-        "astromat",
-        "image"
-      ],
-      "sources": [
-        {
-          "title": "ADA Metadata Schema v3",
-          "link": "https://github.com/amds-ldeo/metadata"
-        }
-      ],
-      "shaclShapes": {
-        "ogch.BaseSchema.image": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
-        ]
-      },
-      "license": {
-        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
-      },
-      "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/context.jsonld",
-      "schema": {
-        "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml",
-        "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.json"
-      },
-      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/schema.yaml",
-      "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/context.jsonld",
-      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/resolvedProperties.json",
-      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/image/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/BaseSchema/image/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/BaseSchema/image/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.BaseSchema.image"
         }
       }
     },
@@ -2324,6 +2265,71 @@
       }
     },
     {
+      "itemIdentifier": "ogch.BaseSchema.image",
+      "$schema": "metaschema.yaml",
+      "name": "Image Type",
+      "abstract": "ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-02-05T00:00:00Z",
+      "itemClass": "schema",
+      "register": "cdif-building-block-register",
+      "version": "0.1",
+      "dateOfLastChange": "2026-10-10",
+      "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
+      "maturity": "draft",
+      "scope": "unstable",
+      "tags": [
+        "ada",
+        "astromat",
+        "image"
+      ],
+      "sources": [
+        {
+          "title": "ADA Metadata Schema v3",
+          "link": "https://github.com/amds-ldeo/metadata"
+        }
+      ],
+      "shaclShapes": {
+        "ogch.BaseSchema.image": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
+        ],
+        "ogch.BaseSchema.spatialRegistration": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogch.BaseSchema.spatialRegistration"
+      ],
+      "license": {
+        "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
+      },
+      "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/context.jsonld",
+      "schema": {
+        "application/yaml": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml",
+        "application/json": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.json"
+      },
+      "sourceSchema": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/schema.yaml",
+      "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/context.jsonld",
+      "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/resolvedProperties.json",
+      "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/image/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/markdown/BaseSchema/image/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/generateddocs/json-full/BaseSchema/image/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/bblock/ogch.BaseSchema.image"
+        }
+      }
+    },
+    {
       "itemIdentifier": "ogch.BaseSchema.imageMap",
       "$schema": "metaschema.yaml",
       "name": "Image Map Type",
@@ -4202,11 +4208,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -25379,7 +25385,7 @@
       "ldContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
       "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/resolvedProperties.json",
       "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/",
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/",
       "documentation": {
         "markdown": {
@@ -30331,11 +30337,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -37701,11 +37707,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -37936,11 +37942,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -38171,11 +38177,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -38410,11 +38416,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -38650,11 +38656,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -38889,11 +38895,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -39124,11 +39130,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -39359,11 +39365,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -39594,11 +39600,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -39829,11 +39835,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -40064,11 +40070,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -40303,11 +40309,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -40542,11 +40548,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -40781,11 +40787,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -41016,11 +41022,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -41251,11 +41257,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -41486,11 +41492,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -41725,11 +41731,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -41964,11 +41970,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -42203,11 +42209,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -42442,11 +42448,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -42677,11 +42683,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -42912,11 +42918,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -43147,11 +43153,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -43386,11 +43392,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -43621,11 +43627,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -43856,11 +43862,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -44091,11 +44097,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -44327,11 +44333,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -44566,11 +44572,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -44801,11 +44807,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -45040,11 +45046,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -45275,11 +45281,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -45521,11 +45527,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -45767,11 +45773,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -46002,11 +46008,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -46238,11 +46244,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -46484,11 +46490,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -46730,11 +46736,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"
@@ -46969,11 +46975,11 @@
         "ogch.BaseSchema.image": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/image/rules.shacl"
         ],
-        "ogch.BaseSchema.imageMap": [
-          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
-        ],
         "ogch.BaseSchema.spatialRegistration": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
+        ],
+        "ogch.BaseSchema.imageMap": [
+          "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/imageMap/rules.shacl"
         ],
         "ogch.BaseSchema.otherFile": [
           "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/otherFile/rules.shacl"

@@ -130,6 +130,11 @@
       "type": "string",
       "description": "Specifies the nature of the sample's response to the illumination that was detected and measured.",
       "x-jsonld-id": "https://ada.astromat.org/metadata/imageType"
+    },
+    "ada:spatialRegistration": {
+      "description": "Pixel size and its units. SCALING ONLY -- the half of a spatial registration an unregistered image can state. A plain image has a pixel size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement, but an image does not say where it sits on the sample or how its axes relate to the sample axes. The imageMap block references the full shape, which adds the origin, the origin corner, the coordinate definition and the two rotation terms, and whose required list demands them.\nSame property NAME on both branches on purpose: a placement path such as schema:hasPart[@type=ada:image|ada:imageMap].ada:spatialRegistration.ada:pixelScaleX then resolves through either, which is what the subject-key register and the TAPP sidecars both target. Before this, the image branch declared no spatialRegistration at all -- not because a pixel scale is meaningless on an image, but because the only available shape required an origin and a corner, so an image could not use it without asserting a registration it does not have.",
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.json#/$defs/Scaling",
+      "x-jsonld-id": "https://ada.astromat.org/metadata/spatialRegistration"
     }
   },
   "required": [
