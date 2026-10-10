@@ -53,10 +53,10 @@ cdifd:imageShape
         sh:message "Image should specify channel3." ;
     ] ;
     sh:property [
-        sh:path ada:pixelSize ;
-        sh:datatype xsd:string ;
+        sh:path ada:spatialRegistration ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
         sh:severity sh:Warning ;
-        sh:message "Image should specify pixelSize." ;
+        sh:message "Image should specify its pixel scaling: ada:spatialRegistration with ada:pixelScaleX/Y and ada:pixelUnits, which supersedes the retired ada:pixelSize string." ;
     ] ;
     sh:property [
         sh:path ada:illuminationType ;
