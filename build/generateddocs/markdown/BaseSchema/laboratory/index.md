@@ -89,15 +89,7 @@ allOf:
         is a 404, .../classes/base_classes/NXsource.html is not.'
       type: array
       items:
-        anyOf:
-        - type: string
-        - type: object
-          additionalProperties: false
-          required:
-          - '@id'
-          properties:
-            '@id':
-              type: string
+        $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
       contains:
         type: object
         additionalProperties: false

@@ -118,23 +118,7 @@
       "description": "Further classification of the activity type (e.g. schema:CreateAction for a production method). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for. This was the last of the eight sites in #77 still rejecting the @id form -- with it widened, the conversion probe goes from 344/345 to 345/345.",
       "type": "array",
       "items": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "@id"
-            ],
-            "properties": {
-              "@id": {
-                "type": "string"
-              }
-            }
-          }
-        ]
+        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json"
       },
       "x-jsonld-id": "http://schema.org/additionalType"
     },
@@ -184,7 +168,7 @@
               "schema:additionalType": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json"
                 },
                 "x-jsonld-id": "http://schema.org/additionalType"
               },
@@ -754,23 +738,7 @@
           "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for; the `contains` on the method's schema:step accepts either serialization, so widening here cannot orphan the sample-preparation requirement.",
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "@id"
-                ],
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              }
-            ]
+            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json"
           },
           "x-jsonld-id": "http://schema.org/additionalType"
         },
@@ -1667,7 +1635,7 @@
                   "minItems": 1
                 },
                 "schema:propertyID": {
-                  "type": "string",
+                  "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json",
                   "x-jsonld-id": "http://schema.org/propertyID"
                 },
                 "schema:value": {

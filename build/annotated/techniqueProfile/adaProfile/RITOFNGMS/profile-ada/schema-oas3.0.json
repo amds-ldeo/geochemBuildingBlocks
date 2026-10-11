@@ -15,23 +15,7 @@
               "type": "array",
               "description": "Should have the ada product type and 'ada:DataDeliveryPackage'. The product type is a free label and stays a string -- `contains` below keys on it. 'ada:DataDeliveryPackage' is a CURIE, so it may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for.",
               "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
               },
               "contains": {
                 "enum": [
@@ -573,7 +557,7 @@
                         "schema:additionalType": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
                           },
                           "x-jsonld-id": "http://schema.org/additionalType"
                         },
@@ -881,7 +865,7 @@
                     "description": "Optional file-classification of this distribution (or, on a bundle, of the whole archive) drawn from the componentType vocabulary (ada:vocab/componentType) -- e.g. \"ada:report\", \"ada:calibrationFile\". Generic and OPTIONAL here; the ADA product layer (adaProduct) instead carries the required ada:componentType. Advisory (annotated via schema:inDefinedTermSet), not hard-enumerated in JSON Schema.",
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
                     },
                     "schema:inDefinedTermSet": "ada:vocab/componentType",
                     "x-jsonld-id": "http://schema.org/additionalType"
@@ -1057,8 +1041,12 @@
                       "minItems": 1
                     },
                     "schema:propertyID": {
-                      "type": "string",
-                      "x-jsonld-id": "http://schema.org/propertyID"
+                      "x-jsonld-id": "http://schema.org/propertyID",
+                      "allOf": [
+                        {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+                        }
+                      ]
                     },
                     "schema:value": {
                       "type": "string",
@@ -1199,6 +1187,20 @@
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml",
       "x-schema-id": "https://w3id.org/geochem/schema/geochemProduct/1.0",
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString": {
+      "title": "CDIF Concept-or-Term-or-String",
+      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm"
+        }
+      ],
+      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "ogch.BaseSchema.files": {
@@ -2832,23 +2834,7 @@
           "description": "Further classification of the activity type (e.g. schema:CreateAction for a production method). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for. This was the last of the eight sites in #77 still rejecting the @id form -- with it widened, the conversion probe goes from 344/345 to 345/345.",
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "@id"
-                ],
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              }
-            ]
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
           },
           "x-jsonld-id": "http://schema.org/additionalType"
         },
@@ -2902,7 +2888,7 @@
                   "schema:additionalType": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
                     },
                     "x-jsonld-id": "http://schema.org/additionalType"
                   },
@@ -3518,23 +3504,7 @@
               "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for; the `contains` on the method's schema:step accepts either serialization, so widening here cannot orphan the sample-preparation requirement.",
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
               },
               "x-jsonld-id": "http://schema.org/additionalType"
             },
@@ -4499,8 +4469,12 @@
                       "minItems": 1
                     },
                     "schema:propertyID": {
-                      "type": "string",
-                      "x-jsonld-id": "http://schema.org/propertyID"
+                      "x-jsonld-id": "http://schema.org/propertyID",
+                      "allOf": [
+                        {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+                        }
+                      ]
                     },
                     "schema:value": {
                       "type": "string",
@@ -4653,23 +4627,7 @@
               "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:base_classes/NXinstrument.html) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
               },
               "minItems": 1,
               "contains": {
@@ -4859,23 +4817,7 @@
               "description": "Must classify the place as a NeXus NXsource. The value is a sealed reference ({\"@id\": ...}) so JSON-LD expands it to a real IRI; written as a bare string it stays a literal that looks like a URI and resolves to nothing. The two-segment path is the form that actually resolves -- .../classes/BaseClass/NXsource is a 404, .../classes/base_classes/NXsource.html is not.",
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
               },
               "contains": {
                 "type": "object",
@@ -6511,6 +6453,27 @@
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
+    "cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm": {
+      "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+      "anyOf": [
+        {
+          "description": "reference to a skos concept for the data type",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
+            }
+          ]
+        },
+        {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm"
+        },
+        {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/Concept"
+        }
+      ],
+      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTerm/schema.yaml",
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
+    },
     "ogch.BaseSchema.stringArray": {
       "title": "String Array Type",
       "description": "Simple reusable array of strings",
@@ -7546,20 +7509,6 @@
       "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/linkRole/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString": {
-      "title": "CDIF Concept-or-Term-or-String",
-      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm"
-        }
-      ],
-      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml",
-      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
-    },
     "cdif.bbr.metadata.schemaorgProperties.labeledLink": {
       "description": "Schema for a labeled link, a profile of schema.org/CreativeWork: a resolvable URL with an optional name and description. Optionally carries the DCAT relation surface (dcat:hadRole, dcterms:relation) for a link that expresses a typed relationship rather than a plain reference.\nThose two properties were a separate block, cdifDataType/cdifReference, which was an allOf of this schema plus exactly those two optional properties and nothing else -- its dcat:Relationship co-type mandate had already been removed because it made every labeled link unsatisfiable and broke every schema:license example that followed schema.org's own advice. Since both are optional, folding them in here changes no document's validity while removing a block and five levels of $defs/Reference indirection. cdifReference was retired 2026-09-23.",
       "type": "object",
@@ -7760,27 +7709,6 @@
         "schema": "http://schema.org/"
       },
       "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/identifier/schema.yaml",
-      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
-    },
-    "cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm": {
-      "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
-      "anyOf": [
-        {
-          "description": "reference to a skos concept for the data type",
-          "allOf": [
-            {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
-            }
-          ]
-        },
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm"
-        },
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/RITOFNGMS/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/Concept"
-        }
-      ],
-      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTerm/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "cdif.bbr.metadata.schemaorgProperties.dataDownload": {

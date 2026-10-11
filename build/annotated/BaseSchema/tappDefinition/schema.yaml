@@ -106,15 +106,7 @@ properties:
       with it widened, the conversion probe goes from 344/345 to 345/345.'
     type: array
     items:
-      anyOf:
-      - type: string
-      - type: object
-        additionalProperties: false
-        required:
-        - '@id'
-        properties:
-          '@id':
-            type: string
+      $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
     x-jsonld-id: http://schema.org/additionalType
   schema:measurementTechnique:
     title: Technique
@@ -150,7 +142,7 @@ properties:
           schema:additionalType:
             type: array
             items:
-              type: string
+              $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
             x-jsonld-id: http://schema.org/additionalType
           schema:identifier:
             type: array
@@ -734,15 +726,7 @@ $defs:
           serialization, so widening here cannot orphan the sample-preparation requirement.
         type: array
         items:
-          anyOf:
-          - type: string
-          - type: object
-            additionalProperties: false
-            required:
-            - '@id'
-            properties:
-              '@id':
-                type: string
+          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
         x-jsonld-id: http://schema.org/additionalType
       schema:instrument:
         description: Instrument or equipment used in this step.
@@ -1449,7 +1433,7 @@ $defs:
                 type: string
               minItems: 1
             schema:propertyID:
-              type: string
+              $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
               x-jsonld-id: http://schema.org/propertyID
             schema:value:
               type: string

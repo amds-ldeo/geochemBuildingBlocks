@@ -4488,15 +4488,7 @@ x-defs:
           form -- with it widened, the conversion probe goes from 344/345 to 345/345.'
         type: array
         items:
-          anyOf:
-          - type: string
-          - type: object
-            additionalProperties: false
-            required:
-            - '@id'
-            properties:
-              '@id':
-                type: string
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
         x-jsonld-id: http://schema.org/additionalType
       schema:measurementTechnique:
         title: Technique
@@ -4534,7 +4526,7 @@ x-defs:
               schema:additionalType:
                 type: array
                 items:
-                  type: string
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
                 x-jsonld-id: http://schema.org/additionalType
               schema:identifier:
                 type: array
@@ -5142,15 +5134,7 @@ x-defs:
               here cannot orphan the sample-preparation requirement.
             type: array
             items:
-              anyOf:
-              - type: string
-              - type: object
-                additionalProperties: false
-                required:
-                - '@id'
-                properties:
-                  '@id':
-                    type: string
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
             x-jsonld-id: http://schema.org/additionalType
           schema:instrument:
             description: Instrument or equipment used in this step.
@@ -5894,8 +5878,9 @@ x-defs:
                     type: string
                   minItems: 1
                 schema:propertyID:
-                  type: string
                   x-jsonld-id: http://schema.org/propertyID
+                  allOf:
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
                 schema:value:
                   type: string
                   x-jsonld-id: http://schema.org/value
@@ -6299,15 +6284,7 @@ x-defs:
             and gives a consumer one term to select on without knowing the ADA vocabulary.'
           type: array
           items:
-            anyOf:
-            - type: string
-            - type: object
-              additionalProperties: false
-              required:
-              - '@id'
-              properties:
-                '@id':
-                  type: string
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
           minItems: 1
           contains:
             type: object
@@ -7185,7 +7162,7 @@ x-defs:
                     schema:additionalType:
                       type: array
                       items:
-                        type: string
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
                       x-jsonld-id: http://schema.org/additionalType
                     schema:identifier:
                       type: array
@@ -7454,7 +7431,7 @@ x-defs:
                   schema:inDefinedTermSet), not hard-enumerated in JSON Schema.
                 type: array
                 items:
-                  type: string
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
                 schema:inDefinedTermSet: ada:vocab/componentType
                 x-jsonld-id: http://schema.org/additionalType
             allOf:
@@ -7582,8 +7559,9 @@ x-defs:
                     type: string
                   minItems: 1
                 schema:propertyID:
-                  type: string
                   x-jsonld-id: http://schema.org/propertyID
+                  allOf:
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
                 schema:value:
                   type: string
                   x-jsonld-id: http://schema.org/value
@@ -7773,6 +7751,17 @@ x-defs:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/identifier/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
+  cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString:
+    title: CDIF Concept-or-Term-or-String
+    description: Shared shape for a CDIF property that carries either a controlled-vocabulary
+      value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref,
+      schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative
+      used for legacy or single-word labels not yet bound to a vocabulary.
+    anyOf:
+    - type: string
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
+    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.definedTerm:
     description: "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF
       profile UML models an attribute typed as\nschema:DefinedTerm is represented
@@ -7854,15 +7843,7 @@ x-defs:
             is not.'
           type: array
           items:
-            anyOf:
-            - type: string
-            - type: object
-              additionalProperties: false
-              required:
-              - '@id'
-              properties:
-                '@id':
-                  type: string
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
           contains:
             type: object
             additionalProperties: false
@@ -10772,16 +10753,17 @@ x-defs:
       cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString:
-    title: CDIF Concept-or-Term-or-String
-    description: Shared shape for a CDIF property that carries either a controlled-vocabulary
-      value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref,
-      schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative
-      used for legacy or single-word labels not yet bound to a vocabulary.
+  cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm:
+    description: A SKOS concept identified by URI, a schema:DefinedTerm, or an inline
+      cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary
+      reference or an inline concept definition.
     anyOf:
-    - type: string
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+    - description: reference to a skos concept for the data type
+      allOf:
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/Concept
+    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTerm/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.agentInRole:
     description: For more granularity on how a person contributed to a Dataset, use
@@ -10957,18 +10939,6 @@ x-defs:
       schema: http://schema.org/
       skos: http://www.w3.org/2004/02/skos/core#
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/linkRole/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm:
-    description: A SKOS concept identified by URI, a schema:DefinedTerm, or an inline
-      cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary
-      reference or an inline concept definition.
-    anyOf:
-    - description: reference to a skos concept for the data type
-      allOf:
-      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/detail/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/Concept
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTerm/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.dataDownload:
     description: schema to document file-based access to a resoruce via URL, based
