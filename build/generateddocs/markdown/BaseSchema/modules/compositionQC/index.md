@@ -59,19 +59,19 @@ The procedure half of the CompositionQC module, with every property populated. G
     },
     {
       "schema:name": "Normalization / Standards-Based Correction",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     }
   ],
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Data reduction",
-        "ada:detectionLimitMethod": "example value"
+        "ada:detectionLimitMethod": "no value available: unnamed property"
       }
     ]
   },
   "ada:secondaryReferenceMaterialDefault": [
-    "example value"
+    "no value available: unnamed property"
   ]
 }
 ```
@@ -93,19 +93,19 @@ The procedure half of the CompositionQC module, with every property populated. G
     },
     {
       "schema:name": "Normalization / Standards-Based Correction",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     }
   ],
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Data reduction",
-        "ada:detectionLimitMethod": "example value"
+        "ada:detectionLimitMethod": "no value available: unnamed property"
       }
     ]
   },
   "ada:secondaryReferenceMaterialDefault": [
-    "example value"
+    "no value available: unnamed property"
   ]
 }
 ```
@@ -117,12 +117,12 @@ The procedure half of the CompositionQC module, with every property populated. G
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] schema1:actionProcess [ schema1:step [ schema1:name "Data reduction" ;
-                    ada:detectionLimitMethod "example value" ] ] ;
-    schema1:variableMeasured [ schema1:defaultValue "example value" ;
-            schema1:name "Normalization / Standards-Based Correction" ],
-        [ schema1:defaultValue 1 ;
-            schema1:name "Detection Limit" ] ;
-    ada:secondaryReferenceMaterialDefault "example value" .
+                    ada:detectionLimitMethod "no value available: unnamed property" ] ] ;
+    schema1:variableMeasured [ schema1:defaultValue 1 ;
+            schema1:name "Detection Limit" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Normalization / Standards-Based Correction" ] ;
+    ada:secondaryReferenceMaterialDefault "no value available: unnamed property" .
 
 
 ```
@@ -140,11 +140,11 @@ The analysis half of the CompositionQC module, with every property populated. Ge
     },
     {
       "schema:name": "Detection Limit Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Normalization / Standards-Based Correction",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     }
   ],
   "prov:wasGeneratedBy": [
@@ -156,12 +156,12 @@ The analysis half of the CompositionQC module, with every property populated. Ge
               "@type": [
                 "schema:DefinedTerm"
               ],
-              "@id": "example value",
-              "schema:name": "example value",
-              "schema:description": "example value",
-              "schema:identifier": "example value",
-              "schema:termCode": "example value",
-              "schema:inDefinedTermSet": "example value",
+              "@id": "no value available: unnamed property",
+              "schema:name": "no value available: unnamed property",
+              "schema:description": "no value available: unnamed property",
+              "schema:identifier": "no value available: unnamed property",
+              "schema:termCode": "no value available: unnamed property",
+              "schema:inDefinedTermSet": "no value available: unnamed property",
               "ada:reagentRole": "primaryStandard"
             }
           ]
@@ -190,11 +190,11 @@ The analysis half of the CompositionQC module, with every property populated. Ge
     },
     {
       "schema:name": "Detection Limit Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Normalization / Standards-Based Correction",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     }
   ],
   "prov:wasGeneratedBy": [
@@ -206,12 +206,12 @@ The analysis half of the CompositionQC module, with every property populated. Ge
               "@type": [
                 "schema:DefinedTerm"
               ],
-              "@id": "example value",
-              "schema:name": "example value",
-              "schema:description": "example value",
-              "schema:identifier": "example value",
-              "schema:termCode": "example value",
-              "schema:inDefinedTermSet": "example value",
+              "@id": "no value available: unnamed property",
+              "schema:name": "no value available: unnamed property",
+              "schema:description": "no value available: unnamed property",
+              "schema:identifier": "no value available: unnamed property",
+              "schema:termCode": "no value available: unnamed property",
+              "schema:inDefinedTermSet": "no value available: unnamed property",
               "ada:reagentRole": "primaryStandard"
             }
           ]
@@ -230,10 +230,10 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 
 [] schema1:variableMeasured [ schema1:name "Detection Limit" ;
             schema1:value 1 ],
-        [ schema1:name "Normalization / Standards-Based Correction" ;
-            schema1:value "example value" ],
         [ schema1:name "Detection Limit Method" ;
-            schema1:value "example value" ] ;
+            schema1:value "no value available: unnamed property" ],
+        [ schema1:name "Normalization / Standards-Based Correction" ;
+            schema1:value "no value available: unnamed property" ] ;
     prov:wasGeneratedBy [ prov:used [ ] ] .
 
 

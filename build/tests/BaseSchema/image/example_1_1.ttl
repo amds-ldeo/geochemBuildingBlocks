@@ -1,5 +1,6 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a schema1:ImageObject,
         ada:image ;
@@ -8,5 +9,7 @@
     ada:componentType "ada:SEMImage" ;
     ada:illuminationType "Electron beam" ;
     ada:imageType "Backscattered electron" ;
-    ada:pixelSize "0.5 micrometer" .
+    ada:spatialRegistration [ ada:pixelScaleX 5e-01 ;
+            ada:pixelScaleY 5e-01 ;
+            ada:pixelUnits "micrometer" ] .
 

@@ -48,7 +48,7 @@ The procedure half of the CalibrationFactor module, with every property populate
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     }
   ]
 }
@@ -66,7 +66,7 @@ The procedure half of the CalibrationFactor module, with every property populate
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     }
   ]
 }
@@ -76,7 +76,7 @@ The procedure half of the CalibrationFactor module, with every property populate
 ```ttl
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:variableMeasured [ schema1:defaultValue "example value" ;
+[] schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
             schema1:name "Calibration Factor and Determination Method" ] .
 
 
@@ -91,7 +91,7 @@ The analysis half of the CalibrationFactor module, with every property populated
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     }
   ]
 }
@@ -109,7 +109,7 @@ The analysis half of the CalibrationFactor module, with every property populated
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     }
   ]
 }
@@ -120,7 +120,7 @@ The analysis half of the CalibrationFactor module, with every property populated
 @prefix schema1: <http://schema.org/> .
 
 [] schema1:variableMeasured [ schema1:name "Calibration Factor and Determination Method" ;
-            schema1:value "example value" ] .
+            schema1:value "no value available: unnamed property" ] .
 
 
 ```

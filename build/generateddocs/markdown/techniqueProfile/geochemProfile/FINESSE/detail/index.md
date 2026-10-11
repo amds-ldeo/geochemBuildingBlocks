@@ -26,7 +26,7 @@ detail instance derived from ADA n=8 | no named analyst | Open University | FINE
   "schema:measurementTechnique": [
     {
       "@id": "ex:finesseTAPP-P0",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240302_FINESSE_OU_OREX-103001-21_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=8 | no named analyst | Open University | FINE
   "schema:measurementTechnique": [
     {
       "@id": "ex:finesseTAPP-P0",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240302_FINESSE_OU_OREX-103001-21_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=8 | no named analyst | Open University | FINE
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240302_FINESSE_OU_OREX-103001-21_1" .
 
-<ex:finesseTAPP-P0> schema1:identifier "test value schema:identifier" .
+<ex:finesseTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```

@@ -66,34 +66,34 @@ The procedure half of the ICPMS module, with every property populated. Generated
 #### json
 ```json
 {
-  "ada:uncertaintyLevel": "example value",
+  "ada:uncertaintyLevel": "no value available: unnamed property",
   "schema:variableMeasured": [
     {
       "schema:name": "Uncertainty Propagation Method",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     },
     {
       "schema:name": "Limit of Quantification (LOQ) Method",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     }
   ],
   "schema:instrument": [
     {
-      "schema:additionalType": "example value",
+      "schema:additionalType": "no value available: unnamed property",
       "schema:hasPart": [
         {
-          "schema:additionalType": "example value",
-          "schema:name": "example value"
+          "schema:additionalType": "no value available: unnamed property",
+          "schema:name": "no value available: unnamed property"
         }
       ]
     }
   ],
-  "ada:calibrationMeasurementFrequency": "example value",
-  "ada:oxideProductionMethodAndThreshold": "example value",
-  "ada:blankBackgroundCorrectionMethod": "example value",
-  "ada:internalStandardElement": "example value",
-  "ada:signalIntegrationIntervalMethod": "example value",
-  "ada:analysisSequenceDefault": "example value"
+  "ada:calibrationMeasurementFrequency": "no value available: unnamed property",
+  "ada:oxideProductionMethodAndThreshold": "no value available: unnamed property",
+  "ada:blankBackgroundCorrectionMethod": "no value available: unnamed property",
+  "ada:internalStandardElement": "no value available: unnamed property",
+  "ada:signalIntegrationIntervalMethod": "no value available: unnamed property",
+  "ada:analysisSequenceDefault": "no value available: unnamed property"
 }
 ```
 
@@ -107,34 +107,34 @@ The procedure half of the ICPMS module, with every property populated. Generated
     },
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/context.jsonld"
   ],
-  "ada:uncertaintyLevel": "example value",
+  "ada:uncertaintyLevel": "no value available: unnamed property",
   "schema:variableMeasured": [
     {
       "schema:name": "Uncertainty Propagation Method",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     },
     {
       "schema:name": "Limit of Quantification (LOQ) Method",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     }
   ],
   "schema:instrument": [
     {
-      "schema:additionalType": "example value",
+      "schema:additionalType": "no value available: unnamed property",
       "schema:hasPart": [
         {
-          "schema:additionalType": "example value",
-          "schema:name": "example value"
+          "schema:additionalType": "no value available: unnamed property",
+          "schema:name": "no value available: unnamed property"
         }
       ]
     }
   ],
-  "ada:calibrationMeasurementFrequency": "example value",
-  "ada:oxideProductionMethodAndThreshold": "example value",
-  "ada:blankBackgroundCorrectionMethod": "example value",
-  "ada:internalStandardElement": "example value",
-  "ada:signalIntegrationIntervalMethod": "example value",
-  "ada:analysisSequenceDefault": "example value"
+  "ada:calibrationMeasurementFrequency": "no value available: unnamed property",
+  "ada:oxideProductionMethodAndThreshold": "no value available: unnamed property",
+  "ada:blankBackgroundCorrectionMethod": "no value available: unnamed property",
+  "ada:internalStandardElement": "no value available: unnamed property",
+  "ada:signalIntegrationIntervalMethod": "no value available: unnamed property",
+  "ada:analysisSequenceDefault": "no value available: unnamed property"
 }
 ```
 
@@ -143,20 +143,20 @@ The procedure half of the ICPMS module, with every property populated. Generated
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:instrument [ schema1:additionalType "example value" ;
-            schema1:hasPart [ schema1:additionalType "example value" ;
-                    schema1:name "example value" ] ] ;
-    schema1:variableMeasured [ schema1:defaultValue "example value" ;
+[] schema1:instrument [ schema1:additionalType "no value available: unnamed property" ;
+            schema1:hasPart [ schema1:additionalType "no value available: unnamed property" ;
+                    schema1:name "no value available: unnamed property" ] ] ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
             schema1:name "Uncertainty Propagation Method" ],
-        [ schema1:defaultValue "example value" ;
+        [ schema1:defaultValue "no value available: unnamed property" ;
             schema1:name "Limit of Quantification (LOQ) Method" ] ;
-    ada:analysisSequenceDefault "example value" ;
-    ada:blankBackgroundCorrectionMethod "example value" ;
-    ada:calibrationMeasurementFrequency "example value" ;
-    ada:internalStandardElement "example value" ;
-    ada:oxideProductionMethodAndThreshold "example value" ;
-    ada:signalIntegrationIntervalMethod "example value" ;
-    ada:uncertaintyLevel "example value" .
+    ada:analysisSequenceDefault "no value available: unnamed property" ;
+    ada:blankBackgroundCorrectionMethod "no value available: unnamed property" ;
+    ada:calibrationMeasurementFrequency "no value available: unnamed property" ;
+    ada:internalStandardElement "no value available: unnamed property" ;
+    ada:oxideProductionMethodAndThreshold "no value available: unnamed property" ;
+    ada:signalIntegrationIntervalMethod "no value available: unnamed property" ;
+    ada:uncertaintyLevel "no value available: unnamed property" .
 
 
 ```
@@ -177,7 +177,7 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                 "schema": "http://schema.org/",
                 "dcterms": "http://purl.org/dc/terms/"
               },
-              "@id": "example value",
+              "@id": "no value available: unnamed property",
               "@type": [
                 "schema:Product",
                 "schema:Thing"
@@ -187,77 +187,77 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
               ],
-              "schema:name": "example value",
-              "schema:description": "example value",
+              "schema:name": "no value available: unnamed property",
+              "schema:description": "no value available: unnamed property",
               "schema:alternateName": [
-                "example value"
+                "no value available: unnamed property"
               ],
               "schema:identifier": [
-                "example value"
+                "no value available: unnamed property"
               ],
-              "schema:url": "example value",
+              "schema:url": "no value available: unnamed property",
               "schema:manufacturer": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
                   "schema:Organization"
                 ],
                 "schema:additionalType": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:name": "example value",
-                "schema:alternateName": "example value",
-                "schema:description": "example value",
+                "schema:name": "no value available: unnamed property",
+                "schema:alternateName": "no value available: unnamed property",
+                "schema:description": "no value available: unnamed property",
                 "schema:identifier": {
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": "example value",
-                  "schema:value": "example value",
-                  "schema:url": "example value"
+                  "schema:propertyID": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:url": "no value available: unnamed property"
                 },
                 "schema:sameAs": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               },
               "schema:model": {
                 "@type": [
                   "schema:ProductModel"
                 ],
-                "schema:name": "example value",
-                "schema:identifier": "example value"
+                "schema:name": "no value available: unnamed property",
+                "schema:identifier": "no value available: unnamed property"
               },
               "schema:category": [
                 {
                   "@type": [
                     "schema:DefinedTerm"
                   ],
-                  "schema:name": "example value",
-                  "schema:identifier": "example value",
-                  "schema:inDefinedTermSet": "example value",
-                  "schema:termCode": "example value"
+                  "schema:name": "no value available: unnamed property",
+                  "schema:identifier": "no value available: unnamed property",
+                  "schema:inDefinedTermSet": "no value available: unnamed property",
+                  "schema:termCode": "no value available: unnamed property"
                 }
               ],
               "schema:owner": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
                   "schema:Organization"
                 ],
                 "schema:additionalType": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:name": "example value",
-                "schema:alternateName": "example value",
-                "schema:description": "example value",
+                "schema:name": "no value available: unnamed property",
+                "schema:alternateName": "no value available: unnamed property",
+                "schema:description": "no value available: unnamed property",
                 "schema:identifier": {
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": "example value",
-                  "schema:value": "example value",
-                  "schema:url": "example value"
+                  "schema:propertyID": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:url": "no value available: unnamed property"
                 },
                 "schema:sameAs": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               },
               "schema:contributor": [
@@ -265,9 +265,9 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                   "@type": [
                     "schema:Role"
                   ],
-                  "schema:roleName": "example value",
+                  "schema:roleName": "no value available: unnamed property",
                   "schema:contributor": {
-                    "@id": "example value"
+                    "@id": "no value available: unnamed property"
                   }
                 }
               ],
@@ -277,41 +277,41 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
-                    "example value"
+                    "no value available: unnamed property"
                   ],
-                  "schema:name": "example value",
-                  "schema:value": "example value",
-                  "schema:unitCode": "example value",
-                  "schema:unitText": "example value"
+                  "schema:name": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:unitCode": "no value available: unnamed property",
+                  "schema:unitText": "no value available: unnamed property"
                 }
               ],
-              "schema:validFrom": "example value",
-              "schema:validThrough": "example value",
+              "schema:validFrom": "no value available: unnamed property",
+              "schema:validThrough": "no value available: unnamed property",
               "schema:hasPart": [
                 {
-                  "@id": "example value",
+                  "@id": "no value available: unnamed property",
                   "@type": [
                     "schema:Product",
                     "schema:Thing"
                   ],
-                  "schema:name": "example value",
+                  "schema:name": "no value available: unnamed property",
                   "schema:additionalType": [
                     {
                       "@id": "https://www.wikidata.org/wiki/Q3099911"
                     }
                   ],
-                  "ada:collectorConfiguration": "example value",
+                  "ada:collectorConfiguration": "no value available: unnamed property",
                   "ada:collectors": [
                     {
                       "@type": [
                         "ada:Collector"
                       ],
-                      "schema:name": "example value",
-                      "schema:description": "example value",
+                      "schema:name": "no value available: unnamed property",
+                      "schema:description": "no value available: unnamed property",
                       "schema:additionalProperty": [
                         {
-                          "schema:name": "example value",
-                          "schema:value": "example value"
+                          "schema:name": "no value available: unnamed property",
+                          "schema:value": "no value available: unnamed property"
                         }
                       ]
                     }
@@ -323,28 +323,28 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                   "@type": [
                     "schema:LinkRole"
                   ],
-                  "schema:linkRelationship": "example value",
+                  "schema:linkRelationship": "no value available: unnamed property",
                   "schema:target": {
                     "@type": [
                       "schema:EntryPoint"
                     ],
-                    "schema:name": "example value",
-                    "schema:url": "example value",
-                    "schema:encodingFormat": "example value"
+                    "schema:name": "no value available: unnamed property",
+                    "schema:url": "no value available: unnamed property",
+                    "schema:encodingFormat": "no value available: unnamed property"
                   }
                 }
               ],
               "schema:subjectOf": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:dateModified": "example value",
+                "schema:dateModified": "no value available: unnamed property",
                 "schema:about": {
-                  "@id": "example value"
+                  "@id": "no value available: unnamed property"
                 },
                 "dcterms:conformsTo": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               }
             }
@@ -357,17 +357,17 @@ The analysis half of the ICPMS module, with every property populated. Generated 
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Oxide production ratio",
-      "dqv:value": "example value"
+      "dqv:value": "no value available: unnamed property"
     }
   ],
   "schema:variableMeasured": [
     {
       "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Limit of Quantification (LOQ) Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     }
   ]
 }
@@ -395,7 +395,7 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                 "schema": "http://schema.org/",
                 "dcterms": "http://purl.org/dc/terms/"
               },
-              "@id": "example value",
+              "@id": "no value available: unnamed property",
               "@type": [
                 "schema:Product",
                 "schema:Thing"
@@ -405,77 +405,77 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
               ],
-              "schema:name": "example value",
-              "schema:description": "example value",
+              "schema:name": "no value available: unnamed property",
+              "schema:description": "no value available: unnamed property",
               "schema:alternateName": [
-                "example value"
+                "no value available: unnamed property"
               ],
               "schema:identifier": [
-                "example value"
+                "no value available: unnamed property"
               ],
-              "schema:url": "example value",
+              "schema:url": "no value available: unnamed property",
               "schema:manufacturer": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
                   "schema:Organization"
                 ],
                 "schema:additionalType": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:name": "example value",
-                "schema:alternateName": "example value",
-                "schema:description": "example value",
+                "schema:name": "no value available: unnamed property",
+                "schema:alternateName": "no value available: unnamed property",
+                "schema:description": "no value available: unnamed property",
                 "schema:identifier": {
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": "example value",
-                  "schema:value": "example value",
-                  "schema:url": "example value"
+                  "schema:propertyID": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:url": "no value available: unnamed property"
                 },
                 "schema:sameAs": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               },
               "schema:model": {
                 "@type": [
                   "schema:ProductModel"
                 ],
-                "schema:name": "example value",
-                "schema:identifier": "example value"
+                "schema:name": "no value available: unnamed property",
+                "schema:identifier": "no value available: unnamed property"
               },
               "schema:category": [
                 {
                   "@type": [
                     "schema:DefinedTerm"
                   ],
-                  "schema:name": "example value",
-                  "schema:identifier": "example value",
-                  "schema:inDefinedTermSet": "example value",
-                  "schema:termCode": "example value"
+                  "schema:name": "no value available: unnamed property",
+                  "schema:identifier": "no value available: unnamed property",
+                  "schema:inDefinedTermSet": "no value available: unnamed property",
+                  "schema:termCode": "no value available: unnamed property"
                 }
               ],
               "schema:owner": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
                   "schema:Organization"
                 ],
                 "schema:additionalType": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:name": "example value",
-                "schema:alternateName": "example value",
-                "schema:description": "example value",
+                "schema:name": "no value available: unnamed property",
+                "schema:alternateName": "no value available: unnamed property",
+                "schema:description": "no value available: unnamed property",
                 "schema:identifier": {
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": "example value",
-                  "schema:value": "example value",
-                  "schema:url": "example value"
+                  "schema:propertyID": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:url": "no value available: unnamed property"
                 },
                 "schema:sameAs": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               },
               "schema:contributor": [
@@ -483,9 +483,9 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                   "@type": [
                     "schema:Role"
                   ],
-                  "schema:roleName": "example value",
+                  "schema:roleName": "no value available: unnamed property",
                   "schema:contributor": {
-                    "@id": "example value"
+                    "@id": "no value available: unnamed property"
                   }
                 }
               ],
@@ -495,41 +495,41 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
-                    "example value"
+                    "no value available: unnamed property"
                   ],
-                  "schema:name": "example value",
-                  "schema:value": "example value",
-                  "schema:unitCode": "example value",
-                  "schema:unitText": "example value"
+                  "schema:name": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:unitCode": "no value available: unnamed property",
+                  "schema:unitText": "no value available: unnamed property"
                 }
               ],
-              "schema:validFrom": "example value",
-              "schema:validThrough": "example value",
+              "schema:validFrom": "no value available: unnamed property",
+              "schema:validThrough": "no value available: unnamed property",
               "schema:hasPart": [
                 {
-                  "@id": "example value",
+                  "@id": "no value available: unnamed property",
                   "@type": [
                     "schema:Product",
                     "schema:Thing"
                   ],
-                  "schema:name": "example value",
+                  "schema:name": "no value available: unnamed property",
                   "schema:additionalType": [
                     {
                       "@id": "https://www.wikidata.org/wiki/Q3099911"
                     }
                   ],
-                  "ada:collectorConfiguration": "example value",
+                  "ada:collectorConfiguration": "no value available: unnamed property",
                   "ada:collectors": [
                     {
                       "@type": [
                         "ada:Collector"
                       ],
-                      "schema:name": "example value",
-                      "schema:description": "example value",
+                      "schema:name": "no value available: unnamed property",
+                      "schema:description": "no value available: unnamed property",
                       "schema:additionalProperty": [
                         {
-                          "schema:name": "example value",
-                          "schema:value": "example value"
+                          "schema:name": "no value available: unnamed property",
+                          "schema:value": "no value available: unnamed property"
                         }
                       ]
                     }
@@ -541,28 +541,28 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                   "@type": [
                     "schema:LinkRole"
                   ],
-                  "schema:linkRelationship": "example value",
+                  "schema:linkRelationship": "no value available: unnamed property",
                   "schema:target": {
                     "@type": [
                       "schema:EntryPoint"
                     ],
-                    "schema:name": "example value",
-                    "schema:url": "example value",
-                    "schema:encodingFormat": "example value"
+                    "schema:name": "no value available: unnamed property",
+                    "schema:url": "no value available: unnamed property",
+                    "schema:encodingFormat": "no value available: unnamed property"
                   }
                 }
               ],
               "schema:subjectOf": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:dateModified": "example value",
+                "schema:dateModified": "no value available: unnamed property",
                 "schema:about": {
-                  "@id": "example value"
+                  "@id": "no value available: unnamed property"
                 },
                 "dcterms:conformsTo": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               }
             }
@@ -575,17 +575,17 @@ The analysis half of the ICPMS module, with every property populated. Generated 
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Oxide production ratio",
-      "dqv:value": "example value"
+      "dqv:value": "no value available: unnamed property"
     }
   ],
   "schema:variableMeasured": [
     {
       "schema:name": "Uncertainty Propagation Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Limit of Quantification (LOQ) Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     }
   ]
 }
@@ -600,11 +600,11 @@ The analysis half of the ICPMS module, with every property populated. Generated 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] schema1:variableMeasured [ schema1:name "Limit of Quantification (LOQ) Method" ;
-            schema1:value "example value" ],
+            schema1:value "no value available: unnamed property" ],
         [ schema1:name "Uncertainty Propagation Method" ;
-            schema1:value "example value" ] ;
+            schema1:value "no value available: unnamed property" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example value" ] ;
+            dqv:value "no value available: unnamed property" ] ;
     prov:wasGeneratedBy [ prov:used [ ] ] ;
     ada:sensitivityYield 1 .
 

@@ -26,7 +26,7 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
   "schema:measurementTechnique": [
     {
       "@id": "ex:stemTAPP-HF5000",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -82,7 +82,7 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
   "schema:measurementTechnique": [
     {
       "@id": "ex:stemTAPP-HF5000",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -144,7 +144,7 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
     ada:stageXPosition -1.375e-01 ;
     ada:stageYPosition -1.776e-01 .
 
-<ex:stemTAPP-HF5000> schema1:identifier "test value schema:identifier" .
+<ex:stemTAPP-HF5000> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -167,7 +167,7 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
   "schema:measurementTechnique": [
     {
       "@id": "ex:stemTAPP-P1",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -223,7 +223,7 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
   "schema:measurementTechnique": [
     {
       "@id": "ex:stemTAPP-P1",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -285,7 +285,7 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
     ada:stageXPosition -9999 ;
     ada:stageYPosition -9999 .
 
-<ex:stemTAPP-P1> schema1:identifier "test value schema:identifier" .
+<ex:stemTAPP-P1> schema1:identifier "no value available: schema:identifier" .
 
 
 ```

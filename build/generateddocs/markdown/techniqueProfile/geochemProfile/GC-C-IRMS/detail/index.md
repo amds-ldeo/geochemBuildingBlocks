@@ -26,7 +26,7 @@ detail instance derived from ADA n=9 | no named analyst | Hokkaido University | 
   "schema:measurementTechnique": [
     {
       "@id": "ex:gcCIrmsTAPP-Agilent7890",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250219_GC-C-IRMS_PSU_OREX-800107-183_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=9 | no named analyst | Hokkaido University | 
   "schema:measurementTechnique": [
     {
       "@id": "ex:gcCIrmsTAPP-Agilent7890",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250219_GC-C-IRMS_PSU_OREX-800107-183_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=9 | no named analyst | Hokkaido University | 
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250219_GC-C-IRMS_PSU_OREX-800107-183_1" .
 
-<ex:gcCIrmsTAPP-Agilent7890> schema1:identifier "test value schema:identifier" .
+<ex:gcCIrmsTAPP-Agilent7890> schema1:identifier "no value available: schema:identifier" .
 
 
 ```

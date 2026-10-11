@@ -46,30 +46,30 @@ The procedure half of the Geochronology module, with every property populated. G
 ```json
 {
   "ada:ageCalculationMethod": [
-    "example value"
+    "no value available: unnamed property"
   ],
   "schema:variableMeasured": [
     {
       "schema:name": "Age Calculation Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Reported Date Type",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     },
     {
       "schema:name": "Inherited or Initial Signal Correction",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     },
     {
       "schema:name": "Age Datum / Reference Epoch",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     }
   ],
   "ada:reportedDateType": [
-    "example value"
+    "no value available: unnamed property"
   ],
-  "ada:inheritedOrInitialSignalCorrectionDefault": "example value"
+  "ada:inheritedOrInitialSignalCorrectionDefault": "no value available: unnamed property"
 }
 ```
 
@@ -84,30 +84,30 @@ The procedure half of the Geochronology module, with every property populated. G
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/context.jsonld"
   ],
   "ada:ageCalculationMethod": [
-    "example value"
+    "no value available: unnamed property"
   ],
   "schema:variableMeasured": [
     {
       "schema:name": "Age Calculation Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Reported Date Type",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     },
     {
       "schema:name": "Inherited or Initial Signal Correction",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     },
     {
       "schema:name": "Age Datum / Reference Epoch",
-      "schema:defaultValue": "example value"
+      "schema:defaultValue": "no value available: unnamed property"
     }
   ],
   "ada:reportedDateType": [
-    "example value"
+    "no value available: unnamed property"
   ],
-  "ada:inheritedOrInitialSignalCorrectionDefault": "example value"
+  "ada:inheritedOrInitialSignalCorrectionDefault": "no value available: unnamed property"
 }
 ```
 
@@ -116,17 +116,17 @@ The procedure half of the Geochronology module, with every property populated. G
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:variableMeasured [ schema1:defaultValue "example value" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "example value" ;
+[] schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
             schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Age Datum / Reference Epoch" ],
         [ schema1:name "Age Calculation Method" ;
-            schema1:value "example value" ],
-        [ schema1:defaultValue "example value" ;
-            schema1:name "Age Datum / Reference Epoch" ] ;
-    ada:ageCalculationMethod "example value" ;
-    ada:inheritedOrInitialSignalCorrectionDefault "example value" ;
-    ada:reportedDateType "example value" .
+            schema1:value "no value available: unnamed property" ] ;
+    ada:ageCalculationMethod "no value available: unnamed property" ;
+    ada:inheritedOrInitialSignalCorrectionDefault "no value available: unnamed property" ;
+    ada:reportedDateType "no value available: unnamed property" .
 
 
 ```
@@ -140,27 +140,27 @@ The analysis half of the Geochronology module, with every property populated. Ge
   "schema:variableMeasured": [
     {
       "schema:name": "Age Calculation Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Reported Date Type",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Inherited or Initial Signal Correction",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Radiogenic Fraction of Measured Signal",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Age Datum / Reference Epoch",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     }
   ],
   "ada:reportedDateType": [
-    "example value"
+    "no value available: unnamed property"
   ]
 }
 ```
@@ -178,27 +178,27 @@ The analysis half of the Geochronology module, with every property populated. Ge
   "schema:variableMeasured": [
     {
       "schema:name": "Age Calculation Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Reported Date Type",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Inherited or Initial Signal Correction",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Radiogenic Fraction of Measured Signal",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     },
     {
       "schema:name": "Age Datum / Reference Epoch",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     }
   ],
   "ada:reportedDateType": [
-    "example value"
+    "no value available: unnamed property"
   ]
 }
 ```
@@ -208,17 +208,17 @@ The analysis half of the Geochronology module, with every property populated. Ge
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:variableMeasured [ schema1:name "Reported Date Type" ;
-            schema1:value "example value" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "example value" ],
+[] schema1:variableMeasured [ schema1:name "Age Datum / Reference Epoch" ;
+            schema1:value "no value available: unnamed property" ],
         [ schema1:name "Inherited or Initial Signal Correction" ;
-            schema1:value "example value" ],
+            schema1:value "no value available: unnamed property" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: unnamed property" ],
+        [ schema1:name "Reported Date Type" ;
+            schema1:value "no value available: unnamed property" ],
         [ schema1:name "Radiogenic Fraction of Measured Signal" ;
-            schema1:value "example value" ],
-        [ schema1:name "Age Datum / Reference Epoch" ;
-            schema1:value "example value" ] ;
-    ada:reportedDateType "example value" .
+            schema1:value "no value available: unnamed property" ] ;
+    ada:reportedDateType "no value available: unnamed property" .
 
 
 ```

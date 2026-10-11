@@ -22,8 +22,16 @@ A context photography image used as supplemental documentation.
 {
   "@type": ["ada:image", "schema:DigitalDocument"],
   "ada:componentType": "ada:contextPhotography",
-  "ada:numPixelsX": 2048,
-  "ada:numPixelsY": 1536,
+  "schema:width": {
+    "@type": ["schema:QuantitativeValue"],
+    "schema:value": 2048,
+    "schema:unitText": "pixel"
+  },
+  "schema:height": {
+    "@type": ["schema:QuantitativeValue"],
+    "schema:value": 1536,
+    "schema:unitText": "pixel"
+  },
   "schema:isBasedOn": "sample_context_photo_001.jpg"
 }
 
@@ -44,8 +52,20 @@ A context photography image used as supplemental documentation.
     "schema:DigitalDocument"
   ],
   "ada:componentType": "ada:contextPhotography",
-  "ada:numPixelsX": 2048,
-  "ada:numPixelsY": 1536,
+  "schema:width": {
+    "@type": [
+      "schema:QuantitativeValue"
+    ],
+    "schema:value": 2048,
+    "schema:unitText": "pixel"
+  },
+  "schema:height": {
+    "@type": [
+      "schema:QuantitativeValue"
+    ],
+    "schema:value": 1536,
+    "schema:unitText": "pixel"
+  },
   "schema:isBasedOn": "sample_context_photo_001.jpg"
 }
 ```
@@ -58,10 +78,14 @@ A context photography image used as supplemental documentation.
 
 [] a schema1:DigitalDocument,
         ada:image ;
+    schema1:height [ a schema1:QuantitativeValue ;
+            schema1:unitText "pixel" ;
+            schema1:value 1536 ] ;
     schema1:isBasedOn "sample_context_photo_001.jpg" ;
-    ada:componentType "ada:contextPhotography" ;
-    ada:numPixelsX 2048 ;
-    ada:numPixelsY 1536 .
+    schema1:width [ a schema1:QuantitativeValue ;
+            schema1:unitText "pixel" ;
+            schema1:value 2048 ] ;
+    ada:componentType "ada:contextPhotography" .
 
 
 ```

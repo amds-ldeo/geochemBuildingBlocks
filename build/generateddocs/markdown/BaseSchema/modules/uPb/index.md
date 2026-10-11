@@ -48,7 +48,7 @@ The procedure half of the UPb module, with every property populated. Generated f
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "ada:chemicalAbrasionConditions": "example value"
+        "ada:chemicalAbrasionConditions": "no value available: unnamed property"
       }
     ]
   }
@@ -69,7 +69,7 @@ The procedure half of the UPb module, with every property populated. Generated f
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "ada:chemicalAbrasionConditions": "example value"
+        "ada:chemicalAbrasionConditions": "no value available: unnamed property"
       }
     ]
   }
@@ -82,7 +82,7 @@ The procedure half of the UPb module, with every property populated. Generated f
 @prefix schema1: <http://schema.org/> .
 
 [] schema1:actionProcess [ schema1:step [ schema1:name "Sample preparation" ;
-                    ada:chemicalAbrasionConditions "example value" ] ] .
+                    ada:chemicalAbrasionConditions "no value available: unnamed property" ] ] .
 
 
 ```

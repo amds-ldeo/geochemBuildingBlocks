@@ -26,7 +26,7 @@ detail instance derived from ADA n=1 | no named analyst | Boston College | (BC)Q
   "schema:measurementTechnique": [
     {
       "@id": "ex:tdmTAPP-P0",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250306_TDM_BC_OREX-800107-104_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=1 | no named analyst | Boston College | (BC)Q
   "schema:measurementTechnique": [
     {
       "@id": "ex:tdmTAPP-P0",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20250306_TDM_BC_OREX-800107-104_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=1 | no named analyst | Boston College | (BC)Q
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250306_TDM_BC_OREX-800107-104_1" .
 
-<ex:tdmTAPP-P0> schema1:identifier "test value schema:identifier" .
+<ex:tdmTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```

@@ -463,7 +463,7 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
-  "ada:voxelSize": "example voxelSizeAndImageStackDimensions"
+  "ada:voxelSize": "no value available: voxelSizeAndImageStackDimensions"
 }
 
 ```
@@ -929,7 +929,7 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
-  "ada:voxelSize": "example voxelSizeAndImageStackDimensions"
+  "ada:voxelSize": "no value available: voxelSizeAndImageStackDimensions"
 }
 ```
 
@@ -1038,7 +1038,7 @@ ex:adaSEMFIBSEM-example-001 a schema1:Dataset,
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:semFibsemTAPP-P0 ] ;
-    ada:voxelSize "example voxelSizeAndImageStackDimensions" .
+    ada:voxelSize "no value available: voxelSizeAndImageStackDimensions" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,

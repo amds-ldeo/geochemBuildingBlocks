@@ -56,15 +56,15 @@ The procedure half of the SolutionIntroduction module, with every property popul
         "schema:name": "Sample digestion",
         "bios:reagent": [
           {
-            "schema:name": "example value"
+            "schema:name": "no value available: unnamed property"
           }
         ]
       }
     ]
   },
-  "ada:chromatographicSeparationApplied": "example value",
-  "ada:isotopeDilutionSpike": "example value",
-  "ada:finalSolutionMatrix": "example value",
+  "ada:chromatographicSeparationApplied": "no value available: unnamed property",
+  "ada:isotopeDilutionSpike": "no value available: unnamed property",
+  "ada:finalSolutionMatrix": "no value available: unnamed property",
   "ada:washTimeBetweenSamples": 1
 }
 ```
@@ -86,15 +86,15 @@ The procedure half of the SolutionIntroduction module, with every property popul
         "schema:name": "Sample digestion",
         "bios:reagent": [
           {
-            "schema:name": "example value"
+            "schema:name": "no value available: unnamed property"
           }
         ]
       }
     ]
   },
-  "ada:chromatographicSeparationApplied": "example value",
-  "ada:isotopeDilutionSpike": "example value",
-  "ada:finalSolutionMatrix": "example value",
+  "ada:chromatographicSeparationApplied": "no value available: unnamed property",
+  "ada:isotopeDilutionSpike": "no value available: unnamed property",
+  "ada:finalSolutionMatrix": "no value available: unnamed property",
   "ada:washTimeBetweenSamples": 1
 }
 ```
@@ -107,10 +107,10 @@ The procedure half of the SolutionIntroduction module, with every property popul
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] schema1:actionProcess [ schema1:step [ schema1:name "Sample digestion" ;
-                    bios:reagent [ schema1:name "example value" ] ] ] ;
-    ada:chromatographicSeparationApplied "example value" ;
-    ada:finalSolutionMatrix "example value" ;
-    ada:isotopeDilutionSpike "example value" ;
+                    bios:reagent [ schema1:name "no value available: unnamed property" ] ] ] ;
+    ada:chromatographicSeparationApplied "no value available: unnamed property" ;
+    ada:finalSolutionMatrix "no value available: unnamed property" ;
+    ada:isotopeDilutionSpike "no value available: unnamed property" ;
     ada:washTimeBetweenSamples 1 .
 
 

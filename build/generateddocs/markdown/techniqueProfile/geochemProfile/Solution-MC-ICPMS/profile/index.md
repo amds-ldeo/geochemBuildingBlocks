@@ -245,8 +245,8 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:deltaOrEpsilonValueReferenceStandard": "test value ada:deltaOrEpsilonValueReferenceStandard",
-      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
+      "ada:deltaOrEpsilonValueReferenceStandard": "no value available: ada:deltaOrEpsilonValueReferenceStandard",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -353,7 +353,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "test value schema:value"
+      "schema:value": "no value available: schema:value"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -393,7 +393,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -547,15 +547,15 @@ and technique component types on the archive distribution. Mock data for validat
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Peak Flatness",
-      "dqv:value": "example peakFlatness"
+      "dqv:value": "no value available: peakFlatness"
     },
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+      "dqv:value": "no value available: goodnessOfFitOrDispersionStatistic"
     },
     {
       "dqv:isMeasurementOf": "Oxide production ratio",
-      "dqv:value": "example oxideProduction"
+      "dqv:value": "no value available: oxideProduction"
     }
   ],
   "ada:sensitivityYield": 1.0
@@ -806,8 +806,8 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:deltaOrEpsilonValueReferenceStandard": "test value ada:deltaOrEpsilonValueReferenceStandard",
-      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
+      "ada:deltaOrEpsilonValueReferenceStandard": "no value available: ada:deltaOrEpsilonValueReferenceStandard",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -914,7 +914,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "test value schema:value"
+      "schema:value": "no value available: schema:value"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -954,7 +954,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -1108,15 +1108,15 @@ and technique component types on the archive distribution. Mock data for validat
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Peak Flatness",
-      "dqv:value": "example peakFlatness"
+      "dqv:value": "no value available: peakFlatness"
     },
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+      "dqv:value": "no value available: goodnessOfFitOrDispersionStatistic"
     },
     {
       "dqv:isMeasurementOf": "Oxide production ratio",
-      "dqv:value": "example oxideProduction"
+      "dqv:value": "no value available: oxideProduction"
     }
   ],
   "ada:sensitivityYield": 1.0
@@ -1213,11 +1213,11 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example oxideProduction" ],
+            dqv:value "no value available: oxideProduction" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "example peakFlatness" ] ;
+            dqv:value "no value available: peakFlatness" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1236,8 +1236,8 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:solutionMcicpmsTAPP-P0 ;
-            ada:deltaOrEpsilonValueReferenceStandard "test value ada:deltaOrEpsilonValueReferenceStandard" ;
-            ada:proceduralBlankLevel "test value ada:proceduralBlankLevel" ] ;
+            ada:deltaOrEpsilonValueReferenceStandard "no value available: ada:deltaOrEpsilonValueReferenceStandard" ;
+            ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:sensitivityYield 1e+00 .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
@@ -1292,7 +1292,7 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
-    schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:defaultValue "no value available: schema:defaultValue" ;
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
         "Detection Limit reported for this dataset. Example value.",
         "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
@@ -1306,7 +1306,7 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
     schema1:unitText "counts" ;
     schema1:value -9999,
-        "test value schema:value" ;
+        "no value available: schema:value" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 ex:adaProduct-var-002 a cdi:InstanceVariable,

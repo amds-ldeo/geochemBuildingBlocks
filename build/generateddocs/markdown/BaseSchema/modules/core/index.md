@@ -53,63 +53,63 @@ The procedure half of the Core module, with every property populated. Generated 
 #### json
 ```json
 {
-  "schema:name": "example value",
+  "schema:name": "no value available: unnamed property",
   "schema:measurementTechnique": [
     {
-      "schema:termCode": "example value"
+      "schema:termCode": "no value available: unnamed property"
     }
   ],
   "schema:creator": {
-    "schema:name": "example value"
+    "schema:name": "no value available: unnamed property"
   },
   "schema:location": {
-    "schema:name": "example value",
-    "schema:identifier": "example value"
+    "schema:name": "no value available: unnamed property",
+    "schema:identifier": "no value available: unnamed property"
   },
-  "schema:datePublished": "example value",
+  "schema:datePublished": "no value available: unnamed property",
   "schema:funding": [
     {
-      "schema:name": "example value"
+      "schema:name": "no value available: unnamed property"
     }
   ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "techniquePublication",
       "schema:target": {
-        "schema:name": "example value"
+        "schema:name": "no value available: unnamed property"
       }
     },
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "example value",
-        "schema:description": "example value"
+        "schema:name": "no value available: unnamed property",
+        "schema:description": "no value available: unnamed property"
       }
     }
   ],
-  "ada:samplingUnitType": "example value",
+  "ada:samplingUnitType": "no value available: unnamed property",
   "bios:computationalTool": [
     {
       "ada:toolRole": "acquisition",
-      "schema:name": "example value"
+      "schema:name": "no value available: unnamed property"
     },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "example value"
+      "schema:name": "no value available: unnamed property"
     }
   ],
   "ada:analyticalMode": [
-    "example value"
+    "no value available: unnamed property"
   ],
   "ada:reportedProperties": [
-    "example value"
+    "no value available: unnamed property"
   ],
-  "schema:description": "example value",
+  "schema:description": "no value available: unnamed property",
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "example value"
+        "schema:description": "no value available: unnamed property"
       }
     ]
   }
@@ -127,63 +127,63 @@ The procedure half of the Core module, with every property populated. Generated 
     },
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/context.jsonld"
   ],
-  "schema:name": "example value",
+  "schema:name": "no value available: unnamed property",
   "schema:measurementTechnique": [
     {
-      "schema:termCode": "example value"
+      "schema:termCode": "no value available: unnamed property"
     }
   ],
   "schema:creator": {
-    "schema:name": "example value"
+    "schema:name": "no value available: unnamed property"
   },
   "schema:location": {
-    "schema:name": "example value",
-    "schema:identifier": "example value"
+    "schema:name": "no value available: unnamed property",
+    "schema:identifier": "no value available: unnamed property"
   },
-  "schema:datePublished": "example value",
+  "schema:datePublished": "no value available: unnamed property",
   "schema:funding": [
     {
-      "schema:name": "example value"
+      "schema:name": "no value available: unnamed property"
     }
   ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "techniquePublication",
       "schema:target": {
-        "schema:name": "example value"
+        "schema:name": "no value available: unnamed property"
       }
     },
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "example value",
-        "schema:description": "example value"
+        "schema:name": "no value available: unnamed property",
+        "schema:description": "no value available: unnamed property"
       }
     }
   ],
-  "ada:samplingUnitType": "example value",
+  "ada:samplingUnitType": "no value available: unnamed property",
   "bios:computationalTool": [
     {
       "ada:toolRole": "acquisition",
-      "schema:name": "example value"
+      "schema:name": "no value available: unnamed property"
     },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "example value"
+      "schema:name": "no value available: unnamed property"
     }
   ],
   "ada:analyticalMode": [
-    "example value"
+    "no value available: unnamed property"
   ],
   "ada:reportedProperties": [
-    "example value"
+    "no value available: unnamed property"
   ],
-  "schema:description": "example value",
+  "schema:description": "no value available: unnamed property",
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "example value"
+        "schema:description": "no value available: unnamed property"
       }
     ]
   }
@@ -196,27 +196,27 @@ The procedure half of the Core module, with every property populated. Generated 
 @prefix bios: <https://bioschemas.org/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:description "example value" ;
+[] schema1:actionProcess [ schema1:step [ schema1:description "no value available: unnamed property" ;
                     schema1:name "Sample preparation" ] ] ;
-    schema1:creator [ schema1:name "example value" ] ;
-    schema1:datePublished "example value" ;
-    schema1:description "example value" ;
-    schema1:funding [ schema1:name "example value" ] ;
-    schema1:location [ schema1:identifier "example value" ;
-            schema1:name "example value" ] ;
-    schema1:measurementTechnique [ schema1:termCode "example value" ] ;
-    schema1:name "example value" ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:description "example value" ;
-                    schema1:name "example value" ] ],
-        [ schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "example value" ] ] ;
-    ada:analyticalMode "example value" ;
-    ada:reportedProperties "example value" ;
-    ada:samplingUnitType "example value" ;
-    bios:computationalTool [ schema1:name "example value" ;
+    schema1:creator [ schema1:name "no value available: unnamed property" ] ;
+    schema1:datePublished "no value available: unnamed property" ;
+    schema1:description "no value available: unnamed property" ;
+    schema1:funding [ schema1:name "no value available: unnamed property" ] ;
+    schema1:location [ schema1:identifier "no value available: unnamed property" ;
+            schema1:name "no value available: unnamed property" ] ;
+    schema1:measurementTechnique [ schema1:termCode "no value available: unnamed property" ] ;
+    schema1:name "no value available: unnamed property" ;
+    schema1:relatedLink [ schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "no value available: unnamed property" ] ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "no value available: unnamed property" ;
+                    schema1:name "no value available: unnamed property" ] ] ;
+    ada:analyticalMode "no value available: unnamed property" ;
+    ada:reportedProperties "no value available: unnamed property" ;
+    ada:samplingUnitType "no value available: unnamed property" ;
+    bios:computationalTool [ schema1:name "no value available: unnamed property" ;
             ada:toolRole "acquisition" ],
-        [ schema1:name "example value" ;
+        [ schema1:name "no value available: unnamed property" ;
             ada:toolRole "dataReduction" ] .
 
 
@@ -231,17 +231,17 @@ The analysis half of the Core module, with every property populated. Generated f
   "prov:wasGeneratedBy": [
     {
       "schema:location": {
-        "schema:name": "example value",
-        "schema:identifier": "example value"
+        "schema:name": "no value available: unnamed property",
+        "schema:identifier": "no value available: unnamed property"
       },
-      "schema:identifier": "example value",
-      "schema:startDate": "example value",
-      "schema:endDate": "example value",
+      "schema:identifier": "no value available: unnamed property",
+      "schema:startDate": "no value available: unnamed property",
+      "schema:endDate": "no value available: unnamed property",
       "schema:object": [
         {
-          "@type": "example value",
-          "schema:name": "example value",
-          "schema:identifier": "example value"
+          "@type": "no value available: unnamed property",
+          "schema:name": "no value available: unnamed property",
+          "schema:identifier": "no value available: unnamed property"
         }
       ],
       "prov:used": [
@@ -251,22 +251,22 @@ The analysis half of the Core module, with every property populated. Generated f
               "@type": [
                 "schema:SoftwareApplication"
               ],
-              "@id": "example value",
-              "schema:name": "example value",
-              "schema:version": "example value",
-              "schema:url": "example value",
-              "schema:description": "example value",
+              "@id": "no value available: unnamed property",
+              "schema:name": "no value available: unnamed property",
+              "schema:version": "no value available: unnamed property",
+              "schema:url": "no value available: unnamed property",
+              "schema:description": "no value available: unnamed property",
               "ada:toolRole": "acquisition"
             }
           ]
         }
       ],
-      "schema:description": "example value",
+      "schema:description": "no value available: unnamed property",
       "schema:actionProcess": {
         "schema:step": [
           {
             "schema:name": "Sample preparation",
-            "schema:description": "example value"
+            "schema:description": "no value available: unnamed property"
           }
         ]
       }
@@ -274,39 +274,39 @@ The analysis half of the Core module, with every property populated. Generated f
   ],
   "schema:measurementTechnique": [
     {
-      "schema:identifier": "example value"
+      "schema:identifier": "no value available: unnamed property"
     }
   ],
   "schema:contributor": [
     {
       "schema:roleName": "analyst",
       "schema:contributor": {
-        "schema:name": "example value"
+        "schema:name": "no value available: unnamed property"
       }
     }
   ],
   "schema:funding": [
     {
-      "schema:name": "example value"
+      "schema:name": "no value available: unnamed property"
     }
   ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "example value",
-        "schema:description": "example value"
+        "schema:name": "no value available: unnamed property",
+        "schema:description": "no value available: unnamed property"
       }
     },
     {
       "schema:linkRelationship": "coupledProcedure",
       "schema:target": {
-        "schema:url": "example value"
+        "schema:url": "no value available: unnamed property"
       }
     },
     {
       "schema:linkRelationship": "coupledDataset",
-      "schema:target": "example value"
+      "schema:target": "no value available: unnamed property"
     }
   ],
   "schema:variableMeasured": [
@@ -332,17 +332,17 @@ The analysis half of the Core module, with every property populated. Generated f
   "prov:wasGeneratedBy": [
     {
       "schema:location": {
-        "schema:name": "example value",
-        "schema:identifier": "example value"
+        "schema:name": "no value available: unnamed property",
+        "schema:identifier": "no value available: unnamed property"
       },
-      "schema:identifier": "example value",
-      "schema:startDate": "example value",
-      "schema:endDate": "example value",
+      "schema:identifier": "no value available: unnamed property",
+      "schema:startDate": "no value available: unnamed property",
+      "schema:endDate": "no value available: unnamed property",
       "schema:object": [
         {
-          "@type": "example value",
-          "schema:name": "example value",
-          "schema:identifier": "example value"
+          "@type": "no value available: unnamed property",
+          "schema:name": "no value available: unnamed property",
+          "schema:identifier": "no value available: unnamed property"
         }
       ],
       "prov:used": [
@@ -352,22 +352,22 @@ The analysis half of the Core module, with every property populated. Generated f
               "@type": [
                 "schema:SoftwareApplication"
               ],
-              "@id": "example value",
-              "schema:name": "example value",
-              "schema:version": "example value",
-              "schema:url": "example value",
-              "schema:description": "example value",
+              "@id": "no value available: unnamed property",
+              "schema:name": "no value available: unnamed property",
+              "schema:version": "no value available: unnamed property",
+              "schema:url": "no value available: unnamed property",
+              "schema:description": "no value available: unnamed property",
               "ada:toolRole": "acquisition"
             }
           ]
         }
       ],
-      "schema:description": "example value",
+      "schema:description": "no value available: unnamed property",
       "schema:actionProcess": {
         "schema:step": [
           {
             "schema:name": "Sample preparation",
-            "schema:description": "example value"
+            "schema:description": "no value available: unnamed property"
           }
         ]
       }
@@ -375,39 +375,39 @@ The analysis half of the Core module, with every property populated. Generated f
   ],
   "schema:measurementTechnique": [
     {
-      "schema:identifier": "example value"
+      "schema:identifier": "no value available: unnamed property"
     }
   ],
   "schema:contributor": [
     {
       "schema:roleName": "analyst",
       "schema:contributor": {
-        "schema:name": "example value"
+        "schema:name": "no value available: unnamed property"
       }
     }
   ],
   "schema:funding": [
     {
-      "schema:name": "example value"
+      "schema:name": "no value available: unnamed property"
     }
   ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "example value",
-        "schema:description": "example value"
+        "schema:name": "no value available: unnamed property",
+        "schema:description": "no value available: unnamed property"
       }
     },
     {
       "schema:linkRelationship": "coupledProcedure",
       "schema:target": {
-        "schema:url": "example value"
+        "schema:url": "no value available: unnamed property"
       }
     },
     {
       "schema:linkRelationship": "coupledDataset",
-      "schema:target": "example value"
+      "schema:target": "no value available: unnamed property"
     }
   ],
   "schema:variableMeasured": [
@@ -423,28 +423,28 @@ The analysis half of the Core module, with every property populated. Generated f
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:contributor [ schema1:contributor [ schema1:name "example value" ] ;
+[] schema1:contributor [ schema1:contributor [ schema1:name "no value available: unnamed property" ] ;
             schema1:roleName "analyst" ] ;
-    schema1:funding [ schema1:name "example value" ] ;
-    schema1:measurementTechnique [ schema1:identifier "example value" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:description "example value" ;
-                    schema1:name "example value" ] ],
+    schema1:funding [ schema1:name "no value available: unnamed property" ] ;
+    schema1:measurementTechnique [ schema1:identifier "no value available: unnamed property" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "no value available: unnamed property" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "no value available: unnamed property" ;
+                    schema1:name "no value available: unnamed property" ] ],
         [ schema1:linkRelationship "coupledProcedure" ;
-            schema1:target [ schema1:url "example value" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "example value" ] ;
+            schema1:target [ schema1:url "no value available: unnamed property" ] ] ;
     schema1:variableMeasured [ schema1:name "Sampling Unit Name" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ schema1:description "example value" ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ schema1:description "no value available: unnamed property" ;
                             schema1:name "Sample preparation" ] ] ;
-            schema1:description "example value" ;
-            schema1:endDate "example value" ;
-            schema1:identifier "example value" ;
-            schema1:location [ schema1:identifier "example value" ;
-                    schema1:name "example value" ] ;
-            schema1:object [ schema1:identifier "example value" ;
-                    schema1:name "example value" ] ;
-            schema1:startDate "example value" ;
+            schema1:description "no value available: unnamed property" ;
+            schema1:endDate "no value available: unnamed property" ;
+            schema1:identifier "no value available: unnamed property" ;
+            schema1:location [ schema1:identifier "no value available: unnamed property" ;
+                    schema1:name "no value available: unnamed property" ] ;
+            schema1:object [ schema1:identifier "no value available: unnamed property" ;
+                    schema1:name "no value available: unnamed property" ] ;
+            schema1:startDate "no value available: unnamed property" ;
             prov:used [ ] ] .
 
 

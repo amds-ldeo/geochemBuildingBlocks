@@ -47,7 +47,7 @@ The analysis half of the Aggregation module, with every property populated. Gene
   "schema:variableMeasured": [
     {
       "schema:name": "Combination Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     }
   ],
   "prov:wasGeneratedBy": [
@@ -60,7 +60,7 @@ The analysis half of the Aggregation module, with every property populated. Gene
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example value"
+      "dqv:value": "no value available: unnamed property"
     }
   ]
 }
@@ -81,7 +81,7 @@ The analysis half of the Aggregation module, with every property populated. Gene
   "schema:variableMeasured": [
     {
       "schema:name": "Combination Method",
-      "schema:value": "example value"
+      "schema:value": "no value available: unnamed property"
     }
   ],
   "prov:wasGeneratedBy": [
@@ -94,7 +94,7 @@ The analysis half of the Aggregation module, with every property populated. Gene
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example value"
+      "dqv:value": "no value available: unnamed property"
     }
   ]
 }
@@ -108,9 +108,9 @@ The analysis half of the Aggregation module, with every property populated. Gene
 @prefix schema1: <http://schema.org/> .
 
 [] schema1:variableMeasured [ schema1:name "Combination Method" ;
-            schema1:value "example value" ] ;
+            schema1:value "no value available: unnamed property" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example value" ] ;
+            dqv:value "no value available: unnamed property" ] ;
     prov:wasGeneratedBy [ ada:combinedResults [ ] ] .
 
 
