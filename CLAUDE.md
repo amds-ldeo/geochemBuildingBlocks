@@ -685,3 +685,58 @@ These are real past incidents, not hypothetical. The CI-side counterparts — wh
   `{"@id": "nil:missing"}` members into its `@type`, failing 58 of 97 examples.
 
 The propagate-schema command runs all of these as part of its consistency audit; if you're working outside that pipeline, run them by hand on touched paths.
+
+## Committing in a shared checkout
+
+**This checkout is used by several sessions at once.** On 2026-10-10, PR #110 regenerated 620
+files in it while PR #109 was being prepared, and four separate errors followed from one habit:
+reporting an inference as an observation, from state that was either shared-mutable or only
+partly read. `docs/SILENT_SUCCESS.md` collects the CI-side version of this family; this is its
+working-tree counterpart.
+
+**Ask the commit, not the working tree.** Any count that will drive a commit comes from a
+committed ref:
+
+```
+git grep -l '<pattern>' HEAD -- '*resolvedSchema.json'
+```
+
+Grepping the tree reported 37 stale `resolvedSchema.json`; the commit held **42**, because
+another process was mid-write. The tree is shared mutable state; the commit is what CI judges.
+The same applies to any filtered or `head`-truncated read — a truncated grep reported "no example
+carries this" while two did.
+
+**Never `git add <directory>`. Stage explicit paths, then assert the size before pushing:**
+
+```
+git show --name-only --format= HEAD | wc -l     # must equal the number you intended
+```
+
+`git add _sources` captured **768** files against an expected 45, 711 of them another session's
+uncommitted work. The same command then silently UNDER-captured: the concurrent run overwrote the
+freshly resolved artifacts before staging, so `git add` saw files identical to HEAD and dropped
+them, and the commit shipped a schema change without the artifacts it required —
+`Regenerate and diff` went red. **A file listed in a commit with 0 changed lines is a
+contradiction**, and it is the visible symptom of that under-capture.
+
+**Probe for contention before committing anything regenerated:**
+
+```
+find _sources tools -newermt '-5 minutes' -type f | wc -l
+```
+
+Non-zero and not yours means stop and work in an isolated tree —
+`git worktree add --detach <tmp> origin/main`, apply the source edits there, regenerate, commit and
+push from it. That is what finally produced a trustworthy commit, and this probe alone prevents
+both failure modes above.
+
+**"Contains" is not "changes."** To judge what a branch does, diff it against its merge base:
+
+```
+git diff --name-only $(git merge-base <branch> origin/main) <branch>
+```
+
+Old text was found in 42 files of #110's head and reported as about to revert a just-merged fix;
+#110 changed none of them — zero overlap — so the merge was safe. Do the cheap confirming
+measurement BEFORE reporting a risk, not after. And do not attribute causation from observation:
+"files changed at 15:21" is observable, "session X did it" is an inference.
