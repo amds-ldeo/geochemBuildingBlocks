@@ -32,7 +32,7 @@ no schema:contentUrl.
     "schema:value": 4521984,
     "schema:unitText": "byte"
   },
-  "schema:additionalType": ["ada:BSEImage"],
+  "schema:additionalType": [{"@id": "ada:BSEImage"}],
   "ada:componentType": "ada:BSEImage",
   "schema:relatedLink": [
     {
@@ -76,7 +76,9 @@ no schema:contentUrl.
     "schema:unitText": "byte"
   },
   "schema:additionalType": [
-    "ada:BSEImage"
+    {
+      "@id": "ada:BSEImage"
+    }
   ],
   "ada:componentType": "ada:BSEImage",
   "schema:relatedLink": [
@@ -105,7 +107,7 @@ no schema:contentUrl.
 
 [] a schema1:ImageObject,
         ada:image ;
-    schema1:additionalType "ada:BSEImage" ;
+    schema1:additionalType ada:BSEImage ;
     schema1:description "Backscattered electron image of ALH84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
     schema1:name "ALH84001_BSE_001.tif" ;

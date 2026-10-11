@@ -38,7 +38,9 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:description": "Example path-driven LABXCT product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "X-ray Computed Tomography (XCT) Image Collection",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
@@ -380,7 +382,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:XCTVolume"
+            {
+              "@id": "ada:XCTVolume"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -411,7 +415,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:XCTVolume"
+            {
+              "@id": "ada:XCTVolume"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -549,7 +555,9 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:description": "Example path-driven LABXCT product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "X-ray Computed Tomography (XCT) Image Collection",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
@@ -891,7 +899,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:XCTVolume"
+            {
+              "@id": "ada:XCTVolume"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -922,7 +932,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:XCTVolume"
+            {
+              "@id": "ada:XCTVolume"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -1040,8 +1052,8 @@ and technique component types on the archive distribution. Mock data for validat
 
 ex:adaLabXCT-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType "X-ray Computed Tomography (XCT) Image Collection",
-        "ada:DataDeliveryPackage" ;
+    schema1:additionalType ada:DataDeliveryPackage,
+        "X-ray Computed Tomography (XCT) Image Collection" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
             schema1:contributor [ a schema1:Person ;
@@ -1111,16 +1123,16 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "no value available: partialVolumeEffectAssessment" ],
-        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "no value available: crossValidationOutcome" ],
-        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "no value available: metalStreakArtifactAssessment" ],
         [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
             dqv:value "no value available: signalToNoiseRatio" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "no value available: crossValidationOutcome" ],
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "no value available: partialVolumeEffectAssessment" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
             dqv:value "no value available: beamHardeningArtifactAssessment" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
@@ -1145,7 +1157,7 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
         ada:image ;
-    schema1:additionalType "ada:XCTVolume" ;
+    schema1:additionalType ada:XCTVolume ;
     schema1:description "ADA data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
     schema1:name "ALH84001_ADA_001.tif" ;
@@ -1160,7 +1172,7 @@ ex:adaProduct-file-001 a schema1:ImageObject,
 ex:adaProduct-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
         ada:document ;
-    schema1:additionalType "ada:XCTVolume" ;
+    schema1:additionalType ada:XCTVolume ;
     schema1:description "Method description document for this analysis" ;
     schema1:encodingFormat "application/pdf" ;
     schema1:name "ALH84001_ADA_methods.pdf" ;
