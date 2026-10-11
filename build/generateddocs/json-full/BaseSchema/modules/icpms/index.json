@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-10-10",
+  "dateOfLastChange": "2026-10-09",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -39,9 +39,6 @@
     "ogch.BaseSchema.instrument": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
     ],
-    "cdif.bbr.metadata.schemaorgProperties.instrument": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
-    ],
     "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
     ],
@@ -50,6 +47,9 @@
     ],
     "cdif.bbr.metadata.skosProperties.skosConcept": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.instrument": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
@@ -112,7 +112,7 @@
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/modules/icpms/example_1_1.ttl",
           "sizeBytes": 1186,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] schema1:instrument [ schema1:additionalType \"no value available: unnamed property\" ;\n            schema1:hasPart [ schema1:additionalType \"no value available: unnamed property\" ;\n                    schema1:name \"no value available: unnamed property\" ] ] ;\n    schema1:variableMeasured [ schema1:defaultValue \"no value available: unnamed property\" ;\n            schema1:name \"Uncertainty Propagation Method\" ],\n        [ schema1:defaultValue \"no value available: unnamed property\" ;\n            schema1:name \"Limit of Quantification (LOQ) Method\" ] ;\n    ada:analysisSequenceDefault \"no value available: unnamed property\" ;\n    ada:blankBackgroundCorrectionMethod \"no value available: unnamed property\" ;\n    ada:calibrationMeasurementFrequency \"no value available: unnamed property\" ;\n    ada:internalStandardElement \"no value available: unnamed property\" ;\n    ada:oxideProductionMethodAndThreshold \"no value available: unnamed property\" ;\n    ada:signalIntegrationIntervalMethod \"no value available: unnamed property\" ;\n    ada:uncertaintyLevel \"no value available: unnamed property\" .\n\n"
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] schema1:instrument [ schema1:additionalType \"no value available: unnamed property\" ;\n            schema1:hasPart [ schema1:additionalType \"no value available: unnamed property\" ;\n                    schema1:name \"no value available: unnamed property\" ] ] ;\n    schema1:variableMeasured [ schema1:defaultValue \"no value available: unnamed property\" ;\n            schema1:name \"Limit of Quantification (LOQ) Method\" ],\n        [ schema1:defaultValue \"no value available: unnamed property\" ;\n            schema1:name \"Uncertainty Propagation Method\" ] ;\n    ada:analysisSequenceDefault \"no value available: unnamed property\" ;\n    ada:blankBackgroundCorrectionMethod \"no value available: unnamed property\" ;\n    ada:calibrationMeasurementFrequency \"no value available: unnamed property\" ;\n    ada:internalStandardElement \"no value available: unnamed property\" ;\n    ada:oxideProductionMethodAndThreshold \"no value available: unnamed property\" ;\n    ada:signalIntegrationIntervalMethod \"no value available: unnamed property\" ;\n    ada:uncertaintyLevel \"no value available: unnamed property\" .\n\n"
         }
       ]
     },
@@ -142,7 +142,7 @@
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/modules/icpms/example_2_1.ttl",
           "sizeBytes": 729,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix dqv: <http://www.w3.org/ns/dqv#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] schema1:variableMeasured [ schema1:name \"Limit of Quantification (LOQ) Method\" ;\n            schema1:value \"no value available: unnamed property\" ],\n        [ schema1:name \"Uncertainty Propagation Method\" ;\n            schema1:value \"no value available: unnamed property\" ] ;\n    dqv:hasQualityMeasurement [ dqv:isMeasurementOf \"Oxide production ratio\" ;\n            dqv:value \"no value available: unnamed property\" ] ;\n    prov:wasGeneratedBy [ prov:used [ ] ] ;\n    ada:sensitivityYield 1 .\n\n"
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix dqv: <http://www.w3.org/ns/dqv#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] schema1:variableMeasured [ schema1:name \"Uncertainty Propagation Method\" ;\n            schema1:value \"no value available: unnamed property\" ],\n        [ schema1:name \"Limit of Quantification (LOQ) Method\" ;\n            schema1:value \"no value available: unnamed property\" ] ;\n    dqv:hasQualityMeasurement [ dqv:isMeasurementOf \"Oxide production ratio\" ;\n            dqv:value \"no value available: unnamed property\" ] ;\n    prov:wasGeneratedBy [ prov:used [ ] ] ;\n    ada:sensitivityYield 1 .\n\n"
         }
       ]
     }

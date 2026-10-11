@@ -22,15 +22,7 @@ allOf:
         a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty
         SHACL asks for.
       items:
-        anyOf:
-        - type: string
-        - type: object
-          additionalProperties: false
-          required:
-          - '@id'
-          properties:
-            '@id':
-              type: string
+        $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
       contains:
         enum:
         - 40Ar/39Ar Geochronology and Thermochronology (ARGT)
