@@ -215,9 +215,9 @@ The procedure half of the Core module, with every property populated. Generated 
     ada:reportedProperties "no value available: unnamed property" ;
     ada:samplingUnitType "no value available: unnamed property" ;
     bios:computationalTool [ schema1:name "no value available: unnamed property" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ schema1:name "no value available: unnamed property" ;
-            ada:toolRole "dataReduction" ] .
+            ada:toolRole "acquisition" ] .
 
 
 ```
