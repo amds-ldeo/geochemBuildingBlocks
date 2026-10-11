@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-02-05",
+  "dateOfLastChange": "2026-10-11",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -77,7 +77,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/instrument/",
   "description": "# ADA Analysis Instrument\n\nExtends the core CDIF [instrument](https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/) building block for ADA analytical instruments. Instruments are typed as `schema:Thing` + `schema:Product` (from core) with domain-specific classifications in `schema:additionalType` (e.g. `nxs:BaseClass/NXinstrument`, `ada:AMSInstrument`).\n\nInherits all core instrument properties: hierarchical sub-components via `schema:hasPart`, manufacturer, model, ownership, calibration properties, and linked resources.\n",
   "examples": [
@@ -92,20 +92,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/instrument/example_1_1.json",
-          "sizeBytes": 513,
-          "code": "{\n  \"@type\": [\"schema:Thing\", \"schema:Product\"],\n  \"@id\": \"ex:instrument/EPMA\",\n  \"schema:name\": \"JEOL JXA-8530F Electron Microprobe\",\n  \"schema:description\": \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\",\n  \"schema:identifier\": [\"https://www.wikidata.org/wiki/Q116917974\"],\n  \"schema:additionalType\": [\"nxs:BaseClass/NXinstrument\", \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\", {\"@id\": \"https://www.wikidata.org/wiki/Q3099911\"}]\n}\n"
+          "sizeBytes": 531,
+          "code": "{\n  \"@type\": [\"schema:Thing\", \"schema:Product\"],\n  \"@id\": \"ex:instrument/EPMA\",\n  \"schema:name\": \"JEOL JXA-8530F Electron Microprobe\",\n  \"schema:description\": \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\",\n  \"schema:identifier\": [\"https://www.wikidata.org/wiki/Q116917974\"],\n  \"schema:additionalType\": [{\"@id\": \"nxs:BaseClass/NXinstrument\"}, {\"@id\": \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\"}, {\"@id\": \"https://www.wikidata.org/wiki/Q3099911\"}]\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/instrument/example_1_1.jsonld",
-          "sizeBytes": 796,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"https://manual.nexusformat.org/classes/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Thing\",\n    \"schema:Product\"\n  ],\n  \"@id\": \"ex:instrument/EPMA\",\n  \"schema:name\": \"JEOL JXA-8530F Electron Microprobe\",\n  \"schema:description\": \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\",\n  \"schema:identifier\": [\n    \"https://www.wikidata.org/wiki/Q116917974\"\n  ],\n  \"schema:additionalType\": [\n    \"nxs:BaseClass/NXinstrument\",\n    \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\",\n    {\n      \"@id\": \"https://www.wikidata.org/wiki/Q3099911\"\n    }\n  ]\n}"
+          "sizeBytes": 838,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"https://manual.nexusformat.org/classes/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Thing\",\n    \"schema:Product\"\n  ],\n  \"@id\": \"ex:instrument/EPMA\",\n  \"schema:name\": \"JEOL JXA-8530F Electron Microprobe\",\n  \"schema:description\": \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\",\n  \"schema:identifier\": [\n    \"https://www.wikidata.org/wiki/Q116917974\"\n  ],\n  \"schema:additionalType\": [\n    {\n      \"@id\": \"nxs:BaseClass/NXinstrument\"\n    },\n    {\n      \"@id\": \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\"\n    },\n    {\n      \"@id\": \"https://www.wikidata.org/wiki/Q3099911\"\n    }\n  ]\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/instrument/example_1_1.ttl",
-          "sizeBytes": 545,
-          "code": "@prefix schema1: <http://schema.org/> .\n\n<ex:instrument/EPMA> a schema1:Product,\n        schema1:Thing ;\n    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,\n        \"https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48\",\n        \"nxs:BaseClass/NXinstrument\" ;\n    schema1:description \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\" ;\n    schema1:identifier \"https://www.wikidata.org/wiki/Q116917974\" ;\n    schema1:name \"JEOL JXA-8530F Electron Microprobe\" .\n\n"
+          "sizeBytes": 580,
+          "code": "@prefix schema1: <http://schema.org/> .\n\n<ex:instrument/EPMA> a schema1:Product,\n        schema1:Thing ;\n    schema1:additionalType <https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48>,\n        <https://manual.nexusformat.org/classes/BaseClass/NXinstrument>,\n        <https://www.wikidata.org/wiki/Q3099911> ;\n    schema1:description \"Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers\" ;\n    schema1:identifier \"https://www.wikidata.org/wiki/Q116917974\" ;\n    schema1:name \"JEOL JXA-8530F Electron Microprobe\" .\n\n"
         }
       ]
     }

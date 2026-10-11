@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-02-05",
+  "dateOfLastChange": "2026-10-11",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -144,7 +144,7 @@
   "sourceLdContext": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/files/context.jsonld",
   "resolvedSchemaProperties": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/files/resolvedProperties.json",
   "sourceFiles": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/files/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/amds-ldeo/geochemBuildingBlocks/blob/main/build/tests/BaseSchema/files/",
   "description": "# Files Type\n\nDescribes properties for any file in an ADA product. Includes file metadata (name, description, checksum, size, encoding format), file detail classification (image, imageMap, tabularData, collection, dataCube, document, supDocImage, otherFile, or Metadata), and inter-file relationships via `schema:relatedLink`.\n",
   "examples": [
@@ -159,20 +159,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/files/example_1_1.json",
-          "sizeBytes": 732,
-          "code": "{\n  \"@type\": [\"ada:image\", \"schema:ImageObject\"],\n  \"schema:name\": \"ALH84001_BSE_001.tif\",\n  \"schema:encodingFormat\": [\"image/tiff\"],\n  \"schema:description\": \"Backscattered electron image of ALH84001 thin section\",\n  \"schema:size\": {\n    \"@type\": [\"schema:QuantitativeValue\"],\n    \"schema:value\": 4521984,\n    \"schema:unitText\": \"byte\"\n  },\n  \"schema:additionalType\": [\"ada:BSEImage\"],\n  \"ada:componentType\": \"ada:BSEImage\",\n  \"schema:relatedLink\": [\n    {\n      \"@type\": [\"schema:LinkRole\"],\n      \"schema:linkRelationship\": \"metadata\",\n      \"schema:target\": {\n        \"@type\": [\"schema:EntryPoint\"],\n        \"schema:encodingFormat\": \"application/json\",\n        \"schema:name\": \"ALH84001_BSE_001_metadata.json\"\n      }\n    }\n  ]\n}\n"
+          "sizeBytes": 741,
+          "code": "{\n  \"@type\": [\"ada:image\", \"schema:ImageObject\"],\n  \"schema:name\": \"ALH84001_BSE_001.tif\",\n  \"schema:encodingFormat\": [\"image/tiff\"],\n  \"schema:description\": \"Backscattered electron image of ALH84001 thin section\",\n  \"schema:size\": {\n    \"@type\": [\"schema:QuantitativeValue\"],\n    \"schema:value\": 4521984,\n    \"schema:unitText\": \"byte\"\n  },\n  \"schema:additionalType\": [{\"@id\": \"ada:BSEImage\"}],\n  \"ada:componentType\": \"ada:BSEImage\",\n  \"schema:relatedLink\": [\n    {\n      \"@type\": [\"schema:LinkRole\"],\n      \"schema:linkRelationship\": \"metadata\",\n      \"schema:target\": {\n        \"@type\": [\"schema:EntryPoint\"],\n        \"schema:encodingFormat\": \"application/json\",\n        \"schema:name\": \"ALH84001_BSE_001_metadata.json\"\n      }\n    }\n  ]\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/files/example_1_1.jsonld",
-          "sizeBytes": 1033,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/files/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:image\",\n    \"schema:ImageObject\"\n  ],\n  \"schema:name\": \"ALH84001_BSE_001.tif\",\n  \"schema:encodingFormat\": [\n    \"image/tiff\"\n  ],\n  \"schema:description\": \"Backscattered electron image of ALH84001 thin section\",\n  \"schema:size\": {\n    \"@type\": [\n      \"schema:QuantitativeValue\"\n    ],\n    \"schema:value\": 4521984,\n    \"schema:unitText\": \"byte\"\n  },\n  \"schema:additionalType\": [\n    \"ada:BSEImage\"\n  ],\n  \"ada:componentType\": \"ada:BSEImage\",\n  \"schema:relatedLink\": [\n    {\n      \"@type\": [\n        \"schema:LinkRole\"\n      ],\n      \"schema:linkRelationship\": \"metadata\",\n      \"schema:target\": {\n        \"@type\": [\n          \"schema:EntryPoint\"\n        ],\n        \"schema:encodingFormat\": \"application/json\",\n        \"schema:name\": \"ALH84001_BSE_001_metadata.json\"\n      }\n    }\n  ]\n}"
+          "sizeBytes": 1054,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/files/context.jsonld\"\n  ],\n  \"@type\": [\n    \"ada:image\",\n    \"schema:ImageObject\"\n  ],\n  \"schema:name\": \"ALH84001_BSE_001.tif\",\n  \"schema:encodingFormat\": [\n    \"image/tiff\"\n  ],\n  \"schema:description\": \"Backscattered electron image of ALH84001 thin section\",\n  \"schema:size\": {\n    \"@type\": [\n      \"schema:QuantitativeValue\"\n    ],\n    \"schema:value\": 4521984,\n    \"schema:unitText\": \"byte\"\n  },\n  \"schema:additionalType\": [\n    {\n      \"@id\": \"ada:BSEImage\"\n    }\n  ],\n  \"ada:componentType\": \"ada:BSEImage\",\n  \"schema:relatedLink\": [\n    {\n      \"@type\": [\n        \"schema:LinkRole\"\n      ],\n      \"schema:linkRelationship\": \"metadata\",\n      \"schema:target\": {\n        \"@type\": [\n          \"schema:EntryPoint\"\n        ],\n        \"schema:encodingFormat\": \"application/json\",\n        \"schema:name\": \"ALH84001_BSE_001_metadata.json\"\n      }\n    }\n  ]\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/files/example_1_1.ttl",
-          "sizeBytes": 850,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a schema1:ImageObject,\n        ada:image ;\n    schema1:additionalType \"ada:BSEImage\" ;\n    schema1:description \"Backscattered electron image of ALH84001 thin section\" ;\n    schema1:encodingFormat \"image/tiff\" ;\n    schema1:name \"ALH84001_BSE_001.tif\" ;\n    schema1:relatedLink [ a schema1:LinkRole ;\n            schema1:linkRelationship \"metadata\" ;\n            schema1:target [ a schema1:EntryPoint ;\n                    schema1:encodingFormat \"application/json\" ;\n                    schema1:name \"ALH84001_BSE_001_metadata.json\" ] ] ;\n    schema1:size [ a schema1:QuantitativeValue ;\n            schema1:unitText \"byte\" ;\n            schema1:value 4521984 ] ;\n    ada:componentType \"ada:BSEImage\" .\n\n"
+          "sizeBytes": 848,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a schema1:ImageObject,\n        ada:image ;\n    schema1:additionalType ada:BSEImage ;\n    schema1:description \"Backscattered electron image of ALH84001 thin section\" ;\n    schema1:encodingFormat \"image/tiff\" ;\n    schema1:name \"ALH84001_BSE_001.tif\" ;\n    schema1:relatedLink [ a schema1:LinkRole ;\n            schema1:linkRelationship \"metadata\" ;\n            schema1:target [ a schema1:EntryPoint ;\n                    schema1:encodingFormat \"application/json\" ;\n                    schema1:name \"ALH84001_BSE_001_metadata.json\" ] ] ;\n    schema1:size [ a schema1:QuantitativeValue ;\n            schema1:unitText \"byte\" ;\n            schema1:value 4521984 ] ;\n    ada:componentType \"ada:BSEImage\" .\n\n"
         }
       ]
     }

@@ -38,7 +38,9 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:description": "Example path-driven TEM product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Transmission Electron Microscopy",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
@@ -419,7 +421,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:TEMImage"
+            {
+              "@id": "ada:TEMImage"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -450,7 +454,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:TEMImage"
+            {
+              "@id": "ada:TEMImage"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -568,7 +574,9 @@ and technique component types on the archive distribution. Mock data for validat
   "schema:description": "Example path-driven TEM product record: dataset-level analysis detail plus technique component types on distribution.hasPart. Mock data.",
   "schema:additionalType": [
     "Transmission Electron Microscopy",
-    "ada:DataDeliveryPackage"
+    {
+      "@id": "ada:DataDeliveryPackage"
+    }
   ],
   "schema:identifier": {
     "@type": [
@@ -949,7 +957,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:TEMImage"
+            {
+              "@id": "ada:TEMImage"
+            }
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -980,7 +990,9 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:name": "ALH84001_ADA_methods.pdf",
           "schema:description": "Method description document for this analysis",
           "schema:additionalType": [
-            "ada:TEMImage"
+            {
+              "@id": "ada:TEMImage"
+            }
           ],
           "schema:encodingFormat": [
             "application/pdf"
@@ -1078,8 +1090,8 @@ and technique component types on the archive distribution. Mock data for validat
 
 ex:adaTEM-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType "Transmission Electron Microscopy",
-        "ada:DataDeliveryPackage" ;
+    schema1:additionalType ada:DataDeliveryPackage,
+        "Transmission Electron Microscopy" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
             schema1:contributor [ a schema1:Person ;
@@ -1175,7 +1187,7 @@ ex:adaTEM-example-001 a schema1:Dataset,
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
         ada:image ;
-    schema1:additionalType "ada:TEMImage" ;
+    schema1:additionalType ada:TEMImage ;
     schema1:description "ADA data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
     schema1:name "ALH84001_ADA_001.tif" ;
@@ -1190,7 +1202,7 @@ ex:adaProduct-file-001 a schema1:ImageObject,
 ex:adaProduct-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
         ada:document ;
-    schema1:additionalType "ada:TEMImage" ;
+    schema1:additionalType ada:TEMImage ;
     schema1:description "Method description document for this analysis" ;
     schema1:encodingFormat "application/pdf" ;
     schema1:name "ALH84001_ADA_methods.pdf" ;
