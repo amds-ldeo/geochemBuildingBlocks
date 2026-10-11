@@ -685,8 +685,17 @@ def build(tapp):
     schema = _schema(tapp, cfg)
     b.write(os.path.join(d, "schema.yaml"), b.dump_yaml(schema))
     ex = _example(tapp, cfg, cts)
+    mono = _example_monolithic(ex, cfg, cts)
+    # Identifier values on schema:additionalType / schema:propertyID go out as IRI
+    # references, which every site admits since #114. #86 wired this into
+    # build_tapp_examples and build_pathdriven but MISSED here, which left 68 of the 71
+    # remaining violations of CDIF's AdditionalTypeUriShouldBeIRIShape in the */profile
+    # examples -- the whole shortfall, in the one example generator that never got the pass.
+    import build_tapp_examples as bte
+    bte.idify_uri_values(ex)
+    bte.idify_uri_values(mono)
     _wj(os.path.join(d, "example" + cfg["cid"] + ".json"), ex)
-    _wj(os.path.join(d, "example" + cfg["cid"] + "-monolithic.json"), _example_monolithic(ex, cfg, cts))
+    _wj(os.path.join(d, "example" + cfg["cid"] + "-monolithic.json"), mono)
     _wj(os.path.join(d, "bblock.json"), _bblock(cfg))
     with open(os.path.join(d, "examples.yaml"), "w", encoding="utf-8", newline="\n") as f:
         f.write(_examples_yaml(cfg))
