@@ -169,6 +169,38 @@ jobs:
             exit 1
           fi
 
+      # registry/vocab/productType.json is the source of truth and adaProduct's
+      # schema:additionalType enum is GENERATED from it by apply_productType_enum.py.
+      # Nothing in the regeneration chain runs that applier -- check-schema-drift runs only
+      # resolve_schema.py --all and regenerate_schema_json.py -- so a hand-edit of the enum,
+      # or a vocabulary change that was never applied, would otherwise go undetected. Same
+      # gap check_componentType.py closes for componentType.
+      #
+      # It also checks that every product type an example USES is a vocabulary label. That
+      # is what the 13 missing terms were: ADA emitted them, the enum did not define them,
+      # and 927 of 1,333 record failures were that one `contains` pin.
+      - name: Check the productType vocabulary, enum and examples agree
+        id: producttype
+        run: python tools/check_productType.py 2>&1 | tee /tmp/producttype.log
+
+      - name: Explain a productType failure
+        if: failure() && steps.producttype.outcome == 'failure'
+        run: |
+          echo "The productType vocabulary, adaProduct's enum and the examples disagree."
+          echo
+          echo "    python tools/check_productType.py"
+          echo
+          echo "The vocabulary is the SOURCE: _sources/registry/vocab/productType.json."
+          echo "Add or correct the concept there -- skos:prefLabel for the form the corpus"
+          echo "carries most often, skos:altLabel for acronym and spelling variants -- then"
+          echo "regenerate the enum rather than editing it:"
+          echo
+          echo "    python tools/apply_productType_enum.py --write"
+          echo
+          echo "A product type is one concept per PRODUCT, not per technique: a technique may"
+          echo "yield an image, a collection and quantitative abundances, and each is its own"
+          echo "concept. Variants of one product are altLabels, never separate concepts."
+
       - name: Explain a policy failure
         if: failure() && steps.policy.outcome == 'failure'
         run: |
