@@ -27,15 +27,7 @@ allOf:
           written as a JSON-LD IRI reference, which is what CDIF's
           schemaorgProperties/additionalProperty SHACL asks for.
         items:
-          anyOf:
-          - type: string
-          - type: object
-            additionalProperties: false
-            required:
-            - '@id'
-            properties:
-              '@id':
-                type: string
+          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
         contains:
           enum:
             # ARGT

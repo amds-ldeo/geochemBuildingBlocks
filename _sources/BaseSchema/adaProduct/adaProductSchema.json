@@ -15,23 +15,7 @@
                     "type": "array",
                     "description": "Should have the ada product type and 'ada:DataDeliveryPackage'. The product type is a free label and stays a string -- `contains` below keys on it. 'ada:DataDeliveryPackage' is a CURIE, so it may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for.",
                     "items": {
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "required": [
-                                    "@id"
-                                ],
-                                "properties": {
-                                    "@id": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        ]
+                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
                     },
                     "contains": {
                         "enum": [

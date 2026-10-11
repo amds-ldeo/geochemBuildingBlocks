@@ -1,8 +1,10 @@
 # Serialization policy for `schema:additionalType` and `schema:propertyID`
 
-**Status: DRAFT.** Clause 1 needs a decision in `metadataBuildingBlocks`, because it makes gBB
-`$ref` a CDIF-owned `$def`. Clause 2 is enforced in this repo today by
-`tools/check_additionaltype_policy.py`.
+**Status: BOTH CLAUSES IMPLEMENTED AND ENFORCED**, by
+`tools/check_additionaltype_policy.py`, with no allowance on either —
+`docs/additionaltype_policy_open.json` is empty. Clause 2 landed first (it needed nothing
+upstream); clause 1 followed on 2026-10-11, once CDIF PR #51 had left a single spelling of
+`objectReference` beneath the shared shape.
 
 ## The problem this closes
 
@@ -48,14 +50,24 @@ one.
 **Where mBB and gBB stand** (parsed, counting every declaration under `_sources`; gBB at
 `211afba19`):
 
-| | mBB (20) | gBB (348 `additionalType`) |
-|---|---|---|
-| `$ref cdifConceptOrTermOrString` | **14** | 0 |
-| local `anyOf[…{@id}]` | 5 (all `xasProperties`) | 2 |
-| `type: string` only | **0** | 3 |
-| `contains` pinning a bare string | 0 | **338** |
+| | mBB (20) | gBB, before | gBB, now |
+|---|---|---|---|
+| `$ref cdifConceptOrTermOrString` | **14** | 0 | **10** |
+| local `anyOf[…{@id}]` | 5 (all `xasProperties`) | 5 | 0 |
+| `type: string` only | **0** | 5 | **0** |
+| `contains` pinning a bare string | 0 | 338 | 338 (clause 2's domain, untouched) |
 
-So mBB effectively has the policy already and gBB has none of it.
+mBB effectively had the policy already; gBB now does too. The ten were **five string-only
+declarations** — the sites recorded as debt, which forbade `{"@id": …}` outright — and **five
+local restatements** of `anyOf[string, {@id}]`: `instrument`, which #77 cited as the precedent,
+`laboratory`, which carried the same shape, and `adaProduct` plus `tappDefinition` root and
+`WorkflowStep`, widened into it by #78/#79/#86. Leaving those five would have kept exactly the
+two-spellings problem this policy exists to prevent.
+
+The shared shape is strictly more permissive than either form it replaced — `string | {@id} |
+schema:DefinedTerm | inline cdif:Concept` — so no instance that validated could stop validating,
+and 647/647 examples confirmed it. Only the **value** node was replaced at each site: every
+`contains` pin, `minItems` and `schema:inDefinedTermSet` annotation stayed where it was.
 
 **The `xasProperties` entry above is not a second spelling**, and reading it as one was a
 mistake worth recording. Each of those blocks carries a one-line alias:
@@ -149,10 +161,13 @@ to bite in both directions: collapsing #79's dual-form discriminator back to `co
 bios:LabProcess` turns it red, and restoring it turns it green. A check that has never been
 observed failing is not known to work.
 
-Clause 1 has known open debt, so it compares against `docs/additionaltype_policy_open.json`. A
+Clause 1 compares against `docs/additionaltype_policy_open.json`, which is now **empty**: a
 violation **not** in that manifest fails, and a manifest entry that **no longer** violates also
-fails — a manifest that may silently rot is the failure mode `docs/SILENT_SUCCESS.md` exists to
-prevent. The five recorded entries are #77's unwidened sites.
+fails, because a manifest that may silently rot is the failure mode `docs/SILENT_SUCCESS.md`
+exists to prevent. Both halves have now been observed working. The fail-open half was verified in
+the change that added the check, by listing a compliant site; **the fail-closed half proved itself
+when clause 1 landed** — all five entries were reported stale and the check stayed red until they
+were removed, which is why the manifest could not quietly outlive the debt it recorded.
 
 ## Why a check and not just a convention
 
