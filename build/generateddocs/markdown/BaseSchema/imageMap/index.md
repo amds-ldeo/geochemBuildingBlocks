@@ -26,8 +26,16 @@ A spatially registered SEM elemental map image with pixel coordinates and spatia
   "ada:channel1": "Fe Ka",
   "ada:illuminationType": "Electron beam",
   "ada:imageType": "X-ray intensity map",
-  "ada:numPixelsX": 1024,
-  "ada:numPixelsY": 768,
+  "schema:width": {
+    "@type": ["schema:QuantitativeValue"],
+    "schema:value": 1024,
+    "schema:unitText": "pixel"
+  },
+  "schema:height": {
+    "@type": ["schema:QuantitativeValue"],
+    "schema:value": 768,
+    "schema:unitText": "pixel"
+  },
   "ada:spatialRegistration": {
     "ada:originX": 0.0,
     "ada:originY": 0.0,
@@ -60,8 +68,20 @@ A spatially registered SEM elemental map image with pixel coordinates and spatia
   "ada:channel1": "Fe Ka",
   "ada:illuminationType": "Electron beam",
   "ada:imageType": "X-ray intensity map",
-  "ada:numPixelsX": 1024,
-  "ada:numPixelsY": 768,
+  "schema:width": {
+    "@type": [
+      "schema:QuantitativeValue"
+    ],
+    "schema:value": 1024,
+    "schema:unitText": "pixel"
+  },
+  "schema:height": {
+    "@type": [
+      "schema:QuantitativeValue"
+    ],
+    "schema:value": 768,
+    "schema:unitText": "pixel"
+  },
   "ada:spatialRegistration": {
     "ada:originX": 0.0,
     "ada:originY": 0.0,
@@ -82,13 +102,17 @@ A spatially registered SEM elemental map image with pixel coordinates and spatia
 
 [] a schema1:ImageObject,
         ada:imageMap ;
+    schema1:height [ a schema1:QuantitativeValue ;
+            schema1:unitText "pixel" ;
+            schema1:value 768 ] ;
+    schema1:width [ a schema1:QuantitativeValue ;
+            schema1:unitText "pixel" ;
+            schema1:value 1024 ] ;
     ada:acquisitionTime "2024-03-15T14:35:00Z" ;
     ada:channel1 "Fe Ka" ;
     ada:componentType "ada:SEMEDSElementalMap" ;
     ada:illuminationType "Electron beam" ;
     ada:imageType "X-ray intensity map" ;
-    ada:numPixelsX 1024 ;
-    ada:numPixelsY 768 ;
     ada:spatialRegistration [ ada:coordDef "pixel-defined" ;
             ada:originLocation "upperLeft" ;
             ada:originX 0e+00 ;
