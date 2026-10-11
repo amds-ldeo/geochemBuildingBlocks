@@ -34,15 +34,7 @@ allOf:
         one term to select on without knowing the ADA vocabulary.
       type: array
       items:
-        anyOf:
-        - type: string
-        - type: object
-          additionalProperties: false
-          required:
-          - '@id'
-          properties:
-            '@id':
-              type: string
+        $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
       minItems: 1
       contains:
         type: object

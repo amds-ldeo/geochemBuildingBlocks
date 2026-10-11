@@ -110,15 +110,7 @@ properties:
       344/345 to 345/345.
     type: array
     items:
-      anyOf:
-      - type: string
-      - type: object
-        additionalProperties: false
-        required:
-        - '@id'
-        properties:
-          '@id':
-            type: string
+      $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
       
       
   'schema:measurementTechnique':
@@ -157,7 +149,7 @@ properties:
           'schema:additionalType':
             type: array
             items:
-              type: string
+              $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
           'schema:identifier':
             type: array
             items:
@@ -740,15 +732,7 @@ $defs:
           sample-preparation requirement.
         type: array
         items:
-          anyOf:
-          - type: string
-          - type: object
-            additionalProperties: false
-            required:
-            - '@id'
-            properties:
-              '@id':
-                type: string
+          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
       'schema:instrument':
         description: Instrument or equipment used in this step.
         anyOf:
@@ -1404,7 +1388,7 @@ $defs:
                 type: string
               minItems: 1
             'schema:propertyID':
-              type: string
+              $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
             'schema:value':
               type: string
       'schema:termCode':

@@ -18,23 +18,7 @@
                     "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:base_classes/NXinstrument.html) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary.",
                     "type": "array",
                     "items": {
-                        "anyOf": [
-                            {
-                                "type": "string"
-                            },
-                            {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "required": [
-                                    "@id"
-                                ],
-                                "properties": {
-                                    "@id": {
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        ]
+                        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
                     },
                     "minItems": 1,
                     "contains": {
