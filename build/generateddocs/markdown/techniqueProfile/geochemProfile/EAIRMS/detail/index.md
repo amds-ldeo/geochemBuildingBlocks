@@ -26,7 +26,7 @@ detail instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Institut
   "schema:measurementTechnique": [
     {
       "@id": "ex:eairmsTAPP-P0",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231209_ea-irms_cis_multisample_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Institut
   "schema:measurementTechnique": [
     {
       "@id": "ex:eairmsTAPP-P0",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231209_ea-irms_cis_multisample_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Institut
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231209_ea-irms_cis_multisample_1" .
 
-<ex:eairmsTAPP-P0> schema1:identifier "test value schema:identifier" .
+<ex:eairmsTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```

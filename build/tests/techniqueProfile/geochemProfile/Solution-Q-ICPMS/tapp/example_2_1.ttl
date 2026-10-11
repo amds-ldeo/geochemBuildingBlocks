@@ -22,18 +22,9 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "dissolution (200 µl 0.075 M HNO3) — §2; the paper does not call it a digestion" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "dissolution: 0.075 M HNO3 — §2" ] ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -43,9 +34,18 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3 × SD/m, with SD of several measurements of a sample whose ratio is close to the blank and m the calibration slope — Table 2 note b" ] ] ;
+                    ada:detectionLimitMethod "all: 3 × SD/m, with SD of several measurements of a sample whose ratio is close to the blank and m the calibration slope — Table 2 note b" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "dissolution (200 µl 0.075 M HNO3) — §2; the paper does not call it a digestion" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "dissolution: 0.075 M HNO3 — §2" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Cetac ASX-100 autosampler; auto lens on; 0.03 mm ID pump tubing at 12 rpm; Ca matrix effects tested over 60–240 ppm Ca (Table 1, §2, §3.5) Reported detail: ada:signalCollectionMode = Peak hopping — Table 1; ada:driftCorrectionMethod = Drift monitors of intermediate concentration every 3 samples, corrected off-line by linear interpolation between two consecutive monitors — §3.4." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -62,7 +62,7 @@
             schema1:target [ schema1:description "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)" ;
                     schema1:name "ICP-AES (for initial [Ca] determination; stated section 2)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "8 external calibration standards, then 50–80 samples interspersed with drift correction standards every 3 samples — 6–10 hours (§3.4)" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler" ;
@@ -85,7 +85,7 @@
                 [ ],
                 [ ] ;
             ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "monitoredProperty" ;
                     schema1:valueRequired true ;
@@ -103,10 +103,10 @@
     ada:samplingUnitType "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)" ;
     ada:secondaryReferenceMaterialDefault "N — precision and accuracy are assessed on external standards of known ratio (Table 2); core-top results are compared with published data (Table 4)" ;
     ada:signalCollectionMode "Peak hopping" ;
-    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
+    ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "foraminiferal calcite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -124,7 +124,7 @@
                 "U",
                 "Zn" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -157,7 +157,7 @@
             schema1:name "PerkinElmer" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "PerkinElmer Elan DRC II (stated section 2 and Table 1)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -198,25 +198,25 @@
     schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
@@ -340,13 +340,13 @@
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -357,7 +357,7 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -373,7 +373,7 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .

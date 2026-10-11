@@ -486,7 +486,7 @@ and technique component types on the archive distribution. Mock data for validat
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "EBSD Pattern Quality Threshold",
-      "dqv:value": "example ebsdPatternQualityThreshold"
+      "dqv:value": "no value available: ebsdPatternQualityThreshold"
     },
     {
       "dqv:isMeasurementOf": "EBSD Mean Angular Deviation",
@@ -985,7 +985,7 @@ and technique component types on the archive distribution. Mock data for validat
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "EBSD Pattern Quality Threshold",
-      "dqv:value": "example ebsdPatternQualityThreshold"
+      "dqv:value": "no value available: ebsdPatternQualityThreshold"
     },
     {
       "dqv:isMeasurementOf": "EBSD Mean Angular Deviation",
@@ -1093,7 +1093,7 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "example ebsdPatternQualityThreshold" ] ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;

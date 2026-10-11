@@ -332,7 +332,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -486,27 +486,27 @@ and technique component types on the archive distribution. Mock data for validat
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Beam Hardening Artifact Assessment",
-      "dqv:value": "example beamHardeningArtifactAssessment"
+      "dqv:value": "no value available: beamHardeningArtifactAssessment"
     },
     {
       "dqv:isMeasurementOf": "Ring Artifact Severity and Correction Outcome",
-      "dqv:value": "example ringArtifactSeverityAndCorrectionOutcome"
+      "dqv:value": "no value available: ringArtifactSeverityAndCorrectionOutcome"
     },
     {
       "dqv:isMeasurementOf": "Metal Streak Artifact Assessment",
-      "dqv:value": "example metalStreakArtifactAssessment"
+      "dqv:value": "no value available: metalStreakArtifactAssessment"
     },
     {
       "dqv:isMeasurementOf": "Partial Volume Effect Assessment",
-      "dqv:value": "example partialVolumeEffectAssessment"
+      "dqv:value": "no value available: partialVolumeEffectAssessment"
     },
     {
       "dqv:isMeasurementOf": "Signal-to-Noise Ratio",
-      "dqv:value": "example signalToNoiseRatio"
+      "dqv:value": "no value available: signalToNoiseRatio"
     },
     {
       "dqv:isMeasurementOf": "Cross-Validation Outcome",
-      "dqv:value": "example crossValidationOutcome"
+      "dqv:value": "no value available: crossValidationOutcome"
     }
   ]
 }
@@ -843,7 +843,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -997,27 +997,27 @@ and technique component types on the archive distribution. Mock data for validat
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Beam Hardening Artifact Assessment",
-      "dqv:value": "example beamHardeningArtifactAssessment"
+      "dqv:value": "no value available: beamHardeningArtifactAssessment"
     },
     {
       "dqv:isMeasurementOf": "Ring Artifact Severity and Correction Outcome",
-      "dqv:value": "example ringArtifactSeverityAndCorrectionOutcome"
+      "dqv:value": "no value available: ringArtifactSeverityAndCorrectionOutcome"
     },
     {
       "dqv:isMeasurementOf": "Metal Streak Artifact Assessment",
-      "dqv:value": "example metalStreakArtifactAssessment"
+      "dqv:value": "no value available: metalStreakArtifactAssessment"
     },
     {
       "dqv:isMeasurementOf": "Partial Volume Effect Assessment",
-      "dqv:value": "example partialVolumeEffectAssessment"
+      "dqv:value": "no value available: partialVolumeEffectAssessment"
     },
     {
       "dqv:isMeasurementOf": "Signal-to-Noise Ratio",
-      "dqv:value": "example signalToNoiseRatio"
+      "dqv:value": "no value available: signalToNoiseRatio"
     },
     {
       "dqv:isMeasurementOf": "Cross-Validation Outcome",
-      "dqv:value": "example crossValidationOutcome"
+      "dqv:value": "no value available: crossValidationOutcome"
     }
   ]
 }
@@ -1111,18 +1111,18 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "example crossValidationOutcome" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
+            dqv:value "no value available: signalToNoiseRatio" ],
         [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "example ringArtifactSeverityAndCorrectionOutcome" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "example partialVolumeEffectAssessment" ],
+            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "example beamHardeningArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
-            dqv:value "example signalToNoiseRatio" ],
+            dqv:value "no value available: beamHardeningArtifactAssessment" ],
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
-            dqv:value "example metalStreakArtifactAssessment" ] ;
+            dqv:value "no value available: metalStreakArtifactAssessment" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "no value available: crossValidationOutcome" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1194,7 +1194,7 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
-    schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:defaultValue "no value available: schema:defaultValue" ;
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
         "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
         "Sampling Unit Name reported for this dataset. Example value." ;

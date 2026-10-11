@@ -80,15 +80,15 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -172,15 +172,15 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -204,12 +204,12 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Ishizaki, Takuya" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | Infratec camera model ThermoHAWK H9000 (publication column of LIT_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Infratec." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
@@ -218,11 +218,11 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Lock-In Thermography" ] ;
     schema1:name "lit protocol — P0" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Infratec camera model ThermoHAWK H9000" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

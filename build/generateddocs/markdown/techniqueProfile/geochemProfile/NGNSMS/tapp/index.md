@@ -83,21 +83,21 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -184,21 +184,21 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -222,12 +222,12 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Fueri, Evelyn" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | (CNRS-CRPG)Nu Instruments Noblesse HR (publication column of NGNSMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Nu." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This work was cofunded by the European Union (ERC, IRONIS, 10187562). Support from the French Space Agency (CNES) is also acknowledged." ] ;
@@ -236,14 +236,14 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Noble gas and Nitrogen Static Mass Spectrometry" ] ;
     schema1:name "ngnsms protocol — P0" ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(CNRS-CRPG)Nu Instruments Noblesse HR" ;
     ada:reportedProperties "1 sigma | Sample | Laser power | Date | Cycles | Trap" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 

@@ -53,29 +53,29 @@ The procedure half of the LaserAblation module, with every property populated. G
 {
   "schema:instrument": [
     {
-      "schema:additionalType": "example value",
+      "schema:additionalType": "no value available: unnamed property",
       "schema:model": {
-        "schema:name": "example value"
+        "schema:name": "no value available: unnamed property"
       },
-      "ada:laserType": "example value",
-      "schema:name": "example value",
-      "ada:laserSpotGeometryDefault": "example value",
+      "ada:laserType": "no value available: unnamed property",
+      "schema:name": "no value available: unnamed property",
+      "ada:laserSpotGeometryDefault": "no value available: unnamed property",
       "ada:laserFluenceDefault": 1,
       "ada:laserRepetitionRateDefault": 1
     }
   ],
   "ada:ablationSamplingMode": [
-    "example value"
+    "no value available: unnamed property"
   ],
   "ada:ablationSpotDurationDefault": 1,
-  "ada:ablationPitDepthRateDefault": "example value",
-  "ada:rasterLineSpacingDefault": "example value",
-  "ada:internalStandardApproach": "example value",
-  "ada:sampleIntroduction": "example value",
+  "ada:ablationPitDepthRateDefault": "no value available: unnamed property",
+  "ada:rasterLineSpacingDefault": "no value available: unnamed property",
+  "ada:internalStandardApproach": "no value available: unnamed property",
+  "ada:sampleIntroduction": "no value available: unnamed property",
   "ada:backgroundCountTimeDefault": 1,
-  "ada:carrierGasFlowRateDefault": "example value",
+  "ada:carrierGasFlowRateDefault": "no value available: unnamed property",
   "ada:elementalFractionationCorrection": [
-    "example value"
+    "no value available: unnamed property"
   ]
 }
 ```
@@ -92,29 +92,29 @@ The procedure half of the LaserAblation module, with every property populated. G
   ],
   "schema:instrument": [
     {
-      "schema:additionalType": "example value",
+      "schema:additionalType": "no value available: unnamed property",
       "schema:model": {
-        "schema:name": "example value"
+        "schema:name": "no value available: unnamed property"
       },
-      "ada:laserType": "example value",
-      "schema:name": "example value",
-      "ada:laserSpotGeometryDefault": "example value",
+      "ada:laserType": "no value available: unnamed property",
+      "schema:name": "no value available: unnamed property",
+      "ada:laserSpotGeometryDefault": "no value available: unnamed property",
       "ada:laserFluenceDefault": 1,
       "ada:laserRepetitionRateDefault": 1
     }
   ],
   "ada:ablationSamplingMode": [
-    "example value"
+    "no value available: unnamed property"
   ],
   "ada:ablationSpotDurationDefault": 1,
-  "ada:ablationPitDepthRateDefault": "example value",
-  "ada:rasterLineSpacingDefault": "example value",
-  "ada:internalStandardApproach": "example value",
-  "ada:sampleIntroduction": "example value",
+  "ada:ablationPitDepthRateDefault": "no value available: unnamed property",
+  "ada:rasterLineSpacingDefault": "no value available: unnamed property",
+  "ada:internalStandardApproach": "no value available: unnamed property",
+  "ada:sampleIntroduction": "no value available: unnamed property",
   "ada:backgroundCountTimeDefault": 1,
-  "ada:carrierGasFlowRateDefault": "example value",
+  "ada:carrierGasFlowRateDefault": "no value available: unnamed property",
   "ada:elementalFractionationCorrection": [
-    "example value"
+    "no value available: unnamed property"
   ]
 }
 ```
@@ -125,22 +125,22 @@ The procedure half of the LaserAblation module, with every property populated. G
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:instrument [ schema1:additionalType "example value" ;
-            schema1:model [ schema1:name "example value" ] ;
-            schema1:name "example value" ;
+[] schema1:instrument [ schema1:additionalType "no value available: unnamed property" ;
+            schema1:model [ schema1:name "no value available: unnamed property" ] ;
+            schema1:name "no value available: unnamed property" ;
             ada:laserFluenceDefault 1 ;
             ada:laserRepetitionRateDefault 1 ;
-            ada:laserSpotGeometryDefault "example value" ;
-            ada:laserType "example value" ] ;
-    ada:ablationPitDepthRateDefault "example value" ;
-    ada:ablationSamplingMode "example value" ;
+            ada:laserSpotGeometryDefault "no value available: unnamed property" ;
+            ada:laserType "no value available: unnamed property" ] ;
+    ada:ablationPitDepthRateDefault "no value available: unnamed property" ;
+    ada:ablationSamplingMode "no value available: unnamed property" ;
     ada:ablationSpotDurationDefault 1 ;
     ada:backgroundCountTimeDefault 1 ;
-    ada:carrierGasFlowRateDefault "example value" ;
-    ada:elementalFractionationCorrection "example value" ;
-    ada:internalStandardApproach "example value" ;
-    ada:rasterLineSpacingDefault "example value" ;
-    ada:sampleIntroduction "example value" .
+    ada:carrierGasFlowRateDefault "no value available: unnamed property" ;
+    ada:elementalFractionationCorrection "no value available: unnamed property" ;
+    ada:internalStandardApproach "no value available: unnamed property" ;
+    ada:rasterLineSpacingDefault "no value available: unnamed property" ;
+    ada:sampleIntroduction "no value available: unnamed property" .
 
 
 ```
@@ -161,7 +161,7 @@ The analysis half of the LaserAblation module, with every property populated. Ge
                 "schema": "http://schema.org/",
                 "dcterms": "http://purl.org/dc/terms/"
               },
-              "@id": "example value",
+              "@id": "no value available: unnamed property",
               "@type": [
                 "schema:Product",
                 "schema:Thing"
@@ -171,77 +171,77 @@ The analysis half of the LaserAblation module, with every property populated. Ge
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
               ],
-              "schema:name": "example value",
-              "schema:description": "example value",
+              "schema:name": "no value available: unnamed property",
+              "schema:description": "no value available: unnamed property",
               "schema:alternateName": [
-                "example value"
+                "no value available: unnamed property"
               ],
               "schema:identifier": [
-                "example value"
+                "no value available: unnamed property"
               ],
-              "schema:url": "example value",
+              "schema:url": "no value available: unnamed property",
               "schema:manufacturer": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
                   "schema:Organization"
                 ],
                 "schema:additionalType": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:name": "example value",
-                "schema:alternateName": "example value",
-                "schema:description": "example value",
+                "schema:name": "no value available: unnamed property",
+                "schema:alternateName": "no value available: unnamed property",
+                "schema:description": "no value available: unnamed property",
                 "schema:identifier": {
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": "example value",
-                  "schema:value": "example value",
-                  "schema:url": "example value"
+                  "schema:propertyID": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:url": "no value available: unnamed property"
                 },
                 "schema:sameAs": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               },
               "schema:model": {
                 "@type": [
                   "schema:ProductModel"
                 ],
-                "schema:name": "example value",
-                "schema:identifier": "example value"
+                "schema:name": "no value available: unnamed property",
+                "schema:identifier": "no value available: unnamed property"
               },
               "schema:category": [
                 {
                   "@type": [
                     "schema:DefinedTerm"
                   ],
-                  "schema:name": "example value",
-                  "schema:identifier": "example value",
-                  "schema:inDefinedTermSet": "example value",
-                  "schema:termCode": "example value"
+                  "schema:name": "no value available: unnamed property",
+                  "schema:identifier": "no value available: unnamed property",
+                  "schema:inDefinedTermSet": "no value available: unnamed property",
+                  "schema:termCode": "no value available: unnamed property"
                 }
               ],
               "schema:owner": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
                   "schema:Organization"
                 ],
                 "schema:additionalType": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:name": "example value",
-                "schema:alternateName": "example value",
-                "schema:description": "example value",
+                "schema:name": "no value available: unnamed property",
+                "schema:alternateName": "no value available: unnamed property",
+                "schema:description": "no value available: unnamed property",
                 "schema:identifier": {
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": "example value",
-                  "schema:value": "example value",
-                  "schema:url": "example value"
+                  "schema:propertyID": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:url": "no value available: unnamed property"
                 },
                 "schema:sameAs": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               },
               "schema:contributor": [
@@ -249,9 +249,9 @@ The analysis half of the LaserAblation module, with every property populated. Ge
                   "@type": [
                     "schema:Role"
                   ],
-                  "schema:roleName": "example value",
+                  "schema:roleName": "no value available: unnamed property",
                   "schema:contributor": {
-                    "@id": "example value"
+                    "@id": "no value available: unnamed property"
                   }
                 }
               ],
@@ -261,41 +261,41 @@ The analysis half of the LaserAblation module, with every property populated. Ge
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
-                    "example value"
+                    "no value available: unnamed property"
                   ],
-                  "schema:name": "example value",
-                  "schema:value": "example value",
-                  "schema:unitCode": "example value",
-                  "schema:unitText": "example value"
+                  "schema:name": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:unitCode": "no value available: unnamed property",
+                  "schema:unitText": "no value available: unnamed property"
                 }
               ],
-              "schema:validFrom": "example value",
-              "schema:validThrough": "example value",
+              "schema:validFrom": "no value available: unnamed property",
+              "schema:validThrough": "no value available: unnamed property",
               "schema:hasPart": [
                 {
-                  "@id": "example value",
+                  "@id": "no value available: unnamed property",
                   "@type": [
                     "schema:Product",
                     "schema:Thing"
                   ],
-                  "schema:name": "example value",
+                  "schema:name": "no value available: unnamed property",
                   "schema:additionalType": [
                     {
                       "@id": "https://www.wikidata.org/wiki/Q3099911"
                     }
                   ],
-                  "ada:collectorConfiguration": "example value",
+                  "ada:collectorConfiguration": "no value available: unnamed property",
                   "ada:collectors": [
                     {
                       "@type": [
                         "ada:Collector"
                       ],
-                      "schema:name": "example value",
-                      "schema:description": "example value",
+                      "schema:name": "no value available: unnamed property",
+                      "schema:description": "no value available: unnamed property",
                       "schema:additionalProperty": [
                         {
-                          "schema:name": "example value",
-                          "schema:value": "example value"
+                          "schema:name": "no value available: unnamed property",
+                          "schema:value": "no value available: unnamed property"
                         }
                       ]
                     }
@@ -307,28 +307,28 @@ The analysis half of the LaserAblation module, with every property populated. Ge
                   "@type": [
                     "schema:LinkRole"
                   ],
-                  "schema:linkRelationship": "example value",
+                  "schema:linkRelationship": "no value available: unnamed property",
                   "schema:target": {
                     "@type": [
                       "schema:EntryPoint"
                     ],
-                    "schema:name": "example value",
-                    "schema:url": "example value",
-                    "schema:encodingFormat": "example value"
+                    "schema:name": "no value available: unnamed property",
+                    "schema:url": "no value available: unnamed property",
+                    "schema:encodingFormat": "no value available: unnamed property"
                   }
                 }
               ],
               "schema:subjectOf": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:dateModified": "example value",
+                "schema:dateModified": "no value available: unnamed property",
                 "schema:about": {
-                  "@id": "example value"
+                  "@id": "no value available: unnamed property"
                 },
                 "dcterms:conformsTo": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               }
             }
@@ -336,8 +336,8 @@ The analysis half of the LaserAblation module, with every property populated. Ge
         }
       ],
       "ada:ablationSpotDuration": 1,
-      "ada:ablationPitDepthRate": "example value",
-      "ada:rasterLineSpacing": "example value"
+      "ada:ablationPitDepthRate": "no value available: unnamed property",
+      "ada:rasterLineSpacing": "no value available: unnamed property"
     }
   ],
   "ada:spotDiameterMeasured": 1
@@ -365,7 +365,7 @@ The analysis half of the LaserAblation module, with every property populated. Ge
                 "schema": "http://schema.org/",
                 "dcterms": "http://purl.org/dc/terms/"
               },
-              "@id": "example value",
+              "@id": "no value available: unnamed property",
               "@type": [
                 "schema:Product",
                 "schema:Thing"
@@ -375,77 +375,77 @@ The analysis half of the LaserAblation module, with every property populated. Ge
                   "@id": "https://www.wikidata.org/wiki/Q3099911"
                 }
               ],
-              "schema:name": "example value",
-              "schema:description": "example value",
+              "schema:name": "no value available: unnamed property",
+              "schema:description": "no value available: unnamed property",
               "schema:alternateName": [
-                "example value"
+                "no value available: unnamed property"
               ],
               "schema:identifier": [
-                "example value"
+                "no value available: unnamed property"
               ],
-              "schema:url": "example value",
+              "schema:url": "no value available: unnamed property",
               "schema:manufacturer": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
                   "schema:Organization"
                 ],
                 "schema:additionalType": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:name": "example value",
-                "schema:alternateName": "example value",
-                "schema:description": "example value",
+                "schema:name": "no value available: unnamed property",
+                "schema:alternateName": "no value available: unnamed property",
+                "schema:description": "no value available: unnamed property",
                 "schema:identifier": {
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": "example value",
-                  "schema:value": "example value",
-                  "schema:url": "example value"
+                  "schema:propertyID": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:url": "no value available: unnamed property"
                 },
                 "schema:sameAs": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               },
               "schema:model": {
                 "@type": [
                   "schema:ProductModel"
                 ],
-                "schema:name": "example value",
-                "schema:identifier": "example value"
+                "schema:name": "no value available: unnamed property",
+                "schema:identifier": "no value available: unnamed property"
               },
               "schema:category": [
                 {
                   "@type": [
                     "schema:DefinedTerm"
                   ],
-                  "schema:name": "example value",
-                  "schema:identifier": "example value",
-                  "schema:inDefinedTermSet": "example value",
-                  "schema:termCode": "example value"
+                  "schema:name": "no value available: unnamed property",
+                  "schema:identifier": "no value available: unnamed property",
+                  "schema:inDefinedTermSet": "no value available: unnamed property",
+                  "schema:termCode": "no value available: unnamed property"
                 }
               ],
               "schema:owner": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
                   "schema:Organization"
                 ],
                 "schema:additionalType": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:name": "example value",
-                "schema:alternateName": "example value",
-                "schema:description": "example value",
+                "schema:name": "no value available: unnamed property",
+                "schema:alternateName": "no value available: unnamed property",
+                "schema:description": "no value available: unnamed property",
                 "schema:identifier": {
                   "@type": [
                     "schema:PropertyValue"
                   ],
-                  "schema:propertyID": "example value",
-                  "schema:value": "example value",
-                  "schema:url": "example value"
+                  "schema:propertyID": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:url": "no value available: unnamed property"
                 },
                 "schema:sameAs": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               },
               "schema:contributor": [
@@ -453,9 +453,9 @@ The analysis half of the LaserAblation module, with every property populated. Ge
                   "@type": [
                     "schema:Role"
                   ],
-                  "schema:roleName": "example value",
+                  "schema:roleName": "no value available: unnamed property",
                   "schema:contributor": {
-                    "@id": "example value"
+                    "@id": "no value available: unnamed property"
                   }
                 }
               ],
@@ -465,41 +465,41 @@ The analysis half of the LaserAblation module, with every property populated. Ge
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
-                    "example value"
+                    "no value available: unnamed property"
                   ],
-                  "schema:name": "example value",
-                  "schema:value": "example value",
-                  "schema:unitCode": "example value",
-                  "schema:unitText": "example value"
+                  "schema:name": "no value available: unnamed property",
+                  "schema:value": "no value available: unnamed property",
+                  "schema:unitCode": "no value available: unnamed property",
+                  "schema:unitText": "no value available: unnamed property"
                 }
               ],
-              "schema:validFrom": "example value",
-              "schema:validThrough": "example value",
+              "schema:validFrom": "no value available: unnamed property",
+              "schema:validThrough": "no value available: unnamed property",
               "schema:hasPart": [
                 {
-                  "@id": "example value",
+                  "@id": "no value available: unnamed property",
                   "@type": [
                     "schema:Product",
                     "schema:Thing"
                   ],
-                  "schema:name": "example value",
+                  "schema:name": "no value available: unnamed property",
                   "schema:additionalType": [
                     {
                       "@id": "https://www.wikidata.org/wiki/Q3099911"
                     }
                   ],
-                  "ada:collectorConfiguration": "example value",
+                  "ada:collectorConfiguration": "no value available: unnamed property",
                   "ada:collectors": [
                     {
                       "@type": [
                         "ada:Collector"
                       ],
-                      "schema:name": "example value",
-                      "schema:description": "example value",
+                      "schema:name": "no value available: unnamed property",
+                      "schema:description": "no value available: unnamed property",
                       "schema:additionalProperty": [
                         {
-                          "schema:name": "example value",
-                          "schema:value": "example value"
+                          "schema:name": "no value available: unnamed property",
+                          "schema:value": "no value available: unnamed property"
                         }
                       ]
                     }
@@ -511,28 +511,28 @@ The analysis half of the LaserAblation module, with every property populated. Ge
                   "@type": [
                     "schema:LinkRole"
                   ],
-                  "schema:linkRelationship": "example value",
+                  "schema:linkRelationship": "no value available: unnamed property",
                   "schema:target": {
                     "@type": [
                       "schema:EntryPoint"
                     ],
-                    "schema:name": "example value",
-                    "schema:url": "example value",
-                    "schema:encodingFormat": "example value"
+                    "schema:name": "no value available: unnamed property",
+                    "schema:url": "no value available: unnamed property",
+                    "schema:encodingFormat": "no value available: unnamed property"
                   }
                 }
               ],
               "schema:subjectOf": {
-                "@id": "example value",
+                "@id": "no value available: unnamed property",
                 "@type": [
-                  "example value"
+                  "no value available: unnamed property"
                 ],
-                "schema:dateModified": "example value",
+                "schema:dateModified": "no value available: unnamed property",
                 "schema:about": {
-                  "@id": "example value"
+                  "@id": "no value available: unnamed property"
                 },
                 "dcterms:conformsTo": [
-                  "example value"
+                  "no value available: unnamed property"
                 ]
               }
             }
@@ -540,8 +540,8 @@ The analysis half of the LaserAblation module, with every property populated. Ge
         }
       ],
       "ada:ablationSpotDuration": 1,
-      "ada:ablationPitDepthRate": "example value",
-      "ada:rasterLineSpacing": "example value"
+      "ada:ablationPitDepthRate": "no value available: unnamed property",
+      "ada:rasterLineSpacing": "no value available: unnamed property"
     }
   ],
   "ada:spotDiameterMeasured": 1
@@ -555,9 +555,9 @@ The analysis half of the LaserAblation module, with every property populated. Ge
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] prov:wasGeneratedBy [ prov:used [ ] ;
-            ada:ablationPitDepthRate "example value" ;
+            ada:ablationPitDepthRate "no value available: unnamed property" ;
             ada:ablationSpotDuration 1 ;
-            ada:rasterLineSpacing "example value" ] ;
+            ada:rasterLineSpacing "no value available: unnamed property" ] ;
     ada:spotDiameterMeasured 1 .
 
 

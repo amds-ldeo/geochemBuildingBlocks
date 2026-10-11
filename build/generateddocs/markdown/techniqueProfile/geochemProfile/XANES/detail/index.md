@@ -26,7 +26,7 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
   "schema:measurementTechnique": [
     {
       "@id": "ex:xanesTAPP-Gainsforth2023",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
   "schema:measurementTechnique": [
     {
       "@id": "ex:xanesTAPP-Gainsforth2023",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)" .
 
-<ex:xanesTAPP-Gainsforth2023> schema1:identifier "test value schema:identifier" .
+<ex:xanesTAPP-Gainsforth2023> schema1:identifier "no value available: schema:identifier" .
 
 
 ```

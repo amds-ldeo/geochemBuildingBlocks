@@ -47,7 +47,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -77,7 +77,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -156,7 +156,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:beamMode": "missing",
       "ada:mappingBeamCurrentDefault": -9999,
       "ada:mappingBeamDiameterDefault": -9999,
@@ -234,7 +234,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -249,14 +249,14 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsAcquisitionMode": "missing",
@@ -264,7 +264,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -315,7 +315,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -345,7 +345,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -424,7 +424,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:beamMode": "missing",
       "ada:mappingBeamCurrentDefault": -9999,
       "ada:mappingBeamDiameterDefault": -9999,
@@ -502,7 +502,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -517,14 +517,14 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsAcquisitionMode": "missing",
@@ -532,7 +532,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -556,18 +556,18 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v83.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -580,7 +580,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "missing" ;
@@ -594,7 +594,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "associated minerals" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -619,7 +619,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "ZEISS 1550VP" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltageDefault "10 kV" ;
     ada:beamDiameterDefault "N — the '0.1 μm beam diameter' (p.2) is the EPMA's, not the SEM's" ;
     ada:beamMode "missing" ;
@@ -668,7 +668,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
@@ -714,7 +714,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -744,7 +744,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -823,7 +823,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:beamDiameterDefault": -9999,
       "ada:mappingBeamCurrentDefault": -9999,
       "ada:mappingBeamDiameterDefault": -9999,
@@ -881,7 +881,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -896,14 +896,14 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsAcquisitionMode": "missing",
@@ -912,7 +912,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -962,7 +962,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -992,7 +992,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -1071,7 +1071,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:beamDiameterDefault": -9999,
       "ada:mappingBeamCurrentDefault": -9999,
       "ada:mappingBeamDiameterDefault": -9999,
@@ -1129,7 +1129,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -1144,14 +1144,14 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsAcquisitionMode": "missing",
@@ -1160,7 +1160,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -1186,15 +1186,15 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1205,7 +1205,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "CL (same instrument); BSE Imaging (same instrument, same session); EPMA with WDS (JEOL JXA-8900R, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "missing" ;
@@ -1219,7 +1219,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "constituent minerals" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -1243,7 +1243,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
             schema1:name "JEOL" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JSM-5410LV" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltageDefault "15 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "all: Focused — 'The accelerating voltage was 15 kV and the beam current was 2.0 nA, with a focused beam' (p.2)" ;
@@ -1285,7 +1285,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
@@ -1331,7 +1331,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -1361,7 +1361,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -1438,7 +1438,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
@@ -1505,7 +1505,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -1520,14 +1520,14 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
@@ -1535,7 +1535,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -1585,7 +1585,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -1615,7 +1615,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -1692,7 +1692,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
@@ -1759,7 +1759,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -1774,14 +1774,14 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
@@ -1789,7 +1789,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -1813,17 +1813,17 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -1836,7 +1836,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "Map" ;
@@ -1850,7 +1850,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -1874,7 +1874,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Leo 440" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
@@ -1916,7 +1916,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
@@ -1962,7 +1962,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -1992,7 +1992,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -2069,7 +2069,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
@@ -2136,7 +2136,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -2151,14 +2151,14 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
@@ -2166,7 +2166,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -2216,7 +2216,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -2246,7 +2246,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -2323,7 +2323,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
@@ -2390,7 +2390,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -2405,14 +2405,14 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
@@ -2420,7 +2420,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -2446,15 +2446,15 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -2467,7 +2467,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "Point" ;
@@ -2481,7 +2481,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -2505,7 +2505,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Leo 1540 FIB/SEM CrossBeam" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
@@ -2547,7 +2547,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
@@ -2593,7 +2593,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -2623,7 +2623,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -2702,7 +2702,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:beamMode": "missing",
       "ada:mappingBeamCurrentDefault": -9999,
       "ada:mappingBeamDiameterDefault": -9999,
@@ -2761,7 +2761,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent",
@@ -2790,7 +2790,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "xRayBackgroundCorrectionMethod",
         "schema:name": "X-ray Background Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection",
@@ -2827,7 +2827,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "xRayLineOverlapCorrectionsApplied",
         "schema:name": "X-ray Line Overlap Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferingElements",
@@ -2946,7 +2946,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -2965,14 +2965,14 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -3022,7 +3022,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -3052,7 +3052,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -3131,7 +3131,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:beamMode": "missing",
       "ada:mappingBeamCurrentDefault": -9999,
       "ada:mappingBeamDiameterDefault": -9999,
@@ -3190,7 +3190,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent",
@@ -3219,7 +3219,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "xRayBackgroundCorrectionMethod",
         "schema:name": "X-ray Background Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection",
@@ -3256,7 +3256,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "xRayLineOverlapCorrectionsApplied",
         "schema:name": "X-ray Line Overlap Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferingElements",
@@ -3375,7 +3375,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -3394,14 +3394,14 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -3426,7 +3426,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -3437,7 +3437,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy) Reported detail: ada:edsAcquisitionMode = Spot analysis." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -3450,7 +3450,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "N/A" ;
@@ -3464,7 +3464,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -3475,7 +3475,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -3496,10 +3496,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> ;
             ada:targetSpeciesDeclaration "N — no element set is stated for the SEM-EDS spot analyses; the list 'Mg, Si, Fe, Ni, S, Na, Ca, Al' formerly here is not in the paper" ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -3513,7 +3513,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Supra 40" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltageDefault "20 kV" ;
     ada:beamDiameterDefault "N — a 30 μm aperture is stated (p.3), not a beam diameter" ;
     ada:beamMode "missing" ;
@@ -3569,7 +3569,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
@@ -3626,13 +3626,13 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "X-ray Background Correction Method" ;
     schema1:valueName "xRayBackgroundCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "X-ray Line Overlap Corrections Applied" ;
     schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
     ada:dataType "string" .
@@ -3683,7 +3683,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -3713,7 +3713,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -3792,7 +3792,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:mappingBeamCurrentDefault": -9999,
@@ -3852,7 +3852,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent",
@@ -3881,7 +3881,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "xRayBackgroundCorrectionMethod",
         "schema:name": "X-ray Background Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection",
@@ -3918,7 +3918,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "xRayLineOverlapCorrectionsApplied",
         "schema:name": "X-ray Line Overlap Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferingElements",
@@ -4037,7 +4037,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -4056,13 +4056,13 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -4112,7 +4112,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -4142,7 +4142,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -4221,7 +4221,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:mappingBeamCurrentDefault": -9999,
@@ -4281,7 +4281,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent",
@@ -4310,7 +4310,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "xRayBackgroundCorrectionMethod",
         "schema:name": "X-ray Background Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection",
@@ -4347,7 +4347,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
         "schema:valueName": "xRayLineOverlapCorrectionsApplied",
         "schema:name": "X-ray Line Overlap Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferingElements",
@@ -4466,7 +4466,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -4485,13 +4485,13 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -4514,19 +4514,19 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EDS mapping: 20 kV, 60 µm aperture, 5 ms dwell per pixel, 1024×768 pixels, 2.5 µm pixel size, ~10 h total; element maps co-registered with BSE images Reported detail: ada:edsAcquisitionMode = Element mapping." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -4539,7 +4539,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "Map" ;
@@ -4553,7 +4553,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     ada:stepSizePixelSizeDefault "2.5 µm" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -4575,7 +4575,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                 "S",
                 "Si" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -4612,7 +4612,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Supra 40" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltageDefault "20 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
@@ -4661,7 +4661,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
@@ -4718,13 +4718,13 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "X-ray Background Correction Method" ;
     schema1:valueName "xRayBackgroundCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "X-ray Line Overlap Corrections Applied" ;
     schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
     ada:dataType "string" .
@@ -4775,7 +4775,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -4805,7 +4805,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -4882,7 +4882,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:mappingBeamCurrentDefault": -9999,
@@ -4962,7 +4962,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -4981,14 +4981,14 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -5038,7 +5038,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -5068,7 +5068,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -5145,7 +5145,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
       "ada:mappingBeamCurrentDefault": -9999,
@@ -5225,7 +5225,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -5244,14 +5244,14 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -5283,8 +5283,8 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v83.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -5297,7 +5297,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "Point" ;
@@ -5311,7 +5311,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -5322,10 +5322,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford AZtec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford AZtec (Point & ID programme)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford AZtec" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5339,7 +5339,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             schema1:name "JEOL" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "7600F" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltageDefault "15 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
@@ -5381,7 +5381,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
@@ -5427,7 +5427,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -5457,7 +5457,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -5533,7 +5533,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
@@ -5613,7 +5613,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -5632,7 +5632,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
@@ -5640,7 +5640,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -5690,7 +5690,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -5720,7 +5720,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -5796,7 +5796,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
         "schema:Thing"
       ],
       "@id": "ex:instrument/SEM",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "ada:acceleratingVoltageDefault": -9999,
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
@@ -5876,7 +5876,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -5895,7 +5895,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
@@ -5903,7 +5903,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -5928,7 +5928,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -5936,7 +5936,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                     schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -5949,7 +5949,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE/BSE Imaging (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "Map" ;
@@ -5963,7 +5963,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -5991,7 +5991,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
             schema1:name "Hitachi" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "S-4800" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
@@ -6033,7 +6033,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
@@ -6077,7 +6077,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -6107,7 +6107,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ],
     "ada:defaultTargetMaterials": []
@@ -6168,7 +6168,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -6183,7 +6183,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ]
   },
@@ -6261,7 +6261,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         ]
       },
       "schema:model": {
-        "schema:name": "test value schema:name",
+        "schema:name": "no value available: schema:name",
         "@type": [
           "schema:ProductModel"
         ]
@@ -6271,7 +6271,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsAcquisitionMode": "missing",
@@ -6280,7 +6280,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -6328,7 +6328,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
@@ -6358,7 +6358,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ],
     "ada:defaultTargetMaterials": []
@@ -6419,7 +6419,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -6434,7 +6434,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
           }
         ],
         "schema:position": 2,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ]
   },
@@ -6512,7 +6512,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         ]
       },
       "schema:model": {
-        "schema:name": "test value schema:name",
+        "schema:name": "no value available: schema:name",
         "@type": [
           "schema:ProductModel"
         ]
@@ -6522,7 +6522,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:edsAcquisitionMode": "missing",
@@ -6531,7 +6531,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
   "ada:matrixCorrectionMethod": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -6555,17 +6555,17 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -6577,7 +6577,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "NanoSIMS isotope mapping (CAMECA NanoSIMS 50L, NASA JSC); presolar grains identified by NanoSIMS then confirmed by SEM-EDS phase characterisation" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "missing" ;
@@ -6590,7 +6590,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
     ada:samplingUnitType "Grain (presolar grain) > Phase — EDS was used on grains first found by NanoSIMS raster imaging of \"aggregate QL material pressed onto a gold (Au) foil mount\": \"Two O-rich presolar grains were also analysed by SEM-EDS to further constrain the phase and to confirm the phase identifications\" (pp.10–11)" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -6614,7 +6614,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
-            schema1:name "test value schema:name" ] ;
+            schema1:name "no value available: schema:name" ] ;
     schema1:name "missing" ;
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
@@ -6656,7 +6656,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .

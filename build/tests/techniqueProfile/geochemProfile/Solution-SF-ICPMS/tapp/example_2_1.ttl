@@ -15,14 +15,7 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -44,9 +37,16 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3 × SD of six procedural blanks (MDL) — Table 2 note; the IDL is 3 × SD of six replicate measurements of 2% HNO3" ] ] ;
+                    ada:detectionLimitMethod "all: 3 × SD of six procedural blanks (MDL) — Table 2 note; the IDL is 3 × SD of six replicate measurements of 2% HNO3" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = Rh internal standard — 'In order to correct the instrumental drift, the internal standard concentration of Rh was kept constant at 5 ng mL−1 in the sample, calibration, and blank solutions' (§2.2)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -58,12 +58,12 @@
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
+    ada:analysisSequenceDefault "no value available: ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"Sample uptake rate 200 uL min-1\"; \"The components of the sample introduction system: nebulizer, spray chamber, torch, and the cones\"" ;
     ada:blankBackgroundCorrectionMethod "N — a blank solution in 2% HNO3 is part of the calibration set (§2.2); the blank correction is not described" ;
-    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "AG1-X8 anion exchange resin + TRUspec resin (stated section 2.3.2)" ;
     ada:driftCorrectionMethod "N/A" ;
     ada:finalSolutionMatrix "all: 2% HNO3 containing 5 ng/mL Rh — §2.3.2" ;
@@ -72,15 +72,15 @@
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:numberOfScansPerReplicate -9999 ;
-    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
+    ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Ge, Rb, Sr, Y, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (µg/g) — Table 3 (FER-2) in µg g⁻¹; the unit of Table 4 (samples) is not stated in its header" ;
     ada:samplingUnitType "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\"" ;
     ada:secondaryReferenceMaterialDefault "FER-2 — iron-formation reference material (CCRMP), 'used to validate of the proposed method' (§2.2)" ;
-    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
+    ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "magnetite",
                 "pyrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -117,7 +117,7 @@
                 "Yb",
                 "Zn" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -154,7 +154,7 @@
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Fisher Element I HR-ICP-MS (stated Table 1)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -316,13 +316,13 @@
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -333,7 +333,7 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -350,13 +350,13 @@
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
@@ -367,19 +367,19 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .

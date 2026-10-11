@@ -26,7 +26,7 @@ detail instance derived from ADA n=3 | Rickard, William | Curtin University | IO
   "schema:measurementTechnique": [
     {
       "@id": "ex:tofsimsTAPP-P0",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231125_tof-sims_cuwa_orex-501070-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=3 | Rickard, William | Curtin University | IO
   "schema:measurementTechnique": [
     {
       "@id": "ex:tofsimsTAPP-P0",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20231125_tof-sims_cuwa_orex-501070-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=3 | Rickard, William | Curtin University | IO
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231125_tof-sims_cuwa_orex-501070-0_1" .
 
-<ex:tofsimsTAPP-P0> schema1:identifier "test value schema:identifier" .
+<ex:tofsimsTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```

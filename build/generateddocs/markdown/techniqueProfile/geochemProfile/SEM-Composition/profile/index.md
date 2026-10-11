@@ -246,7 +246,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:deadTime": -9999,
-      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -373,7 +373,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -528,7 +528,7 @@ and technique component types on the archive distribution. Mock data for validat
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+      "dqv:value": "no value available: goodnessOfFitOrDispersionStatistic"
     }
   ]
 }
@@ -779,7 +779,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:deadTime": -9999,
-      "ada:proceduralBlankLevel": "test value ada:proceduralBlankLevel",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
       "schema:actionProcess": {
         "@id": "nil:missing"
       }
@@ -906,7 +906,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -1061,7 +1061,7 @@ and technique component types on the archive distribution. Mock data for validat
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
-      "dqv:value": "example goodnessOfFitOrDispersionStatistic"
+      "dqv:value": "no value available: goodnessOfFitOrDispersionStatistic"
     }
   ]
 }
@@ -1157,7 +1157,7 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1177,7 +1177,7 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:semCompositionTAPP-P0 ;
             ada:deadTime -9999 ;
-            ada:proceduralBlankLevel "test value ada:proceduralBlankLevel" ] ;
+            ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:mapDimensions 1e+00 .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
@@ -1232,7 +1232,7 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
-    schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:defaultValue "no value available: schema:defaultValue" ;
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
         "Detection Limit reported for this dataset. Example value.",
         "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",

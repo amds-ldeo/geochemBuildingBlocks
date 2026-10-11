@@ -56,11 +56,11 @@ The procedure half of the CollisionCell module, with every property populated. G
 {
   "schema:instrument": [
     {
-      "schema:additionalType": "example value",
+      "schema:additionalType": "no value available: unnamed property",
       "schema:hasPart": [
         {
-          "schema:additionalType": "example value",
-          "schema:name": "example value"
+          "schema:additionalType": "no value available: unnamed property",
+          "schema:name": "no value available: unnamed property"
         }
       ]
     }
@@ -79,11 +79,11 @@ The procedure half of the CollisionCell module, with every property populated. G
   ],
   "schema:instrument": [
     {
-      "schema:additionalType": "example value",
+      "schema:additionalType": "no value available: unnamed property",
       "schema:hasPart": [
         {
-          "schema:additionalType": "example value",
-          "schema:name": "example value"
+          "schema:additionalType": "no value available: unnamed property",
+          "schema:name": "no value available: unnamed property"
         }
       ]
     }
@@ -95,9 +95,9 @@ The procedure half of the CollisionCell module, with every property populated. G
 ```ttl
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:instrument [ schema1:additionalType "example value" ;
-            schema1:hasPart [ schema1:additionalType "example value" ;
-                    schema1:name "example value" ] ] .
+[] schema1:instrument [ schema1:additionalType "no value available: unnamed property" ;
+            schema1:hasPart [ schema1:additionalType "no value available: unnamed property" ;
+                    schema1:name "no value available: unnamed property" ] ] .
 
 
 ```

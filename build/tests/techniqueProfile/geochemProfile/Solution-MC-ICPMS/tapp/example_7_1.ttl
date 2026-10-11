@@ -14,6 +14,17 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupGainCalibrationMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "N/A — reference material solutions, no solid preparation" ;
                     schema1:name "Sample preparation" ;
@@ -30,19 +41,8 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupGainCalibrationMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
@@ -55,7 +55,7 @@
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v91.csv)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -68,12 +68,12 @@
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
-            schema1:defaultValue "test value schema:defaultValue" ;
+            schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
+    ada:analysisSequenceDefault "no value available: ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "Abundance sensitivity (0.5–1 ppm, from the low-mass tail of a 30 V 192Os beam on the SEM) corrected offline — §3.1" ;
-    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "N/A — reference material solutions" ;
     ada:finalSolutionMatrix "all: Teflon-distilled 3 or 5 mol/l HCl — 200 ng/ml to 2.5 µg/ml Os" ;
     ada:internalNormalizationElementAndIsotopeRatio "192Os/188Os = 3.083 — 189Os/188Os = 1.21978 also used for comparison" ;
@@ -90,7 +90,7 @@
                 [ ],
                 [ ] ;
             ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "monitoredProperty" ;
                     schema1:valueRequired true ;
@@ -102,13 +102,13 @@
                 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
+    ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "190Os/188Os, 189Os/188Os, 187Os/188Os, 186Os/188Os, 184Os/188Os — Table 7a" ;
     ada:samplingUnitType "Reference material solution aliquot — 200 ng/ml to 2.5 µg/ml Os, ~300 µl consumed per analysis" ;
     ada:secondaryReferenceMaterialDefault "UMd, DTM, LOsST, DROsS" ;
-    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
+    ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -119,7 +119,7 @@
             ada:targetMaterialDeclaration "Os reference material solution — UMd, DTM, LOsST and DROsS" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Os" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -154,7 +154,7 @@
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
@@ -163,7 +163,7 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration "test value ada:collectorConfiguration" .
+    ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -199,25 +199,25 @@
     schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
@@ -382,13 +382,13 @@
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -399,7 +399,7 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -415,7 +415,7 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .

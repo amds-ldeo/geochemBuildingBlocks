@@ -14,8 +14,16 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -26,21 +34,13 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)" ;
     schema1:instrument <ex:instrument/ICPMS>,
         <ex:instrument/Laser-Ablation-System> ;
@@ -58,9 +58,9 @@
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
+    ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)" ;
     ada:ablationSpotDurationDefault "N — not stated" ;
     ada:analysisSequenceDefault "N — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4); the order within a session is not described" ;
@@ -68,15 +68,15 @@
     ada:blankBackgroundCorrectionMethod "N — the background 'was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4); how it was subtracted is not described" ;
     ada:calibrationMeasurementFrequency "Before and after every session — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4)" ;
     ada:carrierGasFlowRateDefault "N — not stated" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: normalization to 100 wt% oxide total — 'For silicates and oxides, trace element abundances were calculated by normalization to 100 wt% oxide total' (Methods, p.4)" ;
     ada:internalStandardElement "all: none — oxide-total normalization (Methods, p.4)" ;
-    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
+    ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "N — not stated" ;
     ada:rasterLineSpacingDefault "N/A — spot analysis" ;
     ada:reportedProperties "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U (ppm) — trace element abundances in ppm, glass averages with 1σ and n in Table 3; mineral data in Table S1, not in the archived PDF" ;
-    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
+    ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "N — spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units" ;
     ada:samplingUnitType "Phase > Spot — \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF" ;
     ada:secondaryReferenceMaterialDefault "N — not stated" ;
@@ -86,7 +86,7 @@
                 "oxides",
                 "silicates" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -136,7 +136,7 @@
                 "Zn",
                 "Zr" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -155,7 +155,7 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
+    ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
             ada:toolRole "dataReduction" ] .
 
@@ -173,7 +173,7 @@
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500ce ICP-MS" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -208,7 +208,7 @@
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "GeoLasPro 193 nm Excimer laser-ablation system — Methods, p.4" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:laserFluenceDefault "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)" ;
     ada:laserRepetitionRateDefault "all: 5 Hz" ;
     ada:laserSpotGeometryDefault "all: 24 and 32 µm diameter, and 90 µm for a few olivine analyses — '24 and 32 µm diameter were commonly used for silicates and glass, and a few analyses were conducted on olivines using a 90 µm beam to evaluate whether the low signals of REEs are a result of insufficient sampling' (Methods, p.4)" ;
@@ -300,13 +300,13 @@
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -317,7 +317,7 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -334,13 +334,13 @@
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
@@ -351,19 +351,19 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .

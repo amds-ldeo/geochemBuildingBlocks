@@ -84,26 +84,26 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
   "ada:sampleMountDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -191,26 +191,26 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
   "ada:sampleMountDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -234,12 +234,12 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "King, Ashley" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction (publication column of XRD_TAPP_draft_v2.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
@@ -249,16 +249,16 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "X-ray diffraction" ] ;
     schema1:name "xrd protocol — King2024" ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:diffractometerGeometry "missing" ;
     ada:instrumentManufacturer "Custom-built" ;
     ada:instrumentModel "(NHM)Position Sensitive Detector X-ray Diffraction" ;
     ada:reportedProperties "Angle (degrees 2theta) | Intensity (counts)" ;
     ada:sampleMountDefault "missing" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:stepSizeDefault -9999 ;
     ada:targetMaterial "missing" ;
     ada:timePerStepDefault -9999 ;
@@ -343,26 +343,26 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
   "ada:sampleMountDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -450,26 +450,26 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
   "ada:sampleMountDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -493,12 +493,12 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "King, Ashley" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (JSC-ARES)Malvern PANalytical XPert Pro XRD (publication column of XRD_TAPP_draft_v2.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
@@ -508,16 +508,16 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "X-ray diffraction" ] ;
     schema1:name "xrd protocol — King2024-2" ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:diffractometerGeometry "missing" ;
     ada:instrumentManufacturer "Malvern PANalytical" ;
     ada:instrumentModel "(JSC-ARES)Malvern PANalytical XPert Pro XRD" ;
     ada:reportedProperties "Angle (degrees 2theta) | Intensity (counts)" ;
     ada:sampleMountDefault "missing" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:stepSizeDefault -9999 ;
     ada:targetMaterial "missing" ;
     ada:timePerStepDefault -9999 ;
@@ -602,26 +602,26 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
   "ada:sampleMountDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -709,26 +709,26 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
   "ada:sampleMountDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -752,12 +752,12 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "King, Ashley" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD (publication column of XRD_TAPP_draft_v2.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
@@ -767,16 +767,16 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "X-ray diffraction" ] ;
     schema1:name "xrd protocol — King2023" ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:diffractometerGeometry "missing" ;
     ada:instrumentManufacturer "Rigaku" ;
     ada:instrumentModel "Rigaku Rapid 2 Micro-XRD" ;
     ada:reportedProperties "Angle (degrees 2theta) | Intensity (counts)" ;
     ada:sampleMountDefault "missing" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:stepSizeDefault -9999 ;
     ada:targetMaterial "missing" ;
     ada:timePerStepDefault -9999 ;

@@ -26,7 +26,7 @@ detail instance derived from ADA n=3 | Dominguez, Gerardo | California State Uni
   "schema:measurementTechnique": [
     {
       "@id": "ex:nanoirTAPP-P0",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240216_nanoir_csusm_orex-803030-0_1",
@@ -62,7 +62,7 @@ detail instance derived from ADA n=3 | Dominguez, Gerardo | California State Uni
   "schema:measurementTechnique": [
     {
       "@id": "ex:nanoirTAPP-P0",
-      "schema:identifier": "test value schema:identifier"
+      "schema:identifier": "no value available: schema:identifier"
     }
   ],
   "ada:sessionIdentifier": "20240216_nanoir_csusm_orex-803030-0_1",
@@ -91,7 +91,7 @@ detail instance derived from ADA n=3 | Dominguez, Gerardo | California State Uni
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240216_nanoir_csusm_orex-803030-0_1" .
 
-<ex:nanoirTAPP-P0> schema1:identifier "test value schema:identifier" .
+<ex:nanoirTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```

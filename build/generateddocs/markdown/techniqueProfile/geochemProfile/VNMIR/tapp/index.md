@@ -87,31 +87,31 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "test value ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
   "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -202,31 +202,31 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "test value ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
   "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -250,12 +250,12 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Hiroi, Takahiro" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Nexus 870 FTIR (publication column of VNMIR_TAPP_draft_v2.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA PSEF grant. | NASA PSEF | (+1 more)" ] ;
@@ -265,12 +265,12 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Hiroi2023" ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
-    ada:calibrationStandardsDefault "test value ada:calibrationStandardsDefault" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:calibrationStandardsDefault "no value available: ada:calibrationStandardsDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:detector "missing" ;
     ada:instrumentManufacturer "Thermo Fisher Scientific (Nicolet)" ;
     ada:instrumentModel "Thermo/Nicolet Nexus 870 FTIR" ;
@@ -278,8 +278,8 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
     ada:reportedProperties "Wavelength (nm) (nm) | Reflectance | Reflectance (Reflectance) | Standard Deviation" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
     ada:spectralResolutionDefault -9999 ;
@@ -368,31 +368,31 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "test value ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
   "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -483,31 +483,31 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "test value ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
   "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -531,12 +531,12 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Hiroi, Takahiro" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directional (publication column of VNMIR_TAPP_draft_v2.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)" ] ;
@@ -546,12 +546,12 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Hiroi2023-2" ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
-    ada:calibrationStandardsDefault "test value ada:calibrationStandardsDefault" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:calibrationStandardsDefault "no value available: ada:calibrationStandardsDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:detector "missing" ;
     ada:instrumentManufacturer "Custom-built" ;
     ada:instrumentModel "Custom bi-directional" ;
@@ -559,8 +559,8 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
     ada:reportedProperties "Wavelength (nm) (nm) | Reflectance | Standard Deviation | Reflectance (Reflectance) | Standard Deviation (Reflectance)" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
     ada:spectralResolutionDefault -9999 ;
@@ -649,31 +649,31 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "test value ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
   "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -764,31 +764,31 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "test value ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
   "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -812,12 +812,12 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Milliken, Ralph" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FTIR microscope (publication column of VNMIR_TAPP_draft_v2.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
@@ -827,12 +827,12 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Milliken2024" ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
-    ada:calibrationStandardsDefault "test value ada:calibrationStandardsDefault" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:calibrationStandardsDefault "no value available: ada:calibrationStandardsDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:detector "missing" ;
     ada:instrumentManufacturer "Bruker" ;
     ada:instrumentModel "Bruker LUMOS FTIR microscope" ;
@@ -840,8 +840,8 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
     ada:reportedProperties "Wavenumber (cm-1) (cm-1) | Reflectance (Reflectance)" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
     ada:spectralResolutionDefault -9999 ;
@@ -930,31 +930,31 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "test value ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
   "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -1045,31 +1045,31 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "test value ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
+  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
   "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "schema:datePublished": "test value schema:datePublished"
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -1093,12 +1093,12 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Keller, Lindsay" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | JEOL 2500SE (publication column of VNMIR_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = JEOL." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
@@ -1108,12 +1108,12 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Keller2024" ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
-    ada:calibrationStandardsDefault "test value ada:calibrationStandardsDefault" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:calibrationStandardsDefault "no value available: ada:calibrationStandardsDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:detector "missing" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "JEOL 2500SE" ;
@@ -1121,8 +1121,8 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
     ada:reportedProperties "wavenumber (3999.49) | Clays (Percent transmission) | dolomite (Percent transmission) | calcite (Percent transmission) | MgPO4 (Percent transmission)" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
     ada:spectralResolutionDefault -9999 ;

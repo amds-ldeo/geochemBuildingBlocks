@@ -44,7 +44,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -54,7 +54,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ],
     "ada:defaultTargetMaterials": []
@@ -238,7 +238,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -281,7 +281,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     }
   ],
   "ada:carrierGasFlowRateDefault": "Ar, 0.6 L/min — Table 1, under 'Ar gas flow rate': 'Carrier gas 0.6 L/min'",
@@ -309,7 +309,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -319,7 +319,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -339,7 +339,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -349,7 +349,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -359,7 +359,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -369,7 +369,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -379,7 +379,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -398,7 +398,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -450,7 +450,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -479,7 +479,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
           }
         ],
         "schema:position": 3,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -558,22 +558,22 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -621,7 +621,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -631,7 +631,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ],
     "ada:defaultTargetMaterials": []
@@ -815,7 +815,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -858,7 +858,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     }
   ],
   "ada:carrierGasFlowRateDefault": "Ar, 0.6 L/min \u2014 Table 1, under 'Ar gas flow rate': 'Carrier gas 0.6 L/min'",
@@ -886,7 +886,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -896,7 +896,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -916,7 +916,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -926,7 +926,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -936,7 +936,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -946,7 +946,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -956,7 +956,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -975,7 +975,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -1027,7 +1027,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -1056,7 +1056,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
           }
         ],
         "schema:position": 3,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -1135,22 +1135,22 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -1179,25 +1179,25 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal (HSE) Spot analysis fs-LA-Q-ICP-MS Tokyo Institute of Technology (publication column of LA-Q-ICP-MS_TAPP_v96.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the JSPS Grants-in-Aid support the study as a whole and are recorded under Funding Source for Analysis" ] ;
@@ -1217,33 +1217,33 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
+    ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'ablated by a spot analysis mode' (p.3)" ;
     ada:ablationSpotDurationDefault -9999 ;
     ada:analysisSequenceDefault "N — Warburton Range and Tawallah Valley 'were used as an external standard and a secondary standard, respectively' (p.3); the order of analyses is not described" ;
     ada:backgroundCountTimeDefault -9999 ;
     ada:blankBackgroundCorrectionMethod "N — the signal 'decayed to the background level immediately after the end of ablation' (p.3); the background correction is not described" ;
-    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "Ar, 0.6 L/min — Table 1, under 'Ar gas flow rate': 'Carrier gas 0.6 L/min'" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:elementalFractionationCorrection "N — quantification is by 'the calibration curve method' against Warburton Range with ⁶¹Ni internal standardization (p.3); no fractionation correction as such is described" ;
     ada:internalStandardApproach "all: single element, its concentration measured by EPMA at the ablated spot — '61Ni was monitored for internal standardization. The concentration of Ni in the ablated spot was obtained by EPMA' (p.3)" ;
     ada:internalStandardElement "all: Ni (⁶¹Ni) — concentration from EPMA at the ablated spot (p.3)" ;
-    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
+    ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
+    ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedProperties "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm); HSE/Ir ratios; Re/Os abundance ratio — HSE abundances in metal, e.g. 'Ir abundance ranging from 1.08 to 2.53 ppm' (p.5), with major element abundances from EPMA alongside; the Re/Os abundance ratio feeds the reported 187Re/188Os, 'determined by the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS' (Table 3, p.8)" ;
-    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
+    ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Picked off prior electron images — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the grains themselves are sorted by setting into interior, margin and isolated metal (p.1)" ;
     ada:samplingUnitType "Grain > Spot — HSE abundances are reported per metal grain, each with its LA \"spot No.\" (table p.6); the grains are typed by where they sit — interior grains in a chondrule, margin grains in its surficial shell, isolated grains in the matrix (p.1)" ;
     ada:secondaryReferenceMaterialDefault "Tawallah Valley (IVB iron meteorite) — 'used as ... a secondary standard' (p.3), its HSE abundances from Walker et al. (2008)" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "N — the paper says only that 'the intensities of individual isotopes rapidly increased to the maximum and decayed to the background level immediately after the end of ablation' (p.3)" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -1262,7 +1262,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
                 "Rh",
                 "Ru" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -1281,7 +1281,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "test value ada:uncertaintyLevel" .
+    ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <ex:instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
@@ -1296,7 +1296,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Scientific X-series 2 (Q-ICP-MS)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -1333,7 +1333,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:laserFluenceDefault "12 J cm⁻²" ;
     ada:laserRepetitionRateDefault "all: 20 Hz" ;
     ada:laserSpotGeometryDefault "all: 30 µm diameter — 'Each spot analysis on the sample produced a pit of 30 µm in diameter' (p.3)" ;
@@ -1407,13 +1407,13 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -1424,7 +1424,7 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -1441,13 +1441,13 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
@@ -1458,19 +1458,19 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -1519,7 +1519,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -1529,7 +1529,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ],
     "ada:defaultTargetMaterials": []
@@ -1588,7 +1588,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -1813,7 +1813,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -1856,7 +1856,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: chamber gas 0.7 L/min; cup gas 0.1 L/min — Table 1",
@@ -1907,7 +1907,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -1917,7 +1917,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -1937,7 +1937,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -1947,7 +1947,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -1957,7 +1957,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -1967,7 +1967,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -1977,7 +1977,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -1996,7 +1996,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -2087,20 +2087,20 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -2148,7 +2148,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -2158,7 +2158,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ],
     "ada:defaultTargetMaterials": []
@@ -2217,7 +2217,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -2442,7 +2442,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -2485,7 +2485,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: chamber gas 0.7 L/min; cup gas 0.1 L/min \u2014 Table 1",
@@ -2536,7 +2536,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -2546,7 +2546,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -2566,7 +2566,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -2576,7 +2576,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -2586,7 +2586,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -2596,7 +2596,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -2606,7 +2606,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -2625,7 +2625,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -2716,20 +2716,20 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -2751,13 +2751,6 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
@@ -2771,13 +2764,20 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Li2B4O7 flux (350.0 ± 0.3 mg) and powdered sample (10.00 ± 0.03 mg) weighed into a small Pt–Au crucible, mixed with a glass rod, NH4Br solution added as a releasing agent, and fused into a mini glass disk on an M4 automatic fluxer; the disk measured for major elements by WD-XRF, then its surface cleaned with ethanol before fs-LA-ICP-MS (§2.3)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Xue, Li, Wang et al." ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples (Li-borate flux glass) Spot analysis fs-LA-Q-ICP-MS Chinese Academy of Sciences (publication column of LA-Q-ICP-MS_TAPP_v96.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the CAS Strategy Priority Research Program and NSFC grant support the study as a whole and are recorded under Funding Source for Analysis" ] ;
@@ -2792,33 +2792,33 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
+    ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Single spot — Table 1 'Ablation mode'" ;
     ada:ablationSpotDurationDefault "45 s ablation (after 25 s gas blank; 25 s washout between analyses)" ;
     ada:analysisSequenceDefault "Per spot: 25 s gas blank, 45 s ablation, 25 s washout between analyses (§2.2); the order of standards and unknowns is not described" ;
     ada:backgroundCountTimeDefault "25 s gas blank before each ablation" ;
     ada:blankBackgroundCorrectionMethod "25 s gas blank before each ablation; flux procedure-blank contributions deducted for V, Co, Zn, Ba, La, Ce, Ta and U — 'after measuring a gas blank for 25 s' (§2.2); 'All results of the eight pollution elements above have deducted the flux blank contributions' (§3.2)" ;
-    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He: chamber gas 0.7 L/min; cup gas 0.1 L/min — Table 1" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:elementalFractionationCorrection "N — the paper states that fs lasers 'are considered stoichiometric erosion processes without any element or isotope fractionation effects' (§3.4); no correction is described" ;
     ada:internalStandardApproach "all: two internal standard elements, chosen per target element — Si for Co, Ni, Cu and Zn, and Al for the others, after comparing Si, Ca and Al on GSR-3 (§3.3); the disks were 'initially measured for major elements by WD-XRF' (§2.3)" ;
     ada:internalStandardElement "all: Si (for Co, Ni, Cu, Zn), Al (for the other trace elements) — §3.3" ;
-    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
+    ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedProperties "Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Th, U — concentrations reported as 'Mean' with a '95% CI' per sample (Table 2), which gives no unit; the LODs are in µg g⁻¹ (§3.2). Relative standard deviations are the precision measure (§3.5)" ;
-    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
+    ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Coverage — \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), the grid being the test of whether the fused disc is homogeneous" ;
     ada:samplingUnitType "Aliquot (fused Li-borate glass disc) > Spot — \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), and compositions are reported as the mean of those spots, \"fs-LA-ICP-MS (n = 9 spots)\" (Table 2, p.8)" ;
     ada:secondaryReferenceMaterialDefault "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A — six silicate rock GRMs prepared as lithium borate glasses and 'analyzed to evaluate the performance of the proposed method' (§2.1); reference values from GeoReM (§3.5). The meteorites NWA13190 and NWA14526 are samples, compared with solution ICP-MS" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
+    ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -2860,7 +2860,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
                 "Zn",
                 "Zr" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -2879,7 +2879,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
+    ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "Iolite 4 (Paton et al. 2011)" ;
             ada:toolRole "dataReduction" ] .
 
@@ -2899,7 +2899,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -2935,7 +2935,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:laserFluenceDefault "6.79 J cm⁻²" ;
     ada:laserRepetitionRateDefault "all: 1 Hz" ;
     ada:laserSpotGeometryDefault "all: 100 µm — '100 µm-diameter ablating spots' (§2.2); Table 1 gives 'Ablation spot size 100 × 100 µm'" ;
@@ -3029,13 +3029,13 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -3046,7 +3046,7 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -3063,13 +3063,13 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
@@ -3080,19 +3080,19 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -3143,7 +3143,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -3153,7 +3153,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -3285,7 +3285,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -3336,7 +3336,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -3346,7 +3346,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -3366,7 +3366,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -3376,7 +3376,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -3386,7 +3386,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -3396,7 +3396,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -3406,7 +3406,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -3425,7 +3425,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -3477,7 +3477,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -3569,24 +3569,24 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
-  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:blankBackgroundCorrectionMethod": "no value available: ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -3636,7 +3636,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -3646,7 +3646,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -3778,7 +3778,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -3829,7 +3829,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -3839,7 +3839,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -3859,7 +3859,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -3869,7 +3869,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -3879,7 +3879,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -3889,7 +3889,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -3899,7 +3899,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -3918,7 +3918,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -3970,7 +3970,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -4062,24 +4062,24 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
-  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:blankBackgroundCorrectionMethod": "no value available: ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -4102,7 +4102,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -4126,7 +4126,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Li, Xu, Xiong et al." ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the CAS Strategic Priority Research Program and NSFC grants support the study as a whole and are recorded under Funding Source for Analysis" ] ;
@@ -4141,33 +4141,33 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
+    ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "N — ablation mode not explicitly stated; \"beam diameter\" terminology used but \"spot\" or \"spot mode\" not written" ;
     ada:ablationSpotDurationDefault -9999 ;
     ada:analysisSequenceDefault "N — NIST 610 is the external standard and NIST 612 and BCR-2G the monitoring standards (§2.2.2); the sequence is not described" ;
     ada:backgroundCountTimeDefault -9999 ;
-    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
-    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:blankBackgroundCorrectionMethod "no value available: ada:blankBackgroundCorrectionMethod" ;
+    ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He; flow not stated — 'Helium served as the carrier gas, to which nitrogen or argon gas was mixed for sensitivity optimization' (§2.2.2)" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: an element measured by EMP — 'with Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); which element serves the glass and which the sulfide is not stated" ;
     ada:internalStandardElement "all: Si, Fe — 'Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); the assignment to glass or sulfide is not stated" ;
-    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
+    ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
+    ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedProperties "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched silicate melt, per run (Table 1, p.3); S and H2O come from other methods, and the derived quantity reported is the sulfide/melt partition coefficient DAu (dimensionless, p.2)" ;
-    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
+    ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper states the beam diameter used for glasses (\"40 μm beam diameter for glasses\", p.4) but no rule for choosing where in a run product to ablate" ;
     ada:samplingUnitType "Phase (quenched silicate glass of one experimental run) > Spot — \"A Resonetic 193 nm ArF excimer laser with a 40 μm beam diameter for glasses\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)" ;
     ada:secondaryReferenceMaterialDefault "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
+    ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "quench product" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -4178,7 +4178,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Au",
                 "Cu" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -4197,7 +4197,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "test value ada:uncertaintyLevel" .
+    ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <ex:instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
@@ -4212,7 +4212,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -4280,13 +4280,13 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -4297,7 +4297,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -4314,13 +4314,13 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
@@ -4331,19 +4331,19 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -4394,7 +4394,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -4404,7 +4404,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -4536,7 +4536,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -4587,7 +4587,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -4597,7 +4597,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -4617,7 +4617,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -4627,7 +4627,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -4637,7 +4637,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -4647,7 +4647,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -4657,7 +4657,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -4676,7 +4676,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -4728,7 +4728,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -4757,7 +4757,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
           }
         ],
         "schema:position": 3,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -4820,24 +4820,24 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
-  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:blankBackgroundCorrectionMethod": "no value available: ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -4887,7 +4887,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -4897,7 +4897,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -5029,7 +5029,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -5080,7 +5080,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -5090,7 +5090,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -5110,7 +5110,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -5120,7 +5120,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -5130,7 +5130,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -5140,7 +5140,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -5150,7 +5150,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -5169,7 +5169,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -5221,7 +5221,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -5250,7 +5250,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
           }
         ],
         "schema:position": 3,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -5313,24 +5313,24 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
-  "ada:blankBackgroundCorrectionMethod": "test value ada:blankBackgroundCorrectionMethod",
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:blankBackgroundCorrectionMethod": "no value available: ada:blankBackgroundCorrectionMethod",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
+  "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -5353,14 +5353,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -5370,14 +5363,21 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liu, Li, Xu, Xiong et al." ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the CAS Strategic Priority Research Program and NSFC grants support the study as a whole and are recorded under Funding Source for Analysis" ] ;
@@ -5392,33 +5392,33 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
+    ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "N — ablation mode not explicitly stated" ;
     ada:ablationSpotDurationDefault -9999 ;
     ada:analysisSequenceDefault "N — NIST 610 is the external standard and NIST 612 and BCR-2G the monitoring standards (§2.2.2); the sequence is not described" ;
     ada:backgroundCountTimeDefault -9999 ;
-    ada:blankBackgroundCorrectionMethod "test value ada:blankBackgroundCorrectionMethod" ;
-    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:blankBackgroundCorrectionMethod "no value available: ada:blankBackgroundCorrectionMethod" ;
+    ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He; flow not stated — 'Helium served as the carrier gas, to which nitrogen or argon gas was mixed for sensitivity optimization' (§2.2.2)" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: an element measured by EMP — 'with Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); which element serves the glass and which the sulfide is not stated" ;
     ada:internalStandardElement "all: Si, Fe — 'Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); the assignment to glass or sulfide is not stated" ;
-    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
+    ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
+    ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedProperties "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched sulfide per run (Table 1, p.3), which with the coexisting glass give the sulfide/melt partition coefficient DAu (dimensionless, p.2)" ;
-    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
+    ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Sulfide grains larger than 20 µm, wider than the beam — '20 μm for sulfides, selecting grain sizes larger than 20 µm for the latter' (§2.2.2)" ;
     ada:samplingUnitType "Phase (quenched sulfide of one experimental run) > Spot — \"20 μm for sulfides, selecting grain sizes larger than 20 µm for the latter\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)" ;
     ada:secondaryReferenceMaterialDefault "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)" ;
     ada:signalCollectionMode "missing" ;
-    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
+    ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "experimental sulfide" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -5429,7 +5429,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Au",
                 "Cu" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -5448,7 +5448,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "test value ada:uncertaintyLevel" .
+    ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <ex:instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
@@ -5463,7 +5463,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -5531,13 +5531,13 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -5548,7 +5548,7 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -5565,13 +5565,13 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
@@ -5582,19 +5582,19 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -5647,7 +5647,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -5657,7 +5657,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -5715,7 +5715,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -5936,7 +5936,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -5980,7 +5980,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     }
   ],
   "ada:carrierGasFlowRateDefault": "N — not stated",
@@ -6040,7 +6040,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -6050,7 +6050,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -6070,7 +6070,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -6080,7 +6080,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -6090,7 +6090,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -6100,7 +6100,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -6110,7 +6110,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -6129,7 +6129,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -6216,18 +6216,18 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -6279,7 +6279,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -6289,7 +6289,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -6347,7 +6347,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -6568,7 +6568,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -6612,7 +6612,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     }
   ],
   "ada:carrierGasFlowRateDefault": "N \u2014 not stated",
@@ -6672,7 +6672,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -6682,7 +6682,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -6702,7 +6702,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -6712,7 +6712,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -6722,7 +6722,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -6732,7 +6732,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -6742,7 +6742,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -6761,7 +6761,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -6848,18 +6848,18 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -6881,8 +6881,16 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -6893,21 +6901,13 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)" ;
     schema1:instrument <ex:instrument/ICPMS>,
         <ex:instrument/Laser-Ablation-System> ;
@@ -6925,9 +6925,9 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
+    ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)" ;
     ada:ablationSpotDurationDefault "N — not stated" ;
     ada:analysisSequenceDefault "N — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4); the order within a session is not described" ;
@@ -6935,15 +6935,15 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:blankBackgroundCorrectionMethod "N — the background 'was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4); how it was subtracted is not described" ;
     ada:calibrationMeasurementFrequency "Before and after every session — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4)" ;
     ada:carrierGasFlowRateDefault "N — not stated" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: normalization to 100 wt% oxide total — 'For silicates and oxides, trace element abundances were calculated by normalization to 100 wt% oxide total' (Methods, p.4)" ;
     ada:internalStandardElement "all: none — oxide-total normalization (Methods, p.4)" ;
-    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
+    ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "N — not stated" ;
     ada:rasterLineSpacingDefault "N/A — spot analysis" ;
     ada:reportedProperties "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U (ppm) — trace element abundances in ppm, glass averages with 1σ and n in Table 3; mineral data in Table S1, not in the archived PDF" ;
-    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
+    ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "N — spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units" ;
     ada:samplingUnitType "Phase > Spot — \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF" ;
     ada:secondaryReferenceMaterialDefault "N — not stated" ;
@@ -6953,7 +6953,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
                 "oxides",
                 "silicates" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -7003,7 +7003,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
                 "Zn",
                 "Zr" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -7022,7 +7022,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
+    ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
             ada:toolRole "dataReduction" ] .
 
@@ -7040,7 +7040,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500ce ICP-MS" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -7075,7 +7075,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "GeoLasPro 193 nm Excimer laser-ablation system — Methods, p.4" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:laserFluenceDefault "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)" ;
     ada:laserRepetitionRateDefault "all: 5 Hz" ;
     ada:laserSpotGeometryDefault "all: 24 and 32 µm diameter, and 90 µm for a few olivine analyses — '24 and 32 µm diameter were commonly used for silicates and glass, and a few analyses were conducted on olivines using a 90 µm beam to evaluate whether the low signals of REEs are a result of insufficient sampling' (Methods, p.4)" ;
@@ -7167,13 +7167,13 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -7184,7 +7184,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -7201,13 +7201,13 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
@@ -7218,19 +7218,19 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -7281,7 +7281,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -7291,7 +7291,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -7349,7 +7349,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -7570,7 +7570,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -7614,7 +7614,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     }
   ],
   "ada:carrierGasFlowRateDefault": "N — not stated",
@@ -7649,7 +7649,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -7659,7 +7659,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -7679,7 +7679,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -7689,7 +7689,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -7699,7 +7699,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -7709,7 +7709,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -7719,7 +7719,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -7738,7 +7738,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -7825,18 +7825,18 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -7886,7 +7886,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -7896,7 +7896,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -7954,7 +7954,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description",
+        "schema:description": "no value available: schema:description",
         "schema:additionalProperty": []
       },
       {
@@ -8175,7 +8175,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
+      "schema:name": "no value available: schema:name",
       "schema:manufacturer": {
         "schema:name": "missing",
         "@type": [
@@ -8219,7 +8219,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:Thing"
       ],
       "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     }
   ],
   "ada:carrierGasFlowRateDefault": "N \u2014 not stated",
@@ -8254,7 +8254,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -8264,7 +8264,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -8284,7 +8284,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -8294,7 +8294,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -8304,7 +8304,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -8314,7 +8314,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -8324,7 +8324,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -8343,7 +8343,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -8430,18 +8430,18 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
-  "ada:uncertaintyLevel": "test value ada:uncertaintyLevel",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -8463,13 +8463,6 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType bios:LabProcess ;
@@ -8483,13 +8476,20 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ] ] ;
+                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite Phosphate (merrillite) Spot analysis LA-Q-ICP-MS Virginia Tech (publication column of LA-Q-ICP-MS_TAPP_v96.csv)." ;
     schema1:instrument <ex:instrument/ICPMS>,
         <ex:instrument/Laser-Ablation-System> ;
@@ -8499,17 +8499,17 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
             schema1:termCode "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)" ] ;
     schema1:name "laQicpms protocol — Liu2016-2" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP CaO is the internal standard: 'we calculated the trace element abundances by normalizing the LA-ICP-MS 40Ca counts to CaO concentrations from the EMP analysis' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
+    ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)" ;
     ada:ablationSpotDurationDefault "N — not stated" ;
     ada:analysisSequenceDefault "N — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4); the order within a session is not described" ;
@@ -8517,15 +8517,15 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:blankBackgroundCorrectionMethod "N — the background 'was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4); how it was subtracted is not described" ;
     ada:calibrationMeasurementFrequency "Before and after every session — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4)" ;
     ada:carrierGasFlowRateDefault "N — not stated" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: single element measured by EMP — 'normalizing the LA-ICP-MS 40Ca counts to CaO concentrations from the EMP analysis' (Methods, p.4)" ;
     ada:internalStandardElement "all: Ca (⁴⁰Ca) — CaO from EMP (Methods, p.4)" ;
-    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
+    ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "N — not stated" ;
     ada:rasterLineSpacingDefault "N/A — spot analysis" ;
     ada:reportedProperties "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm); Sr; Ti — merrillite REE, chondrite-normalized in Fig. 9; data in Table S1, not in the archived PDF" ;
-    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
+    ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "N — spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units" ;
     ada:samplingUnitType "Phase > Spot — \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF" ;
     ada:secondaryReferenceMaterialDefault "N — not stated" ;
@@ -8533,7 +8533,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:signalIntegrationIntervalMethod "Plateau region of each spot's time-lapse plot — 'The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances' (Methods, p.4)" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "sodium-merrillite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -8558,7 +8558,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
                 "Tm",
                 "Yb" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -8577,7 +8577,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
-    ada:uncertaintyLevel "test value ada:uncertaintyLevel" ;
+    ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008)" ;
             ada:toolRole "dataReduction" ] .
 
@@ -8595,7 +8595,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500ce ICP-MS" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -8630,7 +8630,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "GeoLasPro 193 nm Excimer laser-ablation system — Methods, p.4" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:laserFluenceDefault "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)" ;
     ada:laserRepetitionRateDefault "all: 5 Hz" ;
     ada:laserSpotGeometryDefault "all: ~24 µm diameter — 'The smaller spot (~24 µm) size was used for phosphate analysis' (Methods, p.4)" ;
@@ -8722,13 +8722,13 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -8739,7 +8739,7 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -8756,13 +8756,13 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
@@ -8773,19 +8773,19 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -8838,7 +8838,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -8848,7 +8848,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -9058,7 +9058,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     },
     {
       "schema:additionalType": [
@@ -9153,7 +9153,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -9163,7 +9163,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -9183,7 +9183,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -9193,7 +9193,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -9203,7 +9203,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -9213,7 +9213,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -9223,7 +9223,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -9242,7 +9242,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -9322,7 +9322,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -9337,7 +9337,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
           }
         ],
         "schema:position": 3,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -9357,21 +9357,21 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
-  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:internalStandardApproach": "test value ada:internalStandardApproach",
-  "ada:internalStandardElement": "test value ada:internalStandardElement",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
+  "ada:analysisSequenceDefault": "no value available: ada:analysisSequenceDefault",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:internalStandardApproach": "no value available: ada:internalStandardApproach",
+  "ada:internalStandardElement": "no value available: ada:internalStandardElement",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:rasterLineSpacingDefault": "test value ada:rasterLineSpacingDefault",
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:rasterLineSpacingDefault": "no value available: ada:rasterLineSpacingDefault",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -9423,7 +9423,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
@@ -9433,7 +9433,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ]
   },
@@ -9643,7 +9643,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     },
     {
       "schema:additionalType": [
@@ -9738,7 +9738,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
@@ -9748,7 +9748,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "monitoredMasses",
         "schema:name": "Monitored Masses",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -9768,7 +9768,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -9778,7 +9778,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "spectralInterferenceCorrectionsApplied",
         "schema:name": "Spectral Interference Corrections Applied",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
@@ -9788,7 +9788,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "interferingSpecies",
         "schema:name": "Interfering Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
@@ -9798,7 +9798,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -9808,7 +9808,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -9827,7 +9827,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
         "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
         "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
@@ -9907,7 +9907,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
           }
         ],
         "schema:position": 2,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       },
       {
         "@type": [
@@ -9922,7 +9922,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
           }
         ],
         "schema:position": 3,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -9942,21 +9942,21 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
-  "ada:analysisSequenceDefault": "test value ada:analysisSequenceDefault",
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:internalStandardApproach": "test value ada:internalStandardApproach",
-  "ada:internalStandardElement": "test value ada:internalStandardElement",
-  "ada:massBiasCorrectionStrategy": "test value ada:massBiasCorrectionStrategy",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
+  "ada:analysisSequenceDefault": "no value available: ada:analysisSequenceDefault",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:internalStandardApproach": "no value available: ada:internalStandardApproach",
+  "ada:internalStandardElement": "no value available: ada:internalStandardElement",
+  "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:rasterLineSpacingDefault": "test value ada:rasterLineSpacingDefault",
-  "ada:sampleIntroduction": "test value ada:sampleIntroduction",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:signalIntegrationIntervalMethod": "test value ada:signalIntegrationIntervalMethod",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:rasterLineSpacingDefault": "no value available: ada:rasterLineSpacingDefault",
+  "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -9979,6 +9979,13 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "N — not described; §2.1 gives only the origin of the megacrysts and single crystals, and the acknowledgements credit sample preparation without stating a method" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -9986,20 +9993,13 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v96.csv). Reported detail: ada:signalCollectionMode = Peak jump." ;
     schema1:instrument <ex:instrument/ICPMS>,
         <ex:instrument/Laser-Ablation-System> ;
@@ -10008,35 +10008,35 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)" ] ;
     schema1:name "laQicpms protocol — P6" ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
+    ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Single hole drilling, two cleaning pulses — Table 1 'Sampling mode/pattern'" ;
     ada:ablationSpotDurationDefault "25 s" ;
-    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
+    ada:analysisSequenceDefault "no value available: ada:analysisSequenceDefault" ;
     ada:backgroundCountTimeDefault "N — gas-blank correction applied in Iolite, duration not stated" ;
     ada:blankBackgroundCorrectionMethod "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities" ;
-    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He ablation gas 900 mL/min; Ar carrier gas 0.65 L/min — Table 1 'Ablation gas flow (He)' and 'Carrier gas flow (Ar)'" ;
     ada:constantsAndReferenceValuesUsedDefault "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga" ;
-    ada:internalStandardApproach "test value ada:internalStandardApproach" ;
-    ada:internalStandardElement "test value ada:internalStandardElement" ;
-    ada:massBiasCorrectionStrategy "test value ada:massBiasCorrectionStrategy" ;
+    ada:internalStandardApproach "no value available: ada:internalStandardApproach" ;
+    ada:internalStandardElement "no value available: ada:internalStandardElement" ;
+    ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "ThO/Th < 0.5%, checked during SQ no-gas tuning" ;
-    ada:rasterLineSpacingDefault "test value ada:rasterLineSpacingDefault" ;
+    ada:rasterLineSpacingDefault "no value available: ada:rasterLineSpacingDefault" ;
     ada:reportedProperties "176Lu/177Hf; 176Hf/177Hf; common-Hf-corrected single-spot age (Ma); Lu-Hf isochron age (Ma); Lu-Hf weighted-mean age (Ma); Lu concentration; Hf concentration — single-spot ages from eqn (11); isochron and weighted-mean ages in IsoplotR; Lu and Hf concentrations from Iolite's 'Trace_Element' DRS" ;
-    ada:sampleIntroduction "test value ada:sampleIntroduction" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Laser spot — 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents" ;
     ada:secondaryReferenceMaterialDefault "ARM-1; MG-1, BS-1, XENOA, M1567; Otter Lake, NW-1, MAP-3 — ARM-1 'is used for the quality control' of Lu and Hf concentrations; the xenotime and apatite U–Pb reference materials test the Lu–Hf ages against their ID-TIMS U–Pb ages" ;
     ada:signalCollectionMode "N/A" ;
-    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
+    ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "apatite",
                 "garnet",
                 "xenotime" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -10047,7 +10047,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Hf",
                 "Lu" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -10086,7 +10086,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "iCap TQ ICP-MS/MS (Thermo Fisher Scientific, Bremen, Germany)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -10229,13 +10229,13 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -10246,7 +10246,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -10263,13 +10263,13 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
@@ -10280,19 +10280,19 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .

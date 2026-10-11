@@ -48,7 +48,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment",
@@ -58,7 +58,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:valueName": "massResolutionAssignment",
         "schema:name": "Mass Resolution Assignment",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
@@ -68,7 +68,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError",
@@ -241,7 +241,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "test value ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
         },
         {
           "schema:additionalType": [
@@ -340,7 +340,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     },
     {
       "schema:additionalType": [
@@ -497,7 +497,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:valueRequired": true,
         "ada:tier": "M",
         "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       }
     ]
   },
@@ -582,7 +582,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
           }
         ],
         "schema:position": 3,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -602,7 +602,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laMcicpmsTAPP/primaryCalibrationStandardName",
@@ -612,7 +612,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ],
     "ada:defaultTargetMaterials": []
@@ -692,16 +692,16 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:ablationSpotDurationDefault": -9999,
-  "ada:betweenSessionPrecision": "test value ada:betweenSessionPrecision",
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
-  "ada:rasterLineSpacingDefault": "test value ada:rasterLineSpacingDefault",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:betweenSessionPrecision": "no value available: ada:betweenSessionPrecision",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
+  "ada:rasterLineSpacingDefault": "no value available: ada:rasterLineSpacingDefault",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 
 ```
@@ -753,7 +753,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment",
@@ -763,7 +763,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:valueName": "massResolutionAssignment",
         "schema:name": "Mass Resolution Assignment",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
@@ -773,7 +773,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:valueName": "calibrationStrategyPerTargetSpecies",
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       },
       {
         "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError",
@@ -946,7 +946,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "test value ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
         },
         {
           "schema:additionalType": [
@@ -1045,7 +1045,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     },
     {
       "schema:additionalType": [
@@ -1202,7 +1202,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:valueRequired": true,
         "ada:tier": "M",
         "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       }
     ]
   },
@@ -1287,7 +1287,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
           }
         ],
         "schema:position": 3,
-        "ada:detectionLimitMethod": "test value ada:detectionLimitMethod"
+        "ada:detectionLimitMethod": "no value available: ada:detectionLimitMethod"
       }
     ],
     "@type": [
@@ -1307,7 +1307,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:name": "example instrumentName"
+        "schema:name": "no value available: schema:name"
       },
       {
         "@id": "ada:targetMaterialColumn/laMcicpmsTAPP/primaryCalibrationStandardName",
@@ -1317,7 +1317,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:valueName": "primaryCalibrationStandardName",
         "schema:name": "Primary Calibration Standard Name",
         "ada:dataType": "string",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": "no value available: unnamed property"
       }
     ],
     "ada:defaultTargetMaterials": []
@@ -1397,16 +1397,16 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "test value schema:defaultValue"
+      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:ablationPitDepthRateDefault": "test value ada:ablationPitDepthRateDefault",
+  "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:ablationSpotDurationDefault": -9999,
-  "ada:betweenSessionPrecision": "test value ada:betweenSessionPrecision",
-  "ada:calibrationMeasurementFrequency": "test value ada:calibrationMeasurementFrequency",
-  "ada:oxideProductionMethodAndThreshold": "test value ada:oxideProductionMethodAndThreshold",
-  "ada:rasterLineSpacingDefault": "test value ada:rasterLineSpacingDefault",
-  "schema:datePublished": "test value schema:datePublished"
+  "ada:betweenSessionPrecision": "no value available: ada:betweenSessionPrecision",
+  "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
+  "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
+  "ada:rasterLineSpacingDefault": "no value available: ada:rasterLineSpacingDefault",
+  "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
 
@@ -1434,21 +1434,21 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (two-volume cell)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Polished thin section (two-volume cell)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -1458,7 +1458,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Zhang et al. (China Univ. of Geosciences Wuhan)" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability Reported detail: ada:isobaricInterferenceCorrectionsApplied = Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "National Natural Science Foundation of China (NSFC)" ] ;
@@ -1473,18 +1473,18 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:ablationPitDepthRateDefault "test value ada:ablationPitDepthRateDefault" ;
+    ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Transect — continuous line scan at 2–6 µm s⁻¹" ;
     ada:ablationSpotDurationDefault -9999 ;
     ada:analysisSequenceDefault "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis" ;
     ada:analyticalAccuracy "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion" ;
     ada:analyticalMode "Transect" ;
     ada:backgroundCountTimeDefault "30 cycles × 0.524 s ≈ 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)" ;
-    ada:betweenSessionPrecision "test value ada:betweenSessionPrecision" ;
+    ada:betweenSessionPrecision "no value available: ada:betweenSessionPrecision" ;
     ada:blankBackgroundCorrectionMethod "First 30 cycles (no laser ablation) used for background collection; background Kr⁺ signals removed by correction; no additional Kr peak stripping applied" ;
-    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He, 0.90 l min⁻¹ (two-volume cell)" ;
     ada:constantsAndReferenceValuesUsedDefault "⁸⁷Rb decay constant 1.393 ± 0.004 x 10⁻¹¹ yr⁻¹ (Nebel et al. 2011), p.1; ⁸⁸Sr/⁸⁶Sr = 8.37520933 for mass fractionation correction (p.4); ⁸⁷Rb/⁸⁵Rb = 0.385706 and ⁸⁶Sr/⁸⁸Sr = 0.119351 for the ⁸⁷Rb/⁸⁶Sr calculation (p.4); natural ⁸⁷Rb/⁸⁵Rb of 0.38571 cited for the interference-correction principle (p.1)" ;
     ada:elementalFractionationCorrection "all: Rb/Sr fractionation corrected externally with a series of reference glasses, with no explicit downhole correction — the femtosecond laser substantially reduces elemental fractionation; the exponential law corrects Sr isotope mass bias (⁸⁸Sr/⁸⁶Sr = 8.37521)" ;
@@ -1501,7 +1501,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                 [ ],
                 [ ],
                 [ ] ;
-            ada:monitoredPropertyColumns [ schema1:name "example instrumentName" ;
+            ada:monitoredPropertyColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "monitoredProperty" ;
                     schema1:valueRequired true ;
@@ -1509,8 +1509,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     ada:numberOfAcquisitionPasses "1" ;
-    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
-    ada:rasterLineSpacingDefault "test value ada:rasterLineSpacingDefault" ;
+    ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
+    ada:rasterLineSpacingDefault "no value available: ada:rasterLineSpacingDefault" ;
     ada:reportedProperties "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3" ;
     ada:sampleIntroduction "He filled into the two-volume ablation cell; Ar mixed into the sample-out line downstream of the ablation chamber before the torch; a signal-smoothing device downstream of the sample cell (Hu et al. 2015) that 'significantly reduced the short-term variability of the signal'; 12 ml min⁻¹ N₂ added to the carrier gas via a simple Y connector behind the signal-smoothing device (p.3)" ;
     ada:samplingUnitSelectionCriteriaDefault "Random selection among the target phases — 'The plagioclases, pyroxenes, and ilmenites in NWA 10597 were measured randomly' (p.7); target phases are plagioclase, pyroxene, ilmenite and glass (abstract; p.7-8)" ;
@@ -1518,7 +1518,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:secondaryReferenceMaterialDefault "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) — measured as unknowns for ⁸⁷Sr/⁸⁶Sr data quality evaluation; reference values in Table 2" ;
     ada:signalIntegrationIntervalMethod "Regions of integration for gas background and sample signal selected first; cycles at beginning and end of ablation discarded; for heterogeneous minerals (unstable 87Rb/86Sr): SUIA (Smallest Unit Isochron Age) data reduction strategy applied per cycle" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -1530,7 +1530,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Rb",
                 "Sr" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -1562,7 +1562,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
@@ -1575,7 +1575,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration "test value ada:collectorConfiguration" .
+    ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -1752,13 +1752,13 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/laMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -1774,7 +1774,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .

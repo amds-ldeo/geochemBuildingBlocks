@@ -14,21 +14,18 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 245 °C, mannitol added after heating); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -42,12 +39,15 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+                    schema1:description "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 245 °C, mannitol added after heating); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ] ] ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6) Reported detail: ada:signalCollectionMode = 1 point per mass — Table 1a; ada:driftCorrectionMethod = Mass discrimination from the standard solution average, usually without drift over 2 h; when drift was observed, the standard measured before and after the sample was averaged — §2.7, §2.8." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -64,7 +64,7 @@
             schema1:target [ schema1:description "The Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta, and its Nb (from Nb/Mo and Nb/Zr) is used for the SF-ICP-MS Ti calculation on the same solutions — §2.5, §2.8" ;
                     schema1:name "SF-ICP-MS — Ti on a Finnigan ELEMENT at PML (§2.1.2)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "Standard solution every two samples; each sample ~6 min including ~3 min wash. Pseudo-FI: a 40 s background step with the probe in the sample, then 30 s of sample signal — §2.1.1, §2.6" ;
     ada:analyticalMode "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\"" ;
@@ -91,7 +91,7 @@
                 [ ],
                 [ ] ;
             ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "monitoredProperty" ;
                     schema1:valueRequired true ;
@@ -109,13 +109,13 @@
     ada:samplingUnitType "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites" ;
     ada:secondaryReferenceMaterialDefault "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — §2.3; the chondrites are samples" ;
     ada:signalCollectionMode "N/A" ;
-    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
+    ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "andesite",
                 "basalt",
                 "carbonaceous chondrite",
                 "peridotite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -132,7 +132,7 @@
                 "Ta",
                 "Zr" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -165,7 +165,7 @@
             schema1:name "Agilent" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500cs (stated section 2.1.1)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -208,25 +208,25 @@
     schema1:name "Quartz glass torch with Pt injector — Table 1a" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
@@ -380,13 +380,13 @@
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -397,7 +397,7 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -413,7 +413,7 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .

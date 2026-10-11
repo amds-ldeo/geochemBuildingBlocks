@@ -54,7 +54,7 @@ The procedure half of the MCICPMS module, with every property populated. Generat
 #### json
 ```json
 {
-  "ada:internalNormalizationElementAndIsotopeRatio": "example value"
+  "ada:internalNormalizationElementAndIsotopeRatio": "no value available: unnamed property"
 }
 ```
 
@@ -67,7 +67,7 @@ The procedure half of the MCICPMS module, with every property populated. Generat
     },
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/context.jsonld"
   ],
-  "ada:internalNormalizationElementAndIsotopeRatio": "example value"
+  "ada:internalNormalizationElementAndIsotopeRatio": "no value available: unnamed property"
 }
 ```
 
@@ -75,7 +75,7 @@ The procedure half of the MCICPMS module, with every property populated. Generat
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 
-[] ada:internalNormalizationElementAndIsotopeRatio "example value" .
+[] ada:internalNormalizationElementAndIsotopeRatio "no value available: unnamed property" .
 
 
 ```
@@ -89,7 +89,7 @@ The analysis half of the MCICPMS module, with every property populated. Generate
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Peak Flatness",
-      "dqv:value": "example value"
+      "dqv:value": "no value available: unnamed property"
     }
   ]
 }
@@ -107,7 +107,7 @@ The analysis half of the MCICPMS module, with every property populated. Generate
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Peak Flatness",
-      "dqv:value": "example value"
+      "dqv:value": "no value available: unnamed property"
     }
   ]
 }
@@ -118,7 +118,7 @@ The analysis half of the MCICPMS module, with every property populated. Generate
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 
 [] dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "example value" ] .
+            dqv:value "no value available: unnamed property" ] .
 
 
 ```

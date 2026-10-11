@@ -14,12 +14,12 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "TD HNO3 leach (3 ml conc. HNO3, 80 °C, 48 h, leachate discarded); TD HF (4 ml conc. HF, 100 °C, 48 h, evaporated); TD HNO3 (2 × 1 ml conc. HNO3, 100 °C); TD HCl (5 ml 6 M HCl, 80 °C, 15 h, then centrifuged); AR leach (3 ml aqua regia, 3:1 HCl:HNO3, 20 °C, 15 h, then centrifuged) — §2.2" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "TD HNO3 leach: conc. HNO3; TD HF: conc. HF; TD HNO3: conc. HNO3; TD HCl: 6 M HCl; AR leach: aqua regia (3:1 HCl:HNO3) — §2.2" ] ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -31,22 +31,22 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    schema1:description "TD HNO3 leach (3 ml conc. HNO3, 80 °C, 48 h, leachate discarded); TD HF (4 ml conc. HF, 100 °C, 48 h, evaporated); TD HNO3 (2 × 1 ml conc. HNO3, 100 °C); TD HCl (5 ml 6 M HCl, 80 °C, 15 h, then centrifuged); AR leach (3 ml aqua regia, 3:1 HCl:HNO3, 20 °C, 15 h, then centrifuged) — §2.2" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "TD HNO3 leach: conc. HNO3; TD HF: conc. HF; TD HNO3: conc. HNO3; TD HCl: 6 M HCl; AR leach: aqua regia (3:1 HCl:HNO3) — §2.2" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)" ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
@@ -59,12 +59,12 @@
             schema1:target [ schema1:description "Q-ICP-MS Pb isotope ratios compared with SF-ICP-MS values for validation; Q-ICP-MS showed higher uncertainties (stated section 2.4)" ;
                     schema1:name "Agilent 7700x Q-ICP-MS (used for Pb isotope comparison; stated section 2.4)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "test value ada:analysisSequenceDefault" ;
+    ada:analysisSequenceDefault "no value available: ada:analysisSequenceDefault" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"The Attom was operated with a Glass Expansion cyclonic spray chamber and glass nebulizer (uptake rate 0.33 ml/min)\"; \"both operated in wet plasma mode\"; ESI SC-2 DX autosampler" ;
     ada:blankBackgroundCorrectionMethod "Blank determination before each sample acquisition (average 900 cps on 208Pb, equivalent to 1.8 ppt Pb); on-line baseline correction — §2.4" ;
-    ada:calibrationMeasurementFrequency "test value ada:calibrationMeasurementFrequency" ;
+    ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:chromatographicSeparationApplied "None — the SC-SF-ICP-MS splits were analysed unseparated; the anion-exchange separation (§2.3) was for MC-ICP-MS" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "all: 2% HNO3 doped with 1 ppb Tl — §2.4" ;
@@ -73,14 +73,14 @@
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample "1 — one acquisition of 30 sets of 2000 sweeps (§2.4)" ;
     ada:numberOfScansPerReplicate "all: 30 sets of 2000 sweeps — total analysis time 4.5 min (§2.4)" ;
-    ada:oxideProductionMethodAndThreshold "test value ada:oxideProductionMethodAndThreshold" ;
+    ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:reportedProperties "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb — dimensionless Pb isotope ratios (§2.4)" ;
     ada:samplingUnitType "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"" ;
     ada:secondaryReferenceMaterialDefault "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)" ;
-    ada:signalIntegrationIntervalMethod "test value ada:signalIntegrationIntervalMethod" ;
+    ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Soil samples" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -90,7 +90,7 @@
                 <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Pb" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -128,7 +128,7 @@
             schema1:name "Nu Instruments" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nu Instruments Attom SC-SF-ICP-MS (stated section 2.3)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -230,13 +230,13 @@
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Analytical Accuracy and Assessment Method" ;
     schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -247,7 +247,7 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
@@ -264,13 +264,13 @@
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
@@ -281,19 +281,19 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Monitored Masses" ;
     schema1:valueName "monitoredMasses" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
@@ -301,7 +301,7 @@
 <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange> a schema1:PropertyValue ;
     schema1:name "E-scan Range" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange> ;
-    schema1:unitText "example value" ;
+    schema1:unitText "no value available: unnamed property" ;
     schema1:value "N/A — Nu Attom uses deflector peak jump, not E-scan" .
 
 <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> a schema1:PropertyValue ;

@@ -54,7 +54,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
         "schema:Thing"
       ],
       "@id": "ex:instrument/STEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     }
   ],
   "schema:measurementTechnique": [
@@ -95,13 +95,13 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing"
 }
 
@@ -160,7 +160,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
         "schema:Thing"
       ],
       "@id": "ex:instrument/STEM",
-      "schema:name": "example instrumentName"
+      "schema:name": "no value available: schema:name"
     }
   ],
   "schema:measurementTechnique": [
@@ -201,13 +201,13 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing"
 }
 ```
@@ -232,7 +232,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -248,18 +248,18 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
             schema1:termCode "Scanning Transmission Electron Microscopy" ] ;
     schema1:name "stem protocol — HF5000" ;
     ada:analyticalMode "STEM" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "HF5000" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 <ex:instrument/STEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "STEM" ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltage "200 kV" .
 
 
@@ -335,7 +335,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
@@ -356,9 +356,9 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
       "ada:acceleratingVoltage": -9999
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing"
 }
 
@@ -441,7 +441,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
           }
         ],
         "schema:position": 1,
-        "schema:description": "test value schema:description"
+        "schema:description": "no value available: schema:description"
       }
     ]
   },
@@ -462,9 +462,9 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
       "ada:acceleratingVoltage": -9999
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "test value ada:constantsAndReferenceValuesUsedDefault",
-  "ada:samplingUnitSelectionCriteriaDefault": "test value ada:samplingUnitSelectionCriteriaDefault",
-  "ada:samplingUnitType": "test value ada:samplingUnitType",
+  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
+  "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing"
 }
 ```
@@ -489,7 +489,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "test value schema:description" ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
@@ -505,11 +505,11 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
             schema1:termCode "Scanning Transmission Electron Microscopy" ] ;
     schema1:name "stem protocol — P1" ;
     ada:analyticalMode "STEM" ;
-    ada:constantsAndReferenceValuesUsedDefault "test value ada:constantsAndReferenceValuesUsedDefault" ;
+    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "TitanX TEM" ;
-    ada:samplingUnitSelectionCriteriaDefault "test value ada:samplingUnitSelectionCriteriaDefault" ;
-    ada:samplingUnitType "test value ada:samplingUnitType" ;
+    ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
+    ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
 <ex:instrument/STEM> a schema1:Product,

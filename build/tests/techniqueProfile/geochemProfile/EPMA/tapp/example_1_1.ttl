@@ -24,10 +24,10 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Ma et al. 2015, Earth Planet. Sci. Lett. — tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'WDS: 15 kV; 5 nA; beam in focused mode'; point analyses only." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 — 'SEM, EBSD and EPMA analyses were carried out at the Caltech GPS Division Analytical Facility, which is supported, in part, by NSF Grants EAR-0318518 and DMR-0080065'" ] ;
@@ -43,14 +43,14 @@
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Ma et al. 2015, Earth Planet. Sci. Lett. 422:194-205; doi:10.1016/j.epsl.2015.03.057" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
     ada:edsAcquisitionMode "N/A" ;
@@ -67,7 +67,7 @@
                 "pigeonite",
                 "tissintite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -88,7 +88,7 @@
                 "Si",
                 "Ti" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -107,10 +107,10 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -121,7 +121,7 @@
         <ex:instrument/EPMA/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltageDefault "15 kV" ;
     ada:beamDiameterDefault "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given" ;
     ada:beamMode "all: Focused — 'WDS: 15 kV; 5 nA; beam in focused mode' (p.3)" ;
@@ -154,7 +154,7 @@
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix stated)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "SEM BSE imaging on a ZEISS 1550VP field-emission SEM, which locates the occurrences the probe then analyses — \"SEM BSE image showing tissintite in a shock melt pocket, in Tissint section UT2\" (Fig. 1 caption, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order" ;
@@ -176,7 +176,7 @@
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
@@ -228,13 +228,13 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "X-ray Background Correction Method" ;
     schema1:valueName "xRayBackgroundCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "X-ray Line Overlap Corrections Applied" ;
     schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
     ada:dataType "string" .

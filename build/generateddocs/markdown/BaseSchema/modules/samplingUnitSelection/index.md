@@ -44,7 +44,7 @@ The procedure half of the SamplingUnitSelection module, with every property popu
 #### json
 ```json
 {
-  "ada:samplingUnitSelectionCriteriaDefault": "example value"
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: unnamed property"
 }
 ```
 
@@ -57,7 +57,7 @@ The procedure half of the SamplingUnitSelection module, with every property popu
     },
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/context.jsonld"
   ],
-  "ada:samplingUnitSelectionCriteriaDefault": "example value"
+  "ada:samplingUnitSelectionCriteriaDefault": "no value available: unnamed property"
 }
 ```
 
@@ -65,7 +65,7 @@ The procedure half of the SamplingUnitSelection module, with every property popu
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 
-[] ada:samplingUnitSelectionCriteriaDefault "example value" .
+[] ada:samplingUnitSelectionCriteriaDefault "no value available: unnamed property" .
 
 
 ```

@@ -59,7 +59,7 @@ A parameter the Blank module publishes for the analysis side. The module places 
     }
   ],
   "schema:name": "Procedural Blank Level",
-  "schema:value": "example value"
+  "schema:value": "no value available: unnamed property"
 }
 ```
 
@@ -82,7 +82,7 @@ A parameter the Blank module publishes for the analysis side. The module places 
     }
   ],
   "schema:name": "Procedural Blank Level",
-  "schema:value": "example value"
+  "schema:value": "no value available: unnamed property"
 }
 ```
 
@@ -93,7 +93,7 @@ A parameter the Blank module publishes for the analysis side. The module places 
 <ada:parameter/module/Blank/proceduralBlankLevel> a schema1:PropertyValue ;
     schema1:name "Procedural Blank Level" ;
     schema1:propertyID <ada:parameter/module/Blank/proceduralBlankLevel> ;
-    schema1:value "example value" .
+    schema1:value "no value available: unnamed property" .
 
 
 ```

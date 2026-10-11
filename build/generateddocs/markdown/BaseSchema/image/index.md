@@ -24,7 +24,11 @@ An SEM backscattered electron image with component type and acquisition details.
   "ada:componentType": "ada:SEMImage",
   "ada:acquisitionTime": "2024-03-15T14:30:00Z",
   "ada:channel1": "BSE",
-  "ada:pixelSize": "0.5 micrometer",
+  "ada:spatialRegistration": {
+    "ada:pixelScaleX": 0.5,
+    "ada:pixelScaleY": 0.5,
+    "ada:pixelUnits": "micrometer"
+  },
   "ada:illuminationType": "Electron beam",
   "ada:imageType": "Backscattered electron"
 }
@@ -48,7 +52,11 @@ An SEM backscattered electron image with component type and acquisition details.
   "ada:componentType": "ada:SEMImage",
   "ada:acquisitionTime": "2024-03-15T14:30:00Z",
   "ada:channel1": "BSE",
-  "ada:pixelSize": "0.5 micrometer",
+  "ada:spatialRegistration": {
+    "ada:pixelScaleX": 0.5,
+    "ada:pixelScaleY": 0.5,
+    "ada:pixelUnits": "micrometer"
+  },
   "ada:illuminationType": "Electron beam",
   "ada:imageType": "Backscattered electron"
 }
@@ -58,6 +66,7 @@ An SEM backscattered electron image with component type and acquisition details.
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a schema1:ImageObject,
         ada:image ;
@@ -66,7 +75,9 @@ An SEM backscattered electron image with component type and acquisition details.
     ada:componentType "ada:SEMImage" ;
     ada:illuminationType "Electron beam" ;
     ada:imageType "Backscattered electron" ;
-    ada:pixelSize "0.5 micrometer" .
+    ada:spatialRegistration [ ada:pixelScaleX 5e-01 ;
+            ada:pixelScaleY 5e-01 ;
+            ada:pixelUnits "micrometer" ] .
 
 
 ```
@@ -233,9 +244,33 @@ $defs:
       beside it already takes this shape.
 
       schema:width and schema:height are used in preference to the ada: equivalents
-      they replace (ada:numPixelsX, ada:numPixelsY, ada:pixelSize), because a schema.org
-      property that applies is preferred to a minted one. Nothing is lost: no example
-      carried the ada: forms.'
+      they replace (ada:numPixelsX, ada:numPixelsY), because a schema.org property
+      that applies is preferred to a minted one.
+
+      ada:pixelSize was listed here as a third replaced property, and that was wrong
+      twice over. It is not a pixel COUNT, so schema:width and schema:height cannot
+      express it -- the paragraph above is exactly why, since a property whose unit
+      must be STATED rather than assumed cannot also be the property that states the
+      count. What supersedes ada:pixelSize is the other axis entirely: ada:spatialRegistration.ada:pixelScaleX
+      / ada:pixelScaleY with ada:pixelUnits, the SCALING half this block already references
+      from spatialRegistration/$defs/Scaling, whose title is "Pixel Scaling" and whose
+      description is "pixel size and its units". That form is the better one -- it
+      separates the two axes, so an anisotropic pixel is sayable, and it carries the
+      unit in a property of its own, which "0.5 micrometer" as one string does not.
+      This block''s example has been migrated accordingly, to pixelScaleX/Y of 0.5
+      with ada:pixelUnits "micrometer", and image/rules.shacl now asks for the scaling
+      rather than for ada:pixelSize.
+
+      The claim that came with it, "nothing is lost: no example carried the ada: forms",
+      was false for every one of the three, and the examples have now been migrated
+      so that it is true. Measured over examples.yaml and example*.json before the
+      move: ada:pixelSize in image/examples.yaml, ada:numPixelsX/Y in imageMap/examples.yaml
+      AND supDocImage/examples.yaml, against schema:width in only the three STEM detail
+      examples. The counts were declared here in their schema.org form while two examples
+      still wrote the ada: form, and they validated solely because neither block is
+      sealed -- so nothing reported it. All three now carry the schema.org forms,
+      and the three shapes ask for them: imageMap and supDocImage for schema:width
+      / schema:height, this block for ada:spatialRegistration.'
     type: object
     properties:
       '@type':

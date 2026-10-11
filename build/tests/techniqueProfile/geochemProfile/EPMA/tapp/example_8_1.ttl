@@ -15,21 +15,21 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "test value ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/halogenCorrectionOnOxygenDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Logan B. Seifert" ] ;
-    schema1:datePublished "test value schema:datePublished" ;
+    schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — 14 quantitative point analyses; WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
@@ -44,14 +44,14 @@
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "test value schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
@@ -64,7 +64,7 @@
     ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Phosphate" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetMaterial" ;
                     schema1:valueRequired true ;
@@ -86,7 +86,7 @@
                 "S",
                 "Si" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
+                    schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
                     schema1:valueRequired true ;
@@ -115,7 +115,7 @@
         <ex:instrument/EPMA/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
-    schema1:name "example instrumentName" ;
+    schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltageDefault "15 kV" ;
     ada:beamDiameterDefault "all: 2 µm — as above" ;
     ada:beamMode "N — 'a 2μm probe size' is recorded under Beam Diameter; no mode is named" ;
@@ -148,7 +148,7 @@
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JEOL 8530 EMPA (stated as \"JEOL 8530 EMPA at NASA JSC\"; no F suffix or JXA prefix stated)" ] ;
-    schema1:name "example instrumentName" .
+    schema1:name "no value available: schema:name" .
 
 <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDamageMinimizationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "all: Durango apatite compared at 10 μm and 3 μm spot sizes, with no significant volatile loss — 'in order to assess volatilization of halogens using our beam conditions'" ;
@@ -184,7 +184,7 @@
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
@@ -236,13 +236,13 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "X-ray Background Correction Method" ;
     schema1:valueName "xRayBackgroundCorrectionMethod" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+    schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "X-ray Line Overlap Corrections Applied" ;
     schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
     ada:dataType "string" .
