@@ -684,6 +684,29 @@ These are real past incidents, not hypothetical. The CI-side counterparts — wh
   from an object they were meant to finish and padded `schema:instrument: "missing"` plus four
   `{"@id": "nil:missing"}` members into its `@type`, failing 58 of 97 examples.
 
+- **An `anyOf` failure's MESSAGE names an arbitrary branch, so classify from the part, not
+  from the message.** When a `schema:hasPart` item matches no branch of `files/schema.yaml`'s
+  file-type `anyOf`, the top-level error is only "is not valid under any of the given schemas"
+  with an EMPTY instance path. Underneath it sit one sub-error per branch -- measured, **40** of
+  them for a single unmatched part -- and which one a tool surfaces depends entirely on how it
+  picks: `best_match`, the first in `context`, or a sort by path each give a different answer.
+  For an `.obj` shape model typed `ada:noComponentFiles`, the sub-errors led with three
+  `@type` complaints and the one that actually explains the failure -- `'ada:noComponentFiles'
+  is not one of [...]` -- came fourth.
+
+  This has already cost a wrong conclusion. The metadata session read the surfaced message,
+  `'cdif:hasPhysicalMapping' is a required property OR 'cdi:isStructuredBy' is a required`
+  -- which is `tabularData`'s requirement -- and classified **70 records** as tabular parts
+  missing their column structure. Not one of them was tabular: one was that `.obj`, another a
+  part typed `noComponentFiles`. The message named the branch the reporter happened to pick,
+  not the branch the part was trying to be.
+
+  So read the `@type` and `ada:componentType` of the part the error path points at and find
+  which branch it MEANT to match; the fix is almost always that the part is typed wrongly or
+  its componentType is absent from the enum of the block that governs its file kind. Counting
+  error messages across parts groups them by the reporter's choice, which is not a property of
+  the data.
+
 The propagate-schema command runs all of these as part of its consistency audit; if you're working outside that pipeline, run them by hand on touched paths.
 
 ## Committing in a shared checkout
