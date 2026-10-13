@@ -65,7 +65,7 @@ The procedure half of the CompositionQC module, with every property populated. G
   "schema:actionProcess": {
     "schema:step": [
       {
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "ada:detectionLimitMethod": "no value available: unnamed property"
       }
     ]
@@ -99,7 +99,7 @@ The procedure half of the CompositionQC module, with every property populated. G
   "schema:actionProcess": {
     "schema:step": [
       {
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "ada:detectionLimitMethod": "no value available: unnamed property"
       }
     ]
@@ -116,12 +116,12 @@ The procedure half of the CompositionQC module, with every property populated. G
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:name "Data reduction" ;
+[] schema1:actionProcess [ schema1:step [ schema1:name "Data processing" ;
                     ada:detectionLimitMethod "no value available: unnamed property" ] ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Normalization / Standards-Based Correction" ],
-        [ schema1:defaultValue 1 ;
-            schema1:name "Detection Limit" ] ;
+    schema1:variableMeasured [ schema1:defaultValue 1 ;
+            schema1:name "Detection Limit" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Normalization / Standards-Based Correction" ] ;
     ada:secondaryReferenceMaterialDefault "no value available: unnamed property" .
 
 
@@ -318,7 +318,7 @@ $defs:
               - if:
                   properties:
                     schema:name:
-                      const: Data reduction
+                      const: Data processing
                   required:
                   - schema:name
                 then:
@@ -339,7 +339,7 @@ $defs:
             - contains:
                 properties:
                   schema:name:
-                    const: Data reduction
+                    const: Data processing
                 required:
                 - schema:name
             x-jsonld-id: http://schema.org/step

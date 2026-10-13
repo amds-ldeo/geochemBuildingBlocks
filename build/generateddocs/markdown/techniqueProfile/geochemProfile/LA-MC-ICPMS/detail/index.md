@@ -923,7 +923,7 @@ allOf:
                   - if:
                       properties:
                         schema:name:
-                          const: Data reduction
+                          const: Data processing
                       required:
                       - schema:name
                     then:

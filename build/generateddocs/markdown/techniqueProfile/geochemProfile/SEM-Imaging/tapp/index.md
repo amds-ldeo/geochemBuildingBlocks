@@ -173,7 +173,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -381,7 +381,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -435,16 +435,16 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -696,7 +696,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -905,7 +905,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -948,16 +948,16 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -1180,7 +1180,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:description": "no value available: schema:description"
       },
       {
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault",
@@ -1414,7 +1414,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
         "schema:description": "no value available: schema:description"
       },
       {
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault",
@@ -1509,18 +1509,18 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
@@ -1811,7 +1811,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -2042,7 +2042,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -2084,16 +2084,16 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -2383,7 +2383,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -2629,7 +2629,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -2687,7 +2687,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
+                    schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
@@ -2724,10 +2724,10 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -2959,7 +2959,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -3168,7 +3168,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -3211,7 +3211,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
+                    schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
@@ -3472,7 +3472,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -3681,7 +3681,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -3731,7 +3731,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
+                    schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -3986,7 +3986,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -4208,7 +4208,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -4262,7 +4262,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
+                    schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
@@ -4533,7 +4533,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -4755,7 +4755,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -4809,16 +4809,16 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
@@ -5070,7 +5070,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -5282,7 +5282,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -5336,16 +5336,16 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -5563,7 +5563,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         "schema:position": 1
       },
       {
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault",
@@ -5788,7 +5788,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
         "schema:position": 1
       },
       {
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalProperty": [
           {
             "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabaseDefault",
@@ -5892,7 +5892,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
+                    schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -6163,7 +6163,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -6390,7 +6390,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -6444,16 +6444,16 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
@@ -6702,7 +6702,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -6910,7 +6910,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -6971,7 +6971,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
+                    schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -7218,7 +7218,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -7432,7 +7432,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -7486,7 +7486,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
+                    schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
@@ -7736,7 +7736,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -7944,7 +7944,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -7998,16 +7998,16 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -8246,7 +8246,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -8454,7 +8454,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -8508,16 +8508,16 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -8773,7 +8773,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -8997,7 +8997,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
           "schema:Action",
           "schema:HowToStep"
         ],
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "schema:additionalType": [
           {
             "@id": "bios:LabProcess"
@@ -9050,7 +9050,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
+                    schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
@@ -9937,7 +9937,7 @@ allOf:
             - if:
                 properties:
                   schema:name:
-                    const: Data reduction
+                    const: Data processing
                 required:
                 - schema:name
               then:
@@ -10052,7 +10052,7 @@ allOf:
           - contains:
               properties:
                 schema:name:
-                  const: Data reduction
+                  const: Data processing
               required:
               - schema:name
     dqv:hasQualityMeasurement:

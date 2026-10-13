@@ -132,7 +132,7 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
         "schema:position": 2
       },
       {
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "ada:houghResolutionDefault": "60",
         "ada:minimumBandsForIndexing": "5",
         "ada:maximumMeanAngularDeviation": "1.2 deg",
@@ -322,7 +322,7 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
         "schema:position": 2
       },
       {
-        "schema:name": "Data reduction",
+        "schema:name": "Data processing",
         "ada:houghResolutionDefault": "60",
         "ada:minimumBandsForIndexing": "5",
         "ada:maximumMeanAngularDeviation": "1.2 deg",
@@ -414,7 +414,7 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data reduction" ;
+                    schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:crystalStructureFileSourcesDefault "HKL; ICSD; American Mineralogist" ;
                     ada:houghResolutionDefault "60" ;
@@ -440,10 +440,10 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:stageTilt "70 deg" ;
     ada:targetMaterial "missing" ;
-    bios:computationalTool [ schema1:name "AZtecCrystal" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "AZtecCrystal" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -734,7 +734,7 @@ allOf:
             - if:
                 properties:
                   schema:name:
-                    const: Data reduction
+                    const: Data processing
                 required:
                 - schema:name
               then:
@@ -796,7 +796,7 @@ allOf:
           - contains:
               properties:
                 schema:name:
-                  const: Data reduction
+                  const: Data processing
               required:
               - schema:name
           - contains:
