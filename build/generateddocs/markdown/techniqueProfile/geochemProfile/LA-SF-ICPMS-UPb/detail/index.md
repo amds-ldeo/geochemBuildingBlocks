@@ -1626,7 +1626,7 @@ allOf:
                   - if:
                       properties:
                         schema:name:
-                          const: Data reduction
+                          const: Data processing
                       required:
                       - schema:name
                     then:
@@ -1660,7 +1660,7 @@ allOf:
                 - contains:
                     properties:
                       schema:name:
-                        const: Data reduction
+                        const: Data processing
                     required:
                     - schema:name
           schema:additionalProperty:
