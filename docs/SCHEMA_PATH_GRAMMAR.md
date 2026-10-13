@@ -142,7 +142,7 @@ emitter parses. **Any tool that checks a raw sidecar cell must normalise first**
 raw value reports canonical-equivalent rows as broken, which is exactly what `intake_delivery`
 did until 2026-09-02.
 
-**A `schema:step` selector literal is sentence-case.** `'Data reduction'`, `'Sample preparation'`,
+**A `schema:step` selector literal is sentence-case.** `'Data processing'`, `'Sample preparation'`,
 `'Data acquisition'`, `'Sample digestion'`, `'Ion milling'` — first word capitalised, the rest not.
 The literal IS the node's identity, so `'Data Reduction'` and `'Data reduction'` build two separate
 steps: eight rows carrying the Title-Case spelling made a technique row read as diverging from the

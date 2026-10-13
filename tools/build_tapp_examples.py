@@ -209,7 +209,7 @@ def place_parameter(inst, entry, sp):
 
     An LA parameter is often scoped to a part rather than the procedure: ICP Tuning and Memory Effect
     Mitigation hang off the ICP-MS instrument, Laser Energy off the laser, Spike/Outlier Filtering and
-    Signal Smoothing off the 'Data reduction' workflow step. The root schema:additionalProperty is an
+    Signal Smoothing off the 'Data processing' workflow step. The root schema:additionalProperty is an
     anyOf enumerating only the parameters that genuinely live there, so root-placing a scoped
     parameter fails against every branch — this was the whole of the original 32-error report.
     Returns True when the parameter has been placed here.
@@ -292,7 +292,7 @@ def ensure_required_steps(inst, sp_by_item):
     wanted = [m for sp in sp_by_item.values() for m in _STEP_SEL.findall(sp or "")]
     if not wanted:
         return
-    order = ["Sample preparation", "Data acquisition", "Data reduction"]
+    order = ["Sample preparation", "Data acquisition", "Data processing"]
     uniq = sorted(set(wanted), key=lambda s: (order.index(s) if s in order else len(order), s))
     proc = inst.setdefault(
         "schema:actionProcess",
@@ -1071,7 +1071,7 @@ def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
         for e in list(V.iter_errors(inst)):
             for c in [e] + list(e.context or []):
                 # An array whose `contains` pins a discriminator (a HowTo step named
-                # "Sample preparation", "Data reduction") is not satisfied by a generic sentinel
+                # "Sample preparation", "Data processing") is not satisfied by a generic sentinel
                 # item -- the pinned value IS the item's identity. Build one that matches and
                 # append it, rather than leaving the array failing with a member in it.
                 if c.validator == "contains" and isinstance(c.instance, list):
@@ -1312,7 +1312,7 @@ def sentinel_pinned_members(inst, resolved_schema):
     """Give every `contains`-PINNED member its declared value, sentinelled when absent.
 
     A mandatory `contains` (see docs/ISSUE_2026-09-06_mandatory_selector_contains.md) forces a
-    member to exist -- an analyst Role, a "Detection Limit" variable, a "Data reduction" step. But
+    member to exist -- an analyst Role, a "Detection Limit" variable, a "Data processing" step. But
     the member satisfies the pin by carrying the discriminator ALONE, so an example can tick the
     constraint while reporting nothing. Nine such literals occur in 0 of 2,621 ADA records, and the
     argument for sentinelling them is that a literal which is ALWAYS a sentinel is the evidence its

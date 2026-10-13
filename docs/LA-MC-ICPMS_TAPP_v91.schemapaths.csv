@@ -7,7 +7,7 @@ Ablation Pit Depth and Ablation Rate,Basic,Editable,Text (free),,module,,placeme
 Acquisition Software,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Analysis End Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
-Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:value,inferred,,path from owning module,combined result
+Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:value,inferred,,path from owning module,combined result
 Analysis Location/Spot Coordinates,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Mapped area description'].schema:value,authored,shared,path from owning module,sample > sampling unit
 Analysis Sequence,Basic,Editable,Text (free),,module,divergent,placement owned by Module ICPMS,
 Analysis Sequence,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Analysis Sequence'].schema:value,authored,divergent,tier rule: session parameter is an additionalProperty on the analysis,
@@ -45,7 +45,7 @@ Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owne
 Data Processing Software(s),Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
 Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
-Double-Spike Inversion Algorithm,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Double-Spike Inversion Algorithm'].schema:value,inferred,,path from owning module,
+Double-Spike Inversion Algorithm,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Double-Spike Inversion Algorithm'].schema:value,inferred,,path from owning module,
 Double-Spike Isotope Pair,Basic,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Double Spike Isotope Pair'].schema:value,inferred,,path from owning module,
 Double-Spike Mixing Ratio,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Double Spike Mixing Ratio'].schema:value,inferred,,path from owning module,
 Double-Spike Mixing Ratio,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Double Spike Mixing Ratio'].schema:defaultValue,inferred,,path from owning module,
@@ -82,7 +82,7 @@ Internal Standard Element,Basic,Read-Only,Text (free),,module,shared,placement o
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].schema:additionalProperty[schema:name='Ion Counter Dead Time'].schema:value,authored,,,monitored property
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].schema:additionalProperty[schema:name='Ion Counter Dead Time'].schema:value,authored,,,monitored property
 Spectral Interference Corrections Applied,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:isobaricInterferenceCorrectionsApplied,authored,shared,,
-Isotope Dilution Data Reduction Method,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Isotope Dilution Data Reduction Method'].schema:value,authored,shared,divergence decision applied,
+Isotope Dilution Data Reduction Method,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Isotope Dilution Data Reduction Method'].schema:value,authored,shared,divergence decision applied,
 Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
 Laser Beam Energy Profile,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='Laser Ablation System'].schema:additionalProperty[schema:name='Laser Beam Energy Profile'].schema:value,authored,shared,path from owning module,
@@ -117,7 +117,7 @@ Number of Replicates,Advanced,Basic,Integer,$Dataset.prov:wasGeneratedBy.schema:
 Oxide Production,N/A,Basic,Text (free),,module,shared,placement owned by Module ICPMS,
 Oxide Production Method and Threshold,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,
 Peak Flatness,N/A,Basic,Text (free),,module,,placement owned by Module MCICPMS,
-Peak Flatness Method and Threshold,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Peak Flatness Method and Threshold'].schema:value,inferred,,path from owning module,
+Peak Flatness Method and Threshold,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Peak Flatness Method and Threshold'].schema:value,inferred,,path from owning module,
 Calibration Strategy per Target Species,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,target species
 Make-up Gas and Flow Rate,Advanced,Editable,Numeric (L/min) / Text,$MethodDefinition.schema:additionalProperty[schema:name='Make-up Gas and Flow Rate'].schema:defaultValue,authored,,,
 Make-up Gas and Flow Rate,Advanced,Editable,Numeric (L/min) / Text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Make-up Gas and Flow Rate'].schema:value,inferred,,dual-home counterpart (tier matrix),
@@ -152,10 +152,10 @@ Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,,module,module,"covere
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 Signal Integration Interval Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module ICPMS,
 Signal Integration Time,N/A,Basic,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value,authored,shared,,
-Signal Smoothing,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Signal Smoothing'].schema:defaultValue,authored,shared,divergence decision applied,
-Signal Smoothing,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Signal Smoothing'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
-Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Filtering Approach'].schema:defaultValue,authored,shared,divergence decision applied,
-Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Filtering Approach'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
+Signal Smoothing,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Signal Smoothing'].schema:defaultValue,authored,shared,divergence decision applied,
+Signal Smoothing,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Signal Smoothing'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
+Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Filtering Approach'].schema:defaultValue,authored,shared,divergence decision applied,
+Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Filtering Approach'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
 Spot Diameter (Measured),N/A,Basic,Numeric (µm),,module,,placement owned by Module LaserAblation,
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetMaterialTemplate.ada:defaultTargetMaterials[],keyed,shared,keyed route for `defines: target material`. Returned to the technique: the module that covered it cannot constrain this container.,defines: target material
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Sampling Unit Selection Criteria'].schema:value,inferred,,path from owning module,
