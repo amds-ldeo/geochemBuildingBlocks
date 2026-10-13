@@ -105,7 +105,7 @@ WRAPPER_ITEM_REF = {
 # Array properties whose ITEMS are a rich object defined elsewhere, keyed by PROPERTY name
 # (WRAPPER_ITEM_REF above is keyed by a wrapper ROLE value instead, which is why steps need their
 # own hook). Same reasoning, and the same symptom it cures: a sidecar row places a parameter at
-# schema:step[schema:name='Data reduction'], so the emitter builds the container from that selector
+# schema:step[schema:name='Data processing'], so the emitter builds the container from that selector
 # and emits a name-keyed if/then carrying no structural typing. Nothing then says a step IS a
 # WorkflowStep, so @type was neither required nor supplied -- 80 generated -P0 steps shipped with
 # no @type at all and validated clean, because the only rule reaching them keyed on schema:name,

@@ -148,7 +148,7 @@ def main():
 
     # A technique's blocks (tapp / detail / profile / profile-ada) constrain different
     # slices of one record, so a name pinned by ANY of them is a name the technique knows.
-    # Judging a tapp example against the tapp block alone reports every "Data reduction" in
+    # Judging a tapp example against the tapp block alone reports every "Data processing" in
     # the corpus -- 33 of them -- which is noise rather than signal.
     tech_ok, blocks = collections.defaultdict(set), 0
     for res in sorted(glob.glob(os.path.join(TPROF, "*", "*", "*", "resolvedSchema.json"))):

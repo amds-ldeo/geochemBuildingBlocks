@@ -477,10 +477,21 @@ supported author shorthand — `prov:used[sel]` → `prov:used.<kind>[sel]`, dou
 broken. `schema:used` is the one that really is an error (schema.org has no `used` property);
 nothing normalises it and `schema_path_parser` now rejects it.
 
-**A `schema:step` selector literal is sentence-case** — `'Data reduction'`, `'Sample preparation'`,
+**A `schema:step` selector literal is sentence-case** — `'Data processing'`, `'Sample preparation'`,
 `'Data acquisition'`, `'Sample digestion'`, `'Ion milling'`. The literal IS the node's identity, so
 Title Case builds a second, separate step: eight such rows made a technique row read as diverging
 from the module that placed it identically.
+
+**`'Data processing'` is the canonical name for that step, and `'Data reduction'` is retired**
+(2026-10-12). Two names for one concept is the defect, not a convenience: the step constraints are
+`if`/`then`, so a workflow using the other spelling does not fail — in the 3 profiles with no
+`contains` pin it silently skips the constants requirement entirely. ADA's authored method
+registry settled it, 83 of 89 workflows calling it "Data processing" against 4 "Data reduction",
+and gBB's own plan side already agreed (step 4 of `tappDefinition/description.md`). The rename ran
+through the SIDECARS, which is the only place that works: the emitter builds the schema
+conditional AND the example step from one selector, so all three layers move together or none do.
+137 selectors across 24 sidecars; the census reported it as a SWAP with counts unchanged in 50
+blocks, which is the case its per-block digest exists for.
 
 > **Module `$ref` depth (`e3a3968d`).** Modules sit at `_sources/BaseSchema/modules/<name>/` — two hops shallower than a technique schema at `_sources/techniqueProfile/geochemProfile/<TECH>/tapp/` — but `build_module_bb.py` reuses `schema_path_emitter`'s technique-depth `REF_MAP`. A BaseSchema target written as `../../../../BaseSchema/X` climbs past the repo root and must be `../../X`; `build_module_bb._reref_module_depth()` does that rewrite. Only the full CI postprocess catches this class of break — `validate_examples.py` does not.
 

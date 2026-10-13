@@ -61,3 +61,17 @@ this example carries. See `CLAUDE.md` and #65.
 - `bd17888f5` recorded the analysts and first-use dates on all three instances
 - `f1cab9f27` added the creator attribution and pathed the identity rows
 - `f9e5b6fbf` recorded the constraint census for the four new blocks
+
+## Hand-applied: the 'Data reduction' -> 'Data processing' step rename (2026-10-12)
+
+This block was held OUT of the rename's regeneration and the change applied by hand instead --
+2 selector consts in `tapp/schema.yaml` and 1 step name here -- because regenerating `ebsdTAPP`
+destroys the content this file records: 15 JSON paths of this example and 81 schema paths,
+measured and recorded above. Its derived artifacts (`resolvedSchema.json`, `tappSchema.json`)
+were regenerated normally, since resolve and the mirror stage read `schema.yaml` and cannot
+reach the path-driven emitter.
+
+So for this block the curated artifact is the source, and the sidecar
+(`docs/EBSD_TAPP_draft_v2.schemapaths.csv`, renamed with the other 23) agrees with it rather
+than generating it. A future regeneration will still destroy this block; that is unchanged by
+this edit and is why the edit was made this way.
