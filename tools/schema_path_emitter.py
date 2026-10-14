@@ -224,15 +224,18 @@ class AddlType:
     """An array-valued key (schema:additionalType): required selector token(s) + an optional finer
     terminal value. to_schema -> array whose items are the token consts (+ terminal leaf) and that
     CONTAINS each token; to_instance -> the list of tokens (+ terminal value)."""
-    __slots__ = ("consts", "item_leaf")
+    __slots__ = ("consts", "item_leaf", "key")
 
-    def __init__(self, const_val):
+    def __init__(self, const_val, key=None):
         self.consts = [const_val]
         self.item_leaf = None       # mode-specific (schema fragment | placeholder value) or None
+        # Which property these tokens sit on. Needed because the serialization rule differs by
+        # key, not by token: see POLICY_KEYS.
+        self.key = key
 
 
 def _sel_key_node(key, val):
-    return AddlType(val) if key in ARRAY_VALUED else Leaf({"const": val})
+    return AddlType(val, key) if key in ARRAY_VALUED else Leaf({"const": val})
 
 
 # ---------- merger: fold one path into the tree ----------
@@ -422,14 +425,56 @@ def _term_scheme(consts):
 
 
 # ---------- serialize IR -> JSON Schema ----------
+# A selector token that is an IDENTIFIER has to be pinned as an IRI reference as well as a
+# string, per docs/ADDITIONALTYPE_POLICY.md clause 1 and the regex the CDIF additionalProperty
+# SHACL uses to tell the two apart. Every token until now was a free label -- "SEM", "ICPMS",
+# "EPMA" -- which correctly stays a bare string; the policy names 'MaterialSample' as exactly
+# that case. Seeding a synchrotron beamline introduces the first identifier token,
+# nxs:base_classes/NXinstrument.html, and a bare const of it is a Rule A violation:
+# check_additionaltype_policy.py decides by VALUE, Rule A carries no allowlist, and it gates CI.
+#
+# The dual form is the one the policy document prescribes, and it is not cosmetic. A record
+# serializes the token as {"@id": ...} so that it participates in RDF entailment as a resource
+# rather than as a literal that merely looks like a URI; a `contains` pinned to the string alone
+# then stops matching the moment the value is converted -- the constraint stays present and
+# biting, just no longer on the thing it was written for. That is the bios:LabProcess failure
+# the policy was written after.
+_IRI_LIKE_TOKEN = re.compile(r'^[A-Za-z][A-Za-z0-9+.\-]*:[^\s"]+$')
+
+
+# The policy governs schema:additionalType and schema:propertyID. It does NOT govern @type, whose
+# values are bare IRI strings by JSON-LD definition -- {"@id": ...} is not a legal @type member,
+# so the dual form would be wrong there rather than merely unnecessary.
+#
+# Keying this on the VALUE alone, as the first version did, converts the wrong set: measured over
+# the sidecars, schema:additionalType has 661 selector occurrences and NOT ONE is identifier-shaped,
+# while @type has 127 and EVERY one is (prov:Plan, the isamples materialsampleobjecttype IRIs).
+# So a value-only test changes nothing it should and all 127 it should not.
+POLICY_KEYS = {"schema:additionalType", "schema:propertyID"}
+
+
+def _token_const(val, key=None):
+    """The pin for one selector token: a bare const for a label, string-or-{@id} for an identifier.
+
+    Widening to {type: object} instead would match ANY member and satisfy the discriminator
+    silently, which the policy calls out as worse than the narrow form because it fails nothing.
+    """
+    if key not in POLICY_KEYS or not (isinstance(val, str) and _IRI_LIKE_TOKEN.match(val)):
+        return {"const": val}
+    return {"anyOf": [{"const": val},
+                      {"type": "object", "required": ["@id"],
+                       "properties": {"@id": {"const": val}}}]}
+
+
 def to_schema(node):
     if isinstance(node, Leaf):
         return node.schema
     if isinstance(node, AddlType):
-        opts = [{"const": c} for c in node.consts] + ([node.item_leaf] if node.item_leaf else [{"type": "string"}])
+        opts = ([_token_const(c, node.key) for c in node.consts]
+                + ([node.item_leaf] if node.item_leaf else [{"type": "string"}]))
         out = {"type": "array",
                "items": {"anyOf": opts} if len(opts) > 1 else opts[0],
-               "allOf": [{"contains": {"const": c}} for c in node.consts]}
+               "allOf": [{"contains": _token_const(c, node.key)} for c in node.consts]}
         scheme = _term_scheme(node.consts)
         if scheme:
             out["schema:inDefinedTermSet"] = scheme
@@ -483,7 +528,8 @@ def to_schema(node):
                     skey = skey or node.selkey
                     nested = {k: _jsonld_card(to_schema(v)) for k, v in br.props.items() if k != skey}
                     if nested:
-                        sel = {"contains": {"const": val}} if skey in ARRAY_VALUED else {"const": val}
+                        sel = ({"contains": _token_const(val, skey)} if skey in ARRAY_VALUED
+                               else _token_const(val, skey))
                         # the discriminating token is a controlled term (instrument type /
                         # instrument component type); annotate the scheme it comes from, the way
                         # componentType is annotated, so the vocabulary behind the const is
@@ -523,7 +569,8 @@ def to_schema(node):
                 if isinstance(br, Leaf):
                     allof.append({"contains": br.schema, "minContains": 0, "maxContains": 1})
                 elif (skey, val) in node.required:
-                    key_c = ({"contains": {"const": val}} if skey in ARRAY_VALUED else {"const": val})
+                    key_c = ({"contains": _token_const(val, skey)} if skey in ARRAY_VALUED
+                             else _token_const(val, skey))
                     _sch = _term_scheme([val])
                     if _sch:
                         key_c = dict(key_c, **{"schema:inDefinedTermSet": _sch})

@@ -3,6 +3,7 @@
   "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
+  "ada:beamline",
   "ada:dataProcessingSoftwareDefault",
   "ada:analyticalMode",
   "ada:reportedVariablesAndUnits",
@@ -39,7 +40,9 @@
   "ada:SXRF2DImage",
   "ada:SXRFPointTabular"
  ],
- "basic_required": [],
+ "basic_required": [
+  "ada:beamline"
+ ],
  "basic_props": [
   {
    "key": "ada:samplingUnitType",
@@ -61,6 +64,13 @@
    "jtype": "string",
    "cov": 0,
    "required": false
+  },
+  {
+   "key": "ada:beamline",
+   "item": "Beamline",
+   "jtype": "string",
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:dataProcessingSoftwareDefault",
