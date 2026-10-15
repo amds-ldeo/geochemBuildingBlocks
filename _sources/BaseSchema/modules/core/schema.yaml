@@ -298,8 +298,11 @@ $defs:
                           type: string
                         - type: array
                           items: *id005
-                    required:
-                    - schema:name
+                    anyOf:
+                    - required:
+                      - schema:name
+                    - required:
+                      - schema:identifier
               allOf:
               - contains:
                   properties:
