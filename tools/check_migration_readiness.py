@@ -17,13 +17,19 @@ validate against the profile they declare and 0% against the replacement. The ca
 missing TAPP reference -- `prov:used` is present on these records, carrying the instrument. It
 is required properties the records do not have, and the gap divides sharply:
 
-  XANES, XRD, QRIS, RAMAN  ONE property, 322 records: `prov:wasGeneratedBy[].schema:object[]
-                           .schema:name`. The sample carries `schema:identifier`
-                           ("OREX-803031-101") and no name, so the information is present
-                           under another key -- a mapping, not missing data.
+  XANES, XRD, QRIS, RAMAN  `schema:variableMeasured` is an empty array and the profile
+                           requires it to contain a matching variable. That is genuinely
+                           absent content -- which variables were measured -- not a
+                           labelling mismatch, so it cannot be relaxed away.
   SEM, TEM, EPMA, VNMIR    that, plus per-analysis detail a SAMIS-era submission never
                            supplied: `ada:edsDeadTime`, `ada:proceduralBlankLevel`,
                            `schema:actionProcess`, `ada:mapDimensions`, `ada:voxelSize`.
+
+A ninth blocker was removed rather than reported: all 8 also failed on
+`prov:wasGeneratedBy[].schema:object[].schema:name`, and for the first four that was the ONLY
+failure. The records name the sample with `schema:identifier` ("OREX-803031-101") and carry no
+separate laboratory name, so the information was present under another key. `schema_path_emitter
+.SUBSTITUTES` now lets the identifier satisfy the name, scoped to `schema:object`.
 
 So a legacy declaration is not redundant today; it is the only profile those records satisfy.
 The decision recorded alongside this tool is to KEEP BOTH until the records are enriched, per
@@ -152,13 +158,20 @@ def main():
             if not errs:
                 tok += 1
             for e in errs:
+                # EVERY error, not only the required-property ones. Reporting just those once
+                # made this tool print a technique at 0/60 with nothing listed beneath it, which
+                # reads as "it fails for no reason": the records had stopped failing on a missing
+                # property and started failing on `schema:variableMeasured: []` not containing a
+                # matching item. A report that is silent about the blocker it cannot phrase is
+                # worse than a verbose one.
+                #
+                # Key on the PATH as well as the message. The property name alone is ambiguous --
+                # schema:name is required at a dozen nodes -- and list indices are elided so
+                # wasGeneratedBy/0 and /1 are one finding rather than two.
+                where = "/".join("[]" if isinstance(x, int) else str(x) for x in e.path) or "(root)"
                 m = re.match(r"'([^']+)' is a required property", e.message or "")
-                if m:
-                    # The property NAME alone is ambiguous -- schema:name is required at a
-                    # dozen nodes -- so key on the path too, with list indices elided so
-                    # wasGeneratedBy/0 and /1 are one finding rather than two.
-                    where = "/".join("[]" if isinstance(x, int) else str(x) for x in e.path)
-                    blocking["%s/%s" % (where or "(root)", m.group(1))] += 1
+                what = "requires %s" % m.group(1) if m else (e.message or "")[:88]
+                blocking["%s :: %s" % (where, what)] += 1
         rows.append((tech, cid, len(docs), len(sample), lok, tok, tb, blocking))
 
     print("%-9s %-14s %6s %9s %9s %-9s" % ("technique", "declared cid", "recs",
@@ -170,12 +183,12 @@ def main():
                                                "%d/%d" % (tok, s), verdict))
     if rows:
         print()
-        print("=== what the TAPP profile still requires that these records lack ===")
+        print("=== where the TAPP profile rejects these records ===")
         for tech, cid, n, s, lok, tok, tb, blocking in rows:
             if blocking:
                 print("  %s (%s)" % (tech, cid))
-                for where, n in blocking.most_common(8):
-                    print("      %4d  %s" % (n, where))
+                for what, n in blocking.most_common(8):
+                    print("      %4d  %s" % (n, what))
     if unmigratable:
         print()
         print("=== no TAPP profile exists for these, so migration cannot be assessed ===")
