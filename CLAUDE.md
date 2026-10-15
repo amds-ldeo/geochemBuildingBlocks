@@ -288,20 +288,44 @@ of them can be retired is the record-migration question below — not schema wor
 > winner is read order, and EPMA and TEM are already in that state: their `profile-ada` and their
 > `profile/` both declare `adaEPMA` / `adaTEM`.
 
-**Superseded in intent is NOT superseded in use — but not for the reason you would guess.**
-**No record declares `dcterms:conformsTo` at all**: 0 of 7446 in `public.json_table`, measured
-2026-10-07, corpus-wide and not merely for these techniques. So nothing names a `profile-ada` by
-URI and retiring one cannot orphan a record *that way*.
+**Superseded in intent is NOT superseded in use, and records DO cite these profiles by URI.**
+Corrected 2026-10-15. This paragraph previously read "no record declares `dcterms:conformsTo` at
+all: 0 of 7446", and concluded that retiring a `profile-ada` could not orphan a record that way.
+The 0 was measured at the record ROOT only. **Every record declares one — 7,447 of 7,447 — at
+`schema:subjectOf.dcterms:conformsTo`**, which is exactly where `adaProduct`'s own conformsTo pin
+sits, so the nesting should have been the first place to look.
 
-The risk is real through a different route. The ADA loader **derives** `conformsTo` from record
+**36 distinct profile cids are asserted**, and most name a legacy profile:
+
+| cid | records | holder |
+|---|---|---|
+| `geochemProduct`, `adaProduct` | 7,447 each | the base products |
+| `adaSEM` | **2,912** | `geochemProfile/SEM/profile-ada` — legacy |
+| `adaTEM` | **870** | legacy AND the TAPP `profile/` — the cid is forked |
+| `adaEPMA` | **435** | legacy AND the TAPP `profile/` — forked |
+| `adaXANES` 245, `adaVNMIR` 183, `adaXRD` 66 | | `adaProfile/*/profile-ada` — legacy |
+| `adaLIT` 137, `adaICPMS` 112, `adaARGT` 97, `adaFTICRMS` 89, `adaLCMS`/`adaGCMS` 75 … | | all legacy |
+
+So retiring or renaming a legacy profile DOES orphan the records that cite it, and nothing in gBB
+would notice: no gBB check reads ADA records. Re-pointing the records is an ADA-side change,
+because the assertion lives in the record content. Sequence it as: decide the cids, re-point the
+records, then deprecate — not the other way round.
+
+Where `adaTEM` and `adaEPMA` are concerned the records are citing an **ambiguous** URI today,
+since two schemas claim each.
+
+The risk compounds through a second route. The ADA loader **derives** `conformsTo` from record
 CONTENT (via the CDIF validation repo's `detect_conformance`), so a record is matched to a
 profile by what it carries, not by what it cites — and the matched profile's constraints then
 have to accept it. That is why relocating the twelve `adaProfile` hasPart-item detail blocks to
 the top level, tried on a copy on 2026-09-05, failed **all 218** records of the affected profiles
 on a missing `ada:componentType`: those records never mentioned the profile, they were matched
-into it. So the question to ask before retiring a profile is not "what cites this?" — nothing
-does — but "what would `detect_conformance` match here instead, and would that schema accept
-these records?"
+into it. So there are TWO questions to ask before retiring a profile, and the correction above
+means the first one is no longer rhetorical: **"what cites this?"** — measured per cid at
+`schema:subjectOf.dcterms:conformsTo`, which for `adaSEM` is 2,912 records — and **"what would
+`detect_conformance` match here instead, and would that schema accept these records?"** A profile
+can be orphaned by either route: a record that names it, or a record that is matched into its
+replacement and fails there.
 
 > **One stale count nearby.** The Composition-modules section below says `_tapp_lib.py` generates
 > "the 16 under `geochemProfile/`" and that "the 32 under `adaProfile/`" are hand-maintained.
