@@ -36,6 +36,7 @@ spreadsheet changes; commit the updated cache alongside any schema changes
 the apply produces.
 """
 import argparse
+import io
 import json
 import sys
 from collections import defaultdict
@@ -137,8 +138,8 @@ def universal_terms():
             if isinstance(c, dict) and str(c.get("@id", "")).startswith("ada:")]
 
 
-def apply_to_bb_schemas(mapping: dict) -> int:
-    files_changed = 0
+def apply_to_bb_schemas(mapping: dict) -> tuple:
+    files_changed = files_current = 0
     for bb_name, enum_values in sorted(mapping.items()):
         # Every enum also admits the OGC nil reason. It is not a component type and so is not in
         # the Components worksheet, but a file whose classification is genuinely unavailable has
@@ -160,18 +161,43 @@ def apply_to_bb_schemas(mapping: dict) -> int:
         if not path.exists():
             print(f"  SKIP {bb_name}: no schema.yaml at {path}")
             continue
+        before = path.read_text(encoding="utf-8")
         with open(path, encoding="utf-8") as f:
             doc = yaml.load(f)
         only_top = (bb_name == "collection")
         n = replace_componentType_in(doc, enum_values, only_top_level=only_top)
-        if n:
-            with open(path, "w", encoding="utf-8") as f:
-                yaml.dump(doc, f)
-            print(f"  {path.relative_to(REPO_ROOT)}: replaced {n} top-level ada:componentType ({len(enum_values)} values)")
-            files_changed += 1
-        else:
+        if not n:
             print(f"  WARN {bb_name}: no top-level ada:componentType in {path.name}")
-    return files_changed
+            continue
+
+        buf = io.StringIO()
+        yaml.dump(doc, buf)
+        after = buf.getvalue()
+
+        # REPORT WHAT CHANGED, NOT WHAT WAS REWRITTEN. replace_componentType_in returns
+        # the number of nodes it VISITED, which is >= 1 whenever the property exists, so
+        # reporting on it announced "8 BB schemas updated" for a run that altered nothing.
+        # Worse, the per-file "(N values)" is the APPLIED enum size -- the bucket's own
+        # terms PLUS the universal set -- not the cache bucket, so 76 cached tabularData
+        # terms printed as 99. Read together the two numbers look exactly like a large
+        # expansion of a stale cache, and a reader concluded 161 terms had just been added
+        # when none had.
+        if after == before:
+            print(f"  {path.relative_to(REPO_ROOT)}: already current "
+                  f"({len(enum_values)} enum values = own + universal)")
+            files_current += 1
+            continue
+
+        # newline="\n": this repo normalises to LF through .gitattributes, so writing
+        # the platform default left three files listed as modified by `git status` with an
+        # EMPTY `git diff` -- a change that is not one, and indistinguishable at a glance
+        # from a real edit awaiting review.
+        with open(path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(after)
+        print(f"  {path.relative_to(REPO_ROOT)}: UPDATED "
+              f"({len(enum_values)} enum values = own + universal)")
+        files_changed += 1
+    return files_changed, files_current
 
 
 def main():
@@ -185,15 +211,44 @@ def main():
         if not args.xlsx.exists():
             raise SystemExit(f"xlsx not found: {args.xlsx}")
         mapping = derive_from_xlsx(args.xlsx)
-        args.cache.write_text(json.dumps(mapping, indent=2) + "\n", encoding="utf-8")
-        print(f"refreshed cache from {args.xlsx} -> {args.cache.relative_to(REPO_ROOT)}")
+        text = json.dumps(mapping, indent=2) + "\n"
+        old = args.cache.read_text(encoding="utf-8") if args.cache.exists() else ""
+        if text == old:
+            print(f"cache already matches {args.xlsx.name}: "
+                  f"{sum(len(v) for v in mapping.values())} terms in {len(mapping)} "
+                  f"file-type bucket(s), not rewritten")
+        else:
+            previous = json.loads(old) if old else {}
+            added = sum(len(set(v) - set(previous.get(k) or []))
+                        for k, v in mapping.items())
+            removed = sum(len(set(previous.get(k) or []) - set(v))
+                          for k, v in mapping.items())
+            # newline="\n" for the same reason as the schemas: Path.write_text uses the
+            # platform default and would churn the file on Windows with no content change.
+            with open(args.cache, "w", encoding="utf-8", newline="\n") as f:
+                f.write(text)
+            print(f"refreshed cache from {args.xlsx} -> "
+                  f"{args.cache.relative_to(REPO_ROOT)}: {added} term(s) added, "
+                  f"{removed} removed")
+            if removed:
+                print("  NOTE a removal TIGHTENS every enum that carried the term, so an "
+                      "example using it starts failing. Check validate_examples, not "
+                      "only check_componentType.")
     else:
         if not args.cache.exists():
             raise SystemExit(f"cache not found ({args.cache}); run with --refresh --xlsx PATH")
         mapping = json.loads(args.cache.read_text(encoding="utf-8"))
 
-    n = apply_to_bb_schemas(mapping)
-    print(f"\n{n} BB schemas updated.")
+    changed, current = apply_to_bb_schemas(mapping)
+    if changed:
+        print(f"\n{changed} BB schema(s) UPDATED, {current} already current.")
+        print("Now regenerate and verify -- an enum change moves constraints:")
+        print("   python tools/resolve_schema.py --all")
+        print("   python tools/regenerate_schema_json.py")
+        print("   python tools/validate_examples.py")
+        print("   python tools/check_componentType.py")
+    else:
+        print(f"\nNothing to do: all {current} BB schema(s) already current.")
 
 
 if __name__ == "__main__":
