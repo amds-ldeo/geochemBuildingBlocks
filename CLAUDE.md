@@ -64,8 +64,9 @@ Three things to know before touching it:
   regression at that block, so a full run fails until it is removed.
 - **The baseline records which `--checks` wrote it.** CI runs
   `--checks files,schema-json,shacl,coverage`: measured on `a1cb6fbdb8`, that subset and the full
-  six-check audit report the SAME five failures, the subset takes 13.6s against over twenty
-  minutes, and the two omitted checks each duplicate a stricter check that already runs
+  six-check audit report the SAME five failures and both exit 0 against the baseline, the subset
+  takes 13.6s against the full audit's 11m25s, and the two omitted checks each duplicate a
+  stricter check that already runs
   (`resolved` compares only top-level property keys, where `Regenerate and diff` byte-diffs a full
   nine-stage regeneration; `examples` is `validate_examples.py`, run by `check-examples.yml`). A run
   narrower than its manifest says so and declines to call anything resolved.
