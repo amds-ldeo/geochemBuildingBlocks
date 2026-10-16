@@ -9511,8 +9511,17 @@
                                 "x-jsonld-id": "http://schema.org/identifier"
                               }
                             },
-                            "required": [
-                              "schema:name"
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "schema:name"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "schema:identifier"
+                                ]
+                              }
                             ]
                           }
                         }
