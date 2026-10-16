@@ -33,8 +33,10 @@ import schemapath_io
 import tapp_source
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# default delivery; --modules-dir points this at a newer drop without editing the file
-MODDIR = tapp_source.modules_dir()
+# Resolved in main(), not here: modules_dir() now refuses an unpopulated `tapp/` submodule, and
+# resolving at import would make --modules-dir -- whose whole job is to point somewhere else --
+# unusable in exactly the state it is wanted.
+MODDIR = None
 
 
 def technique_placements():
@@ -66,8 +68,7 @@ def main():
     a = ap.parse_args()
 
     global MODDIR
-    if a.modules_dir:
-        MODDIR = os.path.abspath(a.modules_dir)
+    MODDIR = os.path.abspath(a.modules_dir) if a.modules_dir else tapp_source.modules_dir()
     placed = technique_placements()
     names = sorted(f[len("Module_"):-4] for f in os.listdir(MODDIR)
                    if f.startswith("Module_") and f.endswith(".csv")
