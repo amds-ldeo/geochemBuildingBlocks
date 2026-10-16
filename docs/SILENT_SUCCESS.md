@@ -364,12 +364,84 @@ can observe. A relaxation and a tightening are different defects, and an instanc
 is silent about the other. When a constraint is loosened because real-world records required it,
 the loosening needs a positive instance committed with it — the change that motivated it is
 precisely the evidence that the existing corpus does not contain one.
+## 9. The audit prints a failure count and exits 0
+
+**Reported success:** `python tools/audit_building_blocks.py` printed
+`Summary: 246 passed, 5 failed (of 251 building blocks)` and exited **0**. Measured on main at
+`a1cb6fbdb8`, the whole run captured.
+
+**Not doing its job:** two separate failures, and either alone was enough.
+
+`main()` had no exit-code path at all. The only `sys.exit` calls in 875 lines were the two
+import guards and a missing-`_sources` error; `main()` itself ended by falling off the bottom of
+`print_report` and was invoked bare as `main()`. So every outcome was a success to any caller --
+including a report naming five failing blocks.
+
+And nothing called it. `grep -rn audit .github/workflows/` returned nothing across all six
+workflows, so the exit code was moot everywhere it could have mattered. Six checks -- file
+completeness, `schema.yaml` against `*Schema.json`, `resolvedSchema.json` freshness, example
+validation, SHACL completeness, example coverage -- ran only when somebody thought to run them by
+hand, into a shell that then ignored the result.
+
+The second half had already been written down as though it were fixed. `check_vocab_identifier_collisions`
+was added after the seven forked epmaTAPP vocabularies, and CLAUDE.md states it "now fails on a
+repeat". It did not. It printed `FAIL  registry/vocab: N identifier collision(s)` and fell through
+to the same return-less end of `main()`. The sentence described the intent and never the code, for
+as long as both existed.
+
+**Why it was not simply made fatal:** the five failures are the legacy `profile-ada` blocks for
+QRIS, RAMAN, VNMIR, XANES and XRD, each on `No example files found`, confirmed against `HEAD`
+rather than the shared working tree. No generator owns a `profile-ada` block -- `generate_profiles.py`
+is deprecated and refuses to run -- so no regeneration will ever clear them: the examples must be
+authored, or the blocks retired, and retirement is blocked on ADA-side record migration rather than
+on schema work. A fatal audit would have been a check that cannot pass, which is section 4's
+deadlock wearing different clothes.
+
+**What was done instead:** the shape `constraint_census.py` already uses for the same problem.
+`docs/audit_baseline.json` records the accepted failures verbatim; the audit exits 1 on any issue
+the manifest does not record, and -- on a run no narrower than the manifest -- on a baselined issue
+that is **gone**, so cleared debt has to leave the manifest in the same change instead of sitting
+there absorbing the next regression at that block. Three details are deliberate:
+
+- **Keyed by path, not by name.** `name` is the directory's last component, so 41 blocks are called
+  `profile-ada` and the old report printed `[FAIL] profile-ada` five times with nothing to say
+  which technique. Keying a baseline on that would let one block's accepted debt excuse another's
+  failure.
+- **Issue strings stored and compared verbatim**, so a block that keeps failing for a *different*
+  reason is reported rather than absorbed -- the reasoning behind the mandatory `expect` field in
+  `docs/counterexamples.json`.
+- **A vocabulary `@id` collision is fatal and not baselineable.** It is a relationship between
+  files, not a property of a block, and a forked `@id` is never accepted debt. `--write` says so
+  and refuses to absorb it.
+
+**And it is now run, by a required workflow.** As a step of `check-schema-drift.yml`
+(`Regenerate and diff`), beside the census and the counterexamples, for the reason those are there:
+no new required context, so nothing new can sit pending. Not `check-examples.yml` -- branch
+protection lists exactly three contexts and that is not one of them, and section 4 is about a red
+non-required check that auto-merge walks straight past.
+
+**Verified by making it fail**, which is the only reason to believe any of the above:
+
+| case | expected | measured |
+|---|---|---|
+| tree as committed | exit 0, 5 accepted | exit 0, `5 of the 5 are accepted ... 0 are not` |
+| a 6th block loses its example | exit 1 | exit 1, `NEW ISSUES (1)` naming the block by path |
+| a baselined block gains an example | exit 1 | exit 1, `1 baselined issue(s) RESOLVED` |
+| same, but a narrower `--checks` run | exit 0, and say why | exit 0, `cannot tell a resolved issue from one it did not look for` |
+| two vocabulary files, one `@id` | exit 1 | exit 1, and `--write will not accept it` |
+
+The mutations were applied to copies outside the repository, not to `_sources` -- this checkout is
+shared, and another session was writing to it during these runs.
+
+**Rule:** a tool that prints `N failed` must exit non-zero, or state in its own output that it does
+not gate. And before believing a check protects anything, `grep` the workflows for it -- then read
+which contexts are *required*, not which are green.
 
 ---
 
 ## The common thread
 
-In all eight, the failure was invisible from the outside because the signal said "success". What
+In all of them, the failure was invisible from the outside because the signal said "success". What
 exposed each one:
 
 | | what exposed it |
@@ -382,6 +454,7 @@ exposed each one:
 | 6 | an order-insensitive comparison between the correct two commits |
 | 7 | asking what the tool resolved its input to, before trusting the run |
 | 8 | asking which *direction* of change each check could observe, and reverting the code to see |
+| 9 | running the tool and reading `$?`, then grepping CI for whether anything runs it |
 
 None of these needed cleverness. They needed looking at the thing itself instead of the badge on
 top of it.
