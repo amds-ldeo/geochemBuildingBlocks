@@ -147,9 +147,9 @@ The procedure half of the ICPMS module, with every property populated. Generated
             schema1:hasPart [ schema1:additionalType "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Limit of Quantification (LOQ) Method" ],
+            schema1:name "Uncertainty Propagation Method" ],
         [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Uncertainty Propagation Method" ] ;
+            schema1:name "Limit of Quantification (LOQ) Method" ] ;
     ada:analysisSequenceDefault "no value available: unnamed property" ;
     ada:blankBackgroundCorrectionMethod "no value available: unnamed property" ;
     ada:calibrationMeasurementFrequency "no value available: unnamed property" ;
