@@ -17,6 +17,25 @@ allOf:
   - $ref: ../geochemProduct/schema.yaml
   # ADA / SAMIS submission + delivery layer.
   - type: object
+    # This layer had NO required list at all until 2026-10-16, so a record could declare
+    # adaProduct conformance and be tested on almost nothing ADA-specific: every property here
+    # was optional, and an absent property is never checked. The componentType enforcement that
+    # actually bites lives in files/schema.yaml and the technique profiles, not here.
+    #
+    # schema:additionalType was the clearest case. It has carried the 127-label product-type
+    # `contains` for as long as it has existed, and that constraint did nothing for a record that
+    # simply omitted the property. Requiring it makes the existing enum mandatory rather than
+    # conditional on the author having volunteered the field.
+    #
+    # Measured against public.json_table on 2026-10-16, before landing: ada:submissionType 7,447
+    # of 7,447 (complete -- ADA emitted it FIRST, deliberately, because requiring it earlier
+    # would have failed every record), schema:additionalType present on 7,447 of 7,447 with 7,435
+    # carrying a product-type term, and schema:distribution on 7,447 of 7,447. So this fails 12
+    # records on the product type and 41 on the distribution, and nothing else.
+    required:
+    - 'ada:submissionType'
+    - "schema:additionalType"
+    - "schema:distribution"
     properties:
       "schema:additionalType":
         type: array
@@ -275,7 +294,18 @@ allOf:
             # ada:productType/xRayDiffractionTabular
             - "X-ray Diffraction (XRD) Tabular"
         minItems: 2
-      submissionType:
+      'ada:submissionType':
+        description: >-
+          How the delivery arrived: BundleDelivery (7,071 records) or Regular (376), counted over
+          public.json_table on 2026-10-16. Not enumerated here -- the values come from ADA's
+          records.submission_type, so a third would be a data fact rather than a schema change.
+
+          PREFIXED deliberately. This was `submissionType`, unprefixed, from the SAMIS era. In a
+          JSON-LD document a bare term that no @context defines does not expand to an IRI, so it
+          was a dangling key rather than a property -- a consumer framing the document would drop
+          it. `ada:` is already bound in ADA's @context. The rename had to travel WITH the
+          requirement below: requiring the old spelling would have failed all 7,447 records,
+          because none carries it.
         type: string
       "schema:distribution":
         description: >-
@@ -288,6 +318,37 @@ allOf:
           schema:hasPart lists member files, each a schema:MediaObject carrying its
           own ada:componentType (the ADA SAMIS delivery pattern).
         type: array
+        # At least one distribution must CLASSIFY its files, which is the delivery claim this
+        # building block exists to make. Either shape satisfies it, matching the EITHER/OR in the
+        # description above: a monolithic distribution carries ada:componentType itself, a bundle
+        # carries one on a schema:hasPart member. Requiring only the hasPart form would foreclose
+        # the monolithic case this schema deliberately supports.
+        #
+        # PRESENCE, not vocabulary membership. The proposal that prompted this asked for a type
+        # "drawn from ada:vocab/componentType", and that measures badly: the universal vocabulary
+        # holds 23 concepts (46 label forms) while the corpus uses 125 distinct componentTypes, so
+        # requiring a universal term would fail 1,514 of 7,447 records whose parts carry
+        # technique-specific types such as ada:SEMEBSDGrainImageMap. The VALUE is already sealed
+        # per file kind by the base file-type blocks (image, imageMap, tabularData, ...) through
+        # files/schema.yaml, which is the only layer that can know which types a given kind
+        # admits. Restating it here against the wrong vocabulary would be a second, weaker home
+        # for the same fact.
+        #
+        # Measured 2026-10-16: 7,406 of 7,447 records satisfy this and the 41 that do not all
+        # carry a schema:hasPart key that is present and EMPTY -- a collection declaring no
+        # parts, which is a different shape from a monolithic distribution and is the defect this
+        # names.
+        contains:
+          anyOf:
+          - required:
+            - 'ada:componentType'
+          - properties:
+              "schema:hasPart":
+                contains:
+                  required:
+                  - 'ada:componentType'
+            required:
+            - "schema:hasPart"
         items:
           type: object
           properties:
