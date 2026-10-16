@@ -40,7 +40,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -93,7 +93,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -133,7 +133,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -180,7 +180,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate, and no selection rule for them is stated",
   "ada:combinedResults": "N — a sample-preparation procedure produces sections, not results to combine",
@@ -233,7 +233,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate, and no selection rule for them is stated",
   "ada:combinedResults": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
@@ -273,7 +273,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
     ada:goodnessOfFitOrDispersionStatistic "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -320,7 +320,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:combinedResults": "missing",
@@ -373,7 +373,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:combinedResults": "missing",
@@ -413,7 +413,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -460,7 +460,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:combinedResults": "missing",
@@ -513,7 +513,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:combinedResults": "missing",
@@ -553,7 +553,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -600,7 +600,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:combinedResults": "missing",
@@ -653,7 +653,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:combinedResults": "missing",
@@ -693,7 +693,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -740,7 +740,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — the seven grains are chosen before analysis (recorded under Sampling Unit Selection Criteria), not admitted to or excluded from an aggregate; no contributing count or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -793,7 +793,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the seven grains are chosen before analysis (recorded under Sampling Unit Selection Criteria), not admitted to or excluded from an aggregate; no contributing count or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -833,7 +833,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -880,7 +880,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria",
   "ada:combinedResults": "missing",
@@ -933,7 +933,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria",
   "ada:combinedResults": "missing",
@@ -973,7 +973,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1020,7 +1020,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -1073,7 +1073,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -1113,7 +1113,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1160,7 +1160,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -1213,7 +1213,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -1253,7 +1253,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1300,7 +1300,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -1353,7 +1353,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -1393,7 +1393,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1440,7 +1440,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -1493,7 +1493,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -1533,7 +1533,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1580,7 +1580,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:combinedResults": "missing",
@@ -1633,7 +1633,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:combinedResults": "missing",
@@ -1673,7 +1673,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1720,7 +1720,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness",
+  "ada:imageStackDimensions": "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — the pore statistics integrate the whole segmented volume rather than admitting or excluding results; the only stated restriction is of scope, the model focusing \"only ... on the coal sample #1\" (p.8)",
   "ada:combinedResults": "missing",
@@ -1773,7 +1773,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "9.8 \u00d7 9.8 \u00d7 15 nm voxel size; 600 slices; 7.8 \u00d7 7.8 \u00b5m scanning area; 9.0 \u00b5m total thickness",
+  "ada:imageStackDimensions": "9.8 \u00d7 9.8 \u00d7 15 nm voxel size; 600 slices; 7.8 \u00d7 7.8 \u00b5m scanning area; 9.0 \u00b5m total thickness",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the pore statistics integrate the whole segmented volume rather than admitting or excluding results; the only stated restriction is of scope, the model focusing \"only ... on the coal sample #1\" (p.8)",
   "ada:combinedResults": "missing",
@@ -1813,7 +1813,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness" ;
+    ada:imageStackDimensions "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1860,7 +1860,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -1913,7 +1913,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -1953,7 +1953,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -2000,7 +2000,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -2053,7 +2053,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -2093,7 +2093,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -2140,7 +2140,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
   "ada:combinedResults": "missing",
@@ -2193,7 +2193,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
   "ada:combinedResults": "missing",
@@ -2233,7 +2233,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -2280,7 +2280,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
   "ada:combinedResults": "missing",
@@ -2333,7 +2333,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
   "ada:combinedResults": "missing",
@@ -2373,7 +2373,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -2420,7 +2420,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -2473,7 +2473,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -2513,7 +2513,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -2560,7 +2560,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:combinedResults": "missing",
@@ -2613,7 +2613,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:combinedResults": "missing",
@@ -2653,7 +2653,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -2700,7 +2700,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": 1024,
   "ada:mapArea": 10.5,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -2753,7 +2753,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": 1024,
   "ada:mapArea": 10.5,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -2793,7 +2793,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea 1.05e+01 ;
     ada:mapDimensions 1024 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -2840,7 +2840,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -2893,7 +2893,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -2933,7 +2933,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -2980,7 +2980,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm",
+  "ada:imageStackDimensions": "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — no results are admitted or excluded; the volume's adequacy is assessed instead, under \"evaluation of representative volumes\" (§2.3, p.4), and the reported statistics integrate all ~800 slices",
   "ada:combinedResults": "SC pore diameter; HBC pore diameter; SC throat size (516 throats); HBC throat size (715 throats); SC throat length per size class; HBC throat length per size class — Conclusions and Table 5; the number of pores averaged is not stated",
@@ -3033,7 +3033,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "14.8\u00d714.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609\u00d73.08\u00d75.446 \u00b5m; HBC=4.679\u00d73.2\u00d74.24 \u00b5m; SEM image resolution 2.5 nm",
+  "ada:imageStackDimensions": "14.8\u00d714.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609\u00d73.08\u00d75.446 \u00b5m; HBC=4.679\u00d73.2\u00d74.24 \u00b5m; SEM image resolution 2.5 nm",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no results are admitted or excluded; the volume's adequacy is assessed instead, under \"evaluation of representative volumes\" (\u00a72.3, p.4), and the reported statistics integrate all ~800 slices",
   "ada:combinedResults": "SC pore diameter; HBC pore diameter; SC throat size (516 throats); HBC throat size (715 throats); SC throat length per size class; HBC throat length per size class \u2014 Conclusions and Table 5; the number of pores averaged is not stated",
@@ -3073,7 +3073,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm" ;
+    ada:imageStackDimensions "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -3120,7 +3120,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -3173,7 +3173,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -3213,7 +3213,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -3260,7 +3260,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:combinedResults": "missing",
@@ -3313,7 +3313,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:combinedResults": "missing",
@@ -3353,7 +3353,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -3400,7 +3400,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -3453,7 +3453,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -3493,7 +3493,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -3540,7 +3540,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -3593,7 +3593,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -3633,7 +3633,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -3680,7 +3680,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -3733,7 +3733,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -3773,7 +3773,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -3820,7 +3820,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
   "ada:combinedResults": "N — a sample-preparation procedure produces sections, not results to combine",
@@ -3873,7 +3873,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
   "ada:combinedResults": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
@@ -3913,7 +3913,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599" ;
     ada:goodnessOfFitOrDispersionStatistic "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -3960,7 +3960,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
   "ada:combinedResults": "N — a sample-preparation procedure produces sections, not results to combine",
@@ -4013,7 +4013,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
   "ada:combinedResults": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
@@ -4053,7 +4053,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:fundingSourceForAnalysis "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ;
     ada:goodnessOfFitOrDispersionStatistic "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -4100,7 +4100,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate (p.10)",
   "ada:combinedResults": "N — a sample-preparation procedure produces sections, not results to combine",
@@ -4153,7 +4153,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate (p.10)",
   "ada:combinedResults": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
@@ -4193,7 +4193,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:goodnessOfFitOrDispersionStatistic "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -4240,7 +4240,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -4293,7 +4293,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:combinedResults": "missing",
@@ -4333,7 +4333,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -4380,7 +4380,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5σ anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure",
   "ada:combinedResults": "missing",
@@ -4433,7 +4433,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimenstions": "missing",
+  "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5\u03c3 anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure",
   "ada:combinedResults": "missing",
@@ -4473,7 +4473,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
-    ada:imageStackDimenstions "missing" ;
+    ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -6331,7 +6331,7 @@ allOf:
         (X-Y pixel size from SEM image calibration; Z from slice thickness), and the
         total number of slices in the stack.
       type: string
-    ada:imageStackDimenstions:
+    ada:imageStackDimensions:
       description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres
         (X-Y pixel size from SEM image calibration; Z from slice thickness), and the
         total number of slices in the stack.
@@ -6412,7 +6412,7 @@ allOf:
   required:
   - ada:mapDimensions
   - ada:voxelSize
-  - ada:imageStackDimenstions
+  - ada:imageStackDimensions
 
 ```
 
