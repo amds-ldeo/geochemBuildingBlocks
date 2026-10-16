@@ -122,6 +122,58 @@ would have deadlocked the repository against itself.
 **Rule:** never put a `paths:` filter on a required workflow. A filter is safe only on something
 that is not a gate — `deploy-viewer.yml` carries one for exactly that reason.
 
+### The gate that was written to close #63's gap, and then was not required (2026-10-16)
+
+`check-examples.yml` exists because of the gap recorded in §1's family: #63 merged a schema
+requiring `ada:procedureAuthorDescription` that none of its three draft instances carried, green,
+because no check in the repository validated an example. The workflow was added on 2026-10-08 to
+close exactly that. Its own header anticipated the next step — "if this becomes a REQUIRED check"
+— and the step was never taken.
+
+Measured on 2026-10-16, `gh api repos/amds-ldeo/geochemBuildingBlocks/branches/main/protection`
+returned `required_status_checks.contexts` of exactly three — `Validate and annotate (no pages)`,
+`Regenerate twice and compare`, `Regenerate and diff` — and `gh api .../rulesets` returned `[]`,
+so branch protection is the only gate and no ruleset adds to it. For eight days an example could
+therefore break and auto-merge would merge straight past the red check, which is this section's
+failure mode arriving a third time after #31 and #32.
+
+**The ordering rule above was checked before acting, and it held.** `check-examples.yml` has no
+`paths:` filter — deliberately, per its own comment — and no job-level `if:` guard at all, so the
+`pull_request` event always runs it. Over its last 40 runs: 25 `pull_request` successes, 13 `push`
+successes, 2 `push` cancellations on main by its own concurrency group, and **zero skipped**. It
+reported on all five most recent pull requests.
+
+It needs **no** equivalent of `validate-branch.yml`'s third guard clause for `bblocks-build`. That
+clause exists to carve an exception out of a dedupe guard; with no guard to carve, nothing is
+skipped. Confirmed directly rather than inferred: the check-runs on #143's head
+(`365704ab2aeca8681fa7a1188bcdc6f46167e730`) list `Validate committed examples :: success`, and
+#139 and #137 — both `bblocks-build` PRs — carry it too.
+
+**The context to require is the JOB name, not the workflow name.** This is the trap in this
+particular fix, and it is the same deadlock the rule above describes, reached by a different
+route. The workflow is named `Check examples validate`; the check GitHub reports is its job,
+`Validate committed examples`. All three existing required contexts are likewise job names
+(`check-schema-drift.yml` is *named* "Check generated schemas are current" and reports
+"Regenerate and diff"). Requiring the workflow name would add a context that no run can ever
+report, which is pending forever — including on the pull request that would remove it.
+
+**Rule:** before requiring a check, read its name from a real check-run
+(`gh api repos/<owner>/<repo>/commits/<sha>/check-runs --jq '.check_runs[].name'`), never from the
+`name:` at the top of the workflow file.
+
+**Resolved the same day.** `Validate committed examples` was added to
+`required_status_checks` on 2026-10-16 with the repository owner's explicit approval, taking the
+required set from three to four. The PATCH used the `checks` form rather than the legacy
+`contexts` array: each existing context is pinned to `app_id: 15368` (GitHub Actions), and a
+`contexts`-only write drops that pinning, so any app could then satisfy the check — a quieter
+version of this same section's failure, where the gate still reports but no longer attests what
+it was built to attest.
+
+The confirmation to insist on is not the API echo but a pull request. #144, which carries this
+entry, had all four contexts green afterwards — including the newly required one. That is the
+observation that distinguishes "required" from "required and unsatisfiable", and it is the one
+the paths-filter incident did not have.
+
 ---
 
 ## 5. The publishing robot succeeds at everything except publishing
@@ -135,6 +187,10 @@ main. It validated fine, reported `committed: true`, and failed on the last step
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: - 3 of 3 required status checks are expected.
 ```
+
+(Quoted as observed. The number is the size of the required set, not a constant: it reads
+`4 of 4` since §4 added `Validate committed examples` on 2026-10-16. Do not update the quote —
+update this note.)
 
 It cannot be exempted. The GitHub Actions app can only be a bypass actor on an **organization**
 ruleset; a repository ruleset rejects it outright (`Actor GitHub Actions integration must be part

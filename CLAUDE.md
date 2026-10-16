@@ -185,14 +185,36 @@ python tools/validate_examples.py               # 7. verify
 
 **Step 5 is easy to skip and its omission is silent.** The publication examples (`example<TAPP>-<Pub>.json`, one per column after `Literature Assessment`) are NOT rebuilt by `build_pathdriven`, so a sidecar change moves the schema while they keep the placement they were last generated with. Nothing complains until `validate_examples` runs, and the failure reads as a schema bug rather than a stale artifact — moving `Detection Limit` off `targetSpeciesColumns[]` produced 125 such failures that regeneration alone cleared. `build_tapp_examples` is not a second generator: it reads the workbook's publication columns for CONTENT and calls `schema_path_example_emitter.build_example(tapp, values=...)` -- the same emitter that writes the `-P0` files -- for PLACEMENT.
 
-## CI: four workflows, three of them required
+## CI: six workflows, four of them required
 
-| workflow | check name | trigger |
-|---|---|---|
-| `validate-branch.yml` | `Validate and annotate (no pages)` | push (not main), PR |
-| `check-schema-drift.yml` | `Regenerate and diff` | every PR |
-| `check-determinism.yml` | `Regenerate twice and compare` | every PR |
-| `process-bblocks.yml` | — | push to main |
+| workflow | check name | trigger | required? |
+|---|---|---|---|
+| `validate-branch.yml` | `Validate and annotate (no pages)` | push (not main), PR | yes |
+| `check-schema-drift.yml` | `Regenerate and diff` | every PR | yes |
+| `check-determinism.yml` | `Regenerate twice and compare` | every PR | yes |
+| `check-examples.yml` | `Validate committed examples` | every PR | yes (2026-10-16) |
+| `process-bblocks.yml` | — | push to main | — |
+| `deploy-viewer.yml` | — | `workflow_run`; push to main under `build/**` | — |
+
+**The check name is the JOB name, never the workflow's `name:`.** Every context above is a job
+name and three of the six workflows are *titled* something else — `check-schema-drift.yml` is
+named "Check generated schemas are current" and reports "Regenerate and diff". Requiring a
+workflow title adds a context no run can report, which is pending forever, which is the deadlock
+the ordering rule below exists to prevent. Read the name from a real check-run before requiring
+it: `gh api repos/<owner>/<repo>/commits/<sha>/check-runs --jq '.check_runs[].name'`.
+
+**`Validate committed examples` became required on 2026-10-16**, and for eight days before that
+it was not. It is the check written to close #63's gap — a schema requiring a property no example
+carried, merged green because nothing validated an example — and an unrequired gate is one
+auto-merge merges straight past when red, which is how #31 and #32 landed broken. Requiring it was
+gated on the ordering rule below, verified first rather than assumed: no `paths:` filter, no
+job-level `if:`, zero skipped runs in its last 40, and it reports on the `bblocks-build` PR
+without needing `validate-branch.yml`'s third guard clause (that clause carves an exception out of
+a dedupe guard, and there is no guard here). `docs/SILENT_SUCCESS.md` §4 carries the measurement.
+
+The PATCH used the `checks` form rather than the legacy `contexts` array, because each existing
+context is pinned to `app_id: 15368` (GitHub Actions) and a `contexts`-only write drops that
+pinning, letting any app satisfy the check.
 
 **`Regenerate and diff` regenerates all nine stages, not the last two.** Until 2026-10-16 it ran
 only `resolve_schema.py --all` and `regenerate_schema_json.py`, so it re-derived
@@ -207,7 +229,7 @@ clock because `Validate and annotate` already takes 16–22 in parallel.
 The STEM/EBSD caveat below still stands and is NOT contradicted by that zero: the content loss
 belongs to the per-technique `regenerate.py --tapp <ONE>` path, which this job does not use.
 
-The first three are **required** in branch protection. Two rules follow from that and both were
+These four are **required** in branch protection. Two rules follow from that and both were
 learned the hard way:
 
 **Never add a `paths:` filter to a required workflow.** A required check that does not RUN is not
@@ -234,7 +256,9 @@ identity.
 regenerating them**. So build output cannot just stop being committed.
 
 But branch protection declines a push from the postprocess (`GH006 ... 3 of 3 required status
-checks are expected`), and it cannot be exempted: the GitHub Actions app can only be a bypass
+checks are expected` — quoted as observed; that number is the size of the required set, so it
+reads `4 of 4` since `Validate committed examples` was required on 2026-10-16), and it cannot be
+exempted: the GitHub Actions app can only be a bypass
 actor on an **organization** ruleset, and a repository ruleset rejects it outright, accepting only
 deploy-key and repository-role bypasses — GITHUB_TOKEN is neither. So `process-bblocks.yml`:
 
@@ -244,7 +268,7 @@ deploy-key and repository-role bypasses — GITHUB_TOKEN is neither. So `process
 
 The PAT (Contents:read + PullRequests:write, this repo only) exists for ONE reason: a PR opened by
 GITHUB_TOKEN would get no checks, per the rule above, and would sit open forever. It grants no
-bypass — the build PR merges through the same three checks as anything else.
+bypass — the build PR merges through the same required checks as anything else.
 
 - **`bblocks-build` is machine-owned.** It is force-reset on every run. Never branch from it,
   never commit to it, never base work on it.
