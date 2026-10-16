@@ -26,6 +26,31 @@ Usage:
 
     # Output JSON report
     python audit_building_blocks.py --json -o report.json
+
+    # Record the current failing set as the accepted baseline
+    python audit_building_blocks.py --write
+
+Exit code: 0 when the audited blocks match docs/audit_baseline.json, 1 when a
+block gained an issue the baseline does not record (or, on a full run, resolved
+one it does), 2 on a usage or environment error.
+
+Until 2026-10-16 this tool printed "Summary: 246 passed, 5 failed" and exited 0,
+and no workflow ran it -- so a failure report nothing was able to act on was the
+only output it had. The baseline shape is borrowed from
+tools/constraint_census.py for the reason that tool uses it: the repository has 5
+failures it cannot clear today (the legacy profile-ada blocks for QRIS, RAMAN,
+VNMIR, XANES and XRD carry no example, and no generator owns them, so the
+examples must be authored or the blocks retired -- and retirement is blocked on
+ADA-side record migration, not on schema work). Making the audit fatal outright
+would build a check that can never pass, which CLAUDE.md warns about directly.
+Recording those 5 instead makes them accepted debt whose every movement is
+visible, and makes the 6th failure fatal from the moment it appears.
+
+The baseline stores each failing block's issue strings VERBATIM and compares them
+exactly, so a block that keeps failing for a DIFFERENT reason is reported rather
+than absorbed -- the same reasoning behind the mandatory "expect" field in
+docs/counterexamples.json. A legitimately reworded message is therefore a diff to
+review, not a silent pass: re-run with --write and commit the manifest.
 """
 
 import argparse
@@ -79,6 +104,13 @@ def _resolve_for_audit(schema_path: Path) -> dict:
 # ---------------------------------------------------------------------------
 # Building block discovery
 # ---------------------------------------------------------------------------
+
+BASELINE = REPO_ROOT / "docs" / "audit_baseline.json"
+
+# The six checks, in the order audit_building_block runs them. Recorded in the
+# baseline so a run with a narrower --checks cannot claim a baselined issue is
+# resolved when it simply never looked for it.
+CHECK_NAMES = ["files", "schema-json", "resolved", "examples", "shacl", "coverage"]
 
 REQUIRED_FILES = ["schema.yaml", "bblock.json"]
 EXPECTED_FILES = ["description.md", "context.jsonld", "rules.shacl"]
@@ -603,6 +635,12 @@ class AuditResult:
         self.category = category
         self.name = name
         self.bb_dir = str(bb_dir)
+        # Path relative to _sources/, set by main(). This -- not `name` -- is the
+        # baseline key, because `name` is not unique: 41 blocks are called
+        # "profile-ada", and both adaProfile/QRIS/profile-ada and
+        # geochemProfile/QRIS/profile-ada are among them. Keying on the name would
+        # let one block's accepted debt excuse another block's failure.
+        self.key = str(bb_dir)
         self.issues = []
         self.info = []
         self.status = "PASS"
@@ -619,17 +657,75 @@ class AuditResult:
         return {
             "category": self.category,
             "name": self.name,
+            "key": self.key,
             "status": self.status,
             "issues": self.issues,
             "info": self.info,
         }
 
 
-def print_report(results, verbose=False):
+# ---------------------------------------------------------------------------
+# Accepted-failure baseline
+# ---------------------------------------------------------------------------
+
+def load_baseline():
+    try:
+        with open(BASELINE, encoding="utf-8") as fh:
+            return json.load(fh)
+    except (OSError, ValueError):
+        return None
+
+
+def save_baseline(results, checks):
+    """Record every currently failing block. Passing blocks are NOT recorded.
+
+    A manifest of all 251 blocks would churn on any change to a block's info
+    messages and would say nothing about what is accepted; absence from this
+    file therefore means "must have no issues at all"."""
+    blocks = {r.key: list(r.issues)
+              for r in sorted(results, key=lambda r: r.key) if r.issues}
+    payload = {
+        "_comment": "Written by tools/audit_building_blocks.py --write. Never hand-edit. "
+                    "Lists the building blocks whose audit failures are ACCEPTED: the audit "
+                    "exits non-zero on any issue not recorded here. A block absent from "
+                    "'blocks' must have no issues. See the module docstring and "
+                    "docs/SILENT_SUCCESS.md section 9.",
+        "_blocks": len(blocks),
+        "_issues": sum(len(v) for v in blocks.values()),
+        "_checks": sorted(checks),
+        "blocks": blocks,
+    }
+    BASELINE.parent.mkdir(parents=True, exist_ok=True)
+    with open(BASELINE, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(payload, fh, indent=2, sort_keys=True)
+        fh.write("\n")
+    return payload
+
+
+def compare_baseline(results, before):
+    """(gained, lost) as lists of (block_key, issue).
+
+    Only blocks that were actually audited are compared, so --filter and
+    --checks cannot make an unexamined block look fixed."""
+    now = {r.key: list(r.issues) for r in results if r.issues}
+    audited = {r.key for r in results}
+    gained, lost = [], []
+    for key in sorted(set(now) | (set(before) & audited)):
+        a = now.get(key, [])
+        b = before.get(key, [])
+        gained.extend((key, i) for i in a if i not in b)
+        lost.extend((key, i) for i in b if i not in a)
+    return gained, lost
+
+
+def print_report(results, verbose=False, baseline=None):
     """Print human-readable audit report."""
+    baseline = baseline or {}
     total = len(results)
     passed = sum(1 for r in results if r.status == "PASS")
     failed = total - passed
+    accepted = sum(1 for r in results
+                   if r.issues and all(i in baseline.get(r.key, []) for i in r.issues))
 
     print(f"\n{'=' * 70}")
     print(f"Building Block Audit Report")
@@ -646,12 +742,20 @@ def print_report(results, verbose=False):
         print(f"\n--- {category or '(root)'} ({cat_pass}/{len(cat_results)} pass) ---")
 
         for r in cat_results:
-            marker = "PASS" if r.status == "PASS" else "FAIL"
-            print(f"  [{marker}] {r.name}")
+            known = baseline.get(r.key, [])
+            if r.status == "PASS":
+                marker = "PASS"
+            elif all(i in known for i in r.issues):
+                marker = "KNOWN"
+            else:
+                marker = "FAIL"
+            label = r.name if r.key == r.name else f"{r.name}  ({r.key})"
+            print(f"  [{marker}] {label}")
 
             if r.issues:
                 for issue in r.issues:
-                    print(f"    ERROR: {issue}")
+                    tag = "known" if issue in known else "ERROR"
+                    print(f"    {tag}: {issue}")
 
             if verbose and r.info:
                 for info in r.info:
@@ -659,6 +763,9 @@ def print_report(results, verbose=False):
 
     print(f"\n{'=' * 70}")
     print(f"Summary: {passed} passed, {failed} failed (of {total} building blocks)")
+    if failed:
+        print(f"         {accepted} of the {failed} are accepted in "
+              f"{os.path.relpath(BASELINE, REPO_ROOT)}; {failed - accepted} are not.")
     print(f"{'=' * 70}")
 
 
@@ -796,6 +903,12 @@ def main():
         default=None,
         help="Output file (default: stdout)"
     )
+    parser.add_argument(
+        "--write",
+        action="store_true",
+        help="record the currently failing blocks as the accepted baseline "
+             "(docs/audit_baseline.json)"
+    )
     args = parser.parse_args()
 
     # Find sources directory
@@ -819,10 +932,17 @@ def main():
 
     print(f"Auditing: {sources_dir}")
 
-    # Parse checks
+    # Parse checks. `checks` stays None for "run everything" (audit_building_block
+    # reads it that way); run_checks is the resolved set, for the baseline.
     checks = None
     if args.checks:
         checks = set(args.checks.split(","))
+        unknown = sorted(checks - set(CHECK_NAMES))
+        if unknown:
+            print(f"ERROR: unknown check(s): {', '.join(unknown)}. "
+                  f"Known: {', '.join(CHECK_NAMES)}", file=sys.stderr)
+            return 2
+    run_checks = set(checks) if checks else set(CHECK_NAMES)
 
     # Discover building blocks
     bbs = discover_building_blocks(sources_dir)
@@ -835,6 +955,7 @@ def main():
     results = []
     for category, name, bb_dir in bbs:
         result = audit_building_block(category, name, bb_dir, checks)
+        result.key = bb_dir.relative_to(sources_dir).as_posix()
         results.append(result)
         # Progress indicator
         marker = "." if result.status == "PASS" else "F"
@@ -851,6 +972,35 @@ def main():
         print("      Nothing $refs a vocabulary file; consumers resolve the @id, so which")
         print("      of these a consumer sees depends on its directory read order.")
 
+    if args.write:
+        payload = save_baseline(results, run_checks)
+        print(f"\nwrote {os.path.relpath(BASELINE, REPO_ROOT)}: "
+              f"{payload['_blocks']} block(s) with {payload['_issues']} accepted issue(s)")
+        for key, issues in sorted(payload["blocks"].items()):
+            print(f"  {key}")
+            for issue in issues:
+                print(f"      {issue}")
+        # A vocabulary @id collision is never acceptable debt, so --write must not
+        # look like a way to accept one: see the comment on the verdict below.
+        return 0 if vocab_ok else 1
+
+    baseline = load_baseline()
+    if baseline is None:
+        print(f"no baseline at {os.path.relpath(BASELINE, REPO_ROOT)} -- "
+              f"run with --write to create it", file=sys.stderr)
+        return 2
+    before = baseline.get("blocks", {})
+    gained, lost = compare_baseline(results, before)
+
+    # A run that examines a subset cannot tell "fixed" from "not looked for", so
+    # only a run that covered at least everything the manifest was written with --
+    # and that filtered nothing out -- may call a baselined issue resolved. A
+    # NEW issue is fatal from any run, because finding one is positive evidence
+    # either way.
+    baseline_checks = set(baseline.get("_checks") or CHECK_NAMES)
+    narrower = sorted(baseline_checks - run_checks)
+    authoritative = not args.filter and not narrower
+
     # Output
     if args.json_output:
         report = {
@@ -858,6 +1008,10 @@ def main():
             "total": len(results),
             "passed": sum(1 for r in results if r.status == "PASS"),
             "failed": sum(1 for r in results if r.status == "FAIL"),
+            "baseline": os.path.relpath(BASELINE, REPO_ROOT),
+            "new_issues": [{"block": k, "issue": i} for k, i in gained],
+            "resolved_issues": [{"block": k, "issue": i} for k, i in lost],
+            "vocab_collisions": vocab_problems,
             "results": [r.to_dict() for r in results],
         }
         output = json.dumps(report, indent=2)
@@ -868,8 +1022,60 @@ def main():
         else:
             print(output)
     else:
-        print_report(results, verbose=args.verbose)
+        print_report(results, verbose=args.verbose, baseline=before)
+
+    if narrower:
+        print(f"\nNote: this run skipped {', '.join(narrower)}, which "
+              f"{os.path.relpath(BASELINE, REPO_ROOT)} was written with, so it cannot")
+        print("      tell a resolved issue from one it did not look for. New issues are "
+              "still fatal.")
+    if gained:
+        print(f"\nNEW ISSUES ({len(gained)}), not recorded in "
+              f"{os.path.relpath(BASELINE, REPO_ROOT)}:")
+        for key, issue in gained:
+            print(f"  + {key}")
+            print(f"      {issue}")
+    if lost:
+        verb = "RESOLVED" if authoritative else "not reported by this narrower run"
+        print(f"\n{len(lost)} baselined issue(s) {verb}:")
+        for key, issue in lost:
+            print(f"  - {key}")
+            print(f"      {issue}")
+
+    # The verdict. Three separate reasons to fail, deliberately not collapsed:
+    #
+    #   gained    a block has an issue nobody accepted. This is the check.
+    #   lost      from an authoritative run only: debt that has been cleared must
+    #             be removed from the manifest in the same change, or the baseline
+    #             keeps permitting a failure that is no longer there -- and the
+    #             next regression at that block is absorbed by the stale entry.
+    #   vocab     a vocabulary @id claimed by two files is a fork whose winner is
+    #             read order. It is a catalog-level defect, not a per-block one,
+    #             and it is never accepted debt, so it is not baselineable.
+    status = 0
+    if gained:
+        status = 1
+    if lost and authoritative:
+        status = 1
+    if not vocab_ok:
+        status = 1
+
+    if status == 0:
+        n = sum(1 for r in results if r.issues)
+        print(f"\naudit matches {os.path.relpath(BASELINE, REPO_ROOT)}"
+              + (f" ({n} accepted failure(s))" if n else ""))
+        return status
+
+    if not vocab_ok:
+        print(f"\nA vocabulary @id claimed by two files is not baselineable: --write will")
+        print("not accept it. Remove the file the convention superseded.")
+    if gained or (lost and authoritative):
+        print("\nThe audit no longer matches "
+              f"{os.path.relpath(BASELINE, REPO_ROOT)}.")
+        print("Fix the block, or -- if every line above is intended -- re-run with --write")
+        print("and commit the manifest in the same change, so the diff records what moved.")
+    return status
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
