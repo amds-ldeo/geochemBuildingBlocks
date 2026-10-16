@@ -33,6 +33,24 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
   "schema:description": "xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source at Lawrence Berkeley National Laboratory | ALS STXM beamline 5.3.2.2 (publication column of XANES_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Advanced Light Source (LBNL)",
   "ada:instrumentModel": "ALS STXM beamline 5.3.2.2",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "ALS STXM beamline 5.3.2.2",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/nxs-base-classes-NXinstrument-html"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -126,6 +144,24 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
   "schema:description": "xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source at Lawrence Berkeley National Laboratory | ALS STXM beamline 5.3.2.2 (publication column of XANES_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Advanced Light Source (LBNL)",
   "ada:instrumentModel": "ALS STXM beamline 5.3.2.2",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "ALS STXM beamline 5.3.2.2",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/nxs-base-classes-NXinstrument-html"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -215,6 +251,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     schema1:description "xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source at Lawrence Berkeley National Laboratory | ALS STXM beamline 5.3.2.2 (publication column of XANES_TAPP_draft_v2.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA" ] ;
+    schema1:instrument <ex:instrument/nxs-base-classes-NXinstrument-html> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/00319zh75" ;
             schema1:name "Advanced Light Source at Lawrence Berkeley National Laboratory" ] ;
@@ -227,6 +264,12 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
+
+<ex:instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
+        <https://www.wikidata.org/wiki/Q3099911> ;
+    schema1:name "ALS STXM beamline 5.3.2.2" .
 
 
 ```
@@ -317,6 +360,56 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
+    schema:instrument:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              schema:additionalType:
+                contains:
+                  anyOf:
+                  - const: nxs:base_classes/NXinstrument.html
+                  - type: object
+                    required:
+                    - '@id'
+                    properties:
+                      '@id':
+                        const: nxs:base_classes/NXinstrument.html
+            required:
+            - schema:additionalType
+          then:
+            properties:
+              schema:name:
+                description: 'Identifier or name of the synchrotron beamline at which
+                  the measurement was made. Distinguished from Instrument Model, which
+                  conflates the two today: the ADA corpus records the beamline inside
+                  the model string. Classified as a NeXus NXinstrument.'
+                anyOf:
+                - type: string
+                  readOnly: true
+                - type: array
+                  items:
+                    type: string
+                    readOnly: true
+            required:
+            - schema:name
+      allOf:
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                anyOf:
+                - const: nxs:base_classes/NXinstrument.html
+                - type: object
+                  required:
+                  - '@id'
+                  properties:
+                    '@id':
+                      const: nxs:base_classes/NXinstrument.html
+          required:
+          - schema:additionalType
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,

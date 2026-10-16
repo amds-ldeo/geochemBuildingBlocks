@@ -1123,6 +1123,61 @@ x-defs:
             by vendor.
           type: string
           readOnly: true
+        schema:instrument:
+          type: array
+          items:
+            type: object
+            allOf:
+            - if:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      anyOf:
+                      - enum:
+                        - nxs:base_classes/NXinstrument.html
+                      - type: object
+                        required:
+                        - '@id'
+                        properties:
+                          '@id':
+                            enum:
+                            - nxs:base_classes/NXinstrument.html
+                required:
+                - schema:additionalType
+              then:
+                properties:
+                  schema:name:
+                    description: 'Identifier or name of the synchrotron beamline at
+                      which the measurement was made. Distinguished from Instrument
+                      Model, which conflates the two today: the ADA corpus records
+                      the beamline inside the model string. Classified as a NeXus
+                      NXinstrument.'
+                    anyOf:
+                    - type: string
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        readOnly: true
+                required:
+                - schema:name
+          allOf:
+          - contains:
+              properties:
+                schema:additionalType:
+                  contains:
+                    anyOf:
+                    - enum:
+                      - nxs:base_classes/NXinstrument.html
+                    - type: object
+                      required:
+                      - '@id'
+                      properties:
+                        '@id':
+                          enum:
+                          - nxs:base_classes/NXinstrument.html
+              required:
+              - schema:additionalType
         ada:constantsAndReferenceValuesUsedDefault:
           description: Physical constants and reference values used in data reduction
             to calculate the final reported quantity (e.g., decay constants for age
