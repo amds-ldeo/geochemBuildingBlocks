@@ -184,6 +184,21 @@
       },
       "expect": "contains",
       "why": "The sample-preparation discriminator was widened to accept either serialization of bios:LabProcess -- the bare CURIE or a JSON-LD IRI reference -- because CDIF's SHACL asks for the latter and the JSON Schema previously forbade it. A widened `contains` is exactly the 'if too broad' hazard: written loosely it would match ANY step object and silently satisfy the requirement, failing nothing. This pins the new branch by giving it the right SHAPE and the wrong VALUE: {\"@id\": \"bios:NotLabProcess\"} must still be rejected on `contains`. Its sibling case method-workflow-requires-sample-prep pins that removing the step entirely is rejected; this pins that the @id branch discriminates rather than merely accepting objects."
+    },
+    {
+      "id": "sample-needs-name-or-identifier",
+      "example": "_sources/techniqueProfile/geochemProfile/XRD/detail/exampledetailXRD-P0.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/prov:wasGeneratedBy/0/schema:object/0",
+        "value": {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ]
+        }
+      },
+      "expect": "schema:name",
+      "why": "An analysed sample must be IDENTIFIABLE. `schema:name` used to be required outright, which rejected every ADA record of all 8 legacy cids that have a TAPP replacement -- the records name the sample with `schema:identifier` (\"OREX-803031-101\") and carry no separate laboratory name -- so schema_path_emitter.SUBSTITUTES now lets the identifier satisfy the name, scoped to `schema:object`. What must NOT follow is that a sample can be anonymous. This case sets the sample to a bare typed object carrying NEITHER, and it must still be rejected. It is a `set` rather than a `remove` because no example carries a name without an identifier, so removing one leaves the other and tests nothing. Its partners are `tappdef-requires-name` and `step-parameter-requires-name`, which hold the other side of the line: at those nodes an identifier is NOT an acceptable substitute, and a global relaxation would have silently voided both."
     }
   ]
 }
