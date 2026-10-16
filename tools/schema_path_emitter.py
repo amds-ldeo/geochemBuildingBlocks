@@ -466,7 +466,53 @@ def _token_const(val, key=None):
                        "properties": {"@id": {"const": val}}}]}
 
 
-def to_schema(node):
+# A required property that a SUBSTITUTE may satisfy instead, keyed by the property whose value
+# the holding object is. `schema:name` on an analysed sample is the case: ADA records identify the
+# sample by `schema:identifier` ("OREX-803031-101") and carry no separate laboratory name, so
+# requiring the name outright rejects records that do say which sample was analysed -- measured
+# 2026-10-15, every record of all 8 legacy cids with a TAPP replacement, and for XANES, XRD, QRIS
+# and RAMAN (322 records) it was the ONLY thing they failed on.
+#
+# The scope is the point. `schema:name` is required at ~48 other nodes -- a TAPP definition, a
+# person, an instrument, a parameter -- where an identifier is NOT an acceptable substitute, and a
+# global relaxation would quietly void all of them. `docs/counterexamples.json`'s
+# `tappdef-requires-name` is the check that holds that line: it drops `schema:name` from a TAPP
+# definition and must still be REJECTED.
+#
+# A substitute is only honoured when it is itself a placed property of the same object, so the
+# relaxation never points at a property the schema does not otherwise describe.
+SUBSTITUTES = {
+    "schema:object": {"schema:name": ("schema:identifier",)},
+}
+
+
+def _require(names, props, scope):
+    """The `required` fragment for an object, honouring SUBSTITUTES for this scope.
+
+    Returns {} for nothing required, {"required": [...]} normally, and for a substitutable name
+    an `anyOf` of the alternatives alongside the names that stay unconditionally required.
+    """
+    names = list(names)
+    if not names:
+        return {}
+    subs = SUBSTITUTES.get(scope) or {}
+    alts, firm = [], []
+    for n in names:
+        usable = [a for a in subs.get(n, ()) if a in props]
+        if usable:
+            alts.append([n] + usable)
+        else:
+            firm.append(n)
+    out = {}
+    if firm:
+        out["required"] = firm
+    for group in alts:
+        # one anyOf per substitutable name; several would need nesting, which no case wants yet
+        out.setdefault("anyOf", []).extend({"required": [g]} for g in group)
+    return out
+
+
+def to_schema(node, scope=None):
     if isinstance(node, Leaf):
         return node.schema
     if isinstance(node, AddlType):
@@ -482,7 +528,7 @@ def to_schema(node):
     if isinstance(node, Obj):
         props = {}
         for k, v in node.props.items():
-            sch = to_schema(v)
+            sch = to_schema(v, scope=k)
             ref = ITEM_REF_BY_PROP.get(k)
             if ref and sch.get("type") == "array":
                 items = sch.setdefault("items", {"type": "object"})
@@ -490,9 +536,7 @@ def to_schema(node):
                     items["allOf"] = [{"$ref": ref}] + list(items.pop("allOf", []))
             props[k] = sch
         out = {"type": "object", "properties": props}
-        req = sorted(n for n in node.required if n in node.props)
-        if req:
-            out["required"] = req
+        out.update(_require(sorted(n for n in node.required if n in node.props), props, scope))
         return out
     if isinstance(node, Arr):
         if node.branches:
@@ -526,7 +570,7 @@ def to_schema(node):
                                          "then": {"properties": {val: sch}}})
                         continue
                     skey = skey or node.selkey
-                    nested = {k: _jsonld_card(to_schema(v)) for k, v in br.props.items() if k != skey}
+                    nested = {k: _jsonld_card(to_schema(v, scope=k)) for k, v in br.props.items() if k != skey}
                     if nested:
                         sel = ({"contains": _token_const(val, skey)} if skey in ARRAY_VALUED
                                else _token_const(val, skey))
@@ -542,9 +586,8 @@ def to_schema(node):
                         # Without it the branch only described the leaf's shape, so a matching
                         # element that omitted the leaf entirely still validated.
                         then = {"properties": nested}
-                        breq = sorted(n for n in br.required if n in nested)
-                        if breq:
-                            then["required"] = breq
+                        then.update(_require(sorted(n for n in br.required if n in nested),
+                                             nested, scope))
                         cond.append({"if": {"properties": {skey: sel}, "required": [skey]},
                                      "then": then})
                 items = {"type": "object", "allOf": cond} if cond else {"type": "object"}
@@ -582,7 +625,7 @@ def to_schema(node):
         if isinstance(node.append, Leaf):
             return {"type": "array", "items": node.append.schema}
         if isinstance(node.append, Obj):
-            return {"type": "array", "items": to_schema(node.append)}
+            return {"type": "array", "items": to_schema(node.append, scope=scope)}
         return {"type": "array"}
     raise TypeError(node)
 

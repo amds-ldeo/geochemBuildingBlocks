@@ -10,7 +10,7 @@ This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JS
 - **`README.md`** — human-facing overview; its generation-pipeline section is a good orientation.
 - **`docs/TAPP-schema-generation-workflow.md`** — end-to-end walkthrough of workbook → validated schema.
 - **`docs/SCHEMA_PATH_GRAMMAR.md`** — the canonical grammar for the schema-path sidecars.
-- **`docs/SILENT_SUCCESS.md`** — six incidents in which a check, a generator or a workflow reported success while not doing its job, each with what exposed it and the rule that follows. The validator passing while content vanishes, a generator whose output varies per process, auto-merge walking past a red non-required check, a required check that can never run, a deploy that skipped the event it was given a trigger for. Read it before changing a check, a trigger or a required-status-check set.
+- **`docs/SILENT_SUCCESS.md`** — seven incidents in which a check, a generator or a workflow reported success while not doing its job, each with what exposed it and the rule that follows. The validator passing while content vanishes, a generator whose output varies per process, auto-merge walking past a red non-required check, a required check that can never run, a deploy that skipped the event it was given a trigger for, a pipeline silently substituting a superseded TAPP delivery for the one it was pinned to. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback.
 - **`docs/README.md`** — what is in `docs/`: the sidecar format, its five `Source` values, and the maintenance tools around it.
 - **`docs/modules/MODULE_CONSOLIDATION_STATUS.md`** — **state, not design**: how far module consolidation has got (25% of technique parameters composed — 242 against 694 still minted per technique), what is decided, and what is open. Read it before drafting a module. Measure `tapp/`, never `registry/`: the registries are `isTypeLibrary` and per-technique by construction, so measuring them yields a true-but-meaningless 87% duplication.
 
@@ -31,7 +31,7 @@ python tools/resolve_schema.py --all          # resolvedSchema.json everywhere (
 
 The migration tools, in run order: `python tools/intake_delivery.py <delivery>` (read-only first pass — what carries, what is renamed, what arrives **DROPPED** or flagged, what composing a module would change), then `python tools/migrate_sidecar.py <tapp> --source <table> [--seed <nearest tapp>] --write` (carries a sidecar onto a new revision; record non-mechanical renames in its `ALIASES` rather than losing the authored paths), then `python tools/fill_flagged.py --write`.
 
-`TAPPS20260811/` and `TAPPS20260813/` at the repo root are **earlier inline drops**, not the source: `tapp_source.current_delivery()` prefers the `tapp/` submodule and only falls back to them. An unrecursed clone will silently build from the old drop — check the submodule is initialised before believing a regen.
+`TAPPS20260811/` and `TAPPS20260813/` at the repo root are **earlier inline drops**, not the source: `tapp_source.current_delivery()` prefers the `tapp/` submodule and only falls back to them. That fallback used to be silent, so an unrecursed clone — or a fresh git worktree, since `update = none` leaves both empty — would build from the old drop and report everything green; it is now a **refusal**. `tapp_source.require_delivery()` raises `StaleDeliveryError` naming the drop it would have used and the fix, `current_delivery()` and `manifest_path()` both call it, and `regenerate.py` calls it as a preflight before its first stage. Set `ADA_ALLOW_STALE_TAPP_DROP=1` to take the old drop deliberately (warning on stderr), the same way `resolve_schema.py --allow-unresolved` is the deliberate override for its refusal. See `docs/SILENT_SUCCESS.md` #7.
 
 Validate ("run the tests"):
 
@@ -288,20 +288,44 @@ of them can be retired is the record-migration question below — not schema wor
 > winner is read order, and EPMA and TEM are already in that state: their `profile-ada` and their
 > `profile/` both declare `adaEPMA` / `adaTEM`.
 
-**Superseded in intent is NOT superseded in use — but not for the reason you would guess.**
-**No record declares `dcterms:conformsTo` at all**: 0 of 7446 in `public.json_table`, measured
-2026-10-07, corpus-wide and not merely for these techniques. So nothing names a `profile-ada` by
-URI and retiring one cannot orphan a record *that way*.
+**Superseded in intent is NOT superseded in use, and records DO cite these profiles by URI.**
+Corrected 2026-10-15. This paragraph previously read "no record declares `dcterms:conformsTo` at
+all: 0 of 7446", and concluded that retiring a `profile-ada` could not orphan a record that way.
+The 0 was measured at the record ROOT only. **Every record declares one — 7,447 of 7,447 — at
+`schema:subjectOf.dcterms:conformsTo`**, which is exactly where `adaProduct`'s own conformsTo pin
+sits, so the nesting should have been the first place to look.
 
-The risk is real through a different route. The ADA loader **derives** `conformsTo` from record
+**36 distinct profile cids are asserted**, and most name a legacy profile:
+
+| cid | records | holder |
+|---|---|---|
+| `geochemProduct`, `adaProduct` | 7,447 each | the base products |
+| `adaSEM` | **2,912** | `geochemProfile/SEM/profile-ada` — legacy |
+| `adaTEM` | **870** | legacy AND the TAPP `profile/` — the cid is forked |
+| `adaEPMA` | **435** | legacy AND the TAPP `profile/` — forked |
+| `adaXANES` 245, `adaVNMIR` 183, `adaXRD` 66 | | `adaProfile/*/profile-ada` — legacy |
+| `adaLIT` 137, `adaICPMS` 112, `adaARGT` 97, `adaFTICRMS` 89, `adaLCMS`/`adaGCMS` 75 … | | all legacy |
+
+So retiring or renaming a legacy profile DOES orphan the records that cite it, and nothing in gBB
+would notice: no gBB check reads ADA records. Re-pointing the records is an ADA-side change,
+because the assertion lives in the record content. Sequence it as: decide the cids, re-point the
+records, then deprecate — not the other way round.
+
+Where `adaTEM` and `adaEPMA` are concerned the records are citing an **ambiguous** URI today,
+since two schemas claim each.
+
+The risk compounds through a second route. The ADA loader **derives** `conformsTo` from record
 CONTENT (via the CDIF validation repo's `detect_conformance`), so a record is matched to a
 profile by what it carries, not by what it cites — and the matched profile's constraints then
 have to accept it. That is why relocating the twelve `adaProfile` hasPart-item detail blocks to
 the top level, tried on a copy on 2026-09-05, failed **all 218** records of the affected profiles
 on a missing `ada:componentType`: those records never mentioned the profile, they were matched
-into it. So the question to ask before retiring a profile is not "what cites this?" — nothing
-does — but "what would `detect_conformance` match here instead, and would that schema accept
-these records?"
+into it. So there are TWO questions to ask before retiring a profile, and the correction above
+means the first one is no longer rhetorical: **"what cites this?"** — measured per cid at
+`schema:subjectOf.dcterms:conformsTo`, which for `adaSEM` is 2,912 records — and **"what would
+`detect_conformance` match here instead, and would that schema accept these records?"** A profile
+can be orphaned by either route: a record that names it, or a record that is matched into its
+replacement and fails there.
 
 > **One stale count nearby.** The Composition-modules section below says `_tapp_lib.py` generates
 > "the 16 under `geochemProfile/`" and that "the 32 under `adaProfile/`" are hand-maintained.

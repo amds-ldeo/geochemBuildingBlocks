@@ -364,8 +364,11 @@ x-defs:
                               items:
                                 type: string
                             x-jsonld-id: http://schema.org/identifier
-                        required:
-                        - schema:name
+                        anyOf:
+                        - required:
+                          - schema:name
+                        - required:
+                          - schema:identifier
                   allOf:
                   - contains:
                       properties:
@@ -12972,7 +12975,7 @@ allOf:
         (X-Y pixel size from SEM image calibration; Z from slice thickness), and the
         total number of slices in the stack.
       type: string
-    ada:imageStackDimenstions:
+    ada:imageStackDimensions:
       description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres
         (X-Y pixel size from SEM image calibration; Z from slice thickness), and the
         total number of slices in the stack.
@@ -13057,5 +13060,5 @@ allOf:
   required:
   - ada:mapDimensions
   - ada:voxelSize
-  - ada:imageStackDimenstions
+  - ada:imageStackDimensions
 x-schema-version: https://json-schema.org/draft/2020-12/schema
