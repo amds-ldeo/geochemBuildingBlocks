@@ -42,6 +42,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -538,6 +539,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -1102,7 +1104,8 @@ ex:adaVNMIR-example-001 a schema1:Dataset,
                 ex:vnmirTAPP-P0 ;
             ada:emissionAngle -9999 ;
             ada:incidenceAngle -9999 ;
-            ada:sampleTemperature -9999 ] .
+            ada:sampleTemperature -9999 ] ;
+    ada:submissionType "BundleDelivery" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
