@@ -76,6 +76,7 @@ Mock data for validation and testing.
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -521,6 +522,7 @@ Mock data for validation and testing.
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -1024,7 +1026,8 @@ ex:adaSVRUEC-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] .
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
+    ada:submissionType "BundleDelivery" .
 
 ex:adaSVRUEC-file-001 a cdi:TabularTextDataSet,
         schema1:MediaObject,

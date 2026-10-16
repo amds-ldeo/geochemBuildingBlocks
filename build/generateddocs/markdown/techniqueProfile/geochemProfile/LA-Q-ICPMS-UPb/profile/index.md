@@ -42,6 +42,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -690,6 +691,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -1385,10 +1387,10 @@ ex:adaLAQICPMSUPb-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1410,7 +1412,8 @@ ex:adaLAQICPMSUPb-example-001 a schema1:Dataset,
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:reportedDateType "Weighted mean 206Pb/238U" ;
     ada:sensitivityYield 1e+00 ;
-    ada:spotDiameterMeasured 1e+00 .
+    ada:spotDiameterMeasured 1e+00 ;
+    ada:submissionType "BundleDelivery" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,

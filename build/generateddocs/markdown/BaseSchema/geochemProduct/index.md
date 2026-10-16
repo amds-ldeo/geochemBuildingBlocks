@@ -1217,16 +1217,6 @@ allOf:
           x-jsonld-id: http://purl.org/dc/terms/conformsTo
       x-jsonld-id: http://schema.org/subjectOf
 $defs:
-  universalComponentTypeBranch:
-    description: Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf.
-      Constrains ada:componentType to the universal enum and marks it required. Factored
-      out of every profile to eliminate the inline boilerplate.
-    properties:
-      ada:componentType:
-        $ref: '#/$defs/universalComponentType'
-        x-jsonld-id: https://ada.astromat.org/metadata/componentType
-    required:
-    - ada:componentType
   universalComponentType:
     description: 'A componentType value drawn from the shared componentType vocabulary
       (ada:vocab/componentType). Not hard-enumerated here: conformance to the vocabulary

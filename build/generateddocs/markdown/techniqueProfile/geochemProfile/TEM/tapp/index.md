@@ -668,17 +668,17 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Probe size <1 nm stated for STEM-EDS maps and profiles (Sec 2.6) Reported detail: ada:analyticalSubModeDefault = BF-TEM; HRTEM (TEM Imaging); HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Line scan; Spectrum image (map)." ;
     schema1:instrument <ex:instrument/TEM> ;
@@ -3441,9 +3441,9 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "ThermoScientific Velox" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ schema1:name "ThermoScientific Velox" ;
-            ada:toolRole "dataReduction" ] .
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/TEM> a schema1:Product,
         schema1:Thing ;
@@ -5046,17 +5046,17 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional cleaning step after FIB thinning Reported detail: ada:analyticalSubModeDefault = BF-TEM; DF-TEM; ADF-STEM; SAED (Electron Diffraction)." ;
     schema1:instrument <ex:instrument/TEM> ;
@@ -5847,17 +5847,17 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "k-factor standards: troilite (Cape York iron meteorite) for Fe and S; millerite (Sanany, Ural, Russia) for Ni and S; Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional FIB section cleaning step Reported detail: ada:analyticalSubModeDefault = BF-TEM; ADF-STEM; STEM-EDS (line profiles; quantitative); ada:edsAcquisitionModeDefault = Line scan; quantitative point analysis; ada:edsQuantificationMethod = Cliff-Lorimer (thin film approximation); k-factors calibrated from reference standards." ;
     schema1:instrument <ex:instrument/TEM> ;
@@ -7583,17 +7583,17 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Ultramicrotomy" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault>,
@@ -8547,9 +8547,9 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "dataReduction" ] .
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/TEM> a schema1:Product,
         schema1:Thing ;
@@ -10195,17 +10195,17 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EDS analysis areas 5–10 nm (Molecular Foundry); compositions displayed as color-coded maps in Esprit 1.9; O abundances noted as subject to variable self-absorption; compositions normalized to 100% Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (Z-contrast); STEM-EDS (hyperspectral map); ada:edsAcquisitionModeDefault = Spectrum image (hyperspectral map)." ;
@@ -11106,17 +11106,17 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Crushing / dispersion on grid" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> ;
@@ -12027,17 +12027,17 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
@@ -15290,18 +15290,18 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindowDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSizeDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -17115,17 +17115,17 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University). Reported detail: ada:spectroscopicDetectorDefault = EDS detector (model not specified); ada:analyticalSubModeDefault = HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis); ada:edsAcquisitionModeDefault = EDS chemical mapping (Fe distribution)." ;
     schema1:instrument <ex:instrument/TEM> ;

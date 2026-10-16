@@ -42,6 +42,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -584,6 +585,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -1196,7 +1198,8 @@ ex:adaLASFICPMS-example-001 a schema1:Dataset,
                 ex:laSficpmsTAPP-P0 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:sensitivityYield 1e+00 ;
-    ada:spotDiameterMeasured 1e+00 .
+    ada:spotDiameterMeasured 1e+00 ;
+    ada:submissionType "BundleDelivery" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,

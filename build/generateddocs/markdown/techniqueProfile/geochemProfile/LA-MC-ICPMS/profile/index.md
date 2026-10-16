@@ -42,6 +42,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -588,6 +589,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -1181,10 +1183,10 @@ ex:adaLAMCICPMS-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: peakFlatness" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
@@ -1206,7 +1208,8 @@ ex:adaLAMCICPMS-example-001 a schema1:Dataset,
                 ex:laMcicpmsTAPP-P0 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:sensitivityYield 1e+00 ;
-    ada:spotDiameterMeasured 1e+00 .
+    ada:spotDiameterMeasured 1e+00 ;
+    ada:submissionType "BundleDelivery" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,

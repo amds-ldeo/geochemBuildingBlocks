@@ -42,6 +42,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -595,6 +596,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -1226,6 +1228,7 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:imageStackDimensions "no value available: voxelSizeAndImageStackDimensions" ;
     ada:mapDimensions 1e+00 ;
+    ada:submissionType "BundleDelivery" ;
     ada:voxelSize "no value available: voxelSizeAndImageStackDimensions" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,

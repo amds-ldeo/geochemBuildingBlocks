@@ -42,6 +42,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -559,6 +560,7 @@ and technique component types on the archive distribution. Mock data for validat
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -1123,14 +1125,14 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "no value available: crossValidationOutcome" ],
-        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "no value available: beamHardeningArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
             dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "no value available: metalStreakArtifactAssessment" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "no value available: crossValidationOutcome" ],
+        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "no value available: beamHardeningArtifactAssessment" ],
         [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
             dqv:value "no value available: signalToNoiseRatio" ],
         [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
@@ -1152,7 +1154,8 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                ex:labxctTAPP-P0 ] .
+                ex:labxctTAPP-P0 ] ;
+    ada:submissionType "BundleDelivery" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
