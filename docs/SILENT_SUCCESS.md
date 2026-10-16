@@ -161,6 +161,19 @@ report, which is pending forever — including on the pull request that would re
 (`gh api repos/<owner>/<repo>/commits/<sha>/check-runs --jq '.check_runs[].name'`), never from the
 `name:` at the top of the workflow file.
 
+**Resolved the same day.** `Validate committed examples` was added to
+`required_status_checks` on 2026-10-16 with the repository owner's explicit approval, taking the
+required set from three to four. The PATCH used the `checks` form rather than the legacy
+`contexts` array: each existing context is pinned to `app_id: 15368` (GitHub Actions), and a
+`contexts`-only write drops that pinning, so any app could then satisfy the check — a quieter
+version of this same section's failure, where the gate still reports but no longer attests what
+it was built to attest.
+
+The confirmation to insist on is not the API echo but a pull request. #144, which carries this
+entry, had all four contexts green afterwards — including the newly required one. That is the
+observation that distinguishes "required" from "required and unsatisfiable", and it is the one
+the paths-filter incident did not have.
+
 ---
 
 ## 5. The publishing robot succeeds at everything except publishing

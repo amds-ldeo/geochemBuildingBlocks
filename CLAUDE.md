@@ -154,14 +154,14 @@ python tools/validate_examples.py               # 7. verify
 
 **Step 5 is easy to skip and its omission is silent.** The publication examples (`example<TAPP>-<Pub>.json`, one per column after `Literature Assessment`) are NOT rebuilt by `build_pathdriven`, so a sidecar change moves the schema while they keep the placement they were last generated with. Nothing complains until `validate_examples` runs, and the failure reads as a schema bug rather than a stale artifact — moving `Detection Limit` off `targetSpeciesColumns[]` produced 125 such failures that regeneration alone cleared. `build_tapp_examples` is not a second generator: it reads the workbook's publication columns for CONTENT and calls `schema_path_example_emitter.build_example(tapp, values=...)` -- the same emitter that writes the `-P0` files -- for PLACEMENT.
 
-## CI: six workflows, three of them required
+## CI: six workflows, four of them required
 
 | workflow | check name | trigger | required? |
 |---|---|---|---|
 | `validate-branch.yml` | `Validate and annotate (no pages)` | push (not main), PR | yes |
 | `check-schema-drift.yml` | `Regenerate and diff` | every PR | yes |
 | `check-determinism.yml` | `Regenerate twice and compare` | every PR | yes |
-| `check-examples.yml` | `Validate committed examples` | every PR | **no** — see below |
+| `check-examples.yml` | `Validate committed examples` | every PR | yes (2026-10-16) |
 | `process-bblocks.yml` | — | push to main | — |
 | `deploy-viewer.yml` | — | `workflow_run`; push to main under `build/**` | — |
 
@@ -172,14 +172,18 @@ workflow title adds a context no run can report, which is pending forever, which
 the ordering rule below exists to prevent. Read the name from a real check-run before requiring
 it: `gh api repos/<owner>/<repo>/commits/<sha>/check-runs --jq '.check_runs[].name'`.
 
-**`Validate committed examples` is the one gate that is not required**, measured 2026-10-16
-(`contexts` is exactly the three marked yes; `gh api .../rulesets` is `[]`). It is the check
-written to close #63's gap — a schema requiring a property no example carried, merged green — and
-while it is not required, auto-merge merges straight past it red. It is otherwise ready to be
-required: no `paths:` filter, no job-level `if:`, zero skipped runs in its last 40, and it reports
-on the `bblocks-build` PR without needing `validate-branch.yml`'s third guard clause. Requiring it
-is a branch-protection change, which is the repository owner's to make. `docs/SILENT_SUCCESS.md`
-§4 carries the measurement.
+**`Validate committed examples` became required on 2026-10-16**, and for eight days before that
+it was not. It is the check written to close #63's gap — a schema requiring a property no example
+carried, merged green because nothing validated an example — and an unrequired gate is one
+auto-merge merges straight past when red, which is how #31 and #32 landed broken. Requiring it was
+gated on the ordering rule below, verified first rather than assumed: no `paths:` filter, no
+job-level `if:`, zero skipped runs in its last 40, and it reports on the `bblocks-build` PR
+without needing `validate-branch.yml`'s third guard clause (that clause carves an exception out of
+a dedupe guard, and there is no guard here). `docs/SILENT_SUCCESS.md` §4 carries the measurement.
+
+The PATCH used the `checks` form rather than the legacy `contexts` array, because each existing
+context is pinned to `app_id: 15368` (GitHub Actions) and a `contexts`-only write drops that
+pinning, letting any app satisfy the check.
 
 **`Regenerate and diff` regenerates all nine stages, not the last two.** Until 2026-10-16 it ran
 only `resolve_schema.py --all` and `regenerate_schema_json.py`, so it re-derived
@@ -194,7 +198,7 @@ clock because `Validate and annotate` already takes 16–22 in parallel.
 The STEM/EBSD caveat below still stands and is NOT contradicted by that zero: the content loss
 belongs to the per-technique `regenerate.py --tapp <ONE>` path, which this job does not use.
 
-The first three are **required** in branch protection. Two rules follow from that and both were
+These four are **required** in branch protection. Two rules follow from that and both were
 learned the hard way:
 
 **Never add a `paths:` filter to a required workflow.** A required check that does not RUN is not
