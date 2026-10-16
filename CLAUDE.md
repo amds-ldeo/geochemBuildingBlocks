@@ -154,14 +154,32 @@ python tools/validate_examples.py               # 7. verify
 
 **Step 5 is easy to skip and its omission is silent.** The publication examples (`example<TAPP>-<Pub>.json`, one per column after `Literature Assessment`) are NOT rebuilt by `build_pathdriven`, so a sidecar change moves the schema while they keep the placement they were last generated with. Nothing complains until `validate_examples` runs, and the failure reads as a schema bug rather than a stale artifact — moving `Detection Limit` off `targetSpeciesColumns[]` produced 125 such failures that regeneration alone cleared. `build_tapp_examples` is not a second generator: it reads the workbook's publication columns for CONTENT and calls `schema_path_example_emitter.build_example(tapp, values=...)` -- the same emitter that writes the `-P0` files -- for PLACEMENT.
 
-## CI: four workflows, three of them required
+## CI: six workflows, three of them required
 
-| workflow | check name | trigger |
-|---|---|---|
-| `validate-branch.yml` | `Validate and annotate (no pages)` | push (not main), PR |
-| `check-schema-drift.yml` | `Regenerate and diff` | every PR |
-| `check-determinism.yml` | `Regenerate twice and compare` | every PR |
-| `process-bblocks.yml` | — | push to main |
+| workflow | check name | trigger | required? |
+|---|---|---|---|
+| `validate-branch.yml` | `Validate and annotate (no pages)` | push (not main), PR | yes |
+| `check-schema-drift.yml` | `Regenerate and diff` | every PR | yes |
+| `check-determinism.yml` | `Regenerate twice and compare` | every PR | yes |
+| `check-examples.yml` | `Validate committed examples` | every PR | **no** — see below |
+| `process-bblocks.yml` | — | push to main | — |
+| `deploy-viewer.yml` | — | `workflow_run`; push to main under `build/**` | — |
+
+**The check name is the JOB name, never the workflow's `name:`.** Every context above is a job
+name and three of the six workflows are *titled* something else — `check-schema-drift.yml` is
+named "Check generated schemas are current" and reports "Regenerate and diff". Requiring a
+workflow title adds a context no run can report, which is pending forever, which is the deadlock
+the ordering rule below exists to prevent. Read the name from a real check-run before requiring
+it: `gh api repos/<owner>/<repo>/commits/<sha>/check-runs --jq '.check_runs[].name'`.
+
+**`Validate committed examples` is the one gate that is not required**, measured 2026-10-16
+(`contexts` is exactly the three marked yes; `gh api .../rulesets` is `[]`). It is the check
+written to close #63's gap — a schema requiring a property no example carried, merged green — and
+while it is not required, auto-merge merges straight past it red. It is otherwise ready to be
+required: no `paths:` filter, no job-level `if:`, zero skipped runs in its last 40, and it reports
+on the `bblocks-build` PR without needing `validate-branch.yml`'s third guard clause. Requiring it
+is a branch-protection change, which is the repository owner's to make. `docs/SILENT_SUCCESS.md`
+§4 carries the measurement.
 
 **`Regenerate and diff` regenerates all nine stages, not the last two.** Until 2026-10-16 it ran
 only `resolve_schema.py --all` and `regenerate_schema_json.py`, so it re-derived

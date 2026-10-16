@@ -122,6 +122,45 @@ would have deadlocked the repository against itself.
 **Rule:** never put a `paths:` filter on a required workflow. A filter is safe only on something
 that is not a gate — `deploy-viewer.yml` carries one for exactly that reason.
 
+### The gate that was written to close #63's gap, and then was not required (2026-10-16)
+
+`check-examples.yml` exists because of the gap recorded in §1's family: #63 merged a schema
+requiring `ada:procedureAuthorDescription` that none of its three draft instances carried, green,
+because no check in the repository validated an example. The workflow was added on 2026-10-08 to
+close exactly that. Its own header anticipated the next step — "if this becomes a REQUIRED check"
+— and the step was never taken.
+
+Measured on 2026-10-16, `gh api repos/amds-ldeo/geochemBuildingBlocks/branches/main/protection`
+returned `required_status_checks.contexts` of exactly three — `Validate and annotate (no pages)`,
+`Regenerate twice and compare`, `Regenerate and diff` — and `gh api .../rulesets` returned `[]`,
+so branch protection is the only gate and no ruleset adds to it. For eight days an example could
+therefore break and auto-merge would merge straight past the red check, which is this section's
+failure mode arriving a third time after #31 and #32.
+
+**The ordering rule above was checked before acting, and it held.** `check-examples.yml` has no
+`paths:` filter — deliberately, per its own comment — and no job-level `if:` guard at all, so the
+`pull_request` event always runs it. Over its last 40 runs: 25 `pull_request` successes, 13 `push`
+successes, 2 `push` cancellations on main by its own concurrency group, and **zero skipped**. It
+reported on all five most recent pull requests.
+
+It needs **no** equivalent of `validate-branch.yml`'s third guard clause for `bblocks-build`. That
+clause exists to carve an exception out of a dedupe guard; with no guard to carve, nothing is
+skipped. Confirmed directly rather than inferred: the check-runs on #143's head
+(`365704ab2aeca8681fa7a1188bcdc6f46167e730`) list `Validate committed examples :: success`, and
+#139 and #137 — both `bblocks-build` PRs — carry it too.
+
+**The context to require is the JOB name, not the workflow name.** This is the trap in this
+particular fix, and it is the same deadlock the rule above describes, reached by a different
+route. The workflow is named `Check examples validate`; the check GitHub reports is its job,
+`Validate committed examples`. All three existing required contexts are likewise job names
+(`check-schema-drift.yml` is *named* "Check generated schemas are current" and reports
+"Regenerate and diff"). Requiring the workflow name would add a context that no run can ever
+report, which is pending forever — including on the pull request that would remove it.
+
+**Rule:** before requiring a check, read its name from a real check-run
+(`gh api repos/<owner>/<repo>/commits/<sha>/check-runs --jq '.check_runs[].name'`), never from the
+`name:` at the top of the workflow file.
+
 ---
 
 ## 5. The publishing robot succeeds at everything except publishing
