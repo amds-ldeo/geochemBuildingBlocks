@@ -314,12 +314,36 @@
       },
       "minItems": 2
     },
-    "submissionType": {
+    "ada:submissionType": {
+      "description": "How the delivery arrived: BundleDelivery (7,071 records) or Regular (376), counted over public.json_table on 2026-10-16. Not enumerated here -- the values come from ADA's records.submission_type, so a third would be a data fact rather than a schema change.\nPREFIXED deliberately. This was `submissionType`, unprefixed, from the SAMIS era. In a JSON-LD document a bare term that no @context defines does not expand to an IRI, so it was a dangling key rather than a property -- a consumer framing the document would drop it. `ada:` is already bound in ADA's @context. The rename had to travel WITH the requirement below: requiring the old spelling would have failed all 7,447 records, because none carries it.",
       "type": "string"
     },
     "schema:distribution": {
       "description": "ADA delivery view: adds the ada:componentType file-classification to the generic distribution structure inherited from geochemProduct. A distribution is EITHER a MONOLITHIC single-file dataset -- a schema:DataDownload that carries its own ada:componentType (and, when its structure is described, cdi:isStructuredBy from the base), with NO schema:hasPart -- OR a BUNDLE/archive -- a schema:DataDownload whose schema:hasPart lists member files, each a schema:MediaObject carrying its own ada:componentType (the ADA SAMIS delivery pattern).",
       "type": "array",
+      "contains": {
+        "anyOf": [
+          {
+            "required": [
+              "ada:componentType"
+            ]
+          },
+          {
+            "properties": {
+              "schema:hasPart": {
+                "contains": {
+                  "required": [
+                    "ada:componentType"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "schema:hasPart"
+            ]
+          }
+        ]
+      },
       "items": {
         "type": "object",
         "properties": {
@@ -20509,6 +20533,14 @@
             }
           }
         }
+      ]
+    },
+    {
+      "type": "object",
+      "required": [
+        "ada:submissionType",
+        "schema:additionalType",
+        "schema:distribution"
       ]
     },
     {

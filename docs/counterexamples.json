@@ -199,6 +199,37 @@
       },
       "expect": "schema:name",
       "why": "An analysed sample must be IDENTIFIABLE. `schema:name` used to be required outright, which rejected every ADA record of all 8 legacy cids that have a TAPP replacement -- the records name the sample with `schema:identifier` (\"OREX-803031-101\") and carry no separate laboratory name -- so schema_path_emitter.SUBSTITUTES now lets the identifier satisfy the name, scoped to `schema:object`. What must NOT follow is that a sample can be anonymous. This case sets the sample to a bare typed object carrying NEITHER, and it must still be rejected. It is a `set` rather than a `remove` because no example carries a name without an identifier, so removing one leaves the other and tests nothing. Its partners are `tappdef-requires-name` and `step-parameter-requires-name`, which hold the other side of the line: at those nodes an identifier is NOT an acceptable substitute, and a global relaxation would have silently voided both."
+    },
+    {
+      "id": "adaproduct-requires-submissionType",
+      "example": "_sources/BaseSchema/adaProduct/exampleadaProduct.json",
+      "mutate": {
+        "op": "remove",
+        "pointer": "/ada:submissionType"
+      },
+      "expect": "ada:submissionType",
+      "why": "adaProduct's own layer had NO required list at all until 2026-10-16, so a record could declare ADA conformance and be tested on almost nothing ADA-specific. This is the first of the three requirements that fixed that, and it is the one with a sequencing hazard worth remembering: ADA had to EMIT ada:submissionType across all 7,447 records BEFORE gBB could require it, because requiring it first would have failed the entire corpus rather than 16 records. The property is also PREFIXED -- it was a bare `submissionType`, which in JSON-LD does not expand to an IRI without an @context term, so it was a dangling key. The rename had to travel with the requirement, and this case pins the prefixed spelling."
+    },
+    {
+      "id": "adaproduct-requires-productType",
+      "example": "_sources/BaseSchema/adaProduct/exampleadaProduct.json",
+      "mutate": {
+        "op": "remove",
+        "pointer": "/schema:additionalType"
+      },
+      "expect": "schema:additionalType",
+      "why": "schema:additionalType has carried the 127-label product-type `contains` for as long as it has existed, and that constraint did NOTHING for a record that simply omitted the property -- an absent property is never checked. Requiring it, on 2026-10-16, makes the existing enum mandatory rather than conditional on the author having volunteered the field. The mutation REMOVES the property rather than replacing its value, and that distinction is the whole case: a replaced value is caught by the pre-existing `contains` and was already rejected before this requirement existed, so such a case would pass while testing the older constraint and tell you nothing about the new one. Verified both ways against origin/main's schema -- removal was accepted there and is rejected here."
+    },
+    {
+      "id": "adaproduct-distribution-must-classify-its-files",
+      "example": "_sources/BaseSchema/adaProduct/exampleadaProduct.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/schema:distribution/0/schema:hasPart",
+        "value": []
+      },
+      "expect": "schema:distribution",
+      "why": "A delivery has to say what KIND of files it carries, which is the claim adaProduct exists to make. Either shape satisfies it -- a monolithic distribution carrying ada:componentType itself, or a bundle carrying one on a schema:hasPart member -- because requiring only the hasPart form would foreclose the monolithic case the schema deliberately supports. This mutation empties hasPart while leaving the key present, which is precisely the shape of the 41 corpus records this requirement newly fails: a collection declaring no parts, distinct from a monolithic distribution and distinct again from an absent key (0 records). `expect` cannot name ada:componentType: a failing `contains` reports the whole array and its schema path stops at `contains`, the same message problem recorded for anyOf in CLAUDE.md. The instance path is what identifies the constraint here."
     }
   ]
 }
