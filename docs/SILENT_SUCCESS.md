@@ -222,9 +222,69 @@ you are not asking about, and check you are comparing the two states you think y
 
 ---
 
+## 7. The pipeline substitutes a superseded source and says nothing
+
+**Reported success:** nothing failed. A regeneration would have run clean and `validate_examples`
+would have reported 647/647.
+
+**Not doing its job:** `tapp_source.current_delivery()` prefers the `tapp/` git submodule and
+falls back to the newest inline `TAPPS<date>/` drop at the repo root. The fallback was *silent*,
+and an empty submodule is the **normal state of a fresh clone or a fresh git worktree** —
+`.gitmodules` sets `update = none`, which `--recursive` and `actions/checkout`'s
+`submodules: true` both honour. So the default condition of a new checkout quietly redirected the
+pipeline's source of truth to a superseded delivery.
+
+**Observed 2026-10-15**, in a new `.claude/worktrees/` worktree on `main`, while fixing an
+unrelated one-character typo in the SEM sidecar:
+
+```
+tapp/Current TAPPs/*.csv          0 files
+tapp_source.current_delivery()    …/TAPPS20260813
+```
+
+Had the regen gone ahead, SEM would have been built from the wrong table and every check would
+have been green — this is incident #1's mechanism, reached by a different route: building from the
+wrong source only changes **content**, and a schema with less in it is more permissive, not
+invalid. The module stages are where it bites hardest. `TAPPS20260813/` still ships
+`Module_ArAr` and `Module_Group1`, both retired upstream, and `simplify_sidecars` **blanks** a
+technique's own row when it decides a module covers the field — which is exactly how
+`Limit of Quantification (LOQ) Method` was deleted from nine ICP-MS schemas in #1.
+
+CLAUDE.md already said "an unrecursed clone will silently build from the old drop — check the
+submodule is initialised before believing a regen". Documentation is not a guard: the condition
+it warns about is invisible, so the warning only helps someone who already suspects it.
+
+**Fixed** by making the fallback a refusal. `tapp_source.require_delivery()` raises
+`StaleDeliveryError` when the submodule is unpopulated *and* an inline drop would be taken,
+naming the drop and the exact fix; `current_delivery()` and `manifest_path()` each call it, since
+each has its own independent scan. `regenerate.py` calls it in a **preflight before the first
+stage**, because raising inside the subprocess that first touches the delivery would bury the
+message in that stage's captured output. `ADA_ALLOW_STALE_TAPP_DROP=1` takes the old drop
+deliberately, with a warning on stderr — the same shape as `resolve_schema.py --allow-unresolved`.
+
+Two things it deliberately does **not** do. It stays silent when there is no inline drop to fall
+into, because then the caller's own missing-file error names the exact table and is clearer. And
+it does not touch `update = none`, which is itself load-bearing: that setting stops OGC's
+postprocess running `git submodule update --remote` and **committing** a bumped pointer, as it did
+in `c0194f7e4`, breaking `TAPP_CONFIGS` for 13 of 16 techniques on main.
+
+CI is unaffected in both directions, which had to be checked rather than assumed.
+`check-determinism.yml` populates the submodule explicitly (`--checkout`) and regenerates, so the
+guard is inert there. The other three workflows never populate it — and none of them imports
+`tapp_source` at all: `check-schema-drift.yml` runs `resolve_schema`, `regenerate_schema_json`,
+`constraint_census` and `validate_counterexamples`, and `validate-branch.yml` /
+`process-bblocks.yml` run only the OGC postprocess. An unpopulated submodule is normal there
+*because nothing reads a TAPP table*, so there is no regeneration for the guard to stop.
+
+**Rule:** a fallback that substitutes one source for another must say which one it took. Prefer
+refusing: the defaults of a fresh checkout decide what most runs read, and a fallback reached by
+default is not a fallback, it is the behaviour.
+
+---
+
 ## The common thread
 
-In all six, the failure was invisible from the outside because the signal said "success". What
+In all seven, the failure was invisible from the outside because the signal said "success". What
 exposed each one:
 
 | | what exposed it |
@@ -235,6 +295,7 @@ exposed each one:
 | 4 | reading which checks were *required*, not which were green |
 | 5 | reading the job list of a "successful" run, step by step |
 | 6 | an order-insensitive comparison between the correct two commits |
+| 7 | asking what the tool resolved its input to, before trusting the run |
 
 None of these needed cleverness. They needed looking at the thing itself instead of the badge on
 top of it.

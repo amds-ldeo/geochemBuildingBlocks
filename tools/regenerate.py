@@ -34,6 +34,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b  # noqa: E402
 import build_profile as bprof  # noqa: E402  — PROFILES, for the profile-stage filter
+import tapp_source  # noqa: E402  — the delivery preflight below
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOOLS = os.path.join(ROOT, "tools")
@@ -118,6 +119,15 @@ def main():
     unknown = [t for t in tapps if t not in b.TAPP_CONFIGS]
     if unknown:
         raise SystemExit(f"unknown TAPP(s): {', '.join(unknown)}")
+
+    # Before any stage, not inside one. An unpopulated `tapp/` resolves the module stages to a
+    # superseded inline drop, and raising from the subprocess that first touches it would surface
+    # the message after a stage header, buried in that stage's captured output.
+    try:
+        tapp_source.require_delivery()
+    except tapp_source.StaleDeliveryError as e:
+        print("REFUSING TO REGENERATE", file=sys.stderr)
+        raise SystemExit(e)
 
     stages = STAGES
     if a.start:
