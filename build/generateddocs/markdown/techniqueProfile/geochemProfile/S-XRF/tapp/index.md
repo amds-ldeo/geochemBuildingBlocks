@@ -33,6 +33,24 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
   "schema:description": "sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotron Radiation Facility | Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering) (publication column of S-XRF_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Synchrotron.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering)",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/nxs-base-classes-NXinstrument-html"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -112,6 +130,24 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
   "schema:description": "sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotron Radiation Facility | Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering) (publication column of S-XRF_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Synchrotron.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
+        },
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:name": "Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering)",
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/nxs-base-classes-NXinstrument-html"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -183,6 +219,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
                     schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotron Radiation Facility | Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering) (publication column of S-XRF_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Synchrotron." ;
+    schema1:instrument <ex:instrument/nxs-base-classes-NXinstrument-html> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02550n020" ;
             schema1:name "European Synchrotron Radiation Facility" ] ;
@@ -195,6 +232,12 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
+
+<ex:instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
+        <https://www.wikidata.org/wiki/Q3099911> ;
+    schema1:name "Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering)" .
 
 
 ```
@@ -289,6 +332,56 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
+    schema:instrument:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              schema:additionalType:
+                contains:
+                  anyOf:
+                  - const: nxs:base_classes/NXinstrument.html
+                  - type: object
+                    required:
+                    - '@id'
+                    properties:
+                      '@id':
+                        const: nxs:base_classes/NXinstrument.html
+            required:
+            - schema:additionalType
+          then:
+            properties:
+              schema:name:
+                description: 'Identifier or name of the synchrotron beamline at which
+                  the measurement was made. Distinguished from Instrument Model, which
+                  conflates the two today: the ADA corpus records the beamline inside
+                  the model string. Classified as a NeXus NXinstrument.'
+                anyOf:
+                - type: string
+                  readOnly: true
+                - type: array
+                  items:
+                    type: string
+                    readOnly: true
+            required:
+            - schema:name
+      allOf:
+      - contains:
+          properties:
+            schema:additionalType:
+              contains:
+                anyOf:
+                - const: nxs:base_classes/NXinstrument.html
+                - type: object
+                  required:
+                  - '@id'
+                  properties:
+                    '@id':
+                      const: nxs:base_classes/NXinstrument.html
+          required:
+          - schema:additionalType
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
