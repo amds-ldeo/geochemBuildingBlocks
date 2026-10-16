@@ -57,6 +57,7 @@ Mock data for validation and testing.
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -494,6 +495,7 @@ Mock data for validation and testing.
       "@id": "ada:DataDeliveryPackage"
     }
   ],
+  "ada:submissionType": "BundleDelivery",
   "schema:identifier": {
     "@type": [
       "schema:PropertyValue"
@@ -992,7 +994,8 @@ ex:adaProduct-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] .
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
+    ada:submissionType "BundleDelivery" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
@@ -1092,6 +1095,10 @@ type: object
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
 - type: object
+  required:
+  - ada:submissionType
+  - schema:additionalType
+  - schema:distribution
   properties:
     schema:additionalType:
       type: array
@@ -1249,8 +1256,20 @@ allOf:
         - X-ray Diffraction (XRD) Tabular
       minItems: 2
       x-jsonld-id: http://schema.org/additionalType
-    submissionType:
+    ada:submissionType:
+      description: 'How the delivery arrived: BundleDelivery (7,071 records) or Regular
+        (376), counted over public.json_table on 2026-10-16. Not enumerated here --
+        the values come from ADA''s records.submission_type, so a third would be a
+        data fact rather than a schema change.
+
+        PREFIXED deliberately. This was `submissionType`, unprefixed, from the SAMIS
+        era. In a JSON-LD document a bare term that no @context defines does not expand
+        to an IRI, so it was a dangling key rather than a property -- a consumer framing
+        the document would drop it. `ada:` is already bound in ADA''s @context. The
+        rename had to travel WITH the requirement below: requiring the old spelling
+        would have failed all 7,447 records, because none carries it.'
       type: string
+      x-jsonld-id: https://ada.astromat.org/metadata/submissionType
     schema:distribution:
       description: 'ADA delivery view: adds the ada:componentType file-classification
         to the generic distribution structure inherited from geochemProduct. A distribution
@@ -1260,6 +1279,18 @@ allOf:
         whose schema:hasPart lists member files, each a schema:MediaObject carrying
         its own ada:componentType (the ADA SAMIS delivery pattern).'
       type: array
+      contains:
+        anyOf:
+        - required:
+          - ada:componentType
+        - properties:
+            schema:hasPart:
+              contains:
+                required:
+                - ada:componentType
+              x-jsonld-id: http://schema.org/hasPart
+          required:
+          - schema:hasPart
       items:
         type: object
         properties:

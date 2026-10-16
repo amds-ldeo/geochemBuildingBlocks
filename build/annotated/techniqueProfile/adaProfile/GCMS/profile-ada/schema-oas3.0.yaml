@@ -13,6 +13,10 @@ x-defs:
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GCMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.geochemProduct
     - type: object
+      required:
+      - ada:submissionType
+      - schema:additionalType
+      - schema:distribution
       properties:
         schema:additionalType:
           type: array
@@ -179,8 +183,21 @@ x-defs:
             - X-ray Diffraction (XRD) Tabular
           minItems: 2
           x-jsonld-id: http://schema.org/additionalType
-        submissionType:
+        ada:submissionType:
+          description: 'How the delivery arrived: BundleDelivery (7,071 records) or
+            Regular (376), counted over public.json_table on 2026-10-16. Not enumerated
+            here -- the values come from ADA''s records.submission_type, so a third
+            would be a data fact rather than a schema change.
+
+            PREFIXED deliberately. This was `submissionType`, unprefixed, from the
+            SAMIS era. In a JSON-LD document a bare term that no @context defines
+            does not expand to an IRI, so it was a dangling key rather than a property
+            -- a consumer framing the document would drop it. `ada:` is already bound
+            in ADA''s @context. The rename had to travel WITH the requirement below:
+            requiring the old spelling would have failed all 7,447 records, because
+            none carries it.'
           type: string
+          x-jsonld-id: https://ada.astromat.org/metadata/submissionType
         schema:distribution:
           description: 'ADA delivery view: adds the ada:componentType file-classification
             to the generic distribution structure inherited from geochemProduct. A
@@ -191,6 +208,18 @@ x-defs:
             a schema:MediaObject carrying its own ada:componentType (the ADA SAMIS
             delivery pattern).'
           type: array
+          contains:
+            anyOf:
+            - required:
+              - ada:componentType
+            - properties:
+                schema:hasPart:
+                  contains:
+                    required:
+                    - ada:componentType
+                  x-jsonld-id: http://schema.org/hasPart
+              required:
+              - schema:hasPart
           items:
             type: object
             properties:
@@ -817,17 +846,6 @@ x-defs:
               x-jsonld-id: http://purl.org/dc/terms/conformsTo
           x-jsonld-id: http://schema.org/subjectOf
     $defs:
-      universalComponentTypeBranch:
-        description: Wrapper for use as one branch of a profile's schema:hasPart.items.anyOf.
-          Constrains ada:componentType to the universal enum and marks it required.
-          Factored out of every profile to eliminate the inline boilerplate.
-        properties:
-          ada:componentType:
-            x-jsonld-id: https://ada.astromat.org/metadata/componentType
-            allOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/GCMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.geochemProduct/$defs/universalComponentType
-        required:
-        - ada:componentType
       universalComponentType:
         description: 'A componentType value drawn from the shared componentType vocabulary
           (ada:vocab/componentType). Not hard-enumerated here: conformance to the
