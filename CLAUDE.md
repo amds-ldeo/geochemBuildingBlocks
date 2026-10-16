@@ -225,7 +225,9 @@ identity.
 regenerating them**. So build output cannot just stop being committed.
 
 But branch protection declines a push from the postprocess (`GH006 ... 3 of 3 required status
-checks are expected`), and it cannot be exempted: the GitHub Actions app can only be a bypass
+checks are expected` — quoted as observed; that number is the size of the required set, so it
+reads `4 of 4` since `Validate committed examples` was required on 2026-10-16), and it cannot be
+exempted: the GitHub Actions app can only be a bypass
 actor on an **organization** ruleset, and a repository ruleset rejects it outright, accepting only
 deploy-key and repository-role bypasses — GITHUB_TOKEN is neither. So `process-bblocks.yml`:
 
@@ -235,7 +237,7 @@ deploy-key and repository-role bypasses — GITHUB_TOKEN is neither. So `process
 
 The PAT (Contents:read + PullRequests:write, this repo only) exists for ONE reason: a PR opened by
 GITHUB_TOKEN would get no checks, per the rule above, and would sit open forever. It grants no
-bypass — the build PR merges through the same three checks as anything else.
+bypass — the build PR merges through the same required checks as anything else.
 
 - **`bblocks-build` is machine-owned.** It is force-reset on every run. Never branch from it,
   never commit to it, never base work on it.

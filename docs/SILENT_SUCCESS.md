@@ -188,6 +188,10 @@ remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: - 3 of 3 required status checks are expected.
 ```
 
+(Quoted as observed. The number is the size of the required set, not a constant: it reads
+`4 of 4` since §4 added `Validate committed examples` on 2026-10-16. Do not update the quote —
+update this note.)
+
 It cannot be exempted. The GitHub Actions app can only be a bypass actor on an **organization**
 ruleset; a repository ruleset rejects it outright (`Actor GitHub Actions integration must be part
 of the ruleset source or owner organization`) and accepts only deploy-key and repository-role
