@@ -27,7 +27,7 @@ python tools/resolve_schema.py --all          # resolvedSchema.json everywhere (
 
 `resolve_schema.py` also accepts a single `<profile>` name or `--file <schema.yaml> -o <out>` to resolve just one — far faster than `--all` after a localized edit.
 
-> **TAPP source = the `tapp/` git submodule** ([amds-ldeo/tapp](https://github.com/amds-ldeo/tapp)); `tools/tapp_source.py:current_delivery()` resolves to it. Clone with `--recursive`, then `git submodule update --init --checkout` — the `--checkout` is REQUIRED because `.gitmodules` sets `update = none`. That setting exists to stop OGC's reusable postprocess workflow, which runs `git submodule update --recursive --remote` and then commits everything, from silently advancing the pointer to whatever is at the tip of tapp's default branch (it did exactly that in `c0194f7e4`, which broke `TAPP_CONFIGS` for 13 of 16 techniques on main). Bumping the delivery is therefore a deliberate act: check out the revision you want and `git add tapp`. CI does not need the submodule populated — nothing under `_sources/` references it and `bblocks-config.yaml` imports only CDIF's remote register. (The earlier `resolve_schema.py --all` gh-pages blocker is now **lifted** — CDIF publishes `objectReference`; it runs clean.)
+> **TAPP source = the `tapp/` git submodule** ([amds-ldeo/tapp](https://github.com/amds-ldeo/tapp)); `tools/tapp_source.py:current_delivery()` resolves to it. Clone with `--recursive`, then `git submodule update --init --checkout` — the `--checkout` is REQUIRED because `.gitmodules` sets `update = none`. That setting exists to stop OGC's reusable postprocess workflow, which runs `git submodule update --recursive --remote` and then commits everything, from silently advancing the pointer to whatever is at the tip of tapp's default branch (it did exactly that in `c0194f7e4`, which broke `TAPP_CONFIGS` for 13 of 16 techniques on main). Bumping the delivery is therefore a deliberate act: check out the revision you want and `git add tapp`. **Two CI jobs DO need the submodule populated**, and both populate it themselves with the explicit `--checkout` (`submodules: true` on `actions/checkout` is not enough — it honours `update = none` and leaves the submodule empty): `check-determinism.yml`, which regenerates the example stage twice, and `check-schema-drift.yml`, which regenerates the WHOLE chain as of 2026-10-16. The other two jobs do not, since nothing under `_sources/` references the submodule and `bblocks-config.yaml` imports only CDIF's remote register. (The earlier `resolve_schema.py --all` gh-pages blocker is now **lifted** — CDIF publishes `objectReference`; it runs clean.)
 
 The migration tools, in run order: `python tools/intake_delivery.py <delivery>` (read-only first pass — what carries, what is renamed, what arrives **DROPPED** or flagged, what composing a module would change), then `python tools/migrate_sidecar.py <tapp> --source <table> [--seed <nearest tapp>] --write` (carries a sidecar onto a new revision; record non-mechanical renames in its `ALIASES` rather than losing the authored paths), then `python tools/fill_flagged.py --write`.
 
@@ -162,6 +162,19 @@ python tools/validate_examples.py               # 7. verify
 | `check-schema-drift.yml` | `Regenerate and diff` | every PR |
 | `check-determinism.yml` | `Regenerate twice and compare` | every PR |
 | `process-bblocks.yml` | — | push to main |
+
+**`Regenerate and diff` regenerates all nine stages, not the last two.** Until 2026-10-16 it ran
+only `resolve_schema.py --all` and `regenerate_schema_json.py`, so it re-derived
+`resolvedSchema.json` and `*Schema.json` from `schema.yaml` and stopped — while ~169 of the 242
+`schema.yaml` are themselves generated from the TAPP tables and the sidecars. A sidecar edit
+committed without regenerating, or a schema built from a superseded delivery, passed every check in
+the repository. Enabling it was gated on a measurement, not an assumption: a full `regenerate.py`
+over clean `main` (`752a236a7b`) changes **zero** files, so the comparison is meaningful rather than
+permanently red. It costs ~17 minutes against the previous ~5, which does not move total PR wall
+clock because `Validate and annotate` already takes 16–22 in parallel.
+
+The STEM/EBSD caveat below still stands and is NOT contradicted by that zero: the content loss
+belongs to the per-technique `regenerate.py --tapp <ONE>` path, which this job does not use.
 
 The first three are **required** in branch protection. Two rules follow from that and both were
 learned the hard way:

@@ -8,6 +8,27 @@
 # at all rewrote 9,269 lines across 34 files -- drift that had
 # accumulated silently because nothing checked.
 #
+# It runs the WHOLE chain, not the last two stages. Until 2026-10-16 this job ran only
+# `resolve_schema.py --all` and `regenerate_schema_json.py`, so it re-derived
+# resolvedSchema.json and *Schema.json from schema.yaml and stopped there. But ~169 of the 242
+# schema.yaml under _sources/ are THEMSELVES generated -- tapp/ and detail/ by build_tapp and
+# build_pathdriven, profile/ by build_profile, BaseSchema/modules/* by build_module_bb -- out of
+# the TAPP tables in the `tapp/` submodule plus the docs/*.schemapaths.csv sidecars. Nothing
+# compared those against their sources, so a sidecar edit committed without regenerating, or a
+# schema.yaml built from a superseded delivery, passed every check in the repository. The job's
+# own NAME claimed otherwise, which is what made this worth fixing rather than documenting: a
+# check called "regenerate and diff" that regenerates two stages of nine reads as cover it does
+# not provide.
+#
+# Measured on 752a236a7b before enabling it: a full `tools/regenerate.py` over clean main
+# changes ZERO files, so the comparison is meaningful rather than permanently red. That had to
+# be measured, not assumed -- CLAUDE.md records that regenerating the source-derived STEM and
+# EBSD blocks DESTROYS content no generator can reinvent (ebsd -15 JSON paths, stem -41). That
+# loss is real, but it belongs to the per-technique `regenerate.py --tapp <ONE>` path, which
+# this job does not use; the full run reproduces both blocks byte-for-byte. If that ever stops
+# being true, fix the generator or exclude those blocks EXPLICITLY here -- never narrow the diff
+# until it passes.
+#
 # The check does not repair anything. Committing a regeneration on the
 # author's behalf would restore byte-parity while leaving the habit
 # intact, and these artifacts are what consumers read.
@@ -57,6 +78,34 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # New requirement of regenerating the whole chain: the table-driven stages read the
+      # delivery under "tapp/Current TAPPs". `.gitmodules` sets `update = none`, so
+      # actions/checkout leaves the submodule registered and EMPTY -- and `submodules: true` is
+      # NOT enough, which cost check-determinism.yml a red run to learn. The explicit
+      # --checkout is what populates it.
+      #
+      # `update = none` is itself load-bearing: it stops OGC's postprocess from running
+      # `git submodule update --remote` and COMMITTING a bumped pointer, as it did in c0194f7e4,
+      # which broke TAPP_CONFIGS for 13 of 16 techniques on main.
+      - name: Populate the tapp submodule
+        run: git submodule update --init --checkout tapp
+
+      # A missing delivery no longer fails open: tapp_source.require_delivery() refuses the
+      # superseded inline TAPPS<date>/ drop as of #130, so regeneration exits non-zero rather
+      # than quietly building from the wrong tables. This floor catches the narrower case that
+      # refusal cannot see -- a submodule that IS populated but holds no tables, where every
+      # stage would succeed over nothing and this job would report a clean diff.
+      - name: Assert the delivery is populated
+        run: |
+          n=$(ls "tapp/Current TAPPs"/*.csv 2>/dev/null | wc -l)
+          echo "$n delivered table(s)"
+          if [ "$n" -lt 30 ]; then
+            echo "::error::only $n table(s) under 'tapp/Current TAPPs', against 33 when this"
+            echo "step was written. The table-driven stages would regenerate little or nothing,"
+            echo "and the diff below would then be clean for the wrong reason."
+            exit 1
+          fi
+
       # Unlike the same check in metadataBuildingBlocks, this one is NOT
       # offline: 31 sources $ref building blocks in that repository by
       # absolute URL, and resolve_schema.py fetches them at build time.
@@ -64,31 +113,53 @@ jobs:
       # published, and a red check here means one of two things --
       # someone edited a source here without regenerating, or an
       # upstream block changed. The diff says which.
-      - name: Regenerate resolved schemas
+      # The whole chain in dependency order, through regenerate.py rather than the individual
+      # tools: the stages are a chain and running them out of order fails SILENTLY (modules
+      # before simplify, resolve before build_profile's second pass -- both known incidents
+      # produced a green validate_examples). Nine stages, ~17 minutes measured locally, of
+      # which resolve is ~6.
+      - name: Regenerate everything from its sources
         run: |
           set -o pipefail
-          python tools/resolve_schema.py --all 2>&1 | tee resolve.log
+          python tools/regenerate.py 2>&1 | tee regen.log
+
+      # A stage that never ran cannot drift, so a truncated run would report a clean diff.
+      # regenerate.py returns 1 on any stage failure and `set -o pipefail` surfaces that, but a
+      # run cut short -- a timeout, a cancelled job -- can still reach the diff with stages
+      # missing, so count them.
+      - name: Assert every stage ran
+        run: |
+          n=$(grep -c '^\[' regen.log || true)
+          echo "$n stage(s) ran"
+          if [ "$n" -ne 9 ]; then
+            echo "::error::$n of 9 stages appear in the log, so the regeneration was partial and"
+            echo "the comparison below would be clean only for the stages that did run."
+            grep '^\[' regen.log | sed 's/^/  /' || true
+            exit 1
+          fi
 
       # A failed fetch is a warning that returns None and leaves the run
       # at exit 0, so a network hiccup produces a quietly degraded
       # resolution that would show up below as drift. Comparing that
       # against the committed artifacts would report a problem that does
       # not exist, so stop instead.
+      #
+      # Reads regen.log rather than the old resolve.log: regenerate.py runs the resolve stage
+      # with stream=True, so resolve_schema.py's warnings reach this log verbatim. That is not
+      # incidental -- every OTHER stage is captured and printed only on failure, so a warning
+      # from one of those would NOT appear here. Keep resolve streaming.
       - name: Refuse to compare a degraded run
         run: |
-          if grep -q "WARNING: Failed to fetch" resolve.log; then
+          if grep -q "WARNING: Failed to fetch" regen.log; then
             echo "::error::A referenced schema could not be fetched, so this"
             echo "resolution is incomplete and cannot be compared against the"
             echo "committed artifacts. This is an infrastructure failure, not"
             echo "drift. Re-run the job."
             echo
-            grep "WARNING: Failed to fetch" resolve.log | sed 's/^/  /'
+            grep "WARNING: Failed to fetch" regen.log | sed 's/^/  /'
             exit 1
           fi
           echo "All referenced schemas resolved."
-
-      - name: Regenerate Schema.json files
-        run: python tools/regenerate_schema_json.py
 
       - name: Report drift
         run: |
@@ -105,9 +176,20 @@ jobs:
           git diff --name-only -- _sources | sed 's/^/  /'
           echo
           echo "To fix, from the repo root:"
-          echo "  python tools/resolve_schema.py --all"
-          echo "  python tools/regenerate_schema_json.py"
+          echo "  git submodule update --init --checkout tapp   # --checkout is required"
+          echo "  python tools/regenerate.py"
           echo "then commit the result."
+          echo
+          echo "Use regenerate.py, not the individual tools: the stages are a dependency chain"
+          echo "and running them out of order fails silently. For one technique,"
+          echo "regenerate.py --tapp <TAPP> still runs the shared stages first -- but do NOT"
+          echo "call a stage tool directly for one technique, which produces a poorer result"
+          echo "than the same stage inside regenerate.py."
+          echo
+          echo "If the files listed are under STEM or EBSD, stop. Those blocks are SOURCE-DERIVED"
+          echo "and a regeneration cannot reinvent protocol constants read out of method"
+          echo "descriptions and instrument exports. Read the .provenance.md beside the example"
+          echo "before committing anything."
           echo
           echo "Note: parameterValues and parameterTemplates reformat"
           echo "wholesale on any regeneration. If you only meant to touch"
