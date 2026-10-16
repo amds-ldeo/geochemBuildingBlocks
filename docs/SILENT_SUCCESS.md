@@ -282,9 +282,94 @@ default is not a fallback, it is the behaviour.
 
 ---
 
+## 8. The check that cannot fail, because the loss makes the schema stricter
+
+**Reported success:** `validate_examples.py` 647/647, all 17 counterexamples correctly rejected,
+`constraint_census.py` reporting constraint counts that had gone *up*.
+
+**Not doing its job:** nothing in the repository could observe the loss of #129's
+`schema:name` -> `schema:identifier` substitute relaxation.
+
+`tools/schema_path_emitter.py` holds `SUBSTITUTES` and `_require()`, and threads a `scope`
+argument through `to_schema`'s recursive call sites so that **on `schema:object` only** an analysed
+sample may satisfy `schema:name` with `schema:identifier`. It exists because ADA records identify
+the sample by `schema:identifier` ("OREX-803031-101") and carry no separate laboratory name; for
+XANES, XRD, QRIS and RAMAN (322 records) it was the only thing they failed on. The scoping is the
+whole point: `schema:name` is required at ~48 other nodes where an identifier is **not** an
+acceptable substitute.
+
+Lose the `scope=k` threading — a plausible merge resolution, and what nearly happened resolving
+PR #123, whose `_token_const` was inserted at the same anchor and edited adjacent lines — and
+`_require` receives `scope=None`, `SUBSTITUTES.get(None)` misses, and the relaxation silently
+disappears from every `detail/` and `profile/` block that composes
+`BaseSchema/modules/core`'s `AnalysisIdentification`.
+
+**Each of the three checks was structurally unable to see it, for a different reason:**
+
+| check | why it could not fail |
+|---|---|
+| `validate_examples` | the loss makes the schema **stricter**; no example carried an identifier without a name, so every positive example still validated |
+| `validate_counterexamples` | `sample-needs-name-or-identifier` sets the sample to a bare typed object carrying **neither**, so it is rejected whether or not the substitute is honoured — its own `why` field records that "no example carries a name without an identifier" |
+| `constraint_census` | a removed `anyOf` becomes a firm `required`, so counts **rise**; the census reports magnitude and direction, and an increase reads as benign |
+
+The losing direction was covered only by real ADA records, and **nothing in gBB reads ADA
+records.** Its mirror image was covered: losing PR #123's `_token_const` is caught, because
+`tools/check_additionaltype_policy.py` gates Rule A in CI. The two failure directions of one
+function were not symmetric, and only one of them had a guard.
+
+**Note the asymmetry this file keeps running into.** Entry 1 is the same arithmetic seen from the
+other side: dropping a constraint only makes a schema more permissive, so no corpus of positive
+examples can detect a loss. Here a constraint was *gained*, so no corpus of **negative** examples
+can detect it either. A check suite needs an instance on each side of every line it means to hold,
+and a line that moved because real records needed it has, by construction, no instance in a corpus
+generated from workbooks.
+
+**Fixed** by adding the missing positive instance:
+`_sources/techniqueProfile/geochemProfile/XRD/detail/exampledetailXRD-identifierOnlySample.json`,
+a sample carrying `schema:identifier` and no `schema:name`. It sits in the same block that
+`sample-needs-name-or-identifier` mutates, so both halves of the line are in one directory.
+
+**Measured 2026-10-16 on `143824ace1`** by reverting the `scope` threading on `to_schema`'s three
+recursive call sites and rebuilding the modules stage, exactly as each counterexample was verified
+by making it go red on purpose:
+
+```
+core AnalysisIdentification `then`:  required: [schema:name]      (anyOf gone)
+exampledetailXRD-identifierOnlySample  FAIL  'schema:name' is a required property
+exampledetailXRD-P0                    PASS   <- the control
+```
+
+Restoring the threading returns both to PASS. **That `-P0` passes in both states is the measurement
+of the gap, not a side note** — the pre-existing corpus cannot tell the two generators apart, which
+is precisely why nothing went red. Cite the commit when repeating this: the reverted lines shift
+whenever the emitter is edited, and PR #123 edited it (five hunks, three inside `to_schema`) while
+this entry was being written, without touching the signature, `scope`, `SUBSTITUTES` or `_require`.
+
+A full nine-stage `python tools/regenerate.py` against a populated `tapp/` submodule leaves the new
+example untouched — `git status --porcelain -- _sources` afterwards lists it and its
+`.provenance.md` and nothing else — so it survives the regenerate-and-diff gate by measurement
+rather than by the filename argument alone.
+
+It is deliberately **not** generated. Neither generator in that directory emits an identifier-only
+sample — the `-P0` emitter fills `schema:name` and `schema:identifier` from their sidecar rows —
+and its filename sits outside both generators' namespaces
+(`build_tapp_examples._prune()` globs `exampledetail-*.json`; `build_pathdriven` writes exactly
+`exampledetailXRD-P0.json`). A `.provenance.md` beside it carries the rebuild recipe, because a
+static derivative of a generated example will eventually go stale, and the sanctioned repair is to
+rebuild it rather than to make it validate again by adding the name back — which would be this
+same silent success, arriving a second time by the maintenance route.
+
+**Rule:** before trusting a check suite to hold a constraint, ask which **direction** of change it
+can observe. A relaxation and a tightening are different defects, and an instance that proves one
+is silent about the other. When a constraint is loosened because real-world records required it,
+the loosening needs a positive instance committed with it — the change that motivated it is
+precisely the evidence that the existing corpus does not contain one.
+
+---
+
 ## The common thread
 
-In all seven, the failure was invisible from the outside because the signal said "success". What
+In all eight, the failure was invisible from the outside because the signal said "success". What
 exposed each one:
 
 | | what exposed it |
@@ -296,6 +381,7 @@ exposed each one:
 | 5 | reading the job list of a "successful" run, step by step |
 | 6 | an order-insensitive comparison between the correct two commits |
 | 7 | asking what the tool resolved its input to, before trusting the run |
+| 8 | asking which *direction* of change each check could observe, and reverting the code to see |
 
 None of these needed cleverness. They needed looking at the thing itself instead of the badge on
 top of it.

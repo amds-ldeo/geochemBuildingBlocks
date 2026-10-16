@@ -10,7 +10,7 @@ This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JS
 - **`README.md`** — human-facing overview; its generation-pipeline section is a good orientation.
 - **`docs/TAPP-schema-generation-workflow.md`** — end-to-end walkthrough of workbook → validated schema.
 - **`docs/SCHEMA_PATH_GRAMMAR.md`** — the canonical grammar for the schema-path sidecars.
-- **`docs/SILENT_SUCCESS.md`** — seven incidents in which a check, a generator or a workflow reported success while not doing its job, each with what exposed it and the rule that follows. The validator passing while content vanishes, a generator whose output varies per process, auto-merge walking past a red non-required check, a required check that can never run, a deploy that skipped the event it was given a trigger for, a pipeline silently substituting a superseded TAPP delivery for the one it was pinned to. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback.
+- **`docs/SILENT_SUCCESS.md`** — eight incidents in which a check, a generator or a workflow reported success while not doing its job, each with what exposed it and the rule that follows. The validator passing while content vanishes, a generator whose output varies per process, auto-merge walking past a red non-required check, a required check that can never run, a deploy that skipped the event it was given a trigger for, a pipeline silently substituting a superseded TAPP delivery for the one it was pinned to, and a whole check suite structurally unable to observe one direction of a change — a relaxation whose loss makes the schema STRICTER, so the examples, the counterexamples and the census were each blind to it for a different reason. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, and whenever you loosen a constraint: ask which direction of change each check can see.
 - **`docs/README.md`** — what is in `docs/`: the sidecar format, its five `Source` values, and the maintenance tools around it.
 - **`docs/modules/MODULE_CONSOLIDATION_STATUS.md`** — **state, not design**: how far module consolidation has got (25% of technique parameters composed — 242 against 694 still minted per technique), what is decided, and what is open. Read it before drafting a module. Measure `tapp/`, never `registry/`: the registries are `isTypeLibrary` and per-technique by construction, so measuring them yields a true-but-meaningless 87% duplication.
 
@@ -561,6 +561,14 @@ pipeline regenerates; anything the pipeline owns must come from the generator, n
                  a TAPP workbook. Regenerated every run; never edit them.
   static         the BaseSchema fixtures and the `adaProfile` profile-ada examples. No pipeline
                  regenerates them, which is why `add_instrument_ids.py` has to backfill their ids.
+                 One static example lives in a GENERATED directory and is easy to mistake for its
+                 neighbours: `XRD/detail/exampledetailXRD-identifierOnlySample.json`, the positive
+                 half of the `schema:name` -> `schema:identifier` substitute line (its negative
+                 half is `docs/counterexamples.json`'s `sample-needs-name-or-identifier`). Nothing
+                 else in the repo carries an identifier WITHOUT a name, so losing the relaxation
+                 is invisible to every other check — `docs/SILENT_SUCCESS.md` #8. Its filename
+                 sits outside both generators' namespaces on purpose; its `.provenance.md` holds
+                 the rebuild recipe, and adding `schema:name` back is NOT the repair.
   SOURCE-DERIVED assembled from primary sources rather than from a workbook column, and kept
                  because a generator cannot invent their content. Each carries a
                  `<example>.provenance.md` BESIDE it in the same building-block directory,
