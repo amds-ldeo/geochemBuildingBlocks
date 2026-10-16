@@ -99,10 +99,16 @@ jobs:
         run: |
           n=$(ls "tapp/Current TAPPs"/*.csv 2>/dev/null | wc -l)
           echo "$n delivered table(s)"
-          if [ "$n" -lt 30 ]; then
-            echo "::error::only $n table(s) under 'tapp/Current TAPPs', against 33 when this"
-            echo "step was written. The table-driven stages would regenerate little or nothing,"
-            echo "and the diff below would then be clean for the wrong reason."
+          # 16, matching check-determinism.yml's floor and the 16 composed entries in
+          # composed_tapps.json. It was written as 30 against "33 when this step was written" and
+          # CI caught that on the first run: 33 is the count of ENTRIES in that directory -- 16
+          # .csv tables, their 16 .xlsx twins, and one .md -- not the count of tables. The glob
+          # here is *.csv, so the threshold has to be the table count. Taking a number from one
+          # measurement and using it as the floor for a different one is how that happened.
+          if [ "$n" -lt 16 ]; then
+            echo "::error::only $n table(s) under 'tapp/Current TAPPs', against 16 delivered"
+            echo "today. The table-driven stages would regenerate little or nothing, and the"
+            echo "diff below would then be clean for the wrong reason."
             exit 1
           fi
 
