@@ -230,6 +230,24 @@ jobs:
       # somewhere more permissive. Each case mutates a real example and requires the result to be
       # REJECTED, for a named reason -- validate_examples can only prove the opposite direction.
       #
+      # A SHACL shape whose SPARQLTarget selects NO focus node reports CONFORMANCE -- not
+      # "skipped", not "0 of 0" -- so it is indistinguishable from a shape that ran and found
+      # nothing wrong. Every technique profile was in that state until 2026-10-16: the targets
+      # matched `schema:additionalType "dcat:CatalogRecord"` as a string literal while records and
+      # all 111 examples carry `{"@id": "dcat:CatalogRecord"}`, an IRI, which in SPARQL never
+      # equals a literal of the same spelling. 35 shapes selected nothing, and the OGC postprocess
+      # ran them and recorded SHACL as a passing test item the whole time.
+      #
+      # The lint is text-only and needs no dependency, which is why it can live in a required
+      # check: neither rdflib nor pyshacl is pinned in requirements.txt. The stronger form,
+      # `--execute`, actually runs each target against its examples and needs rdflib; run it
+      # locally when touching shapes.
+      #
+      # Here rather than its own required check, for the same reason as the census and the
+      # counterexamples: no separate signal is needed.
+      - name: SHACL targets can select
+        run: python tools/check_shacl_targets.py
+
       # Here rather than its own required check, for the same reason as the census: no separate
       # signal is needed, and a required context that fails to report deadlocks the PR.
       - name: Counterexamples still rejected
