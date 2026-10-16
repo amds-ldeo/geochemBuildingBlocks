@@ -550,7 +550,7 @@ and technique component types on the archive distribution. Mock data for validat
   ],
   "ada:mapDimensions": 1.0,
   "ada:voxelSize": "no value available: voxelSizeAndImageStackDimensions",
-  "ada:imageStackDimenstions": "no value available: voxelSizeAndImageStackDimensions"
+  "ada:imageStackDimensions": "no value available: voxelSizeAndImageStackDimensions"
 }
 
 ```
@@ -1103,7 +1103,7 @@ and technique component types on the archive distribution. Mock data for validat
   ],
   "ada:mapDimensions": 1.0,
   "ada:voxelSize": "no value available: voxelSizeAndImageStackDimensions",
-  "ada:imageStackDimenstions": "no value available: voxelSizeAndImageStackDimensions"
+  "ada:imageStackDimensions": "no value available: voxelSizeAndImageStackDimensions"
 }
 ```
 
@@ -1196,14 +1196,14 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ] ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value 1e+00 ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1224,7 +1224,7 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
                 ex:semTAPP-P0 ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
-    ada:imageStackDimenstions "no value available: voxelSizeAndImageStackDimensions" ;
+    ada:imageStackDimensions "no value available: voxelSizeAndImageStackDimensions" ;
     ada:mapDimensions 1e+00 ;
     ada:voxelSize "no value available: voxelSizeAndImageStackDimensions" .
 
