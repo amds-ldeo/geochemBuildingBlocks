@@ -4781,6 +4781,97 @@
           "type": "string",
           "readOnly": true
         },
+        "schema:instrument": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "schema:additionalType": {
+                      "contains": {
+                        "anyOf": [
+                          {
+                            "const": "nxs:base_classes/NXinstrument.html"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "properties": {
+                              "@id": {
+                                "const": "nxs:base_classes/NXinstrument.html"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "schema:additionalType"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "schema:name": {
+                      "description": "Identifier or name of the synchrotron beamline at which the measurement was made. Distinguished from Instrument Model, which conflates the two today: the ADA corpus records the beamline inside the model string. Classified as a NeXus NXinstrument.",
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "readOnly": true
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "readOnly": true
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "schema:name"
+                  ]
+                }
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:additionalType": {
+                    "contains": {
+                      "anyOf": [
+                        {
+                          "const": "nxs:base_classes/NXinstrument.html"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "properties": {
+                            "@id": {
+                              "const": "nxs:base_classes/NXinstrument.html"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "schema:additionalType"
+                ]
+              }
+            }
+          ]
+        },
         "ada:constantsAndReferenceValuesUsedDefault": {
           "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
           "type": "string"
