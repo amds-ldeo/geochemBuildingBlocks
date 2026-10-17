@@ -56,3 +56,22 @@ These are places where the published ADA record's own shape disagrees with the a
 | `/prov:wasGeneratedBy/0/schema:location` | ADA | 1 | 2 |
 | `/prov:wasGeneratedBy/0/schema:additionalProperty` | MD | 0 | 1 |
 | `/prov:wasGeneratedBy/0/schema:additionalProperty` | MD | 0 | 1 |
+
+## 2026-10-16 — `ada:submissionType` added
+
+This example declares `adaProduct` in `dcterms:conformsTo` but carried no `ada:submissionType`,
+which adaProduct has required since gBB #136. It was one of only four examples in the
+`geochemProfile/*/profile` blocks missing it; the other 68 all carry it.
+
+The field never reached this file because the example is SOURCE-DERIVED and therefore never
+regenerated — the generator fills it for its generated siblings — and because
+`tools/add_submission_type.py` targets blocks whose `resolvedSchema.json` mentions the property,
+which these geochemProduct-based blocks do not.
+
+`BundleDelivery` matches all 68 siblings and the corpus majority (7,071 of 7,447). It is a
+DELIVERY fact about the submission, not a measurement fact, so it is not an invention of content
+this example's sources do not support — the distinction the rest of this file turns on.
+
+Found by stage-2 conformance detection, whose adaProduct presence test requires the ADA marker:
+detection from CONTENT asked a question validation never asked of this file, because its block
+composes geochemProduct and so never enforced adaProduct's requirements.

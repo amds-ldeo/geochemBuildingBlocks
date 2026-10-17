@@ -54,7 +54,7 @@ PROFILES = {
         addtype=["Scanning Electron Microscopy Energy Dispersive X-ray Spectroscopy (SEMEDS) Point Data",
                  "Scanning electron microscopy"],
         title="ADA SEM Composition (EDS/WDS) Product Profile"),
-    "semTAPP": dict(dir="SEM", short="SEM", cid="adaSEMFull",
+    "semTAPP": dict(dir="SEM", short="SEM", cid="adaSEM",
         addtype=["Scanning Electron Microscopy (SEM) Image", "Scanning electron microscopy",
                  "Focused ion beam-scanning electron microscopy"],
         title="ADA SEM (superset) Product Profile"),
