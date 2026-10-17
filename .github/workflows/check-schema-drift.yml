@@ -230,10 +230,62 @@ jobs:
       # somewhere more permissive. Each case mutates a real example and requires the result to be
       # REJECTED, for a named reason -- validate_examples can only prove the opposite direction.
       #
+      # A SHACL shape whose SPARQLTarget selects NO focus node reports CONFORMANCE -- not
+      # "skipped", not "0 of 0" -- so it is indistinguishable from a shape that ran and found
+      # nothing wrong. Every technique profile was in that state until 2026-10-16: the targets
+      # matched `schema:additionalType "dcat:CatalogRecord"` as a string literal while records and
+      # all 111 examples carry `{"@id": "dcat:CatalogRecord"}`, an IRI, which in SPARQL never
+      # equals a literal of the same spelling. 35 shapes selected nothing, and the OGC postprocess
+      # ran them and recorded SHACL as a passing test item the whole time.
+      #
+      # The lint is text-only and needs no dependency, which is why it can live in a required
+      # check: neither rdflib nor pyshacl is pinned in requirements.txt. The stronger form,
+      # `--execute`, actually runs each target against its examples and needs rdflib; run it
+      # locally when touching shapes.
+      #
+      # Here rather than its own required check, for the same reason as the census and the
+      # counterexamples: no separate signal is needed.
+      - name: SHACL targets can select
+        run: python tools/check_shacl_targets.py
+
       # Here rather than its own required check, for the same reason as the census: no separate
       # signal is needed, and a required context that fails to report deadlocks the PR.
       - name: Counterexamples still rejected
         run: python tools/validate_counterexamples.py
+
+      # Structural completeness of every building block: required files present,
+      # schema.yaml in agreement with its *Schema.json, SHACL shapes covering the
+      # schema's properties, examples covering them. Until 2026-10-16 nothing in
+      # CI ran this audit, and the audit itself printed "246 passed, 5 failed"
+      # and exited 0 -- so six checks reported into a shell that ignored them.
+      # docs/SILENT_SUCCESS.md section 9 has the measurement.
+      #
+      # Here rather than as its own required check, for the same reason as the two
+      # steps above. It is in a REQUIRED workflow deliberately: "Check examples
+      # validate" is not required, and a red non-required check does not delay
+      # auto-merge at all (section 4).
+      #
+      # --checks omits `resolved` and `examples` on purpose, and the omission
+      # costs no signal:
+      #
+      #   * Measured on main at a1cb6fbdb8, the full six-check audit and this
+      #     four-check subset report the SAME five failures -- 246 passed, 5
+      #     failed either way. The two omitted checks contribute nothing today.
+      #   * They are also the slow ones: timed on the same tree, the subset takes
+      #     13.6s and the full six-check audit 11m25s. Section 3 is about a
+      #     safeguard too slow to be used.
+      #   * And both duplicate a check that already exists, more strictly.
+      #     `resolved` compares only the TOP-LEVEL property keys of a fresh
+      #     resolution against the committed resolvedSchema.json; the step above
+      #     regenerates all nine stages and byte-diffs the result. `examples`
+      #     validates example*.json against resolvedSchema.json, which is
+      #     tools/validate_examples.py, run by check-examples.yml.
+      #
+      # Re-add them here if either stops being covered elsewhere. The baseline
+      # records which checks wrote it, so the audit itself reports a run narrower
+      # than its manifest rather than silently reading absence as success.
+      - name: Building block audit
+        run: python tools/audit_building_blocks.py --checks files,schema-json,shacl,coverage
 
       # Only reachable when the diff is clean, so this catches the other
       # half: a generated file that regeneration does not produce at all.
