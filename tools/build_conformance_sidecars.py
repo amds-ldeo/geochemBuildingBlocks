@@ -190,11 +190,38 @@ def requires_from_allof(doc):
 
 
 def inline_component_enums(node, out):
-    """componentType values stated inline in this schema -- the legacy blocks' only source."""
+    """componentType values stated inline in this schema -- the legacy blocks' only source.
+
+    THREE shapes pin ada:componentType in this repository and all three must be read. Until
+    2026-10-17 this read two of them, and the omission was invisible because a sidecar whose
+    presence ASK is too NARROW still validates, still regenerates byte-identically, and still
+    reports a plausible componentType list -- it simply fails to match records.
+
+      enum: [a, b]              a profile's hasPart branch
+      anyOf: [{const: a}, ...]  a detail block pinning several
+      const: a                  a detail block pinning exactly ONE   <-- was dropped
+
+    The bare const is the detail blocks' idiom when a block describes one component kind, and 8
+    schemas use it: ARGT, DSC, EAIRMS, L2MS, NanoIR, PSFD and XRD under adaProfile/*/detail/,
+    plus geochemProfile/XCT/detail-legacy/. Dropping it had two consequences worth recording,
+    because both were reported as facts about the CORPUS before being traced to this function.
+
+    PSFD was reported as "a profile that describes no distinguishing content" and skipped. It
+    carries ada:PSFDTabular and produces a sidecar; the skip was this bug. Any count of
+    "blocks with no discriminator" taken before this fix is an artefact.
+
+    And the four legacy enum widenings in #149 -- ARGTDocument, DSCHeatTabular, NanoIRBackground,
+    EAIRMSCollection added by hand to four profile schemas -- were unnecessary. Every one of those
+    terms was ALREADY declared in the sibling detail block, ARGT's since 2026-08-14. The widenings
+    were a symptom fix for this defect and are left in place only because a profile enum stating
+    what it covers is independently correct.
+    """
     if isinstance(node, dict):
         ct = node.get("properties", {}).get("ada:componentType")
         if isinstance(ct, dict):
             out.update(v for v in (ct.get("enum") or []) if isinstance(v, str))
+            if isinstance(ct.get("const"), str):
+                out.add(ct["const"])
             for b in ct.get("anyOf") or []:
                 if isinstance(b, dict) and isinstance(b.get("const"), str):
                     out.add(b["const"])
@@ -279,9 +306,20 @@ def main():
             if tapp:
                 comps = set(build_tapp.TAPP_CONFIGS.get(tapp, {}).get("component_types") or [])
                 source = "TAPP_CONFIGS[%s]" % tapp
-            if not comps:
-                inline_component_enums(doc, comps)
-                source = "inline enums"
+            # UNION with the inline enum, not a fall-through -- for the same reason the detail
+            # read below is a union, which this line failed to follow until 2026-10-17.
+            #
+            # tapp_for_dir is keyed by the technique DIRECTORY, so BOTH SEM/profile and
+            # SEM/profile-ada resolve to semTAPP. Taking the TAPP vocabulary and then skipping the
+            # inline read because `comps` was non-empty gave the LEGACY block the CURRENT
+            # generation's componentTypes and dropped its own. For adaSEMFull the two sets were
+            # entirely DISJOINT -- 6 TAPP names against the 14 ADA names its schema declares -- so
+            # its presence ASK could not match any of the 2,912 records that cite it. Reported by
+            # the metadata forms session, which measured the overlap before wiring detection in.
+            before_inline = len(comps)
+            inline_component_enums(doc, comps)
+            if len(comps) > before_inline:
+                source = "inline enums" if not before_inline else (source + " + inline")
             # UNION with the detail block, not a fall-through. NanoSIMS shows why: its inline
             # enum names NanoSIMSImage, which ZERO records carry, while its detail block pins the
             # three types all 38 records actually use. Falling through only when inline is empty
