@@ -206,11 +206,11 @@ The procedure half of the Core module, with every property populated. Generated 
             schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:termCode "no value available: unnamed property" ] ;
     schema1:name "no value available: unnamed property" ;
-    schema1:relatedLink [ schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "no value available: unnamed property" ] ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "no value available: unnamed property" ] ] ;
+                    schema1:name "no value available: unnamed property" ] ],
+        [ schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "no value available: unnamed property" ] ] ;
     ada:analyticalMode "no value available: unnamed property" ;
     ada:reportedProperties "no value available: unnamed property" ;
     ada:samplingUnitType "no value available: unnamed property" ;
