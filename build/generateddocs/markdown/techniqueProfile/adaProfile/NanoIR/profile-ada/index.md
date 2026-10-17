@@ -1143,6 +1143,7 @@ allOf:
                     - ada:NanoIRMap
                     - ada:NanoIRMapCollection
                     - ada:NanoIRPointCollection
+                    - ada:NanoIRBackground
                 required:
                 - ada:componentType
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoIR/detail/schema.yaml

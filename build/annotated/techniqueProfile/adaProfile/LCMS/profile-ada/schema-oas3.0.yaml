@@ -320,7 +320,47 @@ x-defs:
     type: object
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/LCMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/LCMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription
+    - if:
+        anyOf:
+        - properties:
+            schema:variableMeasured:
+              type: array
+              minItems: 1
+          required:
+          - schema:variableMeasured
+        - properties:
+            schema:distribution:
+              type: array
+              contains:
+                type: object
+                anyOf:
+                - properties:
+                    '@type':
+                      type: array
+                      contains:
+                        enum:
+                        - cdi:TabularTextDataSet
+                  required:
+                  - '@type'
+                - properties:
+                    schema:hasPart:
+                      type: array
+                      contains:
+                        type: object
+                        properties:
+                          '@type':
+                            type: array
+                            contains:
+                              enum:
+                              - cdi:TabularTextDataSet
+                        required:
+                        - '@type'
+                  required:
+                  - schema:hasPart
+          required:
+          - schema:distribution
+      then:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/LCMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription
     - if:
         properties:
           schema:distribution:

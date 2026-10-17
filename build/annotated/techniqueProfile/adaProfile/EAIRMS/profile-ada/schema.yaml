@@ -26,6 +26,13 @@ allOf:
               type: object
               anyOf:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/adaProduct/schema.yaml#/$defs/universalComponentTypeBranch
+              - properties:
+                  ada:componentType:
+                    type: string
+                    enum:
+                    - ada:EAIRMSCollection
+                required:
+                - ada:componentType
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/EAIRMS/detail/schema.yaml
             x-jsonld-id: http://schema.org/hasPart
       x-jsonld-id: http://schema.org/distribution

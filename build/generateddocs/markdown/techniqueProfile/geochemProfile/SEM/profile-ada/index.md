@@ -89,13 +89,13 @@ Mock data for validation and testing.
     "ex": "https://example.org/",
     "dcat": "http://www.w3.org/ns/dcat#"
   },
-  "@id": "ex:adaSEM-example-001",
+  "@id": "ex:adaSEMFull-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
   ],
   "schema:name": "SEM Analysis of Meteorite ALH 84001 Fragment",
-  "schema:description": "Example Scanning Electron Microscopy (SEM) product metadata demonstrating all properties defined by the adaSEM profile. Contains mock data for testing and validation.",
+  "schema:description": "Example Scanning Electron Microscopy (SEM) product metadata demonstrating all properties defined by the adaSEMFull profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
     "Scanning Electron Microscopy (SEM) Image",
     {
@@ -300,7 +300,7 @@ Mock data for validation and testing.
   ],
   "schema:variableMeasured": [
     {
-      "@id": "ex:adaSEM-var-001",
+      "@id": "ex:adaSEMFull-var-001",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -322,7 +322,7 @@ Mock data for validation and testing.
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
-      "@id": "ex:adaSEM-var-002",
+      "@id": "ex:adaSEMFull-var-002",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -349,7 +349,7 @@ Mock data for validation and testing.
       "@type": [
         "schema:DataDownload"
       ],
-      "schema:name": "adaSEM-ALH84001-archive.zip",
+      "schema:name": "adaSEMFull-ALH84001-archive.zip",
       "schema:description": "Archive containing SEM data files and supplementary materials",
       "schema:contentUrl": "https://astromat.org/downloads/adasem-example-001.zip",
       "schema:encodingFormat": [
@@ -379,7 +379,7 @@ Mock data for validation and testing.
       ],
       "schema:hasPart": [
         {
-          "@id": "ex:adaSEM-file-001",
+          "@id": "ex:adaSEMFull-file-001",
           "@type": [
             "schema:MediaObject",
             "ada:collection",
@@ -412,7 +412,7 @@ Mock data for validation and testing.
           "ada:componentType": "ada:SEMImageCollection"
         },
         {
-          "@id": "ex:adaSEM-file-002",
+          "@id": "ex:adaSEMFull-file-002",
           "@type": [
             "schema:MediaObject",
             "ada:document",
@@ -449,9 +449,9 @@ Mock data for validation and testing.
         "@id": "dcat:CatalogRecord"
       }
     ],
-    "@id": "ex:adaSEM-metadata-001",
+    "@id": "ex:adaSEMFull-metadata-001",
     "schema:about": {
-      "@id": "ex:adaSEM-example-001"
+      "@id": "ex:adaSEMFull-example-001"
     },
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
@@ -462,7 +462,7 @@ Mock data for validation and testing.
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEM"
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEMFull"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -526,13 +526,13 @@ Mock data for validation and testing.
       "dcat": "http://www.w3.org/ns/dcat#"
     }
   ],
-  "@id": "ex:adaSEM-example-001",
+  "@id": "ex:adaSEMFull-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
   ],
   "schema:name": "SEM Analysis of Meteorite ALH 84001 Fragment",
-  "schema:description": "Example Scanning Electron Microscopy (SEM) product metadata demonstrating all properties defined by the adaSEM profile. Contains mock data for testing and validation.",
+  "schema:description": "Example Scanning Electron Microscopy (SEM) product metadata demonstrating all properties defined by the adaSEMFull profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
     "Scanning Electron Microscopy (SEM) Image",
     {
@@ -737,7 +737,7 @@ Mock data for validation and testing.
   ],
   "schema:variableMeasured": [
     {
-      "@id": "ex:adaSEM-var-001",
+      "@id": "ex:adaSEMFull-var-001",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -759,7 +759,7 @@ Mock data for validation and testing.
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
-      "@id": "ex:adaSEM-var-002",
+      "@id": "ex:adaSEMFull-var-002",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -786,7 +786,7 @@ Mock data for validation and testing.
       "@type": [
         "schema:DataDownload"
       ],
-      "schema:name": "adaSEM-ALH84001-archive.zip",
+      "schema:name": "adaSEMFull-ALH84001-archive.zip",
       "schema:description": "Archive containing SEM data files and supplementary materials",
       "schema:contentUrl": "https://astromat.org/downloads/adasem-example-001.zip",
       "schema:encodingFormat": [
@@ -816,7 +816,7 @@ Mock data for validation and testing.
       ],
       "schema:hasPart": [
         {
-          "@id": "ex:adaSEM-file-001",
+          "@id": "ex:adaSEMFull-file-001",
           "@type": [
             "schema:MediaObject",
             "ada:collection",
@@ -849,7 +849,7 @@ Mock data for validation and testing.
           "ada:componentType": "ada:SEMImageCollection"
         },
         {
-          "@id": "ex:adaSEM-file-002",
+          "@id": "ex:adaSEMFull-file-002",
           "@type": [
             "schema:MediaObject",
             "ada:document",
@@ -886,9 +886,9 @@ Mock data for validation and testing.
         "@id": "dcat:CatalogRecord"
       }
     ],
-    "@id": "ex:adaSEM-metadata-001",
+    "@id": "ex:adaSEMFull-metadata-001",
     "schema:about": {
-      "@id": "ex:adaSEM-example-001"
+      "@id": "ex:adaSEMFull-example-001"
     },
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
@@ -899,7 +899,7 @@ Mock data for validation and testing.
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEM"
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEMFull"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -949,7 +949,7 @@ Mock data for validation and testing.
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:adaSEM-example-001 a schema1:Dataset,
+ex:adaSEMFull-example-001 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalType ada:DataDeliveryPackage,
         "Scanning Electron Microscopy (SEM) Image" ;
@@ -976,14 +976,14 @@ ex:adaSEM-example-001 a schema1:Dataset,
                 schema1:identifier "https://orcid.org/0000-0002-9876-5432" ;
                 schema1:name "Researcher, John Q." ] ) ;
     schema1:dateModified "2026-01-15" ;
-    schema1:description "Example Scanning Electron Microscopy (SEM) product metadata demonstrating all properties defined by the adaSEM profile. Contains mock data for testing and validation." ;
+    schema1:description "Example Scanning Electron Microscopy (SEM) product metadata demonstrating all properties defined by the adaSEMFull profile. Contains mock data for testing and validation." ;
     schema1:distribution [ a schema1:DataDownload ;
             schema1:contentUrl "https://astromat.org/downloads/adasem-example-001.zip" ;
             schema1:description "Archive containing SEM data files and supplementary materials" ;
             schema1:encodingFormat "application/zip" ;
-            schema1:hasPart ex:adaSEM-file-001,
-                ex:adaSEM-file-002 ;
-            schema1:name "adaSEM-ALH84001-archive.zip" ;
+            schema1:hasPart ex:adaSEMFull-file-001,
+                ex:adaSEMFull-file-002 ;
+            schema1:name "adaSEMFull-ALH84001-archive.zip" ;
             schema1:provider [ a schema1:Organization ;
                     schema1:name "Astromat Data Archive" ] ;
             schema1:size [ a schema1:QuantitativeValue ;
@@ -1016,10 +1016,10 @@ ex:adaSEM-example-001 a schema1:Dataset,
             schema1:identifier "https://ada.astromat.org/vocabulary/techniques/SEM" ;
             schema1:name "Scanning Electron Microscopy (SEM)" ] ;
     schema1:name "SEM Analysis of Meteorite ALH 84001 Fragment" ;
-    schema1:subjectOf ex:adaSEM-metadata-001 ;
+    schema1:subjectOf ex:adaSEMFull-metadata-001 ;
     schema1:url "https://astromat.org/products/adasem-example-001" ;
-    schema1:variableMeasured ex:adaSEM-var-001,
-        ex:adaSEM-var-002 ;
+    schema1:variableMeasured ex:adaSEMFull-var-001,
+        ex:adaSEMFull-var-002 ;
     schema1:version "1.0" ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
@@ -1038,7 +1038,7 @@ ex:adaSEM-example-001 a schema1:Dataset,
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
     ada:submissionType "BundleDelivery" .
 
-ex:adaSEM-file-001 a schema1:Collection,
+ex:adaSEMFull-file-001 a schema1:Collection,
         schema1:MediaObject,
         ada:collection ;
     schema1:additionalType ada:SEMImageCollection ;
@@ -1053,7 +1053,7 @@ ex:adaSEM-file-001 a schema1:Collection,
             spdx:checksumValue "d41d8cd98f00b204e9800998ecf8427e" ] ;
     ada:componentType "ada:SEMImageCollection" .
 
-ex:adaSEM-file-002 a schema1:DigitalDocument,
+ex:adaSEMFull-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
         ada:document ;
     schema1:additionalType ada:methodDescription ;
@@ -1065,16 +1065,16 @@ ex:adaSEM-file-002 a schema1:DigitalDocument,
             schema1:value 524288 ] ;
     ada:componentType "ada:methodDescription" .
 
-ex:adaSEM-metadata-001 a schema1:Dataset ;
+ex:adaSEMFull-metadata-001 a schema1:Dataset ;
     dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
         <https://w3id.org/cdif/data_description/1.1>,
         <https://w3id.org/cdif/discovery/1.1>,
         <https://w3id.org/cdif/manifest/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
-        <https://w3id.org/geochem/metadata/profiles/adaSEM>,
+        <https://w3id.org/geochem/metadata/profiles/adaSEMFull>,
         <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
-    schema1:about ex:adaSEM-example-001 ;
+    schema1:about ex:adaSEMFull-example-001 ;
     schema1:additionalType dcat:CatalogRecord ;
     schema1:dateModified "2026-01-15" ;
     schema1:includedInDataCatalog [ a schema1:DataCatalog ;
@@ -1084,7 +1084,7 @@ ex:adaSEM-metadata-001 a schema1:Dataset ;
             schema1:name "Astromat Data Archive" ] ;
     schema1:sdDatePublished "2026-01-15T12:00:00Z" .
 
-ex:adaSEM-var-001 a cdi:InstanceVariable,
+ex:adaSEMFull-var-001 a cdi:InstanceVariable,
         schema1:PropertyValue ;
     cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
     cdi:role "MeasureComponent" ;
@@ -1096,7 +1096,7 @@ ex:adaSEM-var-001 a cdi:InstanceVariable,
     schema1:unitText "counts" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
-ex:adaSEM-var-002 a cdi:InstanceVariable,
+ex:adaSEMFull-var-002 a cdi:InstanceVariable,
         schema1:PropertyValue ;
     cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
     cdi:role "DimensionComponent" ;
@@ -1147,7 +1147,7 @@ allOf:
         - Focused ion beam-scanning electron microscopy
       x-jsonld-id: http://schema.org/additionalType
     schema:distribution:
-      description: Distribution items for adaSEM. Archive hasPart items must have
+      description: Distribution items for adaSEMFull. Archive hasPart items must have
         ada:componentType from technique-specific or universal values.
       type: array
       items:
@@ -1190,7 +1190,7 @@ allOf:
             additionalProperties: false
             properties:
               '@id':
-                const: https://w3id.org/geochem/metadata/profiles/adaSEM
+                const: https://w3id.org/geochem/metadata/profiles/adaSEMFull
           x-jsonld-id: http://purl.org/dc/terms/conformsTo
       x-jsonld-id: http://schema.org/subjectOf
 x-jsonld-prefixes:

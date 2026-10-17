@@ -710,7 +710,45 @@ description: 'Generic schema for JSON-LD metadata documenting an analytical prod
 type: object
 allOf:
 - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifCore/schema.yaml
-- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataDescription/schema.yaml
+- if:
+    anyOf:
+    - properties:
+        schema:variableMeasured:
+          type: array
+          minItems: 1
+      required:
+      - schema:variableMeasured
+    - properties:
+        schema:distribution:
+          type: array
+          contains:
+            type: object
+            anyOf:
+            - properties:
+                '@type':
+                  type: array
+                  contains:
+                    const: cdi:TabularTextDataSet
+              required:
+              - '@type'
+            - properties:
+                schema:hasPart:
+                  type: array
+                  contains:
+                    type: object
+                    properties:
+                      '@type':
+                        type: array
+                        contains:
+                          const: cdi:TabularTextDataSet
+                    required:
+                    - '@type'
+              required:
+              - schema:hasPart
+      required:
+      - schema:distribution
+  then:
+    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataDescription/schema.yaml
 - if:
     properties:
       schema:distribution:

@@ -29,7 +29,7 @@ and technique component types on the archive distribution. Mock data for validat
     "ex": "https://example.org/",
     "dcat": "http://www.w3.org/ns/dcat#"
   },
-  "@id": "ex:adaSEMFull-example-001",
+  "@id": "ex:adaSEM-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
@@ -513,7 +513,7 @@ and technique component types on the archive distribution. Mock data for validat
         "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEMFull"
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEM"
       }
     ],
     "schema:maintainer": {
@@ -583,7 +583,7 @@ and technique component types on the archive distribution. Mock data for validat
       "dcat": "http://www.w3.org/ns/dcat#"
     }
   ],
-  "@id": "ex:adaSEMFull-example-001",
+  "@id": "ex:adaSEM-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
@@ -1067,7 +1067,7 @@ and technique component types on the archive distribution. Mock data for validat
         "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEMFull"
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEM"
       }
     ],
     "schema:maintainer": {
@@ -1124,7 +1124,7 @@ and technique component types on the archive distribution. Mock data for validat
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:adaSEMFull-example-001 a schema1:Dataset,
+ex:adaSEM-example-001 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalType ada:DataDeliveryPackage,
         "Scanning Electron Microscopy (SEM) Image" ;
@@ -1198,14 +1198,14 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value 1e+00 ] ;
+            dqv:value 1e+00 ],
+        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1265,7 +1265,7 @@ ex:adaProduct-metadata-001 a schema1:Dataset ;
         <https://w3id.org/cdif/manifest/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
-        <https://w3id.org/geochem/metadata/profiles/adaSEMFull>,
+        <https://w3id.org/geochem/metadata/profiles/adaSEM>,
         <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
     schema1:about ex:adaProduct-example-001 ;
     schema1:additionalType dcat:CatalogRecord ;
@@ -1399,7 +1399,7 @@ allOf:
             type: object
             properties:
               '@id':
-                const: https://w3id.org/geochem/metadata/profiles/adaSEMFull
+                const: https://w3id.org/geochem/metadata/profiles/adaSEM
 
 ```
 

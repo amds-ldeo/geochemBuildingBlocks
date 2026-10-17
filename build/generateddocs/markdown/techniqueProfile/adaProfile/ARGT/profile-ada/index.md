@@ -1138,6 +1138,7 @@ allOf:
                     type: string
                     enum:
                     - ada:ARGTCollection
+                    - ada:ARGTDocument
                 required:
                 - ada:componentType
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/ARGT/detail/schema.yaml
