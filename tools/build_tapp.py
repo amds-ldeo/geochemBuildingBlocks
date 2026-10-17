@@ -261,8 +261,14 @@ TAPP_CONFIGS = {
     "labxctTAPP": {
         "xlsx": "tapp/Current TAPPs/Lab-XCT_TAPP_v47.csv",
         "prefix": "labxct",
+        # ada:XCTImageCollection is the LEGACY name and carries 701 records -- by far the largest
+        # single block of the 1,682 that declare no technique profile. It was declared only in
+        # XCT/detail-legacy/ and in the universal `collection` enum, so no technique claimed it and
+        # nothing could detect it; the alternative to listing it here was reading a block we intend
+        # to retire, or leaving those 701 permanently unprofiled. Steve's call, 2026-10-17.
         "component_types": ["ada:XCTVolume", "ada:XCTProjectionImageSet", "ada:XCTSegmentationVolume",
-                            "ada:XCTRenderedVideo", "ada:XCTQuantitativeTabular"],
+                            "ada:XCTRenderedVideo", "ada:XCTQuantitativeTabular",
+                            "ada:XCTImageCollection"],
         "base_items": _IDENTITY_COMMON | {"CT System Manufacturer and Model"},
         "analyte_map": {},
         "conditional_mode": "Multi-volume stitching",

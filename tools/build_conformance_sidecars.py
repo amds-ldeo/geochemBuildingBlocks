@@ -274,8 +274,21 @@ def main():
         return 2
 
     universal = universal_component_types()
-    tapp_for_dir = {v["dir"]: t for t, v in getattr(build_profile, "PROFILES", {}).items()
-                    if v.get("dir")}
+    # build_tapp.TECH_DIR is the FULL technique-directory map (61 entries); build_profile.PROFILES
+    # holds only the 34 techniques that have a generated `profile/` block. Keying off PROFILES
+    # alone meant a technique with a TAPP but no PROFILES entry could not reach its own
+    # TAPP_CONFIGS componentTypes -- XCT is exactly that case (a known gap: it has a profile/
+    # directory and no PROFILES entry, so regenerate.py skips its profile stages). Its records
+    # carry ada:XCTVolume, which IS in TAPP_CONFIGS[labxctTAPP], yet both XCT blocks were skipped
+    # as having "no discriminating componentType".
+    #
+    # That skip category was always an artefact of this and of the two shape bugs above: with all
+    # three fixed, every profile block yields a sidecar and the count is ZERO. Any earlier figure
+    # for "profiles that describe no distinguishing content" measured the generator, not the
+    # profiles. PROFILES is layered on top so an explicit entry still wins.
+    tapp_for_dir = {v: t for t, v in getattr(build_tapp, "TECH_DIR", {}).items()}
+    tapp_for_dir.update({v["dir"]: t for t, v in getattr(build_profile, "PROFILES", {}).items()
+                         if v.get("dir")})
 
     # --- collect every candidate block -----------------------------------------------------
     blocks = []                                   # (dir, relpath, kind)
