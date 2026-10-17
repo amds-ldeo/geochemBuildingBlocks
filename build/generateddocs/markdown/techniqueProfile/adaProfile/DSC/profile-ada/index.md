@@ -1158,6 +1158,7 @@ allOf:
                     type: string
                     enum:
                     - ada:DSCResultsTabular
+                    - ada:DSCHeatTabular
                 required:
                 - ada:componentType
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/DSC/detail/schema.yaml
