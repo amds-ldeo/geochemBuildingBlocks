@@ -1,0 +1,8 @@
+{
+  "conformsTo": "https://w3id.org/geochem/metadata/profiles/adaProduct",
+  "presence": "ASK {\n  ?d <https://ada.astromat.org/metadata/submissionType> ?st .\n  {\n    { ?d <http://schema.org/measurementTechnique> ?t .\n      ?t <http://schema.org/name> ?tn . FILTER (STR(?tn) != \"\") }\n    UNION\n    { ?d <http://schema.org/additionalType> ?pt . FILTER (isLiteral(?pt)) }\n  }\n}",
+  "validityShapes": null,
+  "requires": [
+    "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+  ]
+}

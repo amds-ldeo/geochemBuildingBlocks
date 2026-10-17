@@ -15,7 +15,79 @@ description: >-
 type: object
 allOf:
   - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/schema.yaml
-  - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/schema.yaml
+  # cdifDataDescription is the VARIABLE-DESCRIPTION profile, and it applies only when there is
+  # something to describe. Made conditional 2026-10-16, mirroring cdifManifest below.
+  #
+  # Measured over all 7,447 ADA records: CDIF stage 1 withholds data_description from 7,439 of
+  # them, every one because schema:variableMeasured is empty, and none for a SHACL failure. Only
+  # 8 records carry cdi:InstanceVariable variables. About 6,565 are image, document or collection
+  # products with no variables to describe -- for those the requirement is not unmet, it is
+  # inapplicable. Composed unconditionally it made almost no ADA record declarable as
+  # geochemProduct, and therefore none as adaProduct either.
+  #
+  # The condition deliberately still BITES on tabular data. 880 records carry a tabular part and
+  # only 9 carry cdi:isStructuredBy, so those records fail this branch by design: the variables
+  # are missing, not inapplicable. That is a live defect with a specific signature -- of 1,754
+  # cdif:PhysicalMapping entries, 912 point at the literal {"@id": "#None"} instead of an
+  # InstanceVariable, across 877 records -- so the columns WERE described and their variable
+  # references were written as a placeholder. A condition of "has variableMeasured" alone would
+  # have excused all 877 permanently and stopped the schema asking for something that should be
+  # there.
+  #
+  # The tabular test keys on `cdi:TabularTextDataSet`, NOT on `ada:tabularData`, although the two
+  # select the same 880 records: this file is the domain-NEUTRAL base, and its own description
+  # says archive-specific vocabulary belongs in the extending profile (adaProduct). Parts carry
+  # both types -- ["cdi:TabularTextDataSet", "ada:tabularData", "schema:MediaObject"] -- so the
+  # neutral one is available at no cost in selectivity.
+  #
+  # Consequence for conformance detection: under the stage-2 derivation rule an if/then
+  # composition is not a flat `requires`, so geochemProduct.requires becomes core/1.1 +
+  # discovery/1.1 + provenance/1.1. A record that DOES carry variables still gets
+  # data_description/1.1 from stage 1 on its own.
+  - if:
+      anyOf:
+        - properties:
+            "schema:variableMeasured":
+              type: array
+              minItems: 1
+          required:
+            - "schema:variableMeasured"
+        # EITHER shape counts as tabular, and the second limb is not optional tidiness: a
+        # MONOLITHIC tabular product carries cdi:TabularTextDataSet on the distribution ITSELF
+        # and has no schema:hasPart at all. A hasPart-only test silently misses it -- the
+        # collection-only trap CLAUDE.md's three-levels rule names, which the counterexample
+        # adaproduct-tabular-still-needs-variables caught here after the first draft shipped it.
+        - properties:
+            "schema:distribution":
+              type: array
+              contains:
+                type: object
+                anyOf:
+                  - properties:
+                      "@type":
+                        type: array
+                        contains:
+                          const: "cdi:TabularTextDataSet"
+                    required:
+                      - "@type"
+                  - properties:
+                      "schema:hasPart":
+                        type: array
+                        contains:
+                          type: object
+                          properties:
+                            "@type":
+                              type: array
+                              contains:
+                                const: "cdi:TabularTextDataSet"
+                          required:
+                            - "@type"
+                    required:
+                      - "schema:hasPart"
+          required:
+            - "schema:distribution"
+    then:
+      $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/schema.yaml
   # cdifManifest is the BUNDLE/archive profile: it applies (and its manifest/1.1
   # conformance is required) ONLY when a distribution is positively typed as a
   # bundle/archive -- schema:Collection in @type (alongside schema:DataDownload).

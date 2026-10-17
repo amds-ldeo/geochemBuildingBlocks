@@ -52,14 +52,14 @@
       "why": "A TAPP carries several required @type members (ada:TAPPDefinition and prov:Plan among them -- the plan typing is a deliberate PROV decision, not decoration). Accepting an arbitrary single @type would let a document claim to be a TAPP without being one, and the conditionals that key on @type would stop firing."
     },
     {
-      "id": "adaproduct-requires-variableMeasured",
+      "id": "adaproduct-tabular-still-needs-variables",
       "example": "_sources/BaseSchema/adaProduct/exampleadaProduct-monolithic-tabular.json",
       "mutate": {
         "op": "remove",
         "pointer": "/schema:variableMeasured"
       },
       "expect": "schema:variableMeasured",
-      "why": "A dataset with no declared variables describes no measurements. This is the root requirement of the product schema and the only one at that level, so if it stops biting the product schema requires nothing at all."
+      "why": "schema:variableMeasured stopped being required OUTRIGHT on 2026-10-16, when cdifDataDescription became conditional in geochemProduct: 7,439 of 7,447 ADA records carry no variables because they are images, documents or collections with nothing to describe, and requiring it of them made almost no record declarable. This case was written against the old unconditional rule and had to be REPLACED rather than deleted -- the requirement did not vanish, it became conditional, and the conditional needs a floor. The floor is the tabular limb: a record carrying TABULAR data has columns to describe, so removing its variables must still be rejected. The example is MONOLITHIC, which is the half that is easy to lose: it carries cdi:TabularTextDataSet on the distribution ITSELF with no schema:hasPart, so a hasPart-only condition misses it entirely. The first draft of the conditional was hasPart-only and this case caught it -- the collection-only trap CLAUDE.md's three-levels rule names."
     },
     {
       "id": "adaproduct-componentType-sealed",
