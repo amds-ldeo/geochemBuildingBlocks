@@ -3,6 +3,10 @@
 **13 September 2026.** For `cdifProfile/cdifCore`. Raised by a consumer that hits it on every
 record it publishes.
 
+> **Status 2026-10-18: raised upstream, no adoption observed.** `cdifCore/schema.yaml` in the
+> `metadataBuildingBlocks` checkout still does not carry the branch proposed below. Kept open; this
+> is a request to CDIF, not gBB work, and nothing here can be fixed in this repository.
+
 ---
 
 ## 1. The prose and the schema disagree

@@ -1,7 +1,19 @@
 # Proposal: monitored species as dataset variables
 
-**Status: DRAFT, shape agreed. Nothing here is implemented.** The five open questions in the first
-draft have been settled by the reviewer and are recorded under *Decisions* below.
+**Status: LANDED, and the vocabulary moved.** Re-checked 2026-10-18. This proposal is implemented,
+under **`monitoredProperty`** rather than `monitoredSpecies` — the word "species" was dropped
+because the thing selected is not always a chemical species. The emitted terms are
+
+    ada:monitoredPropertyColumns      ada:monitoredPropertyColumn      (99 occurrences)
+    ada:monitoredPropertyTemplate     ada:defaultMonitoredProperties
+
+across **7 techniques** — EPMA, SEM, SEM-Composition, TEM and the three Solution ICP-MS tables.
+`monitoredSpecies` appears nowhere in `_sources` or `tools`.
+
+The text below is kept unchanged as **the design record** — the reasoning and the five settled
+decisions are why the shape is what it is — but read it as history, not as a pending proposal. Its
+earlier header said "Nothing here is implemented", which was true when written and wrong by the
+time anyone read it.
 
 ## What this is for
 

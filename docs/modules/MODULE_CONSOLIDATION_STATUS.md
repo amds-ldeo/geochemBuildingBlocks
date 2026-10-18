@@ -1,5 +1,12 @@
 # Module consolidation — where this got to, and what's next
 
+> **The 73% below was measured on 2026-09-02 and has not been re-run.** The manifest has moved
+> since: `composed_tapps.json` is now generated 2026-10-01 and composes **15** modules over 16
+> TAPPs, `Module_Analyte` has become `Module_TargetSpecies`, and `ReportingCore` has been removed
+> upstream entirely (see `docs/REPORTINGCORE_BLOCKS.md`). Re-measure before quoting the figure.
+> The technique named `EMPA` in the table below is `EPMA` everywhere now — see
+> `docs/empa-to-epma-rename.md`.
+
 > **RESOLVED UPSTREAM, 2026-09-02** (delivery `af3f7bc`). Ruolin adopted the ICP-MS
 > proposal. `Module_ICPMS` (39 fields, 9 consumers), `Module_CollisionCell` (8, 6) and
 > `Module_CompositionQC` (6, 12) now exist in the library, and `Module_TargetSelection`
@@ -13,7 +20,7 @@
 > | LA-MC-ICPMS-UPb | 97 | 7 | 93% |
 > | LA-Q-ICPMS / LA-MC-ICPMS / Solution-Q / LA-Q-UPb | | | 90% |
 > | LA-SF ×2 / Solution-SF | | | 78–79% |
-> | EMPA | 5 | 12 | 29% |
+> | EPMA | 5 | 12 | 29% |
 > | SEM family | | | 13–22% |
 > | TEM | 5 | 40 | 11% |
 > | XCT | 3 | 36 | 7% |

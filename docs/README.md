@@ -9,7 +9,7 @@ Nothing here is a build output. Everything generated lands in `_sources/` (schem
 
 ## The sidecars
 
-One `<TableName>.schemapaths.csv` per wired technique — 16 of them, named after the TAPP table they
+One `<TableName>.schemapaths.csv` per wired technique — **61** of them, named after the TAPP table they
 describe — plus `modules/Module_<Name>.schemapaths.csv` for each composition module.
 
 A TAPP table says **what** metadata a technique records. It does not say **where** that metadata
@@ -95,8 +95,13 @@ artifact.
 | [TAPP-schema-generation-workflow.md](TAPP-schema-generation-workflow.md) | end-to-end: workbook → validated schema |
 | [TAPP_TEMPLATE_GUIDE.md](TAPP_TEMPLATE_GUIDE.md) | authoring guide for a new TAPP table |
 | [README_TAPP_for_Schema_Generation_v2.md](README_TAPP_for_Schema_Generation_v2.md) | the table conventions the generators rely on |
-| [REPORTINGCORE_BLOCKS.md](REPORTINGCORE_BLOCKS.md) | how the conditional `reportingCore` module splits into per-block `$defs` |
-| [PROPOSAL-monitoredSpecies.md](PROPOSAL-monitoredSpecies.md) | **draft, not implemented** — a proposed shape for monitored species / channels |
+| [REPORTINGCORE_BLOCKS.md](REPORTINGCORE_BLOCKS.md) | how a *conditional* module splits into per-block `$defs`. **`reportingCore` itself is retired upstream and the mechanism is dormant** — read its state block first |
+| [SILENT_SUCCESS.md](SILENT_SUCCESS.md) | eleven incidents where a check, generator or workflow reported success without doing its job. Read before changing a check, a trigger or a source-resolution fallback |
+| [ADDITIONALTYPE_POLICY.md](ADDITIONALTYPE_POLICY.md) | where `schema:additionalType` may carry a literal and where it must be an IRI |
+| [ISSUE_2026-09-06_mandatory_selector_contains.md](ISSUE_2026-09-06_mandatory_selector_contains.md) | **open** — a required selector literal becomes a `contains` no ADA record satisfies. The general form of the `Sampling Unit Name` case in `upstream-requests.md` §4 |
+| [PROPOSAL-monitoredSpecies.md](PROPOSAL-monitoredSpecies.md) | **LANDED**, under the renamed `ada:monitoredProperty*` terms — kept as the design record |
+| [PROPOSAL_2026-09-13_cdifCore_bundle_distribution.md](PROPOSAL_2026-09-13_cdifCore_bundle_distribution.md) | raised upstream to `cdifCore`; no adoption observed as of 2026-10-18 |
+| [empa-to-epma-rename.md](empa-to-epma-rename.md) | the EMPA → EPMA rename, its scope and what is still outstanding |
 | [upstream-requests.md](upstream-requests.md) | table problems that belong to `amds-ldeo/tapp`, not here |
 | `TierImplementationPatterns.xlsx` | the canonical Protocol × Analysis tier matrix |
 
@@ -104,10 +109,14 @@ artifact.
 
 - **`modules/`** — sidecars for the composition modules. Same format; see
   [`_sources/BaseSchema/modules/README.md`](../_sources/BaseSchema/modules/README.md).
+- **`modules/draft/`** — eight draft electron-beam modules offered to Ruolin for review, with
+  their own README. **Still pending**: no electron-beam module appears in the current manifest.
 - **`tappDefinition-per-analyte-values/`** — worked per-analyte value sets used as reference
   material; has its own README.
-- **`archive/`** — superseded sidecars and the workbooks they described. **Gitignored**: bulky and
-  settled, and git history still has every version. Tools glob `docs/*.schemapaths.csv`
+- **`archive/`** — superseded sidecars and the workbooks they described. **Gitignored** for new
+  files, though 52 added before the rule are still tracked. Note the repo-root `archive/` is a
+  DIFFERENT, tracked archive — that is where a retired module goes (`archive/modules/group1`), and
+  where to put anything that must stay in git. Tools glob `docs/*.schemapaths.csv`
   non-recursively, so archived revisions are never swept in alongside live ones.
 - **`experiments/`** — scratch work, untracked.
 
