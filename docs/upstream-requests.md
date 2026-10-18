@@ -251,6 +251,68 @@ misdescribes the field.
 proposing to change it, nor to replace it with an array of unit objects — the Notes record that
 being tried on 2026-09-25 and removed on 2026-10-01.
 
+### 4a. The condition we think is right, and why it has to be yours
+
+Stephen's rule: **the variable is mandatory only if the TAPP keys data by sampling unit.** That is
+exactly the right axis, and the mechanism to express it already exists — but it is declared in
+your files, not ours, which is why this is a request rather than a change.
+
+`Module_Core.json` carries `"conditional": false` and puts `Sampling Unit Name` in the **`samples`**
+block, whose `applies_when` reads:
+
+> "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always
+> composed together."
+
+So the field is declared universal upstream. `ReportingCore` shows the alternative working already
+(`docs/REPORTINGCORE_BLOCKS.md`): a module marks itself `conditional`, declares blocks, and each
+TAPP's entry in `composed_tapps.json` names the blocks it takes. `build_module_bb` and
+`module_composition` both read that, so **nothing in our generators needs changing** — only the
+declaration.
+
+**The ask:** separate `Sampling Unit Name` from the universal `samples` block and let a TAPP select
+it, the way Lab-XCT already selects `target_selection, calibration_factor` from `ReportingCore`.
+
+**Measured, so the selection does not have to be guessed.** Distinguishing the two uses of the key
+in our sidecars:
+
+| | sidecars | meaning |
+|---|---|---|
+| `defines: sample > sampling unit` | **60 of 60** | every TAPP declares the key — Core gives it to them, so this cannot discriminate |
+| `keyed by: … sample > sampling unit` | **17 technique TAPPs** + 3 modules | the TAPP actually reports values per sampling unit |
+
+The 17 that key data by it: EPMA (7 rows), the six LA tables (3 each), Lab-XCT (6), SEM (7),
+SEM-Composition (7), SEM-Imaging (3), SEM-FIBSEM (2), Solution Q/SF/MC (2 each), TEM (1),
+VNMIR (6). **44 of 61 technique sidecars have no such row** — which is the selection we would
+expect, if you agree with the axis.
+
+### 4b. Lab-XCT keys six rows by sampling unit — is that right?
+
+This is the part the measurement does **not** settle, and it matters most, because `adaLabXCT` is
+**701 records** — the single largest group of the ~1,633.
+
+`Lab-XCT_TAPP_v47` keys six rows by `sample > sampling unit` — **three distinct items, each
+appearing twice**:
+
+- *Segmentation Threshold Values or Criteria*
+- *Phase Identification Method*
+- *Partial Volume Effect Criteria*
+
+So that table asserts XCT results **are** reported per sampling unit, and under the rule above XCT
+would keep the requirement. (The doubling may be worth a glance in its own right — we have not
+looked into whether the pairs differ in tier or are a duplicate row.)
+
+But those 701 records have **no instance data table at all** — no `schema:variableMeasured` and no
+tabular part. An XCT product is a reconstructed volume, and if its results are not in fact tabulated
+per sampling unit, the six keyed rows may be the thing to revisit rather than the Core item.
+
+**The question:** for a laboratory XCT volume, are segmentation thresholds and the other five keyed
+items genuinely per-sampling-unit values belonging in a table — or are they procedure-level
+settings that were keyed by analogy with the point-analysis techniques? If the latter, un-keying
+them is a smaller and more accurate change than exempting XCT from a Core field.
+
+We are not proposing an answer. The reason for asking is that the two possibilities lead to
+opposite fixes, and only you can say which describes an XCT session.
+
 **Not the same question as `schema:actionProcess`.** That one also blocks those records, and it is
 **ours, not yours**: no row declares it, and our emitter was requiring it because 69 authored rows
 place leaves beneath `$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[…]` and it
