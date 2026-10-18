@@ -79,13 +79,13 @@ Mock data for validation and testing.
     "ex": "https://example.org/",
     "dcat": "http://www.w3.org/ns/dcat#"
   },
-  "@id": "ex:adaTEM-example-001",
+  "@id": "ex:adaTEMFull-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
   ],
   "schema:name": "TEM Analysis of Meteorite ALH 84001 Fragment",
-  "schema:description": "Example Transmission Electron Microscopy (TEM) product metadata demonstrating all properties defined by the adaTEM profile. Contains mock data for testing and validation.",
+  "schema:description": "Example Transmission Electron Microscopy (TEM) product metadata demonstrating all properties defined by the adaTEMFull profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
     "Transmission Electron Microscopy (TEM) Image",
     {
@@ -290,7 +290,7 @@ Mock data for validation and testing.
   ],
   "schema:variableMeasured": [
     {
-      "@id": "ex:adaTEM-var-001",
+      "@id": "ex:adaTEMFull-var-001",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -312,7 +312,7 @@ Mock data for validation and testing.
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
-      "@id": "ex:adaTEM-var-002",
+      "@id": "ex:adaTEMFull-var-002",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -339,7 +339,7 @@ Mock data for validation and testing.
       "@type": [
         "schema:DataDownload"
       ],
-      "schema:name": "adaTEM-ALH84001-archive.zip",
+      "schema:name": "adaTEMFull-ALH84001-archive.zip",
       "schema:description": "Archive containing TEM data files and supplementary materials",
       "schema:contentUrl": "https://astromat.org/downloads/adatem-example-001.zip",
       "schema:encodingFormat": [
@@ -369,7 +369,7 @@ Mock data for validation and testing.
       ],
       "schema:hasPart": [
         {
-          "@id": "ex:adaTEM-file-001",
+          "@id": "ex:adaTEMFull-file-001",
           "@type": [
             "schema:MediaObject",
             "ada:image",
@@ -402,7 +402,7 @@ Mock data for validation and testing.
           "ada:componentType": "ada:TEMImage"
         },
         {
-          "@id": "ex:adaTEM-file-002",
+          "@id": "ex:adaTEMFull-file-002",
           "@type": [
             "schema:MediaObject",
             "ada:document",
@@ -439,9 +439,9 @@ Mock data for validation and testing.
         "@id": "dcat:CatalogRecord"
       }
     ],
-    "@id": "ex:adaTEM-metadata-001",
+    "@id": "ex:adaTEMFull-metadata-001",
     "schema:about": {
-      "@id": "ex:adaTEM-example-001"
+      "@id": "ex:adaTEMFull-example-001"
     },
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
@@ -452,7 +452,7 @@ Mock data for validation and testing.
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaTEM"
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaTEMFull"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -516,13 +516,13 @@ Mock data for validation and testing.
       "dcat": "http://www.w3.org/ns/dcat#"
     }
   ],
-  "@id": "ex:adaTEM-example-001",
+  "@id": "ex:adaTEMFull-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
   ],
   "schema:name": "TEM Analysis of Meteorite ALH 84001 Fragment",
-  "schema:description": "Example Transmission Electron Microscopy (TEM) product metadata demonstrating all properties defined by the adaTEM profile. Contains mock data for testing and validation.",
+  "schema:description": "Example Transmission Electron Microscopy (TEM) product metadata demonstrating all properties defined by the adaTEMFull profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
     "Transmission Electron Microscopy (TEM) Image",
     {
@@ -727,7 +727,7 @@ Mock data for validation and testing.
   ],
   "schema:variableMeasured": [
     {
-      "@id": "ex:adaTEM-var-001",
+      "@id": "ex:adaTEMFull-var-001",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -749,7 +749,7 @@ Mock data for validation and testing.
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
-      "@id": "ex:adaTEM-var-002",
+      "@id": "ex:adaTEMFull-var-002",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -776,7 +776,7 @@ Mock data for validation and testing.
       "@type": [
         "schema:DataDownload"
       ],
-      "schema:name": "adaTEM-ALH84001-archive.zip",
+      "schema:name": "adaTEMFull-ALH84001-archive.zip",
       "schema:description": "Archive containing TEM data files and supplementary materials",
       "schema:contentUrl": "https://astromat.org/downloads/adatem-example-001.zip",
       "schema:encodingFormat": [
@@ -806,7 +806,7 @@ Mock data for validation and testing.
       ],
       "schema:hasPart": [
         {
-          "@id": "ex:adaTEM-file-001",
+          "@id": "ex:adaTEMFull-file-001",
           "@type": [
             "schema:MediaObject",
             "ada:image",
@@ -839,7 +839,7 @@ Mock data for validation and testing.
           "ada:componentType": "ada:TEMImage"
         },
         {
-          "@id": "ex:adaTEM-file-002",
+          "@id": "ex:adaTEMFull-file-002",
           "@type": [
             "schema:MediaObject",
             "ada:document",
@@ -876,9 +876,9 @@ Mock data for validation and testing.
         "@id": "dcat:CatalogRecord"
       }
     ],
-    "@id": "ex:adaTEM-metadata-001",
+    "@id": "ex:adaTEMFull-metadata-001",
     "schema:about": {
-      "@id": "ex:adaTEM-example-001"
+      "@id": "ex:adaTEMFull-example-001"
     },
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
@@ -889,7 +889,7 @@ Mock data for validation and testing.
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaTEM"
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaTEMFull"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -939,7 +939,7 @@ Mock data for validation and testing.
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:adaTEM-example-001 a schema1:Dataset,
+ex:adaTEMFull-example-001 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalType ada:DataDeliveryPackage,
         "Transmission Electron Microscopy (TEM) Image" ;
@@ -966,14 +966,14 @@ ex:adaTEM-example-001 a schema1:Dataset,
                 schema1:identifier "https://orcid.org/0000-0002-9876-5432" ;
                 schema1:name "Researcher, John Q." ] ) ;
     schema1:dateModified "2026-01-15" ;
-    schema1:description "Example Transmission Electron Microscopy (TEM) product metadata demonstrating all properties defined by the adaTEM profile. Contains mock data for testing and validation." ;
+    schema1:description "Example Transmission Electron Microscopy (TEM) product metadata demonstrating all properties defined by the adaTEMFull profile. Contains mock data for testing and validation." ;
     schema1:distribution [ a schema1:DataDownload ;
             schema1:contentUrl "https://astromat.org/downloads/adatem-example-001.zip" ;
             schema1:description "Archive containing TEM data files and supplementary materials" ;
             schema1:encodingFormat "application/zip" ;
-            schema1:hasPart ex:adaTEM-file-001,
-                ex:adaTEM-file-002 ;
-            schema1:name "adaTEM-ALH84001-archive.zip" ;
+            schema1:hasPart ex:adaTEMFull-file-001,
+                ex:adaTEMFull-file-002 ;
+            schema1:name "adaTEMFull-ALH84001-archive.zip" ;
             schema1:provider [ a schema1:Organization ;
                     schema1:name "Astromat Data Archive" ] ;
             schema1:size [ a schema1:QuantitativeValue ;
@@ -1006,10 +1006,10 @@ ex:adaTEM-example-001 a schema1:Dataset,
             schema1:identifier "https://ada.astromat.org/vocabulary/techniques/TEM" ;
             schema1:name "Transmission Electron Microscopy (TEM)" ] ;
     schema1:name "TEM Analysis of Meteorite ALH 84001 Fragment" ;
-    schema1:subjectOf ex:adaTEM-metadata-001 ;
+    schema1:subjectOf ex:adaTEMFull-metadata-001 ;
     schema1:url "https://astromat.org/products/adatem-example-001" ;
-    schema1:variableMeasured ex:adaTEM-var-001,
-        ex:adaTEM-var-002 ;
+    schema1:variableMeasured ex:adaTEMFull-var-001,
+        ex:adaTEMFull-var-002 ;
     schema1:version "1.0" ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
@@ -1028,7 +1028,7 @@ ex:adaTEM-example-001 a schema1:Dataset,
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
     ada:submissionType "BundleDelivery" .
 
-ex:adaTEM-file-001 a schema1:ImageObject,
+ex:adaTEMFull-file-001 a schema1:ImageObject,
         schema1:MediaObject,
         ada:image ;
     schema1:additionalType ada:TEMImage ;
@@ -1043,7 +1043,7 @@ ex:adaTEM-file-001 a schema1:ImageObject,
             spdx:checksumValue "d41d8cd98f00b204e9800998ecf8427e" ] ;
     ada:componentType "ada:TEMImage" .
 
-ex:adaTEM-file-002 a schema1:DigitalDocument,
+ex:adaTEMFull-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
         ada:document ;
     schema1:additionalType ada:methodDescription ;
@@ -1055,16 +1055,16 @@ ex:adaTEM-file-002 a schema1:DigitalDocument,
             schema1:value 524288 ] ;
     ada:componentType "ada:methodDescription" .
 
-ex:adaTEM-metadata-001 a schema1:Dataset ;
+ex:adaTEMFull-metadata-001 a schema1:Dataset ;
     dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
         <https://w3id.org/cdif/data_description/1.1>,
         <https://w3id.org/cdif/discovery/1.1>,
         <https://w3id.org/cdif/manifest/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
-        <https://w3id.org/geochem/metadata/profiles/adaTEM>,
+        <https://w3id.org/geochem/metadata/profiles/adaTEMFull>,
         <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
-    schema1:about ex:adaTEM-example-001 ;
+    schema1:about ex:adaTEMFull-example-001 ;
     schema1:additionalType dcat:CatalogRecord ;
     schema1:dateModified "2026-01-15" ;
     schema1:includedInDataCatalog [ a schema1:DataCatalog ;
@@ -1074,7 +1074,7 @@ ex:adaTEM-metadata-001 a schema1:Dataset ;
             schema1:name "Astromat Data Archive" ] ;
     schema1:sdDatePublished "2026-01-15T12:00:00Z" .
 
-ex:adaTEM-var-001 a cdi:InstanceVariable,
+ex:adaTEMFull-var-001 a cdi:InstanceVariable,
         schema1:PropertyValue ;
     cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
     cdi:role "MeasureComponent" ;
@@ -1086,7 +1086,7 @@ ex:adaTEM-var-001 a cdi:InstanceVariable,
     schema1:unitText "counts" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
-ex:adaTEM-var-002 a cdi:InstanceVariable,
+ex:adaTEMFull-var-002 a cdi:InstanceVariable,
         schema1:PropertyValue ;
     cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
     cdi:role "DimensionComponent" ;
@@ -1141,7 +1141,7 @@ allOf:
         - Transmission Electron Microscopy
       x-jsonld-id: http://schema.org/additionalType
     schema:distribution:
-      description: Distribution items for adaTEM. Archive hasPart items must have
+      description: Distribution items for adaTEMFull. Archive hasPart items must have
         ada:componentType from technique-specific or universal values.
       type: array
       items:
@@ -1179,7 +1179,7 @@ allOf:
             additionalProperties: false
             properties:
               '@id':
-                const: https://w3id.org/geochem/metadata/profiles/adaTEM
+                const: https://w3id.org/geochem/metadata/profiles/adaTEMFull
           x-jsonld-id: http://purl.org/dc/terms/conformsTo
       x-jsonld-id: http://schema.org/subjectOf
 x-jsonld-prefixes:
