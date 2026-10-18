@@ -149,7 +149,102 @@ module home. Should it join `Module_UPb` or `Module_Geochronology`?
 
 ---
 
-## 4. Delivery mechanics
+## 4. `Sampling Unit Name` is required of records that have no data table
+
+**The ask: should this item be conditional on the record having a tabular data structure?** It is
+your item, at Analysis Tier **Basic**, and the question is about where the requirement sits rather
+than whether it is right. Nothing changes until you say so.
+
+**The row**, from `docs/modules/Module_Core.schemapaths.csv`:
+
+| | |
+|---|---|
+| Metadata Item | `Sampling Unit Name` |
+| Protocol Tier | N/A |
+| Analysis Tier | **Basic** |
+| Data Type | Text (free) |
+| Schema Path | `$Dataset.schema:variableMeasured[schema:name='Sampling Unit Name']` |
+| Scope | module (Core) |
+| Notes | "declares the COLUMN that identifies a sampling unit in the instance data table…" |
+
+Because the path carries a selector, the emitter turns it into a `contains` with a literal const,
+in `_sources/BaseSchema/modules/core/schema.yaml`:
+
+```yaml
+schema:variableMeasured:
+  allOf:
+  - contains:
+      properties: {schema:name: {const: Sampling Unit Name}}
+      required: [schema:name]
+```
+
+It is in Core, so it reaches **every** technique — 162 `resolvedSchema.json` carry it.
+
+**The argument is about layers, not counts.** `schema:variableMeasured` is declared in
+`geochemProduct` as extending `cdifInstanceVariable` — an **instance** variable. A method
+definition or a detail block can only *define* which fields might appear, the data-structure
+components. Only an actual data instance can assert the physical mapping: which columns exist, in
+what order, of what type. So requiring a variable named `Sampling Unit Name` on a record whose
+data is an image stack asks that record to assert an instance-level fact about a table it does not
+have. The row's own Notes say the same thing — "the units themselves exist only in the data".
+
+**What the corpus shows**, measured by the ADA metadata forms session over all 7,447 records
+(1,682 of which would gain a technique profile once content-based detection is switched on):
+
+| | records | share |
+|---|---|---|
+| have any `schema:variableMeasured` | 125 | 7.4% |
+| have a tabular part or column structure | 129 | 7.7% |
+| have **neither** | **1,553** | **92.3%** |
+| carry a variable named `Sampling Unit Name` | **0 of 7,447** | — |
+
+`adaLabXCT` 701, `adaSTHMAFM` 483 and `adaSXRF` 324 are 1,508 of those on their own — XCT image
+stacks, AFM scans, synchrotron XRF maps. They have no columns, so there is no column for the
+declaration to name.
+
+**And the one example that does satisfy it is a placeholder, with the wrong semantics.** Our
+generated `XCT/profile/exampleadaLabXCT.json` validates clean only because the generator's fill
+pass invented the variable:
+
+```json
+{ "schema:name": "Sampling Unit Name",
+  "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
+  "schema:unitText": "counts",
+  "cdi:role": "MeasureComponent" }
+```
+
+A sampling-unit name is a **label**; this emits it as a measure component in **counts**. So the
+constraint is met nowhere by genuine content, and where it appears to be met the content
+misdescribes the field.
+
+**The options, in what we think is preference order:**
+
+1. **Make the item conditional on a tabular data structure existing.** gBB already has that exact
+   predicate — `geochemProduct` guards `cdifDataDescription` on *non-empty
+   `schema:variableMeasured` OR a distribution/part typed `cdi:TabularTextDataSet`*, added
+   2026-10-16, and 6,575 records stopped declaring `data_description` as a result. Applying the
+   same guard here needs either a sidecar-grammar way to say "only when the data is tabular" or an
+   emitter rule; both are our side, and small.
+2. **Keep it unconditional and treat the 1,553 as incomplete.** Defensible only if an image-stack
+   product is genuinely expected to declare a sampling-unit column, which we do not think it is.
+3. **Narrow the Scope from `module` (Core) to the techniques whose products are tabular.** Avoids a
+   grammar change at the cost of per-technique duplication, and Core is where it belongs
+   conceptually.
+
+**What we are NOT asking.** The literal name is the identity of the declaration and we are not
+proposing to change it, nor to replace it with an array of unit objects — the Notes record that
+being tried on 2026-09-25 and removed on 2026-10-01.
+
+**Not the same question as `schema:actionProcess`.** That one also blocks those records, and it is
+**ours, not yours**: no row declares it, and our emitter was requiring it because 69 authored rows
+place leaves beneath `$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[…]` and it
+required every ancestor a Basic leaf navigates through. Stephen has decided we fix that in the
+emitter. Mentioned only so the two are not merged — an earlier draft of ours did merge them, on the
+false reasoning that an image stack is not an instrument session.
+
+---
+
+## 5. Delivery mechanics
 
 
 **composed_tapps.json `tapp` paths do not match the delivery layout.** The manifest records per-technique paths such
