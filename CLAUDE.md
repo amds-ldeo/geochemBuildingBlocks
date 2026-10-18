@@ -11,7 +11,7 @@ This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JS
 - **`docs/TAPP-schema-generation-workflow.md`** — end-to-end walkthrough of workbook → validated schema.
 - **`docs/SCHEMA_PATH_GRAMMAR.md`** — the canonical grammar for the schema-path sidecars.
 - **`docs/SILENT_SUCCESS.md`** — nine incidents in which a check, a generator or a workflow reported success while not doing its job, each with what exposed it and the rule that follows. The validator passing while content vanishes, a generator whose output varies per process, auto-merge walking past a red non-required check, a required check that can never run, a deploy that skipped the event it was given a trigger for, a pipeline silently substituting a superseded TAPP delivery for the one it was pinned to, and a whole check suite structurally unable to observe one direction of a change — a relaxation whose loss makes the schema STRICTER, so the examples, the counterexamples and the census were each blind to it for a different reason; and an audit that printed its own failure count and exited 0 while nothing in CI ran it at all. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, and whenever you loosen a constraint: ask which direction of change each check can see — and, for any check, run it and read `$?`.
-- **`docs/README.md`** — what is in `docs/`: the sidecar format, its five `Source` values, and the maintenance tools around it.
+- **`docs/README.md`** — what is in `docs/`: the sidecar format, its five `Source` values, and the maintenance tools around it. Note **"sidecar" is overloaded**: in `docs/` it means the `*.schemapaths.csv` files, while `<block>/conformance.json` is the unrelated conformance sidecar — see "Conformance sidecars" below.
 - **`docs/modules/MODULE_CONSOLIDATION_STATUS.md`** — **state, not design**: how far module consolidation has got (25% of technique parameters composed — 242 against 694 still minted per technique), what is decided, and what is open. Read it before drafting a module. Measure `tapp/`, never `registry/`: the registries are `isTypeLibrary` and per-technique by construction, so measuring them yields a true-but-meaningless 87% duplication.
 
 ## Commands
@@ -83,7 +83,7 @@ earlier stage would otherwise become a permanently degraded artifact on the next
 schema is a set of restrictions, so deleting one makes it more PERMISSIVE and every instance that
 validated still validates — no corpus of positive examples can detect a loss, however large. The
 census counts the constraints themselves (`required` names, `enum` members, `const`, `$ref`
-targets, closed objects, branch counts — 1,299,304 of them across 242 blocks) and compares the
+targets, closed objects, branch counts — 1,459,863 of them across 251 blocks) and compares the
 counts to `docs/constraint_census.json`. Counts give magnitude and direction; a per-block digest
 catches a SWAP that leaves counts equal, which a count alone cannot see.
 
@@ -117,10 +117,18 @@ a skip — a silently skipped case is lost coverage, which is the exact failure 
 exists to prevent. All three are verified: dropping `schema:name` from 48 `required` lists turns
 `tappdef-requires-name` red.
 
+Regenerate the conformance sidecars after any change to a profile's componentTypes, its cid, or
+`TAPP_CONFIGS` — they are committed and `Regenerate and diff` will catch a stale one:
+
+```
+python tools/build_conformance_sidecars.py            # dry run; prints UNION and SKIP lines
+python tools/build_conformance_sidecars.py --write    # 71 conformance.json
+```
+
 Render the human-readable pages (dataset record + TAPP definition, into `build/htmlViews/`):
 
 ```
-python tools/build_html_views.py --source examples --all    # the 97 schema examples
+python tools/build_html_views.py --source examples --all    # the 648 committed examples
 python tools/build_html_views.py --source ada2 --limit 50   # real ADA holdings from public.json_table
 ```
 
@@ -218,7 +226,7 @@ pinning, letting any app satisfy the check.
 
 **`Regenerate and diff` regenerates all nine stages, not the last two.** Until 2026-10-16 it ran
 only `resolve_schema.py --all` and `regenerate_schema_json.py`, so it re-derived
-`resolvedSchema.json` and `*Schema.json` from `schema.yaml` and stopped — while ~169 of the 242
+`resolvedSchema.json` and `*Schema.json` from `schema.yaml` and stopped — while ~178 of the 251
 `schema.yaml` are themselves generated from the TAPP tables and the sidecars. A sidecar edit
 committed without regenerating, or a schema built from a superseded delivery, passed every check in
 the repository. Enabling it was gated on a measurement, not an assumption: a full `regenerate.py`
@@ -294,11 +302,11 @@ of `_sources/` is generated, and reading it as hand-authored invites editing a f
 regeneration overwrites. The question a label has to answer is **"if this is wrong, do I edit it
 or fix a generator?"** — so the taxonomy is by WHAT WRITES IT, measured, not by directory:
 
-| path | 242 `schema.yaml` | written by |
+| path | 251 `schema.yaml` | written by |
 |---|---|---|
-| `techniqueProfile/geochemProfile/*/tapp/` | 59 | `build_tapp` + `build_pathdriven` |
-| `techniqueProfile/geochemProfile/*/detail/` | 59 | `build_pathdriven` |
-| `techniqueProfile/geochemProfile/*/profile/` | 29 | `build_profile` |
+| `techniqueProfile/geochemProfile/*/tapp/` | 61 | `build_tapp` + `build_pathdriven` |
+| `techniqueProfile/geochemProfile/*/detail/` | 61 | `build_pathdriven` |
+| `techniqueProfile/geochemProfile/*/profile/` | 34 | `build_profile` |
 | `BaseSchema/modules/*/` | 16 | `build_module_bb` |
 | `registry/*/` | 6 | `build_tapp` |
 | `BaseSchema/*` (non-module) | 18 | **nobody — edit directly** |
@@ -306,8 +314,8 @@ or fix a generator?"** — so the taxonomy is by WHAT WRITES IT, measured, not b
 | `techniqueProfile/geochemProfile/*/profile-ada/` | 9 | **nobody — LEGACY, see below** |
 | `techniqueProfile/geochemProfile/*/detail-legacy/` | 1 | **nobody — legacy** |
 
-So ~169 of 242 `schema.yaml` under `_sources/` are generated. The same applies to everything
-beside them: all 242 `resolvedSchema.json` (`resolve_schema.py`), all 242 `<name>Schema.json`
+So ~178 of 251 `schema.yaml` under `_sources/` are generated. The same applies to everything
+beside them: all 251 `resolvedSchema.json` (`resolve_schema.py`), all 251 `<name>Schema.json`
 (`regenerate_schema_json.py`), and the generated `example*.json` (`build_tapp_examples` — but see
 the three categories of example below, because the static and source-derived ones are NOT
 regenerated).
@@ -353,8 +361,23 @@ of them can be retired is the record-migration question below — not schema wor
 >
 > **Give the TAPP profile a DIFFERENT `cid` from the legacy one.** These five take `ada<TECH>`
 > against the legacy `ada<TECH>Full`. Two schemas claiming one `conformsTo` URI is a fork whose
-> winner is read order, and EPMA and TEM are already in that state: their `profile-ada` and their
-> `profile/` both declare `adaEPMA` / `adaTEM`.
+> winner is read order. **All nine `geochemProfile` techniques now comply**: SEM was corrected in
+> #149 and EPMA and TEM in #157, which were the last two sharing a cid between their `profile/`
+> and their `profile-ada/`.
+>
+> A fork is not only an ambiguity for readers, it silently breaks conformance detection.
+> `build_conformance_sidecars` must emit one sidecar per DISTINCT cid, so a forked cid makes it
+> keep one block and discard the other — taking that block's `ada:componentType` vocabulary with
+> it. For `adaTEM` the discarded twin held 7 types that no other sidecar accepted
+> (`TEMPatternsImage`, `STEMEDSCube`, `TEMEDSImageCollection`, `STEMEELSCube`, `STEMEDSTabular`,
+> `STEMEELSTabular`, `STEMEDSTomo`), so 257 ADA records resolved to no technique profile at all.
+> EPMA lost nothing only because its TAPP block happened to cover the same types.
+>
+> **Five cross-tree forks remain and are harmless**: `adaQRIS`, `adaRAMAN`, `adaVNMIR`,
+> `adaXANES` and `adaXRD` are each claimed by an `adaProfile/<TECH>/profile-ada` as well as the
+> `geochemProfile/<TECH>/profile`. They lose nothing, because the `geochemProfile` legacy block
+> already carries `ada<TECH>Full` and its sidecar keeps the vocabulary. Judge a fork by whether
+> any componentType becomes unreachable, not by the fork alone.
 
 **Superseded in intent is NOT superseded in use, and records DO cite these profiles by URI.**
 Corrected 2026-10-15. This paragraph previously read "no record declares `dcterms:conformsTo` at
@@ -368,19 +391,35 @@ sits, so the nesting should have been the first place to look.
 | cid | records | holder |
 |---|---|---|
 | `geochemProduct`, `adaProduct` | 7,447 each | the base products |
-| `adaSEM` | **2,912** | `geochemProfile/SEM/profile-ada` — legacy |
-| `adaTEM` | **870** | legacy AND the TAPP `profile/` — the cid is forked |
-| `adaEPMA` | **435** | legacy AND the TAPP `profile/` — forked |
+| `adaSEM` | **2,912** | the TAPP `geochemProfile/SEM/profile` since #149 |
+| `adaTEM` | **870** | the TAPP `geochemProfile/TEM/profile` since #157 |
+| `adaEPMA` | **435** | the TAPP `geochemProfile/EPMA/profile` since #157 |
 | `adaXANES` 245, `adaVNMIR` 183, `adaXRD` 66 | | `adaProfile/*/profile-ada` — legacy |
 | `adaLIT` 137, `adaICPMS` 112, `adaARGT` 97, `adaFTICRMS` 89, `adaLCMS`/`adaGCMS` 75 … | | all legacy |
+
+**The holder column changed under those top three, and the records did not.** All three cids
+named a LEGACY block when these counts were taken; the SEM rename (#149) and the EPMA/TEM
+un-forking (#157) moved each bare `ada<TECH>` onto the TAPP `profile/` and gave the legacy twin
+`ada<TECH>Full`. So 2,912 + 870 + 435 records now cite a URI that resolves to a TAPP profile
+while their CONTENT matches the legacy one — measured on the live corpus, `adaSEMFull` accepts
+9 of the 9 componentTypes SEM records actually carry and `adaSEM` accepts 1. Citation and
+content-detection therefore disagree for 4,217 records, which is a known and accepted interim
+state, not a defect to patch in the schemas: re-pointing is ADA-side work, sequenced as the
+paragraph below says.
+
+Do NOT read this table as "the legacy profile owns the records" any more. Ask which block pins
+the cid today — `grep -rn "profiles/<cid>" _sources/**/schema.yaml` — because the answer moved
+twice in two days.
 
 So retiring or renaming a legacy profile DOES orphan the records that cite it, and nothing in gBB
 would notice: no gBB check reads ADA records. Re-pointing the records is an ADA-side change,
 because the assertion lives in the record content. Sequence it as: decide the cids, re-point the
 records, then deprecate — not the other way round.
 
-Where `adaTEM` and `adaEPMA` are concerned the records are citing an **ambiguous** URI today,
-since two schemas claim each.
+`adaTEM` and `adaEPMA` were **ambiguous** URIs until #157, each claimed by two schemas. They now
+resolve to one block apiece — the TAPP `profile/` — so the ambiguity is gone and the open
+question is the different one above: the records cite a TAPP cid while their content matches the
+legacy profile.
 
 The risk compounds through a second route. The ADA loader **derives** `conformsTo` from record
 CONTENT (via the CDIF validation repo's `detect_conformance`), so a record is matched to a
@@ -446,23 +485,37 @@ wrong family.
 This mismatch is the NORM, not four exceptions. Measured 2026-10-06, after this paragraph claimed
 TEM, XCT, SEM-FIBSEM and SEM-Imaging were the only inconsistent ones:
 
-  29 of 29  `profile/` schemas compose `../detail/schema.yaml` as a top-level `allOf` entry,
+  34 of 34  `profile/` schemas compose `../detail/schema.yaml` as a top-level `allOf` entry,
             i.e. on the `schema:Dataset` root
-  47 of 59  detail blocks describe themselves as "Detail block for <TECH> hasPart items"
-   0 of 59  detail blocks CONSTRAIN `ada:componentType` anywhere — in XCT's it appears only in
-            its own description, and EPMA's does not mention it at all
-  29 of 29  `profile/` descriptions say they constrain "valid component types on
+  49 of 61  detail blocks describe themselves as "Detail block for <TECH> hasPart items"
+   0 of 61  GEOCHEMPROFILE detail blocks CONSTRAIN `ada:componentType` anywhere — in XCT's it
+            appears only in its own description, and EPMA's does not mention it at all
+  13 of 14  adaProfile detail blocks DO constrain it, almost all as a bare `const` — the
+            asymmetry is real and load-bearing, see below
+  34 of 34  `profile/` descriptions say they constrain "valid component types on
             schema:distribution.hasPart", and NONE of them constrains `schema:hasPart` at all —
             in XCT's profile the word appears once, in that sentence
-   0 of 59  detail blocks constrain anything at the hasPart level either, so nothing in a
-            technique profile reaches a component. The sealed componentType enums live in the
-            base file-type BBs (image, imageMap, tabularData, …), which is layer 1 above
+   0 of 61  geochemProfile detail blocks constrain anything at the hasPart level either, so
+            nothing in a technique profile reaches a component. The sealed componentType enums
+            live in the base file-type BBs (image, imageMap, tabularData, …), layer 1 above
+
+**Counts re-measured 2026-10-18** (they read 29/47/59 here until then, from 2026-10-06; the repo
+has since grown to 61 techniques and 34 TAPP profiles). The `0 of` conclusion is unchanged.
+
+**The `0 of 61` applies to `geochemProfile` ONLY, and the adaProfile row is why that matters.**
+`build_conformance_sidecars` reads a profile's componentTypes from three unioned sources, and for
+the legacy `adaProfile` blocks the DETAIL block is the authoritative one — its `profile-ada`
+reaches components through `$ref: ../detail/schema.yaml` rather than an inline enum. Those detail
+blocks pin `ada:componentType` as a bare `const`, a shape the sidecar generator did not read
+until 2026-10-18, which made ICPOES, LAF, PSFD and L2MS look like profiles with nothing to
+distinguish them. Reading this section as "no detail block anywhere constrains componentType" is
+what hid that for weeks.
 
 **The composition is right and the DESCRIPTIONS are wrong — not the other way round.** A technique's
 detail must apply to a monolithic dataset, one reconstructed volume with no `hasPart` collection, as
 well as to a component collection. Dataset-root composition covers both; pinning
 `ada:componentType` would break the monolithic case outright, because there is no hasPart item to
-carry it. So `0 of 59` is the correct design, and the 47 descriptions that call themselves
+carry it. So `0 of 61` is the correct design, and the 49 descriptions that call themselves
 hasPart-item blocks are the error. Do not "fix" the pin.
 
 The monolithic case is barely exercised, which is why the descriptions survived: of 7446 ADA
@@ -734,11 +787,89 @@ records carrying a generic type already name their real technique in `schema:mea
 > `$ref`s `universalComponentTypeBranch` and the base file-type blocks, so resolution inlines the
 > whole sealed set: a walk over all `profile*/resolvedSchema.json` finds 238 componentTypes with
 > 225 "claimed" by ~74 profiles each. That is the universal enum, not a collision. The real
-> per-technique list is `build_tapp.TAPP_CONFIGS[<tapp>]["component_types"]` — 61 entries, 133
+> per-technique list is `build_tapp.TAPP_CONFIGS[<tapp>]["component_types"]` — 61 entries, 134
 > distinct types — which is what `build_profile` emits the hasPart branches from. This follows
-> from the measured fact recorded above that 0 of 59 detail blocks constrain `ada:componentType`:
+> from the measured fact recorded above that 0 of 61 geochemProfile detail blocks constrain
+> `ada:componentType`:
 > the per-profile narrowing was never built, so there is no validation narrowing to stay in step
 > with.
+
+
+## Conformance sidecars — how a record is matched to a profile
+
+`<block>/conformance.json` tells CDIF's two-stage detection engine which profile URIs a record
+conforms to. **71 of them, one per DISTINCT cid**, generated by
+`python tools/build_conformance_sidecars.py --write` and committed. They are the gBB half of a
+contract with the ADA loader: the loader DERIVES `schema:subjectOf.dcterms:conformsTo` from
+record CONTENT rather than trusting what a record claims, and these files are what it derives
+from. Nothing in this repository validates against them, so a wrong sidecar is invisible here
+and shows up as a mis-profiled record in ADA.
+
+Two stages, both writing into the same `conformsTo` list:
+
+  stage 1  `detect_cdif_conformance`   CDIF modules (core, discovery, data_description,
+           provenance, manifest), read from the mBB sibling repo. **Returns a plain
+           `list[str]`** — not an object. A wrapper doing `r.uris or r.declared or []` silently
+           yields `[]` for a list, which is how an entire acceptance run once read as zero.
+  stage 2  `detect_domain_conformance` the geochem/ada profiles, read from these sidecars.
+
+Six fields, nothing else:
+
+| field | meaning |
+|---|---|
+| `conformsTo` | the URI emitted when the record matches |
+| `presence` | the SPARQL ASK deciding whether it matches, built from the block's componentTypes |
+| `requires` | implication — declaring this implies declaring those |
+| `exclusiveGroup` | mutual exclusion — **exactly one** member of a group is declared |
+| `priority` | who wins inside a group: LEGACY 3, UMBRELLA 5, MEMBER 10, TAPP 15 |
+| `validityShapes` | what to validate against once declared. **`null` in all 71 — not yet populated** |
+
+**`requires` and `exclusiveGroup` express different relations and are not interchangeable.**
+Implication relates a member to its umbrella; exclusion relates members to each other. An
+umbrella sharing a group with its members can never co-occur with them, whichever way the
+priorities fall — measured on `adaSEM`/`adaSEMImaging`: shared group with no `requires` gives the
+member alone, shared group WITH `requires` gives the umbrella alone, and only separate groups
+plus `requires` gives both. The middle case looks like a fix and is a different single winner.
+
+**An umbrella's presence is the UNION of its family**, because the implication has to be true
+rather than assumed: `adaSEM`'s own six types supersetted none of its four members, and
+`adaSEMFIBSEM` shared nothing with it at all, so `requires: [adaSEM]` would have declared the
+umbrella for records failing its own presence test. The union EXCLUDES anything the umbrella's
+legacy twin claims, so the union cannot hand it reach against a different generation of the same
+technique — without that, 5 records moved off `adaSEMFull` onto `adaSEM`, which resolves 170
+required names against the legacy profile's 122.
+
+### Where componentTypes come from, and the failure mode to know
+
+Three sources, **unioned, never falling through**: `build_tapp.TAPP_CONFIGS[<tapp>]`, the
+block's own inline enum, and the sibling `detail/` block. Three separate defects in this one
+function each silently narrowed a presence ASK, and **a too-narrow ASK is invisible to every
+check in the repo** — it validates, it regenerates byte-identically, it lists plausible
+componentTypes, and it simply fails to match records. All three were found by the metadata forms
+session measuring presence against the live corpus, not by anything here:
+
+- the inline enum was read only when the TAPP lookup came back empty, so a legacy block keyed to
+  the same technique directory took the TAPP vocabulary instead of its own. `adaSEMFull`'s ASK
+  was entirely DISJOINT from the 2,912 records citing it.
+- a bare `const:` was not read at all, only `enum` and `anyOf: [{const}]`. 8 detail blocks use
+  the bare form.
+- the TAPP lookup was keyed off `build_profile.PROFILES` (34 techniques) rather than
+  `build_tapp.TECH_DIR` (61), so a technique with a TAPP and no `PROFILES` entry — XCT — could
+  not reach its own componentTypes.
+
+With all three fixed the "no discriminating componentType" skip count is **zero**. Any earlier
+figure for "profiles that describe nothing distinguishing" measured this generator, not those
+profiles.
+
+**A forked cid breaks this outright.** One sidecar per distinct cid means a cid claimed by two
+blocks keeps one and DISCARDS the other's vocabulary. That is why the `ada<TECH>` /
+`ada<TECH>Full` split matters beyond tidiness, and why `adaTEM` cost 257 records their profile
+until #157. Judge a fork by whether a componentType becomes unreachable in all 71 sidecars, not
+by the fork alone.
+
+**Check a presence ASK per RECORD, not per profile.** `adaTEM` had 870 records of which 613 did
+carry an accepted type, so it looked healthy in aggregate while 257 records had no overlap at
+all. An aggregate overlap hides exactly the records that are broken.
 
 
 ## adaProduct extension over cdifProvActivity
