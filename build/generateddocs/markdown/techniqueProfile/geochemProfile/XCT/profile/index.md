@@ -1127,10 +1127,10 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "no value available: metalStreakArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
             dqv:value "no value available: signalToNoiseRatio" ],
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
             dqv:value "no value available: beamHardeningArtifactAssessment" ],
         [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
