@@ -180,13 +180,29 @@ schema:variableMeasured:
 
 It is in Core, so it reaches **every** technique — 162 `resolvedSchema.json` carry it.
 
-**The argument is about layers, not counts.** `schema:variableMeasured` is declared in
+**The argument is about layers, not counts — and gBB has already settled it once, in the block
+that composes this very item.** `_sources/BaseSchema/geochemProduct/schema.yaml`, lines 362–368,
+in prose written for a neighbouring question:
+
+> "An individual sampling unit is not [metadata]: the procedure and the analysis can state only
+> the KIND of unit (`ada:samplingUnitType`), while a particular unit's identifier is a
+> `schema:variableMeasured` naming a **COLUMN in one of the distributions**, and the binding from
+> that unit to its target material **exists only in the instance data table** beside the results.
+> There is therefore no array of sampling-unit objects here; one was added on 2026-09-25 and
+> removed on 2026-10-01 once that was settled."
+
+So `geochemProduct` already asserts that the declaration names a column in a distribution and that
+the binding exists only in the instance data table. **A record with no instance data table has
+nothing for the declaration to name** — stated by the schema, not inferred from the corpus. The
+same paragraph ties the 2026-09-25/10-01 array experiment to this reasoning, so the layer
+question has been answered once in this file already; what is left is applying the answer to the
+`contains`.
+
+The type hierarchy says it too, independently: `schema:variableMeasured` is declared in
 `geochemProduct` as extending `cdifInstanceVariable` — an **instance** variable. A method
-definition or a detail block can only *define* which fields might appear, the data-structure
-components. Only an actual data instance can assert the physical mapping: which columns exist, in
-what order, of what type. So requiring a variable named `Sampling Unit Name` on a record whose
-data is an image stack asks that record to assert an instance-level fact about a table it does not
-have. The row's own Notes say the same thing — "the units themselves exist only in the data".
+definition or detail block can only *define* which fields might appear; only an actual data
+instance can assert which columns exist. And the row's own Notes agree — "the units themselves
+exist only in the data".
 
 **What the corpus shows**, measured by the ADA metadata forms session over all 7,447 records
 (1,682 of which would gain a technique profile once content-based detection is switched on):
