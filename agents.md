@@ -30,7 +30,7 @@ _sources/
     parameterValues/           registered BB (isTypeLibrary): PropertyValue $defs, 1185
     vocab/                     catalog: DefinedTermSet files (by @id, not $ref), 451
   techniqueProfile/          91 technique dirs under two roots
-    geochemProfile/          the 59 TAPP-aware techniques
+    geochemProfile/          the 61 TAPP-aware techniques
       <TECH>/tapp/           TAPP definition                                        (59)
       <TECH>/detail/         per-dataset analysis detail                            (59)
       <TECH>/profile/        path-driven profile: geochemProduct + detail + TAPP linkage (29,
@@ -45,7 +45,9 @@ docs/                        TAPP workbooks, schema-path sidecars, and the pipel
 .github/workflows/           CI: OGC postprocess, viewer deployment
 ```
 
-**Directory names are not profile names.** `EPMA/profile-ada` publishes `adaEPMA`, `SEM/profile` publishes `adaSEMFull`, `XCT/profile` publishes `adaLabXCT`. The canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside each schema — resolve it from there, never from the path.
+**Directory names are not profile names.** `XCT/profile` publishes `adaLabXCT`, `SEM/profile-ada` publishes `adaSEMFull`, `EPMA/profile-ada` publishes `adaEPMAFull`. The canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside each schema — resolve it from there, never from the path.
+
+The convention is `ada<TECH>` for a TAPP `profile/` and `ada<TECH>Full` for its legacy `profile-ada/` twin, so the two generations never share a URI. This paragraph claimed `SEM/profile` published `adaSEMFull` until 2026-10-18 — the reverse of the truth since the SEM rename in #149 — and `EPMA/profile-ada` did publish the bare `adaEPMA` until #157 split it. A cid shared by two blocks is a fork whose winner is read order, and it also breaks conformance detection: `build_conformance_sidecars` emits one sidecar per distinct cid, so it keeps one block and discards the other's `ada:componentType` vocabulary with it. That cost 257 TEM records their technique profile.
 
 **Detail blocks are not uniformly placed**, and placement does **not** track whether the technique is path-driven — SEM-FIBSEM and SEM-Imaging have path-driven profiles but hasPart-item details. Of the 30 (recounted 2026-09-05; the earlier 7/18 split predates the LA-* and Solution-* additions):
 
@@ -224,7 +226,7 @@ and provisional; the library's modules are Ruolin's to author (see
 | `augment_register.py` | Add `resolvedSchema` URLs to `build/register.json`. Uses the `ogch.` identifier prefix. Run during CI before viewer deployment. |
 | `generate_custom_report.py` | Generate HTML validation report with granular SHACL severity breakdown from OGC postprocess `report.json`. |
 | `cors_server.py` | Local HTTP server with CORS headers for testing the viewer. Default port 8090. |
-| `build_html_views.py` | Render human-readable pages into `build/htmlViews/`: a **dataset record** page per product-profile instance and a **TAPP definition** page per protocol, linked by the record's own `prov:used` TAPP reference. Keyed values render as a grid (rows = the members the `defines:` row declares, columns = the properties keyed to that set). `--source examples` reads the 97 schema examples; `--source ada2` reads `public.json_table` via `ADA_NAME`/`DB_2024_USER`/`DB_2024_PASSWORD`/`DB_2024_HOST`/`DB_2024_PORT` (**not** `PGSERVICEFILE`/`.pgpass`). Also `--all`, `--doi`, `--limit`, `--no-tapp-pages`. |
+| `build_html_views.py` | Render human-readable pages into `build/htmlViews/`: a **dataset record** page per product-profile instance and a **TAPP definition** page per protocol, linked by the record's own `prov:used` TAPP reference. Keyed values render as a grid (rows = the members the `defines:` row declares, columns = the properties keyed to that set). `--source examples` reads the 648 committed examples; `--source ada2` reads `public.json_table` via `ADA_NAME`/`DB_2024_USER`/`DB_2024_PASSWORD`/`DB_2024_HOST`/`DB_2024_PORT` (**not** `PGSERVICEFILE`/`.pgpass`). Also `--all`, `--doi`, `--limit`, `--no-tapp-pages`. |
 
 ### Tool provenance
 
