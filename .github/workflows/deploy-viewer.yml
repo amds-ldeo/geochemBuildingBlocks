@@ -26,9 +26,26 @@ permissions:
   pages: write
   id-token: write
 
+# cancel-in-progress is FALSE, and that is load-bearing rather than a preference.
+#
+# On the one commit per cycle that matters -- the build PR's merge -- BOTH triggers above fire,
+# seconds apart, and they share this group. The `push` run passes the job's `if` and would
+# deploy; the `workflow_run` run arrives next with conclusion 'skipped' (the loop-breaker in
+# process-bblocks.yml skipped the postprocess for that commit, by design) so ITS job is skipped.
+# With cancel-in-progress true the later run therefore CANCELLED the real deploy on its way to
+# doing nothing, and Pages sat one commit behind -- carrying the build/ tree, which is the only
+# thing this workflow publishes.
+#
+# Both runs conclude non-red -- one 'cancelled', one 'skipped' -- so no check anywhere goes red
+# and nothing reports the failure. Observed on 4c2f5307fc (#151) and again on 65b1b8de9f (#155),
+# and it is deterministic, not flaky: an ordinary merge deploys fine (345b7db345 did) because
+# only a build-PR merge fires both triggers at once.
+#
+# False is also what GitHub's own Pages workflow template uses, for the related reason that a
+# half-finished Pages deployment should not be interrupted.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy-viewer:
