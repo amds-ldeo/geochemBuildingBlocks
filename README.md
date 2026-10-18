@@ -14,10 +14,10 @@ The scheme involves three components:
 
 `_sources/` has three top-level areas: the shared base schemas, the shared registries, and one directory per analytical technique.
 
-> **Most of `_sources/` is generated, despite the name.** Of its 242 `schema.yaml`, about 169 are
+> **Most of `_sources/` is generated, despite the name.** Of its 251 `schema.yaml`, about 178 are
 > written by a generator — the `tapp/`, `detail/` and `profile/` schemas from the TAPP tables and
-> sidecars, the composition modules, the shared registries — along with all 242
-> `resolvedSchema.json`, all 242 `<name>Schema.json`, and the generated examples. What you edit
+> sidecars, the composition modules, the shared registries — along with all 251
+> `resolvedSchema.json`, all 251 `<name>Schema.json`, and the generated examples. What you edit
 > directly is `BaseSchema/*` and the `adaProfile/` profiles. Editing a generated file instead of
 > its generator is the most common way to lose work here; `CLAUDE.md` has the per-directory table
 > of what writes what.
@@ -43,11 +43,11 @@ _sources/
     vocab/                     catalog: schema:DefinedTermSet files,
                                by @id not $ref                                   (451)
   techniqueProfile/     one directory per technique (91), under two roots:
-    geochemProfile/     the 59 TAPP-aware techniques
-      <TECH>/tapp/      the TAPP definition for that technique      (59 techniques)
-      <TECH>/detail/    per-dataset analysis-instance detail        (59 techniques)
+    geochemProfile/     the 61 TAPP-aware techniques
+      <TECH>/tapp/      the TAPP definition for that technique      (61 techniques)
+      <TECH>/detail/    per-dataset analysis-instance detail        (61 techniques)
       <TECH>/profile/   path-driven product profile: geochemProduct +
-                        detail + TAPP linkage                        (29 techniques)
+                        detail + TAPP linkage                        (34 techniques)
       <TECH>/profile-ada/ generic product profile, written by the
                         TAPP tooling                                  (9 techniques)
     adaProfile/         the other 32 techniques, untouched by the TAPP work
@@ -56,7 +56,7 @@ _sources/
       <TECH>/detail/    instrument-detail stub                       (14 techniques)
 ```
 
-**Profile directory names are not profile names.** `EPMA/profile-ada` publishes `adaEPMA`; `SEM/profile` publishes `adaSEMFull`. A profile's canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside its own schema — read it from there rather than inferring from the path.
+**Profile directory names are not profile names.** `XCT/profile` publishes `adaLabXCT`; `SEM/profile-ada` publishes `adaSEMFull`. A profile's canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside its own schema — read it from there rather than inferring from the path. The convention for the nine `geochemProfile` techniques with both generations is `ada<TECH>` for the TAPP `profile/` and `ada<TECH>Full` for the legacy `profile-ada/`; this file said the reverse for SEM until 2026-10-18.
 
 ### BaseSchema
 
@@ -88,7 +88,7 @@ The catalogs are **shared dictionary resources** — multiple TAPPs `$ref` the s
 
 ### techniqueProfile/geochemProfile/&lt;TECH&gt;
 
-All 59 techniques under `geochemProfile/` have a `tapp/` and a `detail/`. 29 of them also publish a path-driven `profile/` — the set registered in `build_profile.PROFILES`.
+All 61 techniques under `geochemProfile/` have a `tapp/` and a `detail/`. 34 of them also publish a path-driven `profile/` — the set registered in `build_profile.PROFILES`. A technique with no `PROFILES` entry gets no `profile/` regenerated and, until 2026-10-18, no conformance sidecar either: `build_conformance_sidecars` keyed its TAPP lookup off `PROFILES` rather than `build_tapp.TECH_DIR`, so XCT could not reach its own componentTypes.
 
 - **`tapp/`** — the protocol definition. Extends `tappDefinition` via `allOf` with technique-specific top-level `ada:` properties, `schema:additionalProperty[]` entries, and `ada:targetSpeciesTemplate.ada:targetSpeciesColumns` constraints referencing the registry catalogs.
 - **`detail/`** — the per-dataset analysis instance. **Placement is not uniform, and does not track whether the technique is path-driven.** Seven overlay the `schema:Dataset` **root** (analyst contributor, session dates, sample, funding, per-analysis parameter values): Basemap, EPMA, Geochron, SEM, SEM-Composition, Solution-Q-ICPMS, Solution-SF-ICPMS. The other eighteen pin `ada:componentType` and overlay a `schema:distribution.hasPart` item: ARGT, DSC, EAIRMS, ICPOES, L2MS, LA-ICPMS, LAF, NanoIR, NanoSIMS, PSFD, QRIS, SEM-FIBSEM, SEM-Imaging, SLS, TEM, VNMIR, XCT, XRD. Consumers cannot assume one placement.
@@ -241,7 +241,7 @@ Keyed values render as a **grid**: one row per member of the keyset the `defines
 (each target species, each monitored property), one column per property keyed to that set.
 
 ```
-python tools/build_html_views.py --source examples --all      # the 97 schema examples
+python tools/build_html_views.py --source examples --all      # the 648 committed examples
 python tools/build_html_views.py --source ada2 --limit 50     # real ADA holdings, public.json_table
 python tools/build_html_views.py --source ada2 --doi <doi>    # one record
 python tools/build_html_views.py --all --no-tapp-pages
