@@ -472,6 +472,9 @@ and technique component types on the archive distribution. Mock data for validat
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaSEMImaging"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEM"
       }
     ],
     "schema:maintainer": {
@@ -978,6 +981,9 @@ and technique component types on the archive distribution. Mock data for validat
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaSEMImaging"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEM"
       }
     ],
     "schema:maintainer": {
@@ -1163,6 +1169,7 @@ ex:adaProduct-metadata-001 a schema1:Dataset ;
         <https://w3id.org/cdif/manifest/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
+        <https://w3id.org/geochem/metadata/profiles/adaSEM>,
         <https://w3id.org/geochem/metadata/profiles/adaSEMImaging>,
         <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
     schema1:about ex:adaProduct-example-001 ;
