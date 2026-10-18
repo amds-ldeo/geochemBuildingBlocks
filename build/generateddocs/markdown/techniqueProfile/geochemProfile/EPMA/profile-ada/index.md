@@ -56,13 +56,13 @@ validation and testing.
     "ex": "https://example.org/",
     "dcat": "http://www.w3.org/ns/dcat#"
   },
-  "@id": "ex:adaEPMA-example-001",
+  "@id": "ex:adaEPMAFull-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
   ],
   "schema:name": "EPMA Analysis of Meteorite ALH 84001 Fragment",
-  "schema:description": "Example Electron Microprobe Analysis (EPMA) product metadata demonstrating properties defined by the adaEPMA profile. Mock data for testing and validation.",
+  "schema:description": "Example Electron Microprobe Analysis (EPMA) product metadata demonstrating properties defined by the adaEPMAFull profile. Mock data for testing and validation.",
   "schema:additionalType": [
     "Electron Microprobe Analysis (EPMA)",
     {
@@ -436,7 +436,7 @@ validation and testing.
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaEPMA"
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaEPMAFull"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -500,13 +500,13 @@ validation and testing.
       "dcat": "http://www.w3.org/ns/dcat#"
     }
   ],
-  "@id": "ex:adaEPMA-example-001",
+  "@id": "ex:adaEPMAFull-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
   ],
   "schema:name": "EPMA Analysis of Meteorite ALH 84001 Fragment",
-  "schema:description": "Example Electron Microprobe Analysis (EPMA) product metadata demonstrating properties defined by the adaEPMA profile. Mock data for testing and validation.",
+  "schema:description": "Example Electron Microprobe Analysis (EPMA) product metadata demonstrating properties defined by the adaEPMAFull profile. Mock data for testing and validation.",
   "schema:additionalType": [
     "Electron Microprobe Analysis (EPMA)",
     {
@@ -880,7 +880,7 @@ validation and testing.
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaEPMA"
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaEPMAFull"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -930,7 +930,7 @@ validation and testing.
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:adaEPMA-example-001 a schema1:Dataset,
+ex:adaEPMAFull-example-001 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalType ada:DataDeliveryPackage,
         "Electron Microprobe Analysis (EPMA)" ;
@@ -957,7 +957,7 @@ ex:adaEPMA-example-001 a schema1:Dataset,
                 schema1:identifier "https://orcid.org/0000-0002-9876-5432" ;
                 schema1:name "Researcher, John Q." ] ) ;
     schema1:dateModified "2026-01-15" ;
-    schema1:description "Example Electron Microprobe Analysis (EPMA) product metadata demonstrating properties defined by the adaEPMA profile. Mock data for testing and validation." ;
+    schema1:description "Example Electron Microprobe Analysis (EPMA) product metadata demonstrating properties defined by the adaEPMAFull profile. Mock data for testing and validation." ;
     schema1:distribution [ a schema1:DataDownload ;
             schema1:contentUrl "https://astromat.org/downloads/adaicpms-example-001.zip" ;
             schema1:description "Archive containing ICPMS data files and supplementary materials" ;
@@ -1055,7 +1055,7 @@ ex:adaICPMS-metadata-001 a schema1:Dataset ;
         <https://w3id.org/cdif/discovery/1.1>,
         <https://w3id.org/cdif/manifest/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
-        <https://w3id.org/geochem/metadata/profiles/adaEPMA>,
+        <https://w3id.org/geochem/metadata/profiles/adaEPMAFull>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
         <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
     schema1:about ex:adaICPMS-example-001 ;
@@ -1127,8 +1127,8 @@ allOf:
         - Electron microprobe analysis
       x-jsonld-id: http://schema.org/additionalType
     schema:distribution:
-      description: Distribution items for adaEPMA. Archive hasPart items must have
-        ada:componentType from technique-specific or universal values.
+      description: Distribution items for adaEPMAFull. Archive hasPart items must
+        have ada:componentType from technique-specific or universal values.
       type: array
       items:
         type: object
@@ -1162,7 +1162,7 @@ allOf:
             additionalProperties: false
             properties:
               '@id':
-                const: https://w3id.org/geochem/metadata/profiles/adaEPMA
+                const: https://w3id.org/geochem/metadata/profiles/adaEPMAFull
           x-jsonld-id: http://purl.org/dc/terms/conformsTo
       x-jsonld-id: http://schema.org/subjectOf
 x-jsonld-prefixes:
