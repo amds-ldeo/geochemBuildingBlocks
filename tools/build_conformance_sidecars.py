@@ -190,11 +190,38 @@ def requires_from_allof(doc):
 
 
 def inline_component_enums(node, out):
-    """componentType values stated inline in this schema -- the legacy blocks' only source."""
+    """componentType values stated inline in this schema -- the legacy blocks' only source.
+
+    THREE shapes pin ada:componentType in this repository and all three must be read. Until
+    2026-10-17 this read two of them, and the omission was invisible because a sidecar whose
+    presence ASK is too NARROW still validates, still regenerates byte-identically, and still
+    reports a plausible componentType list -- it simply fails to match records.
+
+      enum: [a, b]              a profile's hasPart branch
+      anyOf: [{const: a}, ...]  a detail block pinning several
+      const: a                  a detail block pinning exactly ONE   <-- was dropped
+
+    The bare const is the detail blocks' idiom when a block describes one component kind, and 8
+    schemas use it: ARGT, DSC, EAIRMS, L2MS, NanoIR, PSFD and XRD under adaProfile/*/detail/,
+    plus geochemProfile/XCT/detail-legacy/. Dropping it had two consequences worth recording,
+    because both were reported as facts about the CORPUS before being traced to this function.
+
+    PSFD was reported as "a profile that describes no distinguishing content" and skipped. It
+    carries ada:PSFDTabular and produces a sidecar; the skip was this bug. Any count of
+    "blocks with no discriminator" taken before this fix is an artefact.
+
+    And the four legacy enum widenings in #149 -- ARGTDocument, DSCHeatTabular, NanoIRBackground,
+    EAIRMSCollection added by hand to four profile schemas -- were unnecessary. Every one of those
+    terms was ALREADY declared in the sibling detail block, ARGT's since 2026-08-14. The widenings
+    were a symptom fix for this defect and are left in place only because a profile enum stating
+    what it covers is independently correct.
+    """
     if isinstance(node, dict):
         ct = node.get("properties", {}).get("ada:componentType")
         if isinstance(ct, dict):
             out.update(v for v in (ct.get("enum") or []) if isinstance(v, str))
+            if isinstance(ct.get("const"), str):
+                out.add(ct["const"])
             for b in ct.get("anyOf") or []:
                 if isinstance(b, dict) and isinstance(b.get("const"), str):
                     out.add(b["const"])
@@ -247,8 +274,21 @@ def main():
         return 2
 
     universal = universal_component_types()
-    tapp_for_dir = {v["dir"]: t for t, v in getattr(build_profile, "PROFILES", {}).items()
-                    if v.get("dir")}
+    # build_tapp.TECH_DIR is the FULL technique-directory map (61 entries); build_profile.PROFILES
+    # holds only the 34 techniques that have a generated `profile/` block. Keying off PROFILES
+    # alone meant a technique with a TAPP but no PROFILES entry could not reach its own
+    # TAPP_CONFIGS componentTypes -- XCT is exactly that case (a known gap: it has a profile/
+    # directory and no PROFILES entry, so regenerate.py skips its profile stages). Its records
+    # carry ada:XCTVolume, which IS in TAPP_CONFIGS[labxctTAPP], yet both XCT blocks were skipped
+    # as having "no discriminating componentType".
+    #
+    # That skip category was always an artefact of this and of the two shape bugs above: with all
+    # three fixed, every profile block yields a sidecar and the count is ZERO. Any earlier figure
+    # for "profiles that describe no distinguishing content" measured the generator, not the
+    # profiles. PROFILES is layered on top so an explicit entry still wins.
+    tapp_for_dir = {v: t for t, v in getattr(build_tapp, "TECH_DIR", {}).items()}
+    tapp_for_dir.update({v["dir"]: t for t, v in getattr(build_profile, "PROFILES", {}).items()
+                         if v.get("dir")})
 
     # --- collect every candidate block -----------------------------------------------------
     blocks = []                                   # (dir, relpath, kind)
@@ -279,9 +319,20 @@ def main():
             if tapp:
                 comps = set(build_tapp.TAPP_CONFIGS.get(tapp, {}).get("component_types") or [])
                 source = "TAPP_CONFIGS[%s]" % tapp
-            if not comps:
-                inline_component_enums(doc, comps)
-                source = "inline enums"
+            # UNION with the inline enum, not a fall-through -- for the same reason the detail
+            # read below is a union, which this line failed to follow until 2026-10-17.
+            #
+            # tapp_for_dir is keyed by the technique DIRECTORY, so BOTH SEM/profile and
+            # SEM/profile-ada resolve to semTAPP. Taking the TAPP vocabulary and then skipping the
+            # inline read because `comps` was non-empty gave the LEGACY block the CURRENT
+            # generation's componentTypes and dropped its own. For adaSEMFull the two sets were
+            # entirely DISJOINT -- 6 TAPP names against the 14 ADA names its schema declares -- so
+            # its presence ASK could not match any of the 2,912 records that cite it. Reported by
+            # the metadata forms session, which measured the overlap before wiring detection in.
+            before_inline = len(comps)
+            inline_component_enums(doc, comps)
+            if len(comps) > before_inline:
+                source = "inline enums" if not before_inline else (source + " + inline")
             # UNION with the detail block, not a fall-through. NanoSIMS shows why: its inline
             # enum names NanoSIMSImage, which ZERO records carry, while its detail block pins the
             # three types all 38 records actually use. Falling through only when inline is empty
