@@ -249,6 +249,49 @@ PROFILES = {
 
 CID_BASE = "https://w3id.org/geochem/metadata/profiles/"
 
+#: Profiles that mean "any <technique>" and so form a family with their directory-prefixed
+#: siblings. CANONICAL HERE because two consumers need it and a second copy would drift:
+#: build_conformance_sidecars imports it to build the umbrella's union presence and to mark its
+#: members, and family_companion() below uses it to decide what a generated example declares.
+#:
+#: Membership is the directory convention, but the convention ALONE is too loose and declaring
+#: the umbrella explicitly is what makes it safe. `LA-MC-ICPMS-UPb` is prefixed by
+#: `LA-MC-ICPMS-`, so an unguarded prefix rule made the three U-Pb geochronology profiles
+#: "members" of their general-purpose counterparts and would have had them declare a conformance
+#: nobody claimed. They are distinct TAPPs, not specialisations.
+UMBRELLA_CIDS = {"adaSEM"}       # mirrors schema_registry.UMBRELLA_PROFILES
+
+
+def family_companion(cfg, component_types):
+    """The other cid a generated example must declare when it belongs to an umbrella family.
+
+    An umbrella profile means "any <technique>" -- adaSEM covers the whole SEM family -- so
+    stage-2 detection declares BOTH the umbrella and whichever member matched. An example
+    declaring only one of the pair therefore disagrees with correct detection, and the fix is to
+    declare both: ADD, never replace, because each block pins its own cid in a
+    `contains: {const: ...}` and replacing the pinned one makes the example fail its own schema.
+
+    Membership is the directory convention: SEM-Imaging, SEM-Composition, SEM-CL and SEM-FIBSEM
+    are the `SEM-` prefixed siblings of SEM.
+
+    An umbrella has no componentType of its OWN once its presence is the union of the family, so
+    its example always matches some member too -- that is inherent to being a superset, not a
+    defect. Which member is read from the example's own head componentType.
+    """
+    d = cfg.get("dir") or ""
+    for other in PROFILES.values():
+        od = other.get("dir") or ""
+        if od and d.startswith(od + "-") and other["cid"] in UMBRELLA_CIDS:
+            return other["cid"]                      # member -> its umbrella
+    if component_types:
+        import build_tapp
+        for t, other in sorted(PROFILES.items()):
+            od = other.get("dir") or ""
+            if od.startswith(d + "-") and component_types[0] in (
+                    build_tapp.TAPP_CONFIGS.get(t, {}).get("component_types") or []):
+                return other["cid"]                  # umbrella -> the member its example matches
+    return None
+
 
 def _schema(tapp, cfg):
     return {
@@ -410,7 +453,11 @@ def _example(tapp, cfg, component_types):
                                     and not x.get("@id", "").endswith(("/adaProduct", "/geochemProduct")))]
         # geochemProfile profiles are based on geochemProduct: the record must declare that base
         # profile (the generic scaffold only declares adaProduct).
-        for pid in (CID_BASE + "geochemProduct", CID_BASE + cfg["cid"]):
+        companion = family_companion(cfg, component_types)
+        wanted = [CID_BASE + "geochemProduct", CID_BASE + cfg["cid"]]
+        if companion:
+            wanted.append(CID_BASE + companion)
+        for pid in wanted:
             if not any(isinstance(x, dict) and x.get("@id") == pid for x in ct):
                 ct.append({"@id": pid})
         so["dcterms:conformsTo"] = ct
