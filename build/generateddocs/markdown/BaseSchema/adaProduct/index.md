@@ -434,6 +434,9 @@ Mock data for validation and testing.
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaEPMA"
       }
     ],
     "schema:maintainer": {
@@ -872,6 +875,9 @@ Mock data for validation and testing.
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaEPMA"
       }
     ],
     "schema:maintainer": {
@@ -1030,6 +1036,7 @@ ex:adaProduct-metadata-001 a schema1:Dataset ;
         <https://w3id.org/cdif/discovery/1.1>,
         <https://w3id.org/cdif/manifest/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
+        <https://w3id.org/geochem/metadata/profiles/adaEPMA>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
         <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
     schema1:about ex:adaProduct-example-001 ;

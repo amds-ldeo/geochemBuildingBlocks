@@ -472,6 +472,9 @@ and technique component types on the archive distribution. Mock data for validat
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaSEMImaging"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEM"
       }
     ],
     "schema:maintainer": {
@@ -978,6 +981,9 @@ and technique component types on the archive distribution. Mock data for validat
       },
       {
         "@id": "https://w3id.org/geochem/metadata/profiles/adaSEMImaging"
+      },
+      {
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEM"
       }
     ],
     "schema:maintainer": {
@@ -1104,10 +1110,10 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ] ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ],
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value 1e+00 ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1163,6 +1169,7 @@ ex:adaProduct-metadata-001 a schema1:Dataset ;
         <https://w3id.org/cdif/manifest/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
+        <https://w3id.org/geochem/metadata/profiles/adaSEM>,
         <https://w3id.org/geochem/metadata/profiles/adaSEMImaging>,
         <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
     schema1:about ex:adaProduct-example-001 ;
