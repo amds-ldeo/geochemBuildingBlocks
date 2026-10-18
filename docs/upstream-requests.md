@@ -4,7 +4,14 @@
 
 Things the schema-generation work has found that can only be fixed upstream, in the tables and modules Ruolin authors. SMR imports those read-only ([.github/CODEOWNERS](../.github/CODEOWNERS)), so I don't want to change in my github unless you give me the go ahead....
 
-Ordered by how much work each one saves. Every number is measured against the 2026-08-13 delivery and reproducible with the tool named beside it.  I copies teh 8-13 drop from the google drive. 
+Ordered by how much work each one saves, and each number is reproducible with the tool named beside it.
+
+**Which delivery each section was measured against**, because they differ and the older numbers
+were never re-run: §1, §2 and §3 were measured against the **2026-08-13** drop (copied from Google
+Drive at the time) and §1 and §2 are both marked DELIVERED since. §4 was measured on
+**2026-10-18** against the `tapp/` submodule as pinned, whose `composed_tapps.json` is generated
+**2026-10-01** and lists 16 composed TAPPs. Where a §1–§3 count is restated below it is labelled as
+historical rather than silently refreshed.
 
 ---
 
@@ -144,8 +151,14 @@ shared module may interact with Rule 7 in ways you will see and I will not.
 
 ## 3. `Error Correlation Between Reported Quantities` belongs to no module
 
-It appears in the UPb tables and in none of the eight modules — the only UPb-specific field with no
-module home. Should it join `Module_UPb` or `Module_Geochronology`?
+Still open, re-measured 2026-10-18. It appears in **four** technique tables —
+`LA-MC-ICPMS_UPb`, `LA-Q-ICP-MS_UPb`, `LA-SF-ICP-MS_UPb` and **`Solution_MC-ICP-MS`** — and in
+none of the module sidecars. So it is no longer UPb-specific, which the original wording assumed,
+and the module count has moved: the manifest now composes **15** modules (16 exist; `ReportingCore`
+is composed by nothing), not the eight this section was written against.
+
+Should it join `Module_UPb` or `Module_Geochronology` — or, given the Solution MC-ICP-MS
+appearance, somewhere less geochronology-specific?
 
 ---
 
@@ -263,14 +276,22 @@ block, whose `applies_when` reads:
 > "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always
 > composed together."
 
-So the field is declared universal upstream. `ReportingCore` shows the alternative working already
-(`docs/REPORTINGCORE_BLOCKS.md`): a module marks itself `conditional`, declares blocks, and each
-TAPP's entry in `composed_tapps.json` names the blocks it takes. `build_module_bb` and
-`module_composition` both read that, so **nothing in our generators needs changing** — only the
-declaration.
+So the field is declared universal upstream. The alternative is already **supported**, though not currently
+exercised: a module marks itself `conditional` and declares blocks, and a TAPP's entry in
+`composed_tapps.json` names the blocks it takes. `build_module_bb.module_blocks()` and
+`module_composition._blocks()` both read that, so **nothing in our generators needs changing** —
+only the declaration.
+
+Stated carefully, because an earlier draft of this section overstated it: `Module_ReportingCore`
+is the module that declares blocks, and in the current manifest (`composed_tapps.json`, generated
+2026-10-01) **`ReportingCore` is composed by no TAPP at all**, and **no entry uses a `blocks`
+selection**. So the mechanism is implemented and documented
+(`docs/REPORTINGCORE_BLOCKS.md` — whose per-TAPP selection table describes an earlier manifest and
+is itself stale) rather than in live use. That makes this an ask to use a supported feature, not
+to copy a working neighbour.
 
 **The ask:** separate `Sampling Unit Name` from the universal `samples` block and let a TAPP select
-it, the way Lab-XCT already selects `target_selection, calibration_factor` from `ReportingCore`.
+it — the shape `Module_ReportingCore` already declares for its own five blocks.
 
 **Measured, so the selection does not have to be guessed.** Distinguishing the two uses of the key
 in our sidecars:
@@ -326,8 +347,10 @@ false reasoning that an image stack is not an instrument session.
 
 
 **composed_tapps.json `tapp` paths do not match the delivery layout.** The manifest records per-technique paths such
-as `EPMA/EPMA_TAPP_v60.csv`, while the delivery puts every table in a flat `Current TAPPs/` folder —
-so **0 of 16 entries resolve** as written. We now resolve by filename instead. Either the manifest
+as `EPMA/EPMA_TAPP_v88.csv`, while the delivery puts every table in a flat `Current TAPPs/` folder —
+so **0 of 16 entries resolve** as written, while **16 of 16 resolve by basename**. We resolve by
+filename instead. (Re-measured 2026-10-18: still 0 of 16; only the version in the example has
+moved, v60 → v88.) Either the manifest
 or the layout should move, since a consumer following the manifest literally finds nothing.
 
 > **Half of this is now fixed.** The *version* drift — six entries naming superseded files, filed as
