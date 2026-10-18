@@ -96,7 +96,23 @@ CDIF_MODULE = {
 }
 
 CID_RE = re.compile(re.escape(GEOCHEM_BASE) + r"([A-Za-z0-9_-]+)")
-UMBRELLA = {"adaSEM"}            # mirrors schema_registry.UMBRELLA_PROFILES
+def _umbrella_cids():
+    """Canonical in build_profile, which owns PROFILES; imported so the two cannot drift.
+
+    This generator and build_profile must agree on what a family IS -- one builds the umbrella's
+    union presence and marks its members, the other decides what a generated example declares --
+    and a second hand-maintained copy here would be one edit away from an example declaring a
+    conformance the sidecar does not grant, or the reverse.
+    """
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import build_profile
+        return set(build_profile.UMBRELLA_CIDS)
+    except (ImportError, AttributeError):
+        return {"adaSEM"}
+
+
+UMBRELLA = _umbrella_cids()      # mirrors schema_registry.UMBRELLA_PROFILES
 # "The most specific (highest priority) wins" -- so an UMBRELLA, being the LEAST specific member
 # of its family, ranks BELOW the specific profiles, not above. Set the other way round (20) it
 # beat its own members: adaSEM shares BSEImage/EBSDMap/SEMEDSMap/SEMEDSSpectrum with
@@ -111,6 +127,26 @@ UMBRELLA = {"adaSEM"}            # mirrors schema_registry.UMBRELLA_PROFILES
 #   TAPP    15  the TAPP half of a forked pair, which supersedes its legacy twin
 PRIORITY_LEGACY, PRIORITY_UMBRELLA, PRIORITY_MEMBER, PRIORITY_TAPP = 3, 5, 10, 15
 GROUP = "geochem-technique"
+
+
+def member_group(umbrella_dir):
+    """The exclusiveGroup a family's MEMBERS share, which is NOT the umbrella's own group.
+
+    An exclusiveGroup means "exactly one of these", so an umbrella and its members cannot sit in
+    one group and both be declared -- whichever ranks higher silently supersedes the other, and
+    which one that is depends only on the priorities. Measured on adaSEM/adaSEMImaging against
+    the live engine:
+
+        shared group, member requires nothing      -> adaSEMImaging only   (umbrella lost)
+        shared group, member requires the umbrella -> adaSEM only          (member lost)
+        SEPARATE groups, member requires umbrella  -> BOTH                 (correct)
+
+    The middle row is the trap: it looks like a fix and is merely a different single winner.
+    `requires` expresses implication, which is what relates a member to its umbrella; the group
+    expresses mutual exclusion, which relates members to EACH OTHER. They are different
+    relations and need different mechanisms.
+    """
+    return "%s-%s-member" % (GROUP, umbrella_dir.lower())
 
 #: Forked TECHNIQUE pairs: one technique with two generations under different cids, the TAPP
 #: `profile/` and its legacy `profile-ada/` twin. Both match the same componentTypes, so at equal
@@ -361,6 +397,43 @@ def main():
                          comps=sorted(comps - universal), source=source,
                          requires=requires_from_allof(doc)))
 
+    # --- make each UMBRELLA a real superset of its family -----------------------------------
+    # An umbrella cid is only meaningful if conforming to a member IMPLIES conforming to it. That
+    # was ASSUMED and was false: measured 2026-10-17, adaSEM's own 6 componentTypes supersetted
+    # none of its four members -- adaSEMImaging carries CLImage and CLSpectrum outside it,
+    # adaSEMComposition carries SEMCompositionTabular and SEMWDSSpectrum, and adaSEMFIBSEM shares
+    # nothing with it at all. Emitting `requires: [adaSEM]` on that footing would have declared
+    # the umbrella for records failing its own presence test -- asserting conformance never
+    # established, which is worse than the missing declaration it set out to fix.
+    #
+    # So the union is what MAKES the implication true rather than assuming it. Steve's call
+    # (2026-10-17): adaSEM means "any SEM".
+    #
+    # Membership is the directory convention -- SEM-Imaging, SEM-Composition, SEM-CL and
+    # SEM-FIBSEM are the `SEM-` prefixed siblings of SEM. The legacy profile-ada twin is NOT a
+    # member: it is the same technique's previous generation, already ranked below by
+    # PRIORITY_LEGACY, and folding its ADA-named types into the umbrella would move the 2,912
+    # records citing adaSEMFull onto adaSEM.
+    by_dir = {}
+    for r in recs:
+        if r["kind"] == "technique" and r["rel"].endswith("/profile"):
+            by_dir.setdefault(r["rel"].split("/")[2], r)
+    umbrella_members = {}
+    for r in recs:
+        if r["cid"] not in UMBRELLA or not r["rel"].endswith("/profile"):
+            continue
+        u_dir = r["rel"].split("/")[2]
+        members = [m for d, m in sorted(by_dir.items()) if d.startswith(u_dir + "-")]
+        if not members:
+            continue
+        umbrella_members[r["cid"]] = {m["cid"] for m in members}
+        union = set(r["comps"]).union(*(set(m["comps"]) for m in members))
+        gained = sorted(union - set(r["comps"]))
+        r["comps"] = sorted(union)
+        print("  UNION %-18s += %d type(s) from %d member(s): %s"
+              % (r["cid"], len(gained), len(members),
+                 ", ".join(x.replace("ada:", "") for x in gained) or "-"))
+
     # --- one sidecar per DISTINCT conformsTo -----------------------------------------------
     # A forked cid (a TAPP profile/ and its legacy profile-ada/ twin both declaring it) must not
     # yield two classes with the same URI: the engine would see one class twice. The TAPP-based
@@ -388,12 +461,22 @@ def main():
                 print("  SKIP  %-56s no discriminating componentType (%s)"
                       % (r["rel"], r["source"] or "no source"))
                 continue
+            # A member of an umbrella family IMPLIES its umbrella (sound only because the union
+            # above makes the umbrella a real superset) and is mutually exclusive with its
+            # SIBLINGS, not with the umbrella -- so it takes the family's own group. See
+            # member_group() for the three measured outcomes behind that split.
+            umb = next((u for u, members in umbrella_members.items() if cid in members), None)
+            requires = [GEOCHEM_BASE + "adaProduct"]
+            group = GROUP
+            if umb:
+                requires.append(GEOCHEM_BASE + umb)
+                group = member_group(umb.replace("ada", "", 1))
             sidecar = {
                 "conformsTo": GEOCHEM_BASE + cid,
                 "presence": build_component_presence_ask(r["comps"]),
                 "validityShapes": None,
-                "requires": [GEOCHEM_BASE + "adaProduct"],
-                "exclusiveGroup": GROUP,
+                "requires": requires,
+                "exclusiveGroup": group,
                 "priority": _priority(cid, r),
             }
         emitted += 1
