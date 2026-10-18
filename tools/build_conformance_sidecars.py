@@ -427,12 +427,36 @@ def main():
         if not members:
             continue
         umbrella_members[r["cid"]] = {m["cid"] for m in members}
-        union = set(r["comps"]).union(*(set(m["comps"]) for m in members))
+        # EXCLUDE anything the umbrella's own LEGACY TWIN already claims. The union exists to
+        # make "member implies umbrella" true; it must not hand the umbrella reach it does not
+        # natively have against a different GENERATION of the same technique.
+        #
+        # Without this the umbrella beat its legacy twin on an INHERITED type. adaSEM gained
+        # ada:SEMHRCLCube from adaSEMCL -- its own six TAPP types do not include it -- and since
+        # adaSEM (5) outranks adaSEMFull (3) in the shared group, the 5 ADA records carrying that
+        # type moved off adaSEMFull onto adaSEM + adaSEMCL. That is not a relabelling: adaSEM
+        # resolves 170 distinct required names against adaSEMFull's 122, 52 of them absent from
+        # the legacy profile altogether (ada:edsDeadTime and ada:mapDimensions among them, both
+        # already observed failing when stage 2 was allowed to declare TAPP profiles), so those
+        # records were being pointed at a schema they cannot satisfy.
+        #
+        # Exactly one of the ten types adaSEM absorbs is in this position, so the exclusion is as
+        # narrow as the defect. Reported by the metadata forms session, which measured the 5.
+        twin = next((t for t in recs
+                     if t["cid"] == r["cid"] + "Full" and t["rel"].endswith("/profile-ada")), None)
+        reserved = set(twin["comps"]) if twin else set()
+        union = set(r["comps"]).union(*(set(m["comps"]) for m in members)) - reserved
+        union |= set(r["comps"])                 # never drop the umbrella's OWN declarations
         gained = sorted(union - set(r["comps"]))
+        member_comps = set().union(*(set(m["comps"]) for m in members))
+        held = sorted((reserved & member_comps) - set(r["comps"]))
         r["comps"] = sorted(union)
         print("  UNION %-18s += %d type(s) from %d member(s): %s"
               % (r["cid"], len(gained), len(members),
                  ", ".join(x.replace("ada:", "") for x in gained) or "-"))
+        if held:
+            print("        left to %-11s %s"
+                  % (twin["cid"], ", ".join(x.replace("ada:", "") for x in held)))
 
     # --- one sidecar per DISTINCT conformsTo -----------------------------------------------
     # A forked cid (a TAPP profile/ and its legacy profile-ada/ twin both declaring it) must not
