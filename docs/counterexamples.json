@@ -230,6 +230,16 @@
       },
       "expect": "schema:distribution",
       "why": "A delivery has to say what KIND of files it carries, which is the claim adaProduct exists to make. Either shape satisfies it -- a monolithic distribution carrying ada:componentType itself, or a bundle carrying one on a schema:hasPart member -- because requiring only the hasPart form would foreclose the monolithic case the schema deliberately supports. This mutation empties hasPart while leaving the key present, which is precisely the shape of the 41 corpus records this requirement newly fails: a collection declaring no parts, distinct from a monolithic distribution and distinct again from an absent key (0 records). `expect` cannot name ada:componentType: a failing `contains` reports the whole array and its schema path stops at `contains`, the same message problem recorded for anyOf in CLAUDE.md. The instance path is what identifies the constraint here."
+    },
+    {
+      "id": "dataset-activity-leaf-still-required-when-present",
+      "example": "_sources/techniqueProfile/geochemProfile/CAPD/profile/exampleadaCAPD.json",
+      "mutate": {
+        "op": "remove",
+        "pointer": "/prov:wasGeneratedBy/0/schema:identifier"
+      },
+      "expect": "schema:identifier",
+      "why": "Pins the HALF of the 2026-10-18 ancestor relaxation that must still bite. The emitter no longer adds a $Dataset path's intermediate containers to `required` -- so a record with no prov:wasGeneratedBy at all is now accepted, which is the point: schema:actionProcess was being demanded of 725 ADA records that describe no procedure. Nothing in the suite could see the other half. The leaf requirement stays on the container's own schema, so it fires exactly when the container IS present, and losing that would turn the whole activity subtree optional with every check still green. Verified both ways on this example: removing the whole prov:wasGeneratedBy now yields 0 errors, while removing this one leaf inside the present container yields 1. If this case ever passes, the relaxation has gone too far."
     }
   ]
 }

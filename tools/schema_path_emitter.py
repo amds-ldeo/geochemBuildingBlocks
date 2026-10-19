@@ -342,7 +342,32 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 # while leaving the object that holds it optional says "if the analyst Role has a
                 # nested Person then that Person needs a name" — which an analyst Role carrying no
                 # Person at all satisfies vacuously.
-                if require:
+                #
+                # TRUE ON THE PROCEDURE SIDE, WRONG ON THE DATASET SIDE, and split here on
+                # 2026-10-18. A $MethodDefinition is an authored PLAN: it is written once,
+                # deliberately, and demanding that its structure exist is reasonable. A $Dataset
+                # record describes what actually happened to one dataset, and may legitimately
+                # lack a whole subtree.
+                #
+                # Unconditionally requiring the ancestors made every container on a Basic leaf's
+                # path mandatory on every conforming record. `schema:actionProcess` is the case
+                # that surfaced it: no sidecar row declares it, but 69 authored rows place leaves
+                # beneath `$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[…]`, so
+                # it became required on the activity of every record — and 725 ADA records that
+                # describe no procedure failed there. There are 24 such ancestor-only containers
+                # on the $Dataset side (prov:wasGeneratedBy, schema:additionalProperty,
+                # schema:object, prov:used, schema:instrument, schema:step, …).
+                #
+                # Dropping the ancestor from `required` does NOT drop the constraint. The leaf
+                # requirement stays on the container's own schema, so JSON Schema applies it
+                # exactly when the container is present: absent subtree, nothing fires; present
+                # subtree, its Basic leaves are still demanded. That is the behaviour the tier
+                # columns describe for a record.
+                #
+                # The illustration above is not a live row -- `schema:person` appears in 0 sidecar
+                # paths -- so nothing currently relies on the $Dataset half of it. The procedure
+                # half is untouched.
+                if require and parsed.root != "Dataset":
                     node.required.add(curie)
                 node = child
 
