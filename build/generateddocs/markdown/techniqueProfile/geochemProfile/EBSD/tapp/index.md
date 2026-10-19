@@ -399,20 +399,20 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ;
-                    ada:edsChannelsDefault "2024" ;
-                    ada:edsProcessTimeDefault "5" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:crystalStructureFileSourcesDefault "HKL; ICSD; American Mineralogist" ;
                     ada:houghResolutionDefault "60" ;
                     ada:maximumMeanAngularDeviation "1.2 deg" ;
                     ada:minimumBandsForIndexing "5" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ;
+                    ada:edsChannelsDefault "2024" ;
+                    ada:edsProcessTimeDefault "5" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
