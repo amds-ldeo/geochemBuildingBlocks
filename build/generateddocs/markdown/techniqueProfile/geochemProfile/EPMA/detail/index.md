@@ -2619,7 +2619,6 @@ allOf:
         required:
         - ada:deadTime
         - ada:proceduralBlankLevel
-        - schema:actionProcess
     schema:additionalProperty:
       type: array
       items:

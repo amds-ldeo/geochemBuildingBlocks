@@ -249,10 +249,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
-      "schema:actionProcess": {
-        "@id": "nil:missing"
-      }
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
   ],
   "schema:variableMeasured": [
@@ -898,10 +895,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
-      "schema:actionProcess": {
-        "@id": "nil:missing"
-      }
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
   ],
   "schema:variableMeasured": [
@@ -1387,13 +1381,12 @@ ex:adaLASFICPMSUPb-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
-            schema1:actionProcess <nil:missing> ;
             schema1:endDate "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;

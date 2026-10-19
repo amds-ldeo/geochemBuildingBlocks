@@ -2496,8 +2496,6 @@ allOf:
                         const: Data processing
                     required:
                     - schema:name
-        required:
-        - schema:actionProcess
     ada:frameTime:
       description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
       anyOf:

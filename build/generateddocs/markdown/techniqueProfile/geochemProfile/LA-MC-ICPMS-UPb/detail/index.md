@@ -802,7 +802,6 @@ allOf:
             type: string
         required:
         - ada:proceduralBlankLevel
-        - schema:actionProcess
 
 ```
 

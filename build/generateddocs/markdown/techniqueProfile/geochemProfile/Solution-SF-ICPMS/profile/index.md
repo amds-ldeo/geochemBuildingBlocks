@@ -248,10 +248,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
-      "schema:actionProcess": {
-        "@id": "nil:missing"
-      }
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
   ],
   "schema:variableMeasured": [
@@ -792,10 +789,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
-      "schema:actionProcess": {
-        "@id": "nil:missing"
-      }
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
   ],
   "schema:variableMeasured": [
@@ -1183,7 +1177,6 @@ ex:adaSolutionSFICPMS-example-001 a schema1:Dataset,
             dqv:value "no value available: oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
-            schema1:actionProcess <nil:missing> ;
             schema1:endDate "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
