@@ -1,9 +1,16 @@
 # Draft modules for the electron-beam techniques
 
+**Status 2026-10-18: STILL PENDING, and not covered by §1's delivery.** None of the eight appears
+in the current manifest — `composed_tapps.json` (generated 2026-10-01) composes 15 modules and no
+electron-beam module is among them. `docs/upstream-requests.md` §1 is marked DELIVERED, but what it
+delivered was `Module_ICPMS`, `Module_CollisionCell` and `Module_CompositionQC`: the ICP-MS family,
+not these. Reading §1's DELIVERED banner as covering this directory would be wrong.
+
 Eight proposed modules covering 72 fields that the electron-beam TAPP
 tables currently define once per technique. For review by Ruolin — these
 are drafts on our side, not library modules; the real ones are his to
-author (see `docs/upstream-requests.md` §1).
+author (see `docs/upstream-requests.md` §1 for the precedent, noting it
+delivered the ICP-MS modules rather than these).
 
 Companion to the six ICP-MS drafts already in this directory. Same
 format, same method, different family.

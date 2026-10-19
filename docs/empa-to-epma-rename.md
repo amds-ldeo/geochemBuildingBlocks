@@ -4,6 +4,21 @@
 spelling — identifiers, derived names, directories and filenames. This supersedes the earlier
 "EPMA for new things only" position.
 
+> **Status 2026-10-18: SUBSTANTIALLY DONE, with a short tail.** Measured over `_sources` and
+> `tools`, excluding `TEMPatternsImage` (which contains the substring `EMPa` and is a false
+> positive that inflates any naive grep of this):
+>
+> | remnant | where | verdict |
+> |---|---|---|
+> | `(EPMA/EPMA)` in the block description | `geochemProfile/EPMA/profile-ada/schema.yaml:3` | **botched rename** — was `(EMPA/EPMA)`, both halves replaced. Propagates into that block's `profile-adaSchema.json` and `resolvedSchema.json` |
+> | `empaProfile` in the same description | same line | **stale name** — the path-driven block is `epmaProfile` |
+> | `cdifd:empaProductShape` | `geochemProfile/EPMA/profile-ada/rules.shacl:16` | **stale shape name** |
+> | `"empa"`, `"empaprofile"` aliases | `tools/bb_locate.py:18-22` | **DELIBERATE, leave alone** — its own comment says so: 436 stored records still say `adaEMPA`, so lookups by the legacy spelling must keep resolving |
+>
+> Nothing regenerates `profile-ada`, so the first three will not correct themselves. They are
+> cosmetic rather than validating — a description string and an unreferenced SHACL shape name — so
+> they are recorded here rather than rushed.
+
 **Owner:** the gBB work belongs to the **TAPPS** session (it owns
 `C:\GithubC\amds-ldeo\geochemBuildingBlocks`, knows the generator, and has to run the
 regeneration). The `metadata`-side follow-up is listed at the end and waits on gBB republishing.
