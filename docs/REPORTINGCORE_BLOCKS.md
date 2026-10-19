@@ -1,10 +1,46 @@
 # `ReportingCore` and its block system
 
-Most TAPP modules contribute all their fields to every TAPP that composes them. **`ReportingCore`
-does not.** Its six fields are grouped into five *blocks*, each carrying a condition, and a
-consuming TAPP takes only the blocks that apply to it.
+> ## STATE, 2026-10-18: `ReportingCore` IS RETIRED UPSTREAM AND THE BLOCK SYSTEM IS DORMANT
+>
+> Read this before using anything below as current fact. Measured against the `tapp/` submodule as
+> pinned, whose `composed_tapps.json` is generated 2026-10-01:
+>
+> | | |
+> |---|---|
+> | `Module_ReportingCore.json` upstream | **gone** — 15 `Module_*.json` remain and it is not among them |
+> | TAPPs composing `ReportingCore` | **0** of 16 |
+> | manifest entries using a `blocks` selection | **0** |
+> | upstream modules with `conditional: true` | **0** of 15 |
+> | `build_module_bb.module_blocks("reportingCore")` | returns **`None`** |
+> | `docs/modules/Module_ReportingCore.schemapaths.csv` | already removed |
+> | `_sources/BaseSchema/modules/reportingCore/` | **still present** |
+>
+> So the block-selection path in `build_module_bb` and `module_composition` is working code that
+> nothing currently exercises, and the per-TAPP selection table below describes a manifest that no
+> longer exists. The surviving gBB block still carries the frozen per-block `$defs` from when it
+> was live — `TargetSelection_Procedure`, `AggregationQc_Analysis`, `AllBlocks_Procedure`,
+> `AllBlocks_Analysis`.
+>
+> **`reportingCore` is now in exactly the state `group1` was in before it was archived** to
+> `archive/modules/` (`a1ba43b19`): no upstream declaration, no sidecar, no consumer. Archiving it
+> the same way is the obvious next step and has not been done. CLAUDE.md already records it as
+> "the current manifest composes into nothing".
+>
+> **Every module still declares a `blocks` array** — Core 6, ICPMS 4, LaserAblation 4, and so on —
+> because blocks also drive table composition and placement. What made `ReportingCore` special was
+> `conditional: true`, which is the flag the schema side tests, and no module sets it today. So do
+> not read "has blocks" as "is conditional"; the code is right to test the flag.
+>
+> The rest of this file is kept because the reasoning is still the reason the mechanism exists, and
+> because it is the live precedent for any future conditional module — including the request in
+> `docs/upstream-requests.md` §4a to make `Sampling Unit Name` a selectable block of Core. Treat
+> what follows as **how it worked**, not as what is composed now.
 
-This is the one module where "composes `ReportingCore`" does not mean "has all of `ReportingCore`",
+Most TAPP modules contribute all their fields to every TAPP that composes them. **`ReportingCore`
+did not.** Its six fields are grouped into five *blocks*, each carrying a condition, and a
+consuming TAPP took only the blocks that applied to it.
+
+This was the one module where "composes `ReportingCore`" did not mean "has all of `ReportingCore`",
 and missing that produces a confident wrong answer. It produced one here: a check comparing the
 whole module against every consumer reported **18 fields as missing**, which read like a defect in
 the library and was in fact the block conditions working exactly as designed.
@@ -28,9 +64,13 @@ never infer it.
 Each block also declares `target_group`, `placement` and sometimes `anchor_field` — where the fields
 land in the composed table. That matters for composition, not for schema generation.
 
-## Who takes what
+## Who took what — HISTORICAL
 
-`composed_tapps.json` records the selection on the module entry, as `"blocks": "all"` or a
+The table below is the selection as it stood when this file was written. **No entry in the current
+manifest names `ReportingCore` at all**, so none of these rows is live; they are kept as the record
+of which analytical differences the blocks encoded, which is the part worth preserving.
+
+`composed_tapps.json` recorded the selection on the module entry, as `"blocks": "all"` or a
 comma-separated list:
 
 | TAPP | blocks | consequence |
@@ -81,10 +121,12 @@ whose entry reads `"blocks": "all"`.
 consumer actually takes. Before it did, it reported `ADDS 18`; it now reports `ADDS 0` and states
 that 18 pairs were not compared and why.
 
-The general lesson is worth keeping: **a module's field list is not automatically its contract with
-a consumer.** `ReportingCore` is the only conditional module today — `"conditional": true` is the
-flag to test — but the code tests the flag rather than special-casing the name, so a second one will
-be handled without further work.
+The general lesson is worth keeping, and is why this file survives its subject: **a module's field
+list is not automatically its contract with a consumer.** `ReportingCore` was the only conditional
+module; **none is today**, and `"conditional": true` remains the flag to test. The code tests the
+flag rather than special-casing the name, so a future conditional module is handled without further
+work — which is exactly what `docs/upstream-requests.md` §4a asks Ruolin to use for `Sampling Unit
+Name`.
 
 ## For the record
 
