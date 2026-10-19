@@ -45,17 +45,7 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
   "ada:stageTiltBeta": 0.1,
   "ada:imagePixelSize": 0.3696,
   "ada:imageWidth": 2048,
-  "ada:imageHeight": 2048,
-  "schema:distribution": {
-    "schema:hasPart": {
-      "schema:height": {
-        "@id": "nil:missing"
-      },
-      "schema:width": {
-        "@id": "nil:missing"
-      }
-    }
-  }
+  "ada:imageHeight": 2048
 }
 
 ```
@@ -101,17 +91,7 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
   "ada:stageTiltBeta": 0.1,
   "ada:imagePixelSize": 0.3696,
   "ada:imageWidth": 2048,
-  "ada:imageHeight": 2048,
-  "schema:distribution": {
-    "schema:hasPart": {
-      "schema:height": {
-        "@id": "nil:missing"
-      },
-      "schema:width": {
-        "@id": "nil:missing"
-      }
-    }
-  }
+  "ada:imageHeight": 2048
 }
 ```
 
@@ -122,8 +102,6 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-HF5000> a ada:STEMImage ;
-    schema1:distribution [ schema1:hasPart [ schema1:height <nil:missing> ;
-                    schema1:width <nil:missing> ] ] ;
     schema1:measurementTechnique <ex:stemTAPP-HF5000> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-05-16" ;
@@ -186,17 +164,7 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
   "ada:stageTiltBeta": -9999,
   "ada:imagePixelSize": 2.2766,
   "ada:imageWidth": 2048,
-  "ada:imageHeight": 2048,
-  "schema:distribution": {
-    "schema:hasPart": {
-      "schema:height": {
-        "@id": "nil:missing"
-      },
-      "schema:width": {
-        "@id": "nil:missing"
-      }
-    }
-  }
+  "ada:imageHeight": 2048
 }
 
 ```
@@ -242,17 +210,7 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
   "ada:stageTiltBeta": -9999,
   "ada:imagePixelSize": 2.2766,
   "ada:imageWidth": 2048,
-  "ada:imageHeight": 2048,
-  "schema:distribution": {
-    "schema:hasPart": {
-      "schema:height": {
-        "@id": "nil:missing"
-      },
-      "schema:width": {
-        "@id": "nil:missing"
-      }
-    }
-  }
+  "ada:imageHeight": 2048
 }
 ```
 
@@ -263,8 +221,6 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-P1> a ada:STEMImage ;
-    schema1:distribution [ schema1:hasPart [ schema1:height <nil:missing> ;
-                    schema1:width <nil:missing> ] ] ;
     schema1:measurementTechnique <ex:stemTAPP-P1> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-12-07" ;
@@ -805,10 +761,6 @@ allOf:
           required:
           - schema:height
           - schema:width
-      required:
-      - schema:hasPart
-  required:
-  - schema:distribution
 
 ```
 

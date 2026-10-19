@@ -3675,7 +3675,6 @@ allOf:
         required:
         - ada:deltaOrEpsilonValueReferenceStandard
         - ada:proceduralBlankLevel
-        - schema:actionProcess
     schema:variableMeasured:
       type: array
       items:

@@ -248,10 +248,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:deadTime": -9999,
-      "schema:actionProcess": {
-        "@id": "nil:missing"
-      }
+      "ada:deadTime": -9999
     }
   ],
   "schema:variableMeasured": [
@@ -785,10 +782,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:deadTime": -9999,
-      "schema:actionProcess": {
-        "@id": "nil:missing"
-      }
+      "ada:deadTime": -9999
     }
   ],
   "schema:variableMeasured": [
@@ -1168,7 +1162,6 @@ ex:adaTEM-example-001 a schema1:Dataset,
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
-            schema1:actionProcess <nil:missing> ;
             schema1:endDate "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;

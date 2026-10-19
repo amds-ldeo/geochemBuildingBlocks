@@ -3691,8 +3691,6 @@ allOf:
                         const: Data processing
                     required:
                     - schema:name
-        required:
-        - schema:actionProcess
     schema:distribution:
       type: array
       items:

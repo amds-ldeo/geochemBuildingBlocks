@@ -249,10 +249,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:edsDeadTime": -9999,
-      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
-      "schema:actionProcess": {
-        "@id": "nil:missing"
-      }
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
   ],
   "schema:variableMeasured": [
@@ -806,10 +803,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:edsDeadTime": -9999,
-      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
-      "schema:actionProcess": {
-        "@id": "nil:missing"
-      }
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
   ],
   "schema:variableMeasured": [
@@ -1204,17 +1198,16 @@ ex:adaSEM-example-001 a schema1:Dataset,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value 1e+00 ] ;
+        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
-            schema1:actionProcess <nil:missing> ;
             schema1:endDate "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;

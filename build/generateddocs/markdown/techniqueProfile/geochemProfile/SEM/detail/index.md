@@ -6181,7 +6181,6 @@ allOf:
         required:
         - ada:edsDeadTime
         - ada:proceduralBlankLevel
-        - schema:actionProcess
     dqv:hasQualityMeasurement:
       type: array
       items:

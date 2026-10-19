@@ -4413,7 +4413,6 @@ allOf:
             - type: string
         required:
         - ada:deadTime
-        - schema:actionProcess
     schema:variableMeasured:
       type: array
       items:
