@@ -4,7 +4,14 @@
 
 Things the schema-generation work has found that can only be fixed upstream, in the tables and modules Ruolin authors. SMR imports those read-only ([.github/CODEOWNERS](../.github/CODEOWNERS)), so I don't want to change in my github unless you give me the go ahead....
 
-Ordered by how much work each one saves. Every number is measured against the 2026-08-13 delivery and reproducible with the tool named beside it.  I copies teh 8-13 drop from the google drive. 
+Ordered by how much work each one saves, and each number is reproducible with the tool named beside it.
+
+**Which delivery each section was measured against**, because they differ and the older numbers
+were never re-run: §1, §2 and §3 were measured against the **2026-08-13** drop (copied from Google
+Drive at the time) and §1 and §2 are both marked DELIVERED since. §4 was measured on
+**2026-10-18** against the `tapp/` submodule as pinned, whose `composed_tapps.json` is generated
+**2026-10-01** and lists 16 composed TAPPs. Where a §1–§3 count is restated below it is labelled as
+historical rather than silently refreshed.
 
 ---
 
@@ -144,17 +151,206 @@ shared module may interact with Rule 7 in ways you will see and I will not.
 
 ## 3. `Error Correlation Between Reported Quantities` belongs to no module
 
-It appears in the UPb tables and in none of the eight modules — the only UPb-specific field with no
-module home. Should it join `Module_UPb` or `Module_Geochronology`?
+Still open, re-measured 2026-10-18. It appears in **four** technique tables —
+`LA-MC-ICPMS_UPb`, `LA-Q-ICP-MS_UPb`, `LA-SF-ICP-MS_UPb` and **`Solution_MC-ICP-MS`** — and in
+none of the module sidecars. So it is no longer UPb-specific, which the original wording assumed,
+and the module count has moved: the manifest now composes **15** modules (16 exist; `ReportingCore`
+is composed by nothing), not the eight this section was written against.
+
+Should it join `Module_UPb` or `Module_Geochronology` — or, given the Solution MC-ICP-MS
+appearance, somewhere less geochronology-specific?
 
 ---
 
-## 4. Delivery mechanics
+## 4. `Sampling Unit Name` is required of records that have no data table
+
+**The ask: should this item be conditional on the record having a tabular data structure?** It is
+your item, at Analysis Tier **Basic**, and the question is about where the requirement sits rather
+than whether it is right. Nothing changes until you say so.
+
+**The row**, from `docs/modules/Module_Core.schemapaths.csv`:
+
+| | |
+|---|---|
+| Metadata Item | `Sampling Unit Name` |
+| Protocol Tier | N/A |
+| Analysis Tier | **Basic** |
+| Data Type | Text (free) |
+| Schema Path | `$Dataset.schema:variableMeasured[schema:name='Sampling Unit Name']` |
+| Scope | module (Core) |
+| Notes | "declares the COLUMN that identifies a sampling unit in the instance data table…" |
+
+Because the path carries a selector, the emitter turns it into a `contains` with a literal const,
+in `_sources/BaseSchema/modules/core/schema.yaml`:
+
+```yaml
+schema:variableMeasured:
+  allOf:
+  - contains:
+      properties: {schema:name: {const: Sampling Unit Name}}
+      required: [schema:name]
+```
+
+It is in Core, so it reaches **every** technique — 162 `resolvedSchema.json` carry it.
+
+**The argument is about layers, not counts — and gBB has already settled it once, in the block
+that composes this very item.** `_sources/BaseSchema/geochemProduct/schema.yaml`, lines 362–368,
+in prose written for a neighbouring question:
+
+> "An individual sampling unit is not [metadata]: the procedure and the analysis can state only
+> the KIND of unit (`ada:samplingUnitType`), while a particular unit's identifier is a
+> `schema:variableMeasured` naming a **COLUMN in one of the distributions**, and the binding from
+> that unit to its target material **exists only in the instance data table** beside the results.
+> There is therefore no array of sampling-unit objects here; one was added on 2026-09-25 and
+> removed on 2026-10-01 once that was settled."
+
+So `geochemProduct` already asserts that the declaration names a column in a distribution and that
+the binding exists only in the instance data table. **A record with no instance data table has
+nothing for the declaration to name** — stated by the schema, not inferred from the corpus. The
+same paragraph ties the 2026-09-25/10-01 array experiment to this reasoning, so the layer
+question has been answered once in this file already; what is left is applying the answer to the
+`contains`.
+
+The type hierarchy says it too, independently: `schema:variableMeasured` is declared in
+`geochemProduct` as extending `cdifInstanceVariable` — an **instance** variable. A method
+definition or detail block can only *define* which fields might appear; only an actual data
+instance can assert which columns exist. And the row's own Notes agree — "the units themselves
+exist only in the data".
+
+**What the corpus shows**, measured by the ADA metadata forms session over all 7,447 records
+(1,682 of which would gain a technique profile once content-based detection is switched on):
+
+| | records | share |
+|---|---|---|
+| have any `schema:variableMeasured` | 125 | 7.4% |
+| have a tabular part or column structure | 129 | 7.7% |
+| have **neither** | **1,553** | **92.3%** |
+| carry a variable named `Sampling Unit Name` | **0 of 7,447** | — |
+
+`adaLabXCT` 701, `adaSTHMAFM` 483 and `adaSXRF` 324 are 1,508 of those on their own — XCT image
+stacks, AFM scans, synchrotron XRF maps. They have no columns, so there is no column for the
+declaration to name.
+
+**And the one example that does satisfy it is a placeholder, with the wrong semantics.** Our
+generated `XCT/profile/exampleadaLabXCT.json` validates clean only because the generator's fill
+pass invented the variable:
+
+```json
+{ "schema:name": "Sampling Unit Name",
+  "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
+  "schema:unitText": "counts",
+  "cdi:role": "MeasureComponent" }
+```
+
+A sampling-unit name is a **label**; this emits it as a measure component in **counts**. So the
+constraint is met nowhere by genuine content, and where it appears to be met the content
+misdescribes the field.
+
+**The options, in what we think is preference order:**
+
+1. **Make the item conditional on a tabular data structure existing.** gBB already has that exact
+   predicate — `geochemProduct` guards `cdifDataDescription` on *non-empty
+   `schema:variableMeasured` OR a distribution/part typed `cdi:TabularTextDataSet`*, added
+   2026-10-16, and 6,575 records stopped declaring `data_description` as a result. Applying the
+   same guard here needs either a sidecar-grammar way to say "only when the data is tabular" or an
+   emitter rule; both are our side, and small.
+2. **Keep it unconditional and treat the 1,553 as incomplete.** Defensible only if an image-stack
+   product is genuinely expected to declare a sampling-unit column, which we do not think it is.
+3. **Narrow the Scope from `module` (Core) to the techniques whose products are tabular.** Avoids a
+   grammar change at the cost of per-technique duplication, and Core is where it belongs
+   conceptually.
+
+**What we are NOT asking.** The literal name is the identity of the declaration and we are not
+proposing to change it, nor to replace it with an array of unit objects — the Notes record that
+being tried on 2026-09-25 and removed on 2026-10-01.
+
+### 4a. The condition we think is right, and why it has to be yours
+
+Stephen's rule: **the variable is mandatory only if the TAPP keys data by sampling unit.** That is
+exactly the right axis, and the mechanism to express it already exists — but it is declared in
+your files, not ours, which is why this is a request rather than a change.
+
+`Module_Core.json` carries `"conditional": false` and puts `Sampling Unit Name` in the **`samples`**
+block, whose `applies_when` reads:
+
+> "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always
+> composed together."
+
+So the field is declared universal upstream. The alternative is already **supported**, though not currently
+exercised: a module marks itself `conditional` and declares blocks, and a TAPP's entry in
+`composed_tapps.json` names the blocks it takes. `build_module_bb.module_blocks()` and
+`module_composition._blocks()` both read that, so **nothing in our generators needs changing** —
+only the declaration.
+
+Stated carefully, because an earlier draft of this section overstated it: `Module_ReportingCore`
+is the module that declares blocks, and in the current manifest (`composed_tapps.json`, generated
+2026-10-01) **`ReportingCore` is composed by no TAPP at all**, and **no entry uses a `blocks`
+selection**. So the mechanism is implemented and documented
+(`docs/REPORTINGCORE_BLOCKS.md` — whose per-TAPP selection table describes an earlier manifest and
+is itself stale) rather than in live use. That makes this an ask to use a supported feature, not
+to copy a working neighbour.
+
+**The ask:** separate `Sampling Unit Name` from the universal `samples` block and let a TAPP select
+it — the shape `Module_ReportingCore` already declares for its own five blocks.
+
+**Measured, so the selection does not have to be guessed.** Distinguishing the two uses of the key
+in our sidecars:
+
+| | sidecars | meaning |
+|---|---|---|
+| `defines: sample > sampling unit` | **60 of 60** | every TAPP declares the key — Core gives it to them, so this cannot discriminate |
+| `keyed by: … sample > sampling unit` | **17 technique TAPPs** + 3 modules | the TAPP actually reports values per sampling unit |
+
+The 17 that key data by it: EPMA (7 rows), the six LA tables (3 each), Lab-XCT (6), SEM (7),
+SEM-Composition (7), SEM-Imaging (3), SEM-FIBSEM (2), Solution Q/SF/MC (2 each), TEM (1),
+VNMIR (6). **44 of 61 technique sidecars have no such row** — which is the selection we would
+expect, if you agree with the axis.
+
+### 4b. Lab-XCT keys six rows by sampling unit — is that right?
+
+This is the part the measurement does **not** settle, and it matters most, because `adaLabXCT` is
+**701 records** — the single largest group of the ~1,633.
+
+`Lab-XCT_TAPP_v47` keys six rows by `sample > sampling unit` — **three distinct items, each
+appearing twice**:
+
+- *Segmentation Threshold Values or Criteria*
+- *Phase Identification Method*
+- *Partial Volume Effect Criteria*
+
+So that table asserts XCT results **are** reported per sampling unit, and under the rule above XCT
+would keep the requirement. (The doubling may be worth a glance in its own right — we have not
+looked into whether the pairs differ in tier or are a duplicate row.)
+
+But those 701 records have **no instance data table at all** — no `schema:variableMeasured` and no
+tabular part. An XCT product is a reconstructed volume, and if its results are not in fact tabulated
+per sampling unit, the six keyed rows may be the thing to revisit rather than the Core item.
+
+**The question:** for a laboratory XCT volume, are segmentation thresholds and the other five keyed
+items genuinely per-sampling-unit values belonging in a table — or are they procedure-level
+settings that were keyed by analogy with the point-analysis techniques? If the latter, un-keying
+them is a smaller and more accurate change than exempting XCT from a Core field.
+
+We are not proposing an answer. The reason for asking is that the two possibilities lead to
+opposite fixes, and only you can say which describes an XCT session.
+
+**Not the same question as `schema:actionProcess`.** That one also blocks those records, and it is
+**ours, not yours**: no row declares it, and our emitter was requiring it because 69 authored rows
+place leaves beneath `$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[…]` and it
+required every ancestor a Basic leaf navigates through. Stephen has decided we fix that in the
+emitter. Mentioned only so the two are not merged — an earlier draft of ours did merge them, on the
+false reasoning that an image stack is not an instrument session.
+
+---
+
+## 5. Delivery mechanics
 
 
 **composed_tapps.json `tapp` paths do not match the delivery layout.** The manifest records per-technique paths such
-as `EPMA/EPMA_TAPP_v60.csv`, while the delivery puts every table in a flat `Current TAPPs/` folder —
-so **0 of 16 entries resolve** as written. We now resolve by filename instead. Either the manifest
+as `EPMA/EPMA_TAPP_v88.csv`, while the delivery puts every table in a flat `Current TAPPs/` folder —
+so **0 of 16 entries resolve** as written, while **16 of 16 resolve by basename**. We resolve by
+filename instead. (Re-measured 2026-10-18: still 0 of 16; only the version in the example has
+moved, v60 → v88.) Either the manifest
 or the layout should move, since a consumer following the manifest literally finds nothing.
 
 > **Half of this is now fixed.** The *version* drift — six entries naming superseded files, filed as
