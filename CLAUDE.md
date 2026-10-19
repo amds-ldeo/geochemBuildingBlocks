@@ -1060,3 +1060,50 @@ Old text was found in 42 files of #110's head and reported as about to revert a 
 #110 changed none of them — zero overlap — so the merge was safe. Do the cheap confirming
 measurement BEFORE reporting a risk, not after. And do not attribute causation from observation:
 "files changed at 15:21" is observable, "session X did it" is an inference.
+
+### One worktree per session, and never reuse one
+
+Worktrees are the mechanism that makes concurrent sessions safe — separate working tree, separate
+index, separate branch — and the section above exists because gBB stopped using them that way.
+Measured 2026-10-19:
+
+| repo | state |
+|---|---|
+| `amds-ldeo/metadata` | 5 worktrees, each the home of ONE session, branch named after the worktree. Clean. |
+| this repo | 2 worktrees, which between them were the working directory of **FIVE** sessions on five different branches — `brave-nightingale-f01bf6` for three, `beautiful-merkle-8446b8` for two. Both now sit on a **detached HEAD**, which is the residue. |
+
+A worktree is not a *place* to work, it belongs to one session. Five sessions checking out five
+branches inside two trees is the shared-checkout problem with extra steps, and it is where the
+counts above came from.
+
+**Populate the submodule in every new worktree, before regenerating anything:**
+
+```
+git submodule update --init --checkout tapp
+```
+
+`.gitmodules` sets `update = none` (for the reason in the TAPP-source note above), so
+`git worktree add` leaves `tapp/` EMPTY. A regeneration then builds from the stale inline
+`TAPPS20260813` drop instead of the pinned delivery. `tapp_source.require_delivery()` refuses
+rather than falling back silently now, but the refusal is the safety net, not the workflow — do
+the `--checkout`.
+
+**At most one session in the main checkout.** It is the one tree nothing isolates. During the
+2026-10-19 emitter work six `python.exe` processes were running against it and none could be
+attributed; the contention probe above is the only honest answer there.
+
+**What a worktree does NOT isolate**, so do not assume these away:
+
+- **Shared external state.** The `ada2` database is one store however many trees read it — a
+  session refreshing its cache affects every session measuring against it.
+- **Hot files at merge time.** #158 and #159 both edited CLAUDE.md and conflicted; this file is
+  the likeliest conflict in the repo. The fix is sequencing the merges, not isolation.
+- **`main` moving underneath a branch.** #169 was built on a base four commits old, which is
+  fine, but its squash stat then reported 1428 files against the 163 the commit actually carries —
+  read the commit (`git show --name-only --format= <sha>`), never the merge tool's summary.
+
+**A quiet tree is not a finished job.** On 2026-10-19 a `regenerate.py` looked complete — writes
+had stopped and all four gates passed — while it was still running, and the census then found
+`PSFD/profile-ada` UNREADABLE at zero bytes, complete minutes later. Those four green gates were
+read off a half-written tree. Wait for the process's own exit status AND a sustained quiet window
+before believing any measurement taken from the tree.
