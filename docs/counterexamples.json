@@ -240,6 +240,16 @@
       },
       "expect": "schema:identifier",
       "why": "Pins the HALF of the 2026-10-18 ancestor relaxation that must still bite. The emitter no longer adds a $Dataset path's intermediate containers to `required` -- so a record with no prov:wasGeneratedBy at all is now accepted, which is the point: schema:actionProcess was being demanded of 725 ADA records that describe no procedure. Nothing in the suite could see the other half. The leaf requirement stays on the container's own schema, so it fires exactly when the container IS present, and losing that would turn the whole activity subtree optional with every check still green. Verified both ways on this example: removing the whole prov:wasGeneratedBy now yields 0 errors, while removing this one leaf inside the present container yields 1. If this case ever passes, the relaxation has gone too far."
+    },
+    {
+      "id": "xct-quantitativevalue-needs-a-value",
+      "example": "_sources/techniqueProfile/geochemProfile/XCT/detail-legacy/exampledetailXCT-unitBearing.json",
+      "mutate": {
+        "op": "remove",
+        "pointer": "/ada:xrayTubeEnergy/schema:value"
+      },
+      "expect": "schema:value",
+      "why": "The seven XCT parameters accept EITHER a plain number OR a schema:QuantitativeValue, because ADA stores ~360 of each as text with the unit inside ('90 kV') and ~76 as a bare number -- about 2,212 values that could not be emitted without discarding the unit. The widening must not become 'any object will do': a QuantitativeValue carrying a unit but no number asserts that something was measured in kV when nothing was, which is the \"N/A mm\" case the $def refuses on purpose. This case also pins the SHAPE of the widening, not only its content. Written first as an anyOf, the identical mutation produced only 'is not valid under any of the given schemas' naming no property, so the case could not have asserted its own cause -- it would have passed just as happily with the QuantitativeValue branch deleted outright. if/then/else admits the same two forms and reports 'schema:value' is a required property. If a future edit returns these to an anyOf, this case reports failing-for-the-wrong-reason rather than passing quietly."
     }
   ]
 }

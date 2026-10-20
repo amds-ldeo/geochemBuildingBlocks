@@ -10,7 +10,12 @@ properties:
   'ada:beamFilterMaterial':
     type: string
   'ada:beamFilterThickness':
-    type: number
+    if:
+      type: object
+    then:
+      $ref: '#/$defs/QuantitativeValue'
+    else:
+      type: number
   'ada:dataRangeLower':
     type: integer
   'ada:dataRangeUpper':
@@ -24,7 +29,12 @@ properties:
   'ada:detectorType':
     type: string
   'ada:imageExposure':
-    type: number
+    if:
+      type: object
+    then:
+      $ref: '#/$defs/QuantitativeValue'
+    else:
+      type: number
   'ada:imageFPS':
     type: string
   'ada:imageGain':
@@ -56,7 +66,12 @@ properties:
   'ada:sourceToDetectorDistance':
     type: string
   'ada:sourceToObjectDistance':
-    type: number
+    if:
+      type: object
+    then:
+      $ref: '#/$defs/QuantitativeValue'
+    else:
+      type: number
   'ada:subPixGrid':
     type: string
   'ada:subPixShift':
@@ -65,11 +80,100 @@ properties:
     type: string
   'ada:xrayTargetMaterial':
     type: string
+  'ada:xrayEnergy':
+    description: >-
+      Accelerating energy of the X-ray source. This block did not declare it at all, while 257
+      XCTImageCollection subjects carry it -- with its unit in a SEPARATE ada:energyUnit key.
+      Emitted as a QuantitativeValue the two fold into one node, which is why ada:energyUnit is
+      not declared beside it; the block is open, so a record still carrying the split pair is
+      not rejected.
+    if:
+      type: object
+    then:
+      $ref: '#/$defs/QuantitativeValue'
+    else:
+      type: number
   'ada:xrayTubeCurrent':
-    type: number
+    if:
+      type: object
+    then:
+      $ref: '#/$defs/QuantitativeValue'
+    else:
+      type: number
   'ada:xrayTubeEnergy':
-    type: number
+    if:
+      type: object
+    then:
+      $ref: '#/$defs/QuantitativeValue'
+    else:
+      type: number
   'ada:xrayTubePower':
-    type: number
+    if:
+      type: object
+    then:
+      $ref: '#/$defs/QuantitativeValue'
+    else:
+      type: number
 required:
   - ada:componentType
+
+$defs:
+  QuantitativeValue:
+    title: Quantitative value with its unit
+    description: >-
+      A measured value carrying its unit, for the XCT parameters that ADA stores BOTH ways. Of
+      the ~700 XCTImageCollection subjects, roughly 360 hold each of these as text with the unit
+      inside it ("90 kV", "11.50844 mm", "33 uA") and roughly 76 as a bare number, so about
+      2,212 values could not be emitted at all without discarding the unit.
+
+      DEFINED HERE rather than reused, after looking. The SHAPE is settled and consistent across
+      five places -- BaseSchema/image, BaseSchema/files, STEM/detail, and CDIF's cdifManifest and
+      dataDownload -- but none of them offers a general reusable $def:
+      image/schema.yaml#/$defs/PixelDimension is the only named one and it types schema:value as
+      an INTEGER for pixel counts, which rejects 11.50844. CDIF's is number-valued but inline.
+      So this is a local $def with one consumer. If a second block needs it, promote it to a
+      shared one rather than copying -- which is the argument PixelDimension's own description
+      already makes, having been written after two blocks declared one property two ways.
+
+      IF/THEN/ELSE RATHER THAN ANYOF, and the reason is diagnostics, not taste. Both admit the
+      same two forms, but an anyOf collapses every failure to "is not valid under any of the
+      given schemas" naming no property -- measured. With if/then an object missing its number
+      reports 'schema:value' is a required property, and a value still stored as the text
+      "90 kV" reports is not of type 'number' instead. That matters twice: the counterexample
+      can assert the real cause, and ADA sees a message that says what to fix. It also follows
+      this repo's standing preference for if/then over a narrowed anyOf.
+
+      schema:value AND schema:unitText are both REQUIRED. The whole purpose of this branch is to
+      carry the unit, so a QuantitativeValue missing either is not a weaker statement of the same
+      fact, it is a malformed one -- and the plain-number branch is already there for a value
+      with no unit. docs/counterexamples.json pins the schema:value half.
+
+      "N/A mm" IS NOT EXPRESSIBLE HERE, deliberately. It appears among the stored values and has
+      a unit but no measurement, so it is an ABSENT reading rather than a quantity. Omit the
+      property instead; the only required property of this block is ada:componentType. Encoding
+      it as a unit-only QuantitativeValue would assert that something was measured in
+      millimetres when nothing was.
+
+      schema:unitCode is OPTIONAL and unused today. Allowed because schema.org defines it for
+      exactly this, and it lets ADA add a QUDT or UCUM code later without a schema change; not
+      required, because none of the 2,212 stored values carries one and requiring it would reject
+      every record.
+    type: object
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          const: 'schema:QuantitativeValue'
+        minItems: 1
+      'schema:value':
+        type: number
+      'schema:unitText':
+        type: string
+      'schema:unitCode':
+        type: string
+    required:
+    - '@type'
+    - 'schema:value'
+    - 'schema:unitText'
