@@ -1,0 +1,21 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA Subject — supporting document component",
+    "description": "A non-data file delivered beside a dataset. Derived from the inferred schemas carrying associatedFiles (27), supDocType (20) and OriginalName (15); ~13,800 subjects, the largest group after the tabular family.",
+    "type": "object",
+    "properties": {
+        "supDocType": {
+            "type": "string"
+        },
+        "originalName": {
+            "type": "string",
+            "description": "The filename as delivered. Stored as `OriginalName` in all 15 schemas that carry it — see the collection README; this schema states the lowerCamel form the data must move to."
+        },
+        "associatedFiles": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

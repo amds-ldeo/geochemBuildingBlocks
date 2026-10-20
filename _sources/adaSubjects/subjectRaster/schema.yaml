@@ -1,0 +1,29 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ADA Subject — raster image component
+description: >-
+  Pixel geometry and channel assignment for an image component. Derived from the 10 inferred
+  schemas carrying the pixel keys (and 18 carrying channel1); ~4,000 subjects.
+type: object
+properties:
+  numPixelsX:
+    type: integer
+  numPixelsY:
+    type: integer
+  pixelScaleX:
+    type: number
+  pixelScaleY:
+    type: number
+  pixelUnits:
+    type: string
+  coordUnits:
+    type: string
+  imageType:
+    type: array
+    items:
+      type: string
+  channel1:
+    type: string
+  channel2:
+    type: string
+  channel3:
+    type: string
