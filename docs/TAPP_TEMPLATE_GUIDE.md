@@ -136,6 +136,19 @@ analyteColumn: <name>   dataType: <type>   readOnly: <true|false>   enum: {…}
 - Include an **`Analytical Mode`** row (`schema path` = `$MethodDefinition.ada:analyticalMode`).
   `ada:analyticalMode` is always emitted as a **list of strings** (an array) constrained to the mode
   options. Imaging techniques with no per-element axis still use modes (e.g. SEM, XCT).
+- Since `7b0488060e` the mode is **also** placed on the analysis side —
+  `$Dataset.ada:analyticalMode[]`, one row in `docs/modules/Module_Core.schemapaths.csv`. The
+  procedure side declares the modes a procedure PERMITS; the dataset side declares the mode(s)
+  actually USED, and it is the only place a JSON Schema conditional can read, because a record
+  references its procedure as a bare `{@id, @type}` that cannot be dereferenced. It is deliberately
+  **optional**: `require = (A == "Basic")` on a `$Dataset` path and the Analysis tier is
+  `Read-Only`.
+- **Nothing yet keys off either one.** The per-field mode flags are not consumed by any generator,
+  and no ADA record carries a mode. Before writing a mode-keyed conditional, read the
+  analytical-mode section of `CLAUDE.md` — in particular that it must be written in POSITIVE
+  polarity (require ON the matching mode, never excuse on the non-matching one) so an absent mode
+  yields no requirement, and that 264 records have mixed modes within one distribution, which makes
+  a dataset-root conditional insufficient for them.
 
 ---
 

@@ -275,6 +275,17 @@ Columns between `Keyed By` and the sentinel. Values **`Y` or `N` only**. `Y` mea
 to that mode. Mode sets are per-TAPP, 0–11 wide; Solution Q/SF/MC have none. Every TAPP carries
 `Analytical Mode` declaring which modes a procedure executes. Modes are **not mutually exclusive**.
 
+> **gBB does not read these columns, and cannot act on them today.** No generator consumes the
+> mode flags, so **213 rows across 11 workbooks have mixed `Y`/`N` applicability and all 213 sit at
+> a tier the emitter turns into an unconditional `required`** — demanded of records the workbook
+> says they do not apply to. The conditional cannot be built because the discriminator is absent
+> from the DATA, not from the schema: measured 2026-10-21, **0** of 7,447 ADA records carry
+> `ada:analyticalMode`, **0** of 111,963 `record_subjects` carry any key containing "mode", and
+> **0 of 436** EPMA records carry an EDS signal in `componentType`. ADA records no acquisition mode
+> and no detector, so a mode would have to be derived and for EPMA there is nothing to derive it
+> from. See the analytical-mode section of `CLAUDE.md` for the full measurement, the three dead
+> anchors, and the polarity rule to use if a mode is ever emitted.
+
 ---
 
 ## 9. Modules → shared definitions
