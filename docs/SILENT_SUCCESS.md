@@ -599,6 +599,49 @@ deploy by what is deployed, never by the colour of the run.
 
 ---
 
+## 12. The number that justified the change, measured against the wrong route
+
+**Reported success:** #169 (`9e303a8814`) merged with every gate green. The census recorded the
+delta -- 1,459,863 constraints to 1,459,734, 129 `required` entries removed across 101 blocks --
+`validate_counterexamples` pinned the half of the relaxation that must still bite, verified both
+ways, `validate_examples` was clean, and `Regenerate and diff` and `Regenerate twice and compare`
+both passed. The PR body carried a measured record count as its justification: `schema:actionProcess`
+"was being demanded of 725 ADA records that describe no procedure".
+
+**Not doing its job:** the 725 was wrong, and nothing in the repository could have said so.
+It was obtained by asking which PROFILES carried the requirement -- `SEM/profile`, `EPMA/profile`,
+`XCT/profile` -- and then attributing records to them by technique. But since #149 swapped the
+TAPP and legacy cids, ADA records resolve to the LEGACY blocks, and measured 2026-10-20
+`adaSEMFull` and `adaEPMAFull` carry **zero** `actionProcess` requirements before the change,
+after it, and at HEAD. **No record was ever failing on it.** The change fixed a latent schema
+defect; the live corpus figure attached to it described nothing.
+
+**Why no check could see it.** Every gate was checking the CHANGE, and the change was correct.
+A census verifies that constraints moved as intended; counterexamples verify that what remains
+still bites; `validate_examples` verifies instances. **None of them looks at whether the number
+that motivated the work was measured against the right resolution route** -- and a correct change
+with a wrong rationale leaves no failing artifact anywhere. This is the inverse of #8: there the
+check could not observe the direction of change, here the checks observed it perfectly and the
+defect was in the sentence next to it.
+
+**What exposed it:** a sibling-repo session resolving profiles by `dcterms:conformsTo` cid instead
+of by directory name, and reporting that three profiles still required the property. Chasing that
+showed the surviving requirements were all Plan-side (behind the inline-TAPP guard that no record
+triggers), and that the blocks records actually reach had never carried a record-side one.
+
+**The rule: resolve by cid, never by directory -- for a RECORD COUNT as much as for a schema
+path.** A technique's directory, its `profile/` block, and the cid its records resolve to are
+three different things, and the answer moved twice in two days. Two corollaries from the same
+week, both of which cost a wrong conclusion before being caught:
+
+- **A required-name count is meaningless without its JSON path.** The same property name sits on
+  the record side and inside the `prov:used` inline-plan branch, and the two read identically when
+  quoted as a bare list. Counting without splitting them gave 30 where the answer that mattered
+  was 10 -- and 30 was alarming enough to have argued against a correct migration.
+- **Name presence in the document is not presence where the schema pins it.** `schema:propertyID`
+  was "present on all 436 records" as a substring and satisfied nothing, because the question is
+  always which CONTAINER carries it. Only running the validator settles this class.
+
 ## The common thread
 
 In all of them, the failure was invisible from the outside because the signal said "success". What
@@ -617,6 +660,7 @@ exposed each one:
 | 9 | running the tool and reading `$?`, then grepping CI for whether anything runs it |
 | 10 | a downstream consumer measuring the artifact against real data before depending on it |
 | 11 | comparing the deployed SHA against main's tip, instead of reading the run list for red |
+| 12 | resolving by cid rather than by directory -- and asking what a *justifying* number measured |
 
 None of these needed cleverness. They needed looking at the thing itself instead of the badge on
 top of it.
