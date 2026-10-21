@@ -260,6 +260,17 @@
       },
       "expect": "schema:value",
       "why": "The seven XCT parameters accept EITHER a plain number OR a schema:QuantitativeValue, because ADA stores ~360 of each as text with the unit inside ('90 kV') and ~76 as a bare number -- about 2,212 values that could not be emitted without discarding the unit. The widening must not become 'any object will do': a QuantitativeValue carrying a unit but no number asserts that something was measured in kV when nothing was, which is the \"N/A mm\" case the $def refuses on purpose. This case also pins the SHAPE of the widening, not only its content. Written first as an anyOf, the identical mutation produced only 'is not valid under any of the given schemas' naming no property, so the case could not have asserted its own cause -- it would have passed just as happily with the QuantitativeValue branch deleted outright. if/then/else admits the same two forms and reports 'schema:value' is a required property. If a future edit returns these to an anyOf, this case reports failing-for-the-wrong-reason rather than passing quietly."
+    },
+    {
+      "id": "adasubject-column-range-is-not-text",
+      "example": "_sources/adaSubjects/subjectColumn/exampleColumn-nullRange.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/minVal",
+        "value": "not recorded"
+      },
+      "expect": "minVal",
+      "why": "Guards the NULL allowance from widening into a text allowance. minVal/maxVal are [number, 'null'] and displayInVizTool is [boolean, 'null'] because a null means \"not recorded\" in ADA's stored subjects (Stephen, 2026-10-21) -- but a STRING there is the HeaderRowCount class of defect, which this collection exists to describe rather than adopt. The allowance is exercised by exampleColumn-nullRange.json and by nothing else in the repo, so losing it would be invisible to every other check -- the same blind spot as the schema:name-to-schema:identifier substitute line (docs/SILENT_SUCCESS.md #8), where one static example is the only positive evidence a relaxation still exists. This case is the negative half: if it ever passes, the allowance has stopped being about absence."
     }
   ]
 }

@@ -27,10 +27,25 @@ Per the collection README: the schema states what a subject SHOULD look like.
 | `fieldType` | string 26, `[null,string]` 1 | `string` |
 | `colNum` | integer 49 | `integer` — no variant |
 
-**One of these is not obviously a defect and may want a different answer.** A `null` in
-`minVal`/`maxVal`/`displayInVizTool` plausibly means "not recorded" rather than a typing error,
-unlike `HeaderRowCount`. If null should be permitted rather than normalised away, the fix is
-`type: [number, "null"]` here and a note in the README — Stephen's call, not assumed.
+**`null` IS permitted on these three, and deliberately** (Stephen, 2026-10-21). A `null` in
+`minVal`/`maxVal`/`displayInVizTool` means "not recorded" rather than a typing error, unlike
+`HeaderRowCount`, so they are declared `[number, 'null']` and `[boolean, 'null']`.
+
+The reasoning is different in kind from the lowerCamelCase decision, and the two should not be
+read as one policy. A name is a TARGET the data should move to, so the schema states the target
+and ADA normalises. A null is a FACT about what ADA stores today, and these fragments are
+DESCRIPTIVE — so a schema forbidding null would fail real stored rows and be wrong about its own
+subject. The decisive case is `187-VNMIRSpectralPoint`, whose `maxVal` is inferred
+`["null","number"]`: null and real values coexist **for the same field**, so a null is an absent
+value in some rows rather than a field this schema never uses. Measured over the 134 inferred
+schemas: `minVal` 12 number / 2 null-only / 1 integer, `maxVal` 11 / 2 / 1 integer plus that
+one `["null","number"]`, `displayInVizTool` 6 boolean / 1 null-only.
+
+If ADA should stop storing nulls here, that is a separate data decision; until it lands, a
+schema that forbids them documents a corpus that does not exist.
+
+The `integer` variants need nothing: JSON Schema's `number` already admits integers, so
+`236-GCCIRMSTabularIsotopicValues` validates against `[number, 'null']` as written.
 
 **Unmapped:** `minVal`, `maxVal` (a range on an InstanceVariable, no single clean CDIF term)
 and `displayInVizTool` (a viewer hint, not metadata).
