@@ -323,6 +323,11 @@ allOf:
   - ada:instrumentManufacturer
   - ada:instrumentModel
   - ada:constantsAndReferenceValuesUsedDefault
+x-bblocks-metadata:
+  itemIdentifier: ogch.techniqueProfile.geochemProfile.DSSM.tapp
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

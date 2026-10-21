@@ -225,6 +225,11 @@ $defs:
         x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleY
 x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
+x-bblocks-metadata:
+  itemIdentifier: ogch.BaseSchema.spatialRegistration
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

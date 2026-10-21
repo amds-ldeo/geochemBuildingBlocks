@@ -1391,10 +1391,10 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: oxideProduction" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ] ;
+            dqv:value "no value available: peakFlatness" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1591,6 +1591,11 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaLAMCICPMSUPb
+x-bblocks-metadata:
+  itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.profile
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

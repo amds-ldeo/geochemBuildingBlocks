@@ -258,6 +258,11 @@ x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/
   spdx: http://spdx.org/rdf/terms#
+x-bblocks-metadata:
+  itemIdentifier: ogch.BaseSchema.files
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

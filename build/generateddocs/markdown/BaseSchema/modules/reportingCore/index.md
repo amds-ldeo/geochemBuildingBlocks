@@ -116,9 +116,9 @@ The analysis half of the ReportingCore module, with every property populated. Ge
 ```ttl
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 
-[] dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+[] dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Dispersion Statistic" ;
             dqv:value "example value" ],
-        [ dqv:isMeasurementOf "Dispersion Statistic" ;
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "example value" ] .
 
 
@@ -201,9 +201,9 @@ The analysis half of the ReportingCore module, with every property populated. Ge
 ```ttl
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 
-[] dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Dispersion Statistic" ;
+[] dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "example value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+        [ dqv:isMeasurementOf "Dispersion Statistic" ;
             dqv:value "example value" ] .
 
 
@@ -402,6 +402,11 @@ $defs:
 x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
   dqv: http://www.w3.org/ns/dqv#
+x-bblocks-metadata:
+  itemIdentifier: ogch.BaseSchema.modules.reportingCore
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

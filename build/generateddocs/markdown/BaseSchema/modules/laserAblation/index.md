@@ -1483,6 +1483,11 @@ x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
   prov: http://www.w3.org/ns/prov#
   schema: http://schema.org/
+x-bblocks-metadata:
+  itemIdentifier: ogch.BaseSchema.modules.laserAblation
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

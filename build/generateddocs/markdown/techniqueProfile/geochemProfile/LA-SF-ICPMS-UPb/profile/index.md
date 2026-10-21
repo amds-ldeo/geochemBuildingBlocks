@@ -1581,6 +1581,11 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaLASFICPMSUPb
+x-bblocks-metadata:
+  itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.profile
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

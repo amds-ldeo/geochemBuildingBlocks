@@ -132,12 +132,12 @@ container, not tabular text).
     ada:componentType "ada:other" .
 
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
-    cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
-            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-x> ],
-        [ a cdi:MeasureComponent ;
+    cdi:has_DataStructureComponent [ a cdi:MeasureComponent ;
             cdif:name "intensity" ],
         [ a cdi:DimensionComponent ;
-            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ] ;
+            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ],
+        [ a cdi:DimensionComponent ;
+            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-x> ] ;
     schema1:name "Elemental map cube structure" .
 
 
@@ -193,6 +193,11 @@ x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
   cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
   cdif: https://cdif.org/0.1/
+x-bblocks-metadata:
+  itemIdentifier: ogch.BaseSchema.structuredData
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

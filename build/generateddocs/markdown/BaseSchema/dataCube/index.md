@@ -127,6 +127,11 @@ x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/
   cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+x-bblocks-metadata:
+  itemIdentifier: ogch.BaseSchema.dataCube
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 
