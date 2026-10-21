@@ -457,16 +457,24 @@ record carries. Do not treat the rollout as a labelling change.
 > and misses the legacy one, which sits two `allOf` levels down — the same top-level-only
 > mistake that this file warns about for counts.
 >
-> **Two things are still open, and the convention is not buildable until the second resolves.**
-> First, patching a STORED document and revalidating leaves residual `dcterms:conformsTo`
-> `contains` errors; that may be an artifact of the method, since it skips `detect_and_apply`
-> and `conformsTo` is DERIVED, so added members plausibly oblige a CDIF module that detection
-> would have supplied. Unverified either way — settle it by REGENERATING records, not by
-> patching JSON. Second, and the substantive blocker: **the token must only go on records whose
-> technique profile requires it** — asserting `ada:deadTime` on a photograph would be false —
-> but the requiring profiles are the TAPP variants while records resolve to the `Full` ones, so
-> the correct scope IS the flip decision above. Nothing in the corpus fails these pins today, so
-> there is nothing to repair yet and no scope to build against.
+> **The four-property member is CONFIRMED, and there is no third blocker.** An earlier version of
+> this note carried residual `dcterms:conformsTo` `contains` errors as an unresolved risk. They
+> were an artifact of the trial method: patching a STORED document and revalidating skips
+> `detect_and_apply`, and `conformsTo` is DERIVED, so the added members obliged a CDIF module
+> that detection would have supplied. Run properly — four-property member, then detect-and-apply
+> to re-derive `conformsTo`, then validate — a real EPMA record gives **0 errors** against
+> `adaEPMA`. **The general rule: a trial that mutates a stored document is not a valid test of
+> anything DERIVED from that document's content.** Regenerate; do not patch JSON.
+>
+> Still predicted rather than measured for the full 1,306 records — one record validated
+> correctly is not the corpus — and that number comes from a regeneration when the flip lands.
+>
+> **The remaining blocker is scope, and the convention is not buildable until it resolves.**
+> **The token must only go on records whose technique profile requires it** — asserting
+> `ada:deadTime` on a photograph would be false — but the requiring profiles are the TAPP
+> variants while records resolve to the `Full` ones, so the correct scope IS the flip decision
+> above. Nothing in the corpus fails these pins today, so there is nothing to repair yet and no
+> scope to build against.
 >
 > **Verified end-to-end, not predicted.** A real flipped EPMA record carrying the token as a
 > string in both properties, and a named `variableMeasured` member carrying it in `schema:value`
