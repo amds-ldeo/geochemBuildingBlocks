@@ -442,6 +442,32 @@ record carries. Do not treat the rollout as a labelling change.
 > An `{"@id": …}` OBJECT does **not** work in the scalar fields — it fails both — which is why
 > the string form was chosen over the object form the question was first asked about.
 >
+> **The member needs FOUR properties, not three — `schema:description` is also required.**
+> Corrected 2026-10-21, after the forms session tested the three-property shape this section
+> first specified and found it BREAKS a record that currently validates. The requirement is
+> record-side and unconditional in both generations, which is why it bites immediately rather
+> than only after a flip:
+>
+>     EPMA/profile       /properties/schema:variableMeasured/items/allOf[0]
+>     EPMA/profile-ada   /allOf[0]/allOf[4]/properties/schema:variableMeasured/items
+>
+> So the member is `{"@type": […], "schema:name": "<the pinned name>",
+> "schema:description": "<text>", "schema:value": "<the nil IRI>"}`. Note the legacy path: a
+> check of the ROOT `properties.schema:variableMeasured.items` alone finds the TAPP requirement
+> and misses the legacy one, which sits two `allOf` levels down — the same top-level-only
+> mistake that this file warns about for counts.
+>
+> **Two things are still open, and the convention is not buildable until the second resolves.**
+> First, patching a STORED document and revalidating leaves residual `dcterms:conformsTo`
+> `contains` errors; that may be an artifact of the method, since it skips `detect_and_apply`
+> and `conformsTo` is DERIVED, so added members plausibly oblige a CDIF module that detection
+> would have supplied. Unverified either way — settle it by REGENERATING records, not by
+> patching JSON. Second, and the substantive blocker: **the token must only go on records whose
+> technique profile requires it** — asserting `ada:deadTime` on a photograph would be false —
+> but the requiring profiles are the TAPP variants while records resolve to the `Full` ones, so
+> the correct scope IS the flip decision above. Nothing in the corpus fails these pins today, so
+> there is nothing to repair yet and no scope to build against.
+>
 > **Verified end-to-end, not predicted.** A real flipped EPMA record carrying the token as a
 > string in both properties, and a named `variableMeasured` member carrying it in `schema:value`
 > for each pin, validates against `EPMA/profile/resolvedSchema.json` with **0 errors** — measured
@@ -894,6 +920,31 @@ umbrella for records failing its own presence test. The union EXCLUDES anything 
 legacy twin claims, so the union cannot hand it reach against a different generation of the same
 technique — without that, 5 records moved off `adaSEMFull` onto `adaSEM`, which resolves 170
 required names against the legacy profile's 122.
+
+**A SUPERSEDED legacy cid is deliberately unreachable, and that is NOT the #152 bug** (Stephen,
+2026-10-21). Where a TAPP `profile/` covers the same componentTypes as its legacy `profile-ada`
+twin and both sit in one `exclusiveGroup`, the legacy cid at LEGACY 3 loses to the TAPP cid at
+MEMBER 10 and can never be declared — for any document at all. Measured on three pairs, whose
+presence ASKs are IDENTICAL for EPMA and XCT and a 5-of-12 subset for TEM. **Keep it. That is
+correct supersession**: the replacement exists, covers the same files, and should win.
+
+**The reason this needs writing down is that it is SYMPTOM-IDENTICAL to the defect fixed in
+#152.** Both present as "this profile matches no record". Ask which one you have:
+
+  the DEFECT      the presence ASK is DISJOINT from what the records carry — the profile cannot
+                  match because its vocabulary is wrong (`adaSEMFull`'s ASK accepted 6 types
+                  while its own schema declared 14, with no overlap at all)
+  CORRECT         the ASK matches fine, and the cid loses a PRIORITY contest inside its group to
+                  a superseding profile covering the same types
+
+A fix applied to the second case would resurrect a profile that is meant to be retired. Do not
+"repair" a zero-match legacy cid without checking which of the two it is.
+
+**The accepted consequence:** the three legacy `profile-ada` examples for EPMA, TEM and XCT each
+declare the cid their own block pins and detection returns the sibling TAPP cid instead, so they
+can never reproduce their own declaration. A declared-vs-detected acceptance run therefore shows
+3 permanent differences (88 of 111 at the time of writing). Those 3 are expected and are not a
+defect to chase.
 
 ### Where componentTypes come from, and the failure mode to know
 
