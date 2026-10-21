@@ -442,6 +442,12 @@ record carries. Do not treat the rollout as a labelling change.
 > An `{"@id": …}` OBJECT does **not** work in the scalar fields — it fails both — which is why
 > the string form was chosen over the object form the question was first asked about.
 >
+> **Verified end-to-end, not predicted.** A real flipped EPMA record carrying the token as a
+> string in both properties, and a named `variableMeasured` member carrying it in `schema:value`
+> for each pin, validates against `EPMA/profile/resolvedSchema.json` with **0 errors** — measured
+> by the Validation session 2026-10-20, against the schema as authored. The object form's failure
+> in those same fields was confirmed independently on the same record.
+>
 > **Recorded as a deliberate trade, not a fix.** A required pin satisfied by a placeholder passes
 > while conveying no measurement — the vacuous-validation shape `docs/SILENT_SUCCESS.md` and the
 > `adaSubjects` work both circle. It is accepted because an explicit machine-readable `unknown`
