@@ -15,9 +15,15 @@
 | `imageType` | array 4, **`[array,string]` 4** | `array` of string |
 | `channel2`, `channel3` | string 5, null 1, `[null,string]` 1 | `string` |
 
-`imageType` is the weakest of these: it is an even 4/4 split between array and
-array-or-string, so "dominant" is a coin toss. Declared as an array because that is the shape
-a multi-valued type needs, but it is worth Stephen's eye.
+`imageType` was the weakest of these and is now **settled as `array`** (Stephen, 2026-10-21).
+It is an even 4/4 split — `array` in SEMEBSDGrainImageMap, STEMImage, TEMImage and
+TEMPatternsImage; `[array,string]` in SEMEDSElementalMaps, SEMImageCollection, SEMImageMap and
+TEMEDSImageCollection — so it cannot be decided by counting the way `associatedFiles` could at
+24 against 3.
+
+It is decided by the same rule as the names: the schema states the intended shape and ADA
+normalises. Accepting both forms would instead oblige every consumer to handle a scalar and a
+list indefinitely, for a field where neither form has a majority to appeal to.
 
 ## Mapping is partial on purpose
 

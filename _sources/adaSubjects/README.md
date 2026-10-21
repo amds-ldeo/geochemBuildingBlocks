@@ -59,7 +59,28 @@ and `OriginalName` has no lowerCamel form in the data at all:
 | `Laboratory` | `laboratory` | 2 | |
 | `unitOfmeasure` | `unitOfMeasure` | 2 | medial case; 1 schema carries both |
 | `Format` | `format` | 1 | |
-| `Doi` | ? | 1 | **open** — lowerCamel gives `doi`, but an initialism is a convention choice, and a DOI may belong as `schema:identifier` + `propertyID` instead |
+| `Doi` | `doi` | 1 | initialism lowercased; see the note below on the separate modelling question |
+
+**`Doi` carries a second question that is NOT a rename, and the two were deliberately split**
+(Stephen, 2026-10-21). The casing fix is free: `Doi` appears in exactly one schema
+(`166-SIMSTabular`) as a plain string, and lowercase `doi` appears in **none**, so there is no
+collision and no tie to break. But a DOI is an IDENTIFIER, and this repo's convention is
+`schema:identifier` carrying a `propertyID` rather than a bare string under a type-named key —
+so `Doi` is arguably mis-modelled as well as mis-cased. Remodelling it is a content change ADA
+would make across its SIMS records; renaming it is a key change in a descriptive fragment.
+Bundling them would have stalled the free fix behind a real migration, so `doi` lands now and
+the identifier modelling is logged as an upstream question.
+
+**Two decisions of 2026-10-21 close the other open items**, both resting on the rule in the
+section above — the schema states the intended shape, ADA normalises:
+
+- `imageType` is declared `array`, not `[array, string]`. An even 4/4 split cannot be decided
+  by counting, so it is decided by the rule; accepting both would oblige every consumer to
+  handle a scalar and a list forever. See `subjectRaster/description.md`.
+- **`null` IS permitted** on `minVal`, `maxVal` and `displayInVizTool`, and this one does NOT
+  rest on that rule — it is the exception to it. A name is a target the data should move to; a
+  null is a fact about what ADA stores, and these fragments are descriptive, so forbidding null
+  would fail real rows. See `subjectColumn/description.md` for the measurement that decided it.
 
 ## Type inconsistencies, same treatment
 
