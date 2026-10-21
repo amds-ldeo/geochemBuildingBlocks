@@ -10,7 +10,7 @@ This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JS
 - **`README.md`** — human-facing overview; its generation-pipeline section is a good orientation.
 - **`docs/TAPP-schema-generation-workflow.md`** — end-to-end walkthrough of workbook → validated schema.
 - **`docs/SCHEMA_PATH_GRAMMAR.md`** — the canonical grammar for the schema-path sidecars.
-- **`docs/SILENT_SUCCESS.md`** — eleven incidents in which a check, a generator or a workflow reported success while not doing its job, each with what exposed it and the rule that follows. The validator passing while content vanishes, a generator whose output varies per process, auto-merge walking past a red non-required check, a required check that can never run, a deploy that skipped the event it was given a trigger for, a pipeline silently substituting a superseded TAPP delivery for the one it was pinned to, and a whole check suite structurally unable to observe one direction of a change — a relaxation whose loss makes the schema STRICTER, so the examples, the counterexamples and the census were each blind to it for a different reason; an audit that printed its own failure count and exited 0 while nothing in CI ran it at all; a conformance sidecar listing plausible componentTypes that matched no record, because the only consumer that could tell lives in another repository; and a Pages deploy that cancelled itself on every build-PR merge, both of its runs concluding non-red. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, before combining two sources in a generator, and whenever you loosen a constraint: ask which direction of change each check can see, measure coverage per RECORD rather than per aggregate — and, for any check, run it and read `$?`.
+- **`docs/SILENT_SUCCESS.md`** — twelve incidents in which a check, a generator or a workflow reported success while not doing its job, each with what exposed it and the rule that follows. The validator passing while content vanishes, a generator whose output varies per process, auto-merge walking past a red non-required check, a required check that can never run, a deploy that skipped the event it was given a trigger for, a pipeline silently substituting a superseded TAPP delivery for the one it was pinned to, and a whole check suite structurally unable to observe one direction of a change — a relaxation whose loss makes the schema STRICTER, so the examples, the counterexamples and the census were each blind to it for a different reason; an audit that printed its own failure count and exited 0 while nothing in CI ran it at all; a conformance sidecar listing plausible componentTypes that matched no record, because the only consumer that could tell lives in another repository; a Pages deploy that cancelled itself on every build-PR merge, both of its runs concluding non-red; and a merged change whose JUSTIFYING RECORD COUNT was measured against the wrong resolution route — counted by profile directory rather than by the cid records resolve to, so the figure described nothing, and no check could see it because the change itself was correct. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, before combining two sources in a generator, and whenever you loosen a constraint: ask which direction of change each check can see, measure coverage per RECORD rather than per aggregate, resolve by cid rather than by directory — and, for any check, run it and read `$?`.
 - **`docs/README.md`** — what is in `docs/`: the sidecar format, its five `Source` values, and the maintenance tools around it. Note **"sidecar" is overloaded**: in `docs/` it means the `*.schemapaths.csv` files, while `<block>/conformance.json` is the unrelated conformance sidecar — see "Conformance sidecars" below.
 - **`docs/modules/MODULE_CONSOLIDATION_STATUS.md`** — **state, not design**: how far module consolidation has got, what is decided, and what is open. Its own figure is **73% composed** (651 against 231 still minted per technique) after the 2026-09-02 delivery, not the 25% this pointer claimed until 2026-10-18 — and even the 73% predates the 2026-10-01 manifest, so re-measure before quoting either. Read it before drafting a module. Measure `tapp/`, never `registry/`: the registries are `isTypeLibrary` and per-technique by construction, so measuring them yields a true-but-meaningless 87% duplication.
 
@@ -379,47 +379,103 @@ of them can be retired is the record-migration question below — not schema wor
 > already carries `ada<TECH>Full` and its sidecar keeps the vocabulary. Judge a fork by whether
 > any componentType becomes unreachable, not by the fork alone.
 
-**Superseded in intent is NOT superseded in use, and records DO cite these profiles by URI.**
-Corrected 2026-10-15. This paragraph previously read "no record declares `dcterms:conformsTo` at
-all: 0 of 7446", and concluded that retiring a `profile-ada` could not orphan a record that way.
-The 0 was measured at the record ROOT only. **Every record declares one — 7,447 of 7,447 — at
-`schema:subjectOf.dcterms:conformsTo`**, which is exactly where `adaProduct`'s own conformsTo pin
-sits, so the nesting should have been the first place to look.
+**These profiles are not CITED — their URI is DERIVED from record content.** Corrected
+2026-10-20, and two earlier versions of this paragraph were both wrong. The first said no record
+declares `dcterms:conformsTo` at all (0 of 7446), which had been measured at the record ROOT
+only. The second said records "cite" these profiles and that citation and content-detection
+disagree for 4,217 records. **There is no citation route at all.** The loader ASSIGNS
+`schema:subjectOf.dcterms:conformsTo` from content — `record_items.py:715`,
+`base_conformance_uris(...)` — so a count of that field is a count of DERIVATIONS, and a derived
+field cannot preserve a stale label across a re-run. Every record carries one, 7,447 of 7,447,
+at that nested path.
 
-**36 distinct profile cids are asserted**, and most name a legacy profile:
+**35 distinct profile cids are derived.** Measured 2026-10-20 via the loader's static path:
 
 | cid | records | holder |
 |---|---|---|
 | `geochemProduct`, `adaProduct` | 7,447 each | the base products |
-| `adaSEM` | **2,912** | the TAPP `geochemProfile/SEM/profile` since #149 |
-| `adaTEM` | **870** | the TAPP `geochemProfile/TEM/profile` since #157 |
-| `adaEPMA` | **435** | the TAPP `geochemProfile/EPMA/profile` since #157 |
+| `adaSEMFull` | **2,918** | the LEGACY `geochemProfile/SEM/profile-ada` |
+| `adaTEMFull` | **870** | the LEGACY `geochemProfile/TEM/profile-ada` |
+| `adaEPMAFull` | **436** | the LEGACY `geochemProfile/EPMA/profile-ada` |
+| `adaSEM`, `adaEPMA`, `adaSEMComposition`, `adaXCT`, `adaLabXCT` | **0 each** | the TAPP `profile/` blocks — reached by NO record |
 | `adaXANES` 245, `adaVNMIR` 183, `adaXRD` 66 | | `adaProfile/*/profile-ada` — legacy |
 | `adaLIT` 137, `adaICPMS` 112, `adaARGT` 97, `adaFTICRMS` 89, `adaLCMS`/`adaGCMS` 75 … | | all legacy |
 
-**The holder column changed under those top three, and the records did not.** All three cids
-named a LEGACY block when these counts were taken; the SEM rename (#149) and the EPMA/TEM
-un-forking (#157) moved each bare `ada<TECH>` onto the TAPP `profile/` and gave the legacy twin
-`ada<TECH>Full`. So 2,912 + 870 + 435 records now cite a URI that resolves to a TAPP profile
-while their CONTENT matches the legacy one — measured on the live corpus, `adaSEMFull` accepts
-9 of the 9 componentTypes SEM records actually carry and `adaSEM` accepts 1. Citation and
-content-detection therefore disagree for 4,217 records, which is a known and accepted interim
-state, not a defect to patch in the schemas: re-pointing is ADA-side work, sequenced as the
-paragraph below says.
+**#149 was a SWAP, not a rename, and the records followed the BLOCK rather than the label.**
+`SEM/profile` went `adaSEMFull` -> `adaSEM` and `SEM/profile-ada` took the reverse
+(`ccb49db80f`, 2026-10-17); #157 un-forked EPMA and TEM the same way (`e6f2772c43`, 2026-10-18).
+An earlier table here recorded `adaSEM` 2,912 / `adaTEM` 870 / `adaEPMA` 435, measured
+2026-10-15 — those were CORRECT derivations against the cid assignment of that day, when each
+bare `ada<TECH>` was the legacy block's label. Because the field is derived, re-derivation moved
+the same records onto the `Full` labels. Do not read the old counts as a disagreement that needs
+reconciling; there was never a stale citation to disagree with.
+
+**The loader's static path and the CDIF engine DISAGREE, and that is open.** `detect_domain_
+conformance` resolves these same records to the TAPP cid — verified on a real record, which
+returns `adaEPMA` — because the legacy and TAPP cids share one `exclusiveGroup` and TAPP
+priority 10 outranks LEGACY 3, with no fall-back. So completing the engine rollout FLIPS them,
+and **the flip is a REVALIDATION, not a relabelling**: the TAPP profiles require record-side
+names the legacy ones do not, and measured 2026-10-20, **1,306 of 1,306** EPMA and TEM records
+FAIL against their TAPP profile — 436 of 436 and 870 of 870, zero passes. The blockers are
+`ada:deadTime` (both), `ada:proceduralBlankLevel` (EPMA only), and two `schema:variableMeasured`
+`contains` pins requiring variables named `Sampling Unit Name` and `Detection Limit` that NO
+record carries. Do not treat the rollout as a labelling change.
+
+> **The resolution is a NIL TOKEN, not a relaxed constraint** (Steve, 2026-10-20). The TAPP
+> workbooks are Ruolin's and the ADA corpus predates TAPP generation, so the pins stay and the
+> records DECLARE the absence. The agreed token is the OGC nil reason `unknown`, written as the
+> **expanded IRI, as a string**:
+>
+>     http://www.opengis.net/def/nil/OGC/0/unknown
+>
+> Expanded rather than the compact `nil:unknown` because nothing guarantees a consumer applies
+> ADA's `adaJSONLD.json` context (which does bind `nil:`) before reading a scalar. `unknown`
+> rather than `missing` because ADA holds no record of a value that does not exist, only of one
+> no submitter sent. Where a field accepts a REFERENCE the object form `{"@id": "nil:unknown"}`
+> remains correct and is already in use for `cdif:physicalDataType`; the string form is only for
+> the scalar-typed fields.
+>
+> **No gBB constraint changes, and that is the point.** `ada:deadTime` is
+> `anyOf: [{number}, {string}]` and `ada:proceduralBlankLevel` is `{type: string}`, so an IRI
+> string already validates; the two `variableMeasured` `contains` pins require `schema:name`
+> ALONE, so the member must exist and be named exactly, with the token as its `schema:value`.
+> An `{"@id": …}` OBJECT does **not** work in the scalar fields — it fails both — which is why
+> the string form was chosen over the object form the question was first asked about.
+>
+> **Verified end-to-end, not predicted.** A real flipped EPMA record carrying the token as a
+> string in both properties, and a named `variableMeasured` member carrying it in `schema:value`
+> for each pin, validates against `EPMA/profile/resolvedSchema.json` with **0 errors** — measured
+> by the Validation session 2026-10-20, against the schema as authored. The object form's failure
+> in those same fields was confirmed independently on the same record.
+>
+> **Recorded as a deliberate trade, not a fix.** A required pin satisfied by a placeholder passes
+> while conveying no measurement — the vacuous-validation shape `docs/SILENT_SUCCESS.md` and the
+> `adaSubjects` work both circle. It is accepted because an explicit machine-readable `unknown`
+> lets a consumer distinguish *declared absent* from *present*, which nothing can do today, and
+> because the alternative was loosening authored workbooks to fit legacy data. Do not cite it as
+> precedent for relaxing a TAPP constraint, and do not add a second sentinel beside it — the
+> examples already carry 1,090+ `"no value available: X"` strings from the generators, and a
+> third convention would make absence unreadable. The loader emits this; no gBB generator does.
 
 Do NOT read this table as "the legacy profile owns the records" any more. Ask which block pins
-the cid today — `grep -rn "profiles/<cid>" _sources/**/schema.yaml` — because the answer moved
-twice in two days.
+the cid today — `grep -rlE "profiles/<cid>([^A-Za-z0-9]|$)" --include=schema.yaml _sources/` —
+because the answer moved twice in two days. **Anchor that pattern.** An unanchored
+`profiles/adaSEM` also matches `adaSEMFull`, silently merging a cid with its legacy twin, which
+is exactly the distinction that matters here; a first pass without the anchor reported zero
+forks repo-wide against the five that exist.
 
-So retiring or renaming a legacy profile DOES orphan the records that cite it, and nothing in gBB
-would notice: no gBB check reads ADA records. Re-pointing the records is an ADA-side change,
-because the assertion lives in the record content. Sequence it as: decide the cids, re-point the
-records, then deprecate — not the other way round.
+So retiring or renaming a legacy profile moves every record that derives to it, and nothing in
+gBB would notice: no gBB check reads ADA records. But it does not ORPHAN them, and the earlier
+wording here said it did. Because the field is derived rather than stored, a renamed cid is
+simply re-derived on the next loader run — which is exactly what #149's swap did to 2,918 SEM
+records without touching one of them. What a rename changes is which SCHEMA those records are
+then judged against, so sequence it as: decide the cids, confirm the new target ACCEPTS the
+records, then deprecate. Judge the move by validation, not by citation.
 
 `adaTEM` and `adaEPMA` were **ambiguous** URIs until #157, each claimed by two schemas. They now
-resolve to one block apiece — the TAPP `profile/` — so the ambiguity is gone and the open
-question is the different one above: the records cite a TAPP cid while their content matches the
-legacy profile.
+resolve to one block apiece — the TAPP `profile/` — so the ambiguity is gone, and the open
+question is the one above: the loader's static path derives the `Full` cid for these records
+while the CDIF engine derives the TAPP one, and the records fail the TAPP schema if flipped.
 
 The risk compounds through a second route. The ADA loader **derives** `conformsTo` from record
 CONTENT (via the CDIF validation repo's `detect_conformance`), so a record is matched to a
@@ -428,11 +484,11 @@ have to accept it. That is why relocating the twelve `adaProfile` hasPart-item d
 the top level, tried on a copy on 2026-09-05, failed **all 218** records of the affected profiles
 on a missing `ada:componentType`: those records never mentioned the profile, they were matched
 into it. So there are TWO questions to ask before retiring a profile, and the correction above
-means the first one is no longer rhetorical: **"what cites this?"** — measured per cid at
-`schema:subjectOf.dcterms:conformsTo`, which for `adaSEM` is 2,912 records — and **"what would
-`detect_conformance` match here instead, and would that schema accept these records?"** A profile
-can be orphaned by either route: a record that names it, or a record that is matched into its
-replacement and fails there.
+means the first one is about DERIVATION, not citation: **"which cid does the loader derive for
+these records today?"** — measured per cid at `schema:subjectOf.dcterms:conformsTo`, which is
+`adaSEMFull` 2,918 and `adaSEM` **zero** — and **"what would `detect_conformance` match here
+instead, and would that schema accept these records?"** Both questions are now known to have
+different answers, which is the divergence recorded above.
 
 > **One stale count nearby.** The Composition-modules section below says `_tapp_lib.py` generates
 > "the 16 under `geochemProfile/`" and that "the 32 under `adaProfile/`" are hand-maintained.
@@ -850,7 +906,8 @@ session measuring presence against the live corpus, not by anything here:
 
 - the inline enum was read only when the TAPP lookup came back empty, so a legacy block keyed to
   the same technique directory took the TAPP vocabulary instead of its own. `adaSEMFull`'s ASK
-  was entirely DISJOINT from the 2,912 records citing it.
+  was entirely DISJOINT from the 2,912 records that derived to it (measured pre-swap, when
+  `adaSEM` was that legacy block's own label; they derive to `adaSEMFull` today).
 - a bare `const:` was not read at all, only `enum` and `anyOf: [{const}]`. 8 detail blocks use
   the bare form.
 - the TAPP lookup was keyed off `build_profile.PROFILES` (34 techniques) rather than
@@ -867,9 +924,12 @@ blocks keeps one and DISCARDS the other's vocabulary. That is why the `ada<TECH>
 until #157. Judge a fork by whether a componentType becomes unreachable in all 71 sidecars, not
 by the fork alone.
 
-**Check a presence ASK per RECORD, not per profile.** `adaTEM` had 870 records of which 613 did
-carry an accepted type, so it looked healthy in aggregate while 257 records had no overlap at
-all. An aggregate overlap hides exactly the records that are broken.
+**Check a presence ASK per RECORD, not per profile.** Measured when `adaTEM` was still the
+LEGACY block's label, it had 870 records of which 613 did carry an accepted type — so it looked
+healthy in aggregate while 257 records had no overlap at all. An aggregate overlap hides exactly
+the records that are broken. **Read that 870 against the label of the day, not today's**: since
+#149's swap those records resolve to `adaTEMFull`, and `adaTEM` is reached by none — the same
+trap as the cid table above.
 
 
 ## adaProduct extension over cdifProvActivity
