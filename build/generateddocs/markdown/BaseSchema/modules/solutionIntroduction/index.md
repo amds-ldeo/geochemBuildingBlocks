@@ -787,6 +787,11 @@ x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
   bios: https://bioschemas.org/
   schema: http://schema.org/
+x-bblocks-metadata:
+  itemIdentifier: ogch.BaseSchema.modules.solutionIntroduction
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

@@ -1177,6 +1177,11 @@ x-jsonld-prefixes:
   nxs: https://manual.nexusformat.org/classes/
   dcterms: http://purl.org/dc/terms/
   geosparql: http://www.opengis.net/ont/geosparql#
+x-bblocks-metadata:
+  itemIdentifier: ogch.techniqueProfile.adaProfile.PSFD.profile-ada
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

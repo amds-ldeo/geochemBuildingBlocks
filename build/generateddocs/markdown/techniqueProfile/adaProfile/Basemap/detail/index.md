@@ -124,6 +124,11 @@ required:
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/
+x-bblocks-metadata:
+  itemIdentifier: ogch.techniqueProfile.adaProfile.Basemap.detail
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

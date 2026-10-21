@@ -118,10 +118,10 @@ The procedure half of the CompositionQC module, with every property populated. G
 
 [] schema1:actionProcess [ schema1:step [ schema1:name "Data processing" ;
                     ada:detectionLimitMethod "no value available: unnamed property" ] ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Normalization / Standards-Based Correction" ],
-        [ schema1:defaultValue 1 ;
-            schema1:name "Detection Limit" ] ;
+    schema1:variableMeasured [ schema1:defaultValue 1 ;
+            schema1:name "Detection Limit" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Normalization / Standards-Based Correction" ] ;
     ada:secondaryReferenceMaterialDefault "no value available: unnamed property" .
 
 
@@ -228,11 +228,11 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:variableMeasured [ schema1:name "Detection Limit" ;
+[] schema1:variableMeasured [ schema1:name "Detection Limit Method" ;
+            schema1:value "no value available: unnamed property" ],
+        [ schema1:name "Detection Limit" ;
             schema1:value 1 ],
         [ schema1:name "Normalization / Standards-Based Correction" ;
-            schema1:value "no value available: unnamed property" ],
-        [ schema1:name "Detection Limit Method" ;
             schema1:value "no value available: unnamed property" ] ;
     prov:wasGeneratedBy [ prov:used [ ] ] .
 
@@ -638,6 +638,11 @@ x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
   prov: http://www.w3.org/ns/prov#
   schema: http://schema.org/
+x-bblocks-metadata:
+  itemIdentifier: ogch.BaseSchema.modules.compositionQC
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

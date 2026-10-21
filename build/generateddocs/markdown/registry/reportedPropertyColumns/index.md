@@ -51,6 +51,11 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+x-bblocks-metadata:
+  itemIdentifier: ogch.registry.reportedPropertyColumns
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

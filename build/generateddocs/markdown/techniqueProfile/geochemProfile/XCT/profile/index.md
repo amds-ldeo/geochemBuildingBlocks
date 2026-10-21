@@ -1119,18 +1119,18 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "no value available: partialVolumeEffectAssessment" ],
+        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+            dqv:value "no value available: metalStreakArtifactAssessment" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "no value available: crossValidationOutcome" ],
         [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
             dqv:value "no value available: signalToNoiseRatio" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
-        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
-            dqv:value "no value available: metalStreakArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "no value available: beamHardeningArtifactAssessment" ] ;
+            dqv:value "no value available: beamHardeningArtifactAssessment" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1304,6 +1304,11 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaLabXCT
+x-bblocks-metadata:
+  itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.profile
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

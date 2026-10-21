@@ -1364,6 +1364,11 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSEMComposition
+x-bblocks-metadata:
+  itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.profile
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 

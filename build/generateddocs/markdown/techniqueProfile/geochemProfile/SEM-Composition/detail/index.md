@@ -2141,6 +2141,11 @@ allOf:
         maxContains: 1
   required:
   - ada:mapDimensions
+x-bblocks-metadata:
+  itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.detail
+  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-10-21'
 
 ```
 
