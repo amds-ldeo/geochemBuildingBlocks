@@ -428,15 +428,18 @@ because the answer moved twice in two days. **Anchor that pattern.** An unanchor
 is exactly the distinction that matters here; a first pass without the anchor reported zero
 forks repo-wide against the five that exist.
 
-So retiring or renaming a legacy profile DOES orphan the records that cite it, and nothing in gBB
-would notice: no gBB check reads ADA records. Re-pointing the records is an ADA-side change,
-because the assertion lives in the record content. Sequence it as: decide the cids, re-point the
-records, then deprecate — not the other way round.
+So retiring or renaming a legacy profile moves every record that derives to it, and nothing in
+gBB would notice: no gBB check reads ADA records. But it does not ORPHAN them, and the earlier
+wording here said it did. Because the field is derived rather than stored, a renamed cid is
+simply re-derived on the next loader run — which is exactly what #149's swap did to 2,918 SEM
+records without touching one of them. What a rename changes is which SCHEMA those records are
+then judged against, so sequence it as: decide the cids, confirm the new target ACCEPTS the
+records, then deprecate. Judge the move by validation, not by citation.
 
 `adaTEM` and `adaEPMA` were **ambiguous** URIs until #157, each claimed by two schemas. They now
-resolve to one block apiece — the TAPP `profile/` — so the ambiguity is gone and the open
-question is the different one above: the records cite a TAPP cid while their content matches the
-legacy profile.
+resolve to one block apiece — the TAPP `profile/` — so the ambiguity is gone, and the open
+question is the one above: the loader's static path derives the `Full` cid for these records
+while the CDIF engine derives the TAPP one, and the records fail the TAPP schema if flipped.
 
 The risk compounds through a second route. The ADA loader **derives** `conformsTo` from record
 CONTENT (via the CDIF validation repo's `detect_conformance`), so a record is matched to a
@@ -445,11 +448,11 @@ have to accept it. That is why relocating the twelve `adaProfile` hasPart-item d
 the top level, tried on a copy on 2026-09-05, failed **all 218** records of the affected profiles
 on a missing `ada:componentType`: those records never mentioned the profile, they were matched
 into it. So there are TWO questions to ask before retiring a profile, and the correction above
-means the first one is no longer rhetorical: **"what cites this?"** — measured per cid at
-`schema:subjectOf.dcterms:conformsTo`, which for `adaSEM` is 2,912 records — and **"what would
-`detect_conformance` match here instead, and would that schema accept these records?"** A profile
-can be orphaned by either route: a record that names it, or a record that is matched into its
-replacement and fails there.
+means the first one is about DERIVATION, not citation: **"which cid does the loader derive for
+these records today?"** — measured per cid at `schema:subjectOf.dcterms:conformsTo`, which is
+`adaSEMFull` 2,918 and `adaSEM` **zero** — and **"what would `detect_conformance` match here
+instead, and would that schema accept these records?"** Both questions are now known to have
+different answers, which is the divergence recorded above.
 
 > **One stale count nearby.** The Composition-modules section below says `_tapp_lib.py` generates
 > "the 16 under `geochemProfile/`" and that "the 32 under `adaProfile/`" are hand-maintained.
@@ -867,7 +870,8 @@ session measuring presence against the live corpus, not by anything here:
 
 - the inline enum was read only when the TAPP lookup came back empty, so a legacy block keyed to
   the same technique directory took the TAPP vocabulary instead of its own. `adaSEMFull`'s ASK
-  was entirely DISJOINT from the 2,912 records citing it.
+  was entirely DISJOINT from the 2,912 records that derived to it (measured pre-swap, when
+  `adaSEM` was that legacy block's own label; they derive to `adaSEMFull` today).
 - a bare `const:` was not read at all, only `enum` and `anyOf: [{const}]`. 8 detail blocks use
   the bare form.
 - the TAPP lookup was keyed off `build_profile.PROFILES` (34 techniques) rather than
@@ -884,9 +888,12 @@ blocks keeps one and DISCARDS the other's vocabulary. That is why the `ada<TECH>
 until #157. Judge a fork by whether a componentType becomes unreachable in all 71 sidecars, not
 by the fork alone.
 
-**Check a presence ASK per RECORD, not per profile.** `adaTEM` had 870 records of which 613 did
-carry an accepted type, so it looked healthy in aggregate while 257 records had no overlap at
-all. An aggregate overlap hides exactly the records that are broken.
+**Check a presence ASK per RECORD, not per profile.** Measured when `adaTEM` was still the
+LEGACY block's label, it had 870 records of which 613 did carry an accepted type — so it looked
+healthy in aggregate while 257 records had no overlap at all. An aggregate overlap hides exactly
+the records that are broken. **Read that 870 against the label of the day, not today's**: since
+#149's swap those records resolve to `adaTEMFull`, and `adaTEM` is reached by none — the same
+trap as the cid table above.
 
 
 ## adaProduct extension over cdifProvActivity
