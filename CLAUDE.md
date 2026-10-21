@@ -421,6 +421,36 @@ FAIL against their TAPP profile — 436 of 436 and 870 of 870, zero passes. The 
 `contains` pins requiring variables named `Sampling Unit Name` and `Detection Limit` that NO
 record carries. Do not treat the rollout as a labelling change.
 
+> **The resolution is a NIL TOKEN, not a relaxed constraint** (Steve, 2026-10-20). The TAPP
+> workbooks are Ruolin's and the ADA corpus predates TAPP generation, so the pins stay and the
+> records DECLARE the absence. The agreed token is the OGC nil reason `unknown`, written as the
+> **expanded IRI, as a string**:
+>
+>     http://www.opengis.net/def/nil/OGC/0/unknown
+>
+> Expanded rather than the compact `nil:unknown` because nothing guarantees a consumer applies
+> ADA's `adaJSONLD.json` context (which does bind `nil:`) before reading a scalar. `unknown`
+> rather than `missing` because ADA holds no record of a value that does not exist, only of one
+> no submitter sent. Where a field accepts a REFERENCE the object form `{"@id": "nil:unknown"}`
+> remains correct and is already in use for `cdif:physicalDataType`; the string form is only for
+> the scalar-typed fields.
+>
+> **No gBB constraint changes, and that is the point.** `ada:deadTime` is
+> `anyOf: [{number}, {string}]` and `ada:proceduralBlankLevel` is `{type: string}`, so an IRI
+> string already validates; the two `variableMeasured` `contains` pins require `schema:name`
+> ALONE, so the member must exist and be named exactly, with the token as its `schema:value`.
+> An `{"@id": …}` OBJECT does **not** work in the scalar fields — it fails both — which is why
+> the string form was chosen over the object form the question was first asked about.
+>
+> **Recorded as a deliberate trade, not a fix.** A required pin satisfied by a placeholder passes
+> while conveying no measurement — the vacuous-validation shape `docs/SILENT_SUCCESS.md` and the
+> `adaSubjects` work both circle. It is accepted because an explicit machine-readable `unknown`
+> lets a consumer distinguish *declared absent* from *present*, which nothing can do today, and
+> because the alternative was loosening authored workbooks to fit legacy data. Do not cite it as
+> precedent for relaxing a TAPP constraint, and do not add a second sentinel beside it — the
+> examples already carry 1,090+ `"no value available: X"` strings from the generators, and a
+> third convention would make absence unreadable. The loader emits this; no gBB generator does.
+
 Do NOT read this table as "the legacy profile owns the records" any more. Ask which block pins
 the cid today — `grep -rlE "profiles/<cid>([^A-Za-z0-9]|$)" --include=schema.yaml _sources/` —
 because the answer moved twice in two days. **Anchor that pattern.** An unanchored
