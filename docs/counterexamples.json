@@ -242,6 +242,16 @@
       "why": "Pins the HALF of the 2026-10-18 ancestor relaxation that must still bite. The emitter no longer adds a $Dataset path's intermediate containers to `required` -- so a record with no prov:wasGeneratedBy at all is now accepted, which is the point: schema:actionProcess was being demanded of 725 ADA records that describe no procedure. Nothing in the suite could see the other half. The leaf requirement stays on the container's own schema, so it fires exactly when the container IS present, and losing that would turn the whole activity subtree optional with every check still green. Verified both ways on this example: removing the whole prov:wasGeneratedBy now yields 0 errors, while removing this one leaf inside the present container yields 1. If this case ever passes, the relaxation has gone too far."
     },
     {
+      "id": "adasubject-column-requires-colnum",
+      "example": "_sources/adaSubjects/subjectColumn/exampleColumn.json",
+      "mutate": {
+        "op": "remove",
+        "pointer": "/colNum"
+      },
+      "expect": "colNum",
+      "why": "The adaSubjects collection is NOT published -- its blocks carry no bblock.json, which is what keeps them out of the register -- so no OGC postprocess check ever looks at them. resolve_schema, validate_examples and the census do, but all three are satisfied by a schema that constrains nothing: a fragment whose `required` was dropped would still resolve, its example would still validate, and the census would only see the count fall. colNum and fieldDescription are required because they are the only two keys present in ALL 14 observed column shapes across the 49 inferred schemas that carry `columns`, so losing that pair would silently turn the fragment into the same vacuous shape ADA's own subject_schemas already are -- the defect this collection exists to answer."
+    },
+    {
       "id": "xct-quantitativevalue-needs-a-value",
       "example": "_sources/techniqueProfile/geochemProfile/XCT/detail-legacy/exampledetailXCT-unitBearing.json",
       "mutate": {

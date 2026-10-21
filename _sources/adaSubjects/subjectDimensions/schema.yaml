@@ -1,0 +1,24 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ADA Subject — dimensions of a data cube
+description: >-
+  The `dimensions` array carried by 11 inferred schemas (353 subjects). Three observed item
+  shapes, all subsets of the four keys below, with dimension and fieldDescription in all three
+  — the same one-shape-with-optionals result as subjectColumn.
+type: object
+properties:
+  dimensions:
+    type: array
+    items:
+      type: object
+      properties:
+        dimension:
+          type: string
+        fieldDescription:
+          type: string
+        unitOfMeasure:
+          type: string
+        fieldResource:
+          type: string
+      required:
+      - dimension
+      - fieldDescription

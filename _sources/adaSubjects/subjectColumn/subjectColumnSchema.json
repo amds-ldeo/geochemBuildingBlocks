@@ -1,0 +1,38 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA Subject — one column of a tabular component",
+    "description": "One item of a `columns` array. Measured across the 49 inferred schemas that carry `columns`: 14 distinct item shapes, every one a SUBSET of the nine keys below, with colNum and fieldDescription present in all 14. So this is one shape with optional keys, not fourteen shapes — verified by set containment, not assumed.",
+    "type": "object",
+    "properties": {
+        "colNum": {
+            "type": "integer",
+            "description": "1-based position of the column in the file. Integer in all 49 schemas, with no variants. Maps to cdif:index."
+        },
+        "fieldDescription": {
+            "type": "string"
+        },
+        "label": {
+            "type": "string"
+        },
+        "fieldType": {
+            "type": "string",
+            "description": "Physical data type as ADA records it. Maps to cdif:physicalDataType."
+        },
+        "unitOfMeasure": {
+            "type": "string"
+        },
+        "minVal": {
+            "type": "number"
+        },
+        "maxVal": {
+            "type": "number"
+        },
+        "displayInVizTool": {
+            "type": "boolean"
+        }
+    },
+    "required": [
+        "colNum",
+        "fieldDescription"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADA Subject — common keys",
+  "description": "The two keys that nearly every record_subject carries, whatever its component type. Derived from metadata/subject_schemas/inferred: schema:description in 122 of the 133 inferred schemas, dataComponentType in 101. Neither is required HERE, because a fragment cannot know whether its consumer is one of the 11 types that omit description; the consuming type block adds them to `required` where the data supports it.",
+  "type": "object",
+  "properties": {
+    "dataComponentType": {
+      "type": "string",
+      "description": "The ADA component type this subject describes, e.g. STEMEDSCube. Matches the ada:componentType string used on a hasPart item in the published product, which is why the context maps it there."
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

@@ -116,6 +116,22 @@ REQUIRED_FILES = ["schema.yaml", "bblock.json"]
 EXPECTED_FILES = ["description.md", "context.jsonld", "rules.shacl"]
 GENERATED_FILES = ["resolvedSchema.json"]  # checked for freshness
 
+#: Collections that are NOT published as OGC building blocks. Their directories deliberately
+#: carry no bblock.json, because that file IS the register boundary in this repo: measured
+#: 2026-10-20, 251 directories hold a schema.yaml, 251 hold a bblock.json, and
+#: build/register.json has exactly 251 entries. There is no exclusion switch in
+#: bblocks-config.yaml, so omitting the file is the only mechanism.
+#:
+#: `adaSubjects` describes ADA's STORED record_subjects -- its input -- rather than the
+#: published product, and must not reach the register. See _sources/adaSubjects/README.md.
+#:
+#: These are EXEMPTED here rather than added to SKIP_DIRS or to the baseline, and both
+#: alternatives are worse. SKIP_DIRS would blind every check, losing the resolved-freshness and
+#: *Schema.json checks that DO apply. Baselining ~139 missing-bblock.json failures would park
+#: them in docs/audit_baseline.json, where each entry then absorbs the next real regression at
+#: that block -- the debt-clearing hazard this file's own docs warn about.
+NON_REGISTER_COLLECTIONS = {"adaSubjects"}
+
 # Directories to skip
 SKIP_DIRS = {"tests", "assets", "build", ".git", "node_modules", "__pycache__"}
 
@@ -151,20 +167,34 @@ def discover_building_blocks(sources_dir):
 # Check 1: File completeness
 # ---------------------------------------------------------------------------
 
-def check_files(bb_dir, name, is_type_library=False):
+def check_files(bb_dir, name, is_type_library=False, non_register=False):
     """Check for required, expected, and generated files.
 
     isTypeLibrary BBs have no instantiable root class (they only host reusable
     $defs referenced by fragment $refs), so the standalone-example requirement
-    does not apply — a missing example is downgraded to info for them."""
+    does not apply — a missing example is downgraded to info for them.
+
+    `non_register` blocks (see NON_REGISTER_COLLECTIONS) are not published, so bblock.json is
+    not required of them — its ABSENCE is what keeps them out of the register — and rules.shacl
+    is not expected, since nothing validates them as RDF. Everything else still applies:
+    schema.yaml is required, resolvedSchema.json and *Schema.json freshness are checked, and an
+    example is still demanded."""
     issues = []
     info = []
 
-    for f in REQUIRED_FILES:
+    required = [f for f in REQUIRED_FILES
+                if not (non_register and f == "bblock.json")]
+    expected = [f for f in EXPECTED_FILES
+                if not (non_register and f == "rules.shacl")]
+
+    for f in required:
         if not (bb_dir / f).exists():
             issues.append(f"MISSING required file: {f}")
+    if non_register and (bb_dir / "bblock.json").exists():
+        issues.append("HAS bblock.json, which PUBLISHES a non-register block to the register "
+                      "— delete it (see NON_REGISTER_COLLECTIONS)")
 
-    for f in EXPECTED_FILES:
+    for f in expected:
         if not (bb_dir / f).exists():
             info.append(f"Missing optional file: {f}")
 
@@ -791,7 +821,8 @@ def audit_building_block(category, name, bb_dir, checks=None):
 
     # Check 1: File completeness
     if not checks or "files" in checks:
-        issues, info = check_files(bb_dir, name, is_type_library=is_type_library)
+        issues, info = check_files(bb_dir, name, is_type_library=is_type_library,
+                                   non_register=(category in NON_REGISTER_COLLECTIONS))
         result.add_issues(issues)
         result.add_info(info)
 

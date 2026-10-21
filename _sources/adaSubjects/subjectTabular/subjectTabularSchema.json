@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "ADA Subject — tabular component",
+    "description": "The shape carried by the ~50 inferred schemas describing a delimited-text component: countRows and countColumns (50 schemas each), columns (49) and headerRowCount (43). Nothing is required, because the four keys do not co-occur in every one of those schemas; a consuming type block requires what its own subjects all carry.",
+    "type": "object",
+    "properties": {
+        "countRows": {
+            "type": "integer"
+        },
+        "countColumns": {
+            "type": "integer"
+        },
+        "headerRowCount": {
+            "type": "integer"
+        },
+        "columns": {
+            "type": "array",
+            "items": {
+                "$ref": "../subjectColumn/subjectColumnSchema.json"
+            }
+        }
+    }
+}
