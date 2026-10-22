@@ -532,6 +532,9 @@ and technique component types on the archive distribution. Mock data for validat
     }
   },
   "ada:mapDimensions": 1.0,
+  "ada:analyticalMode": [
+    "EDS Point Analysis"
+  ],
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
@@ -1072,6 +1075,9 @@ and technique component types on the archive distribution. Mock data for validat
     }
   },
   "ada:mapDimensions": 1.0,
+  "ada:analyticalMode": [
+    "EDS Point Analysis"
+  ],
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
@@ -1191,6 +1197,7 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
                 ex:semCompositionTAPP-P0 ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
+    ada:analyticalMode "EDS Point Analysis" ;
     ada:mapDimensions 1e+00 ;
     ada:submissionType "BundleDelivery" .
 
@@ -1368,7 +1375,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 

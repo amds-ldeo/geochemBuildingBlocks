@@ -503,6 +503,9 @@ and technique component types on the archive distribution. Mock data for validat
       "dqv:isMeasurementOf": "EBSD Indexing Rate",
       "dqv:value": 1.0
     }
+  ],
+  "ada:analyticalMode": [
+    "SE Imaging"
   ]
 }
 
@@ -1009,6 +1012,9 @@ and technique component types on the archive distribution. Mock data for validat
       "dqv:isMeasurementOf": "EBSD Indexing Rate",
       "dqv:value": 1.0
     }
+  ],
+  "ada:analyticalMode": [
+    "SE Imaging"
   ]
 }
 ```
@@ -1102,10 +1108,10 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
             dqv:value "no value available: ebsdPatternQualityThreshold" ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ] ;
     prov:wasGeneratedBy [ a schema1:Action,
@@ -1125,6 +1131,7 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:semImagingTAPP-P0 ] ;
+    ada:analyticalMode "SE Imaging" ;
     ada:frameTime 1e+00 ;
     ada:submissionType "BundleDelivery" .
 
@@ -1295,7 +1302,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Imaging.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 

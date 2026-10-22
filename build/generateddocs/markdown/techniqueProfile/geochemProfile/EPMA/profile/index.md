@@ -528,6 +528,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
+  "ada:analyticalMode": [
+    "EDS Point Analysis"
+  ],
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
@@ -1064,6 +1067,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
+  "ada:analyticalMode": [
+    "EDS Point Analysis"
+  ],
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
@@ -1183,6 +1189,7 @@ ex:adaEPMA-example-001 a schema1:Dataset,
                 ex:epmaTAPP-P0 ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
+    ada:analyticalMode "EDS Point Analysis" ;
     ada:submissionType "BundleDelivery" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
@@ -1358,7 +1365,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EPMA.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 

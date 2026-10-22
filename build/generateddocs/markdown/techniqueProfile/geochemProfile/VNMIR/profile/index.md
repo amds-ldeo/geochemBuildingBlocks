@@ -494,6 +494,9 @@ and technique component types on the archive distribution. Mock data for validat
       "dqv:isMeasurementOf": "Noise Uncertainty",
       "dqv:value": 1.0
     }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
   ]
 }
 
@@ -991,6 +994,9 @@ and technique component types on the archive distribution. Mock data for validat
       "dqv:isMeasurementOf": "Noise Uncertainty",
       "dqv:value": 1.0
     }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
   ]
 }
 ```
@@ -1105,6 +1111,7 @@ ex:adaVNMIR-example-001 a schema1:Dataset,
             ada:emissionAngle -9999 ;
             ada:incidenceAngle -9999 ;
             ada:sampleTemperature -9999 ] ;
+    ada:analyticalMode "Spectral Point" ;
     ada:submissionType "BundleDelivery" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
@@ -1264,7 +1271,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.VNMIR.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 

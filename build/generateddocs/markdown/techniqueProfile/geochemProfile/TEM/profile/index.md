@@ -526,6 +526,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
+  "ada:analyticalMode": [
+    "TEM Imaging"
+  ],
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
@@ -1060,6 +1063,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
+  "ada:analyticalMode": [
+    "TEM Imaging"
+  ],
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
@@ -1178,6 +1184,7 @@ ex:adaTEM-example-001 a schema1:Dataset,
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:temTAPP-P0 ;
             ada:deadTime -9999 ] ;
+    ada:analyticalMode "TEM Imaging" ;
     ada:submissionType "BundleDelivery" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
@@ -1353,7 +1360,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 
