@@ -1,6 +1,14 @@
 {
   "caveat": "witnesses are derived from componentType NAMES, not from file contents; an absent witness means the vocabulary cannot say, never that the mode did not occur",
   "generator": "tools/build_mode_applicability.py",
+  "mode_property": {
+    "form": "a string element, the expanded OGC IRI",
+    "not_required": "ada:analyticalMode is declared and OPTIONAL everywhere -- 0 required sites repo-wide -- because the emitter does not record requiredness for a path ending in a bare []. So nothing currently demands a value and nothing needs filling. A correct fix emits `required` AND `minItems: 1`: measured across the tapp blocks, 2135 required arrays already carry minItems and 279 do not, and `required` alone is satisfied by an empty array.",
+    "property": "ada:analyticalMode",
+    "reason": "unknown",
+    "where": "the DATASET side only. detail/ places the property with no enum, so a nil IRI validates; tapp/ constrains items to the technique's mode enum for the 14 gating techniques, so a nil IRI would VIOLATE it there. That asymmetry is correct: a record may not know its mode, but a procedure that cannot say which modes it runs is not a procedure.",
+    "why_not_inapplicable": "every analysis has an analytical mode; ADA simply does not record which. `inapplicable` asserts that no such value exists, which is false for every record. `inapplicable` is for a GATED FIELD in a mode that excludes it, which is what `techniques[].gated_fields` is for."
+  },
   "nil_reasons": {
     "inapplicable": "http://www.opengis.net/def/nil/OGC/0/inapplicable",
     "unknown": "http://www.opengis.net/def/nil/OGC/0/unknown"

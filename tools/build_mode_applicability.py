@@ -128,6 +128,31 @@ def build():
         }
     return {
         "generator": "tools/build_mode_applicability.py",
+        # The mode PROPERTY itself, as distinct from the fields it gates. Recorded here because the
+        # loader needs both and the two take DIFFERENT reasons.
+        "mode_property": {
+            "property": "ada:analyticalMode",
+            "reason": "unknown",
+            "form": "a string element, the expanded OGC IRI",
+            "why_not_inapplicable": (
+                "every analysis has an analytical mode; ADA simply does not record which. "
+                "`inapplicable` asserts that no such value exists, which is false for every "
+                "record. `inapplicable` is for a GATED FIELD in a mode that excludes it, which "
+                "is what `techniques[].gated_fields` is for."),
+            "where": (
+                "the DATASET side only. detail/ places the property with no enum, so a nil IRI "
+                "validates; tapp/ constrains items to the technique's mode enum for the 14 "
+                "gating techniques, so a nil IRI would VIOLATE it there. That asymmetry is "
+                "correct: a record may not know its mode, but a procedure that cannot say which "
+                "modes it runs is not a procedure."),
+            "not_required": (
+                "ada:analyticalMode is declared and OPTIONAL everywhere -- 0 required sites "
+                "repo-wide -- because the emitter does not record requiredness for a path ending "
+                "in a bare []. So nothing currently demands a value and nothing needs filling. A "
+                "correct fix emits `required` AND `minItems: 1`: measured across the tapp blocks, "
+                "2135 required arrays already carry minItems and 279 do not, and `required` alone "
+                "is satisfied by an empty array."),
+        },
         "source": "the TAPP workbooks' mode-flag columns, via build_tapp.mode_columns()",
         "nil_reasons": {"unknown": NIL + "unknown", "inapplicable": NIL + "inapplicable"},
         "reason_rule": [

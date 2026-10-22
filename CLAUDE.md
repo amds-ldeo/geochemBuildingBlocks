@@ -482,6 +482,31 @@ record carries. Do not treat the rollout as a labelling change.
 > by the Validation session 2026-10-20, against the schema as authored. The object form's failure
 > in those same fields was confirmed independently on the same record.
 >
+> **`ada:analyticalMode` takes `unknown`, as a STRING, on the dataset side only** (Stephen,
+> 2026-10-22). Distinct from the gated fields above and easy to conflate with them:
+>
+>   the mode PROPERTY     `unknown` -- every analysis HAS a mode; ADA does not record which
+>   a GATED FIELD         `inapplicable` where the implied mode excludes it, else `unknown`
+>
+> `inapplicable` on the mode itself would assert the analysis had no mode, which is false for
+> every record. The form is a string element carrying the expanded IRI, because the schema asks
+> for one: `detail/` places the property with `items: {type: string}` and no enum, so a nil IRI
+> validates, while `tapp/` constrains items to the technique's mode enum for the 14 gating
+> techniques and a nil IRI would VIOLATE it there. That asymmetry is correct rather than an
+> oversight -- a record may not know its mode, but a procedure that cannot say which modes it runs
+> is not a procedure. No schema widening is needed, and the object form
+> `{"@id": "nil:unknown"}` would NOT validate here.
+>
+> Nothing demands the value today: `ada:analyticalMode` is declared and optional everywhere, 0
+> required sites repo-wide, because of the bare-`[]` requiredness defect below. **And a correct
+> fix for that emits `required` AND `minItems: 1`, not `required` alone** -- `required` by itself
+> is satisfied by an empty array, which asserts nothing. Measured across the `tapp` blocks, 2,135
+> required array properties already carry `minItems` and 279 do not, so the pairing is the
+> established convention and the 279 are the anomaly.
+>
+> `tools/build_mode_applicability.py` carries all of this as `mode_property` in
+> `docs/mode_applicability.json`, so the loader reads it rather than re-deriving it.
+
 > **Recorded as a deliberate trade, not a fix.** A required pin satisfied by a placeholder passes
 > while conveying no measurement — the vacuous-validation shape `docs/SILENT_SUCCESS.md` and the
 > `adaSubjects` work both circle. It is accepted because an explicit machine-readable `unknown`
