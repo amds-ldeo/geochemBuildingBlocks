@@ -485,7 +485,10 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:name": "Astromat Data Archive",
       "schema:url": "https://astromat.org"
     }
-  }
+  },
+  "ada:analyticalMode": [
+    "Hyperspectral image stack"
+  ]
 }
 
 ```
@@ -973,7 +976,10 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:name": "Astromat Data Archive",
       "schema:url": "https://astromat.org"
     }
-  }
+  },
+  "ada:analyticalMode": [
+    "Hyperspectral image stack"
+  ]
 }
 ```
 
@@ -1081,6 +1087,7 @@ ex:adaXANES-example-001 a schema1:Dataset,
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:xanesTAPP-P0 ] ;
+    ada:analyticalMode "Hyperspectral image stack" ;
     ada:submissionType "BundleDelivery" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
@@ -1240,7 +1247,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XANES.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 

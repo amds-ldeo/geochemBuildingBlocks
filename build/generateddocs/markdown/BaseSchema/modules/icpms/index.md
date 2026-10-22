@@ -599,9 +599,9 @@ The analysis half of the ICPMS module, with every property populated. Generated 
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:variableMeasured [ schema1:name "Limit of Quantification (LOQ) Method" ;
+[] schema1:variableMeasured [ schema1:name "Uncertainty Propagation Method" ;
             schema1:value "no value available: unnamed property" ],
-        [ schema1:name "Uncertainty Propagation Method" ;
+        [ schema1:name "Limit of Quantification (LOQ) Method" ;
             schema1:value "no value available: unnamed property" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: unnamed property" ] ;
@@ -2040,7 +2040,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.icpms
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 

@@ -399,17 +399,17 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ;
                     ada:edsChannelsDefault "2024" ;
                     ada:edsProcessTimeDefault "5" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -440,10 +440,10 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:stageTilt "70 deg" ;
     ada:targetMaterial "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "AZtecCrystal" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "AZtecCrystal" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -815,7 +815,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EBSD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 

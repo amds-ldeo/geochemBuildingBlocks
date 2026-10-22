@@ -548,6 +548,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Peak Flatness",
@@ -1113,6 +1116,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
   "dqv:hasQualityMeasurement": [
     {
       "dqv:isMeasurementOf": "Peak Flatness",
@@ -1220,12 +1226,12 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ] ;
+            dqv:value "no value available: peakFlatness" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1245,6 +1251,7 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
                 ex:solutionMcicpmsTAPP-P0 ;
             ada:deltaOrEpsilonValueReferenceStandard "no value available: ada:deltaOrEpsilonValueReferenceStandard" ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
+    ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:sensitivityYield 1e+00 ;
     ada:submissionType "BundleDelivery" .
 
@@ -1423,7 +1430,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 

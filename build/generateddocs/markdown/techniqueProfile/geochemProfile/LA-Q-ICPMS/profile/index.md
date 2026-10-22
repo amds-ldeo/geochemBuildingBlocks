@@ -529,6 +529,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
+  "ada:analyticalMode": [
+    "Spot"
+  ],
   "ada:spotDiameterMeasured": 1.0,
   "dqv:hasQualityMeasurement": [
     {
@@ -1072,6 +1075,9 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
+  "ada:analyticalMode": [
+    "Spot"
+  ],
   "ada:spotDiameterMeasured": 1.0,
   "dqv:hasQualityMeasurement": [
     {
@@ -1175,10 +1181,10 @@ ex:adaLAQICPMS-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1197,6 +1203,7 @@ ex:adaLAQICPMS-example-001 a schema1:Dataset,
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
                 ex:laQicpmsTAPP-P0 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
+    ada:analyticalMode "Spot" ;
     ada:sensitivityYield 1e+00 ;
     ada:spotDiameterMeasured 1e+00 ;
     ada:submissionType "BundleDelivery" .
@@ -1368,7 +1375,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 

@@ -89,10 +89,10 @@ A collection of SEM-EDS elemental map images with file listing.
     ada:componentType "ada:SEMEDSElementalMaps" ;
     ada:filelist [ schema1:encodingFormat "image/tiff" ;
             ada:componentType "ada:SEMEDSElementalMap" ;
-            ada:fileName "map_Si_Ka.tif" ],
+            ada:fileName "map_Fe_Ka.tif" ],
         [ schema1:encodingFormat "image/tiff" ;
             ada:componentType "ada:SEMEDSElementalMap" ;
-            ada:fileName "map_Fe_Ka.tif" ] ;
+            ada:fileName "map_Si_Ka.tif" ] ;
     ada:memberTypes "ada:SEMEDSElementalMap" ;
     ada:nFiles 5 .
 
@@ -237,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.collection
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-21'
+  dateOfLastChange: '2026-10-22'
 
 ```
 
