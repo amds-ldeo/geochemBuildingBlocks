@@ -266,25 +266,45 @@ allOf:
                           minItems: 1
                           items:
                             $ref: '#/$defs/UsedReagent'
-                  # An inline TAPP travels as a base inline prov:Entity: its @type
-                  # carries prov:Entity alongside ada:TAPPDefinition.
+                  # The TAPP link is ROLE-KEYED, like the three above it: the property
+                  # NAME says what the used entity is, so a reader tells a TAPP link from
+                  # an instrument or software link without dereferencing any of them and
+                  # without inspecting @type.
                   #
-                  # A REFERENCE to a TAPP carries that same @type -- it is how a reader
-                  # tells a TAPP link from the instrument and software links beside it
-                  # without dereferencing any of them -- so @type alone cannot separate
-                  # the two. schema:name does: the TAPP schema requires it, and a
-                  # reference, being {@id, @type} and nothing else, never has it. Without
-                  # this guard every reference is held to the whole TAPP schema and fails
-                  # on the four properties it is not carrying.
+                  # This REPLACES an earlier branch that keyed on @type containing
+                  # ada:TAPPDefinition, guarded by schema:name to tell an inline plan from
+                  # a reference (a reference, being {@id, @type} and nothing else, never
+                  # carries a name). That guard worked, but it made the role an artefact of
+                  # @type -- which an inline prov:Entity also carries -- so the role could
+                  # only be read by a consumer that already knew to look there. The key
+                  # states it outright. CDIF admits the SHAPE of a role-keyed wrapper
+                  # generically (metadataBuildingBlocks#52, `prov:used` items anyOf branch
+                  # [6], propertyNames + patternProperties); this closes that set to the one
+                  # role this profile defines.
+                  #
+                  # Both spellings of the value are accepted because both are legitimate and
+                  # the distinction is NOT ours to force: a reference when the TAPP is a
+                  # separate document, which is the normal case and the reason a record does
+                  # not duplicate a plan hundreds of times; an inline plan when the record
+                  # carries its own. The reference form is first so an {@id}-only value is
+                  # matched by the cheaper branch.
                   - if:
                       type: object
-                      properties:
-                        '@type':
-                          contains:
-                            const: ada:TAPPDefinition
-                      required: ['@type', 'schema:name']
+                      required: ['ada:tappDefinition']
                     then:
-                      $ref: ../tappDefinition/schema.yaml
+                      properties:
+                        'ada:tappDefinition':
+                          description: >-
+                            The TAPP definition this analysis followed: either a reference to
+                            a TAPP definition node defined elsewhere, or the plan inline.
+                          anyOf:
+                            - type: object
+                              additionalProperties: false
+                              required: ['@id']
+                              properties:
+                                '@id':
+                                  type: string
+                            - $ref: ../tappDefinition/schema.yaml
             "schema:location":
               $ref: ../laboratory/schema.yaml
             "schema:object":

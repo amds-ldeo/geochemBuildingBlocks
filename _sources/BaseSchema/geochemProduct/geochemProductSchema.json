@@ -296,20 +296,33 @@
                                         {
                                             "if": {
                                                 "type": "object",
-                                                "properties": {
-                                                    "@type": {
-                                                        "contains": {
-                                                            "const": "ada:TAPPDefinition"
-                                                        }
-                                                    }
-                                                },
                                                 "required": [
-                                                    "@type",
-                                                    "schema:name"
+                                                    "ada:tappDefinition"
                                                 ]
                                             },
                                             "then": {
-                                                "$ref": "../tappDefinition/tappDefinitionSchema.json"
+                                                "properties": {
+                                                    "ada:tappDefinition": {
+                                                        "description": "The TAPP definition this analysis followed: either a reference to a TAPP definition node defined elsewhere, or the plan inline.",
+                                                        "anyOf": [
+                                                            {
+                                                                "type": "object",
+                                                                "additionalProperties": false,
+                                                                "required": [
+                                                                    "@id"
+                                                                ],
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "$ref": "../tappDefinition/tappDefinitionSchema.json"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
                                             }
                                         }
                                     ]

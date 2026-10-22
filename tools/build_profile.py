@@ -374,21 +374,32 @@ def _name_procedure(ex, tapp):
     constraints -- can never fire, because nothing it keys on is ever present. That is why a
     mis-named workflow step went unconstrained and silently valid.
 
-    Emitted as a REFERENCE, {@id, @type}, not an inlined plan: the TAPP is a separate document
-    with its own @id, and copying it whole into every record would duplicate it hundreds of times
-    and leave nothing to navigate to.
+    Emitted as a REFERENCE, not an inlined plan: the TAPP is a separate document with its own
+    @id, and copying it whole into every record would duplicate it hundreds of times and leave
+    nothing to navigate to.
 
-    prov:Entity leads the @type because base prov:used admits a typed item only through its
-    "inline prov:Entity" branch, which keys on @type containing prov:Entity; its bare-{@id} branch
-    is additionalProperties:false and rejects @type outright. PROV-O agrees -- prov:Plan is a
-    subclass of prov:Entity -- so this is the correct assertion, not a validator workaround.
+    ROLE-KEYED, under `ada:tappDefinition`, like the instrument / computationalTool / reagent
+    links beside it. The role is stated by the property NAME, so no @type is needed on the member
+    and none is emitted.
+
+    This replaced an {@id, @type: [prov:Entity, prov:Plan, ada:TAPPDefinition]} member. That form
+    led with prov:Entity for a real reason -- base prov:used admitted a typed item only through
+    its "inline prov:Entity" branch, its bare-{@id} branch being additionalProperties:false and
+    rejecting @type outright -- so the @type was carrying two jobs at once: satisfying the base
+    union AND signalling the role. The base now admits a role-keyed wrapper generically
+    (metadataBuildingBlocks#52), which lets the key carry the role alone. Dropping prov:Entity
+    here is therefore not a loss of an assertion the schema needed; it is the removal of a
+    workaround that had become load-bearing by accident.
     """
     for act in ex.get("prov:wasGeneratedBy") or []:
         used = act.setdefault("prov:used", [])
-        if any(isinstance(u, dict) and "TAPPDefinition" in str(u.get("@type", "")) for u in used):
+        # Idempotent across both spellings: the wrapper this emits, and the @type form it
+        # replaced, which still sits in records written before the change.
+        if any(isinstance(u, dict)
+               and ("ada:tappDefinition" in u or "TAPPDefinition" in str(u.get("@type", "")))
+               for u in used):
             continue
-        used.append({"@id": f"ex:{tapp}-P0",
-                     "@type": ["prov:Entity", "prov:Plan", "ada:TAPPDefinition"]})
+        used.append({"ada:tappDefinition": {"@id": f"ex:{tapp}-P0"}})
 
 
 def _example(tapp, cfg, component_types):

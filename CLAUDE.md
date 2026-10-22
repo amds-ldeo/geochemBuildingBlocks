@@ -123,7 +123,7 @@ at all.
 **`validate_counterexamples.py` is the other half, and the two catch different bugs.** The census
 sees a constraint disappear from the SCHEMA. This sees a constraint that is still there but no
 longer BITES — a conditional whose `if` stopped matching, a branch moved into an `anyOf` where it
-constrains nothing, a `$ref` that now resolves somewhere more permissive. 13 cases in
+constrains nothing, a `$ref` that now resolves somewhere more permissive. 25 cases in
 `docs/counterexamples.json`, each a single MUTATION of a real example (`remove`/`set`/`add` at a
 JSON pointer) which must be REJECTED.
 
