@@ -305,6 +305,37 @@ allOf:
                                 '@id':
                                   type: string
                             - $ref: ../tappDefinition/schema.yaml
+                  # And the superseded spelling is CLOSED OFF, so "replaces" is enforced by
+                  # the schema rather than only observed in what the generator emits.
+                  #
+                  # The guard is deliberately narrow: `schema:name` alongside an @type
+                  # containing ada:TAPPDefinition is what an INLINE PLAN looks like in the
+                  # old form, and a plain {@id, @type} REFERENCE never carries a name. So
+                  # this fires on the inline form alone and leaves the reference form valid
+                  # -- which is not a nicety: 7,263 of 7,447 ADA records link their TAPP that
+                  # way, and rejecting it here would invalidate every one of them. Migrating
+                  # those is an ADA-side job with its own sequencing, and a schema that
+                  # invalidates the corpus before the corpus moves is a schema nobody can
+                  # deploy.
+                  #
+                  # Stated as "then it must carry the role key" rather than as `false`, for
+                  # two reasons. It reads as the migration instruction it is, and the
+                  # rejection NAMES ada:tappDefinition instead of saying only that some
+                  # false schema matched nothing -- which is what makes it testable:
+                  # docs/counterexamples.json requires the rejection to mention the thing
+                  # the case was written for, and a bare `false` mentions nothing.
+                  - if:
+                      type: object
+                      required: ['@type', 'schema:name']
+                      properties:
+                        '@type':
+                          contains:
+                            const: ada:TAPPDefinition
+                    then:
+                      description: >-
+                        An inline TAPP plan belongs under the ada:tappDefinition role key.
+                        The bare @type form is superseded; see the branch above.
+                      required: ['ada:tappDefinition']
             "schema:location":
               $ref: ../laboratory/schema.yaml
             "schema:object":
