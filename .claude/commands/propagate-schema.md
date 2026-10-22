@@ -16,7 +16,7 @@ You are the orchestrator. Follow the phases below in order. **Never skip the gat
 | key | path | git | regenerate | validate | source dirs | generated dirs |
 |---|---|---|---|---|---|---|
 | `mbb` | `C:\GithubC\CDIF\metadataBuildingBlocks` | yes | `python tools/regenerate_schema_json.py && python tools/resolve_schema.py --all && python tools/augment_register.py` | `python tools/validate_examples.py` | `_sources/` | `build/` |
-| `geochem` | `C:\GithubC\USGIN\geochemBuildingBlocks` | yes | `python tools/regenerate_schema_json.py && python tools/resolve_schema.py --all && python tools/augment_register.py` | `python tools/validate_examples.py` | `_sources/` | `build/` |
+| `geochem` | `C:\GithubC\amds-ldeo\geochemBuildingBlocks` | yes | `python tools/regenerate_schema_json.py && python tools/resolve_schema.py --all && python tools/augment_register.py` | `python tools/validate_examples.py` | `_sources/` | `build/` |
 | `dde` | `C:\GithubC\USGIN\ddeBuildingBlocks` | yes | `python tools/regenerate_schema_json.py && python tools/resolve_schema.py --all && python tools/augment_register.py` | `python tools/validate_examples.py` | `_sources/` (DDEproperties, profiles) | `build/` |
 | `profile-core` | `C:\GithubC\CDIF\profile-core` | yes (reviewRevision202606) | (none — release repo; schema/SHACL synced from `mbb`) | `python FrameAndValidate.py` | `examples/`, `cdifCoreStructuredSchema.json`, `coreRules.shacl` | n/a |
 | `profile-discovery` | `C:\GithubC\CDIF\profile-discovery` | yes (reviewRevision202606) | (none — release repo) | `python FrameAndValidate.py` | `examples/`, `cdifDiscoveryStructuredSchema.json`, `discoveryRules.shacl` | n/a |
