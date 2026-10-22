@@ -212,12 +212,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:temTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:temTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -749,12 +746,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:temTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:temTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -1181,8 +1175,8 @@ ex:adaTEM-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                ex:temTAPP-P0 ;
+            prov:used [ ada:tappDefinition ex:temTAPP-P0 ],
+                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
             ada:deadTime -9999 ] ;
     ada:analyticalMode "TEM Imaging" ;
     ada:submissionType "BundleDelivery" .
@@ -1272,10 +1266,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         "TEM" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
-
-ex:temTAPP-P0 a prov:Entity,
-        prov:Plan,
-        ada:TAPPDefinition .
 
 <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimit> a cdi:InstanceVariable,
         schema1:PropertyValue ;

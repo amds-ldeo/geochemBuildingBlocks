@@ -212,12 +212,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:solutionQicpmsTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:solutionQicpmsTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -756,12 +753,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:solutionQicpmsTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:solutionQicpmsTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -1197,7 +1191,7 @@ ex:adaSolutionQICPMS-example-001 a schema1:Dataset,
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                ex:solutionQicpmsTAPP-P0 ;
+                [ ada:tappDefinition ex:solutionQicpmsTAPP-P0 ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:sensitivityYield 1e+00 ;
@@ -1292,10 +1286,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         "ICPMS" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
-
-ex:solutionQicpmsTAPP-P0 a prov:Entity,
-        prov:Plan,
-        ada:TAPPDefinition .
 
 
 ```

@@ -211,12 +211,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:xanesTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:xanesTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -702,12 +699,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:xanesTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:xanesTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -1086,7 +1080,7 @@ ex:adaXANES-example-001 a schema1:Dataset,
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                ex:xanesTAPP-P0 ] ;
+                [ ada:tappDefinition ex:xanesTAPP-P0 ] ] ;
     ada:analyticalMode "Hyperspectral image stack" ;
     ada:submissionType "BundleDelivery" .
 
@@ -1172,10 +1166,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         <https://www.wikidata.org/wiki/Q3099911> ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
-
-ex:xanesTAPP-P0 a prov:Entity,
-        prov:Plan,
-        ada:TAPPDefinition .
 
 
 ```

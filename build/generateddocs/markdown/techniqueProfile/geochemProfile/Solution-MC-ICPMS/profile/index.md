@@ -212,12 +212,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:solutionMcicpmsTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:solutionMcicpmsTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -780,12 +777,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:solutionMcicpmsTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:solutionMcicpmsTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -1226,12 +1220,12 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: oxideProduction" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: peakFlatness" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1248,7 +1242,7 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                ex:solutionMcicpmsTAPP-P0 ;
+                [ ada:tappDefinition ex:solutionMcicpmsTAPP-P0 ] ;
             ada:deltaOrEpsilonValueReferenceStandard "no value available: ada:deltaOrEpsilonValueReferenceStandard" ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
@@ -1344,10 +1338,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         "ICPMS" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
-
-ex:solutionMcicpmsTAPP-P0 a prov:Entity,
-        prov:Plan,
-        ada:TAPPDefinition .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeRatioReported> a cdi:InstanceVariable,
         schema1:PropertyValue ;

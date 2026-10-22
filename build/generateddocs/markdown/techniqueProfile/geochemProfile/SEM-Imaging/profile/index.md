@@ -212,12 +212,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:semImagingTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:semImagingTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -721,12 +718,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:semImagingTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:semImagingTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -1110,10 +1104,10 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ] ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value 1e+00 ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1130,7 +1124,7 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                ex:semImagingTAPP-P0 ] ;
+                [ ada:tappDefinition ex:semImagingTAPP-P0 ] ] ;
     ada:analyticalMode "SE Imaging" ;
     ada:frameTime 1e+00 ;
     ada:submissionType "BundleDelivery" .
@@ -1216,10 +1210,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         "SEM" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
-
-ex:semImagingTAPP-P0 a prov:Entity,
-        prov:Plan,
-        ada:TAPPDefinition .
 
 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/targetMaterialOfSamplingUnit> a cdi:InstanceVariable,
         schema1:PropertyValue ;
