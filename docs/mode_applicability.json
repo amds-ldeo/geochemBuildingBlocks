@@ -1,0 +1,4941 @@
+{
+  "caveat": "witnesses are derived from componentType NAMES, not from file contents; an absent witness means the vocabulary cannot say, never that the mode did not occur",
+  "generator": "tools/build_mode_applicability.py",
+  "mode_property": {
+    "form": "a string element, the expanded OGC IRI",
+    "not_required": "ada:analyticalMode is declared and OPTIONAL everywhere -- 0 required sites repo-wide -- because the emitter does not record requiredness for a path ending in a bare []. So nothing currently demands a value and nothing needs filling. A correct fix emits `required` AND `minItems: 1`: measured across the tapp blocks, 2135 required arrays already carry minItems and 279 do not, and `required` alone is satisfied by an empty array.",
+    "property": "ada:analyticalMode",
+    "reason": "unknown",
+    "where": "the DATASET side only. detail/ places the property with no enum, so a nil IRI validates; tapp/ constrains items to the technique's mode enum for the 14 gating techniques, so a nil IRI would VIOLATE it there. That asymmetry is correct: a record may not know its mode, but a procedure that cannot say which modes it runs is not a procedure.",
+    "why_not_inapplicable": "every analysis has an analytical mode; ADA simply does not record which. `inapplicable` asserts that no such value exists, which is false for every record. `inapplicable` is for a GATED FIELD in a mode that excludes it, which is what `techniques[].gated_fields` is for."
+  },
+  "nil_reasons": {
+    "inapplicable": "http://www.opengis.net/def/nil/OGC/0/inapplicable",
+    "unknown": "http://www.opengis.net/def/nil/OGC/0/unknown"
+  },
+  "reason_rule": [
+    "implied modes = union of witnesses of the record's ada:componentType values",
+    "no implied modes -> unknown",
+    "field is N in EVERY implied mode -> inapplicable",
+    "anything else, including a mixed answer -> unknown",
+    "inapplicable is a positive claim and needs unanimity; unknown is the safe default"
+  ],
+  "source": "the TAPP workbooks' mode-flag columns, via build_tapp.mode_columns()",
+  "techniques": {
+    "epmaTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Background Counting Time",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Background Position(s)",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Beam Current",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:value"
+          ],
+          "item": "Beam Damage Minimization",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='EPMA'].schema:additionalProperty[schema:name='Beam Diameter'].schema:value"
+          ],
+          "item": "Beam Diameter",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].ada:beamDiameterDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Beam Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].ada:beamMode"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:value"
+          ],
+          "item": "Beam Raster Dimensions",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Diffracting Crystal",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Dwell Time per Pixel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EDS Acquisition Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:edsAcquisitionMode"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.ada:deadTime"
+          ],
+          "item": "EDS Dead Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EDS Detector Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='EDS Detector'].schema:description"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Live Time per Point or Pixel'].schema:value"
+          ],
+          "item": "EDS Live Time per Point or Pixel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:edsLiveTimePerPointOrPixelDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EDS Spectral Processing Type",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EDS Spectral Processing Type'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:additionalProperty[schema:name='Map Area'].schema:value"
+          ],
+          "item": "Map Area",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:additionalProperty[schema:name='Map Dimensions'].schema:value"
+          ],
+          "item": "Map Dimensions",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='EPMA'].schema:additionalProperty[schema:name='Mapping Beam Current'].schema:value"
+          ],
+          "item": "Mapping Beam Current",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].ada:mappingBeamCurrentDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='EPMA'].schema:additionalProperty[schema:name='Mapping Beam Diameter'].schema:value"
+          ],
+          "item": "Mapping Beam Diameter",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].ada:mappingBeamDiameterDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Mapping Beam Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].ada:mappingBeamMode"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Peak Counting Time",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Proportional Counter / Detector",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Sequence",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Stage Scan vs. Beam Scan",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Stage Scan vs Beam Scan'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Step Size / Pixel Size'].schema:value"
+          ],
+          "item": "Step Size / Pixel Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:stepSizePixelSizeDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:variableMeasured[schema:name='Target Material of Sampling Unit'].schema:value"
+          ],
+          "item": "Target Material of Sampling Unit",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS Dead Time Correction",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:wdsDeadTimeCorrection"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS PHA Setting",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS Spectrometer Channel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:defaultMonitoredProperties[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS Spectrometer Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='EPMA'].schema:hasPart[schema:additionalType='WDS Spectrometer'].schema:name"
+          ]
+        }
+      ],
+      "modes": [
+        "EDS Point Analysis",
+        "EDS Mapping",
+        "WDS Point Analysis",
+        "WDS Mapping"
+      ],
+      "witnesses": {
+        "ada:EPMAESPCPlot": [
+          "EDS Point Analysis",
+          "WDS Point Analysis"
+        ],
+        "ada:EPMAESPCTabular": [
+          "EDS Point Analysis",
+          "WDS Point Analysis"
+        ],
+        "ada:EPMAImageMap": [
+          "EDS Mapping",
+          "WDS Mapping"
+        ],
+        "ada:EPMAQEATabular": [
+          "EDS Point Analysis",
+          "WDS Point Analysis"
+        ]
+      }
+    },
+    "laMcicpmsTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Ablation Duration per Spot",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Inter-Pass Data Dependency",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Inter-Pass Data Dependency'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Mapping Area'].schema:value"
+          ],
+          "item": "Mapping Area",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Raster Line Spacing (Mapping Only)",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value"
+          ],
+          "item": "Signal Integration Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Length'].schema:value"
+          ],
+          "item": "Transect Length",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:value"
+          ],
+          "item": "Transect Rate, Mapping Rate or Step Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:defaultValue"
+          ]
+        }
+      ],
+      "modes": [
+        "Spot",
+        "Transect",
+        "Mapping"
+      ],
+      "witnesses": {
+        "ada:LAICPMSMap": [
+          "Mapping"
+        ],
+        "ada:LAICPMSTabular": [
+          "Spot"
+        ],
+        "ada:LAICPMSTransect": [
+          "Transect"
+        ]
+      }
+    },
+    "laMcicpmsUPbTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Ablation Duration per Spot",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Inter-Pass Data Dependency",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Inter-Pass Data Dependency'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Mapping Area'].schema:value"
+          ],
+          "item": "Mapping Area",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Raster Line Spacing (Mapping Only)",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value"
+          ],
+          "item": "Signal Integration Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Length'].schema:value"
+          ],
+          "item": "Transect Length",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:value"
+          ],
+          "item": "Transect Rate, Mapping Rate or Step Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:defaultValue"
+          ]
+        }
+      ],
+      "modes": [
+        "Spot",
+        "Transect",
+        "Mapping"
+      ],
+      "witnesses": {
+        "ada:LAICPMSGeochronTabular": [
+          "Spot"
+        ]
+      }
+    },
+    "laQicpmsTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Ablation Duration per Spot",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Inter-Pass Data Dependency",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Inter-Pass Data Dependency'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Mapping Area'].schema:value"
+          ],
+          "item": "Mapping Area",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Raster Line Spacing (Mapping Only)",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value"
+          ],
+          "item": "Signal Integration Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Total Integration Time per Output Data Point'].schema:value"
+          ],
+          "item": "Total Integration Time per Output Data Point",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:totalIntegrationTimePerOutputDataPointDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Length'].schema:value"
+          ],
+          "item": "Transect Length",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:value"
+          ],
+          "item": "Transect Rate, Mapping Rate or Step Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:defaultValue"
+          ]
+        }
+      ],
+      "modes": [
+        "Spot",
+        "Transect",
+        "Mapping"
+      ],
+      "witnesses": {
+        "ada:LAICPMSMap": [
+          "Mapping"
+        ],
+        "ada:LAICPMSTabular": [
+          "Spot"
+        ],
+        "ada:LAICPMSTransect": [
+          "Transect"
+        ]
+      }
+    },
+    "laQicpmsUPbTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Ablation Duration per Spot",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Inter-Pass Data Dependency",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Inter-Pass Data Dependency'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Mapping Area'].schema:value"
+          ],
+          "item": "Mapping Area",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Raster Line Spacing (Mapping Only)",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value"
+          ],
+          "item": "Signal Integration Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Total Integration Time per Output Data Point'].schema:value"
+          ],
+          "item": "Total Integration Time per Output Data Point",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:totalIntegrationTimePerOutputDataPointDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Length'].schema:value"
+          ],
+          "item": "Transect Length",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:value"
+          ],
+          "item": "Transect Rate, Mapping Rate or Step Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:defaultValue"
+          ]
+        }
+      ],
+      "modes": [
+        "Spot",
+        "Transect",
+        "Mapping"
+      ],
+      "witnesses": {
+        "ada:LAICPMSGeochronTabular": [
+          "Spot"
+        ]
+      }
+    },
+    "laSficpmsTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Ablation Duration per Spot",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Inter-Pass Data Dependency",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Inter-Pass Data Dependency'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Mapping Area'].schema:value"
+          ],
+          "item": "Mapping Area",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Raster Line Spacing (Mapping Only)",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value"
+          ],
+          "item": "Signal Integration Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Total Integration Time per Output Data Point'].schema:value"
+          ],
+          "item": "Total Integration Time per Output Data Point",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:totalIntegrationTimePerOutputDataPointDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Length'].schema:value"
+          ],
+          "item": "Transect Length",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:value"
+          ],
+          "item": "Transect Rate, Mapping Rate or Step Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:defaultValue"
+          ]
+        }
+      ],
+      "modes": [
+        "Spot",
+        "Transect",
+        "Mapping"
+      ],
+      "witnesses": {
+        "ada:LAICPMSMap": [
+          "Mapping"
+        ],
+        "ada:LAICPMSTabular": [
+          "Spot"
+        ],
+        "ada:LAICPMSTransect": [
+          "Transect"
+        ]
+      }
+    },
+    "laSficpmsUPbTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Ablation Duration per Spot",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Inter-Pass Data Dependency",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Inter-Pass Data Dependency'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Mapping Area'].schema:value"
+          ],
+          "item": "Mapping Area",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "N"
+          },
+          "dataset_paths": [],
+          "item": "Raster Line Spacing (Mapping Only)",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value"
+          ],
+          "item": "Signal Integration Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "Y",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Total Integration Time per Output Data Point'].schema:value"
+          ],
+          "item": "Total Integration Time per Output Data Point",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:totalIntegrationTimePerOutputDataPointDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Mapping": "N",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Length'].schema:value"
+          ],
+          "item": "Transect Length",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Mapping": "Y",
+            "Spot": "N",
+            "Transect": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:value"
+          ],
+          "item": "Transect Rate, Mapping Rate or Step Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Transect Rate Mapping Rate or Step Size'].schema:defaultValue"
+          ]
+        }
+      ],
+      "modes": [
+        "Spot",
+        "Transect",
+        "Mapping"
+      ],
+      "witnesses": {
+        "ada:LAICPMSGeochronTabular": [
+          "Spot"
+        ]
+      }
+    },
+    "labxctTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "Multi-volume stitching": "Y",
+            "Single-volume": "N"
+          },
+          "dataset_paths": [],
+          "item": "Minimum Sub-volume Overlap",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:minimumSubVolumeOverlap"
+          ]
+        },
+        {
+          "applicability": {
+            "Multi-volume stitching": "Y",
+            "Single-volume": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:additionalProperty[schema:name='Number of Sub-volumes'].schema:value"
+          ],
+          "item": "Number of Sub-volumes",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Multi-volume stitching": "Y",
+            "Single-volume": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:additionalProperty[schema:name='Sub-volume Overlap'].schema:value"
+          ],
+          "item": "Sub-volume Overlap",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Multi-volume stitching": "Y",
+            "Single-volume": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Volume Stitching And Registration'].schema:value"
+          ],
+          "item": "Sub-volume Stitching and Registration Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Volume Stitching And Registration'].schema:defaultValue"
+          ]
+        }
+      ],
+      "modes": [
+        "Single-volume",
+        "Multi-volume stitching"
+      ],
+      "witnesses": {}
+    },
+    "semCompositionTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Background Counting Time",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Background Position(s)",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Beam Current",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:value"
+          ],
+          "item": "Beam Damage Minimization",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='Beam Diameter'].schema:value"
+          ],
+          "item": "Beam Diameter",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:beamDiameterDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Beam Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:beamMode"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:value"
+          ],
+          "item": "Beam Raster Dimensions",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Diffracting Crystal",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Dwell Time per Pixel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EDS Acquisition Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:edsAcquisitionMode"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.ada:deadTime"
+          ],
+          "item": "EDS Dead Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EDS Detector Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='EDS Detector'].schema:description"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Live Time per Point or Pixel'].schema:value"
+          ],
+          "item": "EDS Live Time per Point or Pixel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:edsLiveTimePerPointOrPixelDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.ada:mapDimensions"
+          ],
+          "item": "EDS Map Dimensions",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EDS Spectral Processing Type",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EDS Spectral Processing Type'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:value"
+          ],
+          "item": "Halogen Correction on Oxygen",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:additionalProperty[schema:name='Map Area'].schema:value"
+          ],
+          "item": "Map Area",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='Mapping Beam Current'].schema:value"
+          ],
+          "item": "Mapping Beam Current",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:mappingBeamCurrentDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='Mapping Beam Diameter'].schema:value"
+          ],
+          "item": "Mapping Beam Diameter",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:mappingBeamDiameterDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Mapping Beam Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:mappingBeamMode"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Peak Counting Time",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Proportional Counter / Detector",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Sequence",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Stage Scan vs. Beam Scan",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Stage Scan vs Beam Scan'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Step Size / Pixel Size'].schema:value"
+          ],
+          "item": "Step Size / Pixel Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:stepSizePixelSizeDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:variableMeasured[schema:name='Target Material of Sampling Unit'].schema:value"
+          ],
+          "item": "Target Material of Sampling Unit",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS Dead Time Correction",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:wdsDeadTimeCorrection"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS PHA Setting",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS Spectrometer Channel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS Spectrometer Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='WDS Spectrometer'].schema:name"
+          ]
+        }
+      ],
+      "modes": [
+        "EDS Point Analysis",
+        "EDS Mapping",
+        "WDS Point Analysis",
+        "WDS Mapping"
+      ],
+      "witnesses": {
+        "ada:SEMCompositionTabular": [
+          "EDS Point Analysis",
+          "WDS Point Analysis"
+        ],
+        "ada:SEMEDSMap": [
+          "EDS Mapping"
+        ],
+        "ada:SEMEDSSpectrum": [
+          "EDS Point Analysis"
+        ],
+        "ada:SEMWDSSpectrum": [
+          "WDS Point Analysis"
+        ]
+      }
+    },
+    "semFibsemTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "TEM Sample Preparation": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Image Registration 3D'].schema:value"
+          ],
+          "item": "3D Image Registration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:imageRegistration3DDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "TEM Sample Preparation": "N"
+          },
+          "dataset_paths": [],
+          "item": "Data Processing Software(s)",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "TEM Sample Preparation": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Dwell Time per Pixel'].schema:value"
+          ],
+          "item": "Dwell Time per Pixel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:dwellTimePerPixelDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "TEM Sample Preparation": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:additionalProperty[schema:name='Fine Polishing Conditions'].schema:value"
+          ],
+          "item": "Fine Polishing Conditions",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:additionalProperty[schema:name='Fine Polishing Conditions'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "TEM Sample Preparation": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:additionalProperty[schema:name='Foil Thickness'].schema:value"
+          ],
+          "item": "Foil Thickness",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:additionalProperty[schema:name='Foil Thickness'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "TEM Sample Preparation": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:description"
+          ],
+          "item": "Ion Milling Conditions (3D Tomography)",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:description"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "TEM Sample Preparation": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Lift-out Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:additionalProperty[schema:name='Lift Out Method'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "TEM Sample Preparation": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Segmentation Method 3D'].schema:value"
+          ],
+          "item": "Segmentation Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:segmentationMethod3DDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "TEM Sample Preparation": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:additionalProperty[schema:name='Slice Thickness'].schema:value"
+          ],
+          "item": "Slice Thickness",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:additionalProperty[schema:name='Slice Thickness'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "TEM Sample Preparation": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.ada:voxelSize"
+          ],
+          "item": "Voxel Size and Image Stack Dimensions",
+          "module_owned": false,
+          "procedure_paths": []
+        }
+      ],
+      "modes": [
+        "TEM Sample Preparation",
+        "3D Tomography"
+      ],
+      "witnesses": {}
+    },
+    "semImagingTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "BSE Imaging": "Y",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "BSE Detector Type",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='BSE Detector'].schema:name"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "Beam Current",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "CL Acquisition Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:clAcquisitionMode"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "CL Detector Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='CL Detector Configuration'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "CL Grating",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='CL Grating'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='CL Integration Time'].schema:value"
+          ],
+          "item": "CL Integration Time",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:clIntegrationTimeDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:value"
+          ],
+          "item": "CL Wavelength Calibration Reference",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "CL Wavelength Range",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:clWavelengthRange"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Crystal Structure Database'].schema:value"
+          ],
+          "item": "Crystal Structure Database",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Crystal Structure Database'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "Y",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "SE Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Dwell Time per Pixel'].schema:value"
+          ],
+          "item": "Dwell Time per Pixel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:dwellTimePerPixelDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "EBSD Detector Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:ebsdDetectorConfiguration"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.ada:frameTime"
+          ],
+          "item": "EBSD Frame Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "EBSD Indexing Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].ada:ebsdIndexingMethod"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='EBSD Indexing Rate'].dqv:value"
+          ],
+          "item": "EBSD Indexing Rate",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='EBSD Mean Angular Deviation'].dqv:value"
+          ],
+          "item": "EBSD Mean Angular Deviation",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='EBSD Pattern Quality Threshold'].dqv:value"
+          ],
+          "item": "EBSD Pattern Quality Threshold",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.dqv:hasQualityMeasurement[dqv:isMeasurementOf='EBSD Pattern Quality Threshold'].dqv:value"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EBSD Phase List'].schema:value"
+          ],
+          "item": "EBSD Phase List",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:ebsdPhaseListDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EBSD StepSize'].schema:value"
+          ],
+          "item": "EBSD Step Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:ebsdStepSizeDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "Y",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "SE Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Image Pixel Size'].schema:value"
+          ],
+          "item": "Image Pixel Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Image Pixel Size'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "Y",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='Mapping Beam Current'].schema:value"
+          ],
+          "item": "Mapping Beam Current",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:mappingBeamCurrentDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "SE Imaging": "Y"
+          },
+          "dataset_paths": [],
+          "item": "SE Detector Type",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='SE Detector'].schema:name"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "Sample Tilt Angle",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:sampleTiltAngle"
+          ]
+        },
+        {
+          "applicability": {
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "SE Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:variableMeasured[schema:name='Target Material of Sampling Unit'].schema:value"
+          ],
+          "item": "Target Material of Sampling Unit",
+          "module_owned": false,
+          "procedure_paths": []
+        }
+      ],
+      "modes": [
+        "SE Imaging",
+        "BSE Imaging",
+        "CL Point Analysis",
+        "CL Mapping",
+        "EBSD"
+      ],
+      "witnesses": {
+        "ada:BSEImage": [
+          "BSE Imaging"
+        ],
+        "ada:CLSpectrum": [
+          "CL Point Analysis"
+        ],
+        "ada:EBSDMap": [
+          "EBSD"
+        ],
+        "ada:SEMImage": [
+          "SE Imaging"
+        ],
+        "ada:SEMTabular": [
+          "CL Point Analysis"
+        ]
+      }
+    },
+    "semTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Image Registration 3D'].schema:value"
+          ],
+          "item": "3D Image Registration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:imageRegistration3DDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Analytical Accuracy",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Analytical Precision",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "Y",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "BSE Detector Type",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='BSE Detector'].schema:name"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Background Counting Time",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Background Position(s)",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Beam Current",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:value"
+          ],
+          "item": "Beam Damage Minimization",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='Beam Diameter'].schema:value"
+          ],
+          "item": "Beam Diameter",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:beamDiameterDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Beam Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:beamMode"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:value"
+          ],
+          "item": "Beam Raster Dimensions",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Blank Correction",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "CL Acquisition Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:clAcquisitionMode"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "CL Detector Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='CL Detector Configuration'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "CL Grating",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='CL Grating'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='CL Integration Time'].schema:value"
+          ],
+          "item": "CL Integration Time",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:clIntegrationTimeDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:value"
+          ],
+          "item": "CL Wavelength Calibration Reference",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='CL Wavelength Calibration Reference'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "CL Wavelength Range",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:clWavelengthRange"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "Y",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "Y",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "Y",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Chamber Pressure'].schema:value"
+          ],
+          "item": "Chamber Pressure",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Chamber Pressure'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Coarse Milling Conditions'].schema:value"
+          ],
+          "item": "Coarse Milling Conditions",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:coarseMillingConditionsDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Counting Statistics Error",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Crystal Structure Database'].schema:value"
+          ],
+          "item": "Crystal Structure Database",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Crystal Structure Database'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "Y",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "Y",
+            "EBSD": "Y",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "Y",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Data Processing Software(s)",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Detection Limit",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Detection Limit Method",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Diffracting Crystal",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Drift Correction'].schema:value"
+          ],
+          "item": "Drift Correction",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Drift Correction'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "Y",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "Y",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Dwell Time per Pixel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EBSD Detector Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:ebsdDetectorConfiguration"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EBSD Frame Time'].schema:value"
+          ],
+          "item": "EBSD Frame Time",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EBSD Frame Time'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EBSD Indexing Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].ada:ebsdIndexingMethod"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='EBSD Indexing Rate'].dqv:value"
+          ],
+          "item": "EBSD Indexing Rate",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='EBSD Mean Angular Deviation'].dqv:value"
+          ],
+          "item": "EBSD Mean Angular Deviation",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='EBSD Pattern Quality Threshold'].dqv:value"
+          ],
+          "item": "EBSD Pattern Quality Threshold",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.dqv:hasQualityMeasurement[dqv:isMeasurementOf='EBSD Pattern Quality Threshold'].dqv:value"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EBSD Phase List'].schema:value"
+          ],
+          "item": "EBSD Phase List",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:ebsdPhaseListDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EBSD StepSize'].schema:value"
+          ],
+          "item": "EBSD Step Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:ebsdStepSizeDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EDS Acquisition Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:edsAcquisitionMode"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.ada:edsDeadTime"
+          ],
+          "item": "EDS Dead Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EDS Detector Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='EDS Detector'].schema:description"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Live Time per Point or Pixel'].schema:value"
+          ],
+          "item": "EDS Live Time per Point or Pixel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:edsLiveTimePerPointOrPixelDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.ada:mapDimensions"
+          ],
+          "item": "EDS Map Dimensions",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "EDS Spectral Processing Type",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EDS Spectral Processing Type'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fine Polishing Conditions'].schema:value"
+          ],
+          "item": "Fine Polishing Conditions",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:finePolishingConditionsDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Foil Thickness'].schema:value"
+          ],
+          "item": "Foil Thickness",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].ada:foilThicknessDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:value"
+          ],
+          "item": "Halogen Correction on Oxygen",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Halogen Correction on Oxygen'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "Y",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "Y",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Image Pixel Size'].schema:value"
+          ],
+          "item": "Image Pixel Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Image Pixel Size'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Interference Correction Standard",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Interfering Elements",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Ion Beam Source",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:ionBeamSource"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:description"
+          ],
+          "item": "Ion Milling Conditions (3D Tomography)",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:description"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Lift-out Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:liftOutMethod"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:additionalProperty[schema:name='Map Area'].schema:value"
+          ],
+          "item": "Map Area",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "Y",
+            "CL Mapping": "Y",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "Y",
+            "TEM Sample Preparation": "Y",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='Mapping Beam Current'].schema:value"
+          ],
+          "item": "Mapping Beam Current",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:mappingBeamCurrentDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='SEM'].schema:additionalProperty[schema:name='Mapping Beam Diameter'].schema:value"
+          ],
+          "item": "Mapping Beam Diameter",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:mappingBeamDiameterDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Mapping Beam Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:mappingBeamMode"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Mass Absorption Coefficients (MACs)",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:massAbsorptionCoefficients"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Matrix Correction Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:matrixCorrectionMethod"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Monitored Elements",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredElements[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Normalization / Standards-Based Correction",
+          "module_owned": true,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Peak Counting Time",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Primary Calibration Standard Name",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Proportional Counter / Detector",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Protective Coating Deposition'].schema:value"
+          ],
+          "item": "Protective Coating Deposition",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:protectiveCoatingDepositionDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "Y",
+            "TEM Sample Preparation": "Y",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "SE Detector Type",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:seDetectorType"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "Y",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Sample Tilt Angle",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:sampleTiltAngle"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Secondary Reference Materials",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Segmentation Method 3D'].schema:value"
+          ],
+          "item": "Segmentation Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:segmentationMethod3DDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Sequence",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Slice Thickness'].schema:value"
+          ],
+          "item": "Slice Thickness",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].ada:sliceThicknessDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [],
+          "item": "Stage Scan vs. Beam Scan",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Scan Mode'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Step Size / Pixel Size'].schema:value"
+          ],
+          "item": "Step Size / Pixel Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:stepSizePixelSizeDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "Y",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:variableMeasured[schema:name='Target Material of Sampling Unit'].schema:value"
+          ],
+          "item": "Target Material of Sampling Unit",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Target Species",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Target Species Estimation Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Time-Dependent Intensity Correction",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "Y",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "N",
+            "WDS Point Analysis": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.ada:imageStackDimensions",
+            "$Dataset.ada:voxelSize"
+          ],
+          "item": "Voxel Size and Image Stack Dimensions",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS Dead Time Correction",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:wdsDeadTimeCorrection"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS PHA Setting",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS Spectrometer Channel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "N",
+            "EDS Point Analysis": "N",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "WDS Spectrometer Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='WDS Spectrometer'].schema:name"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "X-ray Background Correction Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "X-ray Detection Method per Monitored Element",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "X-ray Line",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "3D Tomography": "N",
+            "BSE Imaging": "N",
+            "CL Mapping": "N",
+            "CL Point Analysis": "N",
+            "EBSD": "N",
+            "EDS Mapping": "Y",
+            "EDS Point Analysis": "Y",
+            "SE Imaging": "N",
+            "TEM Sample Preparation": "N",
+            "WDS Mapping": "Y",
+            "WDS Point Analysis": "Y"
+          },
+          "dataset_paths": [],
+          "item": "X-ray Line Overlap Corrections Applied",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"
+          ]
+        }
+      ],
+      "modes": [
+        "SE Imaging",
+        "BSE Imaging",
+        "EDS Point Analysis",
+        "EDS Mapping",
+        "WDS Point Analysis",
+        "WDS Mapping",
+        "CL Point Analysis",
+        "CL Mapping",
+        "EBSD",
+        "TEM Sample Preparation",
+        "3D Tomography"
+      ],
+      "witnesses": {
+        "ada:BSEImage": [
+          "BSE Imaging"
+        ],
+        "ada:EBSDMap": [
+          "EBSD"
+        ],
+        "ada:SEMEDSMap": [
+          "EDS Mapping"
+        ],
+        "ada:SEMEDSSpectrum": [
+          "EDS Point Analysis"
+        ],
+        "ada:SEMImage": [
+          "SE Imaging"
+        ],
+        "ada:SEMTabular": [
+          "CL Point Analysis",
+          "EDS Point Analysis",
+          "WDS Point Analysis"
+        ]
+      }
+    },
+    "temTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "N",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "4D-STEM Detector",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='TEM'].schema:hasPart[schema:additionalType='4D-STEM Detector'].schema:description"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "N",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='4D-STEM Dwell Time per Probe Position'].schema:value"
+          ],
+          "item": "4D-STEM Dwell Time per Probe Position",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='4D-STEM Dwell Time per Probe Position'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "N",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "4D-STEM Orientation Mapping Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='4D-STEM Orientation Mapping Method'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "N",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='4D-STEM Scan Grid and Area'].schema:value"
+          ],
+          "item": "4D-STEM Scan Grid and Area",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='4D-STEM Scan Grid and Area'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Camera Length'].schema:value"
+          ],
+          "item": "Camera Length",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:cameraLengthDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [],
+          "item": "Convergence Semi-Angle",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:convergenceSemiAngle"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "N",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Diffraction Calibration Reference'].schema:value"
+          ],
+          "item": "Diffraction Calibration Reference",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Diffraction Calibration Reference'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "N",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Diffraction Camera Length Calibration Method'].schema:value"
+          ],
+          "item": "Diffraction Camera Length Calibration Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Diffraction Camera Length Calibration Method'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Dwell Time per Pixel'].schema:value"
+          ],
+          "item": "Dwell Time per Pixel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:stemDwellTimePerPixelDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Acquisition Mode'].schema:value"
+          ],
+          "item": "EDS Acquisition Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:edsAcquisitionModeDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Calibration Standard(s)'].schema:value"
+          ],
+          "item": "EDS Calibration Standard(s)",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:edsCalibrationStandardDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Counting Statistics / Accumulation Criterion'].schema:value"
+          ],
+          "item": "EDS Counting Statistics / Accumulation Criterion",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EDS Counting Statistics / Accumulation Criterion'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.ada:deadTime"
+          ],
+          "item": "EDS Dead Time",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Detection Limit'].schema:value",
+            "$Dataset.schema:variableMeasured[schema:name='EDS Detection Limit'].schema:value"
+          ],
+          "item": "EDS Detection Limit",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EDS Detection Limit'].schema:defaultValue",
+            "$MethodDefinition.schema:variableMeasured[schema:name='EDS Detection Limit'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [],
+          "item": "EDS Detector Configuration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='TEM'].schema:hasPart[schema:additionalType='EDS Detector'].schema:description"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Energy Range'].schema:value"
+          ],
+          "item": "EDS Energy Range",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EDS Energy Range'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Live Time per Point or Pixel'].schema:value"
+          ],
+          "item": "EDS Live Time per Point or Pixel",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EDS Live Time per Point or Pixel'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [],
+          "item": "EDS Spectral Processing Type",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EDS Spectral Processing Type'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EELS Acquisition Mode'].schema:value"
+          ],
+          "item": "EELS Acquisition Mode",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:eelsAcquisitionModeDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EELS Acquisition Time per Spectrum'].schema:value"
+          ],
+          "item": "EELS Acquisition Time per Spectrum",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:eelsAcquisitionTimePerSpectrumDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:variableMeasured[schema:name='BackgroundSubtractionMethod']"
+          ],
+          "item": "EELS Background Subtraction Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EELS Chemical State Determination Method'].schema:value"
+          ],
+          "item": "EELS Chemical State Determination Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EELS Chemical State Determination Method'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [],
+          "item": "EELS Collection Semi-Angle",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:eelsCollectionSemiAngle"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:variableMeasured[schema:name='sensitivityDetectionLimit']"
+          ],
+          "item": "EELS Detection Limit",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EELS Edges'].schema:value"
+          ],
+          "item": "EELS Edges",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:eelsEdgesDefault[]"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EELS Energy Calibration'].schema:value"
+          ],
+          "item": "EELS Energy Calibration",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EELS Energy Calibration'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [],
+          "item": "EELS Energy Dispersion",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EELS Energy Dispersion'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EELS Energy Loss Range'].schema:value"
+          ],
+          "item": "EELS Energy Loss Range",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:eelsEnergyLossRangeDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [],
+          "item": "EELS Energy Resolution",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EELS Energy Resolution'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='EELS Plural Scattering Correction'].schema:value"
+          ],
+          "item": "EELS Plural Scattering Correction",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='EELS Plural Scattering Correction'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [],
+          "item": "EELS Spectrometer",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='TEM'].schema:hasPart[schema:additionalType='EELS Spectrometer'].schema:description"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "N",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EFTEM Energy Window'].schema:value"
+          ],
+          "item": "EFTEM Energy Window",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='EFTEM Energy Window'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='HAADF Collection Angles'].schema:value"
+          ],
+          "item": "HAADF Collection Angles",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='HAADF Collection Angles'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Image Processing Methods Applied'].schema:value"
+          ],
+          "item": "Image Processing Methods Applied",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Image Processing Methods Applied'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Matrix Correction Method",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:edsQuantificationMethod"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Monochromator",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='TEM'].schema:hasPart[schema:additionalType='Monochromator'].schema:description"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "N",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Precession Angle'].schema:value"
+          ],
+          "item": "Precession Angle",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Precession Angle'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "N",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.bios:computationalTool[ada:toolRole='dataReduction'].schema:name"
+          ],
+          "item": "SAED Pattern Simulation Software",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.bios:computationalTool[ada:toolRole='dataReduction'].schema:name"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='STEM Frame Averaging'].schema:value"
+          ],
+          "item": "STEM Frame Averaging",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='STEM Frame Averaging'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='STEM Probe Current'].schema:value"
+          ],
+          "item": "STEM Probe Current",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='STEM Probe Current'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='STEM Probe Diameter'].schema:value"
+          ],
+          "item": "STEM Probe Diameter",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='STEM Probe Diameter'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='STEM Scan Dimensions'].schema:value"
+          ],
+          "item": "STEM Scan Dimensions",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='STEM Scan Dimensions'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "Y",
+            "STEM Imaging": "N",
+            "TEM Imaging": "N"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Selected-Area Aperture Size'].schema:value"
+          ],
+          "item": "Selected-Area Aperture Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Selected-Area Aperture Size'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Spectroscopic Detector(s)'].schema:value"
+          ],
+          "item": "Spectroscopic Detector(s)",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:spectroscopicDetectorDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "N",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='TEM'].schema:additionalProperty[schema:name='TEM Objective Aperture'].schema:value"
+          ],
+          "item": "TEM Objective Aperture",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:instrument[schema:additionalType='TEM'].schema:additionalProperty[schema:name='TEM Objective Aperture'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Electron Diffraction": "N",
+            "STEM Imaging": "Y",
+            "TEM Imaging": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Target Species",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[]"
+          ]
+        }
+      ],
+      "modes": [
+        "TEM Imaging",
+        "STEM Imaging",
+        "Electron Diffraction"
+      ],
+      "witnesses": {
+        "ada:STEMImage": [
+          "STEM Imaging"
+        ],
+        "ada:TEMImage": [
+          "TEM Imaging"
+        ]
+      }
+    },
+    "vnmirTAPP": {
+      "gated_fields": [
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Beamsplitter",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:beamsplitter"
+          ]
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Calibration Standards'].schema:value"
+          ],
+          "item": "Calibration Standards",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:calibrationStandardsDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.schema:additionalProperty[schema:name='Emissivity Maximum'].schema:value"
+          ],
+          "item": "Emissivity Maximum",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Emissivity Maximum Fit Region Maximum'].schema:value"
+          ],
+          "item": "Emissivity Maximum Fit Region Maximum",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Emissivity Maximum Fit Region Maximum'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Emissivity Maximum Fit Region Minimum'].schema:value"
+          ],
+          "item": "Emissivity Maximum Fit Region Minimum",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Emissivity Maximum Fit Region Minimum'].schema:defaultValue"
+          ]
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Noise Uncertainty'].dqv:value"
+          ],
+          "item": "Noise Uncertainty",
+          "module_owned": false,
+          "procedure_paths": []
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Number of Scans'].schema:value"
+          ],
+          "item": "Number of Scans",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:numberOfScansDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Spectral Range Maximum",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:spectralRangeMaximum"
+          ]
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Spectral Range Minimum",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:spectralRangeMinimum"
+          ]
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Spectral Resolution'].schema:value"
+          ],
+          "item": "Spectral Resolution",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:spectralResolutionDefault"
+          ]
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [],
+          "item": "Spectral Sampling",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.schema:additionalProperty[schema:name='Spectral Sampling'].schema:value"
+          ]
+        },
+        {
+          "applicability": {
+            "Overview Image": "N",
+            "Spectral Map": "Y",
+            "Spectral Point": "Y"
+          },
+          "dataset_paths": [
+            "$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Spot Size'].schema:value"
+          ],
+          "item": "Spot Size",
+          "module_owned": false,
+          "procedure_paths": [
+            "$MethodDefinition.ada:spotSizeDefault"
+          ]
+        }
+      ],
+      "modes": [
+        "Spectral Point",
+        "Overview Image",
+        "Spectral Map"
+      ],
+      "witnesses": {
+        "ada:VNMIROverviewImage": [
+          "Overview Image"
+        ],
+        "ada:VNMIRSpectralMap": [
+          "Spectral Map"
+        ],
+        "ada:VNMIRSpectralPoint": [
+          "Spectral Point"
+        ]
+      }
+    }
+  }
+}
