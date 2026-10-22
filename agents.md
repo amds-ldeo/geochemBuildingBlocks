@@ -265,7 +265,26 @@ Lives at `_sources/BaseSchema/tappDefinition/`. Was previously `geochemPropertie
 >
 > The current path for a new or regenerated TAPP is **schema-path driven**: `bootstrap_schemapaths.py` seeds `docs/<workbook>.schemapaths.csv` (the source of truth — one row per Metadata Item → canonical schema path, with a `Source` column of `authored`/`inferred`/`keyed`/`module`/`flagged`), then `build_tapp.py` emits the registry catalogs and `build_pathdriven.py` emits `tapp/` and `detail/` from the sidecar. `schemapath_io.py` reads/writes the CSV, `normalize_schema_paths.py` canonicalises selector names, and the grammar is in `docs/SCHEMA_PATH_GRAMMAR.md`. `docs/README.md` covers the sidecar format, the five `Source` values, and the maintenance tools (`bootstrap_schemapaths` / `migrate_sidecar` / `fill_flagged` / `refresh_keyby` / `simplify_sidecars`, previewed read-only by `intake_delivery`).
 
-`tools/build_tapp.py <tapp_name>` is the **single generator** for all 59 TAPPs registered in `TAPP_CONFIGS` (`epmaTAPP`, `semTAPP`, `labxctTAPP`, the six `la*` and three `solution*` techniques, …; `geochronTAPP` and `laicpmsTAPP` were retired 2026-08-21 after being refactored upstream into the `*_UPb_*` techniques) — TAPP schema + shared catalogs (`targetSpeciesColumns`/`monitoredPropertyColumns`/`reportedPropertyColumns`/`parameterTemplates`/`parameterValues`) + vocab + detail BB + per-publication examples. Routing follows the **canonical Protocol-Level × Analysis-Level matrix** (`docs/TierImplementationPatterns.xlsx`): Basic protocol → required top-level `ada:` property (`…Default` if editable at analysis); Advanced protocol → `schema:additionalProperty[]` `PropertyValueSpecification` (`…Default` + `readonlyValue:false` when dual-homed, bare + `readonly:true` if Read-Only); Analysis Basic → required detail property; Analysis Editable/Advanced → optional detail `PropertyValue`; Read-Only/N-A → absent from detail. Add a new TAPP by registering its knobs in `TAPP_CONFIGS`.
+`tools/build_tapp.py <tapp_name>` is the **single generator** for all 59 TAPPs registered in `TAPP_CONFIGS` (`epmaTAPP`, `semTAPP`, `labxctTAPP`, the six `la*` and three `solution*` techniques, …; `geochronTAPP` and `laicpmsTAPP` were retired 2026-08-21 after being refactored upstream into the `*_UPb_*` techniques) — TAPP schema + shared catalogs (`targetSpeciesColumns`/`monitoredPropertyColumns`/`reportedPropertyColumns`/`parameterTemplates`/`parameterValues`) + vocab + detail BB + per-publication examples. Routing follows the **canonical Protocol-Level × Analysis-Level matrix** (`docs/TierImplementationPatterns.xlsx`): Basic protocol → required top-level `ada:` property (`…Default` if editable at analysis); Advanced protocol → `schema:additionalProperty[]` `PropertyValueSpecification` (`…Default` + `readonlyValue:false` when dual-homed, bare + `readonly:true` if Read-Only); Analysis Basic → required detail property; Analysis Editable/Advanced → optional detail `PropertyValue`; Read-Only/N-A → absent from detail.
+
+> **One deliberate exception to "Read-Only → absent from detail"**: `Analytical Mode` is placed on
+> BOTH sides — `$MethodDefinition.ada:analyticalMode[]` and, since `7b0488060e`,
+> `$Dataset.ada:analyticalMode[]` (both rows in `docs/modules/Module_Core.schemapaths.csv`). The
+> procedure declares the modes it PERMITS; the dataset declares the mode(s) actually USED, and
+> that is the only place a JSON Schema conditional can read it, because a record references its
+> procedure as a bare `{@id, @type}`. It stays OPTIONAL on the dataset side, which the matrix
+> gives for free (`require = (A == "Basic")` and the Analysis tier is `Read-Only`). Nothing keys
+> off it yet and no ADA record carries a mode — read the analytical-mode section of `CLAUDE.md`
+> before writing a mode-keyed conditional.
+>
+> **A related defect in this matrix's implementation is real and unfixed.** A path ending in a
+> bare `[]` never records its requiredness: `schema_path_emitter.insert()`'s terminal-array
+> branch returns without it, and `build_module_bb.py:207` excludes `is_array` to mirror that
+> condition, inheriting the omission. 9 fields, 178 declarations, 0 requirements, all at a
+> `Basic` tier. `build_module_bb` also ASSIGNS its required list over `to_schema()`'s instead of
+> merging. A fix was reverted — `docs/SILENT_SUCCESS.md` #13 — after it destroyed 257,052
+> constraints with every example gate green. Redo it one defect at a time with the census as the
+> primary gate. Add a new TAPP by registering its knobs in `TAPP_CONFIGS`.
 
 `tools/_tapp_lib.py` is now the **emitter/example library** (no longer a standalone router): `build_tapp.py` calls its `parameter_obj` / `additional_property_obj` / `analyte_column_obj` / `vocab_obj` emitters, `build_haspart_constraint`, the registry writers, `build_schema_yaml`, and the rich `example_for_pub` (now matrix-routed via a `route_map`). Its old impl-tag-kind routing (`_classify_rows`) is retired for current TAPPs.
 

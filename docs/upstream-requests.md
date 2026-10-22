@@ -366,6 +366,51 @@ or the layout should move, since a consumer following the manifest literally fin
 
 ---
 
+## 6. NOT FOR RUOLIN — ADA records no acquisition mode, so the mode flags cannot be honoured
+
+**Audience: ADA and its data submitters, not the TAPP author.** Recorded here because it is the
+upstream blocker for a TAPP feature, and because the natural reading of the symptom is "gBB has
+not implemented the mode flags yet", which is wrong and would send the work to the wrong place.
+
+The workbooks' design is complete and correct. Mode-flag columns state per-field applicability,
+`Analytical Mode` declares the modes a procedure executes, and the Purpose cell spells out the
+split. **284 field rows across 14 techniques** carry mixed `Y`/`N` applicability — and only those
+14 of 61 have mode-flag columns at all; for the other 47 the mode is informational and gates
+nothing. Nothing is wrong with
+the tables.
+
+What is missing is the data. Measured on the live corpus 2026-10-21:
+
+| | |
+|---|---|
+| `ada:analyticalMode` in the 7,447 records | **0** |
+| any key containing "mode" in 111,963 `record_subjects` | **0** |
+| `componentType` naming EDS | 502, all SEM/STEM/TEM |
+| `componentType` naming WDS | **0** |
+| EPMA records with an EDS signal in `componentType` | **0 of 436** |
+
+So a mode cannot be read, and for EPMA it cannot be derived either. The consequence is concrete:
+`EDS Dead Time` is marked `N` for both WDS modes in `EPMA_TAPP_v88`, yet it is required of all 436
+EPMA records, 436 of which fail it — and no conditional can excuse the WDS ones, because nothing
+in ADA says which were WDS.
+
+**The ask, for whoever owns ADA intake:** record the acquisition mode, or the detector used, per
+analysis. One controlled value per dataset — or per `hasPart` item, since **264 records** already
+mix EDS and non-EDS parts in a single distribution — would make 284 workbook rows enforceable as
+their author intended.
+
+Until then the interim answer is the nil token (`http://www.opengis.net/def/nil/OGC/0/unknown`),
+which is literally true on these numbers: ADA holds no record of a dead time that does not exist,
+only of one nobody sent. See the analytical-mode section of `CLAUDE.md`.
+
+Three anchors were measured and rejected, so they need not be retried: instrument components
+(0 of 7,447 records carry any `schema:hasPart` on an instrument), instrument `schema:additionalType`
+(present on all 7,447, one distinct value, `nxs:base_classes/NXinstrument.html`), and the
+`prov:used` TAPP reference (7,263 records carry one, but the `@id` is an opaque per-lab URI that
+JSON Schema cannot dereference).
+
+---
+
 ## Settled, recorded here so it is not re-litigated
 
 - **Protocol → Procedure** renamed 61 items across the 2026-08 tables. Carried automatically.

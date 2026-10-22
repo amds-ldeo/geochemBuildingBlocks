@@ -642,6 +642,55 @@ week, both of which cost a wrong conclusion before being caught:
   was "present on all 436 records" as a substring and satisfied nothing, because the question is
   always which CONTAINER carries it. Only running the validator settles this class.
 
+## 13. The census reported a quarter-million lost constraints and I read it as paperwork
+
+**Reported success:** every gate the session had been quoting was green. `validate_examples` 657
+passed / 0 failed. `validate_counterexamples` 24/24 rejected. `audit_building_blocks` matching its
+baseline with the 5 accepted failures. Six changes across three generators -- the emitter's
+terminal-array requiredness, its copy in `build_module_bb`, two exclusion-list corrections, an
+enum-sentinel fix and a required-list merge -- and after each regeneration the example-level
+evidence said fine.
+
+**Not doing its job:** `constraint_census.py` had been run, exited **1**, and printed
+
+    The tree no longer matches docs/constraint_census.json.
+    If every line above is intended, re-run with --write and commit the manifest in the
+    same change, so the diff records which constraints moved and why.
+
+That was read as the two-step bureaucracy for a deliberate constraint change -- "remember to
+`--write` the manifest" -- and reported to the user as expected. It was not. Above that message
+sat 1,584 decrease lines. The actual figures:
+
+    net constraint change            -257,052
+    blocks affected                       161
+    AIVA/detail   type 1505 -> 36   required 581 -> 57   closed 190 -> 0   enum 176 -> 9
+
+Roughly **18% of the repository's constraints destroyed**, including whole schemas very nearly
+emptied, with no gate able to see it -- because removing a constraint only makes a schema more
+PERMISSIVE, so every instance that validated still validated. This is the exact failure #8
+describes, and the exact failure this file's own §"constraint_census answers the question
+validate_examples structurally cannot" was written to prevent.
+
+**What exposed it:** running the census and reading the lines, after the fourth consecutive wrong
+hypothesis about an unrelated 89-path loss made it obvious that the example gates were not
+measuring the thing that mattered. The tree was reverted; nothing was committed.
+
+**The rules that follow, and the first is the one that was actually broken:**
+
+- **An exit code of 1 is a finding, not a formality.** The census's "re-run with `--write`" line is
+  advice about HOW to accept a change, printed after the evidence of WHAT changed. Read the
+  evidence. A tool that says "the tree no longer matches" has already told you something; the
+  instruction underneath is not the message.
+- **The census is the PRIMARY gate for any generator change, ahead of the example gates.** It is
+  the only tool in the repository that can see a constraint disappear. Read it line by line, not
+  by exit status, and look specifically for DECREASES -- a correct additive change shows zero.
+  The same session's next attempt showed `0` decreases and `+188`, all `type`, uniform `+2` per
+  block: that is the shape to expect, against `AIVA/detail` going 1505 -> 36.
+- **One defect per change, with a committed baseline between steps.** Six changes deep on an
+  uncommitted tree, a bad step cannot be isolated and the only recovery is discarding all of it.
+- **A passing example suite is not evidence about a generator.** 657 green examples coexisted with
+  161 gutted blocks.
+
 ## The common thread
 
 In all of them, the failure was invisible from the outside because the signal said "success". What
@@ -661,6 +710,7 @@ exposed each one:
 | 10 | a downstream consumer measuring the artifact against real data before depending on it |
 | 11 | comparing the deployed SHA against main's tip, instead of reading the run list for red |
 | 12 | resolving by cid rather than by directory -- and asking what a *justifying* number measured |
+| 13 | reading the census's DECREASE lines, instead of its exit code and the advice underneath |
 
 None of these needed cleverness. They needed looking at the thing itself instead of the badge on
 top of it.

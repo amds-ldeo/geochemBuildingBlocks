@@ -10,7 +10,7 @@ This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JS
 - **`README.md`** — human-facing overview; its generation-pipeline section is a good orientation.
 - **`docs/TAPP-schema-generation-workflow.md`** — end-to-end walkthrough of workbook → validated schema.
 - **`docs/SCHEMA_PATH_GRAMMAR.md`** — the canonical grammar for the schema-path sidecars.
-- **`docs/SILENT_SUCCESS.md`** — twelve incidents in which a check, a generator or a workflow reported success while not doing its job, each with what exposed it and the rule that follows. The validator passing while content vanishes, a generator whose output varies per process, auto-merge walking past a red non-required check, a required check that can never run, a deploy that skipped the event it was given a trigger for, a pipeline silently substituting a superseded TAPP delivery for the one it was pinned to, and a whole check suite structurally unable to observe one direction of a change — a relaxation whose loss makes the schema STRICTER, so the examples, the counterexamples and the census were each blind to it for a different reason; an audit that printed its own failure count and exited 0 while nothing in CI ran it at all; a conformance sidecar listing plausible componentTypes that matched no record, because the only consumer that could tell lives in another repository; a Pages deploy that cancelled itself on every build-PR merge, both of its runs concluding non-red; and a merged change whose JUSTIFYING RECORD COUNT was measured against the wrong resolution route — counted by profile directory rather than by the cid records resolve to, so the figure described nothing, and no check could see it because the change itself was correct. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, before combining two sources in a generator, and whenever you loosen a constraint: ask which direction of change each check can see, measure coverage per RECORD rather than per aggregate, resolve by cid rather than by directory — and, for any check, run it and read `$?`.
+- **`docs/SILENT_SUCCESS.md`** — thirteen incidents in which a check, a generator or a workflow reported success while not doing its job, each with what exposed it and the rule that follows. The validator passing while content vanishes, a generator whose output varies per process, auto-merge walking past a red non-required check, a required check that can never run, a deploy that skipped the event it was given a trigger for, a pipeline silently substituting a superseded TAPP delivery for the one it was pinned to, and a whole check suite structurally unable to observe one direction of a change — a relaxation whose loss makes the schema STRICTER, so the examples, the counterexamples and the census were each blind to it for a different reason; an audit that printed its own failure count and exited 0 while nothing in CI ran it at all; a conformance sidecar listing plausible componentTypes that matched no record, because the only consumer that could tell lives in another repository; a Pages deploy that cancelled itself on every build-PR merge, both of its runs concluding non-red; and a merged change whose JUSTIFYING RECORD COUNT was measured against the wrong resolution route — counted by profile directory rather than by the cid records resolve to, so the figure described nothing, and no check could see it because the change itself was correct; and a generator change that destroyed 257,052 constraints across 161 blocks while every example gate stayed green, whose detector had already exited 1 and been read as paperwork. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, before combining two sources in a generator, and whenever you loosen a constraint: ask which direction of change each check can see, measure coverage per RECORD rather than per aggregate, resolve by cid rather than by directory — and, for any check, run it and read `$?`.
 - **`docs/README.md`** — what is in `docs/`: the sidecar format, its five `Source` values, and the maintenance tools around it. Note **"sidecar" is overloaded**: in `docs/` it means the `*.schemapaths.csv` files, while `<block>/conformance.json` is the unrelated conformance sidecar — see "Conformance sidecars" below.
 - **`docs/modules/MODULE_CONSOLIDATION_STATUS.md`** — **state, not design**: how far module consolidation has got, what is decided, and what is open. Its own figure is **73% composed** (651 against 231 still minted per technique) after the 2026-09-02 delivery, not the 25% this pointer claimed until 2026-10-18 — and even the 73% predates the 2026-10-01 manifest, so re-measure before quoting either. Read it before drafting a module. Measure `tapp/`, never `registry/`: the registries are `isTypeLibrary` and per-technique by construction, so measuring them yields a true-but-meaningless 87% duplication.
 
@@ -824,6 +824,113 @@ produced an `allOf` no instance could satisfy. The value form is right on `$Data
 `ada:vocab/instrumentComponentType` are generated from the WIRED sidecars by
 `tools/build_instrument_codelist.py` and referenced by `schema:inDefinedTermSet`, the same
 annotation convention `componentType` uses.
+
+## Analytical mode and the per-field mode flags: designed upstream, UNUSABLE today
+
+The TAPP workbooks carry a complete conditional design that gBB does not act on, and the reason
+is not a missing generator — it is missing data. Measured 2026-10-21; do not re-derive it.
+
+**What the workbooks declare.** Every workbook has mode-flag columns (`EDS Point Analysis`,
+`WDS Mapping`, `SE Imaging`, `Transect`, `Electron Diffraction`, …) whose values are `Y`/`N` per
+FIELD, plus an `Analytical Mode` row whose allowed content IS the set of those column headers.
+Ruolin's own Purpose cell states the split: *"the procedure-level declaration of measurement
+type, distinct from the mode flag columns, which state per-field applicability."* So
+`EDS Dead Time` is `Y` for the two EDS modes and `N` for both WDS modes.
+
+**What gBB does with that: nothing.** No tool reads the mode-flag columns. Consequently **284
+field rows across 14 techniques have mixed `Y`/`N` applicability**, and they sit at a tier the
+emitter turns into an unconditional `required` — so those properties are demanded of records the
+workbook says they do not apply to. `semTAPP` alone has 84, `temTAPP` 46, `semCompositionTAPP` 30,
+`epmaTAPP` 29.
+
+**And the FIRST question is whether a technique's mode gates anything at all.** Only **14 of 61**
+techniques have mode-flag columns between `Purpose` and `Literature Assessment`. For the other
+**47** the `Analytical Mode` is **INFORMATIONAL**: reported on an analysis, gating no constraint.
+Solution Q/SF/MC-ICP-MS are the clear case — they declare
+`Solution nebulisation (continuous) | Flow injection` and no field's applicability varies between
+them. Determining a mode there buys nothing, so any effort to derive one belongs to the 14.
+
+> Corrected 2026-10-22. This section first said "213 rows across 11 workbooks", from a header
+> regex written here rather than from `build_tapp.mode_columns()`, which is what the generator
+> uses. That undercount missed `vnmirTAPP` and `semFibsemTAPP` entirely. Use
+> `tools/infer_analytical_mode.py`, which derives both figures from that function.
+
+**Why the conditional cannot be built, measured on the live corpus:**
+
+| | |
+|---|---|
+| `ada:analyticalMode` in the 7,447 records | **0**, at the dataset root or anywhere else |
+| any key containing "mode" in 111,963 `record_subjects` | **0** — there is no SOURCE field |
+| `componentType` naming EDS | 502 records, all SEM/STEM/TEM |
+| `componentType` naming WDS | **0** |
+| EPMA records with any EDS signal in `componentType` | **0 of 436** |
+
+So this is not "the loader does not emit a mode yet". **ADA records no acquisition mode and no
+detector anywhere**, so a mode would have to be DERIVED, and for EPMA — the case that motivated
+the whole exercise — there is nothing to derive it from. A conditional in any polarity leaves
+those 436 records exactly as they are. **The blocker is upstream of both repositories**: ADA does
+not record which detector was used. That is a question for ADA and its submitters, not a schema
+change, and not a TAPP change either.
+
+**Three anchors were tried and all three are dead.** Do not retry them:
+
+  instrument components   `schema:instrument.schema:hasPart[].schema:additionalType` -- 0 of 7,447
+                          records carry ANY instrument part. `adaInstrumentComponentType` has the
+                          right terms (`EDS Detector`, `WDS Spectrometer`) and gBB's own generated
+                          examples populate them (78 / 56), but gBB examples are generated from
+                          workbooks and say nothing about ADA's holdings.
+  instrument additionalType  present on all 7,447 and useless: ONE distinct value,
+                          `nxs:base_classes/NXinstrument.html`.
+  the TAPP reference      7,263 of 7,447 DO carry `prov:used` -> `{@id, @type}` typed
+                          `ada:TAPPDefinition`, so the variant's real axis is referenced -- but the
+                          `@id` is an opaque per-lab procedure URI and JSON Schema cannot
+                          dereference it. (This also corrects an older claim that 0 records carry a
+                          TAPP reference; see the note on the `schema:name` guard below.)
+
+**What DID land, and it is worth keeping.** `$Dataset.ada:analyticalMode[]`, one row in
+`docs/modules/Module_Core.schemapaths.csv` (`7b0488060e`). The procedure side already declared the
+modes a procedure PERMITS; this is the analysis side declaring the mode(s) actually USED, which is
+the only place a JSON Schema conditional could read. Deliberately **optional** — the tier
+arithmetic gives that for free, since `require = (A == "Basic")` on a `$Dataset` path and the
+Analysis tier is `Read-Only`. Census: +188, all `type`, **0 decreases**, 657 examples passing.
+
+**If a mode is ever emitted, write the conditionals in POSITIVE polarity** (Stephen, 2026-10-21):
+
+    dead time is NOT required by default
+      if analyticalMode contains 'EDS Point Analysis' or 'EDS Mapping' -> require it
+
+not "required by default, excused when WDS". The inverted form needs the anchor to be MANDATORY: an
+absent mode fires no `if`, nothing is excused, and the requirement stands against a record whose
+mode cannot be determined. Positive polarity degrades to optional when the anchor is absent, which
+is the only safe direction and the general rule here — **a conditional you cannot evaluate must
+degrade to optional, never to required.**
+
+**And design it per `schema:hasPart`, not at the dataset root.** 264 records have MIXED EDS and
+non-EDS parts in one distribution, so a dataset-root mode genuinely cannot describe them. That
+makes the per-part reading correct rather than hypothetical — but note the three-levels rule above:
+`hasPart` exists only for a collection, so the monolithic case needs the mode at the dataset root
+or on the distribution, and a mixed-mode monolithic dataset is unsayable by construction.
+
+**The interim answer for the motivating case is the nil token, not a conditional.** EPMA's 436
+records carry `http://www.opengis.net/def/nil/OGC/0/unknown` for `ada:deadTime`, which these
+measurements make literally true: ADA holds no record of a dead time that does not exist, only of
+one nobody sent. The conditionals were an attempt to avoid the placeholder; the placeholder is the
+honest answer while the information is absent.
+
+### A related emitter defect, real and NOT fixed
+
+`schema_path_emitter.insert()`'s bare-`[]` terminal branch returns without recording requiredness,
+and `build_module_bb.py:207` excludes `is_array` from its own required list to MIRROR that
+condition — so it inherited the same omission. Measured: **9 fields, 178 declarations, 0
+requirements**, every one carrying a `Basic` tier, `ada:analyticalMode` and `ada:reportedProperties`
+among them. `build_module_bb` also ASSIGNS its required list over `to_schema()`'s rather than
+merging, which silently drops the tree's ancestor requirements the moment its own list is non-empty.
+
+All three are genuine. **An attempt to fix them was reverted** — see `docs/SILENT_SUCCESS.md` #13 —
+because the change destroyed 257,052 constraints across 161 blocks while every example gate stayed
+green. Redo it one defect at a time, with `constraint_census.py` read LINE BY LINE as the primary
+gate and a committed baseline between steps. The saved diff is not in the repo; re-derive from the
+line references above.
 
 ## componentType architecture (source of truth: spreadsheet)
 
