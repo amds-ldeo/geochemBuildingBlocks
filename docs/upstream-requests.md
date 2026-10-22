@@ -374,7 +374,9 @@ not implemented the mode flags yet", which is wrong and would send the work to t
 
 The workbooks' design is complete and correct. Mode-flag columns state per-field applicability,
 `Analytical Mode` declares the modes a procedure executes, and the Purpose cell spells out the
-split. **213 rows across 11 workbooks** carry mixed `Y`/`N` applicability. Nothing is wrong with
+split. **284 field rows across 14 techniques** carry mixed `Y`/`N` applicability — and only those
+14 of 61 have mode-flag columns at all; for the other 47 the mode is informational and gates
+nothing. Nothing is wrong with
 the tables.
 
 What is missing is the data. Measured on the live corpus 2026-10-21:
@@ -394,7 +396,7 @@ in ADA says which were WDS.
 
 **The ask, for whoever owns ADA intake:** record the acquisition mode, or the detector used, per
 analysis. One controlled value per dataset — or per `hasPart` item, since **264 records** already
-mix EDS and non-EDS parts in a single distribution — would make 213 workbook rows enforceable as
+mix EDS and non-EDS parts in a single distribution — would make 284 workbook rows enforceable as
 their author intended.
 
 Until then the interim answer is the nil token (`http://www.opengis.net/def/nil/OGC/0/unknown`),

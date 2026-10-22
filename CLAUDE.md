@@ -837,10 +837,23 @@ Ruolin's own Purpose cell states the split: *"the procedure-level declaration of
 type, distinct from the mode flag columns, which state per-field applicability."* So
 `EDS Dead Time` is `Y` for the two EDS modes and `N` for both WDS modes.
 
-**What gBB does with that: nothing.** No tool reads the mode-flag columns. Consequently **213 rows
-across 11 workbooks have mixed `Y`/`N` applicability and ALL 213 sit at a tier the emitter turns
-into an unconditional `required`** — so those properties are demanded of records the workbook says
-they do not apply to. `SEM_TAPP_v85` alone has 61, `TEM_TAPP_v67` 46, `EPMA_TAPP_v88` 29.
+**What gBB does with that: nothing.** No tool reads the mode-flag columns. Consequently **284
+field rows across 14 techniques have mixed `Y`/`N` applicability**, and they sit at a tier the
+emitter turns into an unconditional `required` — so those properties are demanded of records the
+workbook says they do not apply to. `semTAPP` alone has 84, `temTAPP` 46, `semCompositionTAPP` 30,
+`epmaTAPP` 29.
+
+**And the FIRST question is whether a technique's mode gates anything at all.** Only **14 of 61**
+techniques have mode-flag columns between `Purpose` and `Literature Assessment`. For the other
+**47** the `Analytical Mode` is **INFORMATIONAL**: reported on an analysis, gating no constraint.
+Solution Q/SF/MC-ICP-MS are the clear case — they declare
+`Solution nebulisation (continuous) | Flow injection` and no field's applicability varies between
+them. Determining a mode there buys nothing, so any effort to derive one belongs to the 14.
+
+> Corrected 2026-10-22. This section first said "213 rows across 11 workbooks", from a header
+> regex written here rather than from `build_tapp.mode_columns()`, which is what the generator
+> uses. That undercount missed `vnmirTAPP` and `semFibsemTAPP` entirely. Use
+> `tools/infer_analytical_mode.py`, which derives both figures from that function.
 
 **Why the conditional cannot be built, measured on the live corpus:**
 
