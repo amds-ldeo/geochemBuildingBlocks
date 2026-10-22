@@ -271,6 +271,20 @@
       },
       "expect": "minVal",
       "why": "Guards the NULL allowance from widening into a text allowance. minVal/maxVal are [number, 'null'] and displayInVizTool is [boolean, 'null'] because a null means \"not recorded\" in ADA's stored subjects (Stephen, 2026-10-21) -- but a STRING there is the HeaderRowCount class of defect, which this collection exists to describe rather than adopt. The allowance is exercised by exampleColumn-nullRange.json and by nothing else in the repo, so losing it would be invisible to every other check -- the same blind spot as the schema:name-to-schema:identifier substitute line (docs/SILENT_SUCCESS.md #8), where one static example is the only positive evidence a relaxation still exists. This case is the negative half: if it ever passes, the allowance has stopped being about absence."
+    },
+    {
+      "id": "tappdef-link-is-role-keyed-and-its-value-pinned",
+      "example": "_sources/techniqueProfile/geochemProfile/XRD/profile/exampleadaXRD.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/prov:wasGeneratedBy/0/prov:used/1/ada:tappDefinition",
+        "value": {
+          "@id": "ex:xrdTAPP-P0",
+          "ada:bogus": "x"
+        }
+      },
+      "expect": "ada:tappDefinition",
+      "why": "geochemProduct links an analysis to the protocol it followed through the ROLE-KEYED property ada:tappDefinition, and pins what may sit under that key: either a closed {@id} reference, or the TAPP plan inline. This mutation keeps the key and the @id and adds one extra property to the value, so it satisfies NEITHER branch -- the reference branch is additionalProperties:false, and the inline branch wants the whole TAPP schema. If this ever passes, the key has stopped constraining its value and `ada:tappDefinition` has become a label on an arbitrary object. That is not a hypothetical shape of failure: the branch this replaced keyed on @type containing ada:TAPPDefinition, and the base admits the new wrapper BY SHAPE (metadataBuildingBlocks#52 -- propertyNames over a CURIE pattern, deliberately permissive so a profile can define its own roles), so the only thing standing between this key and 'any object at all' is the profile branch this case tests. Note what it does NOT assert: the superseded {@id, @type: [... ada:TAPPDefinition]} spelling still validates, because rejecting it would invalidate the 7,263 of 7,447 ADA records that use it."
     }
   ]
 }

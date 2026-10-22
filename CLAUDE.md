@@ -79,6 +79,26 @@ should be; reach for it only to get past a known-broken ref deliberately. The ch
 examples that should have failed pass instead — and because a transient file-read error in an
 earlier stage would otherwise become a permanently degraded artifact on the next run.
 
+**Two ways a vendored upstream schema stays stale through a `--refresh-remote`.** `vendor/remote/`
+plus `vendor/remote-lock.json` pin every remote `$ref` so a build cannot absorb an upstream change
+unannounced, and `--refresh-remote` is the deliberate act of taking one. Neither link below is a
+defect in that design; both are consequences of it that present as "the refresh did not work", and
+both cost a wrong conclusion on 2026-10-22.
+
+- **The flag re-fetches what is reached by a URL, and a relative `$ref` inside the vendored tree is
+  not.** `_fetch_relative_in_cache` converts a cache path back to a URL **only when the file is
+  absent**; an existing one is read off disk, so the URL is never visited and the pinned copy is
+  served however many times the flag is passed. `provProperties/generatedBy` is reached exactly
+  that way — `../../provProperties/generatedBy/schema.yaml` from each `cdifProfile` file — so it
+  had a lock entry, a correct digest, and stale content. Force the miss: delete the vendored file,
+  then re-run with `--refresh-remote`.
+- **Refreshing and resolving are two jobs even in one command.** `--all` re-resolves every block and
+  compares bytes, so `already current` is truthful — but it is a statement about the inputs that run
+  actually had. A run that resolved while the vendored copy was still stale reports every dependent
+  block current, correctly, and 24 of them did. Once the vendored file really changes, run
+  `resolve_schema.py --all` AGAIN before believing any count: the second pass is what carried the
+  new base into all 34 profile blocks and took `validate_examples` to 657/657.
+
 **`constraint_census.py` answers the question `validate_examples` structurally cannot.** A
 schema is a set of restrictions, so deleting one makes it more PERMISSIVE and every instance that
 validated still validates — no corpus of positive examples can detect a loss, however large. The
@@ -103,7 +123,7 @@ at all.
 **`validate_counterexamples.py` is the other half, and the two catch different bugs.** The census
 sees a constraint disappear from the SCHEMA. This sees a constraint that is still there but no
 longer BITES — a conditional whose `if` stopped matching, a branch moved into an `anyOf` where it
-constrains nothing, a `$ref` that now resolves somewhere more permissive. 13 cases in
+constrains nothing, a `$ref` that now resolves somewhere more permissive. 25 cases in
 `docs/counterexamples.json`, each a single MUTATION of a real example (`remove`/`set`/`add` at a
 JSON pointer) which must be REJECTED.
 
