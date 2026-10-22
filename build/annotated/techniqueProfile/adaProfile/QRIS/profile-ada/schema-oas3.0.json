@@ -688,22 +688,34 @@
                         {
                           "if": {
                             "type": "object",
-                            "properties": {
-                              "@type": {
-                                "contains": {
-                                  "enum": [
-                                    "ada:TAPPDefinition"
-                                  ]
-                                }
-                              }
-                            },
                             "required": [
-                              "@type",
-                              "schema:name"
+                              "ada:tappDefinition"
                             ]
                           },
                           "then": {
-                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/QRIS/profile-ada/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
+                            "properties": {
+                              "ada:tappDefinition": {
+                                "description": "The TAPP definition this analysis followed: either a reference to a TAPP definition node defined elsewhere, or the plan inline.",
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "required": [
+                                      "@id"
+                                    ],
+                                    "properties": {
+                                      "@id": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  },
+                                  {
+                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/QRIS/profile-ada/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
+                                  }
+                                ],
+                                "x-jsonld-id": "https://ada.astromat.org/metadata/tappDefinition"
+                              }
+                            }
                           }
                         }
                       ]

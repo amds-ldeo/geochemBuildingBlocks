@@ -2882,16 +2882,24 @@ x-defs:
                           x-jsonld-id: http://www.w3.org/ns/prov#reagent
                   - if:
                       type: object
-                      properties:
-                        '@type':
-                          contains:
-                            enum:
-                            - ada:TAPPDefinition
                       required:
-                      - '@type'
-                      - schema:name
+                      - ada:tappDefinition
                     then:
-                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/ICPOES/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
+                      properties:
+                        ada:tappDefinition:
+                          description: 'The TAPP definition this analysis followed:
+                            either a reference to a TAPP definition node defined elsewhere,
+                            or the plan inline.'
+                          anyOf:
+                          - type: object
+                            additionalProperties: false
+                            required:
+                            - '@id'
+                            properties:
+                              '@id':
+                                type: string
+                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/ICPOES/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
+                          x-jsonld-id: https://ada.astromat.org/metadata/tappDefinition
                 x-jsonld-id: http://www.w3.org/ns/prov#used
               schema:location:
                 x-jsonld-id: http://schema.org/location

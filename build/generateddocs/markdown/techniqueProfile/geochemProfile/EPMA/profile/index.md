@@ -212,12 +212,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:epmaTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:epmaTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -751,12 +748,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:epmaTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:epmaTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -1185,8 +1179,8 @@ ex:adaEPMA-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                ex:epmaTAPP-P0 ;
+            prov:used [ ada:tappDefinition ex:epmaTAPP-P0 ],
+                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
@@ -1269,10 +1263,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/position_x> ;
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
-
-ex:epmaTAPP-P0 a prov:Entity,
-        prov:Plan,
-        ada:TAPPDefinition .
 
 <https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
         schema1:Thing ;

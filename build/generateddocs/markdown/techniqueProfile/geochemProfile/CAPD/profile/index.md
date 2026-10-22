@@ -211,12 +211,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:capdTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:capdTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -702,12 +699,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:capdTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:capdTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -1086,7 +1080,7 @@ ex:adaCAPD-example-001 a schema1:Dataset,
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                ex:capdTAPP-P0 ] ;
+                [ ada:tappDefinition ex:capdTAPP-P0 ] ] ;
     ada:analyticalMode "Point spectrum" ;
     ada:submissionType "BundleDelivery" .
 
@@ -1164,10 +1158,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/position_x> ;
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
-
-ex:capdTAPP-P0 a prov:Entity,
-        prov:Plan,
-        ada:TAPPDefinition .
 
 <https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
         schema1:Thing ;

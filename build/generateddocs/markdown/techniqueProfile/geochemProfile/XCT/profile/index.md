@@ -212,12 +212,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:labxctTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:labxctTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -730,12 +727,9 @@ and technique component types on the archive distribution. Mock data for validat
           ]
         },
         {
-          "@id": "ex:labxctTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
+          "ada:tappDefinition": {
+            "@id": "ex:labxctTAPP-P0"
+          }
         }
       ],
       "schema:location": {
@@ -1127,16 +1121,16 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
             dqv:value "no value available: beamHardeningArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
             dqv:value "no value available: signalToNoiseRatio" ],
         [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "no value available: metalStreakArtifactAssessment" ],
         [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "no value available: crossValidationOutcome" ] ;
+            dqv:value "no value available: crossValidationOutcome" ],
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "no value available: partialVolumeEffectAssessment" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1152,8 +1146,8 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                ex:labxctTAPP-P0 ] ;
+            prov:used [ ada:tappDefinition ex:labxctTAPP-P0 ],
+                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
     ada:analyticalMode "Single-volume" ;
     ada:submissionType "BundleDelivery" .
 
@@ -1240,10 +1234,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         "XCT" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
-
-ex:labxctTAPP-P0 a prov:Entity,
-        prov:Plan,
-        ada:TAPPDefinition .
 
 
 ```
