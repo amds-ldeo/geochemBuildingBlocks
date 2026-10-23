@@ -285,6 +285,25 @@
       },
       "expect": "ada:tappDefinition",
       "why": "geochemProduct links an analysis to the protocol it followed through the ROLE-KEYED property ada:tappDefinition, and pins what may sit under that key: either a closed {@id} reference, or the TAPP plan inline. This mutation keeps the key and the @id and adds one extra property to the value, so it satisfies NEITHER branch -- the reference branch is additionalProperties:false, and the inline branch wants the whole TAPP schema. If this ever passes, the key has stopped constraining its value and `ada:tappDefinition` has become a label on an arbitrary object. That is not a hypothetical shape of failure: the branch this replaced keyed on @type containing ada:TAPPDefinition, and the base admits the new wrapper BY SHAPE (metadataBuildingBlocks#52 -- propertyNames over a CURIE pattern, deliberately permissive so a profile can define its own roles), so the only thing standing between this key and 'any object at all' is the profile branch this case tests. Note what it does NOT assert: the superseded {@id, @type: [... ada:TAPPDefinition]} spelling still validates, because rejecting it would invalidate the 7,263 of 7,447 ADA records that use it."
+    },
+    {
+      "id": "tappdef-inline-old-spelling-is-closed-off",
+      "example": "_sources/techniqueProfile/geochemProfile/XRD/profile/exampleadaXRD.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/prov:wasGeneratedBy/0/prov:used/1",
+        "value": {
+          "@id": "ex:xrdTAPP-P0",
+          "@type": [
+            "prov:Entity",
+            "prov:Plan",
+            "ada:TAPPDefinition"
+          ],
+          "schema:name": "XRD analytical procedure"
+        }
+      },
+      "expect": "ada:tappDefinition",
+      "why": "The role-keyed ada:tappDefinition wrapper REPLACES the superseded spelling that carried the role in @type, and this asserts the replacement is enforced by the schema rather than merely observed in what the generator emits -- which it was, for one commit: the old form validated with zero errors. The mutation writes an INLINE plan in the old spelling (@type containing ada:TAPPDefinition, plus the schema:name that distinguishes a plan from a reference) and it must be rejected for want of the role key. Read the guard's narrowness as load-bearing, not as an oversight: a plain {@id, @type} REFERENCE carries no schema:name, so it does not match this `if` and stays valid -- deliberately, because 7,263 of 7,447 ADA records link their TAPP that way and rejecting them here would invalidate the corpus before the corpus can move. If this case ever fails because the REFERENCE form started being rejected too, the guard has widened past what the records can satisfy; if it fails because the inline form validates again, the supersession has come undone. Those are opposite defects and this case sits between them, which is why the companion case tappdef-link-is-role-keyed-and-its-value-pinned tests the value shape separately."
     }
   ]
 }

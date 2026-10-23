@@ -123,7 +123,7 @@ at all.
 **`validate_counterexamples.py` is the other half, and the two catch different bugs.** The census
 sees a constraint disappear from the SCHEMA. This sees a constraint that is still there but no
 longer BITES — a conditional whose `if` stopped matching, a branch moved into an `anyOf` where it
-constrains nothing, a `$ref` that now resolves somewhere more permissive. 25 cases in
+constrains nothing, a `$ref` that now resolves somewhere more permissive. 26 cases in
 `docs/counterexamples.json`, each a single MUTATION of a real example (`remove`/`set`/`add` at a
 JSON pointer) which must be REJECTED.
 
@@ -1147,7 +1147,23 @@ trap as the cid table above.
 
 `adaProduct` redefines `prov:wasGeneratedBy.items.properties` with ADA-specific keys; via `allOf` merge, the upstream `cdifProvActivity` constraints still apply. Recent renames/extensions:
 
-- `prov:used` accepts `anyOf [instrument | tappDefinition]` (used to be just instrument; tappDefinition was previously named methodDefinition and lived under geochemProperties/, now at `_sources/BaseSchema/tappDefinition/`; JSON-LD class is `ada:TAPPDefinition`).
+- `prov:used` relates the activity to what it used through ROLE-KEYED properties, one per role:
+  `schema:instrument`, `bios:computationalTool`, `prov:reagent`, and — since #190 —
+  **`ada:tappDefinition`**, whose value is either a closed `{@id}` reference or the plan inline
+  (`_sources/BaseSchema/tappDefinition/`; JSON-LD class `ada:TAPPDefinition`; previously named
+  methodDefinition, under geochemProperties/). The role is read off the property NAME, not off
+  `@type` — an inline `prov:Entity` carries `ada:TAPPDefinition` in its `@type` too, so `@type`
+  could never separate the role from the class. CDIF admits the role-wrapper SHAPE generically
+  (mbb#52: `propertyNames` over a CURIE pattern, deliberately permissive) and geochemProduct
+  CLOSES the set to the role it defines — base permissive, profile restrictive, which `allOf`
+  composes correctly because an intersection can only narrow.
+  **Two asymmetries here are deliberate and should not be "tidied".** The superseded
+  `{@id, @type: [… ada:TAPPDefinition]}` REFERENCE still validates, because 7,263 of 7,447 ADA
+  records link their TAPP that way and rejecting it would invalidate the corpus before the corpus
+  can move; the superseded INLINE spelling (the same `@type` plus a `schema:name`) is REJECTED,
+  so the replacement is enforced rather than merely emitted. Both halves are pinned by
+  counterexamples — `tappdef-inline-old-spelling-is-closed-off` fails if either the inline form
+  starts validating again or the reference form starts being rejected.
 - `schema:location` (was `ada:laboratory`) — laboratory $ref.
 - `schema:object` (was `schema:mainEntity`) — array of MaterialSample objects (samples analyzed). Required CDIF mbb to extend `cdifProvActivity.schema:object` to also accept arrays of `schema:Thing` per schema.org range; `schema:result` extended symmetrically. Both extensions landed via the propagate-schema run on 2026-04-26.
 
@@ -1241,8 +1257,11 @@ These are real past incidents, not hypothetical. The CI-side counterparts — wh
 - **A conditional whose `if` is too broad fires on things it was never meant to pin.**
   `geochemProduct`'s TAPP conditional keyed on `@type` containing `ada:TAPPDefinition` alone, so it
   held every `{@id, @type}` *reference* to the whole TAPP schema and failed it on the four
-  properties a reference does not carry. Guarding the `if` with `schema:name` separates inline plan
-  from reference. The mirror-image failure is the same conditional being too NARROW: a mis-named
+  properties a reference does not carry. Guarding the `if` with `schema:name` separated inline plan
+  from reference. **That conditional is GONE as of #190** — the role moved to a property name and
+  the guard went with it — so read this as the lesson it is, not as a description of the schema;
+  the `schema:name` guard survives only in the narrow branch that closes off the inline old
+  spelling, where it does the same job for the same reason. The mirror-image failure is the same conditional being too NARROW: a mis-named
   workflow step matches no `if`, so its constraints are silently absent and the record validates
   clean. Whenever you add an `if`, ask what it matches that you did not intend AND what it now fails
   to match.

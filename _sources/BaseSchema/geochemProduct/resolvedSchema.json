@@ -16721,6 +16721,28 @@
                           }
                         }
                       }
+                    },
+                    {
+                      "if": {
+                        "type": "object",
+                        "required": [
+                          "@type",
+                          "schema:name"
+                        ],
+                        "properties": {
+                          "@type": {
+                            "contains": {
+                              "const": "ada:TAPPDefinition"
+                            }
+                          }
+                        }
+                      },
+                      "then": {
+                        "description": "An inline TAPP plan belongs under the ada:tappDefinition role key. The bare @type form is superseded; see the branch above.",
+                        "required": [
+                          "ada:tappDefinition"
+                        ]
+                      }
                     }
                   ]
                 }
