@@ -178,6 +178,119 @@ def build(defs):
     return variables, conflicts
 
 
+# ---------------------------------------------------------------------------
+# Conflict triage
+#
+# The 29 within-side conflicts are not one kind of problem, and treating them as one would put a
+# spelling difference in the same queue as two different physical measurands. The classes below
+# are ordered by how much judgement they need, and the first two need NONE.
+#
+# This is TRIAGE, not a verdict: it narrows what a person has to read, and the hardest classes are
+# deliberately the ones it refuses to resolve.
+# ---------------------------------------------------------------------------
+
+# Applied to both definitions before comparing them. If two definitions become equal under
+# normalisation, they never disagreed -- the vocabulary did.
+_NORMALISERS = (
+    # British/American. `volatilisation` vs `volatilization` is the whole of the difference
+    # between the SEM and EPMA readings of Time-Dependent Intensity Correction.
+    (r"isation\b", "ization"), (r"ised\b", "ized"), (r"ising\b", "izing"),
+    (r"metres?\b", "meter"), (r"\bcentre", "center"),
+    # The analyte / target-species axis. These name the same set -- the workbooks' own wording,
+    # and several sidecar rows say so outright ("one per analyte, these being the same set").
+    # It is the entire difference for Calibration Factor and Determination Method (59 defs, the
+    # largest conflict in the registry) and for Mass Resolution Assignment.
+    (r"\btarget species\b", "analyte"), (r"\btarget-species\b", "analyte"),
+    (r"\banalytes\b", "analyte"),
+)
+
+_SIGNALS = (
+    # A different physical measurand or signal chain -- the strongest case for SPLITTING a label
+    # into several RepresentedVariables rather than reconciling one definition.
+    ("different measurand",
+     {"bremsstrahlung", "polychromatic", "tube", "ion-beam", "fib-sem", "milling",
+      "d-stem", "stem-eels"}),
+     # `magnet` and `sector` were here and are NOT measurand signals: a sector-field magnet is the
+     # instrument performing the SAME measurement. Including them mis-split Mass Resolution per
+     # Analyte, whose variants differ only in how much mechanism they describe.
+    # A different statistic for the same quantity. Genuinely contested: a method detection limit
+    # at 99% confidence is not a procedure-typical estimate, and no normalisation reconciles them.
+    ("different statistic",
+     {"confidence", "reproducibility", "deviation", "sd", "se", "ci", "statistics"}),
+    # Same quantity, different unit convention. Units belong on the USAGE
+    # (cdi:describedUnitOfMeasure), not in the shared definition.
+    ("unit convention",
+     {"kev", "kv", "kilovolts", "nanoamperes", "microseconds", "milliseconds", "ms",
+      "micrometres", "micrometers", "nanometres", "wt%", "ng", "g/g", "g/l", "percent"}),
+    # An applicability restriction rather than a different concept -- also usage-level.
+    ("scope conditional", {"applicable", "mandatory", "required", "n/a", "unless"}),
+)
+
+_STOP = set("""a an and are as at be been both but by can each either for from had has have how
+if in into is it its may more must no none not of on one only or other over per rather same see
+so some such than that the their then there these they this those to under use used using was
+were what when where whether which while who with would""".split())
+
+
+def classify(variants):
+    """(class, note) for one conflict's variants. See _SIGNALS for what each class means."""
+    def norm(t):
+        t = t.lower()
+        for pat, rep in _NORMALISERS:
+            t = re.sub(pat, rep, t)
+        # Hyphens are KEPT. Stripping them split `mc-icp-ms` into `mc icp ms`, and the
+        # stray `ms` matched the millisecond unit signal -- so Interfering Species and Isobaric
+        # Interference Corrections Applied were both triaged as a unit-convention difference on
+        # the strength of a mass-spectrometer acronym.
+        return re.sub(r"[^a-z0-9%/ -]+", " ", t)
+
+    def words(t):
+        return set(re.findall(r"[a-z0-9][a-z0-9%/-]*", norm(t)))
+
+    texts = [v["definition"] for v in variants]
+    # Equal after normalisation? Then the definitions never disagreed.
+    if len({re.sub(r"\s+", " ", norm(t)).strip() for t in texts}) == 1:
+        return "terminology drift", "identical once spelling and analyte/target-species are normalised"
+
+    sets = [words(t) for t in texts]
+    common = set.intersection(*sets)
+    differing = (set.union(*sets) - common) - _STOP
+    if not differing:
+        return "wording only", "no content word distinguishes them"
+    for name, signal in _SIGNALS:
+        hit = sorted(differing & signal)
+        if hit:
+            return name, "distinguished by: " + ", ".join(hit[:6])
+    # One variant's content is a superset of the others': the same concept, said at more length.
+    if any(all(s <= big for s in sets) for big in sets):
+        return "elaboration", "one variant's wording contains the others'"
+    return "unclassified", "differs in substantive wording with no signal term"
+
+
+def group_conflicts(conflicts):
+    """Conflicts bucketed by class, worst-to-triage last."""
+    order = ["terminology drift", "wording only", "elaboration", "unit convention",
+             "scope conditional", "different statistic", "different measurand", "unclassified"]
+    out = collections.OrderedDict((k, []) for k in order)
+    for c in conflicts:
+        cls, note = classify(c["variants"])
+        c = dict(c, triage=cls, triage_note=note)
+        out[cls].append(c)
+    return collections.OrderedDict((k, v) for k, v in out.items() if v)
+
+
+_VERDICT = {
+    "terminology drift": "ONE variable, no decision needed -- normalise the wording in the sidecars",
+    "wording only": "ONE variable, no decision needed -- keep the fullest definition",
+    "elaboration": "ONE variable -- keep the fullest definition, move technique detail to the usage",
+    "unit convention": "ONE variable -- units belong on the usage, not the definition",
+    "scope conditional": "ONE variable -- the restriction belongs on the usage",
+    "different statistic": "DECISION NEEDED -- these are different quantities under one label",
+    "different measurand": "SPLIT -- a different device or signal chain, so several variables",
+    "unclassified": "READ IT -- no signal term; a person has to judge",
+}
+
+
 def report(defs, variables, conflicts):
     sides = collections.Counter(d["side"] for d in defs)
     names = {d["name"] for d in defs if d["name"]}
@@ -205,10 +318,33 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--write", action="store_true", help="write %s" % OUT)
+    ap.add_argument("--group-conflicts", action="store_true",
+                    help="triage the within-side conflicts by what actually differs")
     args = ap.parse_args()
 
     defs = load_defs()
     variables, conflicts = build(defs)
+
+    if args.group_conflicts:
+        groups = group_conflicts(conflicts)
+        print("%d within-side conflicts, %d defs behind them\n"
+              % (len(conflicts), sum(c["defs"] for c in conflicts)))
+        for cls, items in groups.items():
+            print("%s  (%d conflict%s, %d defs)"
+                  % (cls.upper(), len(items), "" if len(items) == 1 else "s",
+                     sum(c["defs"] for c in items)))
+            print("    -> %s" % _VERDICT[cls])
+            for c in sorted(items, key=lambda c: -c["defs"]):
+                print("       %-48s %2d variants, %3d defs"
+                      % (c["cdif:name"][:48], len(c["variants"]), c["defs"]))
+                print("         %s" % c["triage_note"][:110])
+            print()
+        need = sum(len(v) for k, v in groups.items()
+                   if k in ("different statistic", "different measurand", "unclassified"))
+        print("needing a human decision : %d of %d" % (need, len(conflicts)))
+        print("resolvable mechanically  : %d" % (len(conflicts) - need))
+        return 0
+
     report(defs, variables, conflicts)
 
     doc = {
