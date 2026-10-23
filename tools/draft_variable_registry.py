@@ -108,6 +108,26 @@ def resolve_group_refs(text):
 # look like residue from an earlier delivery, but a full regeneration reproduces them, so they are
 # derived from something not yet located. Protected either way: the sweep is not the place to
 # resolve that.
+# British/American spelling, as an EXPLICIT word list derived from the corpus rather than a
+# generic suffix rule. American chosen (Stephen, 2026-10-23, "use volatilization");
+# `volatilisation` vs `volatilization` was the whole of the difference between the SEM and EPMA
+# readings of Time-Dependent Intensity Correction.
+#
+# A generic `ising -> izing` rule stood here first and was WRONG: it rewrites `arising` to
+# `arizing`. That did no visible damage while these patterns only fed the equality test, but it
+# would have corrupted emitted text the moment the sweep began applying them. Only three words in
+# the whole corpus carry the -isation/-ised/-ising axis -- characterisation x118, volatilisation
+# x6, linearisation x1 -- so enumerating them is both safe and auditable.
+#
+# `metres -> meter` and `centre -> center` stood here too and are deliberately absent: those are
+# unit names (micrometres x19, nanometres x6, millimetres x4) and a term of art
+# (`centre-to-centre`), a different axis from a spelling convention, and nobody has ruled on them.
+_SPELLING = (
+    (r"\bvolatilisation\b", "volatilization"),
+    (r"\bcharacterisation\b", "characterization"),
+    (r"\blinearisation\b", "linearization"),
+)
+
 _PROTECTED = (
     "Per-Analyte Calibration Strategy",
     "Mass Resolution per Analyte",
@@ -146,6 +166,14 @@ def canonicalise(text):
     text = re.sub(r"\bAnalytes?\b|\banalytes?\b", sub, text)
     for key, name in masks.items():
         text = text.replace(key, name)
+
+    # American spelling, decided for `volatilization` (Stephen, 2026-10-23) and applied to the
+    # whole -isation axis for consistency: leaving `normalization` x62 beside `characterisation`
+    # x118 in one registry is the inconsistency this exists to remove. Only the three words
+    # enumerated in _SPELLING are touched -- see the note there on why a generic suffix rule is
+    # not safe, and why the metre/centre axis is excluded.
+    for pat, rep in _SPELLING:
+        text = re.sub(pat, rep, text)
     return resolve_group_refs(text)
 
 
@@ -168,8 +196,57 @@ def _camel(label):
     return head + "".join(p[:1].upper() + p[1:] for p in parts[1:])
 
 
+def _live_labels():
+    """Metadata Items that exist in the CURRENT sources, keyed case- and space-insensitively.
+
+    `registry/` is `isTypeLibrary`, so a def whose row has been renamed away is not removed -- it
+    simply stops being referenced. Measured 2026-10-23: 37 of the 1893 defs (2.0%) carry a label
+    present in neither the current workbooks nor the module sidecars, and nothing outside
+    `registry/` references any of them -- 0 hits across every tapp/, detail/ and profile/ schema,
+    resolved or otherwise. They are inert, which is why no gate notices them.
+
+    They are NOT inert to this prototype, though, which counted them as variables. They produced
+    3 phantom conflicts and 4 phantom "duplicate label pairs" -- every pair turning out to be a
+    retired label sitting beside its replacement (`Analyte Estimation Method` beside `Target
+    Species Estimation Method`, `Isobaric Interference Corrections Applied` beside `Spectral
+    Interference Corrections Applied`). So the filter exists to keep the measurement honest, not
+    to fix anything in the schemas.
+
+    Matched case- and space-insensitively: checked for re-casing drift and found none, but an
+    exact match would report a re-cased label as retired, which is a failure mode worth not
+    having.
+    """
+    def key(s):
+        return re.sub(r"[^a-z0-9]+", " ", (s or "").lower()).strip()
+
+    import csv
+    import glob
+    import build_tapp as bt
+    import tapp_source
+
+    live = {}
+    for tapp in sorted(bt.TAPP_CONFIGS):
+        try:
+            bt.configure(tapp)
+            rows = tapp_source.rows(bt.XLSX)
+        except Exception:
+            continue
+        for r in rows[1:]:
+            item = bt.norm(r[0]) if r else ""
+            if item and not re.match(r"^\d+\.\s", item):
+                live.setdefault(key(item), item)
+    for f in glob.glob(os.path.join("docs", "modules", "Module_*.schemapaths.csv")):
+        for r in csv.DictReader(io.open(f, encoding="utf-8-sig")):
+            item = (r.get("Metadata Item") or "").strip()
+            if item:
+                live.setdefault(key(item), item)
+    return live, key
+
+
 def load_defs():
     """Every registry $def, with the fields a variable registry would need from it."""
+    # `lkey`, not `key`: the loop below binds `key` to each $def name and would shadow it.
+    live, lkey = _live_labels()
     out = []
     for coll in COLLECTIONS:
         path = os.path.join(ROOT, "_sources", "registry", coll, "schema.yaml")
@@ -192,6 +269,8 @@ def load_defs():
                 "definition": canonicalise((sub.get("description") or "").strip()),
                 "dataType": const("ada:dataType"),
                 "unitText": const("schema:unitText"),
+                # Does a row with this label still exist? See _live_labels.
+                "live": lkey(const("schema:name")) in live,
             })
     return out
 
@@ -200,7 +279,10 @@ def build(defs):
     """({variable @id -> node}, [conflict, ...]) grouped on the logical name."""
     by_name = collections.defaultdict(list)
     for d in defs:
-        if d["name"]:
+        # Retired labels are EXCLUDED, not silently dropped: main() reports them under
+        # `retired_labels` with their def counts. A silent skip is lost coverage, which is the
+        # habit docs/SILENT_SUCCESS.md exists to break.
+        if d["name"] and d.get("live", True):
             by_name[d["name"]].append(d)
 
     variables, conflicts = {}, []
@@ -271,11 +353,7 @@ def build(defs):
 
 # Applied to both definitions before comparing them. If two definitions become equal under
 # normalisation, they never disagreed -- the vocabulary did.
-_NORMALISERS = (
-    # British/American. `volatilisation` vs `volatilization` is the whole of the difference
-    # between the SEM and EPMA readings of Time-Dependent Intensity Correction.
-    (r"isation\b", "ization"), (r"ised\b", "ized"), (r"ising\b", "izing"),
-    (r"metres?\b", "meter"), (r"\bcentre", "center"),
+_NORMALISERS = _SPELLING + (
     # The analyte / target-species axis. These name the same set -- several sidecar rows say so
     # outright ("one per analyte, these being the same set"). It is the entire difference for
     # Calibration Factor and Determination Method (59 defs, the largest conflict in the registry)
@@ -382,7 +460,14 @@ _VERDICT = {
 
 def report(defs, variables, conflicts):
     sides = collections.Counter(d["side"] for d in defs)
-    names = {d["name"] for d in defs if d["name"]}
+    retired = collections.Counter(d["name"] for d in defs if d["name"] and not d.get("live", True))
+    names = {d["name"] for d in defs if d["name"] and d.get("live", True)}
+    if retired:
+        print("retired labels EXCLUDED               : %d defs across %d label(s)"
+              % (sum(retired.values()), len(retired)))
+        for n, c in retired.most_common():
+            print("    %-46s %d defs" % (n[:46], c))
+        print()
     print("registry $defs                       : %d" % len(defs))
     print("  procedure side (schema:valueName)  : %d" % sides["procedure"])
     print("  analysis side  (schema:propertyID) : %d" % sides["analysis"])
@@ -457,9 +542,15 @@ def main():
                      "reference to the RepresentedVariable is right either way, so this draft "
                      "records the usages without asserting an @type on them."),
         },
+        # Reported, not silently dropped. See _live_labels for why they exist and why nothing in
+        # the schemas is affected by them.
+        "retired_labels": dict(collections.Counter(
+            d["name"] for d in defs if d["name"] and not d.get("live", True))),
         "counts": {
             "registry_defs": len(defs),
-            "distinct_logical_variables": len({d["name"] for d in defs if d["name"]}),
+            "registry_defs_live": sum(1 for d in defs if d.get("live", True)),
+            "distinct_logical_variables": len(
+                {d["name"] for d in defs if d["name"] and d.get("live", True)}),
             "mintable_now": len(variables),
             "blocked_on_a_definition": len(conflicts),
         },
