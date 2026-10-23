@@ -286,6 +286,72 @@
       ],
       "rationale": "The merge is a real improvement, not a tidy-up. Variant 1 alone is ambiguous about whether a procedure relying on chemical separation should answer Yes, because it does not say the Boolean is about mathematical correction AFTER hardware or chemical suppression. Variants 2-4 independently supply that, each naming its own upstream mitigation -- which is why they looked like three rival definitions and are in fact one definition plus three local details.",
       "family_note": "`Spectral Interference Corrections Applied` (8 defs) defines itself as covering 'isobaric, polyatomic or residual interferences', so it CONTAINS this label, and the same 8 techniques carry both. Two overlapping Booleans where one implies the other is a tapp structure question, not a registry one; it does not block this decision."
+    },
+    {
+      "conflict": "Monitored Isotopes",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/monitoredIsotopes",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "definition_from": "variant 1 (7 of 8 defs). It handles the case variant 2 omits -- interference-monitor and internal-standard masses, which serve no analyte and so have no parent element -- and carries an anti-inference rule worth preserving."
+        }
+      ],
+      "rationale": "One quantity; variant 2 is a shorter statement of the same field. Variant 1's extra sentence is the valuable part: the analyte list is given by another field and is never inferred from the element symbols appearing here, which exists to stop a consumer deriving the analyte list from isotope symbols.",
+      "needs_repointing": "that sentence cites `Analyte`, which no longer exists as a row -- the field is now `Target Species`. 16 citations repo-wide; see docs/issues/tapp-dangling-cross-references.md. Repoint when the analyte migration completes."
+    },
+    {
+      "conflict": "Peak Counting Time",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/peakCountingTime",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "definition_from": "variant 2, DESPITE holding only 2 defs against variant 1's 6. It contains variant 1's substance and adds two things: the per-spectrometer-assignment granularity, which is correct for WDS and omitted by variant 1, and who sets versus who may adjust the value."
+        }
+      ],
+      "rationale": "The second case in this registry where majority count picks the thinner definition -- the first was Calibration Factor and Determination Method, whose 45-def variant used the retired term. Variant 1's omission of the per-assignment granularity is a gap, not a different definition: a WDS procedure has a counting time per spectrometer assignment whether or not the text says so."
+    },
+    {
+      "conflict": "Beam Damage Minimization",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/beamDamageMinimization",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "definition_from": "MERGED. The concept from either, plus variant 2's recording instruction -- document approach, beam conditions used, and phases for which it was applied -- which is the actionable part and which variant 1 lacks. Both example sets move to the usage: variant 1 enumerates MITIGATIONS (reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, rotating between points) and variant 2 enumerates the DAMAGE MODE and affected materials (volatilization or migration of Na, K, F and Cl in hydrous minerals, glasses, feldspars, phosphates, carbonates)."
+        }
+      ],
+      "rationale": "The two variants are COMPLEMENTARY, not rival: one lists what you do about beam damage, the other what beam damage does and to what. Neither is a different quantity, and a definition taking only the larger variant would lose the instruction about what to record."
+    },
+    {
+      "conflict": "Drift Correction",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/driftCorrection",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "definition_from": "the UNION of the drift sources the two variants name. Variant 1 covers stage and beam drift with positional examples (periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, reanalysis of a reference point at regular intervals); variant 2 covers beam current and spectrometer drift. Between them they name three real kinds and neither is wrong."
+        }
+      ],
+      "rationale": "Both variants answer whether and how drift was monitored and corrected. They differ in WHICH drift their technique cares about, which is usage-level.",
+      "latent": "the one of these four where a split could be argued: positional drift (stage, sample position) and intensity or calibration drift (beam current, spectrometer) are corrected by different means and could be separate variables. Not recommended -- the label is singular and both variants treat it as one field -- but recorded so it is not re-derived from scratch."
     }
   ],
   "terminology": {
