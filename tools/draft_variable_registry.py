@@ -101,6 +101,54 @@ def resolve_group_refs(text):
                   lambda m: _SECTIONS.get(m.group(1), m.group(0)), text or "")
 
 
+# Label names that still contain `Analyte` and are PROTECTED from the sweep below. A definition
+# citing one of these is citing a name, and rewriting a name invents a reference. Three of them
+# have no current workbook row at all -- `Analyte Estimation Method` is `Target Species Estimation
+# Method` today and `Mass Resolution per Analyte` is `Mass Resolution Assignment` -- so their defs
+# look like residue from an earlier delivery, but a full regeneration reproduces them, so they are
+# derived from something not yet located. Protected either way: the sweep is not the place to
+# resolve that.
+_PROTECTED = (
+    "Per-Analyte Calibration Strategy",
+    "Mass Resolution per Analyte",
+    "Analyte Estimation Method",
+    "Technique per Analyte",
+)
+
+
+def canonicalise(text):
+    """Definition text with `analyte` swept to `target species`, and section numbers resolved.
+
+    `target species` REPLACED `analyte` in recent TAPP updates (Stephen, 2026-10-23), so this
+    applies the surviving term to the text a consumer reads. It is a CONSUMER-SIDE sweep by
+    necessity: the definitions come from the TAPP workbooks (`build_tapp` takes `desc` straight
+    from the row) and those are read-only to this repo, so the only alternative is upstream.
+    The sidecars cannot carry it either -- they have no text column at all.
+
+    Two things it deliberately does NOT do. It does not touch label NAMES, only prose: 16
+    definitions cite `the Analyte field`, which has no row today, and sweeping the prose repoints
+    those to `the Target Species field` -- but rewriting a name that still exists would invent a
+    dangling reference, which is why _PROTECTED is masked out first. And it preserves case, so a
+    mid-sentence `analyte` and a cited `Analyte` both land correctly.
+    """
+    text = text or ""
+    masks = {}
+    for i, name in enumerate(_PROTECTED):
+        if name in text:
+            key = "\x00%d\x00" % i
+            masks[key] = name
+            text = text.replace(name, key)
+
+    def sub(m):
+        w = m.group(0)
+        return "Target Species" if w[:1].isupper() else "target species"
+
+    text = re.sub(r"\bAnalytes?\b|\banalytes?\b", sub, text)
+    for key, name in masks.items():
+        text = text.replace(key, name)
+    return resolve_group_refs(text)
+
+
 def _camel(label):
     """A stable @id token from a workbook label. Lower camel, per the repo's naming decision.
 
@@ -139,9 +187,9 @@ def load_defs():
                 "side": "analysis" if "schema:propertyID" in props else "procedure",
                 "id": const("@id"),
                 "name": const("schema:name"),
-                # Section references resolved here, so every consumer of a definition -- the
-                # conflict triage as well as the emitted registry -- sees the same text.
-                "definition": resolve_group_refs((sub.get("description") or "").strip()),
+                # Canonicalised here, so every consumer of a definition -- the conflict triage as
+                # well as the emitted registry -- sees the same text.
+                "definition": canonicalise((sub.get("description") or "").strip()),
                 "dataType": const("ada:dataType"),
                 "unitText": const("schema:unitText"),
             })
