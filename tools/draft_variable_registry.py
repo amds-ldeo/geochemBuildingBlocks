@@ -71,6 +71,36 @@ COLLECTIONS = ("parameterTemplates", "parameterValues", "targetSpeciesColumns",
                "monitoredPropertyColumns", "targetMaterialColumns", "reportedPropertyColumns")
 
 
+# The workbooks' own section headers, which are rows carrying a string in `Metadata Item` and
+# nothing else. `schema_path_emitter._load_rows` already recognises and skips them
+# (`re.match(r"^\d+\.\s", item)`), so they are structure rather than fields.
+#
+# 252 Purpose texts cite a section by its NUMBER -- "also recorded in the Group 1 coupling
+# fields", "documented in Group 3 and Group 4" -- which is meaningless to anyone reading a
+# definition outside the workbook it came from. Substituting the section name makes the reference
+# say something, which is the point even though it does not become a resolvable link.
+#
+# Derived from all 61 workbooks on 2026-10-23, not assumed: sections 1-6 are IDENTICAL in every
+# one. Section 7 exists in exactly two (`EBSD Acquisition and Indexing`, `STEM Acquisition`) and
+# is therefore technique-specific, which is why it is absent here -- and no definition cites a
+# Group 7, nor a Group 5, so every one of the 252 references resolves against this map alone.
+# Re-derive with: for each TAPP, scan tapp_source.rows() for `Metadata Item` matching ^(\d+)\.\s
+_SECTIONS = {
+    "1": "Procedure Identification",
+    "2": "Samples",
+    "3": "Instrument & Software",
+    "4": "Measurement Information",
+    "5": "Data Processing",
+    "6": "Quality Control & Uncertainty",
+}
+
+
+def resolve_group_refs(text):
+    """Replace `Group N` with the workbook section name N refers to. See _SECTIONS."""
+    return re.sub(r"\bGroup\s+(\d+)\b",
+                  lambda m: _SECTIONS.get(m.group(1), m.group(0)), text or "")
+
+
 def _camel(label):
     """A stable @id token from a workbook label. Lower camel, per the repo's naming decision.
 
@@ -109,7 +139,9 @@ def load_defs():
                 "side": "analysis" if "schema:propertyID" in props else "procedure",
                 "id": const("@id"),
                 "name": const("schema:name"),
-                "definition": (sub.get("description") or "").strip(),
+                # Section references resolved here, so every consumer of a definition -- the
+                # conflict triage as well as the emitted registry -- sees the same text.
+                "definition": resolve_group_refs((sub.get("description") or "").strip()),
                 "dataType": const("ada:dataType"),
                 "unitText": const("schema:unitText"),
             })
