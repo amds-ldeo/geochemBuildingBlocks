@@ -264,6 +264,22 @@ x-defs:
                                 type: string
                           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
                           x-jsonld-id: https://ada.astromat.org/metadata/tappDefinition
+                  - if:
+                      type: object
+                      required:
+                      - '@type'
+                      - schema:name
+                      properties:
+                        '@type':
+                          contains:
+                            enum:
+                            - ada:TAPPDefinition
+                    then:
+                      description: An inline TAPP plan belongs under the ada:tappDefinition
+                        role key. The bare @type form is superseded; see the branch
+                        above.
+                      required:
+                      - ada:tappDefinition
                 x-jsonld-id: http://www.w3.org/ns/prov#used
               schema:location:
                 x-jsonld-id: http://schema.org/location
@@ -810,7 +826,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.geochemProduct
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
     x-schema-id: https://w3id.org/geochem/schema/geochemProduct/1.0
     x-schema-version: https://json-schema.org/draft/2020-12/schema
@@ -2880,7 +2896,7 @@ x-defs:
       itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM.detail
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/detail/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.instrument:
@@ -3095,7 +3111,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.instrument
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.techniqueProfile.geochemProfile.SEM.tapp:
@@ -6860,7 +6876,7 @@ x-defs:
       itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM.tapp
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.profiles.cdifProfile.cdifCore:
@@ -7827,7 +7843,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.creativeWork
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.tappDefinition:
@@ -9443,7 +9459,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tappDefinition
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.3'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.laboratory:
@@ -9483,7 +9499,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.laboratory
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString:
@@ -9654,7 +9670,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.spatialRegistration
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.spatialExtent:
@@ -10737,7 +10753,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tabularData
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.core:
@@ -11503,7 +11519,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.core
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.calibrationFactor:
@@ -11609,7 +11625,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.calibrationFactor
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.aggregation:
@@ -11719,7 +11735,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.aggregation
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.compositionQC:
@@ -12148,7 +12164,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.compositionQC
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.samplingUnitSelection:
@@ -12296,7 +12312,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.samplingUnitSelection
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.instrument:
@@ -12705,7 +12721,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.targetSpecies
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-22'
+      dateOfLastChange: '2026-10-23'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.linkRole:
@@ -17323,5 +17339,5 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-22'
+  dateOfLastChange: '2026-10-23'
 x-schema-version: https://json-schema.org/draft/2020-12/schema
