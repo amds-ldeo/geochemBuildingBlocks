@@ -1,0 +1,238 @@
+{
+  "_comment": "Resolutions for the within-side definition conflicts that tools/draft_variable_registry.py reports under `conflicts`. Decisions-as-data, the same pattern as docs/counterexamples.json and docs/audit_baseline.json: the tool refuses to pick, a person decides here, and the decision is reviewable in a diff. NOTHING READS THIS YET -- the variable registry is a prototype and no generator emits from it. Recorded as we go so the decisions are not lost between sessions.",
+  "_fields": {
+    "conflict": "the cdif:name the conflict was reported under",
+    "decision": "one-of | split | escalate -- whether the label becomes one variable, several, or is referred upstream",
+    "variables": "the RepresentedVariable(s) the label resolves to, with the variants each takes",
+    "measures": "when splitting, the shared concept both variables point at via cdi:measures, so a query on the concept still finds both",
+    "blocked_on": "present when the decision cannot be delivered from gBB alone -- the registry is GENERATED from the TAPP workbooks, so a variable no workbook row declares cannot be minted here",
+    "decided_by": "who made the call",
+    "rationale": "why, in enough detail that it is not re-litigated"
+  },
+  "decisions": [
+    {
+      "conflict": "Accelerating Voltage",
+      "decision": "split",
+      "decided_by": "Stephen, 2026-10-23",
+      "variables": [
+        {
+          "@id": "ada:variable/electronBeamAcceleratingVoltage",
+          "takes_variants": [
+            1,
+            2,
+            3
+          ],
+          "techniques": [
+            "sem",
+            "semComposition",
+            "semFibsem",
+            "semImaging",
+            "epma",
+            "tem",
+            "ebsd"
+          ],
+          "definition_from": "variant 2 -- the fullest wording, which keeps 'justify any deviation from the standard operating voltage'"
+        },
+        {
+          "@id": "ada:variable/xRayTubeVoltage",
+          "takes_variants": [
+            4
+          ],
+          "techniques": [
+            "labxct"
+          ],
+          "definition_from": "variant 4, including the keV/kV equivalence note for polychromatic lab XCT"
+        }
+      ],
+      "measures": "a shared `accelerating voltage` concept, referenced by BOTH variables through cdi:measures",
+      "rationale": "Variants 1-3 are one quantity at three levels of elaboration -- the voltage across an ELECTRON GUN. Variant 4 is the voltage across an X-RAY TUBE: a different component and different physics, sharing only the unit. Splitting keeps a consumer from reading one as the other. Pointing both at one concept through cdi:measures keeps cross-technique search working, which is what that property on cdifRepresentedVariable is for, so the split costs nothing in findability."
+    },
+    {
+      "conflict": "Dwell Time per Pixel",
+      "decision": "split",
+      "decided_by": "Stephen, 2026-10-23",
+      "variables": [
+        {
+          "@id": "ada:variable/beamDwellTimePerPixel",
+          "takes_variants": [
+            1,
+            3,
+            4
+          ],
+          "techniques": [
+            "sem",
+            "semComposition",
+            "semFibsem",
+            "semImaging",
+            "tem"
+          ],
+          "definition_from": "variant 1, the fullest -- how long the beam RESIDES on each pixel or step position"
+        },
+        {
+          "@id": "ada:variable/detectorLiveTimePerPixel",
+          "takes_variants": [
+            2
+          ],
+          "techniques": [
+            "epma"
+          ],
+          "definition_from": "variant 2's EDS clause -- the detector's DEAD-TIME-CORRECTED integration, which is not a residence time"
+        }
+      ],
+      "blocked_on": "amds-ldeo/tapp -- an interim split. The boundary between this label and the two variables that ALREADY exist beside it (`EDS Live Time per Point or Pixel`, 5 defs, and `4D-STEM Dwell Time per Probe Position`, 2 defs, which variant 4 cross-references by name) is a workbook question, not a registry one. See docs/issues/tapp-dwell-vs-livetime.md.",
+      "rationale": "Beam dwell time and detector live time are different quantities -- live time is dead-time corrected and real time is not -- so one label cannot carry both. The split is interim because variant 2 partly re-describes `EDS Live Time per Point or Pixel` under a different name, and resolving that overlap means deciding which of three existing labels owns which quantity. That belongs upstream."
+    },
+    {
+      "conflict": "Mapping Beam Current",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23",
+      "variables": [
+        {
+          "@id": "ada:variable/mappingBeamCurrent",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "techniques": [
+            "sem",
+            "semFibsem",
+            "semImaging",
+            "epma",
+            "semComposition"
+          ],
+          "definition_from": "variant 1 -- the broader scope (X-ray, CL and EBSD maps, SE and BSE images, including during FIB-SEM work), and it carries the ion-beam exclusion explicitly"
+        }
+      ],
+      "ion_beam": {
+        "decision": "carried by the EXISTING variables, not by a new one (Stephen, 2026-10-23)",
+        "variables": [
+          "ada:variable/coarseMillingConditions",
+          "ada:variable/ionMillingConditions3DTomography"
+        ],
+        "rationale": "Ion-beam current stays distinct from electron-beam current -- different source, different purpose, milling versus imaging -- and variant 1's wording already assumes the separation. But the quantity needs NO new variable: both existing labels define themselves as 'Ion beam voltage and current used for...' (bulk material removal during FIB milling; milling each slice during FIB-SEM serial sectioning), so they already carry it. Both are conflict-free and mintable today, 2 defs each. An earlier note here recorded this as blocked on a tapp workbook addition, which was wrong -- it read the deferral target as prose rather than reading its definition, which names the current outright. Nothing is blocked and no escalation is needed.",
+        "note": "The registry label carries the qualifier -- `Ion Milling Conditions (3D Tomography)`, not `Ion Milling Conditions`."
+      },
+      "rationale": "NOT a different measurand, and the triage was wrong to file it as one. Both variants describe electron probe current during area scanning; they differ in SCOPE BREADTH. The classifier fired on the token `milling`, which appears in variant 1 only to EXCLUDE ion-beam currents -- a bag of words cannot see polarity, so a negation reads identically to a mention. Any `different measurand` hit needs the sentence read, not the token."
+    },
+    {
+      "conflict": "Detection Limit",
+      "decision": "one-of, plus two pieces of content moved out of the label",
+      "decided_by": "Stephen, 2026-10-23",
+      "variables": [
+        {
+          "@id": "ada:variable/detectionLimit",
+          "takes_variants": [
+            1,
+            2,
+            4
+          ],
+          "definition_from": "variant 1 on the procedure side and variant 2 on the analysis side; variant 4 differs from 2 only in its unit list and a mandatory-ness note, both of which are usage-level"
+        }
+      ],
+      "moved_out": [
+        {
+          "variant": 3,
+          "content": "'method detection limit at 99% confidence'",
+          "goes_to": "ada:variable/detectionLimitMethod",
+          "already_exists": true,
+          "why": "the confidence level is METHOD information, and variants 1 and 2 both say outright that 'the calculation method is recorded separately in Detection Limit Method'. That variable already exists with 12 defs, so this is a relocation, not a split."
+        },
+        {
+          "variant": 5,
+          "content": "the fallback clause: where a procedure outputs isotope ratios only, the field 'reports the minimum sample mass required for a measurement at target precision'",
+          "goes_to": "ada:variable/minimumSampleMassRequired",
+          "already_exists": false,
+          "definition": "Minimum sample mass required for a measurement at target precision.",
+          "blocked_on": "amds-ldeo/tapp -- no workbook row declares this label. It exists only as a fallback clause inside solutionMcicpms's Detection Limit text, so the registry has nothing to generate it from until a row exists. Unlike the ion-beam case there is no existing label already carrying the quantity.",
+          "why": "a MASS is not a detection limit. The same anti-pattern as the dwell/live-time overload: a second measurand hidden in a fallback clause, where no consumer reading the field name would expect it."
+        }
+      ],
+      "rationale": "Not fundamentally a statistic conflict. Variants 2 and 4 are one quantity differing in unit list and scope note; variant 1 is the procedure-side template of the same thing. The two apparent outliers are misfiled content rather than rival definitions -- one belongs in a field that already exists, the other is a different quantity that needs its own."
+    },
+    {
+      "conflict": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/betweenSessionLongTermAnalyticalPrecisionAndAssessmentMethod",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "definition_from": "variant 1 -- 17 of the 18 defs, and it states the statistic requirement; variant 2's how-to sentence about compiling secondary reference material values moves to the usage"
+        }
+      ],
+      "rationale": "`reproducibility` and `intermediate precision` are distinct ISO 5725 terms in general, but BOTH variants gloss themselves identically as 'long-term or intermediate precision', so they name one quantity. The triage filed this as a statistic difference on the word `reproducibility`, which is a false positive: every one of these labels instructs the analyst to REPORT a statistic, so statistic words appear in the text of variables that agree.",
+      "open_question": "whether the label should say precision at all. Raised by Stephen: precision, accuracy and reproducibility are distinct quantities, and this label's own laMcicpms def opens with 'Reproducibility'. Escalated as docs/issues/tapp-precision-accuracy-reproducibility.md -- 6 of 6 defs of the separate `Analytical Precision` label define it as reproducibility, and no label anywhere is NAMED reproducibility, repeatability, trueness or bias. The answer changes the definition, not the variable count, so it does not block this decision."
+    },
+    {
+      "conflict": "Analytical Accuracy and Assessment Method",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/analyticalAccuracyAndAssessmentMethod",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "definition_from": "variant 1, which already CONTAINS variant 2: it allows percent relative bias for concentrations or deviation in delta/ratio units for isotopic quantities, where variant 2 permits only the first"
+        }
+      ],
+      "rationale": "Variant 2 is the concentration special case of variant 1's general rule. The triage fired on `deviation`, which sits in variant 1's list of ALLOWED EXPRESSION UNITS rather than naming a rival statistic.",
+      "see_also": "docs/issues/tapp-precision-accuracy-reproducibility.md asks whether `accuracy` here is meant in the ISO 5725 sense (trueness + precision) or the looser sense (trueness alone); its text reports percent relative bias, which is trueness."
+    },
+    {
+      "conflict": "Within-Session Analytical Precision and Assessment Method",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "definition_from": "variant 1, which carries the boundary worth keeping -- 'distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses'. Variant 2's mapping-specific guidance moves to the laMcicpms usage."
+        }
+      ],
+      "rationale": "One quantity. Both variants list the statistic as something to report (1s/2s RSD, 2SD, 2SE, 95% CI), not as part of the definition, so `ci` and `reproducibility` were false-positive signals.",
+      "see_also": "docs/issues/tapp-precision-accuracy-reproducibility.md -- this label's laMcicpms def also opens with 'Reproducibility', the same question raised against its between-session sibling."
+    },
+    {
+      "conflict": "Normalization / Standards-Based Correction",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/normalizationStandardsBasedCorrection",
+          "takes_variants": [
+            1,
+            2,
+            3
+          ],
+          "definition_from": "variant 2's BREADTH with variant 1's framing and its 'None' convention. Variant 2 is the only variant that covers both halves of its own slash label: stoichiometric normalization per pixel uses no reference material at all -- it enforces a chemical constraint -- so it is the `Normalization` half, while secondary-reference-material bias correction is the `Standards-Based Correction` half. Variants 1 and 3 describe only the standards half."
+        }
+      ],
+      "latent": "the slash label is doing double duty. If a consumer ever needs stoichiometric normalization separable from secondary-RM correction, that is a TAPP split question. Recorded as latent rather than escalated: nothing needs it today.",
+      "rationale": "The core is identical across all three variants -- post-acquisition normalization beyond the primary calibration. Variant 3 narrows to one CAUSE (session-to-session drift), which is a subset of variant 1's 'systematic bias', not a rival definition. Variant 2 also cross-references `Internal Standard Approach`, which DOES NOT EXIST as a label; see docs/issues/tapp-dangling-cross-references.md."
+    },
+    {
+      "conflict": "Primary Calibration Standard Name",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/primaryCalibrationStandardName",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "definition_from": "variant 1, which strictly CONTAINS variant 2's requirements and adds two things worth keeping: the standardless / semi-quantitative case, where calibration uses a vendor library or theoretical response factors rather than measured reference materials, and the semantics of 'None' meaning no calibration was performed at all. Fold in variant 2's rationale for the citation rule -- results calibrated against different published values for the same material are not directly comparable -- since it explains WHY the citation is required."
+        }
+      ],
+      "rationale": "Plain elaboration. Variant 2's trailing clause is a justification for the citation rule, not an additional rule. The triage could not see it because the wording diverges heavily while the requirements do not."
+    }
+  ]
+}
