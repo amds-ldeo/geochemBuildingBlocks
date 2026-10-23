@@ -233,6 +233,59 @@
         }
       ],
       "rationale": "Plain elaboration. Variant 2's trailing clause is a justification for the citation rule, not an additional rule. The triage could not see it because the wording diverges heavily while the requirements do not."
+    },
+    {
+      "conflict": "Interference Correction Method",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/interferenceCorrectionMethod",
+          "takes_variants": [
+            1,
+            2,
+            3
+          ],
+          "definition_from": "variant 1 (9 of 11 defs), which contains both outliers: variant 2 narrows to isobaric interferences alone and variant 3 restates the same concept with solution-specific examples (interference standard solutions isolating specific polyatomics, mass-balance equations using empirical correction factors). The examples move to the usage."
+        }
+      ],
+      "rationale": "All three describe the equation or procedure used to calculate and remove an interference contribution. Variant 1 additionally says HOW the magnitude was established -- a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material, or tailing -- which is the part worth keeping."
+    },
+    {
+      "conflict": "Interfering Species",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/interferingSpecies",
+          "takes_variants": [
+            1,
+            2,
+            3
+          ],
+          "definition_from": "variant 1 (9 of 11 defs). It alone carries the actionable instruction -- 'name each species and the mass it affects' -- and enumerates the kinds (direct isobars, oxides and argides, hydrides, abundance-sensitivity tailing from an adjacent large beam). Variant 3's named examples (ArCl+ on 75As, MoO+ on Cd isotopes, BaO+ on Eu) move to the solutionQicpms usage."
+        }
+      ],
+      "rationale": "Variant 2 is a shorter statement of the same thing; variant 3 is the same plus technique-specific examples and a pointer to the instrument-side mitigation sections. No rival definition."
+    },
+    {
+      "conflict": "Isobaric Interference Corrections Applied",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-10-23 -- recommendation accepted",
+      "variables": [
+        {
+          "@id": "ada:variable/isobaricInterferenceCorrectionsApplied",
+          "takes_variants": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "definition_from": "variant 1's STRUCTURE -- a procedure-level Boolean, with per-mass detail deferred to Interfering Species and Interference Correction Method -- MERGED WITH the qualifier that variants 2, 3 and 4 each add and variant 1 lacks: the corrections in question are MATHEMATICAL ones applied to RESIDUAL interference, supplementary to suppression already achieved upstream. The technique-specific upstream mitigation named by each outlier moves to its usage: KED or DRC for quadrupole, mass-resolution selection for sector-field, chemical separation for solution MC."
+        }
+      ],
+      "rationale": "The merge is a real improvement, not a tidy-up. Variant 1 alone is ambiguous about whether a procedure relying on chemical separation should answer Yes, because it does not say the Boolean is about mathematical correction AFTER hardware or chemical suppression. Variants 2-4 independently supply that, each naming its own upstream mitigation -- which is why they looked like three rival definitions and are in fact one definition plus three local details.",
+      "family_note": "`Spectral Interference Corrections Applied` (8 defs) defines itself as covering 'isobaric, polyatomic or residual interferences', so it CONTAINS this label, and the same 8 techniques carry both. Two overlapping Booleans where one implies the other is a tapp structure question, not a registry one; it does not block this decision."
     }
   ],
   "terminology": {
