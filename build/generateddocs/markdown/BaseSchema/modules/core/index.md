@@ -215,9 +215,9 @@ The procedure half of the Core module, with every property populated. Generated 
     ada:reportedProperties "no value available: unnamed property" ;
     ada:samplingUnitType "no value available: unnamed property" ;
     bios:computationalTool [ schema1:name "no value available: unnamed property" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ schema1:name "no value available: unnamed property" ;
-            ada:toolRole "dataReduction" ] .
+            ada:toolRole "acquisition" ] .
 
 
 ```
@@ -434,10 +434,10 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:identifier "no value available: unnamed property" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledProcedure" ;
-            schema1:target [ schema1:url "no value available: unnamed property" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
             schema1:target "no value available: unnamed property" ],
+        [ schema1:linkRelationship "coupledProcedure" ;
+            schema1:target [ schema1:url "no value available: unnamed property" ] ],
         [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ] ;
