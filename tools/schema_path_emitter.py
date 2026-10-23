@@ -41,9 +41,14 @@ class Obj:
 
 
 class Arr:
-    __slots__ = ("selkey", "branches", "append", "required", "extra_items")
+    __slots__ = ("selkey", "branches", "append", "required", "extra_items", "min_items")
 
     def __init__(self):
+        self.min_items = None   # 1 when a Basic field lands ON this array itself; see insert().
+                                # `required` alone is satisfied by [], which asserts nothing, so
+                                # the two are set together or not at all. Measured across the tapp
+                                # blocks: 2135 required arrays already carry minItems and 279 do
+                                # not, so the pairing is the convention and the 279 are the anomaly.
         self.selkey = None      # selector key curie, e.g. "schema:name"
         self.branches = {}      # (selector key, value) -> Obj — keyed by BOTH so one array can
                                 # hold items discriminated by different keys (see insert())
@@ -240,12 +245,22 @@ def _sel_key_node(key, val):
 
 # ---------- merger: fold one path into the tree ----------
 def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, element=None,
-           branch_key=None):
+           branch_key=None, require_array=True):
     """Fold one path into the tree. `leaf_schema` sets a scalar terminal field; `element`
     (an Obj|Leaf) is placed as the selected array element when the path ends at a selector
     (used for registry-$ref additionalProperty entries). `branch_key` places `element` as a
     named branch of a bare "[]" array — the analyte-column case, where the array has no
-    selector but each row still contributes one distinct permitted item."""
+    selector but each row still contributes one distinct permitted item.
+
+    `require_array` is the KEYED-ROW escape, and it is separate from `require` on purpose. A row
+    carrying a `Key by` describes a field per key INSTANCE -- one per target-species column, per
+    combined result -- and says nothing about whether any instances exist, so its container must
+    not become unconditionally required even though its tier is Basic. Pass False for such a row.
+    It gates ONLY the terminal-array requiredness: `require` still drives ancestor and leaf
+    requiredness along the path, which was correct before this flag existed and must not change.
+    Default True so a caller that forgets it produces an over-tight schema, which the example
+    suite catches, rather than silently dropping a requirement -- which is the defect this flag
+    was added alongside, and which no gate can see."""
     node = root
     segs = parsed.segments
     for i, seg in enumerate(segs):
@@ -296,6 +311,25 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 node = item
             else:                              # bare "[]"
                 if is_last:
+                    # A Basic field whose path ENDS at a bare "[]" is required here, exactly as
+                    # the plain-property terminal below records it. This branch used to set
+                    # `arr.append` and return without ever reaching a `required` call, so 9
+                    # fields with 178 declarations repo-wide produced 0 requirements -- every one
+                    # of them carrying a Basic tier, ada:analyticalMode and ada:reportedProperties
+                    # among them. The declaration existed and asserted nothing.
+                    #
+                    # minItems travels WITH it. `required` on an array property is satisfied by
+                    # `[]`, so requiring the property alone would have replaced "says nothing"
+                    # with "says nothing, loudly" -- the vacuous-validation shape this repo keeps
+                    # circling. The pair is the claim.
+                    #
+                    # `require` is already the tier decision and already side-aware (Basic on the
+                    # P column for a $MethodDefinition path, on the A column for a $Dataset one),
+                    # so nothing here widens WHICH fields are required -- only whether the ones
+                    # already chosen are emitted.
+                    if require and require_array:
+                        node.required.add(curie)
+                        arr.min_items = 1
                     if branch_key is not None and element is not None:
                         # one named permitted item (analyte column) rather than an item-shape leaf
                         arr.branches[(None, branch_key)] = element
@@ -646,12 +680,23 @@ def to_schema(node, scope=None):
                                                "required": [skey]}})
             if allof:
                 out["allOf"] = allof
+            # Also here, not only on the bare-append tail below. An analyte-column array populates
+            # `branches`, so it returns through THIS path -- and emitting the cardinality only on
+            # the other one produced `required` without `minItems` for 16 blocks (8 ICPMS
+            # techniques x tapp + profile), which is the vacuous pairing this fix exists to remove:
+            # `required` alone is satisfied by [].
+            if node.min_items is not None:
+                out["minItems"] = node.min_items
             return out
         if isinstance(node.append, Leaf):
-            return {"type": "array", "items": node.append.schema}
-        if isinstance(node.append, Obj):
-            return {"type": "array", "items": to_schema(node.append, scope=scope)}
-        return {"type": "array"}
+            out = {"type": "array", "items": node.append.schema}
+        elif isinstance(node.append, Obj):
+            out = {"type": "array", "items": to_schema(node.append, scope=scope)}
+        else:
+            out = {"type": "array"}
+        if node.min_items is not None:
+            out["minItems"] = node.min_items
+        return out
     raise TypeError(node)
 
 
@@ -956,7 +1001,13 @@ def build(tapp):
     for item, rec in spec.items():
         m = meta.get(item, {})
         paths = rec["path"] if isinstance(rec["path"], list) else [rec["path"]]
-        for path in paths:   # usually 1; 2 for a dual-homed editable param (TAPP default + detail value)
+        # Aligned with `paths` by append order; see schemapath_io.load_spec. A keyed row's
+        # container is not unconditionally required -- measured 2026-10-22, 229 of the 249 rows
+        # ending at a bare "[]" are keyed, so this is the common case and not an edge one.
+        keyed_flags = rec.get("keyed") or []
+        for _pi, path in enumerate(paths):   # usually 1; 2 for a dual-homed editable param (TAPP default + detail value)
+            keyed = keyed_flags[_pi] if _pi < len(keyed_flags) else False
+            require_array = not keyed
             path = normalize_path(path)
             parsed = spp.parse(path)
             _key = mc.ms._norm(mc.ms.rename(item))
@@ -969,7 +1020,17 @@ def build(tapp):
             read_only = (parsed.root == "MethodDefinition"
                          and (m.get("A") or "").strip() not in ("Editable", "Basic", "Advanced"))
             non_type = [s for s in parsed.segments if not s.is_type]
-            if require and len(non_type) == 1 and non_type[0].selector is None and not non_type[0].is_array:
+            # `is_array` is NOT excluded here, and that is the second half of one defect rather
+            # than a second defect. insert() above now records a bare-"[]" terminal on its
+            # parent's required set -- but wrap() keeps only `properties` from the overlay and
+            # substitutes THIS list for the root's own, and the Dataset side overwrites it the
+            # same way in build_pathdriven. So for a top-level field (which is what every one of
+            # the 9 affected fields is -- ada:analyticalMode and ada:reportedProperties among
+            # them) the insert() fix alone would have changed nothing at all: minItems would
+            # arrive through `properties` and the requirement would be dropped on the floor one
+            # layer up. Fixing either site alone ships a no-op.
+            if (require and len(non_type) == 1 and non_type[0].selector is None
+                    and (require_array or not non_type[0].is_array)):
                 if non_type[0].prop not in required[parsed.root]:   # top-level direct prop, Basic tier
                     required[parsed.root].append(non_type[0].prop)
             if _is_addl_param(parsed):
@@ -1036,7 +1097,8 @@ def build(tapp):
                 # A Basic-tier reported property IS required, exactly like any other Basic field, so
                 # it earns a hard `contains` here too. (This previously suppressed `contains` for
                 # every schema:variableMeasured entry, which made a Basic reported property optional.)
-                insert(roots[parsed.root], truncated, element=Leaf(ref), require=require)
+                insert(roots[parsed.root], truncated, element=Leaf(ref), require=require,
+                       require_array=require_array)
                 if vm:
                     # schema:variableMeasured is the CDIF slot for the dataset's ACTUAL measured
                     # variables, which are dataset-specific and arbitrary — not merely the TAPP's
@@ -1085,7 +1147,8 @@ def build(tapp):
                     prefix="ada:" + cfg["registry"].rstrip("s"), as_value=as_value)
                 ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/{cfg['registry']}/schema.yaml"
                                 f"#/$defs/{name}"}
-                insert(roots[parsed.root], parsed, element=Leaf(ref), branch_key=name, require=require)
+                insert(roots[parsed.root], parsed, element=Leaf(ref), branch_key=name, require=require,
+                       require_array=require_array)
                 # keep the base's identifier column permissible under the narrowed `items`
                 arr = roots[parsed.root].props.get(cfg["template"])
                 arr = arr.props.get(parsed.segments[-1].prop) if isinstance(arr, Obj) else None
@@ -1097,7 +1160,8 @@ def build(tapp):
                 # string|DefinedTerm array, not the row's scalar Data Type. Overriding the base's
                 # array constraint with the row's {type:string} otherwise made every list invalid.
                 insert(roots[parsed.root], parsed,
-                       {"type": "array", "items": DEFAULT_ROW_ITEMS}, require=require)
+                       {"type": "array", "items": DEFAULT_ROW_ITEMS}, require=require,
+                       require_array=require_array)
                 continue
             enum = None
             dl = (m.get("dt") or "").lower()
@@ -1106,7 +1170,7 @@ def build(tapp):
             leaf = leaf_for(m.get("desc"), m.get("dt"), enum)
             if read_only:
                 leaf = {**leaf, "readOnly": True}
-            insert(roots[parsed.root], parsed, leaf, require=require)
+            insert(roots[parsed.root], parsed, leaf, require=require, require_array=require_array)
     return {r: to_schema(o) for r, o in roots.items()}, registries, required
 
 

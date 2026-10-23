@@ -167,7 +167,16 @@ def build_schema(name, only=None):
         if not paths:
             unplaced.append(item)
             continue
-        for path in paths:
+        # Aligned with `paths` by append order; see schemapath_io.load_spec. A `Key by` row
+        # describes a field per key INSTANCE and does not assert that any instances exist, so its
+        # container must not be unconditionally required. Module_Aggregation is the case that
+        # proved it: every row landing on ada:combinedResults[] is keyed, and its own sibling note
+        # says "the unkeyed dqv row below stays as the default for a procedure that defines no
+        # combined-result list" -- so requiring the array contradicted the module in its own words
+        # and failed 4 SOURCE-DERIVED examples, which no regeneration can repair.
+        keyed_flags = spec.get(item, {}).get("keyed") or []
+        for _pi, path in enumerate(paths):
+            keyed = keyed_flags[_pi] if _pi < len(keyed_flags) else False
             # A module $def must not constrain schema:additionalProperty. The consuming technique
             # already constrains that array as a closed anyOf over the parameters its own table
             # enumerates, and allOf makes every element satisfy both — so two universal constraints
@@ -190,7 +199,18 @@ def build_schema(name, only=None):
                 continue
             parsed = spp.parse(path)
             require = (P == "Basic") if parsed.root == "MethodDefinition" else (A == "Basic")
-            e.insert(roots[parsed.root], parsed, e.leaf_for(desc, dt), require=require)
+            # require_array is False for a keyed row (its container is per-key-instance, so its
+            # existence is not asserted) AND for a module's own TOP-LEVEL array, because the
+            # requiredness of one cannot be expressed from here: the top-level guard below still
+            # excludes arrays (defect 2, deferred), so insert() would set minItems: 1 while the
+            # `required` it pairs with is dropped one layer up -- "if present, non-empty" instead
+            # of the claim, and enough on its own to fail 9 examples carrying []. The pair travels
+            # together or not at all. Nested terminals are unaffected: to_schema emits their
+            # requiredness inside `properties`, where nothing discards it.
+            _nt = [sg for sg in parsed.segments if not sg.is_type]
+            _top_level_array = len(_nt) == 1 and _nt[0].is_array
+            e.insert(roots[parsed.root], parsed, e.leaf_for(desc, dt), require=require,
+                     require_array=(not keyed) and not _top_level_array)
             # Recorded HERE, at the one point an insertion actually happens, and reported out as
             # `emitted`. module_composition reads it rather than re-deriving coverage from the
             # sidecar: the sidecar says where a field SHOULD go, the built $def says where it DID,
@@ -203,6 +223,15 @@ def build_schema(name, only=None):
             # closed instead of open.
             emitted.setdefault(ms._norm(ms.rename(item)), set()).add(parsed.root)
             non_type = [s for s in parsed.segments if not s.is_type]
+            # DEFECT 2 IS NOT FIXED HERE, deliberately. Removing `is_array` from this guard is a
+            # one-word change that requires a module's own top-level arrays -- and it fails 57
+            # examples, all on ada:analyticalMode: the procedure side pins items to the technique's
+            # mode enum, and the example emitter fills a newly required array with its generic
+            # "missing" sentinel, which is not a member of that enum (48 cases), or leaves it []
+            # against minItems (9). So fixing it needs the example emitter to fill an
+            # enum-constrained required array with a real member first. That is a separate defect
+            # and gets its own change; docs/SILENT_SUCCESS.md #13 is explicit that bundling them is
+            # how six changes deep became unrecoverable.
             if (require and len(non_type) == 1 and non_type[0].selector is None
                     and not non_type[0].is_array
                     and non_type[0].prop not in required[parsed.root]):
