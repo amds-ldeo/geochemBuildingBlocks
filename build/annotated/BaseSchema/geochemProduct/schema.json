@@ -341,6 +341,28 @@
                           }
                         }
                       }
+                    },
+                    {
+                      "if": {
+                        "type": "object",
+                        "required": [
+                          "@type",
+                          "schema:name"
+                        ],
+                        "properties": {
+                          "@type": {
+                            "contains": {
+                              "const": "ada:TAPPDefinition"
+                            }
+                          }
+                        }
+                      },
+                      "then": {
+                        "description": "An inline TAPP plan belongs under the ada:tappDefinition role key. The bare @type form is superseded; see the branch above.",
+                        "required": [
+                          "ada:tappDefinition"
+                        ]
+                      }
                     }
                   ]
                 },
@@ -972,6 +994,6 @@
     "itemIdentifier": "ogch.BaseSchema.geochemProduct",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-10-22"
+    "dateOfLastChange": "2026-10-23"
   }
 }

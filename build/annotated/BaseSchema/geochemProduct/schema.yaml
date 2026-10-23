@@ -255,6 +255,20 @@ allOf:
                             type: string
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
                       x-jsonld-id: https://ada.astromat.org/metadata/tappDefinition
+              - if:
+                  type: object
+                  required:
+                  - '@type'
+                  - schema:name
+                  properties:
+                    '@type':
+                      contains:
+                        const: ada:TAPPDefinition
+                then:
+                  description: An inline TAPP plan belongs under the ada:tappDefinition
+                    role key. The bare @type form is superseded; see the branch above.
+                  required:
+                  - ada:tappDefinition
             x-jsonld-id: http://www.w3.org/ns/prov#used
           schema:location:
             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
@@ -786,4 +800,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.geochemProduct
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-22'
+  dateOfLastChange: '2026-10-23'
