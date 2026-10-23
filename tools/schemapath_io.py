@@ -86,8 +86,16 @@ def load_spec(csv_file):
         path = (r.get("Schema Path") or "").strip()
         if not item or not path:
             continue
-        e = spec.setdefault(item, {"path": [], "family": (r.get("Source") or "")})
+        e = spec.setdefault(item, {"path": [], "family": (r.get("Source") or ""), "keyed": []})
         e["path"].append(norm.mechanical(norm.preclean(path)))
+        # `Key by` says this row describes a field PER KEY INSTANCE -- one per target-species
+        # column, per combined result, per sampling unit. It does NOT say any instances exist, so
+        # a keyed row must not make its container unconditionally required. Carried here, aligned
+        # with `path` by append order, because the emitters need it per PATH and not per item: one
+        # item can hold a keyed row and an unkeyed one (Goodness-of-Fit has both, on different
+        # paths). Always a LIST even when `path` collapses to a scalar below, so the alignment
+        # survives the collapse.
+        e["keyed"].append(bool((r.get("Key by") or "").strip()))
     for e in spec.values():
         if len(e["path"]) == 1:
             e["path"] = e["path"][0]
