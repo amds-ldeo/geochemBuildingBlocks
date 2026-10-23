@@ -196,12 +196,21 @@ _NORMALISERS = (
     # between the SEM and EPMA readings of Time-Dependent Intensity Correction.
     (r"isation\b", "ization"), (r"ised\b", "ized"), (r"ising\b", "izing"),
     (r"metres?\b", "meter"), (r"\bcentre", "center"),
-    # The analyte / target-species axis. These name the same set -- the workbooks' own wording,
-    # and several sidecar rows say so outright ("one per analyte, these being the same set").
-    # It is the entire difference for Calibration Factor and Determination Method (59 defs, the
-    # largest conflict in the registry) and for Mass Resolution Assignment.
-    (r"\btarget species\b", "analyte"), (r"\btarget-species\b", "analyte"),
-    (r"\banalytes\b", "analyte"),
+    # The analyte / target-species axis. These name the same set -- several sidecar rows say so
+    # outright ("one per analyte, these being the same set"). It is the entire difference for
+    # Calibration Factor and Determination Method (59 defs, the largest conflict in the registry)
+    # and for Mass Resolution Assignment.
+    #
+    # NORMALISE TOWARD `target species`: it REPLACED `analyte` in recent TAPP updates (Stephen,
+    # 2026-10-23), so `analyte` is the retired term. The direction does not change WHICH conflicts
+    # are detected -- this normaliser only answers "does the difference vanish", which is symmetric
+    # -- but it records which term survives, and the first version of this list pointed the wrong
+    # way. That matters when the normalisation is applied to the sidecars, and it matters for
+    # choosing a surviving wording, because MAJORITY COUNT GETS IT BACKWARDS here: Calibration
+    # Factor's `analyte` variant has 45 defs against `target species`' 14, since the 45 are the
+    # un-migrated long tail of techniques and the 14 are the migrated core. Measured 2026-10-23:
+    # 155 defs say target species, 73 say analyte, and 45 of those 73 are that one row.
+    (r"\banalytes?\b", "target species"), (r"\btarget-species\b", "target species"),
 )
 
 _SIGNALS = (

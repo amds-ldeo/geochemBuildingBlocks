@@ -234,5 +234,33 @@
       ],
       "rationale": "Plain elaboration. Variant 2's trailing clause is a justification for the citation rule, not an additional rule. The triage could not see it because the wording diverges heavily while the requirements do not."
     }
-  ]
+  ],
+  "terminology": {
+    "_comment": "Applies across the registry, not to one conflict. Recorded here because it changes which wording survives in the `terminology drift` class, and because majority count gets it backwards.",
+    "canonical": "target species",
+    "retired": "analyte",
+    "decided_by": "Stephen, 2026-10-23 -- `target species` has replaced `analyte` in recent TAPP updates",
+    "measured_2026_10_23": {
+      "defs_saying_target_species": 155,
+      "defs_saying_analyte": 73,
+      "concentration_of_the_residue": "45 of the 73 are ONE un-migrated row, `Calibration Factor and Determination Method`. With `Detection Limit` (11) and `Monitored Isotopes` (8) that is 64 of 73, so the residual usage is a handful of rows the migration has not reached rather than a scattered habit.",
+      "labels_still_named_analyte": [
+        "Analyte Estimation Method (2 defs)",
+        "Technique per Analyte (2 defs)",
+        "Mass Resolution per Analyte (7 defs)"
+      ],
+      "labels_named_target_species": [
+        "Target Species (13)",
+        "Calibration Strategy per Target Species (9)",
+        "Target Species Estimation Method (6)",
+        "Technique per Target Species (2)"
+      ]
+    },
+    "consequences": [
+      "MAJORITY COUNT PICKS THE RETIRED TERM for `Calibration Factor and Determination Method`: its `analyte` variant holds 45 defs against `target species`' 14, because the 45 are the un-migrated long tail of techniques and the 14 are the migrated core. Adopt the 14-def wording. This is the single largest conflict in the registry, so getting the direction wrong would have propagated the retired term to 59 defs.",
+      "In the duplicate-label pairs, the surviving label is the `Target Species` one: `Target Species Estimation Method` (6 defs, and it covers epma as well) over `Analyte Estimation Method` (2), and `Technique per Target Species` over `Technique per Analyte` (2 each, so count alone cannot decide).",
+      "`Mass Resolution per Analyte` (7 defs) has NO `Target Species` twin, so it is an un-migrated LABEL rather than a duplicate -- a rename candidate for tapp, not a registry decision."
+    ],
+    "normaliser": "tools/draft_variable_registry.py `_NORMALISERS` now maps analyte -> target species. The direction does not change which conflicts are detected (the test is symmetric: does the difference vanish) but it records which term survives; the first version pointed at the retired term."
+  }
 }
