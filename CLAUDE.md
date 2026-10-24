@@ -1071,9 +1071,25 @@ entirely in what `tapp/` and `detail/` record, which is why three TAPPs exist. I
 the file, and `ada:componentType` classifies the FILE.
 
 So the discriminator for Mc/Q/Sf is the TAPP reference — `prov:used` → a TAPP definition naming
-`laMcicpmsTAPP` — which is the axis the variant actually lives on. Note that **0 of 7,447 records
-carry a TAPP reference today** (`tools/check_migration_readiness.py`), so anything deriving the
-variant from record content will be unable to, correctly, until that migration lands.
+`laMcicpmsTAPP` — which is the axis the variant actually lives on.
+
+**The precondition this section used to declare unmet IS NOW MET, and that changes what is
+blocked.** It read "0 of 7,447 records carry a TAPP reference today", citing
+`tools/check_migration_readiness.py`, and concluded that anything deriving the variant from
+record content would be unable to "until that migration lands". **7,263 of 7,447 carry one** —
+measured, and already corrected in the analytical-mode section, which says in so many words that
+it "corrects an older claim that 0 records carry a TAPP reference". The correction was announced
+there and never applied HERE, so a reader arriving at this section was told the discriminator did
+not exist while 7,263 records carried it. That is the more dangerous half of a contradiction: the
+stale claim sits exactly where someone would act on it.
+
+**What remains true is narrower, and the distinction is the useful part.** The `@id` is an opaque
+per-lab procedure URI, so **JSON Schema** still cannot use it — it cannot dereference anything,
+and no `if`/`then` can read through that identifier. But a **consumer that can resolve the
+identifier** against a procedure registry is not blocked at all: it can read the referenced
+definition and recover the variant. So the tie is structural for validation and merely
+unimplemented for a loader. Do not cite this section as "the variant cannot be determined" —
+cite it as "the variant cannot be determined BY SCHEMA".
 
 **Consequences for anything detecting a profile from componentType.** 21 of the 133 componentTypes
 in `build_tapp.TAPP_CONFIGS` are claimed by more than one TAPP, and they are two different problems
