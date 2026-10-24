@@ -133,9 +133,9 @@ container, not tabular text).
 
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
     cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
-            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ],
-        [ a cdi:DimensionComponent ;
             cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-x> ],
+        [ a cdi:DimensionComponent ;
+            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ],
         [ a cdi:MeasureComponent ;
             cdif:name "intensity" ] ;
     schema1:name "Elemental map cube structure" .
@@ -197,7 +197,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.structuredData
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-23'
+  dateOfLastChange: '2026-10-24'
 
 ```
 
