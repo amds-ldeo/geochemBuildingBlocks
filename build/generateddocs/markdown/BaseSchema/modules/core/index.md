@@ -434,13 +434,13 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:identifier "no value available: unnamed property" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "no value available: unnamed property" ],
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "no value available: unnamed property" ;
+                    schema1:name "no value available: unnamed property" ] ],
         [ schema1:linkRelationship "coupledProcedure" ;
             schema1:target [ schema1:url "no value available: unnamed property" ] ],
-        [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "no value available: unnamed property" ] ] ;
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "no value available: unnamed property" ] ;
     schema1:variableMeasured [ schema1:name "Sampling Unit Name" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ schema1:description "no value available: unnamed property" ;
                             schema1:name "Sample preparation" ] ] ;
@@ -1182,7 +1182,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.core
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-23'
+  dateOfLastChange: '2026-10-24'
 
 ```
 

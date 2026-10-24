@@ -440,10 +440,10 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:stageTilt "70 deg" ;
     ada:targetMaterial "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "AZtecCrystal" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "AZtecCrystal" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -815,7 +815,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EBSD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-23'
+  dateOfLastChange: '2026-10-24'
 
 ```
 
