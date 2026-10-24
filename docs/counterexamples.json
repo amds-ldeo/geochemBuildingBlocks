@@ -303,7 +303,25 @@
         }
       },
       "expect": "ada:tappDefinition",
-      "why": "The role-keyed ada:tappDefinition wrapper REPLACES the superseded spelling that carried the role in @type, and this asserts the replacement is enforced by the schema rather than merely observed in what the generator emits -- which it was, for one commit: the old form validated with zero errors. The mutation writes an INLINE plan in the old spelling (@type containing ada:TAPPDefinition, plus the schema:name that distinguishes a plan from a reference) and it must be rejected for want of the role key. Read the guard's narrowness as load-bearing, not as an oversight: a plain {@id, @type} REFERENCE carries no schema:name, so it does not match this `if` and stays valid -- deliberately, because 7,263 of 7,447 ADA records link their TAPP that way and rejecting them here would invalidate the corpus before the corpus can move. If this case ever fails because the REFERENCE form started being rejected too, the guard has widened past what the records can satisfy; if it fails because the inline form validates again, the supersession has come undone. Those are opposite defects and this case sits between them, which is why the companion case tappdef-link-is-role-keyed-and-its-value-pinned tests the value shape separately."
+      "why": "The role-keyed ada:tappDefinition wrapper REPLACES the superseded spelling that carried the role in @type, and this asserts the replacement is enforced by the schema rather than merely observed in what the generator emits -- which it was, for one commit: the old form validated with zero errors. The mutation writes an INLINE plan in the old spelling (@type containing ada:TAPPDefinition, plus the schema:name that once distinguished a plan from a reference) and it must be rejected for want of the role key. NOTE WHAT CHANGED: when this case was written the guard was narrowed by schema:name so that a plain {@id, @type} REFERENCE stayed valid, because 7,263 of 7,447 ADA records used it. The migration completed 2026-10-24 -- zero in ada_subjects AND production ada2 -- so the guard was widened to catch both spellings and the reference form is now closed off too; see tappdef-old-reference-form-is-closed-off, which is the companion case. This one remains distinct because an inline plan fails for MORE reasons than a reference does, and a case that fails for many reasons can hide the loss of one."
+    },
+    {
+      "id": "tappdef-old-reference-form-is-closed-off",
+      "example": "_sources/techniqueProfile/geochemProfile/EPMA/profile/exampleadaEPMA.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/prov:wasGeneratedBy/0/prov:used/1",
+        "value": {
+          "@id": "https://lab.example/procedure/epma-1",
+          "@type": [
+            "prov:Entity",
+            "prov:Plan",
+            "ada:TAPPDefinition"
+          ]
+        }
+      },
+      "expect": "ada:tappDefinition",
+      "why": "The superseded {@id, @type} REFERENCE spelling of the TAPP link is closed off, completing what #192 began. It deliberately stayed VALID until 2026-10-24 because 7,263 of 7,447 ADA records used it, and a schema that rejects the corpus it describes is one nobody can deploy; the migration then took it to zero in ada_subjects AND production ada2, which is what retired that justification. The mutation writes a bare {@id, @type} reference -- no schema:name, so it is a reference and not an inline plan -- and it must be rejected for want of the role key. If this case ever passes, the supersession has come undone in the direction that matters most: the reference form is what every pre-migration record carried, so re-accepting it would silently re-admit a whole generation of records. It is also the tripwire for a store restored from a pre-migration backup, which is the one situation where nobody would otherwise be told."
     }
   ]
 }
