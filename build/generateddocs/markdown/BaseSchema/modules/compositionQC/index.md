@@ -228,12 +228,12 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:variableMeasured [ schema1:name "Detection Limit" ;
-            schema1:value 1 ],
-        [ schema1:name "Detection Limit Method" ;
+[] schema1:variableMeasured [ schema1:name "Detection Limit Method" ;
             schema1:value "no value available: unnamed property" ],
         [ schema1:name "Normalization / Standards-Based Correction" ;
-            schema1:value "no value available: unnamed property" ] ;
+            schema1:value "no value available: unnamed property" ],
+        [ schema1:name "Detection Limit" ;
+            schema1:value 1 ] ;
     prov:wasGeneratedBy [ prov:used [ ] ] .
 
 
@@ -642,7 +642,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.compositionQC
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-23'
+  dateOfLastChange: '2026-10-24'
 
 ```
 
