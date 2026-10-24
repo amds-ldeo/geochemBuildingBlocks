@@ -1125,12 +1125,12 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
             dqv:value "no value available: signalToNoiseRatio" ],
         [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "no value available: crossValidationOutcome" ],
+        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+            dqv:value "no value available: metalStreakArtifactAssessment" ],
         [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
             dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "no value available: beamHardeningArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
-            dqv:value "no value available: metalStreakArtifactAssessment" ] ;
+            dqv:value "no value available: beamHardeningArtifactAssessment" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;

@@ -3013,16 +3013,15 @@ x-defs:
                       type: object
                       required:
                       - '@type'
-                      - schema:name
                       properties:
                         '@type':
                           contains:
                             enum:
                             - ada:TAPPDefinition
                     then:
-                      description: An inline TAPP plan belongs under the ada:tappDefinition
-                        role key. The bare @type form is superseded; see the branch
-                        above.
+                      description: A TAPP link belongs under the ada:tappDefinition
+                        role key, whether it is a reference or an inline plan. The
+                        bare @type form is superseded; see the branch above.
                       required:
                       - ada:tappDefinition
                 x-jsonld-id: http://www.w3.org/ns/prov#used
