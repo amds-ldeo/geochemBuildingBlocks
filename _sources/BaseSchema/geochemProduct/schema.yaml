@@ -305,18 +305,25 @@ allOf:
                                 '@id':
                                   type: string
                             - $ref: ../tappDefinition/schema.yaml
-                  # And the superseded spelling is CLOSED OFF, so "replaces" is enforced by
-                  # the schema rather than only observed in what the generator emits.
+                  # And the superseded spelling is CLOSED OFF ENTIRELY, so "replaces" is
+                  # enforced by the schema rather than only observed in what the generator
+                  # emits.
                   #
-                  # The guard is deliberately narrow: `schema:name` alongside an @type
-                  # containing ada:TAPPDefinition is what an INLINE PLAN looks like in the
-                  # old form, and a plain {@id, @type} REFERENCE never carries a name. So
-                  # this fires on the inline form alone and leaves the reference form valid
-                  # -- which is not a nicety: 7,263 of 7,447 ADA records link their TAPP that
-                  # way, and rejecting it here would invalidate every one of them. Migrating
-                  # those is an ADA-side job with its own sequencing, and a schema that
-                  # invalidates the corpus before the corpus moves is a schema nobody can
-                  # deploy.
+                  # BOTH old forms are now rejected, inline and reference alike. #192 closed
+                  # only the INLINE one, guarding the `if` with `schema:name` -- an inline
+                  # plan carries a name, a plain {@id, @type} reference does not -- because
+                  # rejecting the reference form would have invalidated the 7,263 of 7,447
+                  # ADA records that used it. That was the whole reason for the narrowness,
+                  # and it has expired: measured 2026-10-24, the old form is at ZERO in BOTH
+                  # stores, ada_subjects and production ada2, with every reference migrated
+                  # to the role key. So the `schema:name` guard is gone and the `if` fires on
+                  # any prov:used item typed ada:TAPPDefinition.
+                  #
+                  # SEQUENCE MATTERS HERE AND WAS FOLLOWED: the corpus moved first, then the
+                  # schema. Closing this before the migration would have invalidated every
+                  # production record at once -- a schema that rejects the corpus it
+                  # describes is one nobody can deploy. If a store is ever restored from a
+                  # pre-migration backup, this branch is what will tell you, loudly.
                   #
                   # Stated as "then it must carry the role key" rather than as `false`, for
                   # two reasons. It reads as the migration instruction it is, and the
@@ -326,15 +333,16 @@ allOf:
                   # the case was written for, and a bare `false` mentions nothing.
                   - if:
                       type: object
-                      required: ['@type', 'schema:name']
+                      required: ['@type']
                       properties:
                         '@type':
                           contains:
                             const: ada:TAPPDefinition
                     then:
                       description: >-
-                        An inline TAPP plan belongs under the ada:tappDefinition role key.
-                        The bare @type form is superseded; see the branch above.
+                        A TAPP link belongs under the ada:tappDefinition role key, whether it
+                        is a reference or an inline plan. The bare @type form is superseded;
+                        see the branch above.
                       required: ['ada:tappDefinition']
             "schema:location":
               $ref: ../laboratory/schema.yaml

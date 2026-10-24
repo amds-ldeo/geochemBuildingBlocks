@@ -1253,13 +1253,17 @@ trap as the cid table above.
   (mbb#52: `propertyNames` over a CURIE pattern, deliberately permissive) and geochemProduct
   CLOSES the set to the role it defines — base permissive, profile restrictive, which `allOf`
   composes correctly because an intersection can only narrow.
-  **Two asymmetries here are deliberate and should not be "tidied".** The superseded
-  `{@id, @type: [… ada:TAPPDefinition]}` REFERENCE still validates, because 7,263 of 7,447 ADA
-  records link their TAPP that way and rejecting it would invalidate the corpus before the corpus
-  can move; the superseded INLINE spelling (the same `@type` plus a `schema:name`) is REJECTED,
-  so the replacement is enforced rather than merely emitted. Both halves are pinned by
-  counterexamples — `tappdef-inline-old-spelling-is-closed-off` fails if either the inline form
-  starts validating again or the reference form starts being rejected.
+  **BOTH superseded spellings are now REJECTED — reference and inline alike (2026-10-24).** The
+  reference form `{@id, @type: [… ada:TAPPDefinition]}` stayed valid until then, deliberately,
+  because 7,263 of 7,447 ADA records linked their TAPP that way and a schema that rejects the
+  corpus it describes is one nobody can deploy. The migration retired that reason: the old form
+  reads **zero in ada_subjects AND in production ada2**, every reference now role-keyed. The
+  sequence is the lesson — **the corpus moved first, then the schema**. Pinned by two
+  counterexamples, `tappdef-old-reference-form-is-closed-off` and
+  `tappdef-inline-old-spelling-is-closed-off`; the first is the one that matters most, because the
+  reference form is what every pre-migration record carried, so re-accepting it would silently
+  re-admit a whole generation of records. It is also the tripwire for a store restored from a
+  pre-migration backup — the one situation where nobody would otherwise be told.
 - `schema:location` (was `ada:laboratory`) — laboratory $ref.
 - `schema:object` (was `schema:mainEntity`) — array of MaterialSample objects (samples analyzed). Required CDIF mbb to extend `cdifProvActivity.schema:object` to also accept arrays of `schema:Thing` per schema.org range; `schema:result` extended symmetrically. Both extensions landed via the propagate-schema run on 2026-04-26.
 
