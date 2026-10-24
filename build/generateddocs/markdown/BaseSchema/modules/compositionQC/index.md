@@ -118,10 +118,10 @@ The procedure half of the CompositionQC module, with every property populated. G
 
 [] schema1:actionProcess [ schema1:step [ schema1:name "Data processing" ;
                     ada:detectionLimitMethod "no value available: unnamed property" ] ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Normalization / Standards-Based Correction" ],
-        [ schema1:defaultValue 1 ;
-            schema1:name "Detection Limit" ] ;
+    schema1:variableMeasured [ schema1:defaultValue 1 ;
+            schema1:name "Detection Limit" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Normalization / Standards-Based Correction" ] ;
     ada:secondaryReferenceMaterialDefault "no value available: unnamed property" .
 
 
@@ -230,9 +230,9 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 
 [] schema1:variableMeasured [ schema1:name "Detection Limit" ;
             schema1:value 1 ],
-        [ schema1:name "Normalization / Standards-Based Correction" ;
-            schema1:value "no value available: unnamed property" ],
         [ schema1:name "Detection Limit Method" ;
+            schema1:value "no value available: unnamed property" ],
+        [ schema1:name "Normalization / Standards-Based Correction" ;
             schema1:value "no value available: unnamed property" ] ;
     prov:wasGeneratedBy [ prov:used [ ] ] .
 
