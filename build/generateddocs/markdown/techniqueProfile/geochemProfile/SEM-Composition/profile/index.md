@@ -1187,8 +1187,8 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                [ ada:tappDefinition ex:semCompositionTAPP-P0 ] ;
+            prov:used [ ada:tappDefinition ex:semCompositionTAPP-P0 ],
+                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
