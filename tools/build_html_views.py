@@ -140,13 +140,37 @@ def first(o, key):
 
 
 def tapp_ref(doc):
-    """The procedure this record followed: a prov:used entry typed ada:TAPPDefinition.
+    """The procedure this record followed, in EITHER spelling of the prov:used link.
 
-    A REFERENCE ({@id, @type}) is what we emit and what the page links to. An embedded TAPP is
-    also legal, and is shown inline instead -- there is nothing to navigate to.
+    A REFERENCE is what we emit and what the page links to. An embedded TAPP is also legal, and
+    is shown inline instead -- there is nothing to navigate to.
+
+    TWO SPELLINGS, and both are valid by design:
+
+        role-keyed   {"ada:tappDefinition": {"@id": ...}}    what gBB emits since #190, and the
+                                                             form ADA records are migrating to
+        superseded   {"@id": ..., "@type": [... "ada:TAPPDefinition"]}   what ~7,263 of 7,447
+                                                             records still carry
+
+    The role-keyed member deliberately carries NO @type -- the property NAME is the role, which
+    is the whole point of #190 -- so a reader matching on @type alone finds nothing in it. This
+    function matched @type only, which meant a migrated record returned None and its page got no
+    link to its TAPP. It would not have crashed: main() counts those as "name no procedure", so a
+    migrated corpus would have reported thousands of records naming no procedure, which reads as
+    a data problem and is a reader problem.
+
+    Checked the role key FIRST because it is the sanctioned form; the @type branch stays for as
+    long as any record uses it, and geochemProduct still accepts that form for the same reason.
+    Returns the inner node for the wrapper, so callers see {@id, ...} either way and need not
+    know which spelling they were given.
     """
     for act in doc.get("prov:wasGeneratedBy") or []:
         for u in act.get("prov:used") or []:
+            if not isinstance(u, dict):
+                continue
+            wrapped = u.get("ada:tappDefinition")
+            if isinstance(wrapped, dict):
+                return wrapped
             ty = u.get("@type") or []
             if isinstance(ty, str):
                 ty = [ty]
@@ -653,8 +677,9 @@ def main():
         print("source=%s: wrote %d record page(s)%s to %s"
               % (a.source, n, (" and %d TAPP page(s)" % nt) if nt else "", a.outdir))
         if nolink:
-            print("  %d record(s) name no procedure -- prov:used carries no ada:TAPPDefinition "
-                  "reference, so those pages have no link to a TAPP." % nolink)
+            print("  %d record(s) name no procedure -- prov:used carries neither an "
+                  "ada:tappDefinition wrapper nor an ada:TAPPDefinition @type reference, so "
+                  "those pages have no link to a TAPP." % nolink)
     return 0
 
 
