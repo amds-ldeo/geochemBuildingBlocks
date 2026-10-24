@@ -441,6 +441,18 @@ FAIL against their TAPP profile — 436 of 436 and 870 of 870, zero passes. The 
 `contains` pins requiring variables named `Sampling Unit Name` and `Detection Limit` that NO
 record carries. Do not treat the rollout as a labelling change.
 
+**Those two are the pins the CORPUS FAILS, not the pins that exist, and the difference is two
+orders of magnitude.** Measured 2026-10-23 on the resolved schemas: `EPMA/profile` pins **46**
+`variableMeasured` names through `contains` and `TEM/profile` pins **50**, against **1** in each
+`profile-ada` (`Sample preparation`). So the flip's constraint SURFACE is 45 and 49 newly pinned
+names; the claim behind the "two" is that every other one is already satisfied by real record
+content. Read as "only two pins exist" it badly understates what a flipped record must carry —
+a mistake made once from this paragraph's earlier wording. Before building nil-token members,
+RE-MEASURE which pins the corpus fails rather than reusing the figure: it was taken against the
+schema of 2026-10-20, and building for two when the real set is larger ships records that still
+fail. Derive the lists from the resolved schema, by walking every `contains` for a
+`properties.schema:name.const`.
+
 > **The resolution is a NIL TOKEN, not a relaxed constraint** (Steve, 2026-10-20). The TAPP
 > workbooks are Ruolin's and the ADA corpus predates TAPP generation, so the pins stay and the
 > records DECLARE the absence. The agreed token is the OGC nil reason `unknown`, written as the
@@ -457,8 +469,9 @@ record carries. Do not treat the rollout as a labelling change.
 >
 > **No gBB constraint changes, and that is the point.** `ada:deadTime` is
 > `anyOf: [{number}, {string}]` and `ada:proceduralBlankLevel` is `{type: string}`, so an IRI
-> string already validates; the two `variableMeasured` `contains` pins require `schema:name`
-> ALONE, so the member must exist and be named exactly, with the token as its `schema:value`.
+> string already validates; the two FAILING `variableMeasured` `contains` pins (two of 46 and 50 —
+> see the correction above) require `schema:name` ALONE, so the member must exist and be named
+> exactly, with the token as its `schema:value`.
 > An `{"@id": …}` OBJECT does **not** work in the scalar fields — it fails both — which is why
 > the string form was chosen over the object form the question was first asked about.
 >
