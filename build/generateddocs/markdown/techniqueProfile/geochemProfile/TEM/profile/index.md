@@ -318,8 +318,8 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "sensitivityDetectionLimit",
-      "schema:description": "sensitivityDetectionLimit reported for this dataset. Example value.",
+      "schema:name": "EELS Detection Limit",
+      "schema:description": "EELS Detection Limit reported for this dataset. Example value.",
       "schema:propertyID": [
         {
           "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
@@ -852,8 +852,8 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "sensitivityDetectionLimit",
-      "schema:description": "sensitivityDetectionLimit reported for this dataset. Example value.",
+      "schema:name": "EELS Detection Limit",
+      "schema:description": "EELS Detection Limit reported for this dataset. Example value.",
       "schema:propertyID": [
         {
           "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
@@ -1175,8 +1175,8 @@ ex:adaTEM-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                [ ada:tappDefinition ex:temTAPP-P0 ] ;
+            prov:used [ ada:tappDefinition ex:temTAPP-P0 ],
+                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
             ada:deadTime -9999 ] ;
     ada:analyticalMode "TEM Imaging" ;
     ada:submissionType "BundleDelivery" .
@@ -1235,13 +1235,13 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     schema1:alternateName "ADA primary measurement" ;
     schema1:defaultValue "no value available: schema:defaultValue" ;
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
+        "EELS Detection Limit reported for this dataset. Example value.",
         "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
-        "Sampling Unit Name reported for this dataset. Example value.",
-        "sensitivityDetectionLimit reported for this dataset. Example value." ;
+        "Sampling Unit Name reported for this dataset. Example value." ;
     schema1:name "Calibration Factor and Determination Method",
+        "EELS Detection Limit",
         "Sampling Unit Name",
-        "measurement_value",
-        "sensitivityDetectionLimit" ;
+        "measurement_value" ;
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
     schema1:unitText "counts" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
@@ -1350,7 +1350,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-23'
+  dateOfLastChange: '2026-10-24'
 
 ```
 
