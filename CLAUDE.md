@@ -409,15 +409,17 @@ disagree for 4,217 records. **There is no citation route at all.** The loader AS
 field cannot preserve a stale label across a re-run. Every record carries one, 7,447 of 7,447,
 at that nested path.
 
-**35 distinct profile cids are derived.** Measured 2026-10-20 via the loader's static path:
+**35 distinct profile cids are derived.** Re-measured 2026-10-24, AFTER the EPMA and TEM flip —
+the three `Full` rows below moved, so read the date before quoting any of them:
 
 | cid | records | holder |
 |---|---|---|
 | `geochemProduct`, `adaProduct` | 7,447 each | the base products |
-| `adaSEMFull` | **2,918** | the LEGACY `geochemProfile/SEM/profile-ada` |
-| `adaTEMFull` | **870** | the LEGACY `geochemProfile/TEM/profile-ada` |
-| `adaEPMAFull` | **436** | the LEGACY `geochemProfile/EPMA/profile-ada` |
-| `adaSEM`, `adaEPMA`, `adaSEMComposition`, `adaXCT`, `adaLabXCT` | **0 each** | the TAPP `profile/` blocks — reached by NO record |
+| `adaSEMFull` | **2,918** | the LEGACY `geochemProfile/SEM/profile-ada` — NOT flipped |
+| `adaTEM` | **870** | the TAPP `geochemProfile/TEM/profile` — flipped 2026-10-24 |
+| `adaEPMA` | **436** | the TAPP `geochemProfile/EPMA/profile` — flipped 2026-10-24 |
+| `adaTEMFull`, `adaEPMAFull` | **0 each** | the LEGACY blocks, now reached by no record |
+| `adaSEM`, `adaSEMComposition`, `adaXCT`, `adaLabXCT` | **0 each** | the TAPP `profile/` blocks — reached by NO record |
 | `adaXANES` 245, `adaVNMIR` 183, `adaXRD` 66 | | `adaProfile/*/profile-ada` — legacy |
 | `adaLIT` 137, `adaICPMS` 112, `adaARGT` 97, `adaFTICRMS` 89, `adaLCMS`/`adaGCMS` 75 … | | all legacy |
 
@@ -430,16 +432,58 @@ bare `ada<TECH>` was the legacy block's label. Because the field is derived, re-
 the same records onto the `Full` labels. Do not read the old counts as a disagreement that needs
 reconciling; there was never a stale citation to disagree with.
 
-**The loader's static path and the CDIF engine DISAGREE, and that is open.** `detect_domain_
-conformance` resolves these same records to the TAPP cid — verified on a real record, which
-returns `adaEPMA` — because the legacy and TAPP cids share one `exclusiveGroup` and TAPP
-priority 10 outranks LEGACY 3, with no fall-back. So completing the engine rollout FLIPS them,
-and **the flip is a REVALIDATION, not a relabelling**: the TAPP profiles require record-side
-names the legacy ones do not, and measured 2026-10-20, **1,306 of 1,306** EPMA and TEM records
-FAIL against their TAPP profile — 436 of 436 and 870 of 870, zero passes. The blockers are
-`ada:deadTime` (both), `ada:proceduralBlankLevel` (EPMA only), and two `schema:variableMeasured`
-`contains` pins requiring variables named `Sampling Unit Name` and `Detection Limit` that NO
-record carries. Do not treat the rollout as a labelling change.
+**THE FLIP HAS LANDED for EPMA and TEM (2026-10-24).** Decided by Stephen, built by the ADA
+loader, measured over all 7,447 records:
+
+| cid | records | | cid | records |
+|---|---|---|---|---|
+| `adaEPMA` | **436** | | `adaEPMAFull` | 0 |
+| `adaTEM` | **870** | | `adaTEMFull` | 0 |
+| `adaSEM` | **0** | | `adaSEMFull` | **2,918** — untouched, out of scope |
+
+All **1,306 went from failing to passing** — measured, not the predicted figure. Validation
+7,447 success / 0 failed, with the one long-standing baseline failure unchanged. Determinism:
+two full regenerations, 0 DOIs present in only one run, 0 whose output differs.
+
+**The disagreement between the loader's static path and the CDIF engine is DELIBERATE and
+load-bearing — not an open question.** The earlier text here said it was open; it is not, and
+reading it that way invites exactly the wrong repair. The mechanism lives with the code that
+owns it: **`metadata/AGENTS.md`, section "Which technique profile a record claims, and the one
+default holding it there"**. Read that section, not a restatement here, because a restatement
+drifts from the code. In outline: the loader swaps the cid in its STATIC SEED and then runs
+`detect_and_apply` with `technique_profiles="preserve"`, which keeps whatever the static path
+wrote.
+
+**What is gBB's half, and it is the half that is ours to change.** `detect_domain_conformance`
+genuinely resolves these records to the TAPP cid — the legacy and TAPP cids share one
+`exclusiveGroup` and the TAPP priority outranks LEGACY 3, with no fall-back. That preference is
+**live and correct**, and the loader's `preserve` **overrides it deliberately**. Do NOT describe
+these priorities as inert or vestigial and do not tidy them away: they are the thing the override
+overrides, and removing them would break the mechanism silently, here, where nothing would fail.
+
+**The cost of switching `preserve` to `detect` is measured, not argued.** That one word hands
+every technique to these priorities at once:
+
+    adaSEM      priority 5    65 schema:variableMeasured `contains` pins
+    adaSEMFull  priority 3     1 pin
+
+So 2,918 SEM records would move onto a profile 65 pins deep with no nil tokens built for any of
+them. Nothing raises at the moment of the change; the records simply start failing afterwards, in
+a different repository from the change. **"Complete the rollout" and "flip SEM" are the same
+action under `detect`.** SEM needs its own measurement and token pass first — and do not assume
+its failing pins match EPMA's or TEM's, which brings us to:
+
+**The flip is a REVALIDATION, not a relabelling**, and the pin names are per-technique. Measured:
+
+    EPMA   ada:deadTime, ada:proceduralBlankLevel, `Sampling Unit Name`, `Detection Limit`
+    TEM    ada:deadTime,                           `Sampling Unit Name`, `EELS Detection Limit`
+
+`ada:proceduralBlankLevel` is EPMA-only — TEM's profile does not require it, and emitting it there
+would assert a reading nobody asked for. And TEM's second name is **not** `Detection Limit`:
+until #201 it was the stale token `sensitivityDetectionLimit`, and two separate handoff notes
+carried `Detection Limit` for both techniques. Building from that would have left all 870 TEM
+records failing while looking like the token SHAPE was wrong rather than the name. Do not treat
+the rollout as a labelling change, and do not carry one technique's pin names to another.
 
 **Those two are the pins the CORPUS FAILS, not the pins that exist, and the difference is two
 orders of magnitude.** Measured 2026-10-23 on the resolved schemas: `EPMA/profile` pins **46**
@@ -499,15 +543,18 @@ fail. Derive the lists from the resolved schema, by walking every `contains` for
 > `adaEPMA`. **The general rule: a trial that mutates a stored document is not a valid test of
 > anything DERIVED from that document's content.** Regenerate; do not patch JSON.
 >
-> Still predicted rather than measured for the full 1,306 records — one record validated
-> correctly is not the corpus — and that number comes from a regeneration when the flip lands.
+> **NOW MEASURED over the full corpus (2026-10-24), and it passed.** All 1,306 EPMA and TEM
+> records went from failing to passing: `ada:deadTime` on 1,306, `ada:proceduralBlankLevel` on the
+> 436 EPMA only, `Sampling Unit Name` on 1,306, `Detection Limit` on the 436 and
+> `EELS Detection Limit` on the 870. Validation 7,447 success / 0 failed with the one
+> long-standing baseline failure unchanged, and two full regenerations byte-identical.
 >
-> **The remaining blocker is scope, and the convention is not buildable until it resolves.**
-> **The token must only go on records whose technique profile requires it** — asserting
-> `ada:deadTime` on a photograph would be false — but the requiring profiles are the TAPP
-> variants while records resolve to the `Full` ones, so the correct scope IS the flip decision
-> above. Nothing in the corpus fails these pins today, so there is nothing to repair yet and no
-> scope to build against.
+> **The scope blocker is RESOLVED.** It read "the convention is not buildable until it resolves"
+> — the token must only go on records whose technique profile requires it, and the requiring
+> profiles were the TAPP variants while records resolved to the `Full` ones. The flip settled
+> that: the scope is now EPMA and TEM, enforced by the loader, and the tokens are built and
+> measured against exactly those. SEM is deliberately out — see the flip section above for what
+> switching `preserve` to `detect` would cost.
 >
 > **Verified end-to-end, not predicted.** A real flipped EPMA record carrying the token as a
 > string in both properties, and a named `variableMeasured` member carrying it in `schema:value`
@@ -565,9 +612,10 @@ then judged against, so sequence it as: decide the cids, confirm the new target 
 records, then deprecate. Judge the move by validation, not by citation.
 
 `adaTEM` and `adaEPMA` were **ambiguous** URIs until #157, each claimed by two schemas. They now
-resolve to one block apiece — the TAPP `profile/` — so the ambiguity is gone, and the open
-question is the one above: the loader's static path derives the `Full` cid for these records
-while the CDIF engine derives the TAPP one, and the records fail the TAPP schema if flipped.
+resolve to one block apiece — the TAPP `profile/` — so the ambiguity is gone, and the question
+that used to sit here is CLOSED: as of 2026-10-24 the loader derives the TAPP cid for these
+records and all 1,306 pass it, carrying the nil token. See the flip section above. The records
+no longer "fail the TAPP schema if flipped" — they are flipped, and they pass.
 
 The risk compounds through a second route. The ADA loader **derives** `conformsTo` from record
 CONTENT (via the CDIF validation repo's `detect_conformance`), so a record is matched to a
@@ -579,8 +627,10 @@ into it. So there are TWO questions to ask before retiring a profile, and the co
 means the first one is about DERIVATION, not citation: **"which cid does the loader derive for
 these records today?"** — measured per cid at `schema:subjectOf.dcterms:conformsTo`, which is
 `adaSEMFull` 2,918 and `adaSEM` **zero** — and **"what would `detect_conformance` match here
-instead, and would that schema accept these records?"** Both questions are now known to have
-different answers, which is the divergence recorded above.
+instead, and would that schema accept these records?"** For SEM the two answers still DIFFER,
+and that difference is now the deliberate override described in the flip section, not an open
+divergence. For EPMA and TEM they agree as of 2026-10-24: the loader derives the TAPP cid, and
+the TAPP schema accepts the records. SEM is the live case, which is why it is the example here.
 
 > **One stale count nearby.** The Composition-modules section below says `_tapp_lib.py` generates
 > "the 16 under `geochemProfile/`" and that "the 32 under `adaProfile/`" are hand-maintained.
