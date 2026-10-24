@@ -1085,11 +1085,28 @@ stale claim sits exactly where someone would act on it.
 
 **What remains true is narrower, and the distinction is the useful part.** The `@id` is an opaque
 per-lab procedure URI, so **JSON Schema** still cannot use it — it cannot dereference anything,
-and no `if`/`then` can read through that identifier. But a **consumer that can resolve the
-identifier** against a procedure registry is not blocked at all: it can read the referenced
-definition and recover the variant. So the tie is structural for validation and merely
-unimplemented for a loader. Do not cite this section as "the variant cannot be determined" —
-cite it as "the variant cannot be determined BY SCHEMA".
+and no `if`/`then` can read through that identifier. A consumer that CAN resolve the identifier
+against a procedure registry is not blocked by the schema: it could read the referenced
+definition and recover the variant. So do not cite this section as "the variant cannot be
+determined" — cite it as "the variant cannot be determined BY SCHEMA".
+
+**But do not conclude a loader could break the ICP-MS tie today, because the reference is ABSENT
+on exactly the records that need it.** Measured 2026-10-24: of the 112 records claiming
+`adaICPMS`, **12 carry a TAPP reference and 100 carry none** — and of the 184 records in the whole
+corpus that carry no reference at all, **100 are ICP-MS**. So "7,263 of 7,447 carry one" is true
+of the corpus and FALSE of this population, which is the trap: a corpus-wide figure licensed a
+conclusion about a subpopulation that contradicts it. Always ask which population a reference
+count was taken over.
+
+**And the causation runs the other way from the obvious reading.** It is NOT "the cid could not
+resolve, so no reference was emitted". The componentTypes do not determine the variant, so the
+reference is not emitted AND the cid cannot resolve — two symptoms of one upstream cause, neither
+causing the other. Reading a reference that was never written cannot break the tie. The one
+ICP-MS reference that IS emitted covers 12 records whose componentTypes refine unambiguously,
+and those already resolve without it.
+
+So resolving the tie in a loader becomes worth implementing the moment an ICP-MS record carries a
+reference its componentTypes cannot produce — and not before.
 
 **Consequences for anything detecting a profile from componentType.** 21 of the 133 componentTypes
 in `build_tapp.TAPP_CONFIGS` are claimed by more than one TAPP, and they are two different problems
