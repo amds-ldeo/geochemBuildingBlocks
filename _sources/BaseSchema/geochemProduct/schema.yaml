@@ -114,6 +114,7 @@ allOf:
   - type: object
     properties:
       "@type":
+        title: Record Type
         type: array
         items:
           type: string
@@ -121,6 +122,7 @@ allOf:
             - "schema:Dataset"
             - "schema:Product"
       "schema:license":
+        title: License
         description: Legal statement of conditions for use and access
         type: array
         minItems: 0
@@ -129,6 +131,7 @@ allOf:
             - type: string
             - $ref: ../creativeWork/schema.yaml
       "schema:relatedLink":
+        title: Related Links
         type: array
         description: Links to related resources at the product level
         items:
@@ -162,8 +165,10 @@ allOf:
                 "schema:url":
                   type: string
       "schema:creativeWorkStatus":
+        title: Status
         type: string
       "schema:measurementTechnique":
+        title: Measurement Technique
         type: array
         items:
           type: object
@@ -181,6 +186,7 @@ allOf:
             "schema:identifier":
               type: string
       "prov:wasGeneratedBy":
+        title: Analysis Events
         description: >-
           Analysis events. Extends cdifProvActivity (from cdifProvenance) with the
           generic geochem analysis-event surface: the instruments, computational
@@ -294,6 +300,7 @@ allOf:
                     then:
                       properties:
                         'ada:tappDefinition':
+                          title: TAPP Definition
                           description: >-
                             The TAPP definition this analysis followed: either a reference to
                             a TAPP definition node defined elsewhere, or the plan inline.
@@ -345,6 +352,7 @@ allOf:
                         see the branch above.
                       required: ['ada:tappDefinition']
             "schema:location":
+              title: Laboratory
               $ref: ../laboratory/schema.yaml
             "schema:object":
               type: array
@@ -379,6 +387,7 @@ allOf:
                     items:
                       $ref: '#/$defs/PropertyValueEntry'
                   'ada:spatialRegistration':
+                    title: Spatial Registration
                     description: >-
                       The coordinate system defined ON the sample -- typically a planar
                       thin section -- that image pixel coordinates are registered to.
@@ -450,6 +459,7 @@ allOf:
           required:
             - "prov:used"
       "schema:variableMeasured":
+        title: Measured Variables
         description: >-
           Variable definitions. Extends cdifInstanceVariable (from
           cdifDataDescription) with additional generic properties. Requires a
@@ -542,21 +552,25 @@ allOf:
           required:
             - "schema:description"
       "schema:spatialCoverage":
+        title: Spatial Coverage
         description: Geographic extent of resource content.
         type: array
         items:
           $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/schema.yaml
       "schema:temporalCoverage":
+        title: Temporal Coverage
         description: Temporal extent of resource content.
         type: array
         items:
           $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/schema.yaml
       "dqv:hasQualityMeasurement":
+        title: Quality Measurements
         description: Quality measurements reported to assess the resource.
         type: array
         items:
           $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/schema.yaml
       "schema:additionalProperty":
+        title: Additional Properties
         description: >-
           PropertyValue entries describing the DELIVERED DATA rather than the
           analysis that produced it (extent, dimensions, ...). Distinct from the
@@ -566,6 +580,7 @@ allOf:
         items:
           $ref: '#/$defs/PropertyValueEntry'
       "schema:distribution":
+        title: Distributions
         description: >-
           Generic distribution structure. A distribution is a schema:DataDownload
           (or schema:WebAPI, inherited from cdifCore) that MAY carry a
@@ -616,6 +631,7 @@ allOf:
               then:
                 $ref: ../tabularData/schema.yaml
       "schema:subjectOf":
+        title: About This Record
         properties:
           "dcterms:conformsTo":
             contains:
@@ -625,6 +641,58 @@ allOf:
               properties:
                 "@id":
                   const: "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+
+      # ---------------------------------------------------------------------
+      # Labels only. Each entry below carries a `title` and NOTHING else, so
+      # deep_merge treats it as a partial patch: the CDIF base definition is
+      # preserved underneath and only the label is contributed. Adding one of
+      # these changes no constraint -- `properties` here has no
+      # additionalProperties and names nothing as required.
+      #
+      # A label must NOT equal any block's own top-level title: the metadata
+      # viewer treats such a title as a type name and drops it. Checked for
+      # all of these against the 283 block titles in _sources + vendor/remote.
+      # ---------------------------------------------------------------------
+      'schema:name':
+        title: Dataset Name
+      'schema:description':
+        title: Description
+      'schema:identifier':
+        title: Primary Identifier
+      'schema:sameAs':
+        title: Other Identifiers
+      'schema:url':
+        title: Landing Page
+      'schema:version':
+        title: Version
+      'schema:creator':
+        title: Authors
+      'schema:contributor':
+        title: Contributors
+      'schema:publisher':
+        title: Publisher
+      'schema:provider':
+        title: Provider
+      'schema:funding':
+        title: Funding Source
+      'schema:conditionsOfAccess':
+        title: Access Conditions
+      'schema:publishingPrinciples':
+        title: Publishing Principles
+      'schema:dateModified':
+        title: Date Modified
+      'schema:datePublished':
+        title: Date Published
+      'schema:inLanguage':
+        title: Language
+      'schema:keywords':
+        title: Keywords
+      'schema:additionalType':
+        title: Product Type
+      'prov:wasDerivedFrom':
+        title: Derived From
+      "@id":
+        title: Record IRI
 $defs:
   # --- Component-type classification shared by geochem technique profiles ------
   # A generic file-classification scheme available to every geochemProfile profile

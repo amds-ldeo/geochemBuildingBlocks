@@ -33,9 +33,11 @@
     },
     "@id": {
       "type": "string",
-      "description": "The URI for the resource should be the @id value for the root of the JSON instance document tree. Must be an IRI (e.g. https://doi.org/..., urn:..., or a relative URI like #localid). Note that this identifier can be interpreted to identify the resource that is the subject of this metadata record, or the JSON-LD object that is the digital object containing the metadata information."
+      "description": "The URI for the resource should be the @id value for the root of the JSON instance document tree. Must be an IRI (e.g. https://doi.org/..., urn:..., or a relative URI like #localid). Note that this identifier can be interpreted to identify the resource that is the subject of this metadata record, or the JSON-LD object that is the digital object containing the metadata information.",
+      "title": "Record IRI"
     },
     "@type": {
+      "title": "Record Type",
       "type": "array",
       "items": {
         "allOf": [
@@ -68,11 +70,13 @@
     },
     "schema:name": {
       "type": "string",
-      "description": "A descriptive name of a dataset (e.g., 'Snow depth in Northern Hemisphere'). The name should uniquely identify the described resource for human use, in the scope of the metadata catalog containing this metadata record."
+      "description": "A descriptive name of a dataset (e.g., 'Snow depth in Northern Hemisphere'). The name should uniquely identify the described resource for human use, in the scope of the metadata catalog containing this metadata record.",
+      "title": "Dataset Name"
     },
     "schema:description": {
       "type": "string",
-      "description": "A short summary describing a dataset. This text will be indexed by search applications, so the more information here, the better."
+      "description": "A short summary describing a dataset. This text will be indexed by search applications, so the more information here, the better.",
+      "title": "Description"
     },
     "schema:identifier": {
       "description": "The primary identifier for the dataset; other identifiers should be listed in the sameAs field. Schema.org has three ways of encoding identifiers-- a text description, a URL, or by using the schema:PropertyValue field. The Science on Schema.org guidance strongly recommends using the PropertyValue approach. see https://github.com/ESIPFed/science-on-schema.org   .... Dataset.md#identifier.  Ideally, for any given data provided they would provide identifiers either all as strings or all as identifier_type.",
@@ -149,7 +153,8 @@
         {
           "type": "string"
         }
-      ]
+      ],
+      "title": "Primary Identifier"
     },
     "schema:additionalType": {
       "description": "identifiers for datatypes from other vocabularies (not schema.org) that apply to this metadata.",
@@ -333,7 +338,8 @@
             ]
           }
         ]
-      }
+      },
+      "title": "Product Type"
     },
     "schema:sameAs": {
       "description": "Other identifiers for the dataset, as IRI references, literal strings, or structured identifiers using schema:PropertyValue.",
@@ -429,26 +435,31 @@
             ]
           }
         ]
-      }
+      },
+      "title": "Other Identifiers"
     },
     "schema:version": {
       "type": [
         "string",
         "number"
       ],
-      "description": "The version number or identifier for this dataset (text or numeric). The values should sort from oldest to newest using an alphanumeric sort on version strings"
+      "description": "The version number or identifier for this dataset (text or numeric). The values should sort from oldest to newest using an alphanumeric sort on version strings",
+      "title": "Version"
     },
     "schema:inLanguage": {
       "type": "string",
-      "description": "the language of the dataset content"
+      "description": "the language of the dataset content",
+      "title": "Language"
     },
     "schema:dateModified": {
       "type": "string",
-      "description": "ISO8601 formatted date (and optional time if relevant) when Dataset was last updated"
+      "description": "ISO8601 formatted date (and optional time if relevant) when Dataset was last updated",
+      "title": "Date Modified"
     },
     "schema:datePublished": {
       "type": "string",
-      "description": "ISO8601 formatted date (and optional time if relevant) when Dataset was made public."
+      "description": "ISO8601 formatted date (and optional time if relevant) when Dataset was made public.",
+      "title": "Date Published"
     },
     "schema:conditionsOfAccess": {
       "description": "text statement of conditions for use and access; if an online resource documents the restrictions or a URI is used to identify the conditions, recommend using schema:CreativeWork to provide a label (name) and an identifier (URI or URL). ",
@@ -478,9 +489,11 @@
             "$ref": "#/$defs/Reference"
           }
         ]
-      }
+      },
+      "title": "Access Conditions"
     },
     "schema:license": {
+      "title": "License",
       "description": "Legal statement of conditions for use and access",
       "type": "array",
       "minItems": 0,
@@ -550,9 +563,11 @@
     "schema:url": {
       "type": "string",
       "format": "uri",
-      "description": "Web Location of a page describing the dataset (landing page), typically providing links or instructions to get the actual resource content; analogous to dcat:accessURL. If a direct link is available to get the data, put in distribution/contentUrl"
+      "description": "Web Location of a page describing the dataset (landing page), typically providing links or instructions to get the actual resource content; analogous to dcat:accessURL. If a direct link is available to get the data, put in distribution/contentUrl",
+      "title": "Landing Page"
     },
     "schema:distribution": {
+      "title": "Distributions",
       "description": "Generic distribution structure. A distribution is a schema:DataDownload (or schema:WebAPI, inherited from cdifCore) that MAY carry a cdi:isStructuredBy data-structure description (for a monolithic single file that IS the dataset, or a structure shared across bundle parts), and MAY be a bundle whose schema:hasPart lists member files (typed via cdifManifest). The domain file-classification of a distribution / member (e.g. ADA ada:componentType) is added by the extending profile.",
       "type": "array",
       "items": {
@@ -4237,7 +4252,7 @@
                           "type": "string"
                         },
                         "ada:spatialRegistration": {
-                          "title": "Spatial Registration Type",
+                          "title": "Spatial Registration",
                           "description": "The affine transform from an image's pixel coordinates to a coordinate reference system defined on the sample -- origin, pixel scales, rotation and axis sense -- for spatially registered images and maps.\nMODELLED ON A WORLD FILE, the sidecar a GIS writes beside a raster (.tfw, ESRI .wld), whose six parameters are exactly an affine transform. In world-file letters:\n\n    x_crs = ada:originX + ada:pixelScaleX * col + ada:pixelRotationX * row     (C, A, B)\n    y_crs = ada:originY + ada:pixelRotationY * col + ada:pixelScaleY * row     (F, D, E)\n\nDEPARTURES FROM THE WORLD-FILE CONVENTION. Three, each of which says more rather than less -- and each of which a converter has to handle deliberately, because none is a straight copy:\n\n  1. ORIGIN CORNER IS DECLARED, NOT ASSUMED. A world file assumes C,F is the centre of the\n     upper-left pixel. Here ada:originLocation states the corner (upperLeft, upperRight,\n     lowerLeft, lowerRight, center) and ada:coordDef states what the coordinates are measured\n     from. Reading a .tfw therefore means WRITING originLocation: upperLeft explicitly; it is\n     not implied.\n\n  2. ada:pixelScaleY IS A MAGNITUDE, NOT A SIGNED VALUE. A world file conventionally makes E\n     negative to encode the y-axis flip. Here the axis sense is carried by ada:originLocation,\n     so the sign is NOT part of the scale. Importing E means taking its absolute value and\n     recording the flip as a corner; exporting means re-applying the sign. Copying E straight\n     into ada:pixelScaleY silently halves nothing and mirrors everything.\n\n  3. UNITS ARE CARRIED, WHERE A WORLD FILE HAS NONE. ada:pixelUnits and ada:coordUnits state\n     both sides of the scale. A world file is unitless and takes its units from the raster CRS,\n     so an import has to source them from elsewhere and cannot leave them absent -- which is\n     why ada:pixelUnits is in the inline required list.\n\nSCALING AND REGISTRATION ARE SEPARABLE, and $defs/Scaling below is the half that is meaningful on an UNREGISTERED image: a plain ada:image has a pixel size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement. Registration is the other half -- where the image sits on the sample, and how its axes relate to the sample's -- and only a map can assert it. The root schema here is scaling PLUS registration and is what the imageMap block references; the image block references $defs/Scaling. One property name, two shapes, so a placement path through either branch resolves.",
                           "type": "object",
                           "allOf": [
@@ -4635,6 +4650,7 @@
       }
     },
     "schema:relatedLink": {
+      "title": "Related Links",
       "type": "array",
       "description": "Links to related resources at the product level",
       "items": {
@@ -4769,7 +4785,8 @@
             "$ref": "#/$defs/Reference"
           }
         ]
-      }
+      },
+      "title": "Publishing Principles"
     },
     "schema:keywords": {
       "description": "Keywords are an array of strings, an array of schema:DefinedTerms, or some combination of these. If you have information about a controlled vocabulary from which keywords come from, use schema:DefinedTerm to descibe that keyword. This allowed variability makes parsing metadata hard; recommend using DefinedTerm for all keywords if any of them are from a known vocabulary, otherwise an array of strings.",
@@ -4952,7 +4969,8 @@
             ]
           }
         ]
-      }
+      },
+      "title": "Keywords"
     },
     "schema:creator": {
       "description": "author or orginator of intellectual content of dataset. Uset the JSON-LD @list construct to preserve author order. Use contributor with the Role property to specify other roles related to creation or stewardship of the resource.",
@@ -4986,7 +5004,8 @@
             ]
           }
         }
-      }
+      },
+      "title": "Authors"
     },
     "schema:contributor": {
       "description": "other parties who played a role in production of dataset",
@@ -5612,7 +5631,8 @@
             ]
           }
         ]
-      }
+      },
+      "title": "Contributors"
     },
     "schema:publisher": {
       "description": "Party who made the dataset publicly available",
@@ -5638,7 +5658,8 @@
         {
           "$ref": "#/$defs/Organization"
         }
-      ]
+      ],
+      "title": "Publisher"
     },
     "schema:provider": {
       "description": "Party who maintains the distribution options for the dataset. If there are multiple distributions from different providers, use the provider property on distribution/DataDownload",
@@ -5667,7 +5688,8 @@
             "$ref": "#/$defs/Organization"
           }
         ]
-      }
+      },
+      "title": "Provider"
     },
     "schema:funding": {
       "type": "array",
@@ -5747,7 +5769,8 @@
             ]
           }
         ]
-      }
+      },
+      "title": "Funding Source"
     },
     "prov:wasGeneratedBy": {
       "type": "array",
@@ -10616,6 +10639,7 @@
                       "then": {
                         "properties": {
                           "ada:tappDefinition": {
+                            "title": "TAPP Definition",
                             "description": "The TAPP definition this analysis followed: either a reference to a TAPP definition node defined elsewhere, or the plan inline.",
                             "anyOf": [
                               {
@@ -12614,7 +12638,8 @@
                 }
               },
               "schema:location": {
-                "$ref": "#/$defs/Laboratory"
+                "$ref": "#/$defs/Laboratory",
+                "title": "Laboratory"
               },
               "schema:object": {
                 "type": "array",
@@ -12841,7 +12866,7 @@
                       }
                     },
                     "ada:spatialRegistration": {
-                      "title": "Spatial Registration Type",
+                      "title": "Spatial Registration",
                       "description": "The coordinate system defined ON the sample -- typically a planar thin section -- that image pixel coordinates are registered to. Distinct from the ada:spatialRegistration on an image or imageMap part, which maps pixel coordinates WITHIN one file: this one is the frame those are registered to, and is what lets two images of the same section be compared. Optional, and no record carries it yet.",
                       "type": "object",
                       "allOf": [
@@ -15874,7 +15899,8 @@
             ]
           }
         ]
-      }
+      },
+      "title": "Derived From"
     },
     "schema:subjectOf": {
       "type": "object",
@@ -16679,12 +16705,15 @@
         "schema:additionalType",
         "@type",
         "@id"
-      ]
+      ],
+      "title": "About This Record"
     },
     "schema:creativeWorkStatus": {
+      "title": "Status",
       "type": "string"
     },
     "schema:measurementTechnique": {
+      "title": "Measurement Technique",
       "type": "array",
       "items": {
         "type": "object",
@@ -16710,6 +16739,7 @@
       }
     },
     "schema:variableMeasured": {
+      "title": "Measured Variables",
       "description": "Variable definitions. Extends cdifInstanceVariable (from cdifDataDescription) with additional generic properties. Requires a description with minLength 3.",
       "type": "array",
       "items": {
@@ -16850,6 +16880,7 @@
       }
     },
     "schema:spatialCoverage": {
+      "title": "Spatial Coverage",
       "description": "Geographic extent of resource content.",
       "type": "array",
       "items": {
@@ -17082,6 +17113,7 @@
       }
     },
     "schema:temporalCoverage": {
+      "title": "Temporal Coverage",
       "description": "Temporal extent of resource content.",
       "type": "array",
       "items": {
@@ -17286,6 +17318,7 @@
       }
     },
     "dqv:hasQualityMeasurement": {
+      "title": "Quality Measurements",
       "description": "Quality measurements reported to assess the resource.",
       "type": "array",
       "items": {
@@ -17350,6 +17383,7 @@
       }
     },
     "schema:additionalProperty": {
+      "title": "Additional Properties",
       "description": "PropertyValue entries describing the DELIVERED DATA rather than the analysis that produced it (extent, dimensions, ...). Distinct from the per-analysis prov:wasGeneratedBy.schema:additionalProperty. Technique profiles constrain these.",
       "type": "array",
       "items": {

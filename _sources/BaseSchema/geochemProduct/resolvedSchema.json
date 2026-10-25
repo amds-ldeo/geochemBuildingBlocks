@@ -12352,6 +12352,7 @@
       "type": "object",
       "properties": {
         "@type": {
+          "title": "Record Type",
           "type": "array",
           "items": {
             "type": "string",
@@ -12362,6 +12363,7 @@
           }
         },
         "schema:license": {
+          "title": "License",
           "description": "Legal statement of conditions for use and access",
           "type": "array",
           "minItems": 0,
@@ -12400,6 +12402,7 @@
           }
         },
         "schema:relatedLink": {
+          "title": "Related Links",
           "type": "array",
           "description": "Links to related resources at the product level",
           "items": {
@@ -12449,9 +12452,11 @@
           }
         },
         "schema:creativeWorkStatus": {
+          "title": "Status",
           "type": "string"
         },
         "schema:measurementTechnique": {
+          "title": "Measurement Technique",
           "type": "array",
           "items": {
             "type": "object",
@@ -12477,6 +12482,7 @@
           }
         },
         "prov:wasGeneratedBy": {
+          "title": "Analysis Events",
           "description": "Analysis events. Extends cdifProvActivity (from cdifProvenance) with the generic geochem analysis-event surface: the instruments, computational tools and reagents actually used; the laboratory; the samples analysed; and the session identifier and timing.",
           "type": "array",
           "items": {
@@ -12880,6 +12886,7 @@
                       "then": {
                         "properties": {
                           "ada:tappDefinition": {
+                            "title": "TAPP Definition",
                             "description": "The TAPP definition this analysis followed: either a reference to a TAPP definition node defined elsewhere, or the plan inline.",
                             "anyOf": [
                               {
@@ -16747,7 +16754,7 @@
                 }
               },
               "schema:location": {
-                "title": "ADA Analysis Laboratory",
+                "title": "Laboratory",
                 "description": "ADA laboratory or facility building block. Extends the core CDIF spatialExtent (schema:Place) with NeXus NXsource classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.",
                 "allOf": [
                   {
@@ -17405,7 +17412,7 @@
                       }
                     },
                     "ada:spatialRegistration": {
-                      "title": "Spatial Registration Type",
+                      "title": "Spatial Registration",
                       "description": "The coordinate system defined ON the sample -- typically a planar thin section -- that image pixel coordinates are registered to. Distinct from the ada:spatialRegistration on an image or imageMap part, which maps pixel coordinates WITHIN one file: this one is the frame those are registered to, and is what lets two images of the same section be compared. Optional, and no record carries it yet.",
                       "type": "object",
                       "allOf": [
@@ -17539,6 +17546,7 @@
           }
         },
         "schema:variableMeasured": {
+          "title": "Measured Variables",
           "description": "Variable definitions. Extends cdifInstanceVariable (from cdifDataDescription) with additional generic properties. Requires a description with minLength 3.",
           "type": "array",
           "items": {
@@ -17679,6 +17687,7 @@
           }
         },
         "schema:spatialCoverage": {
+          "title": "Spatial Coverage",
           "description": "Geographic extent of resource content.",
           "type": "array",
           "items": {
@@ -17911,6 +17920,7 @@
           }
         },
         "schema:temporalCoverage": {
+          "title": "Temporal Coverage",
           "description": "Temporal extent of resource content.",
           "type": "array",
           "items": {
@@ -18115,6 +18125,7 @@
           }
         },
         "dqv:hasQualityMeasurement": {
+          "title": "Quality Measurements",
           "description": "Quality measurements reported to assess the resource.",
           "type": "array",
           "items": {
@@ -18179,6 +18190,7 @@
           }
         },
         "schema:additionalProperty": {
+          "title": "Additional Properties",
           "description": "PropertyValue entries describing the DELIVERED DATA rather than the analysis that produced it (extent, dimensions, ...). Distinct from the per-analysis prov:wasGeneratedBy.schema:additionalProperty. Technique profiles constrain these.",
           "type": "array",
           "items": {
@@ -18186,6 +18198,7 @@
           }
         },
         "schema:distribution": {
+          "title": "Distributions",
           "description": "Generic distribution structure. A distribution is a schema:DataDownload (or schema:WebAPI, inherited from cdifCore) that MAY carry a cdi:isStructuredBy data-structure description (for a monolithic single file that IS the dataset, or a structure shared across bundle parts), and MAY be a bundle whose schema:hasPart lists member files (typed via cdifManifest). The domain file-classification of a distribution / member (e.g. ADA ada:componentType) is added by the extending profile.",
           "type": "array",
           "items": {
@@ -20583,7 +20596,7 @@
                           "type": "string"
                         },
                         "ada:spatialRegistration": {
-                          "title": "Spatial Registration Type",
+                          "title": "Spatial Registration",
                           "description": "The affine transform from an image's pixel coordinates to a coordinate reference system defined on the sample -- origin, pixel scales, rotation and axis sense -- for spatially registered images and maps.\nMODELLED ON A WORLD FILE, the sidecar a GIS writes beside a raster (.tfw, ESRI .wld), whose six parameters are exactly an affine transform. In world-file letters:\n\n    x_crs = ada:originX + ada:pixelScaleX * col + ada:pixelRotationX * row     (C, A, B)\n    y_crs = ada:originY + ada:pixelRotationY * col + ada:pixelScaleY * row     (F, D, E)\n\nDEPARTURES FROM THE WORLD-FILE CONVENTION. Three, each of which says more rather than less -- and each of which a converter has to handle deliberately, because none is a straight copy:\n\n  1. ORIGIN CORNER IS DECLARED, NOT ASSUMED. A world file assumes C,F is the centre of the\n     upper-left pixel. Here ada:originLocation states the corner (upperLeft, upperRight,\n     lowerLeft, lowerRight, center) and ada:coordDef states what the coordinates are measured\n     from. Reading a .tfw therefore means WRITING originLocation: upperLeft explicitly; it is\n     not implied.\n\n  2. ada:pixelScaleY IS A MAGNITUDE, NOT A SIGNED VALUE. A world file conventionally makes E\n     negative to encode the y-axis flip. Here the axis sense is carried by ada:originLocation,\n     so the sign is NOT part of the scale. Importing E means taking its absolute value and\n     recording the flip as a corner; exporting means re-applying the sign. Copying E straight\n     into ada:pixelScaleY silently halves nothing and mirrors everything.\n\n  3. UNITS ARE CARRIED, WHERE A WORLD FILE HAS NONE. ada:pixelUnits and ada:coordUnits state\n     both sides of the scale. A world file is unitless and takes its units from the raster CRS,\n     so an import has to source them from elsewhere and cannot leave them absent -- which is\n     why ada:pixelUnits is in the inline required list.\n\nSCALING AND REGISTRATION ARE SEPARABLE, and $defs/Scaling below is the half that is meaningful on an UNREGISTERED image: a plain ada:image has a pixel size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement. Registration is the other half -- where the image sits on the sample, and how its axes relate to the sample's -- and only a map can assert it. The root schema here is scaling PLUS registration and is what the imageMap block references; the image block references $defs/Scaling. One property name, two shapes, so a placement path through either branch resolves.",
                           "type": "object",
                           "allOf": [
@@ -20979,6 +20992,7 @@
           }
         },
         "schema:subjectOf": {
+          "title": "About This Record",
           "properties": {
             "dcterms:conformsTo": {
               "contains": {
@@ -20995,6 +21009,66 @@
               }
             }
           }
+        },
+        "schema:name": {
+          "title": "Dataset Name"
+        },
+        "schema:description": {
+          "title": "Description"
+        },
+        "schema:identifier": {
+          "title": "Primary Identifier"
+        },
+        "schema:sameAs": {
+          "title": "Other Identifiers"
+        },
+        "schema:url": {
+          "title": "Landing Page"
+        },
+        "schema:version": {
+          "title": "Version"
+        },
+        "schema:creator": {
+          "title": "Authors"
+        },
+        "schema:contributor": {
+          "title": "Contributors"
+        },
+        "schema:publisher": {
+          "title": "Publisher"
+        },
+        "schema:provider": {
+          "title": "Provider"
+        },
+        "schema:funding": {
+          "title": "Funding Source"
+        },
+        "schema:conditionsOfAccess": {
+          "title": "Access Conditions"
+        },
+        "schema:publishingPrinciples": {
+          "title": "Publishing Principles"
+        },
+        "schema:dateModified": {
+          "title": "Date Modified"
+        },
+        "schema:datePublished": {
+          "title": "Date Published"
+        },
+        "schema:inLanguage": {
+          "title": "Language"
+        },
+        "schema:keywords": {
+          "title": "Keywords"
+        },
+        "schema:additionalType": {
+          "title": "Product Type"
+        },
+        "prov:wasDerivedFrom": {
+          "title": "Derived From"
+        },
+        "@id": {
+          "title": "Record IRI"
         }
       }
     }
