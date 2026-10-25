@@ -30,6 +30,7 @@ import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
+import property_labels as pl
 import schema_path_emitter as e
 import schema_path_example_emitter as ex
 
@@ -337,6 +338,10 @@ def build_pathdriven(tapp, write_registries=True):
     tapp_schema = e.wrap("MethodDefinition", md, required["MethodDefinition"],
                          title=b.CFG.get("title"), description=b.CFG.get("description"),
                          module_refs=mc.ref_objects(_refs, "MethodDefinition"))
+    # Procedure-side container labels. By NAME and recursive, which is safe only
+    # because each of these names means one thing wherever it appears;
+    # schema:additionalProperty is deliberately not among them.
+    pl.label_by_name(tapp_schema)
     b.write(os.path.join(b.TAPP_DIR, "schema.yaml"), b.dump_yaml(tapp_schema))
 
     # ---- detail schema: standalone Dataset overlay, PropertyValue defs inlined
@@ -355,6 +360,11 @@ def build_pathdriven(tapp, write_registries=True):
         detail.update(ds)  # type + properties (+ any node-level constraints)
         if required["Dataset"]:
             detail["required"] = required["Dataset"]
+    # Carry the record-side labels onto the dataset-root properties this overlay
+    # redefines. Without this, a complete redefinition here discards the title
+    # geochemProduct authored -- which is how schema:variableMeasured lost its
+    # label in 6 profiles and schema:additionalProperty in 5.
+    pl.label_overlay(detail)
     b.write(os.path.join(b.DETAIL_DIR, "schema.yaml"), b.dump_yaml(detail))
 
     # ---- examples: synthetic -P0 for the TAPP and the detail, built from the same schema paths

@@ -691,6 +691,48 @@ measuring the thing that mattered. The tree was reverted; nothing was committed.
 - **A passing example suite is not evidence about a generator.** 657 green examples coexisted with
   161 gutted blocks.
 
+## 14. The census reports UNCHANGED, and the change never arrived
+
+`title` appears nowhere in `constraint_census.py`. It counts the things that RESTRICT —
+`required` names, `enum` members, `const`, `pattern`, the numeric bounds. A title
+restricts nothing, so the census reports `unchanged: 257 blocks, 1,467,862 constraints`
+whether 41 labels landed or zero did.
+
+That is exactly right as evidence of non-interference, and non-interference was the
+requirement: annotations only, validation results must not change. Read as confirmation
+that the work HAPPENED, the same output is worthless.
+
+**What it cost, caught in development rather than after.** A probe added a title to
+`schema:variableMeasured` in `geochemProduct` and regenerated. The census was unchanged.
+`validate_examples` was 657/657. The counterexamples were 27/27. Two full regenerations
+were byte-identical. And the title was ABSENT from `EPMA/profile` — because
+`build_profile` redefines that property with a `type`, and `deep_merge` replaces rather
+than merges once an overlay is a complete schema. Five green gates, and the one thing the
+change existed for had not happened in the artifact a consumer reads.
+
+It was only disbelieved because the probe had been designed to be falsifiable: the title
+was a unique sentinel string, searched for by JSON path. A probe asserting "titles still
+validate" would have passed and taught nothing.
+
+**The rule.** For an ANNOTATION-only change the census answers *did I break anything?*
+and CANNOT answer *did it work?* Those are two measurements and the second one has to be
+written. Here it is a count of the annotation itself, per artifact, against a committed
+baseline: 509 -> 1,614 direct property titles across 35 blocks for the record-side pass,
+and then per property per consuming block.
+
+**And the aggregate hid the failure.** `+1,105 titles` reads as success. Per block, four
+properties were short of 34 and one — `prov:wasGeneratedBy`, the motivating example — was
+at **0 of 34**. The total rose while the thing that was asked for was entirely missing.
+Same shape as #12, and as the `adaTEM` presence ASK in #10 that looked healthy at 613 of
+870 while 257 records had no overlap at all: measure per RECORD, per BLOCK, per PROPERTY.
+Never only the total.
+
+**A corollary for anything with a consumer in another repository.** The labels are read
+by a viewer in `amds-ldeo/metadata`, and three defects in this work were found by that
+session rendering real records, not by any gate here — a reader that could not see the
+writer's new spelling, a block title leaking as a label, and a label correct in 1 of its 4
+positions. gBB has no check that can see a label as a label. Ask the consumer.
+
 ## The common thread
 
 In all of them, the failure was invisible from the outside because the signal said "success". What

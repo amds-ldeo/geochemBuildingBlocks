@@ -24,6 +24,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
+import property_labels as pl
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TPROF = os.path.join(ROOT, "_sources", "techniqueProfile", "geochemProfile")
@@ -741,6 +742,10 @@ def build(tapp):
     d = _profile_dir(tapp)
     os.makedirs(d, exist_ok=True)
     schema = _schema(tapp, cfg)
+    # prov:wasGeneratedBy is redefined above with a `type`, so deep_merge replaces
+    # the base definition and the authored title goes with it. Carrying it here is
+    # what takes that label from 0 of 34 profiles to 34.
+    pl.label_overlay(schema)
     b.write(os.path.join(d, "schema.yaml"), b.dump_yaml(schema))
     ex = _example(tapp, cfg, cts)
     mono = _example_monolithic(ex, cfg, cts)

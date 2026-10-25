@@ -41,7 +41,8 @@
                                         "type": "object"
                                     }
                                 ]
-                            }
+                            },
+                            "title": "Default Target Materials"
                         },
                         "ada:targetMaterialColumns": {
                             "type": "array",
@@ -339,12 +340,14 @@
                                     "minContains": 0,
                                     "maxContains": 1
                                 }
-                            ]
+                            ],
+                            "title": "Target Material Columns"
                         }
                     },
                     "required": [
                         "ada:defaultTargetMaterials"
-                    ]
+                    ],
+                    "title": "Target Material Template"
                 },
                 "schema:instrument": {
                     "type": "array",
@@ -1766,7 +1769,8 @@
                                     "minContains": 0,
                                     "maxContains": 1
                                 }
-                            ]
+                            ],
+                            "title": "Target Species Columns"
                         },
                         "ada:defaultTargetSpecies": {
                             "type": "array",
@@ -1782,12 +1786,14 @@
                                         "type": "object"
                                     }
                                 ]
-                            }
+                            },
+                            "title": "Default Target Species"
                         }
                     },
                     "required": [
                         "ada:defaultTargetSpecies"
-                    ]
+                    ],
+                    "title": "Target Species Template"
                 },
                 "schema:additionalProperty": {
                     "type": "array",
@@ -3359,9 +3365,11 @@
                                     "minContains": 0,
                                     "maxContains": 1
                                 }
-                            ]
+                            ],
+                            "title": "Monitored Property Columns"
                         }
-                    }
+                    },
+                    "title": "Monitored Property Template"
                 },
                 "ada:edsAcquisitionMode": {
                     "description": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, line scan (beam stepped along a transect at defined intervals), or area map / spectrum image (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared analytical mode. Record 'N/A' where the procedure has no EDS detector. 'Point' covers what the literature also calls spot or point-spectrum analysis. 'Map' and 'Spectrum image' are distinct acquisitions, not synonyms: a map may retain element intensities alone, whereas a spectrum image retains a full spectrum at every pixel and can be requantified afterwards — record which was acquired. Where more than one mode was used, join them with '; ' rather than looking for a combined member.",

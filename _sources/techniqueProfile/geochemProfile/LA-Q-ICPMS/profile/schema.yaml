@@ -38,6 +38,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: ../tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a LAQICPMS product type identifier.
       contains:
@@ -45,6 +46,7 @@ allOf:
         - Laser Ablation Inductively coupled plasma mass spectrometry
         - Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry (LAQICPMS) Processed
         - Laser Ablation Quadrupole Inductively Coupled Plasma Mass Spectrometry
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -53,3 +55,4 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaLAQICPMS
+      title: About This Record

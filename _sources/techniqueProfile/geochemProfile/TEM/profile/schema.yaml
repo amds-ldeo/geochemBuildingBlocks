@@ -38,6 +38,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: ../tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a TEM product type identifier.
       contains:
@@ -45,6 +46,7 @@ allOf:
         - Transmission Electron Microscopy
         - Scanning Transmission Electron Microscopy (STEM) Image
         - Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy (STEMEDS) Tabular
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -53,3 +55,4 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaTEM
+      title: About This Record
