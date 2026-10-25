@@ -191,6 +191,7 @@ properties:
       this branch schema.
     x-jsonld-id: https://ada.astromat.org/metadata/componentType
   ada:memberTypes:
+    title: Component Types
     description: List of the component types in the collection
     $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/stringArray/schema.yaml
     x-jsonld-id: https://ada.astromat.org/metadata/memberTypes
@@ -237,7 +238,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.collection
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-24'
+  dateOfLastChange: '2026-10-25'
 
 ```
 

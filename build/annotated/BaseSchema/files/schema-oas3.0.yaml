@@ -10,7 +10,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.stringArray
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/stringArray/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.image:
@@ -142,6 +142,7 @@ x-defs:
           that was detected and measured.
         x-jsonld-id: https://ada.astromat.org/metadata/imageType
       ada:spatialRegistration:
+        title: Pixel Scaling
         description: 'Pixel size and its units. SCALING ONLY -- the half of a spatial
           registration an unregistered image can state. A plain image has a pixel
           size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement,
@@ -234,7 +235,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.image
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.imageMap:
@@ -326,6 +327,7 @@ x-defs:
         allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/files/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension
       ada:spatialRegistration:
+        title: Spatial Registration
         x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
         allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/files/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.spatialRegistration
@@ -339,7 +341,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.imageMap
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.tabularData:
@@ -481,6 +483,7 @@ x-defs:
           type: string
           x-jsonld-id: https://ada.astromat.org/metadata/coordUnits
         ada:spatialRegistration:
+          title: Spatial Registration
           x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
           allOf:
           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/files/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.spatialRegistration
@@ -496,7 +499,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tabularData
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.structuredData:
@@ -552,7 +555,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.structuredData
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.collection:
@@ -646,6 +649,7 @@ x-defs:
           require updates to this branch schema.
         x-jsonld-id: https://ada.astromat.org/metadata/componentType
       ada:memberTypes:
+        title: Component Types
         description: List of the component types in the collection
         x-jsonld-id: https://ada.astromat.org/metadata/memberTypes
         allOf:
@@ -693,7 +697,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.collection
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/collection/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.dataCube:
@@ -766,7 +770,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.dataCube
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.document:
@@ -862,7 +866,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.document
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.supDocImage:
@@ -939,7 +943,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.supDocImage
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.otherFile:
@@ -1021,7 +1025,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.otherFile
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/otherFile/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.spatialRegistration:
@@ -1176,7 +1180,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.spatialRegistration
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifTabularData:
@@ -4685,6 +4689,7 @@ allOf:
         type: string
       x-jsonld-id: http://schema.org/encodingFormat
     ada:resultTarget:
+      title: Result Target
       x-jsonld-id: https://ada.astromat.org/metadata/resultTarget
       allOf:
       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/files/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.stringArray
@@ -4752,5 +4757,5 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.files
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-24'
+  dateOfLastChange: '2026-10-25'
 x-schema-version: https://json-schema.org/draft/2020-12/schema

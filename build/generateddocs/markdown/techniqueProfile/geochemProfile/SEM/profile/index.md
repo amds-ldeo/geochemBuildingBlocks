@@ -1198,9 +1198,9 @@ ex:adaSEM-example-001 a schema1:Dataset,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
@@ -1401,7 +1401,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-24'
+  dateOfLastChange: '2026-10-25'
 
 ```
 

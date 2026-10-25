@@ -768,6 +768,7 @@ allOf:
 - type: object
   properties:
     '@type':
+      title: Record Type
       type: array
       items:
         type: string
@@ -775,6 +776,7 @@ allOf:
         - schema:Dataset
         - schema:Product
     schema:license:
+      title: License
       description: Legal statement of conditions for use and access
       type: array
       minItems: 0
@@ -784,6 +786,7 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
       x-jsonld-id: http://schema.org/license
     schema:relatedLink:
+      title: Related Links
       type: array
       description: Links to related resources at the product level
       items:
@@ -823,9 +826,11 @@ allOf:
             x-jsonld-id: http://schema.org/target
       x-jsonld-id: http://schema.org/relatedLink
     schema:creativeWorkStatus:
+      title: Status
       type: string
       x-jsonld-id: http://schema.org/creativeWorkStatus
     schema:measurementTechnique:
+      title: Measurement Technique
       type: array
       items:
         type: object
@@ -846,6 +851,7 @@ allOf:
             x-jsonld-id: http://schema.org/identifier
       x-jsonld-id: http://schema.org/measurementTechnique
     prov:wasGeneratedBy:
+      title: Analysis Events
       description: 'Analysis events. Extends cdifProvActivity (from cdifProvenance)
         with the generic geochem analysis-event surface: the instruments, computational
         tools and reagents actually used; the laboratory; the samples analysed; and
@@ -938,6 +944,7 @@ allOf:
                 then:
                   properties:
                     ada:tappDefinition:
+                      title: TAPP Definition
                       description: 'The TAPP definition this analysis followed: either
                         a reference to a TAPP definition node defined elsewhere, or
                         the plan inline.'
@@ -967,6 +974,7 @@ allOf:
                   - ada:tappDefinition
             x-jsonld-id: http://www.w3.org/ns/prov#used
           schema:location:
+            title: Laboratory
             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
             x-jsonld-id: http://schema.org/location
           schema:object:
@@ -1007,6 +1015,7 @@ allOf:
                     $ref: '#/$defs/PropertyValueEntry'
                   x-jsonld-id: http://schema.org/additionalProperty
                 ada:spatialRegistration:
+                  title: Spatial Registration
                   description: 'The coordinate system defined ON the sample -- typically
                     a planar thin section -- that image pixel coordinates are registered
                     to. Distinct from the ada:spatialRegistration on an image or imageMap
@@ -1090,6 +1099,7 @@ allOf:
         - prov:used
       x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
     schema:variableMeasured:
+      title: Measured Variables
       description: Variable definitions. Extends cdifInstanceVariable (from cdifDataDescription)
         with additional generic properties. Requires a description with minLength
         3.
@@ -1193,23 +1203,27 @@ allOf:
             x-jsonld-id: http://schema.org/url
       x-jsonld-id: http://schema.org/variableMeasured
     schema:spatialCoverage:
+      title: Spatial Coverage
       description: Geographic extent of resource content.
       type: array
       items:
         $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml
       x-jsonld-id: http://schema.org/spatialCoverage
     schema:temporalCoverage:
+      title: Temporal Coverage
       description: Temporal extent of resource content.
       type: array
       items:
         $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/temporalExtent/schema.yaml
       x-jsonld-id: http://schema.org/temporalCoverage
     dqv:hasQualityMeasurement:
+      title: Quality Measurements
       description: Quality measurements reported to assess the resource.
       type: array
       items:
         $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml
     schema:additionalProperty:
+      title: Additional Properties
       description: PropertyValue entries describing the DELIVERED DATA rather than
         the analysis that produced it (extent, dimensions, ...). Distinct from the
         per-analysis prov:wasGeneratedBy.schema:additionalProperty. Technique profiles
@@ -1219,6 +1233,7 @@ allOf:
         $ref: '#/$defs/PropertyValueEntry'
       x-jsonld-id: http://schema.org/additionalProperty
     schema:distribution:
+      title: Distributions
       description: Generic distribution structure. A distribution is a schema:DataDownload
         (or schema:WebAPI, inherited from cdifCore) that MAY carry a cdi:isStructuredBy
         data-structure description (for a monolithic single file that IS the dataset,
@@ -1265,6 +1280,7 @@ allOf:
             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml
       x-jsonld-id: http://schema.org/distribution
     schema:subjectOf:
+      title: About This Record
       properties:
         dcterms:conformsTo:
           contains:
@@ -1277,6 +1293,65 @@ allOf:
                 const: https://w3id.org/geochem/metadata/profiles/geochemProduct
           x-jsonld-id: http://purl.org/dc/terms/conformsTo
       x-jsonld-id: http://schema.org/subjectOf
+    schema:name:
+      title: Dataset Name
+      x-jsonld-id: http://schema.org/name
+    schema:description:
+      title: Description
+      x-jsonld-id: http://schema.org/description
+    schema:identifier:
+      title: Primary Identifier
+      x-jsonld-id: http://schema.org/identifier
+    schema:sameAs:
+      title: Other Identifiers
+      x-jsonld-id: http://schema.org/sameAs
+    schema:url:
+      title: Landing Page
+      x-jsonld-id: http://schema.org/url
+    schema:version:
+      title: Version
+      x-jsonld-id: http://schema.org/version
+    schema:creator:
+      title: Authors
+      x-jsonld-id: http://schema.org/creator
+    schema:contributor:
+      title: Contributors
+      x-jsonld-id: http://schema.org/contributor
+    schema:publisher:
+      title: Publisher
+      x-jsonld-id: http://schema.org/publisher
+    schema:provider:
+      title: Provider
+      x-jsonld-id: http://schema.org/provider
+    schema:funding:
+      title: Funding Source
+      x-jsonld-id: http://schema.org/funding
+    schema:conditionsOfAccess:
+      title: Access Conditions
+      x-jsonld-id: http://schema.org/conditionsOfAccess
+    schema:publishingPrinciples:
+      title: Publishing Principles
+      x-jsonld-id: http://schema.org/publishingPrinciples
+    schema:dateModified:
+      title: Date Modified
+      x-jsonld-id: http://schema.org/dateModified
+    schema:datePublished:
+      title: Date Published
+      x-jsonld-id: http://schema.org/datePublished
+    schema:inLanguage:
+      title: Language
+      x-jsonld-id: http://schema.org/inLanguage
+    schema:keywords:
+      title: Keywords
+      x-jsonld-id: http://schema.org/keywords
+    schema:additionalType:
+      title: Product Type
+      x-jsonld-id: http://schema.org/additionalType
+    prov:wasDerivedFrom:
+      title: Derived From
+      x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom
+    '@id':
+      title: Record IRI
 $defs:
   universalComponentType:
     description: 'A componentType value drawn from the shared componentType vocabulary
@@ -1496,7 +1571,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.geochemProduct
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-24'
+  dateOfLastChange: '2026-10-25'
 
 ```
 

@@ -209,6 +209,7 @@ properties:
       that was detected and measured.
     x-jsonld-id: https://ada.astromat.org/metadata/imageType
   ada:spatialRegistration:
+    title: Pixel Scaling
     description: 'Pixel size and its units. SCALING ONLY -- the half of a spatial
       registration an unregistered image can state. A plain image has a pixel size,
       and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement, but an image
@@ -295,7 +296,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.image
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-24'
+  dateOfLastChange: '2026-10-25'
 
 ```
 
