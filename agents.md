@@ -276,7 +276,7 @@ Lives at `_sources/BaseSchema/tappDefinition/`. Was previously `geochemPropertie
 > that is the only place a JSON Schema conditional can read it, because a record references its
 > procedure as a bare `{@id, @type}`. It stays OPTIONAL on the dataset side, which the matrix
 > gives for free (`require = (A == "Basic")` and the Analysis tier is `Read-Only`). Nothing keys
-> off it yet and no ADA record carries a mode — read the analytical-mode section of `CLAUDE.md`
+> off it yet and no ADA record carries a mode — read `docs/ANALYTICAL_MODE.md`
 > before writing a mode-keyed conditional.
 >
 > **A related defect in this matrix's implementation is real and unfixed.** A path ending in a

@@ -105,6 +105,17 @@ artifact.
 | [upstream-requests.md](upstream-requests.md) | table problems that belong to `amds-ldeo/tapp`, not here |
 | `TierImplementationPatterns.xlsx` | the canonical Protocol × Analysis tier matrix |
 
+Moved out of `CLAUDE.md` on 2026-10-25. These record measurements, decisions and history; `CLAUDE.md` keeps a short summary of each and says when to read it:
+[VALIDATION_GATES.md](VALIDATION_GATES.md),
+[CI.md](CI.md),
+[LEGACY_PROFILES_AND_CIDS.md](LEGACY_PROFILES_AND_CIDS.md),
+[DETAIL_BLOCK_PLACEMENT.md](DETAIL_BLOCK_PLACEMENT.md),
+[ANALYTICAL_MODE.md](ANALYTICAL_MODE.md),
+[COMPONENTTYPE_VARIANTS.md](COMPONENTTYPE_VARIANTS.md),
+[CONFORMANCE_SIDECARS.md](CONFORMANCE_SIDECARS.md),
+[COLLECTOR.md](COLLECTOR.md),
+[SHARED_CHECKOUT.md](SHARED_CHECKOUT.md).
+
 ## Subdirectories
 
 - **`modules/`** — sidecars for the composition modules. Same format; see

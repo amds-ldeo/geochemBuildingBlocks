@@ -401,7 +401,7 @@ their author intended.
 
 Until then the interim answer is the nil token (`http://www.opengis.net/def/nil/OGC/0/unknown`),
 which is literally true on these numbers: ADA holds no record of a dead time that does not exist,
-only of one nobody sent. See the analytical-mode section of `CLAUDE.md`.
+only of one nobody sent. See `docs/ANALYTICAL_MODE.md`.
 
 Three anchors were measured and rejected, so they need not be retried: instrument components
 (0 of 7,447 records carry any `schema:hasPart` on an instrument), instrument `schema:additionalType`

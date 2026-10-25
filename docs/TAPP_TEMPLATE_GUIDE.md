@@ -144,8 +144,8 @@ analyteColumn: <name>   dataType: <type>   readOnly: <true|false>   enum: {…}
   **optional**: `require = (A == "Basic")` on a `$Dataset` path and the Analysis tier is
   `Read-Only`.
 - **Nothing yet keys off either one.** The per-field mode flags are not consumed by any generator,
-  and no ADA record carries a mode. Before writing a mode-keyed conditional, read the
-  analytical-mode section of `CLAUDE.md` — in particular that it must be written in POSITIVE
+  and no ADA record carries a mode. Before writing a mode-keyed conditional, read
+  `docs/ANALYTICAL_MODE.md` — in particular that it must be written in POSITIVE
   polarity (require ON the matching mode, never excuse on the non-matching one) so an absent mode
   yields no requirement, and that 264 records have mixed modes within one distribution, which makes
   a dataset-root conditional insufficient for them.

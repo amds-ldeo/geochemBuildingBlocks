@@ -283,7 +283,7 @@ to that mode. Mode sets are per-TAPP, 0–11 wide; Solution Q/SF/MC have none. E
 > `ada:analyticalMode`, **0** of 111,963 `record_subjects` carry any key containing "mode", and
 > **0 of 436** EPMA records carry an EDS signal in `componentType`. ADA records no acquisition mode
 > and no detector, so a mode would have to be derived and for EPMA there is nothing to derive it
-> from. See the analytical-mode section of `CLAUDE.md` for the full measurement, the three dead
+> from. See `docs/ANALYTICAL_MODE.md` for the full measurement, the three dead
 > anchors, and the polarity rule to use if a mode is ever emitted.
 >
 > **Only 14 of 61 techniques have mode columns at all.** For the other 47 the `Analytical Mode`
