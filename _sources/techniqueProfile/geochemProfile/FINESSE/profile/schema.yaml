@@ -38,12 +38,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: ../tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a FINESSE product type identifier.
       contains:
         enum:
         - Stepped Heating Carbon and Nitrogen Isotopic Compositions
         - Elemental Analyzer Stepped Heating C N Isotope (FINESSE)
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -52,3 +54,4 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaFINESSE
+      title: About This Record

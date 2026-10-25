@@ -38,12 +38,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: ../tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a VNMIR product type identifier.
       contains:
         enum:
         - Visible, near-, and mid-infrared spectroscopy
         - Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Point
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -52,3 +54,4 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaVNMIR
+      title: About This Record

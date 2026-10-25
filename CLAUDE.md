@@ -10,7 +10,7 @@ This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JS
 - **`README.md`** — human-facing overview; its generation-pipeline section is a good orientation.
 - **`docs/TAPP-schema-generation-workflow.md`** — end-to-end walkthrough of workbook → validated schema.
 - **`docs/SCHEMA_PATH_GRAMMAR.md`** — the canonical grammar for the schema-path sidecars.
-- **`docs/SILENT_SUCCESS.md`** — thirteen incidents in which a check, a generator or a workflow reported success while not doing its job. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, before combining two sources in a generator, and whenever you loosen a constraint: ask which direction of change each check can see, measure coverage per RECORD rather than per aggregate, resolve by cid rather than by directory — and, for any check, run it and read `$?`.
+- **`docs/SILENT_SUCCESS.md`** — fourteen incidents in which a check, a generator or a workflow reported success while not doing its job. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, before combining two sources in a generator, and whenever you loosen a constraint: ask which direction of change each check can see, measure coverage per RECORD rather than per aggregate, resolve by cid rather than by directory — and, for any check, run it and read `$?`.
 - **`docs/README.md`** — what is in `docs/`: the sidecar format, its five `Source` values, and the maintenance tools around it. Note **"sidecar" is overloaded**: in `docs/` it means the `*.schemapaths.csv` files, while `<block>/conformance.json` is the unrelated conformance sidecar — see "Conformance sidecars" below.
 - **`docs/modules/MODULE_CONSOLIDATION_STATUS.md`** — **state, not design**: how far module consolidation has got, what is decided, and what is open. Re-measure before quoting its percentage. Read it before drafting a module. Measure `tapp/`, never `registry/`: the registries are `isTypeLibrary` and per-technique by construction, so measuring them yields a true-but-meaningless 87% duplication.
 
@@ -603,6 +603,94 @@ example in the repo, and minted by no tool — so every example of both blocks f
 until #65 removed it. Do not re-add it, and do not satisfy it by writing the description twice.
 
 `files/schema.yaml`'s outer `anyOf` over base BBs intentionally has no permissive `schema:MediaObject` fallback — without it, parts whose `@type` doesn't match a specific BB will (correctly) fail validation.
+
+## Human-readable property titles — labels for form generators and the viewer
+
+`title` on a property is an ANNOTATION that form generators and the ADA metadata viewer
+show in place of the raw key: "Analysis Events" rather than `prov:wasGeneratedBy`.
+Validation never reads it, which is the whole point and also the trap — see the census
+note at the end.
+
+**Each label has exactly ONE home, and the generators READ it rather than restating it.**
+
+    record side (the dataset)    _sources/BaseSchema/geochemProduct/schema.yaml
+    procedure-side containers    _sources/BaseSchema/tappDefinition/schema.yaml
+    the plan's own eight         _sources/BaseSchema/tappDefinition/schema.yaml
+
+`tools/property_labels.py` reads both — `record_labels()` and `container_labels()` — and
+the generators call it. A label list inside a generator would be a second home for one
+fact, the shape this repo retired for `ada:procedureAuthorDescription` and is retiring
+for `ada:resultTarget` (#212).
+
+**Title Case.** Measured over the 509 property titles that predate this work:
+*Background Count Time*, *Funding Source*, *Collection Type*, *ADA Analysis Instrument*.
+A request quoting "Analysis events" in prose is not a style signal; the corpus is.
+
+**The same property takes a DIFFERENT label on the plan and record sides, deliberately:**
+
+    schema:name              Method Name        / Dataset Name
+    schema:creator           Method Author      / Authors
+    schema:variableMeasured  Reported Variables / Measured Variables
+
+Do not dedupe or canonicalise labels by property name. The position is the point.
+
+**A COMPLETE redefinition DISCARDS the base title**, because `deep_merge` replaces
+rather than merges once the overlay carries `type`, `$ref`, `oneOf`, `anyOf` or `allOf`.
+That is why `prov:wasGeneratedBy` reached **0 of 34** technique profiles while
+`schema:additionalType` — redefined beside it with no `type` — survived in all 34. Any
+generator that completely redefines a labelled property must carry the label over.
+
+**A product-level title OVERLAY CANNOT OVERRIDE, which is why there is ONE label set.**
+`resolve_schema` hoists a bare `$ref` allOf branch's properties to the root but leaves a
+literal `allOf` entry in place, so a base title lands at `/properties/<key>/title` while
+adaProduct's own lands at `/allOf/4/properties/<key>/title`. The viewer prefers a direct
+`properties` title over one found in a branch, so the BASE wins and the overlay silently
+loses. Per-product wording needs the generator route, not an overlay. Do not rebuild the
+overlay layer expecting it to win.
+
+**WHICH APPLICATION MODE a property needs depends on whether its meaning travels** (the
+ADA metadata view session, measured over 7,447 records):
+
+    meaning invariant across positions  ->  safe to label BY NAME, recursively
+    meaning varies by position          ->  must be labelled BY POSITION
+
+`schema:email` is the first kind: three populated positions — a creator's, a
+contributor's, a maintainer's — all meaning a person's email, where the parent label
+already says whose. `schema:identifier` is the second: **nine** positions holding a
+dataset DOI, a session id, an instrument code, a lab ROR, a sample IGSN, two ORCIDs, a
+technique term and a maintainer id, so one label would be wrong at eight of them. And
+`schema:name` occurs **512** times inside the detail blocks, nearly all nested, where the
+record-root label is wrong because a sample's name is not the dataset's name.
+
+**Deliberately NOT labelled. Do not "finish" these without reading why:**
+
+    schema:additionalProperty in tapp    161 nested positions, serving the procedure's
+                                         parameters, an instrument's properties and a
+                                         workflow step's. One label fits none of them.
+    schema:roleName, schema:email        CDIF's properties. gBB declares NO record-side
+                                         node to hang a title on — the only gBB mentions
+                                         are inside `modules/core`'s if/contains pinning
+                                         `const: analyst` — so these are an UPSTREAM
+                                         proposal to CDIF, not a gBB edit.
+    @context                             the viewer hides it (Stephen, 2026-10-25).
+
+**A label must NEVER equal any block's own top-level `title`.** The viewer treats such a
+title as a type name and drops it, and it is right to: after resolution an inlined block
+sits AT the property node, so only the VALUE distinguishes an authored label from an
+inherited type name. 283 block titles across `_sources` + `vendor/remote`;
+`property_labels.check_label_collisions()` asserts it rather than leaving it to a
+reviewer. 16 of the 18 BaseSchema block titles would read as type or spec names at a
+property position — *Files Type*, *String Array Type*, and one carrying a VERSION.
+
+**And do not name an identifier SCHEME a value might not use** — "Person Identifier" not
+"ORCID", "Laboratory Identifier" not "Laboratory ROR" — or the label asserts something the
+data can contradict.
+
+**`constraint_census.py` CANNOT SEE A TITLE.** It counts what RESTRICTS: `required`
+names, `enum` members, `const`, `pattern`, numeric bounds. So an unchanged census is
+good evidence these change no validation, and is structurally unable to show a title
+ARRIVED. Arrival needs its own count, per artifact and per property, against a committed
+baseline — read `docs/SILENT_SUCCESS.md` #14 before trusting a green gate here.
 
 ## Multi-repo schema propagation
 

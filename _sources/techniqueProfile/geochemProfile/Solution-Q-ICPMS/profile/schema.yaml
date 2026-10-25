@@ -38,12 +38,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: ../tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SOLUTIONQICPMS product type identifier.
       contains:
         enum:
         - Quadrupole Inductively Coupled Plasma Mass Spectrometry (QICPMS) Processed
         - Quadrupole Inductively Coupled Plasma Mass Spectrometry
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -52,3 +54,4 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSolutionQICPMS
+      title: About This Record

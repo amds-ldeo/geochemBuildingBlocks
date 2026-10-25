@@ -196,6 +196,7 @@ and provisional; the library's modules are Ruolin's to author (see
 |------|---------|
 | `generate_profiles.py` | Generate technique profile building blocks from config data. Run with `--list` to see all profiles, or pass a profile name to regenerate one. |
 | `regenerate_schema_json.py` | Sync `*Schema.json` from `schema.yaml` sources. Use `--dry-run` to preview. |
+| `property_labels.py` | Human-readable `title` labels. `record_labels()` reads them from geochemProduct and `container_labels()` from tappDefinition — the blocks that DEFINE those properties, so each label has one home and no generator restates it. `label_overlay()` applies them to dataset-root properties and is deliberately NOT recursive; `label_by_name()` applies `CONTAINER_KEYS` at any depth, which is safe only for names whose meaning does not change with position. `check_label_collisions()` refuses a label equal to any block's own top-level title, which the viewer would drop as a type name. Called by `build_profile` and `build_pathdriven`: a generator that COMPLETELY redefines a labelled property discards the base title and must carry it over. |
 | `resolve_schema.py` | Resolve all `$ref` into a structured `resolvedSchema.json` (`$defs` + internal `$ref`, recursion-safe, ~88–90% smaller). The old fully-inlined output and separate `*StructuredSchema.json` files are gone; `--structured` is now a no-op. Supports `--all`, `--flatten-allof`. Canonical copy from metadataBuildingBlocks. |
 
 > **Former blocker, lifted 2026-08-19: `resolve_schema.py --all` runs clean again.**

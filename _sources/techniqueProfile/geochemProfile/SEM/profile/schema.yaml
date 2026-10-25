@@ -38,6 +38,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: ../tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SEM product type identifier.
       contains:
@@ -45,6 +46,7 @@ allOf:
         - Scanning Electron Microscopy (SEM) Image
         - Scanning electron microscopy
         - Focused ion beam-scanning electron microscopy
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -53,3 +55,4 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSEM
+      title: About This Record
