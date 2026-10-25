@@ -6181,6 +6181,7 @@ allOf:
         required:
         - ada:edsDeadTime
         - ada:proceduralBlankLevel
+      title: Analysis Events
     dqv:hasQualityMeasurement:
       type: array
       items:
@@ -6250,6 +6251,7 @@ allOf:
               const: EBSD Mean Angular Deviation
           required:
           - dqv:isMeasurementOf
+      title: Quality Measurements
     ada:mapDimensions:
       description: Number of pixels in the EDS map in the X and Y directions. Based
         on the area of interest and selected pixel size.
@@ -6325,6 +6327,7 @@ allOf:
           - schema:unitText
         minContains: 0
         maxContains: 1
+      title: Additional Properties
     ada:voxelSize:
       description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres
         (X-Y pixel size from SEM image calibration; Z from slice thickness), and the
@@ -6408,6 +6411,7 @@ allOf:
           - schema:value
         minContains: 0
         maxContains: 1
+      title: Measured Variables
   required:
   - ada:mapDimensions
   - ada:voxelSize

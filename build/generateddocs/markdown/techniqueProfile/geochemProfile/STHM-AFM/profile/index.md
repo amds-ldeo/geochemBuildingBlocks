@@ -1219,12 +1219,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STHM-AFM/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a STHMAFM product type identifier.
       contains:
         enum:
         - Scanning Thermal Microscopy with AFM
         - Scanning Thermal Microscopy with AFM (STHMAFM)
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1233,6 +1235,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSTHMAFM
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.STHM-AFM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

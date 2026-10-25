@@ -2105,6 +2105,7 @@ properties:
       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/MethodParameterValue
     x-jsonld-id: http://schema.org/additionalProperty
   ada:targetMaterialTemplate:
+    title: Target Material Template
     description: 'Template for per-target-material parameters, a target material being
       a material type this procedure is designed to analyse (Silicate mineral, Silicate
       glass, Oxide, Sulfide, Carbonate, Phosphate, Metal or alloy). Declares the target-material
@@ -2123,6 +2124,7 @@ properties:
     type: object
     properties:
       ada:targetMaterialColumns:
+        title: Target Material Columns
         type: array
         description: Columns of the per-target-material parameter table. Must include
           exactly one column with schema:valueName "targetMaterial" that identifies
@@ -2144,6 +2146,7 @@ properties:
           only in part loses nothing.'
         x-jsonld-id: https://ada.astromat.org/metadata/targetMaterialDeclaration
       ada:defaultTargetMaterials:
+        title: Default Target Materials
         type: array
         description: 'The material types this procedure targets by default - the ROWS
           of the per-material table, and the domain `defines: target material` enumerates.
@@ -2190,6 +2193,7 @@ properties:
     - ada:targetMaterialColumns
     x-jsonld-id: https://ada.astromat.org/metadata/targetMaterialTemplate
   ada:targetSpeciesTemplate:
+    title: Target Species Template
     description: Template for per-target-species (element-specific) parameters. Defines
       the columns that appear in the species table, each with scope, datatype, and
       constraints. Target-species rows become schema:variableMeasured entries in metadata
@@ -2197,6 +2201,7 @@ properties:
     type: object
     properties:
       ada:targetSpeciesColumns:
+        title: Target Species Columns
         type: array
         description: Columns of the per-target-species parameter table. Must include
           exactly one column with schema:valueName "targetSpecies" that identifies
@@ -2221,6 +2226,7 @@ properties:
           the declaration said more than the parsed rows record.'
         x-jsonld-id: https://ada.astromat.org/metadata/targetSpeciesDeclaration
       ada:defaultTargetSpecies:
+        title: Default Target Species
         type: array
         description: "The target species (analyzed constituents) this method targets
           by default \u2014 the ROWS of the per-species table. An entry is a bare
@@ -2277,6 +2283,7 @@ properties:
     - ada:targetSpeciesColumns
     x-jsonld-id: https://ada.astromat.org/metadata/targetSpeciesTemplate
   ada:monitoredPropertyTemplate:
+    title: Monitored Property Template
     description: Template for per-monitored-property parameters, a monitored property
       being an instrument selection position (a mass, a Faraday cup, an energy-loss
       edge, an X-ray line). Declares the monitored-property domain and the columns
@@ -2286,6 +2293,7 @@ properties:
     type: object
     properties:
       ada:monitoredPropertyColumns:
+        title: Monitored Property Columns
         type: array
         description: 'Columns of the per-monitored-property table. Must include exactly
           one column with schema:valueName "monitoredProperty" identifying the selection
@@ -2307,6 +2315,7 @@ properties:
         maxContains: 1
         x-jsonld-id: https://ada.astromat.org/metadata/monitoredPropertyColumns
       ada:defaultMonitoredProperties:
+        title: Default Monitored Properties
         type: array
         description: "The monitored properties this procedure defines by default \u2014
           the ROWS of the table. An entry is a bare string or a schema:DefinedTerm
@@ -2353,6 +2362,7 @@ properties:
     - ada:monitoredPropertyColumns
     x-jsonld-id: https://ada.astromat.org/metadata/monitoredPropertyTemplate
   ada:reportedPropertyTemplate:
+    title: Reported Property Template
     description: 'Template for the variables this procedure REPORTS and their units,
       as distinct from ada:targetSpeciesTemplate which records what was acquired.
       Declares the reported-property domain and the columns that repeat over it. It
@@ -2361,6 +2371,7 @@ properties:
     type: object
     properties:
       ada:reportedPropertyColumns:
+        title: Reported Property Columns
         type: array
         description: Columns of the reported-property table. Must include exactly
           one column with schema:valueName "reportedProperty" identifying the reported

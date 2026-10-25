@@ -1219,6 +1219,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/S-XRF/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SXRF product type identifier.
       contains:
@@ -1228,6 +1229,7 @@ allOf:
         - Synchrotron X-ray fluorescence spectrometry
         - Synchrotron X-Ray Fluorescence Analysis
         - SYNCHXRF
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1236,6 +1238,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSXRF
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.S-XRF.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

@@ -1391,10 +1391,10 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: oxideProduction" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: peakFlatness" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1410,8 +1410,8 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:laMcicpmsUPbTAPP-P0 ],
-                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
+                [ ada:tappDefinition ex:laMcicpmsUPbTAPP-P0 ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "Spot" ;
     ada:reportedDateType "Weighted mean 206Pb/238U" ;
@@ -1572,6 +1572,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS-UPb/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a LAMCICPMSUPB product type identifier.
       contains:
@@ -1580,6 +1581,7 @@ allOf:
         - Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed
         - Laser Ablation Inductively coupled plasma mass spectrometry
         - Laser Ablation Inductively Coupled Plasma Mass Spectrometry
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1588,6 +1590,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaLAMCICPMSUPb
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

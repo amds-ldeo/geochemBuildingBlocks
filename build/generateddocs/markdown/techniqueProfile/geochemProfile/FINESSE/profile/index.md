@@ -1079,8 +1079,8 @@ ex:adaFINESSE-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:finesseTAPP-P0 ],
-                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
+                [ ada:tappDefinition ex:finesseTAPP-P0 ] ] ;
     ada:analyticalMode "Point spectrum" ;
     ada:submissionType "BundleDelivery" .
 
@@ -1219,12 +1219,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/FINESSE/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a FINESSE product type identifier.
       contains:
         enum:
         - Stepped Heating Carbon and Nitrogen Isotopic Compositions
         - Elemental Analyzer Stepped Heating C N Isotope (FINESSE)
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1233,6 +1235,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaFINESSE
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.FINESSE.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

@@ -4413,6 +4413,7 @@ allOf:
             - type: string
         required:
         - ada:deadTime
+      title: Analysis Events
     schema:variableMeasured:
       type: array
       items:
@@ -4458,6 +4459,7 @@ allOf:
               const: EELS Detection Limit
           required:
           - schema:name
+      title: Measured Variables
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

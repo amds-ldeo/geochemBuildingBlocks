@@ -3691,6 +3691,7 @@ allOf:
                         const: Data processing
                     required:
                     - schema:name
+      title: Analysis Events
     schema:distribution:
       type: array
       items:
@@ -3716,6 +3717,7 @@ allOf:
             minItems: 1
         required:
         - schema:encodingFormat
+      title: Distributions
     schema:additionalProperty:
       type: array
       items:
@@ -3949,6 +3951,7 @@ allOf:
           - schema:value
         minContains: 0
         maxContains: 1
+      title: Additional Properties
     dqv:hasQualityMeasurement:
       type: array
       items:
@@ -4075,6 +4078,7 @@ allOf:
                 - type: array
                   items:
                     type: string
+      title: Quality Measurements
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

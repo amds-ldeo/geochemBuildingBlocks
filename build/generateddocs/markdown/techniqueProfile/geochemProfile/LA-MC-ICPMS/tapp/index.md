@@ -1439,16 +1439,16 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished thin section (two-volume cell)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (two-volume cell)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -2022,6 +2022,7 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Target Species
         ada:targetSpeciesColumns:
           type: array
           items:
@@ -2310,8 +2311,10 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
+          title: Target Species Columns
       required:
       - ada:defaultTargetSpecies
+      title: Target Species Template
     ada:analyticalAccuracy:
       description: Offset between measured and accepted values for secondary reference
         materials, and the method used to assess it. Specify the reference material
@@ -3357,8 +3360,10 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Monitored Properties
       required:
       - ada:defaultMonitoredProperties
+      title: Monitored Property Template
     ada:targetMaterialTemplate:
       type: object
       properties:
@@ -3445,6 +3450,7 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
+          title: Target Material Columns
         ada:defaultTargetMaterials:
           type: array
           items:
@@ -3452,8 +3458,10 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Target Materials
       required:
       - ada:defaultTargetMaterials
+      title: Target Material Template
     ada:withinSessionPrecision:
       description: Precision of repeated measurements within a single analytical session
         and the method used to assess it. Report both the assessment method and the

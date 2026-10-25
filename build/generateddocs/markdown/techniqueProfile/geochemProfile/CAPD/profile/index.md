@@ -1219,12 +1219,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/CAPD/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a CAPD product type identifier.
       contains:
         enum:
         - Capacitance Dilatometry
         - Capacitance Dilatometry (CAPD)
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1233,6 +1235,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaCAPD
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.CAPD.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

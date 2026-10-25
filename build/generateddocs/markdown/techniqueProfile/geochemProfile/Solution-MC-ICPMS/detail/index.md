@@ -3675,6 +3675,7 @@ allOf:
         required:
         - ada:deltaOrEpsilonValueReferenceStandard
         - ada:proceduralBlankLevel
+      title: Analysis Events
     schema:variableMeasured:
       type: array
       items:
@@ -3750,6 +3751,7 @@ allOf:
           - schema:value
         minContains: 0
         maxContains: 1
+      title: Measured Variables
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

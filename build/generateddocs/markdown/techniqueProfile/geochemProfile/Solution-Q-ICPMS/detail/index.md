@@ -1721,6 +1721,7 @@ allOf:
             type: string
         required:
         - ada:proceduralBlankLevel
+      title: Analysis Events
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-Q-ICPMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

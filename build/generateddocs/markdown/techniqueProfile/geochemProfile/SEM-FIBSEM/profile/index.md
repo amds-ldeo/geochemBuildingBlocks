@@ -1049,8 +1049,8 @@ ex:adaSEMFIBSEM-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                [ ada:tappDefinition ex:semFibsemTAPP-P0 ] ] ;
+            prov:used [ ada:tappDefinition ex:semFibsemTAPP-P0 ],
+                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:submissionType "BundleDelivery" ;
     ada:voxelSize "no value available: voxelSizeAndImageStackDimensions" .
@@ -1189,12 +1189,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SEMFIBSEM product type identifier.
       contains:
         enum:
         - Focused ion beam-scanning electron microscopy
         - Scanning electron microscopy
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1203,6 +1205,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSEMFIBSEM
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

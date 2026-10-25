@@ -1991,6 +1991,7 @@ allOf:
         required:
         - ada:deadTime
         - ada:proceduralBlankLevel
+      title: Analysis Events
     ada:mapDimensions:
       description: Number of pixels in the EDS map in the X and Y directions. Based
         on the area of interest and selected pixel size.
@@ -2066,6 +2067,7 @@ allOf:
           - schema:unitText
         minContains: 0
         maxContains: 1
+      title: Additional Properties
     schema:variableMeasured:
       type: array
       items:
@@ -2139,6 +2141,7 @@ allOf:
           - schema:value
         minContains: 0
         maxContains: 1
+      title: Measured Variables
   required:
   - ada:mapDimensions
 x-bblocks-metadata:
