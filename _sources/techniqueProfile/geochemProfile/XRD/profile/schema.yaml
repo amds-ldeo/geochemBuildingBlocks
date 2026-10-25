@@ -38,12 +38,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: ../tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a XRD product type identifier.
       contains:
         enum:
         - X-ray diffraction
         - X-ray Diffraction (XRD) Tabular
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -52,3 +54,4 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaXRD
+      title: About This Record

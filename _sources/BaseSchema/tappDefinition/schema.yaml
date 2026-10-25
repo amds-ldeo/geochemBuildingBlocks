@@ -260,6 +260,7 @@ properties:
 
 
   'ada:targetMaterialTemplate':
+    title: Target Material Template
     description: >-
       Template for per-target-material parameters, a target material being a material type this
       procedure is designed to analyse (Silicate mineral, Silicate glass, Oxide, Sulfide,
@@ -278,6 +279,7 @@ properties:
     type: object
     properties:
       'ada:targetMaterialColumns':
+        title: Target Material Columns
         type: array
         description: >-
           Columns of the per-target-material parameter table. Must include exactly one column with
@@ -297,6 +299,7 @@ properties:
           members that could be recognised; this carries the statement they were recognised FROM,
           so a cell that parses only in part loses nothing.
       'ada:defaultTargetMaterials':
+        title: Default Target Materials
         type: array
         description: >-
           The material types this procedure targets by default - the ROWS of the per-material
@@ -343,6 +346,7 @@ properties:
 
 
   'ada:targetSpeciesTemplate':
+    title: Target Species Template
     description: >-
       Template for per-target-species (element-specific) parameters. Defines the columns that appear in
       the species table, each with scope, datatype, and constraints. Target-species rows become
@@ -350,6 +354,7 @@ properties:
     type: object
     properties:
       'ada:targetSpeciesColumns':
+        title: Target Species Columns
         type: array
         description: >-
           Columns of the per-target-species parameter table. Must include exactly one column with schema:valueName
@@ -372,6 +377,7 @@ properties:
           carries the statement they were recognised FROM, so a cell that parses only in part
           loses nothing. Present whenever the declaration said more than the parsed rows record.
       'ada:defaultTargetSpecies':
+        title: Default Target Species
         type: array
         description: >-
           The target species (analyzed constituents) this method targets by default — the ROWS of
@@ -430,6 +436,7 @@ properties:
     
     
   'ada:monitoredPropertyTemplate':
+    title: Monitored Property Template
     description: >-
       Template for per-monitored-property parameters, a monitored property being an instrument
       selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the
@@ -438,6 +445,7 @@ properties:
     type: object
     properties:
       'ada:monitoredPropertyColumns':
+        title: Monitored Property Columns
         type: array
         description: >-
           Columns of the per-monitored-property table. Must include exactly one column with
@@ -457,6 +465,7 @@ properties:
           $ref: '#/$defs/MonitoredPropertyIdentifierColumn'
         maxContains: 1
       'ada:defaultMonitoredProperties':
+        title: Default Monitored Properties
         type: array
         description: >-
           The monitored properties this procedure defines by default — the ROWS of the table. An
@@ -504,6 +513,7 @@ properties:
 
 
   'ada:reportedPropertyTemplate':
+    title: Reported Property Template
     description: >-
       Template for the variables this procedure REPORTS and their units, as distinct from ada:targetSpeciesTemplate
       which records what was acquired. Declares the reported-property domain and the columns that repeat over
@@ -512,6 +522,7 @@ properties:
     type: object
     properties:
       'ada:reportedPropertyColumns':
+        title: Reported Property Columns
         type: array
         description: >-
           Columns of the reported-property table. Must include exactly one column with schema:valueName

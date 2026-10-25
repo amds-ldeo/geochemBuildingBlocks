@@ -47,7 +47,8 @@
                                         "type": "object"
                                     }
                                 ]
-                            }
+                            },
+                            "title": "Default Target Materials"
                         },
                         "ada:targetMaterialColumns": {
                             "type": "array",
@@ -145,12 +146,14 @@
                                     "minContains": 0,
                                     "maxContains": 1
                                 }
-                            ]
+                            ],
+                            "title": "Target Material Columns"
                         }
                     },
                     "required": [
                         "ada:defaultTargetMaterials"
-                    ]
+                    ],
+                    "title": "Target Material Template"
                 },
                 "schema:actionProcess": {
                     "type": "object",
@@ -1346,7 +1349,8 @@
                                         "type": "object"
                                     }
                                 ]
-                            }
+                            },
+                            "title": "Default Target Species"
                         },
                         "ada:targetSpeciesColumns": {
                             "type": "array",
@@ -2399,13 +2403,15 @@
                                     "maxContains": 1
                                 }
                             ],
-                            "minItems": 1
+                            "minItems": 1,
+                            "title": "Target Species Columns"
                         }
                     },
                     "required": [
                         "ada:defaultTargetSpecies",
                         "ada:targetSpeciesColumns"
-                    ]
+                    ],
+                    "title": "Target Species Template"
                 },
                 "ada:massResolutionAssignment": {
                     "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",

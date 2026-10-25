@@ -38,12 +38,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: ../tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SEMIMAGING product type identifier.
       contains:
         enum:
         - Scanning Electron Microscopy (SEM) Image
         - Scanning electron microscopy
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -52,3 +54,4 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSEMImaging
+      title: About This Record

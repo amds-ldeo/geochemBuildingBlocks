@@ -659,6 +659,7 @@ allOf:
             - type: string
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Target Species
         ada:targetSpeciesColumns:
           type: array
           items:
@@ -1042,8 +1043,10 @@ allOf:
           - contains: *id014
             minContains: 0
             maxContains: 1
+          title: Target Species Columns
       required:
       - ada:defaultTargetSpecies
+      title: Target Species Template
     ada:targetMaterialTemplate:
       type: object
       properties:
@@ -1153,6 +1156,7 @@ allOf:
           - contains: *id017
             minContains: 0
             maxContains: 1
+          title: Target Material Columns
         ada:defaultTargetMaterials:
           type: array
           items:
@@ -1160,8 +1164,10 @@ allOf:
             - type: string
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Target Materials
       required:
       - ada:defaultTargetMaterials
+      title: Target Material Template
     ada:monitoredPropertyTemplate:
       type: object
       properties:
@@ -1459,6 +1465,8 @@ allOf:
           - contains: *id033
             minContains: 0
             maxContains: 1
+          title: Monitored Property Columns
+      title: Monitored Property Template
     schema:additionalProperty:
       type: array
       items:

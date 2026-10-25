@@ -38,12 +38,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: ../tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a LABXCT product type identifier.
       contains:
         enum:
         - X-ray Computed Tomography (XCT) Image Collection
         - X-ray computed tomography
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -52,3 +54,4 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaLabXCT
+      title: About This Record

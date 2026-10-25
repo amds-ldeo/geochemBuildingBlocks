@@ -38,6 +38,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: ../tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a ICMS product type identifier.
       contains:
@@ -46,6 +47,7 @@ allOf:
         - Ion Chromatography-Mass Spectrometry (ICMS)
         - Ion Chromatography
         - Liquid Chromatography-Mass Spectrometry
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -54,3 +56,4 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaICMS
+      title: About This Record
