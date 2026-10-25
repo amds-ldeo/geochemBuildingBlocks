@@ -556,16 +556,16 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v83.csv)." ;
@@ -1813,16 +1813,16 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -3496,10 +3496,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> ;
             ada:targetSpeciesDeclaration "N — no element set is stated for the SEM-EDS spot analyses; the list 'Mg, Si, Fe, Ni, S, Na, Ca, Al' formerly here is not in the paper" ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5322,10 +5322,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford AZtec" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford AZtec" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford AZtec (Point & ID programme)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5974,10 +5974,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -9275,7 +9275,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-24'
+  dateOfLastChange: '2026-10-25'
 
 ```
 

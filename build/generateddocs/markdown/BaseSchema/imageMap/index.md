@@ -212,6 +212,7 @@ properties:
     $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml#/$defs/PixelDimension
     x-jsonld-id: http://schema.org/height
   ada:spatialRegistration:
+    title: Spatial Registration
     $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
 required:
@@ -224,7 +225,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.imageMap
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-24'
+  dateOfLastChange: '2026-10-25'
 
 ```
 

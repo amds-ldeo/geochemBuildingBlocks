@@ -128,6 +128,7 @@ x-defs:
           that was detected and measured.
         x-jsonld-id: https://ada.astromat.org/metadata/imageType
       ada:spatialRegistration:
+        title: Pixel Scaling
         description: 'Pixel size and its units. SCALING ONLY -- the half of a spatial
           registration an unregistered image can state. A plain image has a pixel
           size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement,
@@ -220,7 +221,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.image
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.spatialRegistration:
@@ -375,7 +376,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.spatialRegistration
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
 title: Image Map Type
@@ -466,6 +467,7 @@ properties:
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension
   ada:spatialRegistration:
+    title: Spatial Registration
     x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.spatialRegistration
@@ -479,5 +481,5 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.imageMap
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-24'
+  dateOfLastChange: '2026-10-25'
 x-schema-version: https://json-schema.org/draft/2020-12/schema

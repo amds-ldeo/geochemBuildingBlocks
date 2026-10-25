@@ -306,7 +306,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.adaProduct
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/adaProduct/schema.yaml
     x-schema-id: https://w3id.org/adaJSONLD/schema/3.0
     x-schema-version: https://json-schema.org/draft/2020-12/schema
@@ -343,7 +343,7 @@ x-defs:
       itemIdentifier: ogch.techniqueProfile.adaProfile.NanoSIMS.detail
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/detail/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.geochemProduct:
@@ -422,6 +422,7 @@ x-defs:
     - type: object
       properties:
         '@type':
+          title: Record Type
           type: array
           items:
             type: string
@@ -429,6 +430,7 @@ x-defs:
             - schema:Dataset
             - schema:Product
         schema:license:
+          title: License
           description: Legal statement of conditions for use and access
           type: array
           minItems: 0
@@ -438,6 +440,7 @@ x-defs:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.creativeWork
           x-jsonld-id: http://schema.org/license
         schema:relatedLink:
+          title: Related Links
           type: array
           description: Links to related resources at the product level
           items:
@@ -479,9 +482,11 @@ x-defs:
                 x-jsonld-id: http://schema.org/target
           x-jsonld-id: http://schema.org/relatedLink
         schema:creativeWorkStatus:
+          title: Status
           type: string
           x-jsonld-id: http://schema.org/creativeWorkStatus
         schema:measurementTechnique:
+          title: Measurement Technique
           type: array
           items:
             type: object
@@ -503,6 +508,7 @@ x-defs:
                 x-jsonld-id: http://schema.org/identifier
           x-jsonld-id: http://schema.org/measurementTechnique
         prov:wasGeneratedBy:
+          title: Analysis Events
           description: 'Analysis events. Extends cdifProvActivity (from cdifProvenance)
             with the generic geochem analysis-event surface: the instruments, computational
             tools and reagents actually used; the laboratory; the samples analysed;
@@ -598,6 +604,7 @@ x-defs:
                     then:
                       properties:
                         ada:tappDefinition:
+                          title: TAPP Definition
                           description: 'The TAPP definition this analysis followed:
                             either a reference to a TAPP definition node defined elsewhere,
                             or the plan inline.'
@@ -628,6 +635,7 @@ x-defs:
                       - ada:tappDefinition
                 x-jsonld-id: http://www.w3.org/ns/prov#used
               schema:location:
+                title: Laboratory
                 x-jsonld-id: http://schema.org/location
                 allOf:
                 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.laboratory
@@ -671,6 +679,7 @@ x-defs:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.geochemProduct/$defs/PropertyValueEntry
                       x-jsonld-id: http://schema.org/additionalProperty
                     ada:spatialRegistration:
+                      title: Spatial Registration
                       description: 'The coordinate system defined ON the sample --
                         typically a planar thin section -- that image pixel coordinates
                         are registered to. Distinct from the ada:spatialRegistration
@@ -756,6 +765,7 @@ x-defs:
             - prov:used
           x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
         schema:variableMeasured:
+          title: Measured Variables
           description: Variable definitions. Extends cdifInstanceVariable (from cdifDataDescription)
             with additional generic properties. Requires a description with minLength
             3.
@@ -863,23 +873,27 @@ x-defs:
                 x-jsonld-id: http://schema.org/url
           x-jsonld-id: http://schema.org/variableMeasured
         schema:spatialCoverage:
+          title: Spatial Coverage
           description: Geographic extent of resource content.
           type: array
           items:
             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent
           x-jsonld-id: http://schema.org/spatialCoverage
         schema:temporalCoverage:
+          title: Temporal Coverage
           description: Temporal extent of resource content.
           type: array
           items:
             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.temporalExtent
           x-jsonld-id: http://schema.org/temporalCoverage
         dqv:hasQualityMeasurement:
+          title: Quality Measurements
           description: Quality measurements reported to assess the resource.
           type: array
           items:
             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
         schema:additionalProperty:
+          title: Additional Properties
           description: PropertyValue entries describing the DELIVERED DATA rather
             than the analysis that produced it (extent, dimensions, ...). Distinct
             from the per-analysis prov:wasGeneratedBy.schema:additionalProperty. Technique
@@ -889,6 +903,7 @@ x-defs:
             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.geochemProduct/$defs/PropertyValueEntry
           x-jsonld-id: http://schema.org/additionalProperty
         schema:distribution:
+          title: Distributions
           description: Generic distribution structure. A distribution is a schema:DataDownload
             (or schema:WebAPI, inherited from cdifCore) that MAY carry a cdi:isStructuredBy
             data-structure description (for a monolithic single file that IS the dataset,
@@ -936,6 +951,7 @@ x-defs:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tabularData
           x-jsonld-id: http://schema.org/distribution
         schema:subjectOf:
+          title: About This Record
           properties:
             dcterms:conformsTo:
               contains:
@@ -949,6 +965,65 @@ x-defs:
                     - https://w3id.org/geochem/metadata/profiles/geochemProduct
               x-jsonld-id: http://purl.org/dc/terms/conformsTo
           x-jsonld-id: http://schema.org/subjectOf
+        schema:name:
+          title: Dataset Name
+          x-jsonld-id: http://schema.org/name
+        schema:description:
+          title: Description
+          x-jsonld-id: http://schema.org/description
+        schema:identifier:
+          title: Primary Identifier
+          x-jsonld-id: http://schema.org/identifier
+        schema:sameAs:
+          title: Other Identifiers
+          x-jsonld-id: http://schema.org/sameAs
+        schema:url:
+          title: Landing Page
+          x-jsonld-id: http://schema.org/url
+        schema:version:
+          title: Version
+          x-jsonld-id: http://schema.org/version
+        schema:creator:
+          title: Authors
+          x-jsonld-id: http://schema.org/creator
+        schema:contributor:
+          title: Contributors
+          x-jsonld-id: http://schema.org/contributor
+        schema:publisher:
+          title: Publisher
+          x-jsonld-id: http://schema.org/publisher
+        schema:provider:
+          title: Provider
+          x-jsonld-id: http://schema.org/provider
+        schema:funding:
+          title: Funding Source
+          x-jsonld-id: http://schema.org/funding
+        schema:conditionsOfAccess:
+          title: Access Conditions
+          x-jsonld-id: http://schema.org/conditionsOfAccess
+        schema:publishingPrinciples:
+          title: Publishing Principles
+          x-jsonld-id: http://schema.org/publishingPrinciples
+        schema:dateModified:
+          title: Date Modified
+          x-jsonld-id: http://schema.org/dateModified
+        schema:datePublished:
+          title: Date Published
+          x-jsonld-id: http://schema.org/datePublished
+        schema:inLanguage:
+          title: Language
+          x-jsonld-id: http://schema.org/inLanguage
+        schema:keywords:
+          title: Keywords
+          x-jsonld-id: http://schema.org/keywords
+        schema:additionalType:
+          title: Product Type
+          x-jsonld-id: http://schema.org/additionalType
+        prov:wasDerivedFrom:
+          title: Derived From
+          x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom
+        '@id':
+          title: Record IRI
     $defs:
       universalComponentType:
         description: 'A componentType value drawn from the shared componentType vocabulary
@@ -1172,7 +1247,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.geochemProduct
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
     x-schema-id: https://w3id.org/geochem/schema/geochemProduct/1.0
     x-schema-version: https://json-schema.org/draft/2020-12/schema
@@ -1266,6 +1341,7 @@ x-defs:
             type: string
           x-jsonld-id: http://schema.org/encodingFormat
         ada:resultTarget:
+          title: Result Target
           x-jsonld-id: https://ada.astromat.org/metadata/resultTarget
           allOf:
           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.stringArray
@@ -1333,7 +1409,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.files
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/files/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.stringArray:
@@ -1347,7 +1423,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.stringArray
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/stringArray/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.profiles.cdifProfile.cdifCore:
@@ -2314,7 +2390,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.creativeWork
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.tappDefinition:
@@ -3930,7 +4006,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tappDefinition
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.3'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.instrument:
@@ -4145,7 +4221,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.instrument
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.laboratory:
@@ -4185,7 +4261,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.laboratory
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.spatialRegistration:
@@ -4340,7 +4416,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.spatialRegistration
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.spatialExtent:
@@ -5408,6 +5484,7 @@ x-defs:
           type: string
           x-jsonld-id: https://ada.astromat.org/metadata/coordUnits
         ada:spatialRegistration:
+          title: Spatial Registration
           x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
           allOf:
           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.spatialRegistration
@@ -5423,7 +5500,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tabularData
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm:
@@ -5572,6 +5649,7 @@ x-defs:
           that was detected and measured.
         x-jsonld-id: https://ada.astromat.org/metadata/imageType
       ada:spatialRegistration:
+        title: Pixel Scaling
         description: 'Pixel size and its units. SCALING ONLY -- the half of a spatial
           registration an unregistered image can state. A plain image has a pixel
           size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement,
@@ -5664,7 +5742,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.image
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/image/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.imageMap:
@@ -5756,6 +5834,7 @@ x-defs:
         allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.image/$defs/PixelDimension
       ada:spatialRegistration:
+        title: Spatial Registration
         x-jsonld-id: https://ada.astromat.org/metadata/spatialRegistration
         allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/NanoSIMS/profile-ada/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.spatialRegistration
@@ -5769,7 +5848,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.imageMap
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/imageMap/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.structuredData:
@@ -5825,7 +5904,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.structuredData
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.collection:
@@ -5919,6 +5998,7 @@ x-defs:
           require updates to this branch schema.
         x-jsonld-id: https://ada.astromat.org/metadata/componentType
       ada:memberTypes:
+        title: Component Types
         description: List of the component types in the collection
         x-jsonld-id: https://ada.astromat.org/metadata/memberTypes
         allOf:
@@ -5966,7 +6046,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.collection
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/collection/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.dataCube:
@@ -6039,7 +6119,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.dataCube
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/dataCube/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.document:
@@ -6135,7 +6215,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.document
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/document/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.supDocImage:
@@ -6212,7 +6292,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.supDocImage
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/supDocImage/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.otherFile:
@@ -6294,7 +6374,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.otherFile
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-24'
+      dateOfLastChange: '2026-10-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/otherFile/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.linkRole:
@@ -11266,5 +11346,5 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.adaProfile.NanoSIMS.profile-ada
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-24'
+  dateOfLastChange: '2026-10-25'
 x-schema-version: https://json-schema.org/draft/2020-12/schema
