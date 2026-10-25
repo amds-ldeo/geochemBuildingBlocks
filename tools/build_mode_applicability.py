@@ -6,7 +6,7 @@ record. This is the contract between them, and it exists so ADA does not hard-co
 that live in Ruolin's tables.
 
 WHY A REASON AND NOT A MODE. No ADA record carries an analytical mode -- 0 of 7,447, with no source
-field anywhere in 111,963 `record_subjects` (CLAUDE.md, analytical-mode section). A mode written
+field anywhere in 111,963 `record_subjects` (docs/ANALYTICAL_MODE.md). A mode written
 into a record would therefore be a GUESS asserted as fact. Choosing between two nil reasons is a
 much weaker claim, and a wrong guess mislabels why a value is absent instead of inventing a
 measurement:

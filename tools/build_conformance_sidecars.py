@@ -59,7 +59,7 @@ Technique profiles share one `exclusiveGroup`. Members that componentType cannot
 EQUAL priority, so the engine reports a tie and declares none -- the honest answer, and what the
 reference registry does when it logs "asserting no technique profile". The LA/Solution ICP-MS
 families are permanently in that state (the Mc/Q/Sf difference is procedure-side and never
-reaches the file; see CLAUDE.md). `adaSEMFull` is the one genuine ranking: an UMBRELLA over the
+reaches the file; see docs/COMPONENTTYPE_VARIANTS.md). `adaSEMFull` is the one genuine ranking: an UMBRELLA over the
 SEM family, mirroring `schema_registry.UMBRELLA_PROFILES`, so it outranks its members.
 
 COUNTS ARE SNAPSHOTS; RULES ARE NOT
@@ -160,7 +160,7 @@ def member_group(umbrella_dir):
 #: `ada<TECH>Full`, which ZERO records cite -- so ranking TAPP first resolves records to what they
 #: already declare and migrates nothing. SEM is the other way round: TAPP = adaSEMFull (0 records)
 #: and legacy = adaSEM (2,918). Applying the rule there would route the largest technique in the
-#: corpus to a cid nothing cites. CLAUDE.md records the inversion; it needs its own decision,
+#: corpus to a cid nothing cites. docs/LEGACY_PROFILES_AND_CIDS.md records the inversion; it needs its own decision,
 #: either ranking adaSEM first or correcting the cid assignment so SEM matches these five.
 #:
 #: Note SEM already resolves to adaSEMFull regardless, because UMBRELLA gives it priority 20 --
@@ -377,8 +377,8 @@ def main():
                 # THIRD source, and for the legacy adaProfile blocks it is the RIGHT one. Their
                 # profile reaches components through `$ref: ../detail/schema.yaml` rather than an
                 # inline enum, and those detail blocks are the hasPart-ITEM kind, which pins
-                # ada:componentType -- unlike the geochemProfile detail blocks, where CLAUDE.md
-                # measured 0 of 59 constraining it. Missing this read is what made ICPOES, LAF and
+                # ada:componentType -- unlike the geochemProfile detail blocks, where
+                # docs/DETAIL_BLOCK_PLACEMENT.md measured 0 of 59 constraining it. Missing this read is what made ICPOES, LAF and
                 # PSFD look like profiles with nothing to distinguish them.
                 #
                 # NanoSIMS is the proof that the detail block is authoritative rather than merely

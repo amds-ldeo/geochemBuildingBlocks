@@ -7,7 +7,7 @@ of the files in a distribution, and which could not.
 
 Why this exists. The TAPP workbooks gate 213 field requirements on the analytical mode, and no ADA
 record carries one -- 0 of 7,447, with no source field anywhere in 111,963 `record_subjects` (see
-the analytical-mode section of CLAUDE.md). So a mode would have to be DERIVED. The only
+docs/ANALYTICAL_MODE.md). So a mode would have to be DERIVED. The only
 record-side evidence with any discriminating power is the kind of file delivered, which ADA does
 record as `ada:componentType`.
 
@@ -107,7 +107,7 @@ GEOMETRY_IN_COMPONENT = [
 
 # componentTypes that describe DELIVERY rather than measurement. They appear in nearly every
 # technique and witness nothing: a report or a log file says nothing about how the sample was
-# measured, and letting them match would manufacture evidence. CLAUDE.md records the same set as
+# measured, and letting them match would manufacture evidence. docs/COMPONENTTYPE_VARIANTS.md records the same set as
 # "live generic types ... they match everything and discriminate nothing" for profile selection.
 NON_EVIDENTIAL = re.compile(
     r"methodDescription|report|logFile|analysisLocation|contextPhotography|quickLook"
