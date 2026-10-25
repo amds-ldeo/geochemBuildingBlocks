@@ -1189,12 +1189,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SEMFIBSEM product type identifier.
       contains:
         enum:
         - Focused ion beam-scanning electron microscopy
         - Scanning electron microscopy
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1203,6 +1205,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSEMFIBSEM
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

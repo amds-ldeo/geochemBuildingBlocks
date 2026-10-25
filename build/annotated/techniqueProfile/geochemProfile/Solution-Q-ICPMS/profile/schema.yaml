@@ -44,12 +44,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SOLUTIONQICPMS product type identifier.
       contains:
         enum:
         - Quadrupole Inductively Coupled Plasma Mass Spectrometry (QICPMS) Processed
         - Quadrupole Inductively Coupled Plasma Mass Spectrometry
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -58,6 +60,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSolutionQICPMS
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-Q-ICPMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

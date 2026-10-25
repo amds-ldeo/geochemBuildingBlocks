@@ -44,12 +44,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/DSSM/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a DSSM product type identifier.
       contains:
         enum:
         - Direct Shear Strength Measurement
         - Direct Shear Strength Measurement (DSSM)
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -58,6 +60,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaDSSM
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.DSSM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

@@ -2619,6 +2619,7 @@ allOf:
         required:
         - ada:deadTime
         - ada:proceduralBlankLevel
+      title: Analysis Events
     schema:additionalProperty:
       type: array
       items:
@@ -2748,6 +2749,7 @@ allOf:
           - schema:unitText
         minContains: 0
         maxContains: 1
+      title: Additional Properties
     schema:variableMeasured:
       type: array
       items:
@@ -2821,6 +2823,7 @@ allOf:
           - schema:value
         minContains: 0
         maxContains: 1
+      title: Measured Variables
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EPMA.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

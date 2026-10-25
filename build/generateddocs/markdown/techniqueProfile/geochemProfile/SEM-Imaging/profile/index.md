@@ -1274,12 +1274,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SEMIMAGING product type identifier.
       contains:
         enum:
         - Scanning Electron Microscopy (SEM) Image
         - Scanning electron microscopy
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1288,6 +1290,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSEMImaging
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Imaging.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

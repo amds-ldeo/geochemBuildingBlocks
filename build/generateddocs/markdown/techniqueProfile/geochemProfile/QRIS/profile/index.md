@@ -1079,8 +1079,8 @@ ex:adaQRIS-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                [ ada:tappDefinition ex:qrisTAPP-P0 ] ] ;
+            prov:used [ ada:tappDefinition ex:qrisTAPP-P0 ],
+                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
     ada:analyticalMode "Reflectance imaging" ;
     ada:submissionType "BundleDelivery" .
 
@@ -1219,6 +1219,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/QRIS/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a QRIS product type identifier.
       contains:
@@ -1226,6 +1227,7 @@ allOf:
         - Quantitative Reflective Imaging System (QRIS) Calibrated
         - Quantitative Reflective Imaging System (QRIS)
         - Quantitative Reflectance Imaging System
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1234,6 +1236,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaQRIS
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.QRIS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

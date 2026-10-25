@@ -318,10 +318,12 @@
           "x-jsonld-id": "http://schema.org/additionalProperty"
         },
         "ada:targetMaterialTemplate": {
+          "title": "Target Material Template",
           "description": "Template for per-target-material parameters, a target material being a material type this procedure is designed to analyse (Silicate mineral, Silicate glass, Oxide, Sulfide, Carbonate, Phosphate, Metal or alloy). Declares the target-material domain and the columns that repeat over it.\nThe domain is declared by the TAPP's Target Material field, marked `defines: target material`; the fields keyed BY it are the electron-beam conditions (Beam Current, Beam Mode, Beam Diameter, Beam Raster Dimensions, Beam Damage Minimization), and Primary Calibration Standard Name is keyed `target material x target species`.\nTarget materials are assumed present in any sample the procedure would analyse. The binding between a particular sampling unit and the material it hit is instance data, not procedure metadata, so it is recorded as a data-table column and NOT here -- this template carries only the kinds of material expected and the values that repeat over them.",
           "type": "object",
           "properties": {
             "ada:targetMaterialColumns": {
+              "title": "Target Material Columns",
               "type": "array",
               "description": "Columns of the per-target-material parameter table. Must include exactly one column with schema:valueName \"targetMaterial\" that identifies the material named in each row.",
               "minItems": 1,
@@ -340,6 +342,7 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/targetMaterialDeclaration"
             },
             "ada:defaultTargetMaterials": {
+              "title": "Default Target Materials",
               "type": "array",
               "description": "The material types this procedure targets by default - the ROWS of the per-material table, and the domain `defines: target material` enumerates. An entry is a bare string or a schema:DefinedTerm naming the material, or a row object binding that material to per-material values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetMaterialColumns, and MUST carry the 'targetMaterial' key - the column that sibling description requires to identify the material named in each row.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every material, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between materials.",
               "items": {
@@ -392,10 +395,12 @@
           "x-jsonld-id": "https://ada.astromat.org/metadata/targetMaterialTemplate"
         },
         "ada:targetSpeciesTemplate": {
+          "title": "Target Species Template",
           "description": "Template for per-target-species (element-specific) parameters. Defines the columns that appear in the species table, each with scope, datatype, and constraints. Target-species rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
           "type": "object",
           "properties": {
             "ada:targetSpeciesColumns": {
+              "title": "Target Species Columns",
               "type": "array",
               "description": "Columns of the per-target-species parameter table. Must include exactly one column with schema:valueName \"targetSpecies\" that identifies the analyzed constituent named in each row.",
               "minItems": 1,
@@ -414,6 +419,7 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesDeclaration"
             },
             "ada:defaultTargetSpecies": {
+              "title": "Default Target Species",
               "type": "array",
               "description": "The target species (analyzed constituents) this method targets by default \u2014 the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every target species, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between target species.",
               "items": {
@@ -466,10 +472,12 @@
           "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesTemplate"
         },
         "ada:monitoredPropertyTemplate": {
+          "title": "Monitored Property Template",
           "description": "Template for per-monitored-property parameters, a monitored property being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the monitored-property domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
           "type": "object",
           "properties": {
             "ada:monitoredPropertyColumns": {
+              "title": "Monitored Property Columns",
               "type": "array",
               "description": "Columns of the per-monitored-property table. Must include exactly one column with schema:valueName \"monitoredProperty\" identifying the selection position named in each row. (\"channel\" was that name before the 2026-09 rename.)\nA 'collector' column is the optional one worth knowing about: it maps each monitored property to the collector that carries it. That mapping is procedure CONFIGURATION, not instrument hardware -- the same array can be wired differently by another procedure, and an analysis may override it -- which is why it belongs here on the method definition and not on schema:instrument. The collectors themselves are hardware and live there, in hasPart[Collector].ada:collectors; this column's values are their schema:name.",
               "minItems": 1,
@@ -483,6 +491,7 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/monitoredPropertyColumns"
             },
             "ada:defaultMonitoredProperties": {
+              "title": "Default Monitored Properties",
               "type": "array",
               "description": "The monitored properties this procedure defines by default \u2014 the ROWS of the table. An entry is a bare string or a schema:DefinedTerm naming the property, or a ROW OBJECT keyed by the schema:valueName of the columns above, which is what carries the mapping:\n\n  {\"monitoredProperty\": \"\u2078\u2074Sr\", \"targetSpecies\": \"Sr\", \"collector\": \"L2\"}\n\ntargetSpecies is OPTIONAL and its absence is meaningful, not missing data. A procedure routinely monitors masses that determine no target species -- interference monitors, gas background monitors -- and those rows are orphans by design: \u2078\u00b3Kr, \u00b9\u2076\u2077Er\u00b2\u207a and \u00b9\u2077\u00b3Yb\u00b2\u207a in the Zhang 2022 Rb-Sr procedure are monitored and corrected for, never determined.",
               "items": {
@@ -543,10 +552,12 @@
           "x-jsonld-id": "https://ada.astromat.org/metadata/monitoredPropertyTemplate"
         },
         "ada:reportedPropertyTemplate": {
+          "title": "Reported Property Template",
           "description": "Template for the variables this procedure REPORTS and their units, as distinct from ada:targetSpeciesTemplate which records what was acquired. Declares the reported-property domain and the columns that repeat over it. It also states the procedure's scope boundary: a derived quantity inside this list is in scope, anything beyond it belongs to a separate, coupled procedure.",
           "type": "object",
           "properties": {
             "ada:reportedPropertyColumns": {
+              "title": "Reported Property Columns",
               "type": "array",
               "description": "Columns of the reported-property table. Must include exactly one column with schema:valueName \"reportedProperty\" identifying the reported variable named in each row.",
               "minItems": 1,
@@ -5246,10 +5257,12 @@
           "x-jsonld-id": "http://schema.org/additionalProperty"
         },
         "ada:targetMaterialTemplate": {
+          "title": "Target Material Template",
           "description": "Template for per-target-material parameters, a target material being a material type this procedure is designed to analyse (Silicate mineral, Silicate glass, Oxide, Sulfide, Carbonate, Phosphate, Metal or alloy). Declares the target-material domain and the columns that repeat over it.\nThe domain is declared by the TAPP's Target Material field, marked `defines: target material`; the fields keyed BY it are the electron-beam conditions (Beam Current, Beam Mode, Beam Diameter, Beam Raster Dimensions, Beam Damage Minimization), and Primary Calibration Standard Name is keyed `target material x target species`.\nTarget materials are assumed present in any sample the procedure would analyse. The binding between a particular sampling unit and the material it hit is instance data, not procedure metadata, so it is recorded as a data-table column and NOT here -- this template carries only the kinds of material expected and the values that repeat over them.",
           "type": "object",
           "properties": {
             "ada:targetMaterialColumns": {
+              "title": "Target Material Columns",
               "type": "array",
               "description": "Columns of the per-target-material parameter table. Must include exactly one column with schema:valueName \"targetMaterial\" that identifies the material named in each row.",
               "minItems": 1,
@@ -5268,6 +5281,7 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/targetMaterialDeclaration"
             },
             "ada:defaultTargetMaterials": {
+              "title": "Default Target Materials",
               "type": "array",
               "description": "The material types this procedure targets by default - the ROWS of the per-material table, and the domain `defines: target material` enumerates. An entry is a bare string or a schema:DefinedTerm naming the material, or a row object binding that material to per-material values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetMaterialColumns, and MUST carry the 'targetMaterial' key - the column that sibling description requires to identify the material named in each row.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every material, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between materials.",
               "items": {
@@ -5320,10 +5334,12 @@
           "x-jsonld-id": "https://ada.astromat.org/metadata/targetMaterialTemplate"
         },
         "ada:targetSpeciesTemplate": {
+          "title": "Target Species Template",
           "description": "Template for per-target-species (element-specific) parameters. Defines the columns that appear in the species table, each with scope, datatype, and constraints. Target-species rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
           "type": "object",
           "properties": {
             "ada:targetSpeciesColumns": {
+              "title": "Target Species Columns",
               "type": "array",
               "description": "Columns of the per-target-species parameter table. Must include exactly one column with schema:valueName \"targetSpecies\" that identifies the analyzed constituent named in each row.",
               "minItems": 1,
@@ -5342,6 +5358,7 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesDeclaration"
             },
             "ada:defaultTargetSpecies": {
+              "title": "Default Target Species",
               "type": "array",
               "description": "The target species (analyzed constituents) this method targets by default \u2014 the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every target species, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between target species.",
               "items": {
@@ -5394,10 +5411,12 @@
           "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesTemplate"
         },
         "ada:monitoredPropertyTemplate": {
+          "title": "Monitored Property Template",
           "description": "Template for per-monitored-property parameters, a monitored property being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the monitored-property domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
           "type": "object",
           "properties": {
             "ada:monitoredPropertyColumns": {
+              "title": "Monitored Property Columns",
               "type": "array",
               "description": "Columns of the per-monitored-property table. Must include exactly one column with schema:valueName \"monitoredProperty\" identifying the selection position named in each row. (\"channel\" was that name before the 2026-09 rename.)\nA 'collector' column is the optional one worth knowing about: it maps each monitored property to the collector that carries it. That mapping is procedure CONFIGURATION, not instrument hardware -- the same array can be wired differently by another procedure, and an analysis may override it -- which is why it belongs here on the method definition and not on schema:instrument. The collectors themselves are hardware and live there, in hasPart[Collector].ada:collectors; this column's values are their schema:name.",
               "minItems": 1,
@@ -5411,6 +5430,7 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/monitoredPropertyColumns"
             },
             "ada:defaultMonitoredProperties": {
+              "title": "Default Monitored Properties",
               "type": "array",
               "description": "The monitored properties this procedure defines by default \u2014 the ROWS of the table. An entry is a bare string or a schema:DefinedTerm naming the property, or a ROW OBJECT keyed by the schema:valueName of the columns above, which is what carries the mapping:\n\n  {\"monitoredProperty\": \"\u2078\u2074Sr\", \"targetSpecies\": \"Sr\", \"collector\": \"L2\"}\n\ntargetSpecies is OPTIONAL and its absence is meaningful, not missing data. A procedure routinely monitors masses that determine no target species -- interference monitors, gas background monitors -- and those rows are orphans by design: \u2078\u00b3Kr, \u00b9\u2076\u2077Er\u00b2\u207a and \u00b9\u2077\u00b3Yb\u00b2\u207a in the Zhang 2022 Rb-Sr procedure are monitored and corrected for, never determined.",
               "items": {
@@ -5471,10 +5491,12 @@
           "x-jsonld-id": "https://ada.astromat.org/metadata/monitoredPropertyTemplate"
         },
         "ada:reportedPropertyTemplate": {
+          "title": "Reported Property Template",
           "description": "Template for the variables this procedure REPORTS and their units, as distinct from ada:targetSpeciesTemplate which records what was acquired. Declares the reported-property domain and the columns that repeat over it. It also states the procedure's scope boundary: a derived quantity inside this list is in scope, anything beyond it belongs to a separate, coupled procedure.",
           "type": "object",
           "properties": {
             "ada:reportedPropertyColumns": {
+              "title": "Reported Property Columns",
               "type": "array",
               "description": "Columns of the reported-property table. Must include exactly one column with schema:valueName \"reportedProperty\" identifying the reported variable named in each row.",
               "minItems": 1,
@@ -7114,6 +7136,7 @@
                     "x-jsonld-id": "http://schema.org/actionProcess"
                   },
                   "prov:used": {
+                    "title": "Resources Used",
                     "type": "array",
                     "description": "Resources used in the analysis. Each item is one of: an instrument BB instance; a computational tool actually used (schema:SoftwareApplication); a reagent / reference material actually used; a tappDefinition BB instance (inlined); or an @id reference to a TAPP definition node defined elsewhere. The TAPP plan (prov:Plan / bios:LabProtocol) prescribes the generic instrument / computationalTool / reagent list; these prov:used entries record the ACTUALS used in this specific run.",
                     "items": {
@@ -7249,6 +7272,7 @@
                     ]
                   },
                   "schema:object": {
+                    "title": "Samples Analyzed",
                     "type": "array",
                     "description": "Samples analyzed",
                     "items": {
@@ -7319,15 +7343,18 @@
                     "x-jsonld-id": "http://schema.org/object"
                   },
                   "schema:identifier": {
+                    "title": "Session Identifier",
                     "description": "The analytical session's own identifier -- the laboratory's run, sequence or batch identifier as generated by the instrument or acquisition software. Sits on the activity rather than the dataset because the session IS the activity.",
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/identifier"
                   },
                   "schema:startDate": {
+                    "title": "Start Date",
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/startDate"
                   },
                   "schema:endDate": {
+                    "title": "End Date",
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/endDate"
                   },
@@ -7405,6 +7432,7 @@
                     "x-jsonld-id": "http://schema.org/description"
                   },
                   "schema:alternateName": {
+                    "title": "Alternate Name",
                     "type": "array",
                     "items": {
                       "type": "string",
@@ -17846,7 +17874,8 @@
                     "type": "object"
                   }
                 ]
-              }
+              },
+              "title": "Default Target Species"
             },
             "ada:targetSpeciesColumns": {
               "type": "array",
@@ -19166,12 +19195,14 @@
                   "minContains": 0,
                   "maxContains": 1
                 }
-              ]
+              ],
+              "title": "Target Species Columns"
             }
           },
           "required": [
             "ada:defaultTargetSpecies"
-          ]
+          ],
+          "title": "Target Species Template"
         },
         "ada:targetMaterialTemplate": {
           "type": "object",
@@ -19532,7 +19563,8 @@
                   "minContains": 0,
                   "maxContains": 1
                 }
-              ]
+              ],
+              "title": "Target Material Columns"
             },
             "ada:defaultTargetMaterials": {
               "type": "array",
@@ -19548,12 +19580,14 @@
                     "type": "object"
                   }
                 ]
-              }
+              },
+              "title": "Default Target Materials"
             }
           },
           "required": [
             "ada:defaultTargetMaterials"
-          ]
+          ],
+          "title": "Target Material Template"
         },
         "ada:monitoredPropertyTemplate": {
           "type": "object",
@@ -20672,9 +20706,11 @@
                   "minContains": 0,
                   "maxContains": 1
                 }
-              ]
+              ],
+              "title": "Monitored Property Columns"
             }
-          }
+          },
+          "title": "Monitored Property Template"
         },
         "schema:additionalProperty": {
           "type": "array",

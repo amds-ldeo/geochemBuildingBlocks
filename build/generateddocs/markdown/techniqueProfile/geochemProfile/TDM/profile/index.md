@@ -1219,12 +1219,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a TDM product type identifier.
       contains:
         enum:
         - Temperature-Dependent Magnetization
         - Temperature-Dependent Magnetization (TDM)
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1233,6 +1235,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaTDM
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TDM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

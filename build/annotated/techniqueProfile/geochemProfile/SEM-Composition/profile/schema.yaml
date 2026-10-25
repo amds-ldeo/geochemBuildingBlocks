@@ -44,6 +44,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SEMCOMPOSITION product type identifier.
       contains:
@@ -51,6 +52,7 @@ allOf:
         - Scanning Electron Microscopy Energy Dispersive X-ray Spectroscopy (SEMEDS)
           Point Data
         - Scanning electron microscopy
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -59,6 +61,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSEMComposition
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

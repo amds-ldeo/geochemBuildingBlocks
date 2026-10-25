@@ -1256,6 +1256,7 @@ x-defs:
           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MethodParameterValue
         x-jsonld-id: http://schema.org/additionalProperty
       ada:targetMaterialTemplate:
+        title: Target Material Template
         description: 'Template for per-target-material parameters, a target material
           being a material type this procedure is designed to analyse (Silicate mineral,
           Silicate glass, Oxide, Sulfide, Carbonate, Phosphate, Metal or alloy). Declares
@@ -1275,6 +1276,7 @@ x-defs:
         type: object
         properties:
           ada:targetMaterialColumns:
+            title: Target Material Columns
             type: array
             description: Columns of the per-target-material parameter table. Must
               include exactly one column with schema:valueName "targetMaterial" that
@@ -1296,6 +1298,7 @@ x-defs:
               FROM, so a cell that parses only in part loses nothing.'
             x-jsonld-id: https://ada.astromat.org/metadata/targetMaterialDeclaration
           ada:defaultTargetMaterials:
+            title: Default Target Materials
             type: array
             description: 'The material types this procedure targets by default - the
               ROWS of the per-material table, and the domain `defines: target material`
@@ -1344,6 +1347,7 @@ x-defs:
         - ada:targetMaterialColumns
         x-jsonld-id: https://ada.astromat.org/metadata/targetMaterialTemplate
       ada:targetSpeciesTemplate:
+        title: Target Species Template
         description: Template for per-target-species (element-specific) parameters.
           Defines the columns that appear in the species table, each with scope, datatype,
           and constraints. Target-species rows become schema:variableMeasured entries
@@ -1352,6 +1356,7 @@ x-defs:
         type: object
         properties:
           ada:targetSpeciesColumns:
+            title: Target Species Columns
             type: array
             description: Columns of the per-target-species parameter table. Must include
               exactly one column with schema:valueName "targetSpecies" that identifies
@@ -1377,6 +1382,7 @@ x-defs:
               rows record.'
             x-jsonld-id: https://ada.astromat.org/metadata/targetSpeciesDeclaration
           ada:defaultTargetSpecies:
+            title: Default Target Species
             type: array
             description: "The target species (analyzed constituents) this method targets
               by default \u2014 the ROWS of the per-species table. An entry is a bare
@@ -1434,6 +1440,7 @@ x-defs:
         - ada:targetSpeciesColumns
         x-jsonld-id: https://ada.astromat.org/metadata/targetSpeciesTemplate
       ada:monitoredPropertyTemplate:
+        title: Monitored Property Template
         description: Template for per-monitored-property parameters, a monitored property
           being an instrument selection position (a mass, a Faraday cup, an energy-loss
           edge, an X-ray line). Declares the monitored-property domain and the columns
@@ -1443,6 +1450,7 @@ x-defs:
         type: object
         properties:
           ada:monitoredPropertyColumns:
+            title: Monitored Property Columns
             type: array
             description: 'Columns of the per-monitored-property table. Must include
               exactly one column with schema:valueName "monitoredProperty" identifying
@@ -1465,6 +1473,7 @@ x-defs:
             maxContains: 1
             x-jsonld-id: https://ada.astromat.org/metadata/monitoredPropertyColumns
           ada:defaultMonitoredProperties:
+            title: Default Monitored Properties
             type: array
             description: "The monitored properties this procedure defines by default
               \u2014 the ROWS of the table. An entry is a bare string or a schema:DefinedTerm
@@ -1511,6 +1520,7 @@ x-defs:
         - ada:monitoredPropertyColumns
         x-jsonld-id: https://ada.astromat.org/metadata/monitoredPropertyTemplate
       ada:reportedPropertyTemplate:
+        title: Reported Property Template
         description: 'Template for the variables this procedure REPORTS and their
           units, as distinct from ada:targetSpeciesTemplate which records what was
           acquired. Declares the reported-property domain and the columns that repeat
@@ -1520,6 +1530,7 @@ x-defs:
         type: object
         properties:
           ada:reportedPropertyColumns:
+            title: Reported Property Columns
             type: array
             description: Columns of the reported-property table. Must include exactly
               one column with schema:valueName "reportedProperty" identifying the
@@ -2949,6 +2960,7 @@ x-defs:
                     x-jsonld-id: http://schema.org/step
                 x-jsonld-id: http://schema.org/actionProcess
               prov:used:
+                title: Resources Used
                 type: array
                 description: 'Resources used in the analysis. Each item is one of:
                   an instrument BB instance; a computational tool actually used (schema:SoftwareApplication);
@@ -3039,6 +3051,7 @@ x-defs:
                 allOf:
                 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.laboratory
               schema:object:
+                title: Samples Analyzed
                 type: array
                 description: Samples analyzed
                 items:
@@ -3091,6 +3104,7 @@ x-defs:
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.spatialRegistration
                 x-jsonld-id: http://schema.org/object
               schema:identifier:
+                title: Session Identifier
                 description: The analytical session's own identifier -- the laboratory's
                   run, sequence or batch identifier as generated by the instrument
                   or acquisition software. Sits on the activity rather than the dataset
@@ -3098,9 +3112,11 @@ x-defs:
                 type: string
                 x-jsonld-id: http://schema.org/identifier
               schema:startDate:
+                title: Start Date
                 type: string
                 x-jsonld-id: http://schema.org/startDate
               schema:endDate:
+                title: End Date
                 type: string
                 x-jsonld-id: http://schema.org/endDate
               schema:additionalProperty:
@@ -3194,6 +3210,7 @@ x-defs:
                 minLength: 3
                 x-jsonld-id: http://schema.org/description
               schema:alternateName:
+                title: Alternate Name
                 type: array
                 items:
                   type: string
@@ -13347,6 +13364,7 @@ allOf:
             - type: string
         required:
         - ada:deadTime
+      title: Analysis Events
     schema:variableMeasured:
       type: array
       items:
@@ -13395,6 +13413,7 @@ allOf:
               - EELS Detection Limit
           required:
           - schema:name
+      title: Measured Variables
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

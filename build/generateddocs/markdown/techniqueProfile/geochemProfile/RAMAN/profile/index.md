@@ -1219,11 +1219,13 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/RAMAN/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a RAMAN product type identifier.
       contains:
         enum:
         - Raman vibrational spectroscopy
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1232,6 +1234,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaRAMAN
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.RAMAN.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

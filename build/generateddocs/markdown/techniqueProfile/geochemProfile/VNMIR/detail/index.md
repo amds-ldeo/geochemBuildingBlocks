@@ -1006,6 +1006,7 @@ allOf:
         - ada:emissionAngle
         - ada:incidenceAngle
         - ada:sampleTemperature
+      title: Analysis Events
     schema:additionalProperty:
       type: array
       items:
@@ -1069,6 +1070,7 @@ allOf:
           - schema:unitText
         minContains: 0
         maxContains: 1
+      title: Additional Properties
     dqv:hasQualityMeasurement:
       type: array
       items:
@@ -1088,6 +1090,7 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+      title: Quality Measurements
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.VNMIR.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

@@ -40,6 +40,7 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Target Materials
         ada:targetMaterialColumns:
           type: array
           items:
@@ -123,8 +124,10 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
+          title: Target Material Columns
       required:
       - ada:defaultTargetMaterials
+      title: Target Material Template
     schema:actionProcess:
       type: object
       properties:
@@ -1224,6 +1227,7 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Target Species
         ada:targetSpeciesColumns:
           type: array
           items:
@@ -1931,9 +1935,11 @@ allOf:
             minContains: 0
             maxContains: 1
           minItems: 1
+          title: Target Species Columns
       required:
       - ada:defaultTargetSpecies
       - ada:targetSpeciesColumns
+      title: Target Species Template
     ada:monitoredPropertyTemplate:
       type: object
       properties:
@@ -1944,8 +1950,10 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Monitored Properties
       required:
       - ada:defaultMonitoredProperties
+      title: Monitored Property Template
     ada:massesMeasuredDefault:
       description: Specific masses monitored in this procedure, grouped by the target
         species element they serve where they serve one. Covers atomic isotopes and,

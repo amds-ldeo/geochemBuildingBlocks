@@ -339,7 +339,8 @@
                     "type": "object"
                   }
                 ]
-              }
+              },
+              "title": "Default Target Species"
             },
             "ada:targetSpeciesColumns": {
               "type": "array",
@@ -691,12 +692,14 @@
                   "minContains": 0,
                   "maxContains": 1
                 }
-              ]
+              ],
+              "title": "Target Species Columns"
             }
           },
           "required": [
             "ada:defaultTargetSpecies"
-          ]
+          ],
+          "title": "Target Species Template"
         },
         "ada:analyticalAccuracy": {
           "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
@@ -2225,12 +2228,14 @@
                     "type": "object"
                   }
                 ]
-              }
+              },
+              "title": "Default Monitored Properties"
             }
           },
           "required": [
             "ada:defaultMonitoredProperties"
-          ]
+          ],
+          "title": "Monitored Property Template"
         },
         "ada:targetMaterialTemplate": {
           "type": "object",
@@ -2331,7 +2336,8 @@
                   "minContains": 0,
                   "maxContains": 1
                 }
-              ]
+              ],
+              "title": "Target Material Columns"
             },
             "ada:defaultTargetMaterials": {
               "type": "array",
@@ -2347,12 +2353,14 @@
                     "type": "object"
                   }
                 ]
-              }
+              },
+              "title": "Default Target Materials"
             }
           },
           "required": [
             "ada:defaultTargetMaterials"
-          ]
+          ],
+          "title": "Target Material Template"
         },
         "ada:withinSessionPrecision": {
           "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
