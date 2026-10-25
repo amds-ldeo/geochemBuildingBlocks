@@ -1079,8 +1079,8 @@ ex:adaGCCIRMS-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:gcCIrmsTAPP-P0 ],
-                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
+                [ ada:tappDefinition ex:gcCIrmsTAPP-P0 ] ] ;
     ada:analyticalMode "Point spectrum" ;
     ada:submissionType "BundleDelivery" .
 
@@ -1219,6 +1219,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/GC-C-IRMS/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a GCCIRMS product type identifier.
       contains:
@@ -1226,6 +1227,7 @@ allOf:
         - Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry
         - Combustion gas chromatography isotopic ratio mass spectrometry
         - C-GC-IR-MS
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1234,6 +1236,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaGCCIRMS
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.GC-C-IRMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

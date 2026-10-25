@@ -1219,6 +1219,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/IC-MS/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a ICMS product type identifier.
       contains:
@@ -1227,6 +1228,7 @@ allOf:
         - Ion Chromatography-Mass Spectrometry (ICMS)
         - Ion Chromatography
         - Liquid Chromatography-Mass Spectrometry
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1235,6 +1237,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaICMS
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.IC-MS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

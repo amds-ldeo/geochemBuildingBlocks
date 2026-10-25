@@ -152,6 +152,7 @@ allOf:
                           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
+      title: Analysis Events
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SVRUEC.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

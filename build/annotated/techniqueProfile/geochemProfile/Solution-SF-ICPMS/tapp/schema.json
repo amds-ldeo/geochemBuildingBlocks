@@ -44,7 +44,8 @@
                     "type": "object"
                   }
                 ]
-              }
+              },
+              "title": "Default Target Species"
             },
             "ada:targetSpeciesColumns": {
               "type": "array",
@@ -1011,13 +1012,15 @@
                   "maxContains": 1
                 }
               ],
-              "minItems": 1
+              "minItems": 1,
+              "title": "Target Species Columns"
             }
           },
           "required": [
             "ada:defaultTargetSpecies",
             "ada:targetSpeciesColumns"
-          ]
+          ],
+          "title": "Target Species Template"
         },
         "schema:instrument": {
           "type": "array",
@@ -1648,7 +1651,8 @@
                     "type": "object"
                   }
                 ]
-              }
+              },
+              "title": "Default Target Materials"
             },
             "ada:targetMaterialColumns": {
               "type": "array",
@@ -1746,12 +1750,14 @@
                   "minContains": 0,
                   "maxContains": 1
                 }
-              ]
+              ],
+              "title": "Target Material Columns"
             }
           },
           "required": [
             "ada:defaultTargetMaterials"
-          ]
+          ],
+          "title": "Target Material Template"
         },
         "schema:actionProcess": {
           "type": "object",
@@ -2420,9 +2426,11 @@
                   "minContains": 0,
                   "maxContains": 1
                 }
-              ]
+              ],
+              "title": "Monitored Property Columns"
             }
-          }
+          },
+          "title": "Monitored Property Template"
         },
         "ada:numberOfScansPerReplicate": {
           "description": "Number of complete mass scans accumulated per analytical replicate. A scan \u2014 also called a sweep or a pass \u2014 is one complete traversal of the monitored masses by a sequentially scanning analyser, so the scan count multiplied by the per-mass dwell time gives the total integration time per replicate. Distinct from a cycle in simultaneous multi-collection, which is one readout of all detectors at once rather than a traversal of masses.",

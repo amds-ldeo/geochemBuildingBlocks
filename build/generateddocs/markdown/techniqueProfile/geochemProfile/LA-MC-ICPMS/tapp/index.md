@@ -1428,13 +1428,10 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Polished thin section (two-volume cell)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1445,10 +1442,13 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (two-volume cell)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -2022,6 +2022,7 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Target Species
         ada:targetSpeciesColumns:
           type: array
           items:
@@ -2310,8 +2311,10 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
+          title: Target Species Columns
       required:
       - ada:defaultTargetSpecies
+      title: Target Species Template
     ada:analyticalAccuracy:
       description: Offset between measured and accepted values for secondary reference
         materials, and the method used to assess it. Specify the reference material
@@ -3357,8 +3360,10 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Monitored Properties
       required:
       - ada:defaultMonitoredProperties
+      title: Monitored Property Template
     ada:targetMaterialTemplate:
       type: object
       properties:
@@ -3445,6 +3450,7 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
+          title: Target Material Columns
         ada:defaultTargetMaterials:
           type: array
           items:
@@ -3452,8 +3458,10 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Target Materials
       required:
       - ada:defaultTargetMaterials
+      title: Target Material Template
     ada:withinSessionPrecision:
       description: Precision of repeated measurements within a single analytical session
         and the method used to assess it. Report both the assessment method and the

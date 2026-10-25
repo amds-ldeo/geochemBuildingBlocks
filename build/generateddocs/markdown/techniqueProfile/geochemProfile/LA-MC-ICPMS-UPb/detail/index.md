@@ -802,6 +802,7 @@ allOf:
             type: string
         required:
         - ada:proceduralBlankLevel
+      title: Analysis Events
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

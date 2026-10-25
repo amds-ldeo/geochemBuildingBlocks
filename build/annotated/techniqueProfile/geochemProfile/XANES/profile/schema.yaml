@@ -44,12 +44,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XANES/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a XANES product type identifier.
       contains:
         enum:
         - X-ray absorption near edge structure (XANES) spectroscopy
         - X-ray Absorption Near Edge Structure Hyperspectral Image Stack (XANES)
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -58,6 +60,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaXANES
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XANES.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

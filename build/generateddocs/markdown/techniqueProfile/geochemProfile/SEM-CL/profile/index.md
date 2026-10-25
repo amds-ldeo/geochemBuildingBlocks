@@ -1226,12 +1226,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-CL/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SEMCL product type identifier.
       contains:
         enum:
         - Scanning electron microscopy
         - SEM Cathodoluminescence Spectroscopy (SEMCL)
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1240,6 +1242,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSEMCL
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-CL.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
