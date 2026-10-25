@@ -70,7 +70,7 @@
           }
         },
         "ada:resultTarget": {
-          "title": "String Array Type",
+          "title": "Result Target",
           "description": "Simple reusable array of strings",
           "type": "array",
           "minItems": 0,
@@ -253,6 +253,7 @@
             },
             "ada:spatialRegistration": {
               "$ref": "#/$defs/Scaling",
+              "title": "Pixel Scaling",
               "description": "Pixel size and its units. SCALING ONLY -- the half of a spatial registration an unregistered image can state. A plain image has a pixel size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement, but an image does not say where it sits on the sample or how its axes relate to the sample axes. The imageMap block references the full shape, which adds the origin, the origin corner, the coordinate definition and the two rotation terms, and whose required list demands them.\nSame property NAME on both branches on purpose: a placement path such as schema:hasPart[@type=ada:image|ada:imageMap].ada:spatialRegistration.ada:pixelScaleX then resolves through either, which is what the subject-key register and the TAPP sidecars both target. Before this, the image branch declared no spatialRegistration at all -- not because a pixel scale is meaningless on an image, but because the only available shape required an origin and a corner, so an image could not use it without asserting a registration it does not have."
             }
           },
@@ -354,7 +355,7 @@
               "description": "Height of the raster, in pixels."
             },
             "ada:spatialRegistration": {
-              "title": "Spatial Registration Type",
+              "title": "Spatial Registration",
               "description": "The affine transform from an image's pixel coordinates to a coordinate reference system defined on the sample -- origin, pixel scales, rotation and axis sense -- for spatially registered images and maps.\nMODELLED ON A WORLD FILE, the sidecar a GIS writes beside a raster (.tfw, ESRI .wld), whose six parameters are exactly an affine transform. In world-file letters:\n\n    x_crs = ada:originX + ada:pixelScaleX * col + ada:pixelRotationX * row     (C, A, B)\n    y_crs = ada:originY + ada:pixelRotationY * col + ada:pixelScaleY * row     (F, D, E)\n\nDEPARTURES FROM THE WORLD-FILE CONVENTION. Three, each of which says more rather than less -- and each of which a converter has to handle deliberately, because none is a straight copy:\n\n  1. ORIGIN CORNER IS DECLARED, NOT ASSUMED. A world file assumes C,F is the centre of the\n     upper-left pixel. Here ada:originLocation states the corner (upperLeft, upperRight,\n     lowerLeft, lowerRight, center) and ada:coordDef states what the coordinates are measured\n     from. Reading a .tfw therefore means WRITING originLocation: upperLeft explicitly; it is\n     not implied.\n\n  2. ada:pixelScaleY IS A MAGNITUDE, NOT A SIGNED VALUE. A world file conventionally makes E\n     negative to encode the y-axis flip. Here the axis sense is carried by ada:originLocation,\n     so the sign is NOT part of the scale. Importing E means taking its absolute value and\n     recording the flip as a corner; exporting means re-applying the sign. Copying E straight\n     into ada:pixelScaleY silently halves nothing and mirrors everything.\n\n  3. UNITS ARE CARRIED, WHERE A WORLD FILE HAS NONE. ada:pixelUnits and ada:coordUnits state\n     both sides of the scale. A world file is unitless and takes its units from the raster CRS,\n     so an import has to source them from elsewhere and cannot leave them absent -- which is\n     why ada:pixelUnits is in the inline required list.\n\nSCALING AND REGISTRATION ARE SEPARABLE, and $defs/Scaling below is the half that is meaningful on an UNREGISTERED image: a plain ada:image has a pixel size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement. Registration is the other half -- where the image sits on the sample, and how its axes relate to the sample's -- and only a map can assert it. The root schema here is scaling PLUS registration and is what the imageMap block references; the image block references $defs/Scaling. One property name, two shapes, so a placement path through either branch resolves.",
               "type": "object",
               "allOf": [
@@ -576,7 +577,7 @@
                   "type": "string"
                 },
                 "ada:spatialRegistration": {
-                  "title": "Spatial Registration Type",
+                  "title": "Spatial Registration",
                   "description": "The affine transform from an image's pixel coordinates to a coordinate reference system defined on the sample -- origin, pixel scales, rotation and axis sense -- for spatially registered images and maps.\nMODELLED ON A WORLD FILE, the sidecar a GIS writes beside a raster (.tfw, ESRI .wld), whose six parameters are exactly an affine transform. In world-file letters:\n\n    x_crs = ada:originX + ada:pixelScaleX * col + ada:pixelRotationX * row     (C, A, B)\n    y_crs = ada:originY + ada:pixelRotationY * col + ada:pixelScaleY * row     (F, D, E)\n\nDEPARTURES FROM THE WORLD-FILE CONVENTION. Three, each of which says more rather than less -- and each of which a converter has to handle deliberately, because none is a straight copy:\n\n  1. ORIGIN CORNER IS DECLARED, NOT ASSUMED. A world file assumes C,F is the centre of the\n     upper-left pixel. Here ada:originLocation states the corner (upperLeft, upperRight,\n     lowerLeft, lowerRight, center) and ada:coordDef states what the coordinates are measured\n     from. Reading a .tfw therefore means WRITING originLocation: upperLeft explicitly; it is\n     not implied.\n\n  2. ada:pixelScaleY IS A MAGNITUDE, NOT A SIGNED VALUE. A world file conventionally makes E\n     negative to encode the y-axis flip. Here the axis sense is carried by ada:originLocation,\n     so the sign is NOT part of the scale. Importing E means taking its absolute value and\n     recording the flip as a corner; exporting means re-applying the sign. Copying E straight\n     into ada:pixelScaleY silently halves nothing and mirrors everything.\n\n  3. UNITS ARE CARRIED, WHERE A WORLD FILE HAS NONE. ada:pixelUnits and ada:coordUnits state\n     both sides of the scale. A world file is unitless and takes its units from the raster CRS,\n     so an import has to source them from elsewhere and cannot leave them absent -- which is\n     why ada:pixelUnits is in the inline required list.\n\nSCALING AND REGISTRATION ARE SEPARABLE, and $defs/Scaling below is the half that is meaningful on an UNREGISTERED image: a plain ada:image has a pixel size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement. Registration is the other half -- where the image sits on the sample, and how its axes relate to the sample's -- and only a map can assert it. The root schema here is scaling PLUS registration and is what the imageMap block references; the image block references $defs/Scaling. One property name, two shapes, so a placement path through either branch resolves.",
                   "type": "object",
                   "allOf": [
@@ -3614,7 +3615,7 @@
               "description": "ADA componentType for a collection, as a single string. Allowed values are constrained at the technique-profile level (each adaProfile's schema:hasPart anyOf enumerates the allowed values for that technique, either inline or via a $ref to a detail<Tech> schema). No enum here so that profile-specific componentTypes (e.g. ada:XANESCollection, ada:LIT2DDataCollection) do not require updates to this branch schema."
             },
             "ada:memberTypes": {
-              "title": "String Array Type",
+              "title": "Component Types",
               "description": "List of the component types in the collection",
               "type": "array",
               "minItems": 0,
