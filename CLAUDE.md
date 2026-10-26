@@ -10,7 +10,7 @@ This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JS
 - **`README.md`** — human-facing overview; its generation-pipeline section is a good orientation.
 - **`docs/TAPP-schema-generation-workflow.md`** — end-to-end walkthrough of workbook → validated schema.
 - **`docs/SCHEMA_PATH_GRAMMAR.md`** — the canonical grammar for the schema-path sidecars.
-- **`docs/SILENT_SUCCESS.md`** — fourteen incidents in which a check, a generator or a workflow reported success while not doing its job. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, before combining two sources in a generator, and whenever you loosen a constraint: ask which direction of change each check can see, measure coverage per RECORD rather than per aggregate, resolve by cid rather than by directory — and, for any check, run it and read `$?`.
+- **`docs/SILENT_SUCCESS.md`** — fourteen incidents in which a check, a generator or a workflow reported success while not doing its job. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, before combining two sources in a generator, and whenever you loosen a constraint: ask whether a green check can see your KIND of change at all and not only its direction, measure coverage per RECORD rather than per aggregate, resolve by cid rather than by directory — and, for any check, run it and read `$?`.
 - **`docs/README.md`** — what is in `docs/`: the sidecar format, its five `Source` values, and the maintenance tools around it. Note **"sidecar" is overloaded**: in `docs/` it means the `*.schemapaths.csv` files, while `<block>/conformance.json` is the unrelated conformance sidecar — see "Conformance sidecars" below.
 - **`docs/modules/MODULE_CONSOLIDATION_STATUS.md`** — **state, not design**: how far module consolidation has got, what is decided, and what is open. Re-measure before quoting its percentage. Read it before drafting a module. Measure `tapp/`, never `registry/`: the registries are `isTypeLibrary` and per-technique by construction, so measuring them yields a true-but-meaningless 87% duplication.
 
@@ -681,6 +681,16 @@ inherited type name. 283 block titles across `_sources` + `vendor/remote`;
 `property_labels.check_label_collisions()` asserts it rather than leaving it to a
 reviewer. 16 of the 18 BaseSchema block titles would read as type or spec names at a
 property position — *Files Type*, *String Array Type*, and one carrying a VERSION.
+
+**A TITLE INSIDE AN `if`/`then` BELONGS TO THAT BRANCH, and a consumer that flattens
+then-branches will mis-attribute it to a sibling.** The plan-side labels reach a record
+through `build_profile`'s conditional on `prov:used`, so *Method Name* and the rest sit
+under a `then`. A reader that follows that branch WITHOUT evaluating its `if` labels the
+instrument "Method Name" — observed in the ADA metadata viewer 2026-10-25, which had
+added unconditional `then` descent in order to reach `ada:tappDefinition`, and fixed by
+testing each `if` against the actual value. Nothing is wrong with the schema; this is
+what the shape costs a reader, and form generators are a named consumer of these labels.
+Evaluate the `if`, or do not descend the branch.
 
 **And do not name an identifier SCHEME a value might not use** — "Person Identifier" not
 "ORCID", "Laboratory Identifier" not "Laboratory ROR" — or the label asserts something the
