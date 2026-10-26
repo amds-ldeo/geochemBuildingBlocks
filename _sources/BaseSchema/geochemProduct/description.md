@@ -13,7 +13,7 @@ It composes the CDIF profiles and adds the generic geochem surface:
   and reagents actually used; the laboratory (`schema:location`); the samples analysed
   (`schema:object`); the session identifier and timing. `prov:used` uses the CDIF
   role-keyed wrapper model (constraint-only `if/then` pins for `schema:instrument`,
-  `bios:computationalTool`, `prov:reagent`, and an inline/`@id` `tappDefinition`).
+  `bios:computationalTool`, `bios:reagent`, and an inline/`@id` `tappDefinition`).
 - **Variables measured** (`schema:variableMeasured`) — extends `cdifInstanceVariable`
   with description, alternate names, measurement technique, units, and value bounds.
 - **Coverage** — `schema:spatialCoverage`, `schema:temporalCoverage`,

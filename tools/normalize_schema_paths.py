@@ -48,14 +48,15 @@ def preclean(s):
     # `prov:used[sel]` -> `prov:used.<kind>[sel]`. This rule used to run the other way: a prov:used
     # item WAS the entity, so the kind was shorthand and got stripped. Since the 2026-08 CDIF
     # wrapper model an item is a role-keyed envelope (schema:instrument / bios:computationalTool /
-    # prov:reagent) whose value is an array of entities, so the kind is a real navigation step and
+    # bios:reagent) whose value is an array of entities, so the kind is a real navigation step and
     # the selector key is what tells us which envelope. Authors may still write either form.
     s = re.sub(r"(prov:used)\[(schema:additionalType)=", r"\1.schema:instrument[\2=", s)
     s = re.sub(r"(prov:used)\[(ada:toolRole)=", r"\1.bios:computationalTool[\2=", s)
-    s = re.sub(r"(prov:used)\[(ada:reagentRole)=", r"\1.prov:reagent[\2=", s)
-    # the plan side spells the reagent relation bios:reagent; on a dataset the base names it
-    # prov:reagent, so an explicitly-written bios:reagent under prov:used is the same envelope
-    s = s.replace("prov:used.bios:reagent[", "prov:used.prov:reagent[")
+    s = re.sub(r"(prov:used)\[(ada:reagentRole)=", r"\1.bios:reagent[\2=", s)
+    # the reagent envelope is bios:reagent on the dataset side too, matching the plan side
+    # (CDIF metadataBuildingBlocks#53 renamed it from prov:reagent; PROV-O has no reagent term).
+    # An author still writing the superseded prov:reagent is migrated OLD -> NEW here.
+    s = s.replace("prov:used.prov:reagent[", "prov:used.bios:reagent[")
     for bad, good in NAME_TYPOS.items():
         s = re.sub(bad, good, s, flags=re.I)
     return s
@@ -250,7 +251,7 @@ def recognize(s):
         # prov:used items are entities, selected by whichever key discriminates them:
         # schema:additionalType for an instrument, ada:toolRole for a computational tool,
         # ada:reagentRole for a reagent. Identity fields only; parameters have their own families.
-        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.(?:schema:instrument|bios:computationalTool|prov:reagent)\[(schema:additionalType|ada:[a-z][A-Za-z0-9]*)='[^']*'\]\.schema:(name|identifier|description)$", "dataset-used-identity"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.(?:schema:instrument|bios:computationalTool|bios:reagent)\[(schema:additionalType|ada:[a-z][A-Za-z0-9]*)='[^']*'\]\.schema:(name|identifier|description)$", "dataset-used-identity"),
         # schema:distribution is an array of DataDownload objects and schema:encodingFormat is an
         # array of MIME-type strings on each (per the upstream CDIF dataDownload), so both segments
         # carry []: a scalar navigation here would emit a single distribution object and reject the

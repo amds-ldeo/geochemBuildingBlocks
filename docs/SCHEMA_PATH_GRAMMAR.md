@@ -82,7 +82,7 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `dataset-activity-ada` | `$Dataset.prov:wasGeneratedBy.ada:<name>[]?` |
 | `dataset-activity-description` | `$Dataset.prov:wasGeneratedBy.schema:description` |
 | `dataset-location` | `$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='<value>'].schema:(name|identifier)` |
-| `dataset-used-identity` | `$Dataset.prov:wasGeneratedBy.prov:used.(?:schema:instrument|bios:computationalTool|prov:reagent)[(schema:additionalType|ada:<name>)='<value>'].schema:(name|identifier|description)` |
+| `dataset-used-identity` | `$Dataset.prov:wasGeneratedBy.prov:used.(?:schema:instrument|bios:computationalTool|bios:reagent)[(schema:additionalType|ada:<name>)='<value>'].schema:(name|identifier|description)` |
 | `dataset-distribution` | `$Dataset.schema:distribution[].schema:encodingFormat[]` |
 | `dataset-instrument-ada` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].ada:<name>[]?` |
 | `dataset-instrument-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
@@ -137,7 +137,7 @@ wrapper, so the canonical form puts the selector on the entity inside it —
 `prov:used.schema:instrument[schema:additionalType='TEM']`. Authors may write either;
 `normalize_schema_paths.mechanical()` expands the short form by selector key
 (`schema:additionalType` → `schema:instrument`, `ada:toolRole` → `bios:computationalTool`,
-`ada:reagentRole` → `prov:reagent`), and `schemapath_io.load_spec()` applies that before the
+`ada:reagentRole` → `bios:reagent`), and `schemapath_io.load_spec()` applies that before the
 emitter parses. **Any tool that checks a raw sidecar cell must normalise first** — checking the
 raw value reports canonical-equivalent rows as broken, which is exactly what `intake_delivery`
 did until 2026-09-02.

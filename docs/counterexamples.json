@@ -322,6 +322,27 @@
       },
       "expect": "ada:tappDefinition",
       "why": "The superseded {@id, @type} REFERENCE spelling of the TAPP link is closed off, completing what #192 began. It deliberately stayed VALID until 2026-10-24 because 7,263 of 7,447 ADA records used it, and a schema that rejects the corpus it describes is one nobody can deploy; the migration then took it to zero in ada_subjects AND production ada2, which is what retired that justification. The mutation writes a bare {@id, @type} reference -- no schema:name, so it is a reference and not an inline plan -- and it must be rejected for want of the role key. If this case ever passes, the supersession has come undone in the direction that matters most: the reference form is what every pre-migration record carried, so re-accepting it would silently re-admit a whole generation of records. It is also the tripwire for a store restored from a pre-migration backup, which is the one situation where nobody would otherwise be told."
+    },
+    {
+      "id": "reagent-old-prov-key-is-closed-off",
+      "example": "_sources/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/exampleadaLAMCICPMS.json",
+      "mutate": {
+        "op": "add",
+        "pointer": "/prov:wasGeneratedBy/0/prov:used/-",
+        "value": {
+          "prov:reagent": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "NIST SRM 610",
+              "ada:reagentRole": "secondaryStandard"
+            }
+          ]
+        }
+      },
+      "expect": "bios:reagent",
+      "why": "The prov:used reagent role key is bios:reagent; the superseded prov:reagent is closed off in geochemProduct (PROV-O defines no reagent term, Bioschemas does, and the TAPP plan already used bios:reagent; upstream CDIF made the same rename in metadataBuildingBlocks#53). The mutation ADDS a reagent wrapper spelled with the old key rather than renaming an existing one, so nothing else in the instance changes and the close-off is the only thing that can reject it -- measured: the same item under bios:reagent validates with 0 errors, under prov:reagent it fails with exactly 1, naming bios:reagent. Without the close-off the old key would still validate, because CDIF admits any CURIE-named role wrapper generically, so losing it would silently re-admit the old spelling. Rejecting outright was safe because prov:reagent occurred 0 times in every JSON column of ada2, ada_subjects and method_registry before the change."
     }
   ]
 }
