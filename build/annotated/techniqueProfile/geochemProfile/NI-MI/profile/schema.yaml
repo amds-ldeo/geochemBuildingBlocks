@@ -44,12 +44,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NI-MI/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a NIMI product type identifier.
       contains:
         enum:
         - Nanoindentation and Microindentation
         - Nanoindentation and microindentation (NI-MI)
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -58,6 +60,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaNIMI
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.NI-MI.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

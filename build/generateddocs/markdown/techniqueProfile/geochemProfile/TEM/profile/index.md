@@ -1330,6 +1330,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a TEM product type identifier.
       contains:
@@ -1338,6 +1339,7 @@ allOf:
         - Scanning Transmission Electron Microscopy (STEM) Image
         - Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy
           (STEMEDS) Tabular
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1346,6 +1348,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaTEM
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

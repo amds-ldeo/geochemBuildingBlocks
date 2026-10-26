@@ -750,6 +750,7 @@ allOf:
                               schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
+      title: Analysis Events
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EBSD.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

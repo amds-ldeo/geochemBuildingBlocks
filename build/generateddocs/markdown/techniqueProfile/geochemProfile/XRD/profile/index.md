@@ -1219,12 +1219,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a XRD product type identifier.
       contains:
         enum:
         - X-ray diffraction
         - X-ray Diffraction (XRD) Tabular
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1233,6 +1235,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaXRD
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XRD.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

@@ -44,12 +44,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/FINESSE/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a FINESSE product type identifier.
       contains:
         enum:
         - Stepped Heating Carbon and Nitrogen Isotopic Compositions
         - Elemental Analyzer Stepped Heating C N Isotope (FINESSE)
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -58,6 +60,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaFINESSE
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.FINESSE.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

@@ -1243,12 +1243,14 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a VNMIR product type identifier.
       contains:
         enum:
         - Visible, near-, and mid-infrared spectroscopy
         - Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Point
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1257,6 +1259,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaVNMIR
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.VNMIR.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

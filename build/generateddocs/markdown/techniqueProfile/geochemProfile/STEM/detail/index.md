@@ -722,6 +722,7 @@ allOf:
                                 const: STEM
                           required:
                           - schema:additionalType
+      title: Analysis Events
     schema:distribution:
       type: object
       properties:
@@ -761,6 +762,7 @@ allOf:
           required:
           - schema:height
           - schema:width
+      title: Distributions
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.STEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

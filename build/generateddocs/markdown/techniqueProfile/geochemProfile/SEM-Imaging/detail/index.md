@@ -2496,6 +2496,7 @@ allOf:
                         const: Data processing
                     required:
                     - schema:name
+      title: Analysis Events
     ada:frameTime:
       description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
       anyOf:
@@ -2570,6 +2571,7 @@ allOf:
               const: EBSD Indexing Rate
           required:
           - dqv:isMeasurementOf
+      title: Quality Measurements
     schema:variableMeasured:
       type: array
       items:
@@ -2643,6 +2645,7 @@ allOf:
           - schema:value
         minContains: 0
         maxContains: 1
+      title: Measured Variables
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Imaging.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

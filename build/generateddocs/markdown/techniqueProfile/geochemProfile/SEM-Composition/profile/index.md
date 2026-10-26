@@ -1187,8 +1187,8 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:semCompositionTAPP-P0 ],
-                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
+                [ ada:tappDefinition ex:semCompositionTAPP-P0 ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
@@ -1346,6 +1346,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Composition/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a SEMCOMPOSITION product type identifier.
       contains:
@@ -1353,6 +1354,7 @@ allOf:
         - Scanning Electron Microscopy Energy Dispersive X-ray Spectroscopy (SEMEDS)
           Point Data
         - Scanning electron microscopy
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1361,6 +1363,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaSEMComposition
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

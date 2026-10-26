@@ -1336,6 +1336,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EPMA/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a EPMA product type identifier.
       contains:
@@ -1343,6 +1344,7 @@ allOf:
         - Electron Microprobe Analysis (EPMA)
         - Electron Microprobe Analysis Quantitative Elemental Abundances (EPMAQEA)
         - Electron microprobe analysis
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1351,6 +1353,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaEPMA
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EPMA.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

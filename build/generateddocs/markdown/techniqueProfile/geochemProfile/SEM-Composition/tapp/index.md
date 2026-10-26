@@ -3424,16 +3424,16 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
@@ -6691,6 +6691,7 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Target Materials
         ada:targetMaterialColumns:
           type: array
           items:
@@ -6904,8 +6905,10 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
+          title: Target Material Columns
       required:
       - ada:defaultTargetMaterials
+      title: Target Material Template
     schema:instrument:
       type: array
       items:
@@ -7950,6 +7953,7 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
+          title: Target Species Columns
         ada:defaultTargetSpecies:
           type: array
           items:
@@ -7957,8 +7961,10 @@ allOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
             - type: object
+          title: Default Target Species
       required:
       - ada:defaultTargetSpecies
+      title: Target Species Template
     schema:additionalProperty:
       type: array
       items:
@@ -9024,6 +9030,8 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
+          title: Monitored Property Columns
+      title: Monitored Property Template
     ada:edsAcquisitionMode:
       description: "Spatial acquisition sub-strategy for EDS measurements: stationary-beam
         point acquisition, line scan (beam stepped along a transect at defined intervals),

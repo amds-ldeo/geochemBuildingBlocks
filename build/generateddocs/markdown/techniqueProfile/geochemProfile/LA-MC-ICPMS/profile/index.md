@@ -1183,12 +1183,12 @@ ex:adaLAMCICPMS-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: peakFlatness" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ] ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1355,6 +1355,7 @@ allOf:
                   - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema.yaml
+      title: Analysis Events
     schema:additionalType:
       description: Must include a LAMCICPMS product type identifier.
       contains:
@@ -1363,6 +1364,7 @@ allOf:
         - Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed
         - Laser Ablation Inductively coupled plasma mass spectrometry
         - Laser Ablation Inductively Coupled Plasma Mass Spectrometry
+      title: Product Type
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -1371,6 +1373,7 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaLAMCICPMS
+      title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
