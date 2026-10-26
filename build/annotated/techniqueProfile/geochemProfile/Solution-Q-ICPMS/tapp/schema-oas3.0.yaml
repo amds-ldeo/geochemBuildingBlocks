@@ -3273,9 +3273,11 @@ x-defs:
         type: object
         properties:
           ada:targetSpeciesTemplate:
+            title: Target Species Template
             type: object
             properties:
               ada:defaultTargetSpecies:
+                title: Default Target Species
                 type: array
                 items:
                   anyOf:
@@ -5077,10 +5079,10 @@ x-defs:
                     allOf:
                     - if:
                         required:
-                        - prov:reagent
+                        - bios:reagent
                       then:
                         properties:
-                          prov:reagent:
+                          bios:reagent:
                             type: array
                             items:
                               allOf:
@@ -5111,7 +5113,7 @@ x-defs:
                                         x-jsonld-id: http://schema.org/name
                                 required:
                                 - ada:reagentRole
-                            x-jsonld-id: http://www.w3.org/ns/prov#reagent
+                            x-jsonld-id: https://bioschemas.org/reagent
                   x-jsonld-id: http://www.w3.org/ns/prov#used
             x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       Param_Analysis_detectionLimit:
@@ -5285,6 +5287,7 @@ x-defs:
         - ada:fieldScope
     x-jsonld-prefixes:
       ada: https://ada.astromat.org/metadata/
+      bios: https://bioschemas.org/
       prov: http://www.w3.org/ns/prov#
       schema: http://schema.org/
     x-bblocks-metadata:
@@ -6984,15 +6987,15 @@ x-defs:
                   - if:
                       type: object
                       required:
-                      - prov:reagent
+                      - bios:reagent
                     then:
                       properties:
-                        prov:reagent:
+                        bios:reagent:
                           type: array
                           minItems: 1
                           items:
                             $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.geochemProduct/$defs/UsedReagent
-                          x-jsonld-id: http://www.w3.org/ns/prov#reagent
+                          x-jsonld-id: https://bioschemas.org/reagent
                   - if:
                       type: object
                       required:
@@ -7029,6 +7032,16 @@ x-defs:
                         bare @type form is superseded; see the branch above.
                       required:
                       - ada:tappDefinition
+                  - if:
+                      type: object
+                      required:
+                      - prov:reagent
+                    then:
+                      description: The reagent role is bios:reagent; prov:reagent
+                        is superseded (PROV-O defines no reagent term). Rename the
+                        key.
+                      required:
+                      - bios:reagent
                 x-jsonld-id: http://www.w3.org/ns/prov#used
               schema:location:
                 title: Laboratory

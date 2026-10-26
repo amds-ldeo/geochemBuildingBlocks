@@ -100,9 +100,11 @@ $defs:
     type: object
     properties:
       ada:targetSpeciesTemplate:
+        title: Target Species Template
         type: object
         properties:
           ada:defaultTargetSpecies:
+            title: Default Target Species
             type: array
             items:
               anyOf:
