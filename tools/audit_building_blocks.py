@@ -37,14 +37,14 @@ one it does), 2 on a usage or environment error.
 Until 2026-10-16 this tool printed "Summary: 246 passed, 5 failed" and exited 0,
 and no workflow ran it -- so a failure report nothing was able to act on was the
 only output it had. The baseline shape is borrowed from
-tools/constraint_census.py for the reason that tool uses it: the repository has 5
-failures it cannot clear today (the legacy profile-ada blocks for QRIS, RAMAN,
-VNMIR, XANES and XRD carry no example, and no generator owns them, so the
-examples must be authored or the blocks retired -- and retirement is blocked on
-ADA-side record migration, not on schema work). Making the audit fatal outright
-would build a check that can never pass, which CLAUDE.md warns about directly.
-Recording those 5 instead makes them accepted debt whose every movement is
-visible, and makes the 6th failure fatal from the moment it appears.
+tools/constraint_census.py for the reason that tool uses it: the repository had 5
+failures it could not clear then (the legacy profile-ada blocks for QRIS, RAMAN,
+VNMIR, XANES and XRD carried no example, and no generator owned them). Making
+the audit fatal outright would have built a check that can never pass, which
+CLAUDE.md warns about directly. Recording those 5 instead made them accepted
+debt whose every movement was visible, and made the 6th failure fatal from the
+moment it appeared. Those blocks were retired on 2026-10-26, so the baseline is
+now empty and any issue fails.
 
 The baseline stores each failing block's issue strings VERBATIM and compares them
 exactly, so a block that keeps failing for a DIFFERENT reason is reported rather

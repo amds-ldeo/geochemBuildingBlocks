@@ -23,7 +23,11 @@ profile-1/profile-2 for a technique with no entry). Repo-wide that takes TAPP-ba
 from 29 to **34 of 59** techniques.
 
 So every `profile-ada` under `geochemProfile/` now has a replacement, and what remains before any
-of them can be retired is the record-migration question below — not schema work. The 32
+of them can be retired is the record-migration question below — not schema work. **QRIS, RAMAN,
+VNMIR, XANES and XRD were retired on 2026-10-26**: 0 of 7,447 records derived to their
+`ada<TECH>Full` cids, and their sidecars sat at LEGACY 3 in a group with the TAPP twin at 15, so
+they could never be declared. Four remain — EPMA, SEM, TEM and XCT — and SEM still has 2,918
+records on `adaSEMFull`. The 32
 `adaProfile/` technique directories are a separate and larger job.
 
 > **`addtype` is the real decision in a PROFILES entry, and it must be answered from the corpus.**
@@ -53,9 +57,13 @@ of them can be retired is the record-migration question below — not schema wor
 >
 > **Five cross-tree forks remain and are harmless**: `adaQRIS`, `adaRAMAN`, `adaVNMIR`,
 > `adaXANES` and `adaXRD` are each claimed by an `adaProfile/<TECH>/profile-ada` as well as the
-> `geochemProfile/<TECH>/profile`. They lose nothing, because the `geochemProfile` legacy block
-> already carries `ada<TECH>Full` and its sidecar keeps the vocabulary. Judge a fork by whether
-> any componentType becomes unreachable, not by the fork alone.
+> `geochemProfile/<TECH>/profile`; the sidecar keeps the TAPP block and discards the `adaProfile`
+> one's vocabulary. Until 2026-10-26 the `geochemProfile` legacy block (`ada<TECH>Full`) held that
+> vocabulary in its own sidecar; with it retired, two componentTypes reach no sidecar at all —
+> `ada:VNMIRSpectraPlot` and `ada:XANESimage`. Both are carried by 0 of 7,447 records and remain
+> valid in the base `image`/`document` enums, so nothing fails; a future record carrying only one
+> of them would match no technique profile. Judge a fork by whether any componentType becomes
+> unreachable, not by the fork alone.
 
 **These profiles are not CITED — their URI is DERIVED from record content.** Corrected
 2026-10-20, and two earlier versions of this paragraph were both wrong. The first said no record
