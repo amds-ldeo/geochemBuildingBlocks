@@ -38,6 +38,7 @@ import yaml
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
+import property_labels as pl
 import _tapp_lib as _sent   # the one definition of the sentinel vocabulary
 import migrate_sidecar as ms
 import schema_path_emitter as e
@@ -308,6 +309,14 @@ def render(name, defs, stats, composed_by):
 
 
 def write_bb(name, doc, stats, composed_by):
+    # Procedure-side container labels. build_module_bb is the THIRD generator
+    # that can emit a labelled container, and it was missed in #215: the
+    # targetSpecies module declared ada:targetSpeciesTemplate and
+    # ada:defaultTargetSpecies untitled, and each of its 13 consuming techniques
+    # inlined that $def, giving exactly 13 untitled copies of each key.
+    # Containers only, by name -- record labels vary by POSITION and a module
+    # $def composes into many different nodes.
+    pl.label_by_name(doc)
     d = os.path.join(BBDIR, dirname(name))
     os.makedirs(d, exist_ok=True)
 

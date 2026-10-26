@@ -548,17 +548,17 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -1911,17 +1911,17 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
@@ -2468,17 +2468,17 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
@@ -5254,15 +5254,15 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -10817,7 +10817,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-25'
+  dateOfLastChange: '2026-10-26'
 
 ```
 
