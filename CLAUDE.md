@@ -569,7 +569,7 @@ only as a mis-profiled record in ADA. Key rules, detailed in `docs/CONFORMANCE_S
 `adaProduct` redefines `prov:wasGeneratedBy.items.properties` with ADA-specific keys; via `allOf` merge, the upstream `cdifProvActivity` constraints still apply. Recent renames/extensions:
 
 - `prov:used` relates the activity to what it used through ROLE-KEYED properties, one per role:
-  `schema:instrument`, `bios:computationalTool`, `prov:reagent`, and — since #190 —
+  `schema:instrument`, `bios:computationalTool`, `bios:reagent`, and — since #190 —
   **`ada:tappDefinition`**, whose value is either a closed `{@id}` reference or the plan inline
   (`_sources/BaseSchema/tappDefinition/`; JSON-LD class `ada:TAPPDefinition`; previously named
   methodDefinition, under geochemProperties/). The role is read off the property NAME, not off

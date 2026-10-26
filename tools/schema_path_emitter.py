@@ -83,7 +83,7 @@ KNOWN_ARRAY = {"prov:wasGeneratedBy", "schema:measurementTechnique", "schema:fun
 # `if key == value` form every other branch uses.
 
 PROV_USED = "prov:used"
-WRAPPER_KEYS = {"schema:instrument", "bios:computationalTool", "prov:reagent"}
+WRAPPER_KEYS = {"schema:instrument", "bios:computationalTool", "bios:reagent"}
 _WRAPPER = "\0wrapper"
 
 # Roles that discriminate members of an OPTIONAL collection. bios:computationalTool and
@@ -104,7 +104,7 @@ WRAPPER_ITEM_REF = {
     # $ref-of-a-$ref — it inlines the whole product schema, leaking @type [Dataset,Product] onto the
     # tool/reagent — whereas the direct geochemProduct fragment resolves to the correct shape.)
     "bios:computationalTool": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool",
-    "prov:reagent": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent",
+    "bios:reagent": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent",
 }
 
 # Array properties whose ITEMS are a rich object defined elsewhere, keyed by PROPERTY name
