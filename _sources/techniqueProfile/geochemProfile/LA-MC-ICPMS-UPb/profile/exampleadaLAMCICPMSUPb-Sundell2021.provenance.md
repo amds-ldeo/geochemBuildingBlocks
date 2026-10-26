@@ -20,8 +20,8 @@ Skeleton validates with 1 error(s); this instance with 0.
 | `/schema:keywords` | LIT |  |
 | `/schema:license` | SENT |  |
 | `/prov:wasGeneratedBy/0/schema:identifier` | LIT | eight measurement sessions, four acquisition rates, two sessions each |
-| `/prov:wasGeneratedBy/0/schema:startDate` | SENT | no session dates are reported |
-| `/prov:wasGeneratedBy/0/schema:endDate` | SENT |  |
+| `/prov:wasGeneratedBy/0/schema:startTime` | SENT | no session dates are reported |
+| `/prov:wasGeneratedBy/0/schema:endTime` | SENT |  |
 | `/prov:wasGeneratedBy/0/schema:location` | LIT |  |
 | `/prov:wasGeneratedBy/0/ada:proceduralBlankLevel` | SENT |  |
 | `/prov:wasGeneratedBy/0/ada:deadTime` | SENT |  |

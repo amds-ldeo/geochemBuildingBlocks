@@ -27,8 +27,8 @@ Skeleton validates with 1 error(s); this instance with 0.
 | `/schema:keywords` | ADA | from the record's own title and description |
 | `/schema:license` | SENT |  |
 | `/prov:wasGeneratedBy/0/schema:identifier` | ADA |  |
-| `/prov:wasGeneratedBy/0/schema:startDate` | EXP | earliest Analysis date across the 117 runs (03/09/2024) |
-| `/prov:wasGeneratedBy/0/schema:endDate` | EXP | latest Analysis date across the 117 runs (04/09/2024); the session spans two days |
+| `/prov:wasGeneratedBy/0/schema:startTime` | EXP | earliest Analysis date across the 117 runs (03/09/2024) |
+| `/prov:wasGeneratedBy/0/schema:endTime` | EXP | latest Analysis date across the 117 runs (04/09/2024); the session spans two days |
 | `/prov:wasGeneratedBy/0/ada:proceduralBlankLevel` | SENT |  |
 | `/prov:wasGeneratedBy/0/ada:deadTime` | SENT |  |
 | `/prov:wasGeneratedBy/0/prov:used/0/schema:instrument/0` | ADA+LOG | identity from the ADA record; the collector array and which collectors carried signal from the instrument logs |

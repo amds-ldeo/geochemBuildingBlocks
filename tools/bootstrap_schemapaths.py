@@ -30,8 +30,8 @@ LIB_SPEC = schemapath_io.csv_path(os.path.join(ROOT, "docs", "LA-Q_SF-ICPMS_TAPP
 # (identical technique-to-technique; sourced from the LA-Q reference.)
 SHARED = {
     "analyst": "$Dataset.schema:contributor[schema:roleName='analyst'].schema:name",
-    "analysis start date": "$Dataset.prov:wasGeneratedBy.schema:startDate",
-    "analysis end date": "$Dataset.prov:wasGeneratedBy.schema:endDate",
+    "analysis start date": "$Dataset.prov:wasGeneratedBy.schema:startTime",
+    "analysis end date": "$Dataset.prov:wasGeneratedBy.schema:endTime",
     "funding source for analysis": "$Dataset.schema:funding",
 }
 
