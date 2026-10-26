@@ -2143,7 +2143,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     out["prov:wasGeneratedBy"] = [OrderedDict([
         ("@type", ["prov:Activity", "schema:Action"]),
         ("schema:identifier", f"session-epma-{pub_label.lower()}"),
-        ("schema:startDate", "2026-04-29"),
+        ("schema:startTime", "2026-04-29T09:00:00Z"),
         ("prov:used", [_instrument_for_provused(tapp_ex.get("schema:instrument"))]),
         ("schema:location", _location_for_provused(tapp_ex.get("schema:location"))),
         ("schema:object", [_sample_for_provused(tapp_object_first, pub_label)]),

@@ -22,8 +22,8 @@ Skeleton `exampleadaEPMA.json` validates with 1 error(s); this instance validate
 | `/schema:keywords` | ADA | from the record's sample and technique |
 | `/schema:license` | SENTINEL | the published ADA record carries the string 'missing' in this field |
 | `/prov:wasGeneratedBy/0/schema:identifier` | ADA |  |
-| `/prov:wasGeneratedBy/0/schema:startDate` | ADA |  |
-| `/prov:wasGeneratedBy/0/schema:endDate` | SENTINEL | ADA records a start but no end |
+| `/prov:wasGeneratedBy/0/schema:startTime` | ADA |  |
+| `/prov:wasGeneratedBy/0/schema:endTime` | SENTINEL | ADA records a start but no end |
 | `/prov:wasGeneratedBy/0/schema:object` | ADA |  |
 | `/prov:wasGeneratedBy/0/prov:used/0/schema:instrument/0` | ADA+MD | identity from the ADA record; voltage, current and beam size from the method description |
 | `/prov:wasGeneratedBy/0/schema:actionProcess` | MD | the two passes become the ordered HowTo steps; this also repairs the stub that makes both shipped profile examples fail |

@@ -345,7 +345,7 @@ That is a reasonable default and it is *not* what happens here.
 
 A slugified key invents a new vocabulary term per field, and these schemas must interoperate with
 schema.org, PROV, DDI-CDI and Bioschemas. `Laboratory` is not a new property — it is
-`schema:location` on a `schema:Place`. `Analysis Start Date` is `prov:wasGeneratedBy.schema:startDate`.
+`schema:location` on a `schema:Place`. `Analysis Start Date` is `prov:wasGeneratedBy.schema:startTime`.
 
 So every field is mapped, by hand, to a **canonical schema path** in an existing vocabulary, and
 those mappings live in a **sidecar CSV**, one row per (item → path):

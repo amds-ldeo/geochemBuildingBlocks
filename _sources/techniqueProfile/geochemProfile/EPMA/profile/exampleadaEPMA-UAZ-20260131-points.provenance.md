@@ -22,8 +22,8 @@ Skeleton `exampleadaEPMA.json` validates with 1 error(s); this instance with 0.
 | `/schema:keywords` | ADA | from the record's sample, technique and description |
 | `/schema:license` | SENT | the published ADA record carries the string 'missing' here |
 | `/prov:wasGeneratedBy/0/schema:identifier` | ADA |  |
-| `/prov:wasGeneratedBy/0/schema:startDate` | INST | first analysis point timestamp, Saturday January 31 2026 8:10:53 AM |
-| `/prov:wasGeneratedBy/0/schema:endDate` | INST | the run's own analysis timestamps bound the session to that day; no explicit end is recorded |
+| `/prov:wasGeneratedBy/0/schema:startTime` | INST | first analysis point timestamp, Saturday January 31 2026 8:10:53 AM |
+| `/prov:wasGeneratedBy/0/schema:endTime` | INST | the run's own analysis timestamps bound the session to that day; no explicit end is recorded |
 | `/prov:wasGeneratedBy/0/schema:object` | ADA |  |
 | `/prov:wasGeneratedBy/0/prov:used/0/schema:instrument/0` | ADA+INST | identity from the ADA record; 15 keV / 20 nA / 0 um from the instrument metadata 'Column Conditions : Cond 1 : 15 keV 20 nA' and 'Beam Size : 0 um' |
 | `/prov:wasGeneratedBy/0/schema:actionProcess` | CAL+INST | calibration standards and the overlap correction from the calibration file; acquisition and reduction detail from the session's own instrument metadata |

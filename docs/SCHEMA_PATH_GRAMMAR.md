@@ -74,7 +74,7 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `inherited-identity` | `$MethodDefinition.schema:(creator|location|measurementTechnique|object|funding)\b.*` |
 | `dataset-contributor` | `$Dataset.schema:contributor[schema:roleName='<value>'](.schema:(name|identifier))?` |
 | `dataset-measurement-technique` | `$Dataset.schema:measurementTechnique(.schema:DefinedTerm)?.schema:identifier` |
-| `dataset-provenance` | `$Dataset.prov:wasGeneratedBy.schema:(startDate|endDate|identifier)` |
+| `dataset-provenance` | `$Dataset.prov:wasGeneratedBy.schema:(startTime|endTime|identifier)` |
 | `dataset-prov-parameter` | `$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='<value>'].schema:value` |
 | `dataset-parameter` | `$Dataset.schema:additionalProperty[schema:name='<value>'].schema:value` |
 | `dataset-step-parameter` | `$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |

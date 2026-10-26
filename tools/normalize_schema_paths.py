@@ -226,7 +226,7 @@ def recognize(s):
         # activity. Group1's Session Identifier lands here rather than in a parameter bag, which is
         # the module's whole character — every one of its fields maps to a property that already
         # exists rather than inventing one.
-        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:(startDate|endDate|identifier)$",
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:(startTime|endTime|identifier)$",
          "dataset-provenance"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-prov-parameter"),
         # A property of the DELIVERED DATA, not of the session that produced it — map area, volume
