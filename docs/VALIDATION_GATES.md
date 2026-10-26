@@ -7,10 +7,12 @@ Moved out of `CLAUDE.md` on 2026-10-25, text unchanged except where noted; `CLAU
 could act on (`docs/SILENT_SUCCESS.md` #9). It now exits 1 on any issue not recorded in
 `docs/audit_baseline.json`, and runs as a step of `check-schema-drift.yml`.
 
-The 5 accepted failures are the legacy `profile-ada` blocks for QRIS, RAMAN, VNMIR, XANES and XRD,
-each on `No example files found`. Nothing regenerates a `profile-ada` block, so those examples have
-to be authored or the blocks retired — and retirement is blocked on ADA-side record migration, not
-on schema work. Making the audit fatal outright would have built a check that can never pass.
+The baseline is EMPTY as of 2026-10-26. It held 5 accepted failures — the legacy
+`geochemProfile/<TECH>/profile-ada` blocks for QRIS, RAMAN, VNMIR, XANES and XRD, each on
+`No example files found` — and those blocks were retired rather than given examples: no record
+derived to their `ada<TECH>Full` cids (measured over all 7,447) and each lost every detection
+contest to its TAPP twin. Accepting them while they existed is what let the audit gate at all;
+making it fatal outright would have built a check that can never pass.
 
 Three things to know before touching it:
 
