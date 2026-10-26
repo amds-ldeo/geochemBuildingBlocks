@@ -24,7 +24,7 @@ It composes the CDIF profiles and adds the generic geochem surface:
   and reagents actually used; the laboratory (`schema:location`); the samples analysed
   (`schema:object`); the session identifier and timing. `prov:used` uses the CDIF
   role-keyed wrapper model (constraint-only `if/then` pins for `schema:instrument`,
-  `bios:computationalTool`, `prov:reagent`, and an inline/`@id` `tappDefinition`).
+  `bios:computationalTool`, `bios:reagent`, and an inline/`@id` `tappDefinition`).
 - **Variables measured** (`schema:variableMeasured`) — extends `cdifInstanceVariable`
   with description, alternate names, measurement technique, units, and value bounds.
 - **Coverage** — `schema:spatialCoverage`, `schema:temporalCoverage`,
@@ -929,15 +929,15 @@ allOf:
               - if:
                   type: object
                   required:
-                  - prov:reagent
+                  - bios:reagent
                 then:
                   properties:
-                    prov:reagent:
+                    bios:reagent:
                       type: array
                       minItems: 1
                       items:
                         $ref: '#/$defs/UsedReagent'
-                      x-jsonld-id: http://www.w3.org/ns/prov#reagent
+                      x-jsonld-id: https://bioschemas.org/reagent
               - if:
                   type: object
                   required:
@@ -973,6 +973,15 @@ allOf:
                     form is superseded; see the branch above.
                   required:
                   - ada:tappDefinition
+              - if:
+                  type: object
+                  required:
+                  - prov:reagent
+                then:
+                  description: The reagent role is bios:reagent; prov:reagent is superseded
+                    (PROV-O defines no reagent term). Rename the key.
+                  required:
+                  - bios:reagent
             x-jsonld-id: http://www.w3.org/ns/prov#used
           schema:location:
             title: Laboratory

@@ -151,7 +151,7 @@ The analysis half of the CompositionQC module, with every property populated. Ge
     {
       "prov:used": [
         {
-          "prov:reagent": [
+          "bios:reagent": [
             {
               "@type": [
                 "schema:DefinedTerm"
@@ -178,6 +178,7 @@ The analysis half of the CompositionQC module, with every property populated. Ge
   "@context": [
     {
       "ada": "https://ada.astromat.org/metadata/",
+      "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#",
       "schema": "http://schema.org/"
     },
@@ -201,7 +202,7 @@ The analysis half of the CompositionQC module, with every property populated. Ge
     {
       "prov:used": [
         {
-          "prov:reagent": [
+          "bios:reagent": [
             {
               "@type": [
                 "schema:DefinedTerm"
@@ -230,10 +231,10 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 
 [] schema1:variableMeasured [ schema1:name "Detection Limit Method" ;
             schema1:value "no value available: unnamed property" ],
-        [ schema1:name "Detection Limit" ;
-            schema1:value 1 ],
         [ schema1:name "Normalization / Standards-Based Correction" ;
-            schema1:value "no value available: unnamed property" ] ;
+            schema1:value "no value available: unnamed property" ],
+        [ schema1:name "Detection Limit" ;
+            schema1:value 1 ] ;
     prov:wasGeneratedBy [ prov:used [ ] ] .
 
 
@@ -445,10 +446,10 @@ $defs:
                 allOf:
                 - if:
                     required:
-                    - prov:reagent
+                    - bios:reagent
                   then:
                     properties:
-                      prov:reagent:
+                      bios:reagent:
                         type: array
                         items:
                           allOf:
@@ -478,7 +479,7 @@ $defs:
                                     x-jsonld-id: http://schema.org/name
                             required:
                             - ada:reagentRole
-                        x-jsonld-id: http://www.w3.org/ns/prov#reagent
+                        x-jsonld-id: https://bioschemas.org/reagent
               x-jsonld-id: http://www.w3.org/ns/prov#used
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
   Param_Analysis_detectionLimit:
@@ -636,6 +637,7 @@ $defs:
     - ada:fieldScope
 x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
+  bios: https://bioschemas.org/
   prov: http://www.w3.org/ns/prov#
   schema: http://schema.org/
 x-bblocks-metadata:
@@ -658,6 +660,7 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
+    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
     "@version": 1.1
