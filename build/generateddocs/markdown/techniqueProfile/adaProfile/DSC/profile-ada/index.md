@@ -220,7 +220,7 @@ Mock data for validation and testing.
         "schema:Action"
       ],
       "schema:identifier": "session-dsc-20260110-001",
-      "schema:startDate": "2026-01-10T09:30:00",
+      "schema:startTime": "2026-01-10T09:30:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -667,7 +667,7 @@ Mock data for validation and testing.
         "schema:Action"
       ],
       "schema:identifier": "session-dsc-20260110-001",
-      "schema:startDate": "2026-01-10T09:30:00",
+      "schema:startTime": "2026-01-10T09:30:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -1033,7 +1033,7 @@ ex:adaDSC-example-001 a schema1:Dataset,
                     schema1:description "Thin section of Allan Hills 84001 martian meteorite" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
-            schema1:startDate "2026-01-10T09:30:00" ;
+            schema1:startTime "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
     ada:submissionType "BundleDelivery" .
 
@@ -1191,7 +1191,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.adaProfile.DSC.profile-ada
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-26'
+  dateOfLastChange: '2026-10-27'
 
 ```
 
