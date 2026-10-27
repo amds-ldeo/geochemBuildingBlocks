@@ -206,18 +206,18 @@ The procedure half of the Core module, with every property populated. Generated 
             schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:termCode "no value available: unnamed property" ] ;
     schema1:name "no value available: unnamed property" ;
-    schema1:relatedLink [ schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "no value available: unnamed property" ] ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "no value available: unnamed property" ] ] ;
+                    schema1:name "no value available: unnamed property" ] ],
+        [ schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "no value available: unnamed property" ] ] ;
     ada:analyticalMode "no value available: unnamed property" ;
     ada:reportedProperties "no value available: unnamed property" ;
     ada:samplingUnitType "no value available: unnamed property" ;
     bios:computationalTool [ schema1:name "no value available: unnamed property" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         [ schema1:name "no value available: unnamed property" ;
-            ada:toolRole "acquisition" ] .
+            ada:toolRole "dataReduction" ] .
 
 
 ```
@@ -235,8 +235,8 @@ The analysis half of the Core module, with every property populated. Generated f
         "schema:identifier": "no value available: unnamed property"
       },
       "schema:identifier": "no value available: unnamed property",
-      "schema:startDate": "no value available: unnamed property",
-      "schema:endDate": "no value available: unnamed property",
+      "schema:startTime": "no value available: unnamed property",
+      "schema:endTime": "no value available: unnamed property",
       "schema:object": [
         {
           "@type": "no value available: unnamed property",
@@ -339,8 +339,8 @@ The analysis half of the Core module, with every property populated. Generated f
         "schema:identifier": "no value available: unnamed property"
       },
       "schema:identifier": "no value available: unnamed property",
-      "schema:startDate": "no value available: unnamed property",
-      "schema:endDate": "no value available: unnamed property",
+      "schema:startTime": "no value available: unnamed property",
+      "schema:endTime": "no value available: unnamed property",
       "schema:object": [
         {
           "@type": "no value available: unnamed property",
@@ -434,24 +434,24 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:identifier "no value available: unnamed property" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "no value available: unnamed property" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ],
         [ schema1:linkRelationship "coupledProcedure" ;
-            schema1:target [ schema1:url "no value available: unnamed property" ] ] ;
+            schema1:target [ schema1:url "no value available: unnamed property" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "no value available: unnamed property" ] ;
     schema1:variableMeasured [ schema1:name "Sampling Unit Name" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ schema1:description "no value available: unnamed property" ;
                             schema1:name "Sample preparation" ] ] ;
             schema1:description "no value available: unnamed property" ;
-            schema1:endDate "no value available: unnamed property" ;
+            schema1:endTime "no value available: unnamed property" ;
             schema1:identifier "no value available: unnamed property" ;
             schema1:location [ schema1:identifier "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ;
             schema1:object [ schema1:identifier "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ;
-            schema1:startDate "no value available: unnamed property" ;
+            schema1:startTime "no value available: unnamed property" ;
             prov:used [ ] ] ;
     ada:analyticalMode "no value available: unnamed property" .
 
@@ -758,17 +758,17 @@ $defs:
                 identifier a repository mints on submission."
               type: string
               x-jsonld-id: http://schema.org/identifier
-            schema:startDate:
+            schema:startTime:
               description: 'Date on which the analytical session began. For sessions
                 spanning multiple days, use the date of the first session. Format:
                 YYYY-MM-DD.'
               type: string
-              x-jsonld-id: http://schema.org/startDate
-            schema:endDate:
+              x-jsonld-id: http://schema.org/startTime
+            schema:endTime:
               description: 'Date on which the analytical session ended. May equal
                 Analysis Start Date for single-day sessions. Format: YYYY-MM-DD.'
               type: string
-              x-jsonld-id: http://schema.org/endDate
+              x-jsonld-id: http://schema.org/endTime
             schema:object:
               type: array
               items:
@@ -927,9 +927,9 @@ $defs:
                   x-jsonld-id: http://schema.org/step
               x-jsonld-id: http://schema.org/actionProcess
           required:
-          - schema:endDate
+          - schema:endTime
           - schema:identifier
-          - schema:startDate
+          - schema:startTime
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       schema:measurementTechnique:
         type: array

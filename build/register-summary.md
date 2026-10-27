@@ -1468,18 +1468,6 @@ Technique-specific profile for X-ray Diffraction (XRD) products
 
 Technique-specific profile for Electron Microprobe Analysis (EPMA) products
 
-### `ogch.techniqueProfile.geochemProfile.QRIS.profile-ada` — ADA QRIS Profile (TAPP-linked)
-
-**Type:** schema
-
-Profile for an ADA metadata document describing Quantitative Reflectance Imaging System products generated under a registered qrisTAPP procedure. Adds the QRIS analysis detail on the schema:Dataset root and pins prov:used to the qrisTAPP definition, on top of the ADA QRIS component-type constraints. DRAFT - the source table has not been through Phase 0 review.
-
-### `ogch.techniqueProfile.geochemProfile.RAMAN.profile-ada` — ADA RAMAN Profile (TAPP-linked)
-
-**Type:** schema
-
-Profile for an ADA metadata document describing Raman vibrational spectroscopy products generated under a registered ramanTAPP procedure. Adds the RAMAN analysis detail on the schema:Dataset root and pins prov:used to the ramanTAPP definition, on top of the ADA RAMAN component-type constraints. DRAFT - the source table has not been through Phase 0 review.
-
 ### `ogch.techniqueProfile.geochemProfile.SEM.profile-ada` — ADA SEM Profile
 
 **Type:** schema
@@ -1492,27 +1480,9 @@ Technique-specific profile for Scanning Electron Microscopy (SEM) products
 
 Technique-specific profile for Transmission Electron Microscopy (TEM) products
 
-### `ogch.techniqueProfile.geochemProfile.VNMIR.profile-ada` — ADA VNMIR Profile (TAPP-linked)
-
-**Type:** schema
-
-Profile for an ADA metadata document describing data generated under a registered vnmirTAPP procedure. Adds the VNMIR analysis detail on the schema:Dataset root and pins prov:used to the vnmirTAPP definition, on top of the ADA VNMIR component-type constraints. DRAFT - the vnmirTAPP source table has not been through Phase 0 review.
-
-### `ogch.techniqueProfile.geochemProfile.XANES.profile-ada` — ADA XANES Profile (TAPP-linked)
-
-**Type:** schema
-
-Profile for an ADA metadata document describing X-ray absorption near edge structure spectroscopy products generated under a registered xanesTAPP procedure. Adds the XANES analysis detail on the schema:Dataset root and pins prov:used to the xanesTAPP definition, on top of the ADA XANES component-type constraints. DRAFT - the source table has not been through Phase 0 review.
-
 ### `ogch.techniqueProfile.geochemProfile.XCT.profile-ada` — ADA XCT Profile
 
 **Type:** schema
 
 Technique-specific profile for X-ray Computed Tomography (XCT) products
-
-### `ogch.techniqueProfile.geochemProfile.XRD.profile-ada` — ADA XRD Profile (TAPP-linked)
-
-**Type:** schema
-
-Profile for an ADA metadata document describing X-ray diffraction products generated under a registered xrdTAPP procedure. Adds the XRD analysis detail on the schema:Dataset root and pins prov:used to the xrdTAPP definition, on top of the ADA XRD component-type constraints. DRAFT - the source table has not been through Phase 0 review.
 

@@ -181,8 +181,8 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:Action"
       ],
       "schema:identifier": "session-ada-20260110-001",
-      "schema:startDate": "2026-01-10T09:30:00",
-      "schema:endDate": "2026-01-10T12:45:00",
+      "schema:startTime": "2026-01-10T09:30:00",
+      "schema:endTime": "2026-01-10T12:45:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -831,8 +831,8 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:Action"
       ],
       "schema:identifier": "session-ada-20260110-001",
-      "schema:startDate": "2026-01-10T09:30:00",
-      "schema:endDate": "2026-01-10T12:45:00",
+      "schema:startTime": "2026-01-10T09:30:00",
+      "schema:endTime": "2026-01-10T12:45:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -1389,15 +1389,15 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: peakFlatness" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ] ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
-            schema1:endDate "2026-01-10T12:45:00" ;
+            schema1:endTime "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
@@ -1409,7 +1409,7 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
                     schema1:description "Thin section of Allan Hills 84001 martian meteorite" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
-            schema1:startDate "2026-01-10T09:30:00" ;
+            schema1:startTime "2026-01-10T09:30:00" ;
             prov:used [ ada:tappDefinition ex:laMcicpmsUPbTAPP-P0 ],
                 [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
