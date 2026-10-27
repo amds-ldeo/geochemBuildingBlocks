@@ -12948,6 +12948,7 @@
                       }
                     },
                     "schema:identifier": {
+                      "title": "Sample Identifier",
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -14343,6 +14344,7 @@
             "type": "string"
           },
           "schema:identifier": {
+            "title": "Technique Identifier",
             "type": "string"
           }
         }
@@ -22924,6 +22926,9 @@
         {
           "type": "object",
           "properties": {
+            "schema:identifier": {
+              "title": "Instrument Identifier"
+            },
             "@id": {
               "description": "Identifier for this instrument within the record. REQUIRED: an instrument has to be referenceable. A monitored species names the instrument (or the instrument part) that reports it, and a dataset variable points back at the device that produced it; neither is expressible while the instrument is an anonymous object. A document-scoped identifier suffices, but a resolvable one is better wherever the lab has a persistent identifier for the device.",
               "type": "string",
@@ -23495,6 +23500,12 @@
         {
           "type": "object",
           "properties": {
+            "schema:identifier": {
+              "title": "Laboratory Identifier"
+            },
+            "schema:alternateName": {
+              "title": "Laboratory Alternate Name"
+            },
             "schema:additionalType": {
               "description": "Must classify the place as a NeXus NXsource. The value is a sealed reference ({\"@id\": ...}) so JSON-LD expands it to a real IRI; written as a bare string it stays a literal that looks like a URI and resolves to nothing. The two-segment path is the form that actually resolves -- .../classes/BaseClass/NXsource is a 404, .../classes/base_classes/NXsource.html is not.",
               "type": "array",
