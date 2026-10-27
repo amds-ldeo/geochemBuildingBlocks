@@ -434,6 +434,29 @@ allOf:
             "schema:endTime":
               title: End Time
               type: string
+            # The superseded spelling of the activity's timing, CLOSED OFF. schema.org gives
+            # schema:startTime/endTime to an Action and schema:startDate/endDate to an Event
+            # or CreativeWork; an analysis event is a prov:Activity aligned with schema:Action,
+            # so the Time pair is the one that applies, and it is the pair CDIF's
+            # cdifProvActivity uses.
+            #
+            # Safe to reject outright: measured 2026-10-26 after the ADA writers dropped the
+            # old pair, schema:startDate and schema:endDate occur 0 times in the 7,447
+            # activities of both ada_subjects and production ada2, which carry
+            # schema:startTime/endTime 7,447 times each and validate with 0 errors against
+            # this repository at 60e3f13c1a. Same sequence as the TAPP and reagent close-offs:
+            # the corpus moved first, then the schema.
+            #
+            # Without this the old keys would still validate, because the activity object is
+            # open, so a writer that regressed to them would pass silently.
+            "schema:startDate":
+              description: >-
+                Superseded: the analysis start is schema:startTime. Rename the key.
+              not: {}
+            "schema:endDate":
+              description: >-
+                Superseded: the analysis end is schema:endTime. Rename the key.
+              not: {}
             "schema:additionalProperty":
               description: Per-analysis PropertyValue entries (replicates, transect length, ...); technique profiles constrain these.
               type: array
