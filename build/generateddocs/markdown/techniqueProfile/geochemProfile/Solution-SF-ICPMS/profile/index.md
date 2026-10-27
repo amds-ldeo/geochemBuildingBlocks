@@ -1190,8 +1190,8 @@ ex:adaSolutionSFICPMS-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                [ ada:tappDefinition ex:solutionSficpmsTAPP-P0 ] ;
+            prov:used [ ada:tappDefinition ex:solutionSficpmsTAPP-P0 ],
+                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:sensitivityYield 1e+00 ;
@@ -1360,7 +1360,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-SF-ICPMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-26'
+  dateOfLastChange: '2026-10-27'
 
 ```
 
