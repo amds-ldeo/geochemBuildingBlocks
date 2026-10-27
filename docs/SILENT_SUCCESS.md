@@ -733,6 +733,90 @@ session rendering real records, not by any gate here — a reader that could not
 writer's new spelling, a block title leaking as a label, and a label correct in 1 of its 4
 positions. gBB has no check that can see a label as a label. Ask the consumer.
 
+## 15. The gate whose glob cannot match the file
+
+`validate_examples.py` reports `657 passed, 0 failed, 0 errors` and that number is real.
+What it does not say is which files it looked for:
+
+```python
+glob('example*.json')          # validate_examples.py
+find _sources -name 'example*.json'    # check-determinism.yml
+```
+
+Neither pattern matches `examples.yaml`. So the 28 inline example snippets in the 14
+`_sources/BaseSchema/modules/*/examples.yaml` are invisible to BOTH gates — not
+under-tested, not matched at all. A generated artifact that no check names is not a gap in
+coverage; it is outside the coverage.
+
+**What it cost.** A `title` annotation added to `instrument` changed what
+`build_module_bb._sample()` emits for `schema:identifier`, from an array to a scalar, in
+`modules/icpms` and `modules/laserAblation`. Both snippets then failed their own schema:
+
+```
+/prov:wasGeneratedBy/0/prov:used/0/schema:instrument/0/schema:identifier
+'no value available: unnamed property' is not of type 'array'
+```
+
+Through all of it `validate_examples` stayed at 657/657, and I reported that number as
+though it covered the two changed files. It was not weak evidence about them. It was
+silent about them, structurally, and would have been silent at any size.
+
+**And the same blindness was already hiding five of them.** Validating all 28 snippets
+against their modules' `resolvedSchema.json` — a check nothing in this repository
+performs — finds **5 failing on `origin/main`**, unrelated to any recent change:
+`compositionQC`, `core` (both halves), `solutionIntroduction` and `uPb`, each missing
+`@type` or `schema:position` on a workflow step. They had been shipping, reported by
+nothing.
+
+**`Regenerate and diff` is the only check that can see these files, and it cannot see what
+is wrong with them.** It diffs the whole of `_sources`, so it caught that the two
+`examples.yaml` CHANGED — which is how this surfaced at all — but a diff cannot say an
+example is invalid, only that it is not what was committed. One gate is carrying an entire
+category of generated file, and it is carrying it by accident of scope rather than by
+design.
+
+**The rule.** A pass count has no denominator in it. Before trusting one, read the gate's
+GLOB and ask what exists in the tree that it cannot match — then write the check for that,
+rather than another entry here. `check-determinism.yml` already has the right mechanism in
+its Data Type floor, whose own comment records that the floor was the only thing that
+caught a check running over less than half its corpus. Issue #232 proposes generalising it:
+every gate asserts how much it examined against a committed number, and a generated file no
+gate claims is a hard failure.
+
+## 16. The stage diagnosed its own output, and the orchestrator dropped the message
+
+`build_module_bb.write_examples()` validates every snippet it generates and hands the
+failures back; the caller prints them:
+
+```python
+for defname, msg in problems:
+    print(f"{'':22s} EXAMPLE FAILS {defname}: {msg}")
+```
+
+That worked. Run the tool directly and it emits **7** `EXAMPLE FAILS` lines, including the
+two caused by the change in #15, naming the property and the exact type mismatch.
+
+The full `regenerate.py` log for the same work contains **zero** of them. The diagnosis
+existed, was correct, was printed by the stage that found it — and never reached the run
+that produced the committed artifacts. I grepped that log for `problem`, `Unresolvable` and
+`not checked here`, which were the wrong words, and concluded the generator had reported
+nothing.
+
+**The same run also reported completion over a tree that had not converged.**
+`regenerate.py` printed `Regeneration complete` and exited 0, while `build_module_bb` —
+stage one of nine — samples a module's `resolvedSchema.json`, which stage eight writes. So
+the modules stage reads the PREVIOUS run's resolved output, and a single pass after any
+edit that moves a module's resolved schema leaves the tree one iteration short. Two
+explanations were offered for the resulting diff before it was measured, and both were
+wrong, because a one-stage lag makes a direct consequence of the edit look like an
+environmental accident.
+
+**The rule.** An orchestrator that aggregates stages must propagate their diagnostics, or
+it converts a loud failure into a silent one — and its "complete" means every stage ran,
+not that the tree is a fixpoint. Run a stage tool ALONE and read what it prints before
+trusting the pipeline's log, and when a pipeline stage reads an artifact a later stage
+writes, say so where the stage order is documented.
+
 ## The common thread
 
 In all of them, the failure was invisible from the outside because the signal said "success". What
@@ -753,6 +837,9 @@ exposed each one:
 | 11 | comparing the deployed SHA against main's tip, instead of reading the run list for red |
 | 12 | resolving by cid rather than by directory -- and asking what a *justifying* number measured |
 | 13 | reading the census's DECREASE lines, instead of its exit code and the advice underneath |
+| 14 | a falsifiable sentinel searched for by JSON path, and a count per block rather than a total |
+| 15 | reading the gate's GLOB instead of its pass count, and validating a file class no check names |
+| 16 | running the stage tool alone and reading what it prints, rather than the orchestrator's log |
 
 None of these needed cleverness. They needed looking at the thing itself instead of the badge on
 top of it.

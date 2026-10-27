@@ -10,7 +10,7 @@ This repo is the ADA (Astromat Data Archive) building-blocks repo — modular JS
 - **`README.md`** — human-facing overview; its generation-pipeline section is a good orientation.
 - **`docs/TAPP-schema-generation-workflow.md`** — end-to-end walkthrough of workbook → validated schema.
 - **`docs/SCHEMA_PATH_GRAMMAR.md`** — the canonical grammar for the schema-path sidecars.
-- **`docs/SILENT_SUCCESS.md`** — fourteen incidents in which a check, a generator or a workflow reported success while not doing its job. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, before combining two sources in a generator, and whenever you loosen a constraint: ask whether a green check can see your KIND of change at all and not only its direction, measure coverage per RECORD rather than per aggregate, resolve by cid rather than by directory — and, for any check, run it and read `$?`.
+- **`docs/SILENT_SUCCESS.md`** — sixteen incidents in which a check, a generator or a workflow reported success while not doing its job. Read it before changing a check, a trigger, a required-status-check set or a source-resolution fallback, before combining two sources in a generator, and whenever you loosen a constraint: ask whether a green check can see your KIND of change at all and not only its direction, measure coverage per RECORD rather than per aggregate, resolve by cid rather than by directory — and, for any check, run it and read `$?`.
 - **`docs/README.md`** — what is in `docs/`: the sidecar format, its five `Source` values, and the maintenance tools around it. Note **"sidecar" is overloaded**: in `docs/` it means the `*.schemapaths.csv` files, while `<block>/conformance.json` is the unrelated conformance sidecar — see "Conformance sidecars" below.
 - **`docs/modules/MODULE_CONSOLIDATION_STATUS.md`** — **state, not design**: how far module consolidation has got, what is decided, and what is open. Re-measure before quoting its percentage. Read it before drafting a module. Measure `tapp/`, never `registry/`: the registries are `isTypeLibrary` and per-technique by construction, so measuring them yields a true-but-meaningless 87% duplication.
 
@@ -123,6 +123,16 @@ more permissive:
   `variableMeasured` entries by reading `profile/resolvedSchema.json` for the variables the
   COMPOSED schema pins; run before the resolve it reads the previous one and misses whatever the
   composition just added.
+- **resolve before the modules stage's example sampler — which is why ONE PASS IS NOT
+  ENOUGH.** `build_module_bb.write_examples` samples a module's `resolvedSchema.json`,
+  deliberately, since that is where sibling-BB and CDIF refs are already inlined. But
+  `[modules]` runs FIRST and `[resolve]` eighth, so it reads the PREVIOUS run's resolved
+  output. After any edit that moves a module's resolved schema, `regenerate.py` must run
+  TWICE to reach a fixpoint — which is exactly what `Regenerate and diff` asserts. A single
+  pass prints `Regeneration complete` and exits 0 over a tree that is one iteration short,
+  and the lag makes a direct consequence of your own edit look like an environmental
+  accident: it drew two wrong explanations out of me before I measured it
+  (`docs/SILENT_SUCCESS.md` #16).
 
 ```
 python tools/regenerate.py                 # everything, in order
@@ -702,6 +712,48 @@ names, `enum` members, `const`, `pattern`, numeric bounds. So an unchanged censu
 good evidence these change no validation, and is structurally unable to show a title
 ARRIVED. Arrival needs its own count, per artifact and per property, against a committed
 baseline — read `docs/SILENT_SUCCESS.md` #14 before trusting a green gate here.
+
+**A TITLE-ONLY PATCH IS NOT AUTOMATICALLY ANNOTATION-ONLY, because a GENERATOR may read
+the node the title sits on.** Validation never reads a title and the census cannot see
+one — both true, and `Instrument Identifier` still broke two generated artifacts.
+`build_module_bb._sample()` samples an object's properties LAST-BRANCH-WINS instead of
+intersecting the `allOf` siblings that constrain the same key, so `{title: ...}` in
+`instrument`'s own branch beat CDIF's `{type: array}` branch, was sampled alone, and
+emitted a scalar where an array is required. `modules/icpms` and `modules/laserAblation`
+then failed their own schema while the census was unchanged and examples were 657/657.
+Before calling a title safe, ask which GENERATORS read that node. Open: #233 (the sampler)
+and #232 (no gate's glob matches a module `examples.yaml` at all).
+
+**OWNERSHIP IS OWNING A `properties` BLOCK AT THE NODE, NOT DECLARING THE PROPERTY.**
+Grepping gBB for a property and finding it absent does NOT put the label upstream — the
+pattern #213 used for 20 CDIF-owned record-root labels needs only a `properties` block at
+that position. `laboratory` and `instrument` each own one in their `allOf[1]`, so those
+`schema:identifier` and `schema:alternateName` labels are LOCAL, and they work: gBB's
+titled entry sits beside CDIF's untitled twin in `allOf[0]` and wins, because the viewer
+collects `properties[key]` from every expanded node and returns the first title. I asserted
+the opposite to three readers on the strength of the wrong grep. What is genuinely upstream
+is a property with no gBB node anywhere: `schema:roleName`, `schema:email`, and the
+`maintainer` and person `schema:identifier` positions.
+
+A titled branch beside untitled siblings is NOT the losing shape — *Samples Analyzed*
+renders today from `allOf/2` with five untitled twins. The losing shape is a branch title
+competing with a DIRECT ROOT one, which is the overlay inversion above.
+
+**COUNT POSITIONS, NOT BLOCKS.** A technique profile declares
+`schema:measurementTechnique` at TWO OR THREE nodes, so a per-block tally calls the block
+titled when ANY one of them is, and hides the split:
+
+    /properties/schema:measurementTechnique/...        geochemProduct's   labelled
+    /allOf/N  "Core on the analysis"                   core module's      not
+    .../prov:used/.../then/... and
+    .../ada:tappDefinition/anyOf/1/...                 tappDefinition's   not
+
+Both unlabelled classes are correct: the plan side keeps its own wording in tappDefinition,
+and a module `$def` composes into many nodes. A path-shape classifier CANNOT make this
+split — in a `tapp/` block the plan IS the root, so
+`/properties/schema:measurementTechnique` is tappDefinition's there and geochemProduct's in
+a profile. Same JSON path, different owner. Count the label STRING per artifact before and
+after, and assert that no artifact LOST one; that needs no adjudication.
 
 ## Multi-repo schema propagation
 
