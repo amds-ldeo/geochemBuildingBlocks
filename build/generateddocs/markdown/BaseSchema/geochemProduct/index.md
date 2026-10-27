@@ -847,6 +847,7 @@ allOf:
             type: string
             x-jsonld-id: http://schema.org/name
           schema:identifier:
+            title: Technique Identifier
             type: string
             x-jsonld-id: http://schema.org/identifier
       x-jsonld-id: http://schema.org/measurementTechnique
@@ -1010,6 +1011,7 @@ allOf:
                     $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
                   x-jsonld-id: http://schema.org/additionalType
                 schema:identifier:
+                  title: Sample Identifier
                   type: array
                   items:
                     type: string

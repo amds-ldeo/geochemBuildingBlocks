@@ -9692,6 +9692,14 @@
         {
           "type": "object",
           "properties": {
+            "schema:identifier": {
+              "title": "Laboratory Identifier",
+              "x-jsonld-id": "http://schema.org/identifier"
+            },
+            "schema:alternateName": {
+              "title": "Laboratory Alternate Name",
+              "x-jsonld-id": "http://schema.org/alternateName"
+            },
             "schema:additionalType": {
               "description": "Must classify the place as a NeXus NXsource. The value is a sealed reference ({\"@id\": ...}) so JSON-LD expands it to a real IRI; written as a bare string it stays a literal that looks like a URI and resolves to nothing. The two-segment path is the form that actually resolves -- .../classes/BaseClass/NXsource is a 404, .../classes/base_classes/NXsource.html is not.",
               "type": "array",
@@ -12488,6 +12496,7 @@
                     "x-jsonld-id": "http://schema.org/name"
                   },
                   "schema:identifier": {
+                    "title": "Technique Identifier",
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/identifier"
                   }
@@ -12703,6 +12712,7 @@
                           "x-jsonld-id": "http://schema.org/additionalType"
                         },
                         "schema:identifier": {
+                          "title": "Sample Identifier",
                           "type": "array",
                           "items": {
                             "type": "string"

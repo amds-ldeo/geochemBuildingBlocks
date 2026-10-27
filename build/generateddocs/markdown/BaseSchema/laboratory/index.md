@@ -81,6 +81,12 @@ allOf:
 - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml
 - type: object
   properties:
+    schema:identifier:
+      title: Laboratory Identifier
+      x-jsonld-id: http://schema.org/identifier
+    schema:alternateName:
+      title: Laboratory Alternate Name
+      x-jsonld-id: http://schema.org/alternateName
     schema:additionalType:
       description: 'Must classify the place as a NeXus NXsource. The value is a sealed
         reference ({"@id": ...}) so JSON-LD expands it to a real IRI; written as a
