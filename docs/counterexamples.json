@@ -343,6 +343,28 @@
       },
       "expect": "bios:reagent",
       "why": "The prov:used reagent role key is bios:reagent; the superseded prov:reagent is closed off in geochemProduct (PROV-O defines no reagent term, Bioschemas does, and the TAPP plan already used bios:reagent; upstream CDIF made the same rename in metadataBuildingBlocks#53). The mutation ADDS a reagent wrapper spelled with the old key rather than renaming an existing one, so nothing else in the instance changes and the close-off is the only thing that can reject it -- measured: the same item under bios:reagent validates with 0 errors, under prov:reagent it fails with exactly 1, naming bios:reagent. Without the close-off the old key would still validate, because CDIF admits any CURIE-named role wrapper generically, so losing it would silently re-admit the old spelling. Rejecting outright was safe because prov:reagent occurred 0 times in every JSON column of ada2, ada_subjects and method_registry before the change."
+    },
+    {
+      "id": "activity-startdate-is-closed-off",
+      "example": "_sources/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/exampleadaLAMCICPMS.json",
+      "mutate": {
+        "op": "add",
+        "pointer": "/prov:wasGeneratedBy/0/schema:startDate",
+        "value": "2026-01-10T09:30:00"
+      },
+      "expect": "schema:startDate",
+      "why": "The analysis event's timing is schema:startTime/schema:endTime (the schema.org Action pair, and the pair CDIF's cdifProvActivity uses); the superseded schema:startDate/schema:endDate is closed off in geochemProduct. The mutation ADDS the old key beside the example's existing schema:startTime, with a full date-time value, so it is the dual-emitted shape a writer in transition produces and nothing else in the instance changes -- the close-off is the only thing that can reject it. Without the close-off the old key would still validate, because the activity object is open, so a writer that regressed to it would pass silently. Rejecting outright was safe because, measured 2026-10-26 after the ADA writers dropped the old pair, it occurred 0 times in the 7,447 activities of both ada_subjects and ada2, validated against gBB 60e3f13c1a."
+    },
+    {
+      "id": "activity-enddate-is-closed-off",
+      "example": "_sources/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/exampleadaLAMCICPMS.json",
+      "mutate": {
+        "op": "add",
+        "pointer": "/prov:wasGeneratedBy/0/schema:endDate",
+        "value": "2026-01-10T09:30:00"
+      },
+      "expect": "schema:endDate",
+      "why": "The analysis event's timing is schema:startTime/schema:endTime (the schema.org Action pair, and the pair CDIF's cdifProvActivity uses); the superseded schema:startDate/schema:endDate is closed off in geochemProduct. The mutation ADDS the old key beside the example's existing schema:endTime, with a full date-time value, so it is the dual-emitted shape a writer in transition produces and nothing else in the instance changes -- the close-off is the only thing that can reject it. Without the close-off the old key would still validate, because the activity object is open, so a writer that regressed to it would pass silently. Rejecting outright was safe because, measured 2026-10-26 after the ADA writers dropped the old pair, it occurred 0 times in the 7,447 activities of both ada_subjects and ada2, validated against gBB 60e3f13c1a."
     }
   ]
 }
