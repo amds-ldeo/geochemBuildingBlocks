@@ -140,7 +140,7 @@ their delivery-packaging vocabulary (see adaProduct).
         "schema:Action"
       ],
       "schema:identifier": "session-geochem-20260110-001",
-      "schema:startDate": "2026-01-10T09:30:00",
+      "schema:startTime": "2026-01-10T09:30:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -409,7 +409,7 @@ their delivery-packaging vocabulary (see adaProduct).
         "schema:Action"
       ],
       "schema:identifier": "session-geochem-20260110-001",
-      "schema:startDate": "2026-01-10T09:30:00",
+      "schema:startTime": "2026-01-10T09:30:00",
       "prov:used": [
         {
           "schema:instrument": [
@@ -645,7 +645,7 @@ ex:geochemProduct-example-001 a schema1:Dataset,
                     schema1:description "Homogenized rock powder aliquot analysed in this session" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "Example rock powder aliquot RP-123" ] ;
-            schema1:startDate "2026-01-10T09:30:00" ;
+            schema1:startTime "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] .
 
 ex:geochemProduct-metadata-001 a schema1:Dataset ;
@@ -1045,14 +1045,14 @@ allOf:
               the session IS the activity.
             type: string
             x-jsonld-id: http://schema.org/identifier
-          schema:startDate:
-            title: Start Date
+          schema:startTime:
+            title: Start Time
             type: string
-            x-jsonld-id: http://schema.org/startDate
-          schema:endDate:
-            title: End Date
+            x-jsonld-id: http://schema.org/startTime
+          schema:endTime:
+            title: End Time
             type: string
-            x-jsonld-id: http://schema.org/endDate
+            x-jsonld-id: http://schema.org/endTime
           schema:additionalProperty:
             description: Per-analysis PropertyValue entries (replicates, transect
               length, ...); technique profiles constrain these.

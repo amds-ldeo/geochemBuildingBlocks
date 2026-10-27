@@ -399,17 +399,17 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ;
                     ada:edsChannelsDefault "2024" ;
                     ada:edsProcessTimeDefault "5" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;

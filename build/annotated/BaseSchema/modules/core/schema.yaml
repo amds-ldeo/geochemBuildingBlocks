@@ -295,17 +295,17 @@ $defs:
                 identifier a repository mints on submission."
               type: string
               x-jsonld-id: http://schema.org/identifier
-            schema:startDate:
+            schema:startTime:
               description: 'Date on which the analytical session began. For sessions
                 spanning multiple days, use the date of the first session. Format:
                 YYYY-MM-DD.'
               type: string
-              x-jsonld-id: http://schema.org/startDate
-            schema:endDate:
+              x-jsonld-id: http://schema.org/startTime
+            schema:endTime:
               description: 'Date on which the analytical session ended. May equal
                 Analysis Start Date for single-day sessions. Format: YYYY-MM-DD.'
               type: string
-              x-jsonld-id: http://schema.org/endDate
+              x-jsonld-id: http://schema.org/endTime
             schema:object:
               type: array
               items:
@@ -464,9 +464,9 @@ $defs:
                   x-jsonld-id: http://schema.org/step
               x-jsonld-id: http://schema.org/actionProcess
           required:
-          - schema:endDate
+          - schema:endTime
           - schema:identifier
-          - schema:startDate
+          - schema:startTime
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       schema:measurementTechnique:
         type: array
