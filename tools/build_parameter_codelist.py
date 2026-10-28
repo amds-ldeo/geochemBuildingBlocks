@@ -20,6 +20,7 @@ Run after the per-TAPP builds (which populate the registries):
 """
 import json
 import os
+import sys
 from collections import OrderedDict
 
 import yaml
@@ -55,6 +56,27 @@ def _concept(param_id, notation, pref_label, definition):
 
 
 def main():
+    # RETIRED GENERATOR — the layer it published belongs to the parameter register, not to
+    # registry/vocab. Its output was a SKOS copy of the six parameter/column registers' $defs:
+    # 1800 notations that are FIELD NAMES, not controlled values, so it was never a vocabulary of
+    # allowed values at all. Measured 2026-10-28, the two copies had already drifted — 1699
+    # notations overlapped, 101 existed ONLY in the SKOS copy (two superseded naming generations:
+    # ~36 <technique>_samplePersistentIdentifierDefault, and ~25 bare unprefixed names including
+    # elementEstimationMethod, epmaTechnique, monochromatorCrystal and wdsDetectorType), and 81
+    # $defs existed only in the register, among them all 16 ebsd_* and 10 stem_*.
+    #
+    # Stephen retired it 2026-10-28: metadata field names are defined in the parameter register.
+    # adaAnalyticalParameters.json is deleted in the same commit, and running this would recreate
+    # it — the exact drift the 49 orphan deletions were about — so writing is blocked.
+    # tools/draft_variable_registry.py models this layer as cdi:RepresentedVariables.
+    if "--force-deprecated" not in sys.argv:
+        print("ERROR: build_parameter_codelist.py is RETIRED - its 1800 notations are field names,\n"
+              "       not controlled values, and the parameter register is their home.\n"
+              "       registry/vocab/adaAnalyticalParameters.json has been deleted; this would\n"
+              "       recreate it. See tools/draft_variable_registry.py for the layer that owns\n"
+              "       them, or pass --force-deprecated to override intentionally.",
+              file=sys.stderr)
+        sys.exit(2)
     concepts = []
     seen = set()
     for registry in REGISTRIES:
