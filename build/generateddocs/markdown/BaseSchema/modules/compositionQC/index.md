@@ -245,11 +245,11 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:variableMeasured [ schema1:name "Detection Limit" ;
+[] schema1:variableMeasured [ schema1:name "Detection Limit Method" ;
+            schema1:value "no value available: unnamed property" ],
+        [ schema1:name "Detection Limit" ;
             schema1:value 1 ],
         [ schema1:name "Normalization / Standards-Based Correction" ;
-            schema1:value "no value available: unnamed property" ],
-        [ schema1:name "Detection Limit Method" ;
             schema1:value "no value available: unnamed property" ] ;
     prov:wasGeneratedBy [ prov:used [ ] ] .
 
