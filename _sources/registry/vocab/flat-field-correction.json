@@ -1,0 +1,48 @@
+{
+  "$schema": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml",
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ada": "https://ada.astromat.org/metadata/"
+  },
+  "@id": "ada:vocab/flat-field-correction",
+  "@type": [
+    "skos:ConceptScheme"
+  ],
+  "skos:prefLabel": "Flat Field Correction",
+  "skos:definition": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
+  "schema:identifier": "ada:vocab/flat-field-correction",
+  "schema:dateModified": "2026-07-31",
+  "schema:license": [
+    "https://creativecommons.org/licenses/by/4.0/"
+  ],
+  "skos:hasTopConcept": [
+    {
+      "@id": "ada:vocab/flat-field-correction/no-flux-normalization-not-applied",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "No — flux normalization not applied",
+      "skos:notation": "No — flux normalization not applied",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/flat-field-correction"
+        }
+      ]
+    },
+    {
+      "@id": "ada:vocab/flat-field-correction/yes-flat-field-applied-residual-poisson-noise-from-flat-fielding-noted",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": "Yes — flat-field applied; residual Poisson noise from flat-fielding noted",
+      "skos:notation": "Yes — flat-field applied; residual Poisson noise from flat-fielding noted",
+      "skos:inScheme": [
+        {
+          "@id": "ada:vocab/flat-field-correction"
+        }
+      ]
+    }
+  ]
+}

@@ -44,7 +44,15 @@ STAGES = [
     ("modules", "build the module BBs and docs/modules/emitted.json from the module sidecars",
      False),
     ("simplify", "blank technique rows a module now covers (reads emitted.json)", False),
-    ("tapp", "registry catalogs + vocab, per technique", True),
+    ("tapp", "registry catalogs, per technique", True),
+    # SHARED, not per-technique, and it has to be: a property-scoped vocabulary is the UNION
+    # across techniques, which no single-technique run can see. Accumulating into a shared file
+    # one technique at a time would make the bytes depend on invocation order, and a generator
+    # that varies by invocation cannot be diffed -- which is what `Regenerate and diff` asserts.
+    # It reads every delivery in one pass instead. Must follow `tapp`, which is what populates
+    # the registries it reports against.
+    ("vocab", "consolidated registry/vocab: one scheme per property, across all techniques",
+     False),
     ("pathdriven", "tapp/ and detail/ schemas from the sidecar, per technique", True),
     ("profile-1", "profile/ schema, per technique", True),
     ("resolve", "resolvedSchema.json everywhere", False),
@@ -169,6 +177,9 @@ def main():
             # cannot be told from a slow one. See run() for why this needs attempts=1.
             fail += [(stage, "")] if run(cmd, a.dry_run, attempts=1,
                                          stream=True) else []
+        elif stage == "vocab":
+            fail += [(stage, "")] if run(["", os.path.join(TOOLS, "build_vocab_catalog.py"),
+                                          "--write"], a.dry_run) else []
         elif stage == "mirrors":
             fail += [(stage, "")] if run(["", os.path.join(TOOLS, "regenerate_schema_json.py")],
                                          a.dry_run) else []
