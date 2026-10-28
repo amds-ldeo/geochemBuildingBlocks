@@ -12535,7 +12535,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.parameterTemplates
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-27'
+  dateOfLastChange: '2026-10-28'
 
 ```
 

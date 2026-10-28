@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-10-27",
+  "dateOfLastChange": "2026-10-28",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -76,7 +76,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Basemap Instrument Detail\ndescription: Basemap images with RGB channels and pixel scaling. (Extension type,\n  not in v3 source schema.)\ntype: object\nproperties:\n  '@type':\n    type: array\n    minItems: 2\n    allOf:\n    - contains:\n        const: ada:basemap\n    - contains:\n        const: schema:Map\n  schema:description:\n    type: string\n    x-jsonld-id: http://schema.org/description\n  ada:pixelUnits:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/pixelUnits\n  ada:pixelScaleX:\n    type: number\n    x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleX\n  ada:pixelScaleY:\n    type: number\n    x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleY\n  ada:channel1:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/channel1\n  ada:channel2:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/channel2\n  ada:channel3:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/channel3\nrequired:\n- '@type'\n- ada:pixelScaleX\n- ada:pixelScaleY\n- ada:pixelUnits\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\nx-bblocks-metadata:\n  itemIdentifier: ogch.techniqueProfile.adaProfile.Basemap.detail\n  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-10-27'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Basemap Instrument Detail\ndescription: Basemap images with RGB channels and pixel scaling. (Extension type,\n  not in v3 source schema.)\ntype: object\nproperties:\n  '@type':\n    type: array\n    minItems: 2\n    allOf:\n    - contains:\n        const: ada:basemap\n    - contains:\n        const: schema:Map\n  schema:description:\n    type: string\n    x-jsonld-id: http://schema.org/description\n  ada:pixelUnits:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/pixelUnits\n  ada:pixelScaleX:\n    type: number\n    x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleX\n  ada:pixelScaleY:\n    type: number\n    x-jsonld-id: https://ada.astromat.org/metadata/pixelScaleY\n  ada:channel1:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/channel1\n  ada:channel2:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/channel2\n  ada:channel3:\n    type: string\n    x-jsonld-id: https://ada.astromat.org/metadata/channel3\nrequired:\n- '@type'\n- ada:pixelScaleX\n- ada:pixelScaleY\n- ada:pixelUnits\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  ada: https://ada.astromat.org/metadata/\nx-bblocks-metadata:\n  itemIdentifier: ogch.techniqueProfile.adaProfile.Basemap.detail\n  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-10-28'\n",
   "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/techniqueProfile/adaProfile/Basemap/detail"
 }
