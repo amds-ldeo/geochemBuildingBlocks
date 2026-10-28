@@ -19,23 +19,29 @@ _sources/
     image/ imageMap/ tabularData/ dataCube/ collection/ document/
     supDocImage/ otherFile/ files/            file-type BBs + the hasPart union
     structuredData/ spatialRegistration/ creativeWork/ stringArray/
-    modules/                 composition modules (7): group1, reportingCore, laserAblation,
-                             mcIcpms, solutionIntroduction, geochronology, uPb — shared fields
-                             factored out of the technique overlays; see CLAUDE.md
+    modules/                 composition modules (16, measured 2026-10-27): aggregation,
+                             blank, calibrationFactor, collisionCell, compositionQC,
+                             core, geochronology, icpms, laserAblation, mcIcpms,
+                             reportingCore, samplingUnitSelection, singleCollector,
+                             solutionIntroduction, targetSpecies, uPb — shared fields
+                             factored out of the technique overlays; see CLAUDE.md.
+                             group1 is archived to archive/modules/ (a1ba43b19); this
+                             list named it as live until 2026-10-27.
   registry/                  shared catalogs (was techniqueProtocols/)
-    targetSpeciesColumns/      registered BB (isTypeLibrary): PropertyValueSpecification $defs, 258
+    targetSpeciesColumns/      registered BB (isTypeLibrary): PropertyValueSpecification $defs, 223
+    targetMaterialColumns/     registered BB (isTypeLibrary): PropertyValueSpecification $defs, 18
     monitoredPropertyColumns/  registered BB (isTypeLibrary): PropertyValueSpecification $defs, 63
     reportedPropertyColumns/   registered BB (isTypeLibrary): PropertyValueSpecification $defs, 1
-    parameterTemplates/        registered BB (isTypeLibrary): PropertyValueSpecification $defs, 414
-    parameterValues/           registered BB (isTypeLibrary): PropertyValue $defs, 1185
-    vocab/                     catalog: DefinedTermSet files (by @id, not $ref), 451
-  techniqueProfile/          91 technique dirs under two roots
+    parameterTemplates/        registered BB (isTypeLibrary): PropertyValueSpecification $defs, 356
+    parameterValues/           registered BB (isTypeLibrary): PropertyValue $defs, 1232
+    vocab/                     catalog: DefinedTermSet files (by @id, not $ref), 456
+  techniqueProfile/          93 technique dirs under two roots
     geochemProfile/          the 61 TAPP-aware techniques
-      <TECH>/tapp/           TAPP definition                                        (59)
-      <TECH>/detail/         per-dataset analysis detail                            (59)
-      <TECH>/profile/        path-driven profile: geochemProduct + detail + TAPP linkage (29,
+      <TECH>/tapp/           TAPP definition                                        (61)
+      <TECH>/detail/         per-dataset analysis detail                            (61)
+      <TECH>/profile/        path-driven profile: geochemProduct + detail + TAPP linkage (34,
                              the set registered in build_profile.PROFILES)
-      <TECH>/profile-ada/    generic profile, written by the TAPP tooling             (9)
+      <TECH>/profile-ada/    LEGACY, nothing regenerates it; 5 retired in #225      (4)
     adaProfile/              the other 32 techniques, untouched by the TAPP work
       <TECH>/profile-ada/    generic profile: adaProduct + componentType only        (31)
       <TECH>/detail/         instrument-detail stub                                  (14)
@@ -77,7 +83,7 @@ Profiles additionally compose base schemas via `allOf` references.
 - Property blocks define ADA-specific metadata elements
 - `geochemProduct` is the **domain-neutral base product profile**: it composes the CDIF base schemas from mbb's `_sources/profiles/cdifProfile/` (CDIF **v1.1**) via `allOf` — `cdifCore`, `cdifDataDescription`, and `cdifProvenance` unconditionally; `cdifManifest` (was `cdifArchiveDistribution` in ≤1.0) behind an `if/then` that fires only when a `schema:distribution` item carries `schema:Collection` in `@type`, so monolithic single-file distributions aren't held to the manifest rules. It carries **no** ADA-specific requirements (optional `schema:additionalType`, not required `ada:componentType`), so it stays reusable outside ADA.
 - `adaProduct` **extends `geochemProduct`** (`allOf: [$ref ../geochemProduct/schema.yaml, …]`) and adds the ADA/SAMIS overlays: technique types, instrument/lab/sample, required `ada:componentType`. `geochemProduct` has **no** dependency on `adaProduct` (verified) — the arrow points one way.
-- Base-selection rule for technique profiles: `geochemProfile/<TECH>/profile/` (generic, path-driven, 8) → **geochemProduct**; `geochemProfile/<TECH>/profile-ada/` (4 ADA variants) and every `adaProfile/<TECH>/profile-ada/` (31) → **adaProduct**. `profile` variants additionally compose the technique's `detail` block and narrow `prov:used` to its TAPP. Principle: geochem→geochemProduct, ada→adaProduct.
+- Base-selection rule for technique profiles: `geochemProfile/<TECH>/profile/` (generic, path-driven, 34) → **geochemProduct**; `geochemProfile/<TECH>/profile-ada/` (4 ADA variants) and every `adaProfile/<TECH>/profile-ada/` (31) → **adaProduct**. `profile` variants additionally compose the technique's `detail` block and narrow `prov:used` to its TAPP. Principle: geochem→geochemProduct, ada→adaProduct.
 - External schemas are referenced via full HTTP URLs to `cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/`
 - Local schemas use relative `$ref` paths (e.g., `../stringArray/schema.yaml`)
 
@@ -267,7 +273,7 @@ Lives at `_sources/BaseSchema/tappDefinition/`. Was previously `geochemPropertie
 >
 > The current path for a new or regenerated TAPP is **schema-path driven**: `bootstrap_schemapaths.py` seeds `docs/<workbook>.schemapaths.csv` (the source of truth — one row per Metadata Item → canonical schema path, with a `Source` column of `authored`/`inferred`/`keyed`/`module`/`flagged`), then `build_tapp.py` emits the registry catalogs and `build_pathdriven.py` emits `tapp/` and `detail/` from the sidecar. `schemapath_io.py` reads/writes the CSV, `normalize_schema_paths.py` canonicalises selector names, and the grammar is in `docs/SCHEMA_PATH_GRAMMAR.md`. `docs/README.md` covers the sidecar format, the five `Source` values, and the maintenance tools (`bootstrap_schemapaths` / `migrate_sidecar` / `fill_flagged` / `refresh_keyby` / `simplify_sidecars`, previewed read-only by `intake_delivery`).
 
-`tools/build_tapp.py <tapp_name>` is the **single generator** for all 59 TAPPs registered in `TAPP_CONFIGS` (`epmaTAPP`, `semTAPP`, `labxctTAPP`, the six `la*` and three `solution*` techniques, …; `geochronTAPP` and `laicpmsTAPP` were retired 2026-08-21 after being refactored upstream into the `*_UPb_*` techniques) — TAPP schema + shared catalogs (`targetSpeciesColumns`/`monitoredPropertyColumns`/`reportedPropertyColumns`/`parameterTemplates`/`parameterValues`) + vocab + detail BB + per-publication examples. Routing follows the **canonical Protocol-Level × Analysis-Level matrix** (`docs/TierImplementationPatterns.xlsx`): Basic protocol → required top-level `ada:` property (`…Default` if editable at analysis); Advanced protocol → `schema:additionalProperty[]` `PropertyValueSpecification` (`…Default` + `readonlyValue:false` when dual-homed, bare + `readonly:true` if Read-Only); Analysis Basic → required detail property; Analysis Editable/Advanced → optional detail `PropertyValue`; Read-Only/N-A → absent from detail.
+`tools/build_tapp.py <tapp_name>` is the **single generator** for all 61 TAPPs registered in `TAPP_CONFIGS` (`epmaTAPP`, `semTAPP`, `labxctTAPP`, the six `la*` and three `solution*` techniques, …; `geochronTAPP` and `laicpmsTAPP` were retired 2026-08-21 after being refactored upstream into the `*_UPb_*` techniques) — TAPP schema + shared catalogs (`targetSpeciesColumns`/`monitoredPropertyColumns`/`reportedPropertyColumns`/`parameterTemplates`/`parameterValues`) + vocab + detail BB + per-publication examples. Routing follows the **canonical Protocol-Level × Analysis-Level matrix** (`docs/TierImplementationPatterns.xlsx`): Basic protocol → required top-level `ada:` property (`…Default` if editable at analysis); Advanced protocol → `schema:additionalProperty[]` `PropertyValueSpecification` (`…Default` + `readonlyValue:false` when dual-homed, bare + `readonly:true` if Read-Only); Analysis Basic → required detail property; Analysis Editable/Advanced → optional detail `PropertyValue`; Read-Only/N-A → absent from detail.
 
 > **One deliberate exception to "Read-Only → absent from detail"**: `Analytical Mode` is placed on
 > BOTH sides — `$MethodDefinition.ada:analyticalMode[]` and, since `7b0488060e`,

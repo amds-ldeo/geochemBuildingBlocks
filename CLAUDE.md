@@ -234,7 +234,7 @@ of `_sources/` is generated, and reading it as hand-authored invites editing a f
 regeneration overwrites. The question a label has to answer is **"if this is wrong, do I edit it
 or fix a generator?"** — so the taxonomy is by WHAT WRITES IT, measured, not by directory:
 
-| path | 257 `schema.yaml` | written by |
+| path | 252 `schema.yaml` | written by |
 |---|---|---|
 | `techniqueProfile/geochemProfile/*/tapp/` | 61 | `build_tapp` + `build_pathdriven` |
 | `techniqueProfile/geochemProfile/*/detail/` | 61 | `build_pathdriven` |
@@ -243,12 +243,13 @@ or fix a generator?"** — so the taxonomy is by WHAT WRITES IT, measured, not b
 | `registry/*/` | 6 | `build_tapp` |
 | `BaseSchema/*` (non-module) | 18 | **nobody — edit directly** |
 | `techniqueProfile/adaProfile/*/` | 45 | **nobody — edit directly** (`generate_profiles.py` is deprecated and refuses to run) |
-| `techniqueProfile/geochemProfile/*/profile-ada/` | 9 | **nobody — LEGACY, see below** |
+| `techniqueProfile/geochemProfile/*/profile-ada/` | 4 | **nobody — LEGACY, see below** |
 | `techniqueProfile/geochemProfile/*/detail-legacy/` | 1 | **nobody — legacy** |
 | `adaSubjects/*/` | 6 | **nobody here** — derived from pinned `metadata` commits; NOT register blocks (no `bblock.json`), see its `README.md` |
 
-So 178 of 257 `schema.yaml` under `_sources/` are generated (counted 2026-10-25). The same applies to everything
-beside them: all 257 `resolvedSchema.json` (`resolve_schema.py`), all 257 `<name>Schema.json`
+So 178 of 252 `schema.yaml` under `_sources/` are generated (re-counted 2026-10-27; the total
+fell from 257 when #225 retired five `profile-ada` blocks). The same applies to everything
+beside them: all 252 `resolvedSchema.json` (`resolve_schema.py`), all 252 `<name>Schema.json`
 (`regenerate_schema_json.py`), and the generated `example*.json` (`build_tapp_examples` — but see
 the three categories of example below, because the static and source-derived ones are NOT
 regenerated).
@@ -261,11 +262,13 @@ publishes them without regenerating. The one part not committed is `build/htmlVi
 
 They predate the TAPP pipeline (SAMIS-era work), and nothing regenerates them:
 `generate_profiles.py` is deprecated and refuses to run, so no regeneration will ever correct a
-mistake in one — edit them directly. There are **9** `profile-ada` schemas under
-`geochemProfile/` and **32** technique directories under `adaProfile/` holding **45**
-`schema.yaml`. (`_tapp_lib.write_profile_ada_companions` writes the four companion files beside a
-block; it does not generate these schemas.) All 9 `geochemProfile` techniques now have a
-TAPP-based `profile/` beside the legacy one.
+mistake in one — edit them directly. There are **4** `profile-ada` schemas under
+`geochemProfile/` — EPMA, SEM, TEM and XCT; the other five (QRIS, RAMAN, VNMIR, XANES,
+XRD) were retired in #225 on 2026-10-26 — and **32** technique directories under
+`adaProfile/` holding **45** `schema.yaml`. (`_tapp_lib.write_profile_ada_companions` writes the
+four companion files beside a block; it does not generate these schemas.) Each of the 4
+surviving legacy blocks has a TAPP-based `profile/` beside it, and 34 `geochemProfile`
+techniques have a `profile/` in total.
 
 Rules to carry, with the measurements behind them in `docs/LEGACY_PROFILES_AND_CIDS.md`:
 
@@ -353,7 +356,7 @@ One standing gotcha bites spot regenerations:
 
 ## Composition modules
 
-`_sources/BaseSchema/modules/<name>/` (`core`, `samplingUnitSelection`, `analyte`, `aggregation`, `blank`, `calibrationFactor`, `laserAblation`, `mcIcpms`, `solutionIntroduction`, `geochronology`, `uPb`, plus `icpms`, `collisionCell` and `compositionQC` added by the 2026-09 delivery; plus `reportingCore`, which the current manifest composes into nothing — `group1` was in that state too and is now archived to `archive/modules/`, `a1ba43b19`. `targetSelection` was renamed `samplingUnitSelection` and `arAr` retired upstream, both in `af3f7bc`) factors fields shared across techniques into module building blocks. Each exposes up to two `$defs`, split by path root: **`ProcedureIdentification`** (from the module's `$MethodDefinition` paths, composed into `tapp/`) and **`AnalysisIdentification`** (from its `$Dataset` paths, composed into `detail/`); `reportingCore` is conditional and exposes one `$def` per block per side (see `docs/REPORTINGCORE_BLOCKS.md`). All 16 techniques in `tapp/composed_tapps.json` compose modules today; membership is matched on the table's **filename**.
+`_sources/BaseSchema/modules/<name>/` (all **16**, measured 2026-10-27: `aggregation`, `blank`, `calibrationFactor`, `collisionCell`, `compositionQC`, `core`, `geochronology`, `icpms`, `laserAblation`, `mcIcpms`, `reportingCore`, `samplingUnitSelection`, `singleCollector`, `solutionIntroduction`, `targetSpecies`, `uPb` — this list named an `analyte` module that has never existed on disk, and omitted `singleCollector` and `targetSpecies`, which do; `icpms`, `collisionCell` and `compositionQC` arrived with the 2026-09 delivery; `reportingCore` the current manifest composes into nothing — `group1` was in that state too and is now archived to `archive/modules/`, `a1ba43b19`. `targetSelection` was renamed `samplingUnitSelection` and `arAr` retired upstream, both in `af3f7bc`) factors fields shared across techniques into module building blocks. Each exposes up to two `$defs`, split by path root: **`ProcedureIdentification`** (from the module's `$MethodDefinition` paths, composed into `tapp/`) and **`AnalysisIdentification`** (from its `$Dataset` paths, composed into `detail/`); `reportingCore` is conditional and exposes one `$def` per block per side (see `docs/REPORTINGCORE_BLOCKS.md`). All 16 techniques in `tapp/composed_tapps.json` compose modules today; membership is matched on the table's **filename**.
 
 A row covered by a module is **dropped from the technique's own overlay** — otherwise the shared field is defined twice and the technique's copy silently wins on any divergence. `tools/module_composition.py` makes that call, and only when the module `$def` demonstrably provides the field (module has it, the field has a placement in the module sidecar, and the `$def` exists).
 
@@ -861,6 +864,12 @@ The propagate-schema command runs all of these as part of its consistency audit;
 - **One worktree per session, never reused**, and at most one session in the main checkout.
 - **Populate the submodule in every new worktree** before regenerating:
   `git submodule update --init --checkout tapp`.
+- **Removing that worktree afterwards needs a different command.** `git worktree remove`
+  REFUSES a worktree containing a submodule and `--force` does not bypass it, while
+  `git submodule deinit` in a linked worktree would strip `submodule.tapp.url` from the
+  SHARED config and deinitialise the MAIN checkout. Delete the directory and `git worktree
+  prune` instead, after asserting the tree is clean and the tip survives on GitHub —
+  `docs/SHARED_CHECKOUT.md`.
 - A worktree does not isolate the shared `ada2` database, hot files like this one at merge time,
   or `main` moving underneath a branch.
 - **A quiet tree is not a finished job.** Wait for the process's own exit status before believing

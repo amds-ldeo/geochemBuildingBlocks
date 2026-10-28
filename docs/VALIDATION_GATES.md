@@ -87,3 +87,36 @@ the constraint it was written for. And a pointer that no longer resolves is a HA
 a skip — a silently skipped case is lost coverage, which is the exact failure mode the file
 exists to prevent. All three are verified: dropping `schema:name` from 48 `required` lists turns
 `tappdef-requires-name` red.
+## A required constraint that no example and no counterexample exercises
+
+The keyed-table families are declared far more widely than they are populated, and the gap is
+invisible to every gate here. Measured 2026-10-27 over the 41 EPMA and LA-\* `tapp` examples:
+
+| keyed family | EPMA examples | LA-\* examples |
+|---|---|---|
+| `ada:targetSpeciesTemplate` | 13 | 28 |
+| `ada:targetMaterialTemplate` | 15 | 28 |
+| `ada:monitoredPropertyTemplate` | 0 | 1 |
+| `ada:reportedPropertyTemplate` | **0** | **0** |
+
+All seven of those techniques DECLARE all four families, and each family's COLUMN array is
+`required` **inside** its template object while the default-ROW array is optional. The template
+itself is optional at the procedure root, which is what makes the gap possible: omitting
+`ada:reportedPropertyTemplate` entirely is legal, so the `required` on
+`ada:reportedPropertyColumns` never has to hold.
+
+Repo-wide, `ada:reportedPropertyColumns` is populated by **exactly one** example —
+`_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json` — and by **zero**
+counterexamples, while **59** sidecars reference the family. No technique example exercises it at
+all. So if that constraint were dropped or stopped biting, nothing in this repository would say
+so: `validate_examples` cannot see a constraint that no instance reaches, and
+`constraint_census.py` would record the DECREASE only if the declaration itself went, not if the
+declaration survived with nothing to apply to.
+
+No example anywhere populates all four families; the maximum is three. The richest are the
+Solution-MC-ICPMS and Solution-Q-ICPMS sets (`examplesolutionQicpmsTAPP-Gao2008.json` reaches
+targetSpecies 7 cols/48 rows, targetMaterial 2/14, monitoredProperty 5/3), and they are the ones
+to read when the keyed shape matters.
+
+This is the shape #232 proposes a floor for: a declared-but-unexercised constraint is not a weak
+test, it is an absent one, and a pass count has no denominator in it.

@@ -103,3 +103,37 @@ had stopped and all four gates passed — while it was still running, and the ce
 `PSFD/profile-ada` UNREADABLE at zero bytes, complete minutes later. Those four green gates were
 read off a half-written tree. Wait for the process's own exit status AND a sustained quiet window
 before believing any measurement taken from the tree.
+### Removing a worktree, when the submodule is populated
+
+`git worktree remove` **refuses** any worktree containing a submodule, and `--force` does not
+bypass it: git calls `validate_no_submodules()` unconditionally and dies with
+`working trees containing submodules cannot be moved or removed`. Every worktree you regenerated
+in has `tapp/` populated, because `regenerate.py` preflights on it, so the normal command cannot
+remove it. Measured 2026-10-27 clearing six worktrees: only the one whose submodule had never been
+initialised accepted `git worktree remove`; the other five all refused.
+
+**Do not reach for `git submodule deinit` to get past it.** A linked worktree shares `.git/config`
+with the main checkout unless `extensions.worktreeConfig` is set, so a deinit there strips
+`submodule.tapp.url` from the SHARED config and silently deinitialises the MAIN checkout's
+submodule. That is the `update = none` stale-drop trap arriving by a second route, and in a shared
+checkout it hits every other session on the machine rather than only you.
+
+Delete the directory and prune instead, which touches no shared config. Assert all three first,
+because the directory delete is the irreversible step:
+
+```
+cat <wt>/.git                            # must be a `gitdir:` FILE pointing into the main repo,
+                                         # i.e. a linked worktree and not a clone
+git -C <wt> status --porcelain=v1        # must be 0 lines; a dirty submodule shows as one line
+git ls-remote origin refs/pull/<N>/head  # the tip survives on GitHub after the branch is deleted
+rm -rf <wt> && git worktree prune && git branch -D <branch>
+```
+
+Then re-check the MAIN checkout: `git submodule status` showing the submodule populated with no
+`+`/`-` prefix is the proof you did not disturb it. Two ordering notes: `git branch -D` fails with
+`used by worktree at ...` until the prune lands, which is a useful check rather than an error; and
+a squash-merged branch is NOT an ancestor of `main`, so `merge-base --is-ancestor` is the wrong
+question — verify the CONTENT landed, or that `refs/pull/<N>/head` still holds the tip.
+
+The `find ... -newermt` contention probe counts `__pycache__/*.pyc`, which your own
+`import build_tapp` writes. Read the filenames before concluding another session is active.
