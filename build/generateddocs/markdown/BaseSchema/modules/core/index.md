@@ -108,6 +108,12 @@ The procedure half of the Core module, with every property populated. Generated 
   "schema:actionProcess": {
     "schema:step": [
       {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ],
+        "schema:position": 1,
         "schema:name": "Sample preparation",
         "schema:description": "no value available: unnamed property"
       }
@@ -182,6 +188,12 @@ The procedure half of the Core module, with every property populated. Generated 
   "schema:actionProcess": {
     "schema:step": [
       {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ],
+        "schema:position": 1,
         "schema:name": "Sample preparation",
         "schema:description": "no value available: unnamed property"
       }
@@ -195,9 +207,14 @@ The procedure half of the Core module, with every property populated. Generated 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "Sample preparation" ] ] ;
+[] schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:description "no value available: unnamed property" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ schema1:name "no value available: unnamed property" ] ;
     schema1:datePublished "no value available: unnamed property" ;
     schema1:description "no value available: unnamed property" ;
@@ -265,6 +282,12 @@ The analysis half of the Core module, with every property populated. Generated f
       "schema:actionProcess": {
         "schema:step": [
           {
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1,
             "schema:name": "Sample preparation",
             "schema:description": "no value available: unnamed property"
           }
@@ -369,6 +392,12 @@ The analysis half of the Core module, with every property populated. Generated f
       "schema:actionProcess": {
         "schema:step": [
           {
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1,
             "schema:name": "Sample preparation",
             "schema:description": "no value available: unnamed property"
           }
@@ -429,21 +458,26 @@ The analysis half of the Core module, with every property populated. Generated f
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] schema1:contributor [ schema1:contributor [ schema1:name "no value available: unnamed property" ] ;
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:identifier "no value available: unnamed property" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledProcedure" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "no value available: unnamed property" ],
+        [ schema1:linkRelationship "coupledProcedure" ;
             schema1:target [ schema1:url "no value available: unnamed property" ] ],
         [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "no value available: unnamed property" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "no value available: unnamed property" ] ;
+                    schema1:name "no value available: unnamed property" ] ] ;
     schema1:variableMeasured [ schema1:name "Sampling Unit Name" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ schema1:description "no value available: unnamed property" ;
-                            schema1:name "Sample preparation" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: unnamed property" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:description "no value available: unnamed property" ;
             schema1:endTime "no value available: unnamed property" ;
             schema1:identifier "no value available: unnamed property" ;

@@ -53,10 +53,26 @@ The procedure half of the SolutionIntroduction module, with every property popul
   "schema:actionProcess": {
     "schema:step": [
       {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ],
+        "schema:position": 1,
         "schema:name": "Sample digestion",
         "bios:reagent": [
           {
-            "schema:name": "no value available: unnamed property"
+            "@type": [
+              "schema:DefinedTerm"
+            ],
+            "@id": "no value available: unnamed property",
+            "schema:name": "no value available: unnamed property",
+            "schema:description": "no value available: unnamed property",
+            "schema:identifier": "no value available: unnamed property",
+            "schema:termCode": "no value available: unnamed property",
+            "schema:inDefinedTermSet": "no value available: unnamed property",
+            "ada:reagentRole": "primaryStandard",
+            "schema:citation": "no value available: unnamed property"
           }
         ]
       }
@@ -83,10 +99,26 @@ The procedure half of the SolutionIntroduction module, with every property popul
   "schema:actionProcess": {
     "schema:step": [
       {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ],
+        "schema:position": 1,
         "schema:name": "Sample digestion",
         "bios:reagent": [
           {
-            "schema:name": "no value available: unnamed property"
+            "@type": [
+              "schema:DefinedTerm"
+            ],
+            "@id": "no value available: unnamed property",
+            "schema:name": "no value available: unnamed property",
+            "schema:description": "no value available: unnamed property",
+            "schema:identifier": "no value available: unnamed property",
+            "schema:termCode": "no value available: unnamed property",
+            "schema:inDefinedTermSet": "no value available: unnamed property",
+            "ada:reagentRole": "primaryStandard",
+            "schema:citation": "no value available: unnamed property"
           }
         ]
       }
@@ -102,12 +134,14 @@ The procedure half of the SolutionIntroduction module, with every property popul
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:name "Sample digestion" ;
-                    bios:reagent [ schema1:name "no value available: unnamed property" ] ] ] ;
+[] schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 1 ] ] ;
     ada:chromatographicSeparationApplied "no value available: unnamed property" ;
     ada:finalSolutionMatrix "no value available: unnamed property" ;
     ada:isotopeDilutionSpike "no value available: unnamed property" ;

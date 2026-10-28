@@ -1,9 +1,14 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "Sample preparation" ] ] ;
+[] schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:description "no value available: unnamed property" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ schema1:name "no value available: unnamed property" ] ;
     schema1:datePublished "no value available: unnamed property" ;
     schema1:description "no value available: unnamed property" ;
