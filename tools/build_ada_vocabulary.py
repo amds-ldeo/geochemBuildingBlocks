@@ -74,7 +74,20 @@ BASE = "https://w3id.org/geochem/1.0/tapp"
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import _tapp_lib as _sent          # the one definition of the sentinel vocabulary
 SENTINEL_TEXT_PREFIX = _sent.SENTINEL_TEXT_PREFIX
-SENTINELS = {"n/a", "none", "missing", "unknown", "other", "yes", "no",
+# "yes" and "no" are NOT sentinels (Stephen, 2026-10-28): they are BOOLEAN VALUES, and a
+# boolean-typed field whose allowed values are Yes and No has those as its two real members.
+# Dropping them here published such a field as a scheme with no members at all, and silently:
+# five properties -- chromatographic-separation-applied, sample-heated, triple-scanning-mode,
+# vacuum-exposed-sample, x-ray-line-overlap-corrections-applied -- have Yes/No/N/A/None as their
+# entire member list, so this filter emptied them completely. The catalog never agreed: it
+# publishes Yes as a concept, which is how the disagreement surfaced.
+#
+# "unknown" and "other" are left in pending a ruling. They are a different case from yes/no --
+# arguably real allowed values a transcriber may legitimately choose rather than markers of an
+# absent one -- and the catalog does publish "Unknown" as a concept, so this file and the catalog
+# still disagree about those two. See build_vocab_catalog.py, which filters with
+# _tapp_lib.is_text_sentinel alone.
+SENTINELS = {"n/a", "none", "missing", "unknown", "other",
              "not applicable", "not reported"}
 
 def is_sentinel(name):
@@ -105,11 +118,32 @@ def is_sentinel(name):
 
 
 def slug(s):
-    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+    """The repo's one slug rule, hyphenated per Stephen's 2026-10-28 ruling.
+
+    This was `re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")`, which lower-cases BEFORE
+    substituting and therefore COLLAPSES camelCase -- samplepreparationmethod, where the catalog
+    emits sample-preparation-method. Two slug rules over one identifier space disagree silently:
+    a reference minted by one resolves nowhere in the other, and only check_vocab_references.py
+    would notice. _tapp_lib.vocab_slug is the single implementation.
+    """
+    import _tapp_lib as _L
+    return _L.vocab_slug(s)
 
 
 def load_registry():
-    """{stem: (tapp, field, scheme)} for every codelist that has concepts."""
+    """{scheme_slug: (field, scheme_doc)} for every codelist that has concepts.
+
+    It used to return the TECHNIQUE too, parsed out of the @id by splitting on `/`:
+
+        sid = (j.get("@id") or "").replace("ada:vocab/", "")
+        tapp, field = sid.split("/", 1) if "/" in sid else (None, sid)
+
+    The 2026-10-28 consolidation made every @id `ada:vocab/<property>` with NO technique segment,
+    so that split yielded tapp=None for all 90. The tool then reported "0 namespaces", --all built
+    nothing, and -- worse -- --check-stability's per-technique collision check reported ZERO
+    collisions and exited 0. It had not been satisfied; it had stopped looking. The relation now
+    comes from technique_schemes() below, which reads it from the source rather than from a string.
+    """
     out = {}
     for p in sorted(glob.glob(os.path.join(VOCAB, "*.json"))):
         try:
@@ -118,33 +152,77 @@ def load_registry():
             continue
         if not j.get("skos:hasTopConcept"):
             continue
-        sid = (j.get("@id") or "").replace("ada:vocab/", "")
-        if "/" in sid:
-            tapp, field = sid.split("/", 1)
-        else:
-            tapp, field = None, sid
-        out[os.path.basename(p)[:-5]] = (tapp, field, j)
+        field = (j.get("@id") or "").replace("ada:vocab/", "")
+        out[field] = (field, j)
     return out
 
 
-def term_technique_index(reg):
+def technique_schemes():
+    """{scheme_slug: {tapp: (member notations...)}} -- the TAPP x property relation.
+
+    Read from route(), the same source build_vocab_catalog.collect() uses, so the builder and the
+    catalog cannot disagree about which technique uses which scheme or what its members are.
+
+    NOT read from the schema:inDefinedTermSet references, though those now exist. Measured
+    2026-10-28: route() yields 402 TAPP x scheme pairs across 61 techniques; the references cover
+    36 across 12, a strict 9% subset with no pair they know that route() does not. Only
+    KEYED-TABLE COLUMNS can carry a reference -- a technique's other controlled properties are
+    hard `enum`s in its tapp/ schema with no reference anywhere -- so a reference-derived relation
+    would under-report by 91%, and quietly, which is the same class of defect as the blind check
+    this replaces. The references are cross-checked against this relation instead, by
+    check_vocab_references.py.
+
+    The member filter is the CATALOG's, `_tapp_lib.is_text_sentinel` plus the explicit N/A/None
+    drop, deliberately NOT this module's is_sentinel(). The two differ in policy, not just in
+    implementation: SENTINELS here also holds "yes", "no", "unknown" and "other", so
+    is_sentinel("Yes") is True, while the catalog publishes Yes as a concept. Filtering with the
+    broader one dropped five properties out of the relation entirely --
+    chromatographic-separation-applied, sample-heated, triple-scanning-mode,
+    vacuum-exposed-sample, x-ray-line-overlap-corrections-applied, whose members are only
+    Yes/No/N/A/None -- and under-reported every scheme holding "Unknown". A relation that
+    disagrees with the catalog it indexes is the defect this function exists to remove, so it
+    matches the catalog and the policy difference is reported rather than silently applied.
+    """
+    import build_tapp as _bt
+    import _tapp_lib as _L
+    out = collections.defaultdict(dict)
+    for tapp in sorted(_bt.TAPP_CONFIGS):
+        _bt.configure(tapp)
+        for entry in _bt.route()["vocab"]:
+            members = tuple(sorted({str(t) for t in entry["terms"]
+                                    if str(t) not in ("N/A", "None")
+                                    and not _L.is_text_sentinel(str(t))}))
+            if members:
+                out[slug(entry["name"])][tapp] = members
+    return out
+
+
+def term_technique_index(rel):
     """{notation: {tapp, ...}} -- how many techniques use each term."""
     idx = collections.defaultdict(set)
-    for _, (tapp, _, j) in reg.items():
-        for c in j["skos:hasTopConcept"]:
-            n = (c.get("skos:notation") or "").strip()
-            if n and not is_sentinel(n):
-                idx[n].add(tapp or "_shared")
+    for by_tapp in rel.values():
+        for tapp, members in by_tapp.items():
+            for n in members:
+                idx[n].add(tapp)
     return idx
 
 
-def build(tapp, reg, term_techs):
-    mine = {s: v for s, v in reg.items() if v[0] == tapp}
+def build(tapp, reg, term_techs, rel):
+    # Which schemes this technique uses comes from the relation; the consolidated catalog no
+    # longer says. And it narrows the MEMBERS too, deliberately: a consolidated scheme holds the
+    # UNION across techniques -- sample-preparation-method is 51 terms from 61 techniques -- so
+    # embedding it whole would tell an EPMA procedure it may report "Ultramicrotomy" and a STEM
+    # one "Fused bead". The block exists so a registered procedure is readable without a
+    # resolver, which means it must carry what THAT procedure can say, not what the vocabulary
+    # holds. Before the consolidation the per-technique file gave this for free; now the builder
+    # has to narrow the union back, and the relation is what makes that possible.
+    mine = {s: reg[s] for s in sorted(rel) if tapp in rel[s] and s in reg}
     schemes, concepts = [], {}
     stats = collections.Counter()
     local_ns = f"{BASE}/{slug(tapp.replace('TAPP', ''))}/term"
-    for _, (_, field, j) in sorted(mine.items(), key=lambda kv: kv[1][1]):
+    for s, (field, j) in sorted(mine.items(), key=lambda kv: kv[1][0]):
         scheme_iri = f"{BASE}/scheme/{slug(field)}"
+        allowed = set(rel[s][tapp])
         members = []
         for c in j["skos:hasTopConcept"]:
             n = (c.get("skos:notation") or "").strip()
@@ -152,6 +230,9 @@ def build(tapp, reg, term_techs):
                 continue
             if is_sentinel(n):
                 stats["sentinel"] += 1
+                continue
+            if n not in allowed:
+                stats["not-in-this-technique"] += 1
                 continue
             shared = len(term_techs[n]) > 1
             iri = f"{BASE}/term/{slug(n)}" if shared else f"{local_ns}/{slug(n)}"
@@ -202,7 +283,7 @@ def notations(j):
                      if n and not is_sentinel(n))
 
 
-def check_stability(reg, term_techs):
+def check_stability(reg, term_techs, rel):
     """What has to be settled before an IRI is minted.
 
     Every segment this tool mints slugs something mutable, and a permanent identifier
@@ -216,27 +297,37 @@ def check_stability(reg, term_techs):
         pass
     blocking = 0
 
-    # 1. A scheme IRI is {BASE}/scheme/{slug(field)} with no technique segment, so two
-    #    techniques naming a field alike mint ONE scheme IRI. Fine where they agree on
-    #    members; a defect where they do not, because the IRI then denotes a different
-    #    scheme depending on which record you read it from.
-    members = collections.defaultdict(dict)
-    for _, (tapp, field, j) in reg.items():
-        members[slug(field)][tapp] = notations(j)
+    # 1. Which properties hold a union no single technique would have authored.
+    #
+    #    This check used to ask a different question: two techniques naming a field alike mint ONE
+    #    scheme IRI, so does that IRI denote a different scheme depending on which record you read
+    #    it from? The 2026-10-28 consolidation ANSWERED that by construction -- there is now
+    #    exactly one scheme per property, holding the union of members -- so the old question can
+    #    only ever report zero, and for three hours it did exactly that from a registry it could
+    #    no longer parse.
+    #
+    #    The divergence did not go away, it MOVED: from a collision between two IRIs to a
+    #    divergence inside one scheme. sample-preparation-method holds 51 terms from 61
+    #    techniques with none common to all, so a record citing that scheme says far less than a
+    #    record citing a per-technique list used to. That is what the SHACL sh:in work has to
+    #    encode per technique, which makes this check its input rather than a leftover from
+    #    before it.
+    members = {s: dict(d) for s, d in rel.items()}
     shared = {s: d for s, d in members.items() if len(d) > 1}
     diverge = {s: d for s, d in shared.items() if len(set(d.values())) > 1}
-    print("1. scheme IRIs, minted from the field name")
-    print(f"   {len(members)} distinct scheme slugs; {len(shared)} minted by more than one "
-          f"technique, of which {len(shared) - len(diverge)} agree on members")
+    print("1. properties whose techniques disagree about the member set")
+    print(f"   {len(members)} properties; {len(shared)} used by more than one technique, "
+          f"of which {len(shared) - len(diverge)} agree on members")
     if diverge:
-        print(f"   BLOCKING -- {len(diverge)} slug(s) name a DIFFERENT scheme per technique.")
-        print("   Grouped by member set: each group is one scheme, and they share one IRI.")
+        print(f"   BLOCKING -- {len(diverge)} property(ies) hold a union no single technique "
+              f"would have authored.")
+        print("   Grouped by member set: each group is what one set of techniques actually allows.")
         for sl, d in sorted(diverge.items(), key=lambda kv: -len(set(kv[1].values()))):
             groups = collections.defaultdict(list)
             for t, v in d.items():
                 groups[v].append(t)
             common = set.intersection(*map(set, d.values()))
-            print(f"     /scheme/{sl}  --  {len(groups)} distinct member sets across "
+            print(f"     ada:vocab/{sl}  --  {len(groups)} distinct member sets across "
                   f"{len(d)} techniques, {len(common)} term(s) common to all")
             for v, ts in sorted(groups.items(), key=lambda kv: -len(kv[1])):
                 who = ", ".join(sorted(ts)[:3]) + (f" +{len(ts) - 3} more" if len(ts) > 3 else "")
@@ -311,14 +402,17 @@ def main():
     a = ap.parse_args()
 
     reg = load_registry()
-    term_techs = term_technique_index(reg)
-    counts = collections.Counter(t for t, _, _ in reg.values() if t)
+    # The relation, not the @id, now says which technique uses which scheme -- see
+    # technique_schemes(). `counts` is per TECHNIQUE, so it is derived from that.
+    rel = technique_schemes()
+    term_techs = term_technique_index(rel)
+    counts = collections.Counter(t for by_tapp in rel.values() for t in by_tapp)
 
     if a.check_stability:
         print(f"registry: {len(reg)} codelists across {len(counts)} namespaces")
         print(f"base: {BASE}")
         print()
-        return 1 if check_stability(reg, term_techs) else 0
+        return 1 if check_stability(reg, term_techs, rel) else 0
 
     if a.all:
         # Which TAPPs are "the sixteen" is not a question the registry can answer -- a
@@ -346,7 +440,7 @@ def main():
     tot = collections.Counter()
     total_bytes = 0
     for t in tapps:
-        block, st = build(t, reg, term_techs)
+        block, st = build(t, reg, term_techs, rel)
         blob = json.dumps(block, indent=2, ensure_ascii=False)
         total_bytes += len(blob.encode("utf-8"))
         v = block["ada:vocabulary"]
