@@ -201,8 +201,12 @@ and referenced by every technique:
 - **`schema:PropertyValue`** — an *actual value*. Has `schema:value`. Used in the **detail** (per dataset).
 
 Both carry a resolvable `schema:propertyID` `@id` (`ada:parameter/<tapp>/<name>`) so an instance value can be
-dereferenced to its definition. All parameter `@id`s across all TAPPs are aggregated into a master SKOS code
-list (`registry/vocab/adaAnalyticalParameters.json`).
+dereferenced to its definition. Those definitions live in the **parameter register** — the six
+`registry/parameterTemplates`, `registry/parameterValues` and `registry/*Columns` `$defs`. There is no master
+SKOS copy of them: `registry/vocab/adaAnalyticalParameters.json` aggregated the same names into a
+`skos:ConceptScheme` until 2026-10-28, when it was deleted and `build_parameter_codelist.py` retired. A field
+name is not a controlled value, the two copies had drifted in both directions, and `registry/vocab/` holds
+vocabularies of allowed *values* only.
 
 ### 3.3 Analyte columns and controlled vocabularies
 

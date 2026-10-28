@@ -48,10 +48,12 @@ def convert(doc: dict) -> "OrderedDict":
     return _L.concept_scheme_obj(scheme_id, label, desc, concepts)
 
 
-# Built separately by tools/build_parameter_codelist.py; its concept @ids are the
-# parameter propertyID URIs (ada:parameter/...), not scheme-scoped, so this pass must
-# not touch it.
-SKIP_FILES = {"adaAnalyticalParameters.json"}
+# Empty since 2026-10-28. Its one entry was adaAnalyticalParameters.json, which was skipped
+# because build_parameter_codelist.py owned it and its concept @ids were parameter propertyID
+# URIs rather than scheme-scoped. Both the file and that generator are retired — field names
+# belong to the parameter register, not to a vocabulary — so there is nothing to exclude. The
+# mechanism is kept for the next codelist another generator owns.
+SKIP_FILES = set()
 
 
 def main():
