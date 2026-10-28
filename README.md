@@ -14,10 +14,10 @@ The scheme involves three components:
 
 `_sources/` has three top-level areas: the shared base schemas, the shared registries, and one directory per analytical technique.
 
-> **Most of `_sources/` is generated, despite the name.** Of its 251 `schema.yaml`, about 178 are
+> **Most of `_sources/` is generated, despite the name.** Of its 252 `schema.yaml`, 178 are
 > written by a generator — the `tapp/`, `detail/` and `profile/` schemas from the TAPP tables and
-> sidecars, the composition modules, the shared registries — along with all 251
-> `resolvedSchema.json`, all 251 `<name>Schema.json`, and the generated examples. What you edit
+> sidecars, the composition modules, the shared registries — along with all 252
+> `resolvedSchema.json`, all 252 `<name>Schema.json`, and the generated examples. What you edit
 > directly is `BaseSchema/*` and the `adaProfile/` profiles. Editing a generated file instead of
 > its generator is the most common way to lose work here; `CLAUDE.md` has the per-directory table
 > of what writes what.
@@ -30,19 +30,22 @@ _sources/
                         tabularData, dataCube, collection, document,
                         supDocImage, otherFile, files), structuredData,
                         spatialRegistration, creativeWork, stringArray
-  registry/           five catalogs keyed by what the column identifies
+  registry/           six catalogs keyed by what the column identifies, plus vocab
+                      (every count below re-measured 2026-10-27)
     targetSpeciesColumns/      registered BB: PropertyValueSpecification $defs,
-                               one per per-species column                        (258)
+                               one per per-species column                        (223)
+    targetMaterialColumns/     registered BB: $defs for the target-material table
+                               (material, primary calibration standard)           (18)
     monitoredPropertyColumns/  registered BB: $defs for the monitored-property
                                table (mass, cup, edge, X-ray line)                (63)
     reportedPropertyColumns/   registered BB: $defs for reported-quantity columns   (1)
     parameterTemplates/        registered BB: PropertyValueSpecification $defs,
-                               editable params                                   (414)
+                               editable params                                   (356)
     parameterValues/           registered BB: schema:PropertyValue $defs,
-                               fixed values                                     (1185)
+                               fixed values                                     (1232)
     vocab/                     catalog: schema:DefinedTermSet files,
-                               by @id not $ref                                   (451)
-  techniqueProfile/     one directory per technique (91), under two roots:
+                               by @id not $ref                                   (456)
+  techniqueProfile/     one directory per technique (93), under two roots:
     geochemProfile/     the 61 TAPP-aware techniques
       <TECH>/tapp/      the TAPP definition for that technique      (61 techniques)
       <TECH>/detail/    per-dataset analysis-instance detail        (61 techniques)
@@ -56,7 +59,7 @@ _sources/
       <TECH>/detail/    instrument-detail stub                       (14 techniques)
 ```
 
-**Profile directory names are not profile names.** `XCT/profile` publishes `adaLabXCT`; `SEM/profile-ada` publishes `adaSEMFull`. A profile's canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside its own schema — read it from there rather than inferring from the path. The convention for the nine `geochemProfile` techniques with both generations is `ada<TECH>` for the TAPP `profile/` and `ada<TECH>Full` for the legacy `profile-ada/`; this file said the reverse for SEM until 2026-10-18.
+**Profile directory names are not profile names.** `XCT/profile` publishes `adaLabXCT`; `SEM/profile-ada` publishes `adaSEMFull`. A profile's canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside its own schema — read it from there rather than inferring from the path. The convention for the four `geochemProfile` techniques with both generations (EPMA, SEM, TEM, XCT — it was nine until #225 retired five) is `ada<TECH>` for the TAPP `profile/` and `ada<TECH>Full` for the legacy `profile-ada/`; this file said the reverse for SEM until 2026-10-18.
 
 ### BaseSchema
 
