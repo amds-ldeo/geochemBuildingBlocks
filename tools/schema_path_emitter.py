@@ -483,6 +483,53 @@ def _term_scheme(consts):
     return found.pop() if len(found) == 1 else None
 
 
+_VOCAB_SCHEMES = set()
+
+
+def _vocab_scheme(prop, dtype):
+    """The consolidated ada:vocab scheme a keyed-table column's VALUES come from, or None.
+
+    Sibling of _term_scheme above: that one resolves an instrument SELECTOR TOKEN to its scheme,
+    this one resolves a PROPERTY NAME to the scheme of the values that property takes. Both
+    resolve against the catalog on disk and both return None rather than guessing, so neither can
+    emit a reference that resolves nowhere.
+
+    WHY THIS DID NOT EXIST BEFORE 2026-10-28, which is worth recording because the obvious
+    diagnosis is wrong. The vocabularies were being generated all along; nothing pointed at them.
+    The annotation reached this repo exactly once, on four EPMA target-species columns
+    (05da... 05d0bc4d4b, 2026-09-14), and 8c601ccb4f removed all four nineteen days later. I first
+    attributed that to a literal `None` passed for `enum_vname` at build_tapp.route()'s
+    analyteColumn branch -- and that is false: measured across all 36 TAPP_CONFIGS entries, that
+    branch yields ZERO columns, because its impl-notes tag is never present (and TAG_RE still
+    spelled it `analyteColumn` after the 2026-09 rename to `targetSpeciesColumn`). Column
+    generation had MOVED here, to a function that never had a vocabulary parameter at all. So this
+    is a feature arriving, not an argument being restored.
+
+    It is only now expressible. Until the 2026-10-28 consolidation a scheme was
+    `ada:vocab/<TAPP>/<field>`, one per technique, so the reference a shared column needed did not
+    have a single stable target -- and both segments of that IRI had already moved once
+    (empaTAPP -> epmaTAPP, analyteEstimationMethod -> targetSpeciesEstimationMethod). One scheme
+    per property is what makes the annotation worth minting.
+    """
+    if not dtype or "controlled" not in dtype.lower():
+        return None
+    # Imported locally, like the _json below and build_tapp's own `import _tapp_lib as L`:
+    # build_tapp imports _tapp_lib only inside functions, and this module imports build_tapp.
+    import _tapp_lib as _L
+    if not _VOCAB_SCHEMES:
+        import json as _json
+        import glob as _glob
+        for f in _glob.glob(os.path.join(ROOT, "_sources", "registry", "vocab", "*.json")):
+            try:
+                sid = _json.load(open(f, encoding="utf-8")).get("@id")
+            except Exception:
+                continue
+            if sid:
+                _VOCAB_SCHEMES.add(sid)
+    sid = "ada:vocab/" + _L.vocab_slug(prop)
+    return sid if sid in _VOCAB_SCHEMES else None
+
+
 # ---------- serialize IR -> JSON Schema ----------
 # A selector token that is an IDENTIFIER has to be pinned as an IRI reference as well as a
 # string, per docs/ADDITIONALTYPE_POLICY.md clause 1 and the regex the CDIF additionalProperty
@@ -892,8 +939,14 @@ def _is_addl_param(p: spp.ParsedPath) -> bool:
             and s[-2].selector is not None)
 
 
-def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", prefix="ada:targetSpeciesColumn", as_value=False):
+def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", prefix="ada:targetSpeciesColumn", as_value=False, scheme=None):
     """One generated TargetSpeciesColumn $def, mirroring build_tapp.param_template_def.
+
+    `scheme` is the ada:vocab ConceptScheme this column's values are drawn from, or None. It is
+    resolved by _vocab_scheme() against the catalog ON DISK, so a column whose property has no
+    scheme is simply not annotated -- the reference can never dangle. See that function for why
+    this annotation did not exist until 2026-10-28 despite the vocabularies being generated all
+    along.
 
     Built here rather than via _tapp_lib.analyte_column_obj: that helper keys its @id off a
     module-global TAPP_NAME (which stays 'epmaTAPP' unless the legacy matrix route configured it,
@@ -935,6 +988,8 @@ def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", p
             "ada:tier": {"const": tier},
         }
         required = ["@id", "@type", "schema:propertyID", "schema:name", "ada:dataType"]
+        if scheme:
+            props["schema:inDefinedTermSet"] = {"const": {"@id": scheme}}
         if ptier in ("Basic", "Advanced") or atier in ("Basic", "Editable", "Advanced"):
             props["schema:value"] = valtype
             if ptier == "Basic" or atier == "Basic":
@@ -951,6 +1006,8 @@ def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", p
         "ada:tier": {"const": tier},
     }
     required = ["@id", "@type", "schema:valueName", "schema:name", "ada:dataType"]
+    if scheme:
+        props["schema:inDefinedTermSet"] = {"const": {"@id": scheme}}
     # The column's protocol-level default, mirroring param_template_def: a column the analysis can
     # vary per analyte still has one value the procedure registers. Declared only where the
     # procedure specifies the column at all (C != N/A), and REQUIRED at Basic — the procedure must
@@ -1144,7 +1201,13 @@ def build(tapp):
                 registries.setdefault(cfg["registry"], {})[name] = analyte_column_def(
                     bare, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only,
                     ptier=(m.get("P") or "").strip(), atier=(m.get("A") or "").strip(),
-                    prefix="ada:" + cfg["registry"].rstrip("s"), as_value=as_value)
+                    prefix="ada:" + cfg["registry"].rstrip("s"), as_value=as_value,
+                    # The column's values come from a controlled list -> point at the scheme that
+                    # holds it. Resolved against the catalog on disk, so a property with no scheme
+                    # is left unannotated rather than given a reference that resolves nowhere.
+                    # `bare` is the property name, which is what the consolidated scheme is keyed
+                    # on; m["dt"] is the Data Type column, which is what says "controlled".
+                    scheme=_vocab_scheme(bare, m.get("dt", "")))
                 ref = {"$ref": f"{_REG_PREFIX[parsed.root]}/{cfg['registry']}/schema.yaml"
                                 f"#/$defs/{name}"}
                 insert(roots[parsed.root], parsed, element=Leaf(ref), branch_key=name, require=require,
