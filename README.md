@@ -288,7 +288,7 @@ Three things to know before adding one:
 
 One upstream-authored TAPP table per technique (a CSV in the `tapp/` submodule's `Current TAPPs/`) drives everything downstream. Nothing generated should ever be hand-edited — fix the table (upstream, in `amds-ldeo/tapp`) or a tool and regenerate.
 
-**Regenerate through `tools/regenerate.py`.** It runs the nine stages in dependency order, which is load-bearing:
+**Regenerate through `tools/regenerate.py`.** It runs the ten stages in dependency order, which is load-bearing:
 
 ```
 python tools/regenerate.py                 # everything, in order

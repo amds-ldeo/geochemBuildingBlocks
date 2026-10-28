@@ -15,7 +15,7 @@ The PATCH used the `checks` form rather than the legacy `contexts` array, becaus
 context is pinned to `app_id: 15368` (GitHub Actions) and a `contexts`-only write drops that
 pinning, letting any app satisfy the check.
 
-**`Regenerate and diff` regenerates all nine stages, not the last two.** Until 2026-10-16 it ran
+**`Regenerate and diff` regenerates all ten stages, not the last two.** Until 2026-10-16 it ran
 only `resolve_schema.py --all` and `regenerate_schema_json.py`, so it re-derived
 `resolvedSchema.json` and `*Schema.json` from `schema.yaml` and stopped — while ~178 of the 251
 `schema.yaml` are themselves generated from the TAPP tables and the sidecars. A sidecar edit
