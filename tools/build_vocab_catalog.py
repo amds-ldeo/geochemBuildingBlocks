@@ -93,8 +93,11 @@ def collect():
                 p["descs"][(entry["desc"] or "")[:300]] += 1
             for term in entry["terms"]:
                 t = str(term)
-                # Same sentinel rule as vocab_obj: an absence is not an allowed value.
-                if t in ("N/A", "None") or _L.is_text_sentinel(t):
+                # One sentinel predicate for every vocabulary emitter, _tapp_lib's. This was
+                # `t in ("N/A", "None") or _L.is_text_sentinel(t)`, which let "Unknown" through
+                # and published it as an allowed term in 17 of 90 schemes while
+                # build_ada_vocabulary dropped it. An absence is not one of the values.
+                if _L.is_sentinel_value(t):
                     continue
                 if tapp not in p["terms"][t]:
                     p["terms"][t].append(tapp)

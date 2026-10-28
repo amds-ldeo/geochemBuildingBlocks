@@ -80,6 +80,42 @@ def is_text_sentinel(v) -> bool:
             or v.startswith(SENTINEL_TEXT_PREFIX)
             or v.startswith(LEGACY_TEXT_PREFIXES))
 
+
+# The WORD-LIST sentinels, as against the "no value available: <field>" prefix forms above.
+# ONE definition, here, because three consumers need it and they diverged while each kept its
+# own: build_ada_vocabulary.SENTINELS held this list, build_vocab_catalog dropped only
+# ("N/A", "None") plus the prefix test, and vocab_obj dropped the same pair. So the catalog
+# published "Unknown" as an allowed term in 17 of 90 schemes while build_ada_vocabulary dropped
+# it, and neither was obviously wrong from inside itself. Sharing a CONSTANT was not enough --
+# each consumer combined it differently.
+#
+# "yes" and "no" are deliberately NOT here (Stephen, 2026-10-28): they are BOOLEAN VALUES, and a
+# boolean field whose allowed values are Yes and No has those as its two real members. Including
+# them emptied five schemes completely.
+#
+# "unknown" IS here (Stephen, 2026-10-28, on target-species-estimation-method publishing it:
+# "this is a case where the codelist includes a sentinel value"). The schema `enum` still admits
+# it, which is the point -- a transcriber must be able to say the source did not report the
+# field -- but an absence is not one of the values, so it is not published as a concept. That is
+# the rule vocab_obj's own docstring states and did not fully implement.
+SENTINEL_WORDS = frozenset({
+    "n/a", "none", "missing", "unknown", "other", "not applicable", "not reported",
+})
+
+
+def is_sentinel_value(v) -> bool:
+    """True for any sentinel: a word-list one or a text one, case-insensitively.
+
+    The single predicate every vocabulary emitter should filter with.
+    """
+    if not isinstance(v, str):
+        return False
+    raw = v.strip()
+    return (raw.lower() in SENTINEL_WORDS
+            or is_text_sentinel(raw)
+            or is_text_sentinel(raw.lower()))
+
+
 # group-by-technique layout: each TAPP lives at techniqueProfile/<tech>/{tapp,detail,profile};
 # catalogs+vocab under registry/; base schemas under BaseSchema/.
 TECH_DIR = {

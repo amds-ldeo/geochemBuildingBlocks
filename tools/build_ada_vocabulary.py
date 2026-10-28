@@ -87,8 +87,7 @@ SENTINEL_TEXT_PREFIX = _sent.SENTINEL_TEXT_PREFIX
 # absent one -- and the catalog does publish "Unknown" as a concept, so this file and the catalog
 # still disagree about those two. See build_vocab_catalog.py, which filters with
 # _tapp_lib.is_text_sentinel alone.
-SENTINELS = {"n/a", "none", "missing", "unknown", "other",
-             "not applicable", "not reported"}
+SENTINELS = _sent.SENTINEL_WORDS      # one definition, in _tapp_lib
 
 def is_sentinel(name):
     """True for a transcription sentinel, by PREFIX as well as by membership.
@@ -112,9 +111,7 @@ def is_sentinel(name):
     low = raw.lower()
     # Both cases, because _tapp_lib is case-sensitive by design -- it guards vocabularies, where
     # the exact string is what gets published.
-    return (low in SENTINELS
-            or _sent.is_text_sentinel(raw)
-            or _sent.is_text_sentinel(low))
+    return _sent.is_sentinel_value(raw)
 
 
 def slug(s):
@@ -190,8 +187,7 @@ def technique_schemes():
         _bt.configure(tapp)
         for entry in _bt.route()["vocab"]:
             members = tuple(sorted({str(t) for t in entry["terms"]
-                                    if str(t) not in ("N/A", "None")
-                                    and not _L.is_text_sentinel(str(t))}))
+                                    if not _L.is_sentinel_value(str(t))}))
             if members:
                 out[slug(entry["name"])][tapp] = members
     return out
