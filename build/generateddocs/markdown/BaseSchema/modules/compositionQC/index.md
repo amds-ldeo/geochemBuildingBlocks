@@ -65,6 +65,12 @@ The procedure half of the CompositionQC module, with every property populated. G
   "schema:actionProcess": {
     "schema:step": [
       {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ],
+        "schema:position": 1,
         "schema:name": "Data processing",
         "ada:detectionLimitMethod": "no value available: unnamed property"
       }
@@ -99,6 +105,12 @@ The procedure half of the CompositionQC module, with every property populated. G
   "schema:actionProcess": {
     "schema:step": [
       {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ],
+        "schema:position": 1,
         "schema:name": "Data processing",
         "ada:detectionLimitMethod": "no value available: unnamed property"
       }
@@ -116,7 +128,11 @@ The procedure half of the CompositionQC module, with every property populated. G
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:name "Data processing" ;
+[] schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:name "Data processing" ;
+                    schema1:position 1 ;
                     ada:detectionLimitMethod "no value available: unnamed property" ] ] ;
     schema1:variableMeasured [ schema1:defaultValue 1 ;
             schema1:name "Detection Limit" ],

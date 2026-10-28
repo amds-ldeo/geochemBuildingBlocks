@@ -114,20 +114,20 @@
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/modules/uPb/example_1_1.json",
-          "sizeBytes": 204,
-          "code": "{\n  \"schema:actionProcess\": {\n    \"schema:step\": [\n      {\n        \"schema:name\": \"Sample preparation\",\n        \"ada:chemicalAbrasionConditions\": \"no value available: unnamed property\"\n      }\n    ]\n  }\n}"
+          "sizeBytes": 346,
+          "code": "{\n  \"schema:actionProcess\": {\n    \"schema:step\": [\n      {\n        \"@type\": [\n          \"cdi:Activity\",\n          \"schema:Action\",\n          \"schema:HowToStep\"\n        ],\n        \"schema:position\": 1,\n        \"schema:name\": \"Sample preparation\",\n        \"ada:chemicalAbrasionConditions\": \"no value available: unnamed property\"\n      }\n    ]\n  }\n}"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/modules/uPb/example_1_1.jsonld",
-          "sizeBytes": 436,
-          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"schema\": \"http://schema.org/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/context.jsonld\"\n  ],\n  \"schema:actionProcess\": {\n    \"schema:step\": [\n      {\n        \"schema:name\": \"Sample preparation\",\n        \"ada:chemicalAbrasionConditions\": \"no value available: unnamed property\"\n      }\n    ]\n  }\n}"
+          "sizeBytes": 578,
+          "code": "{\n  \"@context\": [\n    {\n      \"ada\": \"https://ada.astromat.org/metadata/\",\n      \"schema\": \"http://schema.org/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/context.jsonld\"\n  ],\n  \"schema:actionProcess\": {\n    \"schema:step\": [\n      {\n        \"@type\": [\n          \"cdi:Activity\",\n          \"schema:Action\",\n          \"schema:HowToStep\"\n        ],\n        \"schema:position\": 1,\n        \"schema:name\": \"Sample preparation\",\n        \"ada:chemicalAbrasionConditions\": \"no value available: unnamed property\"\n      }\n    ]\n  }\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/modules/uPb/example_1_1.ttl",
-          "sizeBytes": 268,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n\n[] schema1:actionProcess [ schema1:step [ schema1:name \"Sample preparation\" ;\n                    ada:chemicalAbrasionConditions \"no value available: unnamed property\" ] ] .\n\n"
+          "sizeBytes": 482,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] schema1:actionProcess [ schema1:step [ a <cdi:Activity>,\n                        schema1:Action,\n                        schema1:HowToStep ;\n                    schema1:name \"Sample preparation\" ;\n                    schema1:position 1 ;\n                    ada:chemicalAbrasionConditions \"no value available: unnamed property\" ] ] .\n\n"
         }
       ]
     }

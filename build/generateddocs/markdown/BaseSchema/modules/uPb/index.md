@@ -47,6 +47,12 @@ The procedure half of the UPb module, with every property populated. Generated f
   "schema:actionProcess": {
     "schema:step": [
       {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ],
+        "schema:position": 1,
         "schema:name": "Sample preparation",
         "ada:chemicalAbrasionConditions": "no value available: unnamed property"
       }
@@ -68,6 +74,12 @@ The procedure half of the UPb module, with every property populated. Generated f
   "schema:actionProcess": {
     "schema:step": [
       {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action",
+          "schema:HowToStep"
+        ],
+        "schema:position": 1,
         "schema:name": "Sample preparation",
         "ada:chemicalAbrasionConditions": "no value available: unnamed property"
       }
@@ -80,8 +92,13 @@ The procedure half of the UPb module, with every property populated. Generated f
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ schema1:name "Sample preparation" ;
+[] schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
                     ada:chemicalAbrasionConditions "no value available: unnamed property" ] ] .
 
 
