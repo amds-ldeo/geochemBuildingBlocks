@@ -192,7 +192,7 @@ workflow title adds a context no run can report, which is pending forever, which
 the ordering rule below exists to prevent. Read the name from a real check-run before requiring
 it: `gh api repos/<owner>/<repo>/commits/<sha>/check-runs --jq '.check_runs[].name'`.
 
-**`Regenerate and diff` regenerates all nine stages**, so a sidecar edit committed without
+**`Regenerate and diff` regenerates all ten stages**, so a sidecar edit committed without
 regenerating, or a schema built from a superseded delivery, turns it red. A full `regenerate.py`
 over clean `main` changes zero files, which is what makes the comparison meaningful. The history
 of what became required and when is in `docs/CI.md`.

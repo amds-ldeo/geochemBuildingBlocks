@@ -135,11 +135,23 @@ jobs:
       # missing, so count them.
       - name: Assert every stage ran
         run: |
+          # The expected count comes from regenerate.py itself: --dry-run prints the same
+          # `[stage]` lines the real run logs. It was hardcoded to 9, and adding the `vocab`
+          # stage made this fire with "10 of 9 stages ... the regeneration was partial" -- the
+          # guard working as designed, since its test is inequality, but reporting the opposite
+          # of what had happened. A count kept in two places goes stale on the first change;
+          # deriving it keeps the guard's purpose and removes that failure mode.
+          want=$(python tools/regenerate.py --dry-run | grep -c '^\[')
+          if [ "$want" -lt 1 ]; then
+            echo "::error::could not read the stage list from regenerate.py --dry-run, so there"
+            echo "is nothing to compare the log against."
+            exit 1
+          fi
           n=$(grep -c '^\[' regen.log || true)
-          echo "$n stage(s) ran"
-          if [ "$n" -ne 9 ]; then
-            echo "::error::$n of 9 stages appear in the log, so the regeneration was partial and"
-            echo "the comparison below would be clean only for the stages that did run."
+          echo "$n of $want stage(s) ran"
+          if [ "$n" -ne "$want" ]; then
+            echo "::error::$n of $want stages appear in the log, so the regeneration was partial"
+            echo "and the comparison below would be clean only for the stages that did run."
             grep '^\[' regen.log | sed 's/^/  /' || true
             exit 1
           fi
@@ -277,7 +289,7 @@ jobs:
       #   * And both duplicate a check that already exists, more strictly.
       #     `resolved` compares only the TOP-LEVEL property keys of a fresh
       #     resolution against the committed resolvedSchema.json; the step above
-      #     regenerates all nine stages and byte-diffs the result. `examples`
+      #     regenerates all ten stages and byte-diffs the result. `examples`
       #     validates example*.json against resolvedSchema.json, which is
       #     tools/validate_examples.py, run by check-examples.yml.
       #

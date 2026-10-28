@@ -1785,12 +1785,15 @@ def existing_keys(path):
     return set((d.get("$defs") or {}).keys())
 
 
-def write_vocab(b):
-    import _tapp_lib as _L
-    _L.TAPP_NAME = TAPP  # scheme @id is ada:vocab/<TAPP>/<name>
-    obj = _L.vocab_obj(b["name"], b["item"], b["desc"][:300], b["terms"])
-    write(os.path.join(VOCAB_DIR, CFG["prefix"] + "_" + b["name"] + ".json"),
-          json.dumps(obj, indent=2, ensure_ascii=False) + "\n")
+# write_vocab() used to live here, minting ada:vocab/<TAPP>/<name> once per consuming technique.
+# That produced one scheme per technique x property -- samplePreparationMethod 61 times,
+# samplingUnitType 61, and 14 schemes whose entire content was Yes/No -- and it made "Polished
+# section" a different IRI in each, which is the opposite of what a controlled vocabulary is for.
+#
+# Vocabulary emission now belongs to the SHARED `vocab` stage, tools/build_vocab_catalog.py, which
+# unions terms per property across every delivery in one pass. It cannot be done here: this runs
+# per technique, and a property-scoped scheme is the union across techniques. route() still returns
+# R["vocab"], and the shared stage calls route() itself to read it.
 
 
 # ---------- routing ----------
@@ -1926,8 +1929,10 @@ def build():
     os.makedirs(TAPP_DIR, exist_ok=True)
     os.makedirs(DETAIL_DIR, exist_ok=True)
     R = route()
-    for b in R["vocab"]:
-        write_vocab(b)
+    # R["vocab"] is deliberately NOT written here. The shared `vocab` stage
+    # (tools/build_vocab_catalog.py) owns registry/vocab, because one scheme per PROPERTY is the
+    # union across techniques and this function sees one technique. See the note where
+    # write_vocab() used to be.
 
     remove_owned_blocks(PT, PARAM_BASE + "/")
     remove_owned_blocks(PV, PARAM_BASE + "/")

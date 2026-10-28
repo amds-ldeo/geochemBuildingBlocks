@@ -1,0 +1,58 @@
+{
+  "$comment": [
+    "Authored decisions about vocabulary TERMS that no generator can derive and that must",
+    "survive regeneration. build_vocab_catalog.py merges this into the emitted codelists.",
+    "",
+    "It exists because _tapp_lib overwrites any codelist whose $id it owns, so an altLabel or a",
+    "skos:broader typed into a generated registry/vocab/*.json is destroyed by the next run.",
+    "Same pattern as the docs/*.schemapaths.csv sidecars: the generator owns the file, a sidecar",
+    "owns the decisions.",
+    "",
+    "Keyed by the consolidated property's SLUG, then by kind:",
+    "  slug      notation -> an explicit @id tail, overriding the computed slug",
+    "  altLabel  preferred notation -> [alternate labels]",
+    "  broader   narrower concept slug -> broader concept slug",
+    "",
+    "Every entry is a decision, with the person and date who made it. Nothing is inferred."
+  ],
+
+  "sample-preparation-method": {
+    "$why": "Hierarchy authored by Stephen 2026-10-28. Load-bearing, not cosmetic: measured over the 61 per-technique schemes, 'Polished section' appeared in 44 and NEVER co-occurred with any of its three children (11-12 schemes each). The per-technique split encoded different GRANULARITIES of one vocabulary, so before consolidation there was no document in which these relations could be asserted at all. Without them a cross-technique query for polished sections returns the 44 and misses the 11.",
+    "broader": {
+      "polished-section": "polished-section-or-chip",
+      "polished-block-or-epoxy-mount": "polished-section-or-chip",
+      "polished-thin-section": "polished-section",
+      "polished-thick-section": "polished-section"
+    }
+  },
+
+  "target-species-estimation-method": {
+    "$why": "Label variant collapsed per Stephen 2026-10-28 ('use skos:altLabel'), with prefLabel chosen by the shorter-string rule - which also agrees with the corpus, 6 of the 7 files carrying it. The alternate is the sole term of the retired elementEstimationMethod.json, the middle of three generations of this property's name (analyteEstimationMethod -> elementEstimationMethod -> targetSpeciesEstimationMethod), deleted in #242. Kept here deliberately: an obsolete name is exactly what skos:altLabel is for, and it preserves the mapping for any record still carrying the old string. 'By difference' is a genuinely ABSENT term in that outlier, not a variant - do not fold it.",
+    "altLabel": {
+      "Stoichiometry from cations": ["Estimated via cation stoichiometry"]
+    }
+  },
+
+  "reported-date-type": {
+    "$why": "Ratio slugs authored by Stephen 2026-10-28: '206Pb/238U make 206pb-over-238u'. A blanket '/' -> 'over' rule would be wrong for 14 of the 19 slash notations in the registry, which mean 'or' (MS/MS, MCT/A, W/Mo/Cu, VGI/VOL, Armstrong / Love-Scott). Spacing does not separate the two senses, so the ratios are named explicitly here and everything else keeps a plain hyphen.",
+    "slug": {
+      "Weighted mean 206Pb/238U": "weighted-mean-206pb-over-238u",
+      "Weighted mean 207Pb/206Pb": "weighted-mean-207pb-over-206pb",
+      "Weighted mean 207Pb/235U": "weighted-mean-207pb-over-235u"
+    }
+  },
+
+  "limit-of-quantification-method": {
+    "$why": "S/N is signal-to-noise, a ratio. Stephen 2026-10-28.",
+    "slug": {
+      "S/N ≥ 10": "s-over-n-ge-10"
+    }
+  },
+
+  "eels-chemical-state-determination-method": {
+    "$why": "L3/L2 is a white-line intensity ratio, and the notation says so. Stephen 2026-10-28.",
+    "slug": {
+      "White-line intensity ratio (L3/L2)": "white-line-intensity-ratio-l3-over-l2"
+    }
+  }
+}

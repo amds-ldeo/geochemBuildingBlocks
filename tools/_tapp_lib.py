@@ -580,13 +580,27 @@ def concept_scheme_obj(scheme_id: str, label: str, desc: str, concepts: list[dic
     ])
 
 
-def concept_obj(scheme_id: str, notation: str, pref_label: str, definition: str | None = None) -> "OrderedDict":
+def concept_obj(scheme_id: str, notation: str, pref_label: str, definition: str | None = None,
+                slug: str | None = None, alt_labels: list[str] | None = None,
+                broader: str | None = None) -> "OrderedDict":
     """A CDIF-codelist skos:Concept. Required: @id, skos:inScheme,
     skos:prefLabel, skos:notation. The concept @id is scheme-scoped
     (`<scheme_id>/<slug(notation)>`) so codes are globally unique even when
-    a label like "Standard" recurs across vocabularies."""
+    a label like "Standard" recurs across vocabularies.
+
+    `slug` supplies the @id tail instead of slugify_term_code(notation), for the
+    consolidated catalog, whose slug rule differs (transliterating rather than stripping, and
+    splitting camelCase at letter boundaries only). Callers that omit it keep the original
+    behaviour exactly, which is what the four schemes other generators own rely on.
+
+    `alt_labels` and `broader` are authored decisions from docs/vocab_terms.json: a spelling
+    variant or obsolete name collapsed onto this concept, and the concept this one is narrower
+    than. Neither can be derived, and neither may live in the generated file, which is rewritten
+    on every run. `skos:altLabel` is not declared by the CDIF codelist profile but
+    CdifCodelistConcept is open (no additionalProperties), and the profile's own prose directs
+    acronyms, spelling variants and obsolete names there; `skos:broader` IS declared."""
     c = OrderedDict([
-        ("@id", f"{scheme_id}/{slugify_term_code(notation)}"),
+        ("@id", f"{scheme_id}/{slug or slugify_term_code(notation)}"),
         ("@type", ["skos:Concept"]),
         ("skos:prefLabel", pref_label),
         ("skos:notation", notation),
@@ -594,6 +608,10 @@ def concept_obj(scheme_id: str, notation: str, pref_label: str, definition: str 
     ])
     if definition:
         c["skos:definition"] = definition
+    if alt_labels:
+        c["skos:altLabel"] = list(alt_labels)
+    if broader:
+        c["skos:broader"] = [{"@id": broader}]
     return c
 
 
