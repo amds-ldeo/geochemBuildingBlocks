@@ -456,6 +456,44 @@ def _flatten(sch, base_dir, root, seen, depth):
     return out, seen
 
 
+def _best(branches, base_dir, root, _seen, _depth):
+    """Sample a value that SEVERAL sibling branches each constrain.
+
+    One branch sampled alone is how #233's family of wrong examples was produced, in both
+    directions: CDIF's `{type: array, items: ...}` losing to gBB's `{title: ...}` overlay gave a
+    bare sentinel where an array is required, and the reverse -- gBB's restrictive
+    `schema:hasPart` losing to CDIF's permissive one -- gives an item that matches no branch of
+    the strict anyOf.
+
+    Merging into `{allOf: branches}` states the intersection correctly, but the sampler cannot
+    INTERSECT two anyOfs: it takes anyOf[0] of whichever `items` it finds first, and one
+    alternative from each of two branches can satisfy neither. So sample the merge and each
+    branch, then keep the first candidate that actually validates against the intersection. A
+    single branch keeps its previous path exactly, so nothing changes for a key declared once.
+    """
+    if not branches:
+        return _sent.SENTINEL_TEXT_UNNAMED
+    if len(branches) == 1:
+        return _sample(branches[0], base_dir, root, _seen, _depth)
+    import jsonschema
+    merged = {"allOf": list(branches)}
+    candidates = [_sample(merged, base_dir, root, _seen, _depth)]
+    candidates += [_sample(b, base_dir, root, _seen, _depth) for b in branches]
+    try:
+        validator = jsonschema.Draft202012Validator(
+            {"$schema": "https://json-schema.org/draft/2020-12/schema",
+             "$defs": (root or {}).get("$defs") or {}, **merged})
+    except Exception:                      # noqa: BLE001 - an unusable merge is not a sample error
+        return candidates[0]
+    for cand in candidates:
+        try:
+            if validator.is_valid(cand):
+                return cand
+        except Exception:                  # noqa: BLE001 - e.g. an unresolvable cross-BB $ref
+            break
+    return candidates[0]
+
+
 def _sample(sch, base_dir=None, root=None, _seen=None, _depth=0):
     """A plausible instance for a generated subschema — every property, not just the required ones.
 
@@ -513,13 +551,41 @@ def _sample(sch, base_dir=None, root=None, _seen=None, _depth=0):
         items = first("items") or {}
         conds = [c for c in (items.get("allOf") or []) if isinstance(c, dict) and "if" in c]
         if conds:
-            # the additionalProperty shape: one item per if/then branch, each carrying its discriminator
+            # the additionalProperty shape: one item per if/then branch, each carrying its
+            # discriminator. The branch is an OVERLAY, so the item's unconditional siblings still
+            # say what it IS: sampling the branch alone dropped WorkflowStep's required @type and
+            # schema:position from five module examples, and sampled a step's bios:reagent from
+            # the `then` overlay that mentions only schema:name (#233).
+            #
+            # Only the unconditional REQUIRED names are carried, not every property: the whole
+            # subtree reaches shapes a conditional item has no business demonstrating, among them
+            # schema:instrument, whose sample is rejected by its own anyOf, and
+            # schema:actionProcess, which recurses back to the step and bottoms out in a scalar
+            # sentinel where an object belongs. Both are out of scope here and neither is reached
+            # by the unconditional requirements.
+            uncond = [q for q in (items.get("allOf") or [])
+                      if isinstance(q, dict) and "if" not in q]
+            rest = {k: v for k, v in items.items() if k != "allOf"}
+            uparts, useen = _flatten({**rest, "allOf": uncond} if uncond else rest,
+                                     base_dir, root, _seen or frozenset(), _depth)
+            ureq, ubykey = [], {}
+            for p in uparts:
+                for name in (p.get("required") or []):
+                    if name not in ureq:
+                        ureq.append(name)
+                for k, v in (p.get("properties") or {}).items():
+                    ubykey.setdefault(k, []).append(v)
             out = []
             for c in conds:
-                sel = {k: _sample(v, base_dir, root, _seen, _depth + 1)
-                       for k, v in (c["if"].get("properties") or {}).items()}
-                out.append({**sel, **{k: _sample(v, base_dir, root, _seen, _depth + 1)
-                                      for k, v in ((c.get("then") or {}).get("properties") or {}).items()}})
+                cond = {}
+                for src in ((c["if"].get("properties") or {}),
+                            ((c.get("then") or {}).get("properties") or {})):
+                    for k, v in src.items():
+                        cond.setdefault(k, []).append(v)
+                keys = [k for k in ureq if k in ubykey and k not in cond] + list(cond)
+                out.append({k: _best(ubykey.get(k, []) + cond.get(k, []),
+                                     base_dir, root, useen, _depth + 1)
+                            for k in keys})
             return out
         out = [_sample(c, base_dir, root, _seen, _depth + 1) for c in _contains_schemas(parts)]
         if not out and items:
@@ -530,11 +596,13 @@ def _sample(sch, base_dir=None, root=None, _seen=None, _depth=0):
         return out
 
     if t == "object" or has_props:
-        merged = {}
+        # Accumulate per key across the parts and sample ONCE over all the branches that declare
+        # it. Assigning per part let the LAST branch win in isolation (#233).
+        bykey = {}
         for p in parts:
             for k, v in (p.get("properties") or {}).items():
-                merged[k] = _sample(v, base_dir, root, _seen, _depth + 1)
-        return merged
+                bykey.setdefault(k, []).append(v)
+        return {k: _best(vs, base_dir, root, _seen, _depth + 1) for k, vs in bykey.items()}
 
     if "anyOf" in sch:
         return _sample(sch["anyOf"][0], base_dir, root, _seen, _depth + 1)
