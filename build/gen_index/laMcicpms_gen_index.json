@@ -62,7 +62,7 @@
   "ada:interferenceCorrectionMethod",
   "ada:isotopeDilutionDataReductionMethod",
   "ada:calibrationFactorAndDeterminationMethodDefault",
-  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:analysisInclusionAndRejectionCriteriaDefault",
   "ada:massFractionationLaw",
   "ada:internalNormalizationElementAndIsotopeRatio",
   "ada:doubleSpikeIsotopePair",
@@ -75,6 +75,7 @@
   "ada:detectionLimitMethod",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod",
   "ada:analyticalAccuracyAndAssessmentMethod",
+  "ada:goodnessOfFitOrDispersionStatisticDefault",
   "schema:additionalProperty"
  ],
  "pt_keys": [
@@ -151,12 +152,15 @@
   "laMcicpms_memoryEffectMitigation",
   "laMcicpms_normalizationStandardsBasedCorrection",
   "laMcicpms_calibrationFactorAndDeterminationMethod",
+  "laMcicpms_analysisInclusionAndRejectionCriteria",
   "laMcicpms_doubleSpikeMixingRatio",
   "laMcicpms_combinationMethod",
   "laMcicpms_constantsAndReferenceValuesUsed",
   "laMcicpms_primaryCalibrationStandardName",
   "laMcicpms_secondaryReferenceMaterials",
-  "laMcicpms_otherStatistics"
+  "laMcicpms_countingStatisticsError",
+  "laMcicpms_internalAnalyticalPrecisionAndAssessmentMethod",
+  "laMcicpms_goodnessOfFitOrDispersionStatistic"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -176,16 +180,11 @@
   "peakFlatness",
   "signalIntegrationTime",
   "proceduralBlankLevel",
-  "analysisInclusionAndRejectionCriteria",
-  "combinedResults",
   "detectionLimit",
   "limitOfQuantificationMethod",
-  "countingStatisticsError",
-  "internalAnalyticalPrecisionAndAssessmentMethod",
   "withinSessionAnalyticalPrecisionAndAssessmentMethod",
   "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-  "analyticalAccuracyAndAssessmentMethod",
-  "goodnessOfFitOrDispersionStatistic"
+  "analyticalAccuracyAndAssessmentMethod"
  ],
  "detail_req_multivol": [],
  "component_types": [
@@ -245,7 +244,7 @@
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
   "ada:calibrationFactorAndDeterminationMethodDefault",
-  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:analysisInclusionAndRejectionCriteriaDefault",
   "ada:massFractionationLaw",
   "ada:internalNormalizationElementAndIsotopeRatio",
   "ada:combinationMethodDefault",
@@ -253,7 +252,8 @@
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod",
-  "ada:analyticalAccuracyAndAssessmentMethod"
+  "ada:analyticalAccuracyAndAssessmentMethod",
+  "ada:goodnessOfFitOrDispersionStatisticDefault"
  ],
  "basic_props": [
   {
@@ -691,7 +691,7 @@
    "required": true
   },
   {
-   "key": "ada:analysisInclusionAndRejectionCriteria",
+   "key": "ada:analysisInclusionAndRejectionCriteriaDefault",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
    "cov": 1,
@@ -777,6 +777,13 @@
   {
    "key": "ada:analyticalAccuracyAndAssessmentMethod",
    "item": "Analytical Accuracy and Assessment Method",
+   "jtype": "string",
+   "cov": 1,
+   "required": true
+  },
+  {
+   "key": "ada:goodnessOfFitOrDispersionStatisticDefault",
+   "item": "Goodness-of-Fit or Dispersion Statistic",
    "jtype": "string",
    "cov": 1,
    "required": true

@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "LA-Q-ICP-MS U-Pb Geochronology TAPP (laQicpmsUPbTAPP)",
-    "description": "Laser-ablation quadrupole ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v96.csv via the path-driven pipeline.",
+    "description": "Laser-ablation quadrupole ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v98.csv via the path-driven pipeline.",
     "allOf": [
         {
             "$ref": "../../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
@@ -301,7 +301,7 @@
                                                             },
                                                             {
                                                                 "title": "Analysis Inclusion and Rejection Criteria",
-                                                                "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
+                                                                "description": "The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.",
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "@id": {
@@ -374,7 +374,7 @@
                                                         {
                                                             "contains": {
                                                                 "title": "Analysis Inclusion and Rejection Criteria",
-                                                                "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
+                                                                "description": "The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.",
                                                                 "type": "object",
                                                                 "properties": {
                                                                     "@id": {
@@ -534,11 +534,11 @@
                                 "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief"
                             },
                             {
-                                "$ref": "../../../../BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinitionAndValues"
+                                "$ref": "../../../../BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinition"
                             },
                             {
                                 "title": "Error Correlation Between Reported Quantities",
-                                "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                                "description": "Which pairs of reported quantities have uncertainties that are not independent, and how the correlation coefficient between each pair is obtained. In the dataset: report, for each analysis, the correlation coefficient of each such pair.",
                                 "type": "object",
                                 "properties": {
                                     "@id": {
@@ -556,7 +556,7 @@
                                         "const": "Error Correlation Between Reported Quantities"
                                     },
                                     "ada:dataType": {
-                                        "const": "number"
+                                        "const": "string"
                                     },
                                     "ada:fieldScope": {
                                         "const": "session"
@@ -568,17 +568,7 @@
                                         "const": "R"
                                     },
                                     "schema:defaultValue": {
-                                        "anyOf": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "string"
-                                            }
-                                        ]
-                                    },
-                                    "schema:unitText": {
-                                        "const": "dimensionless"
+                                        "type": "string"
                                     }
                                 },
                                 "required": [
@@ -804,7 +794,7 @@
                         },
                         {
                             "contains": {
-                                "$ref": "../../../../BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinitionAndValues"
+                                "$ref": "../../../../BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinition"
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -812,7 +802,7 @@
                         {
                             "contains": {
                                 "title": "Error Correlation Between Reported Quantities",
-                                "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                                "description": "Which pairs of reported quantities have uncertainties that are not independent, and how the correlation coefficient between each pair is obtained. In the dataset: report, for each analysis, the correlation coefficient of each such pair.",
                                 "type": "object",
                                 "properties": {
                                     "@id": {
@@ -830,7 +820,7 @@
                                         "const": "Error Correlation Between Reported Quantities"
                                     },
                                     "ada:dataType": {
-                                        "const": "number"
+                                        "const": "string"
                                     },
                                     "ada:fieldScope": {
                                         "const": "session"
@@ -842,17 +832,7 @@
                                         "const": "R"
                                     },
                                     "schema:defaultValue": {
-                                        "anyOf": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "string"
-                                            }
-                                        ]
-                                    },
-                                    "schema:unitText": {
-                                        "const": "dimensionless"
+                                        "type": "string"
                                     }
                                 },
                                 "required": [
@@ -2091,7 +2071,7 @@
                                     },
                                     {
                                         "title": "Counting Statistics Error",
-                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                        "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -2131,7 +2111,7 @@
                                     },
                                     {
                                         "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                                        "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                                        "description": "How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -2591,7 +2571,7 @@
                                 {
                                     "contains": {
                                         "title": "Counting Statistics Error",
-                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                        "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -2635,7 +2615,7 @@
                                 {
                                     "contains": {
                                         "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                                        "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                                        "description": "How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {

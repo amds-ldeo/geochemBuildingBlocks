@@ -30,13 +30,14 @@
   "ada:xRayBackgroundCorrectionMethodDefault",
   "ada:wdsDeadTimeCorrection",
   "ada:calibrationFactorAndDeterminationMethodDefault",
-  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:analysisInclusionAndRejectionCriteriaDefault",
   "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
   "ada:xRayLineOverlapCorrectionsApplied",
   "ada:detectionLimitMethod",
+  "ada:goodnessOfFitOrDispersionStatisticDefault",
   "schema:additionalProperty"
  ],
  "pt_keys": [
@@ -86,11 +87,13 @@
   "semComposition_blankCorrection",
   "semComposition_normalizationStandardsBasedCorrection",
   "semComposition_calibrationFactorAndDeterminationMethod",
+  "semComposition_analysisInclusionAndRejectionCriteria",
   "semComposition_combinationMethod",
   "semComposition_constantsAndReferenceValuesUsed",
   "semComposition_primaryCalibrationStandardName",
   "semComposition_secondaryReferenceMaterials",
-  "semComposition_otherStatistics"
+  "semComposition_countingStatisticsError",
+  "semComposition_goodnessOfFitOrDispersionStatistic"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -105,14 +108,10 @@
   "edsMapDimensions",
   "mapArea",
   "proceduralBlankLevel",
-  "analysisInclusionAndRejectionCriteria",
-  "combinedResults",
   "detectionLimit",
   "analyticalPrecision",
   "analyticalAccuracy",
-  "countingStatisticsError",
-  "edsDeadTime",
-  "goodnessOfFitOrDispersionStatistic"
+  "edsDeadTime"
  ],
  "detail_req_multivol": [],
  "component_types": [
@@ -141,7 +140,7 @@
   "ada:stepSizePixelSizeDefault",
   "ada:matrixCorrectionMethod",
   "ada:calibrationFactorAndDeterminationMethodDefault",
-  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:analysisInclusionAndRejectionCriteriaDefault",
   "ada:primaryCalibrationStandardNameDefault"
  ],
  "basic_props": [
@@ -356,7 +355,7 @@
    "required": true
   },
   {
-   "key": "ada:analysisInclusionAndRejectionCriteria",
+   "key": "ada:analysisInclusionAndRejectionCriteriaDefault",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
    "cov": 9,
@@ -400,6 +399,13 @@
   {
    "key": "ada:detectionLimitMethod",
    "item": "Detection Limit Method",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:goodnessOfFitOrDispersionStatisticDefault",
+   "item": "Goodness-of-Fit or Dispersion Statistic",
    "jtype": "string",
    "cov": 0,
    "required": false

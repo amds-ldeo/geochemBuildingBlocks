@@ -90,22 +90,22 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  Param_Procedure_discordanceDefinitionAndValues:
-    title: Discordance Definition and Values
-    description: How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb chronometers is defined
-      for this procedure, and the discordance values obtained. State the formula used. The rule for excluding
-      discordant analyses, and how many were excluded, belong in Analysis Inclusion and Rejection Criteria.
+  Param_Procedure_discordanceDefinition:
+    title: Discordance Definition
+    description: 'How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb chronometers is defined
+      for this procedure: state the formula used. The rule for excluding discordant analyses belongs in
+      Analysis Inclusion and Rejection Criteria. In the dataset: report the discordance of each analysis.'
     type: object
     properties:
       '@id':
-        const: ada:parameter/module/UPb/discordanceDefinitionAndValues
+        const: ada:parameter/module/UPb/discordanceDefinition
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: discordanceDefinitionAndValues
+        const: discordanceDefinition
       schema:name:
-        const: Discordance Definition and Values
+        const: Discordance Definition
       ada:dataType:
         const: string
       ada:fieldScope:
