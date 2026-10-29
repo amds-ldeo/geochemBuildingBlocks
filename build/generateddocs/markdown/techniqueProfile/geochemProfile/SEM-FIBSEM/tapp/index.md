@@ -522,16 +522,16 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v45.csv)." ;
     schema1:instrument <ex:instrument/FIBSEM>,
@@ -1190,17 +1190,17 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/sliceThicknessDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1807,6 +1807,14 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -1815,15 +1823,7 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)." ;
     schema1:instrument <ex:instrument/FIBSEM>,
@@ -2477,18 +2477,18 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
     schema1:instrument <ex:instrument/FIBSEM>,
@@ -3143,12 +3143,9 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
-                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -3160,9 +3157,12 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
+                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <ex:instrument/FIBSEM>,
@@ -3870,6 +3870,12 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
@@ -3877,12 +3883,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
