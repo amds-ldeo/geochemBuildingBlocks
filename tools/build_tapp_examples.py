@@ -796,8 +796,9 @@ def is_text_sentinel(v):
     return _sent.is_text_sentinel(v)
 
 
-# Exactly "missing": vocab_obj appends that literal to every generated enum, so a controlled slot
-# accepts nothing else. Aliased from _tapp_lib rather than re-declared.
+# Exactly "missing": every generated enum admits that literal (appended by
+# schema_path_emitter.with_sentinel()), so a controlled slot accepts nothing else. Aliased from
+# _tapp_lib rather than re-declared.
 SENTINEL_TEXT = _sent.SENTINEL_TEXT
 SENTINEL_NUMERIC = -9999
 

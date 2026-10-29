@@ -1,8 +1,8 @@
 """In-place migration: convert any legacy schema:DefinedTermSet vocab file to a
 CDIF-codelist-conformant skos:ConceptScheme.
 
-The TAPP generator (tools/build_tapp.py via _tapp_lib.vocab_obj) now emits ConceptScheme
-directly, so a freshly regenerated vocab is already conformant. This pass catches files a
+The shared `vocab` stage (tools/build_vocab_catalog.py) now emits ConceptScheme directly, so a
+freshly regenerated vocab is already conformant. This pass catches files a
 current workbook no longer regenerates (orphans from renamed/retired rows) so that the whole
 `_sources/techniqueProtocols/vocab/` directory is uniform. Idempotent: files already typed
 skos:ConceptScheme are left untouched. The scheme @id is preserved, so every
