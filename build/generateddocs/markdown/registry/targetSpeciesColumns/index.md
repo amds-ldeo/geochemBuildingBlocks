@@ -255,6 +255,9 @@ $defs:
         const: true
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/target-species-estimation-method
       schema:defaultValue:
         type: string
     required:
@@ -285,6 +288,9 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/time-dependent-intensity-correction
       schema:defaultValue:
         type: string
     required:
@@ -316,6 +322,9 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-background-correction-method
       schema:defaultValue:
         type: string
     required:
@@ -346,6 +355,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-line-overlap-corrections-applied
       schema:defaultValue:
         type: string
     required:
@@ -922,6 +934,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/spectral-interference-corrections-applied
       schema:defaultValue:
         type: string
     required:
@@ -2144,6 +2159,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/spectral-interference-corrections-applied
       schema:defaultValue:
         type: string
     required:
@@ -2730,6 +2748,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/spectral-interference-corrections-applied
       schema:defaultValue:
         type: string
     required:
@@ -3348,6 +3369,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/spectral-interference-corrections-applied
       schema:defaultValue:
         type: string
     required:
@@ -3966,6 +3990,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/spectral-interference-corrections-applied
       schema:defaultValue:
         type: string
     required:
@@ -4643,6 +4670,9 @@ $defs:
         const: true
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/target-species-estimation-method
       schema:defaultValue:
         type: string
     required:
@@ -4735,6 +4765,9 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/time-dependent-intensity-correction
       schema:defaultValue:
         type: string
     required:
@@ -4828,6 +4861,9 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-background-correction-method
       schema:defaultValue:
         type: string
     required:
@@ -4858,6 +4894,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-line-overlap-corrections-applied
       schema:defaultValue:
         type: string
     required:
@@ -5565,6 +5604,9 @@ $defs:
         const: true
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/target-species-estimation-method
       schema:defaultValue:
         type: string
     required:
@@ -5657,6 +5699,9 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/time-dependent-intensity-correction
       schema:defaultValue:
         type: string
     required:
@@ -5750,6 +5795,9 @@ $defs:
         const: false
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-background-correction-method
       schema:defaultValue:
         type: string
     required:
@@ -5780,6 +5828,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-line-overlap-corrections-applied
       schema:defaultValue:
         type: string
     required:
@@ -7087,6 +7138,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/spectral-interference-corrections-applied
       schema:defaultValue:
         type: string
     required:
@@ -7135,7 +7189,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.targetSpeciesColumns
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-28'
+  dateOfLastChange: '2026-10-29'
 
 ```
 

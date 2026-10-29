@@ -1322,6 +1322,9 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:inDefinedTermSet:
+                  const:
+                    '@id': ada:vocab/spectral-interference-corrections-applied
                 schema:defaultValue:
                   type: string
               required:
@@ -1665,6 +1668,9 @@ allOf:
                   const: true
                 ada:tier:
                   const: M
+                schema:inDefinedTermSet:
+                  const:
+                    '@id': ada:vocab/spectral-interference-corrections-applied
                 schema:defaultValue:
                   type: string
               required:
@@ -2004,7 +2010,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-28'
+  dateOfLastChange: '2026-10-29'
 
 ```
 

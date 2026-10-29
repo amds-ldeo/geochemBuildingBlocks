@@ -74,6 +74,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/diffracting-crystal
       schema:defaultValue:
         anyOf:
         - type: string
@@ -146,6 +149,9 @@ $defs:
         const: true
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/proportional-counter-detector
       schema:defaultValue:
         anyOf:
         - type: string
@@ -221,6 +227,9 @@ $defs:
         const: true
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/wds-pha-setting
       schema:defaultValue:
         anyOf:
         - type: string
@@ -257,6 +266,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-detection-method-per-monitored-element
       schema:defaultValue:
         anyOf:
         - type: string
@@ -290,6 +302,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-line
       schema:defaultValue:
         anyOf:
         - type: string
@@ -952,6 +967,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/diffracting-crystal
       schema:defaultValue:
         anyOf:
         - type: string
@@ -1025,6 +1043,9 @@ $defs:
         const: true
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/proportional-counter-detector
       schema:defaultValue:
         anyOf:
         - type: string
@@ -1100,6 +1121,9 @@ $defs:
         const: true
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/wds-pha-setting
       schema:defaultValue:
         anyOf:
         - type: string
@@ -1136,6 +1160,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-detection-method-per-monitored-element
       schema:defaultValue:
         anyOf:
         - type: string
@@ -1169,6 +1196,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-line
       schema:defaultValue:
         anyOf:
         - type: string
@@ -1235,6 +1265,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/diffracting-crystal
       schema:defaultValue:
         anyOf:
         - type: string
@@ -1308,6 +1341,9 @@ $defs:
         const: true
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/proportional-counter-detector
       schema:defaultValue:
         anyOf:
         - type: string
@@ -1383,6 +1419,9 @@ $defs:
         const: true
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/wds-pha-setting
       schema:defaultValue:
         anyOf:
         - type: string
@@ -1419,6 +1458,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-detection-method-per-monitored-element
       schema:defaultValue:
         anyOf:
         - type: string
@@ -1452,6 +1494,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-line
       schema:defaultValue:
         anyOf:
         - type: string
@@ -1839,6 +1884,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/spectral-interference-corrections-applied
       schema:defaultValue:
         anyOf:
         - type: string
@@ -2086,6 +2134,9 @@ $defs:
         const: true
       ada:tier:
         const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/spectral-interference-corrections-applied
       schema:defaultValue:
         anyOf:
         - type: string
@@ -2157,6 +2208,9 @@ $defs:
         const: false
       ada:tier:
         const: R
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eels-background-subtraction-method
       schema:defaultValue:
         anyOf:
         - type: string
@@ -2246,7 +2300,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.monitoredPropertyColumns
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-28'
+  dateOfLastChange: '2026-10-29'
 
 ```
 

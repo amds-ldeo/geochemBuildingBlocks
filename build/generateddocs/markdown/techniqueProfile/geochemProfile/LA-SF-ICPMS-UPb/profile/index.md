@@ -1400,8 +1400,8 @@ ex:adaLASFICPMSUPb-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:laSficpmsUPbTAPP-P0 ],
-                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
+                [ ada:tappDefinition ex:laSficpmsUPbTAPP-P0 ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "Spot" ;
     ada:reportedDateType "Weighted mean 206Pb/238U" ;
@@ -1585,7 +1585,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-28'
+  dateOfLastChange: '2026-10-29'
 
 ```
 

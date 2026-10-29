@@ -201,9 +201,9 @@ The analysis half of the ReportingCore module, with every property populated. Ge
 ```ttl
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 
-[] dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+[] dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Dispersion Statistic" ;
             dqv:value "example value" ],
-        [ dqv:isMeasurementOf "Dispersion Statistic" ;
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "example value" ] .
 
 
@@ -406,7 +406,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.reportingCore
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-28'
+  dateOfLastChange: '2026-10-29'
 
 ```
 
