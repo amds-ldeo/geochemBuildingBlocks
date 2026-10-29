@@ -60,9 +60,10 @@ OUTDIR = os.path.join(ROOT, "build", "vocabulary")
 # the w3id registration lands differently this is the only line to change.
 BASE = "https://w3id.org/geochem/1.0/tapp"
 
-# Not concepts: the absence of a value rather than one of them. vocab_obj already drops the
-# first three; Unknown/Other/Yes/No recur across more fields than any real term and behave
-# the same way, so they are treated alike rather than minted twenty times over.
+# Not concepts: the absence of a value rather than one of them. The shared predicate
+# _tapp_lib.is_sentinel_value decides this for every vocabulary emitter -- see SENTINEL_WORDS
+# there, which carries the rulings that Yes/No are VALUES and Other is a real residual category,
+# while Unknown is an absence.
 # A sentinel that names its field is still a sentinel. is_sentinel() below is a PREFIX test for
 # the named form -- "no value available: <property>" today, "test value <property>" before
 # 2026-10-10 -- because an equality test against this set stops matching the moment the sentinel
@@ -82,11 +83,11 @@ SENTINEL_TEXT_PREFIX = _sent.SENTINEL_TEXT_PREFIX
 # entire member list, so this filter emptied them completely. The catalog never agreed: it
 # publishes Yes as a concept, which is how the disagreement surfaced.
 #
-# "unknown" and "other" are left in pending a ruling. They are a different case from yes/no --
-# arguably real allowed values a transcriber may legitimately choose rather than markers of an
-# absent one -- and the catalog does publish "Unknown" as a concept, so this file and the catalog
-# still disagree about those two. See build_vocab_catalog.py, which filters with
-# _tapp_lib.is_text_sentinel alone.
+# Both of those were then ruled on, in opposite directions, which is why the list is not simply
+# "words that look like placeholders": "unknown" IS a sentinel (an absence), "other" is NOT (a
+# residual category the author chose to offer). The test is what the WORD DOES in the value list,
+# not how it reads. _tapp_lib.SENTINEL_WORDS carries both rulings and their evidence; this file
+# and build_vocab_catalog.py now apply it through the same predicate, is_sentinel_value.
 SENTINELS = _sent.SENTINEL_WORDS      # one definition, in _tapp_lib
 
 def is_sentinel(name):
@@ -169,16 +170,16 @@ def technique_schemes():
     this replaces. The references are cross-checked against this relation instead, by
     check_vocab_references.py.
 
-    The member filter is the CATALOG's, `_tapp_lib.is_text_sentinel` plus the explicit N/A/None
-    drop, deliberately NOT this module's is_sentinel(). The two differ in policy, not just in
-    implementation: SENTINELS here also holds "yes", "no", "unknown" and "other", so
-    is_sentinel("Yes") is True, while the catalog publishes Yes as a concept. Filtering with the
-    broader one dropped five properties out of the relation entirely --
-    chromatographic-separation-applied, sample-heated, triple-scanning-mode,
-    vacuum-exposed-sample, x-ray-line-overlap-corrections-applied, whose members are only
-    Yes/No/N/A/None -- and under-reported every scheme holding "Unknown". A relation that
-    disagrees with the catalog it indexes is the defect this function exists to remove, so it
-    matches the catalog and the policy difference is reported rather than silently applied.
+    The member filter is `_tapp_lib.is_sentinel_value`, the SAME predicate build_vocab_catalog
+    applies, because a relation that disagrees with the catalog it indexes is the defect this
+    function exists to remove. The two did disagree once, and not merely in implementation:
+    this module's list held "yes" and "no", so is_sentinel("Yes") was True while the catalog
+    published Yes as a concept. Filtering with that broader list dropped five properties out of
+    the relation entirely -- chromatographic-separation-applied, sample-heated,
+    triple-scanning-mode, vacuum-exposed-sample, x-ray-line-overlap-corrections-applied, whose
+    members are only Yes/No/N/A/None -- and under-reported every scheme holding "Unknown".
+    Sharing a CONSTANT was not enough to prevent that; each consumer combined it differently.
+    Sharing the PREDICATE is what makes the two agree by construction.
     """
     import build_tapp as _bt
     import _tapp_lib as _L

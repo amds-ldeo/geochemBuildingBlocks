@@ -778,8 +778,8 @@ def to_instance(node):
 # A transcriber records "missing" when the source -- typically the publication being transcribed --
 # does not state a controlled field. Omitting the key instead would lose the distinction between
 # "checked, not reported" and "nobody looked", so every controlled enum admits the sentinel. It is
-# not published as a vocabulary concept (vocab_obj drops it with N/A and None): it marks the absence
-# of a value, not one of them.
+# not published as a vocabulary concept (build_vocab_catalog filters it with
+# _tapp_lib.is_sentinel_value): it marks the absence of a value, not one of them.
 SENTINEL = "missing"
 
 

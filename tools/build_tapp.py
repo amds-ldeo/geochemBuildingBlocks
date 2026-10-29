@@ -32,7 +32,6 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # geochemProperties), techniqueProfile/<tech>/{tapp,detail,profile,profile-ada}.
 REG = os.path.join(ROOT, "_sources", "registry")
 TPROF = os.path.join(ROOT, "_sources", "techniqueProfile", "geochemProfile")
-VOCAB_DIR = os.path.join(REG, "vocab")
 PT = os.path.join(REG, "parameterTemplates", "schema.yaml")
 PV = os.path.join(REG, "parameterValues", "schema.yaml")
 # each TAPP -> its technique directory under techniqueProfile/
@@ -2143,7 +2142,8 @@ def _epma_base_name(row):
 # transcribed -- does not state it, "missing" says so explicitly, which omission cannot: an absent
 # key is indistinguishable from "not applicable" or "nobody looked". It is admitted by every
 # generated enum for that reason, and deliberately NOT published as a concept in the vocabulary
-# (vocab_obj drops it alongside N/A and None) -- it is the absence of a value, not one of them.
+# (build_vocab_catalog filters it with _tapp_lib.is_sentinel_value) -- it is the absence of a
+# value, not one of them.
 SENTINEL = "missing"
 
 
@@ -2173,8 +2173,11 @@ def route_epma(rows, L):
         tags = (row.get("parsed") or {}).get("tags") or []
         name = tags[0][1] if tags else re.sub(r"[^A-Za-z0-9]+", "_", row["item"]).strip("_")
         enum_to_vocab[key] = name
-        L.share_or_write_catalog(L.VOCAB_DIR / f"{name}.json",
-                                 L.vocab_obj(name, row["item"] or name, row.get("desc") or "", enum))
+        # The NAME is still needed below (vocab_for -> the emitters' vname), but nothing is
+        # WRITTEN here any more. registry/vocab belongs to the shared `vocab` stage,
+        # tools/build_vocab_catalog.py, which mints one scheme per PROPERTY. build() dropped its
+        # write_vocab() for that reason (see the note above it); this is the same removal on the
+        # superseded route, which kept calling the retired per-technique emitter.
 
     def vocab_for(enum):
         return enum_to_vocab.get(tuple(sorted(enum))) if enum else None
