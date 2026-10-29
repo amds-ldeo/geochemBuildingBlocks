@@ -80,6 +80,42 @@ def is_text_sentinel(v) -> bool:
             or v.startswith(SENTINEL_TEXT_PREFIX)
             or v.startswith(LEGACY_TEXT_PREFIXES))
 
+
+# The WORD-LIST sentinels, as against the "no value available: <field>" prefix forms above.
+# ONE definition, here, because three consumers need it and they diverged while each kept its
+# own: build_ada_vocabulary.SENTINELS held this list, build_vocab_catalog dropped only
+# ("N/A", "None") plus the prefix test, and vocab_obj dropped the same pair. So the catalog
+# published "Unknown" as an allowed term in 17 of 90 schemes while build_ada_vocabulary dropped
+# it, and neither was obviously wrong from inside itself. Sharing a CONSTANT was not enough --
+# each consumer combined it differently.
+#
+# "yes" and "no" are deliberately NOT here (Stephen, 2026-10-28): they are BOOLEAN VALUES, and a
+# boolean field whose allowed values are Yes and No has those as its two real members. Including
+# them emptied five schemes completely.
+#
+# "unknown" IS here (Stephen, 2026-10-28, on target-species-estimation-method publishing it:
+# "this is a case where the codelist includes a sentinel value"). The schema `enum` still admits
+# it, which is the point -- a transcriber must be able to say the source did not report the
+# field -- but an absence is not one of the values, so it is not published as a concept. That is
+# the rule vocab_obj's own docstring states and did not fully implement.
+SENTINEL_WORDS = frozenset({
+    "n/a", "none", "missing", "unknown", "other", "not applicable", "not reported",
+})
+
+
+def is_sentinel_value(v) -> bool:
+    """True for any sentinel: a word-list one or a text one, case-insensitively.
+
+    The single predicate every vocabulary emitter should filter with.
+    """
+    if not isinstance(v, str):
+        return False
+    raw = v.strip()
+    return (raw.lower() in SENTINEL_WORDS
+            or is_text_sentinel(raw)
+            or is_text_sentinel(raw.lower()))
+
+
 # group-by-technique layout: each TAPP lives at techniqueProfile/<tech>/{tapp,detail,profile};
 # catalogs+vocab under registry/; base schemas under BaseSchema/.
 TECH_DIR = {
@@ -330,7 +366,14 @@ def _p_end() -> int:
 # ---------- impl-notes parser ----------
 
 # Each ROW may have one or more (kind, name) tags.
-TAG_RE = re.compile(r"\b(property|parameter|analyteColumn)\s*:\s*([A-Za-z][A-Za-z0-9_-]+)", re.IGNORECASE)
+# `targetSpeciesColumn` is the post-2026-09 spelling; `analyteColumn` is kept because a rename
+# leaves old content behind and this regex is the only thing that reads these tags. It carried
+# ONLY the old spelling until 2026-10-28, so a row tagged with the current name would have been
+# silently ignored -- the camelCase/underscore drift this repo already documents, arriving at the
+# one place where the consequence is a dropped row rather than a failure. Both normalise to
+# `analyteColumn` below so callers keep one key.
+TAG_RE = re.compile(r"\b(property|parameter|analyteColumn|targetSpeciesColumn)\s*:\s*([A-Za-z][A-Za-z0-9_-]+)", re.IGNORECASE)
+TAG_KIND_ALIAS = {"targetspeciescolumn": "analytecolumn"}   # kinds are lower-cased below
 DTYPE_RE = re.compile(r"\b(?:dataType|datatype|data:type)\s*:?\s*([A-Za-z:][A-Za-z0-9:_-]+)", re.IGNORECASE)
 ENUM_RE = re.compile(r"enum\s*\{([^}]+)\}", re.IGNORECASE)
 READONLY_RE = re.compile(r"\breadOnly\s*:?\s*(true|false)", re.IGNORECASE)
@@ -374,6 +417,7 @@ def parse_impl(impl: str) -> dict:
     tag_records = []
     for i, m in enumerate(matches):
         kind = m.group(1).lower()
+        kind = TAG_KIND_ALIAS.get(kind, kind)   # targetSpeciesColumn -> analytecolumn
         name = m.group(2)
         chunk_end = matches[i + 1].start() if i + 1 < len(matches) else len(impl)
         chunk = impl[m.start():chunk_end]
@@ -578,6 +622,61 @@ def concept_scheme_obj(scheme_id: str, label: str, desc: str, concepts: list[dic
         ("schema:license", [CODELIST_LICENSE]),
         ("skos:hasTopConcept", concepts),
     ])
+
+
+# --- the consolidated-catalog slug rule (Stephen, 2026-10-28) ----------------------------
+#
+# ONE implementation, here, because two consumers need it and they must not disagree by a
+# character: build_vocab_catalog.py mints the scheme and concept @ids, and
+# schema_path_emitter.py mints the schema:inDefinedTermSet references that point at them. A
+# second copy would be the "second home for one fact" shape this repo keeps retiring, and the
+# failure mode is silent -- a reference that resolves nowhere looks like working wiring.
+_VOCAB_SUPERSCRIPT = {
+    "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5", "⁶": "6", "⁷": "7",
+    "⁸": "8", "⁹": "9", "⁻": "-",
+    "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7",
+    "₈": "8", "₉": "9",
+}
+_VOCAB_TRANSLITERATE = {
+    "σ": "sigma", "%": "percent", "ζ": "zeta", "μ": "u", "±": "plus-minus",
+    "°": "deg", "Å": "angstrom", "≤": "le", "≥": "ge", "≈": "approx",
+    "–": "-", "—": "-", "’": "",
+}
+# LETTER -> capital only. A digit in the lookbehind mangles every isotope and
+# acronym-with-number in the registry: 206Pb/238U -> 206-pb-238-u, 4D-STEM -> 4-d-stem,
+# py4DSTEM -> py4-dstem, 1SD -> 1-sd.
+_VOCAB_CAMEL = re.compile(r"(?<=[a-z])(?=[A-Z])")
+_VOCAB_TIMES_BETWEEN_DIGITS = re.compile(r"(?<=\d)\s*×\s*(?=\d)")
+
+
+def vocab_slug(text: str) -> str:
+    """Transliterate, split camelCase on letters, lowercase-hyphenate.
+
+    Transliterating rather than stripping is the point: stripping destroys meaning in permanent
+    identifiers, collapsing "3sigma blank" and "3x blank mean" toward the same thing and deleting
+    the mass numbers from "87Rb on 87Sr ... 85Rb" entirely.
+    """
+    s = _VOCAB_TIMES_BETWEEN_DIGITS.sub("by", text)       # 2x2 -> 2by2 (dimensional)
+    s = s.replace("×", " times ")                          # 3x LOD -> 3-times-lod (multiplicative)
+    for k, v in _VOCAB_SUPERSCRIPT.items():
+        s = s.replace(k, v)
+    for k, v in _VOCAB_TRANSLITERATE.items():
+        s = s.replace(k, v)
+    s = _VOCAB_CAMEL.sub(" ", s)
+    return _vocab_dedupe(re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-"))
+
+
+def _vocab_dedupe(slug: str) -> str:
+    """Collapse an exactly-doubled MULTI-WORD unit: zeta-factor-zeta-factor -> zeta-factor.
+
+    The multi-word guard is load-bearing: without it a bare `MS/MS` would slug to `ms-ms` and
+    collapse to `ms`, destroying the tandem-mass-spectrometry distinction.
+    """
+    for i in range(len(slug) // 2, 1, -1):
+        unit = slug[:i]
+        if "-" in unit and slug == unit + "-" + unit:
+            return unit
+    return slug
 
 
 def concept_obj(scheme_id: str, notation: str, pref_label: str, definition: str | None = None,

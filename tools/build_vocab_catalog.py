@@ -57,55 +57,11 @@ PROTECTED = {
     "adaInstrumentComponentType.json",
 }
 
-# --- the slug rule (Stephen, 2026-10-28) -------------------------------------------------
-#
-# Transliterate, do not strip. Stripping destroys meaning in identifiers that are permanent:
-# "3σ blank" and "3× blank mean" both collapse toward "3-blank", and the mass numbers of
-# "⁸⁷Rb on ⁸⁷Sr ... ⁸⁵Rb" vanish entirely.
-SUPERSCRIPT = {
-    "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5", "⁶": "6", "⁷": "7",
-    "⁸": "8", "⁹": "9", "⁻": "-",
-    "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4", "₅": "5", "₆": "6", "₇": "7",
-    "₈": "8", "₉": "9",
-}
-TRANSLITERATE = {
-    "σ": "sigma", "%": "percent", "ζ": "zeta", "μ": "u", "±": "plus-minus",
-    "°": "deg", "Å": "angstrom", "≤": "le", "≥": "ge", "≈": "approx",
-    "–": "-", "—": "-", "’": "",
-}
-# camelCase splits at LETTER->capital only. A digit in the lookbehind mangles every isotope and
-# acronym-with-number in the registry: 206Pb/238U -> 206-pb-238-u, 4D-STEM -> 4-d-stem,
-# py4DSTEM -> py4-dstem, 1SD -> 1-sd.
-CAMEL = re.compile(r"(?<=[a-z])(?=[A-Z])")
-# `×` is dimensional between digits (2×2 -> 2by2) and multiplicative otherwise
-# (3× blank mean -> 3-times-blank-mean).
-TIMES_BETWEEN_DIGITS = re.compile(r"(?<=\d)\s*×\s*(?=\d)")
-
-
-def slugify(text):
-    """The catalog's slug: transliterate, split camelCase on letters, lowercase-hyphenate."""
-    s = TIMES_BETWEEN_DIGITS.sub("by", text)
-    s = s.replace("×", " times ")
-    for k, v in SUPERSCRIPT.items():
-        s = s.replace(k, v)
-    for k, v in TRANSLITERATE.items():
-        s = s.replace(k, v)
-    s = CAMEL.sub(" ", s)
-    return _dedupe(re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-"))
-
-
-def _dedupe(slug):
-    """Collapse an exactly-doubled MULTI-WORD unit: zeta-factor-zeta-factor -> zeta-factor.
-
-    The multi-word guard matters. Without it a bare `MS/MS` would slug to `ms-ms` and collapse to
-    `ms`, destroying the tandem-mass-spectrometry distinction. No such term stands alone today, so
-    this guards a case that has not arrived rather than one it fixes.
-    """
-    for i in range(len(slug) // 2, 1, -1):
-        unit = slug[:i]
-        if "-" in unit and slug == unit + "-" + unit:
-            return unit
-    return slug
+# The slug rule lives in _tapp_lib.vocab_slug, NOT here: schema_path_emitter mints the
+# schema:inDefinedTermSet references that point at these @ids, so the two must agree to the
+# character. A reference that resolves nowhere looks like working wiring, and nothing but
+# check_vocab_references.py would notice.
+slugify = _L.vocab_slug
 
 
 def load_sidecar():
@@ -137,8 +93,11 @@ def collect():
                 p["descs"][(entry["desc"] or "")[:300]] += 1
             for term in entry["terms"]:
                 t = str(term)
-                # Same sentinel rule as vocab_obj: an absence is not an allowed value.
-                if t in ("N/A", "None") or _L.is_text_sentinel(t):
+                # One sentinel predicate for every vocabulary emitter, _tapp_lib's. This was
+                # `t in ("N/A", "None") or _L.is_text_sentinel(t)`, which let "Unknown" through
+                # and published it as an allowed term in 17 of 90 schemes while
+                # build_ada_vocabulary dropped it. An absence is not one of the values.
+                if _L.is_sentinel_value(t):
                     continue
                 if tapp not in p["terms"][t]:
                     p["terms"][t].append(tapp)

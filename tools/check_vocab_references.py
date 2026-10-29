@@ -159,6 +159,55 @@ def main():
         if gained and not lost:
             print("  (gains are not failures; --write to accept them)")
 
+    # --- Check C: a reference points at a scheme its technique actually uses --------------
+    #
+    # Check A proves a reference resolves to SOME scheme on disk. That is not enough: a column
+    # belonging to epmaTAPP could resolve cleanly to a scheme only temTAPP uses, and nothing
+    # above would notice. The authoritative TAPP x property relation is
+    # build_ada_vocabulary.technique_schemes(), read from route() -- the same source
+    # build_vocab_catalog uses -- so this compares the references against it rather than against
+    # a second derivation.
+    #
+    # It is the slow check, because it routes every delivery. Deliberately: the alternative is a
+    # cheaper second implementation of the relation, which is the one-fact-two-homes shape that
+    # produced the defect this file exists to catch.
+    print("\nCHECK C  each reference points at a scheme its own technique uses")
+    try:
+        sys.path.insert(0, os.path.join(ROOT, "tools"))
+        import build_ada_vocabulary as _bav
+        import build_tapp as _bt
+        import yaml as _yaml
+    except Exception as e:                                   # noqa: BLE001
+        print("  SKIPPED: %s" % e)
+    else:
+        rel = _bav.technique_schemes()
+        prefix_to_tapp = {(_bt.TAPP_CONFIGS[t].get("prefix") or ""): t for t in _bt.TAPP_CONFIGS}
+        checked = wrong = 0
+        for reg in ("targetSpeciesColumns", "monitoredPropertyColumns",
+                    "reportedPropertyColumns", "targetMaterialColumns",
+                    "parameterTemplates", "parameterValues"):
+            path = os.path.join(SOURCES, "registry", reg, "schema.yaml")
+            if not os.path.exists(path):
+                continue
+            doc = _yaml.safe_load(open(path, encoding="utf-8")) or {}
+            for key, spec in sorted((doc.get("$defs") or {}).items()):
+                const = (((spec.get("properties") or {}).get(ANNOTATION) or {}).get("const") or {})
+                sid = const.get("@id") if isinstance(const, dict) else None
+                if not sid:
+                    continue
+                checked += 1
+                tapp = prefix_to_tapp.get(key.split("_")[0])
+                if tapp is None:
+                    continue            # a def whose prefix names no TAPP is Check A's problem
+                slug = sid.replace("ada:vocab/", "")
+                if tapp not in (rel.get(slug) or {}):
+                    wrong += 1
+                    failures.append("%s/%s references %s, which %s does not use"
+                                    % (reg, key, sid, tapp))
+                    print("     MISMATCH %s/%s -> %s (not used by %s)" % (reg, key, sid, tapp))
+        print("  references checked           : %d" % checked)
+        print("  pointing outside their technique: %d" % wrong)
+
     print()
     if failures:
         print("FAILED (%d):" % len(failures))
