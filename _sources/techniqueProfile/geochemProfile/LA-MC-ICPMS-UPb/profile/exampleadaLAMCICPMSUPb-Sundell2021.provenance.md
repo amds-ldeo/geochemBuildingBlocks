@@ -54,3 +54,36 @@ this example's sources do not support — the distinction the rest of this file 
 Found by stage-2 conformance detection, whose adaProduct presence test requires the ADA marker:
 detection from CONTENT asked a question validation never asked of this file, because its block
 composes geochemProduct and so never enforced adaProduct's requirements.
+
+## 2026-10-30 — the laser and the mass spectrometer were ONE JSON-LD node
+
+Both instruments under `/prov:wasGeneratedBy/0/prov:used/0/schema:instrument` carried
+`"@id": "ex:instrument/nxs-BaseClass-NXinstrument"` and `schema:identifier`
+`["ex:instrument-ada-001"]`. A repeated `@id` inside one array is not a cosmetic collision: in
+JSON-LD those members are the SAME node, so this record asserted that one instrument is both a
+Photon Machines Analyte G2 laser and a Nu Plasma HR multi-collector.
+
+The shared id is the NeXus base class, which `build_tapp_examples.py:170` uses as its FALLBACK
+token when a schema path carries no `[additionalType=...]` selector. It is universal, so it is not
+an identity — all 68 instrument members across the generated `geochemProfile/*/profile` examples
+carry it. Derived here from the model name instead, which is what distinguishes the two in the
+paper's Table 1:
+
+| JSON pointer | source | before | after |
+|---|---|---|---|
+| `/prov:wasGeneratedBy/0/prov:used/0/schema:instrument/0/@id` | LIT | `ex:instrument/nxs-BaseClass-NXinstrument` | `ex:instrument/Analyte-G2` |
+| `/prov:wasGeneratedBy/0/prov:used/0/schema:instrument/1/@id` | LIT | `ex:instrument/nxs-BaseClass-NXinstrument` | `ex:instrument/Nu-Plasma-HR` |
+| `/prov:wasGeneratedBy/0/prov:used/0/schema:instrument/1/schema:identifier/0` | LIT | `ex:instrument-ada-001` | `ex:instrument-ada-002` |
+
+Edited in this file rather than fixed in a generator because the example is SOURCE-DERIVED, and
+safe to edit here because `schema_path_example_emitter.normalize_instrument_tree` only supplies an
+`@id` when the node does not already carry a string one — an authored id is preserved.
+
+Not changed, and worth a look by someone with the paper: both instruments carry the SAME
+`schema:additionalType`, `["ICPMS", "Laser Ablation System", ...]`, so each claims to be both
+kinds of device. That is content this edit has no basis to decide.
+
+The duplicate `ex:adaProduct-var-001` ids in this file's `schema:variableMeasured` were a
+DIFFERENT defect with a different cause — `build_profile._add_required_variables` cloning
+`vm[0]` without re-minting its id — and were fixed in that generator, which does own those
+appended members even in a source-derived file.

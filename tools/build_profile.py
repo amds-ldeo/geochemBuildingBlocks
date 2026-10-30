@@ -511,6 +511,31 @@ def _fill_required(ex, tapp):
     return n
 
 
+def _var_id(name, used):
+    """A document-scoped @id for a backfilled measured variable, derived from its name.
+
+    Derived rather than sequential so it is stable across regenerations, matching
+    schema_path_example_emitter.instrument_id; a counter would rewrite every example on
+    every run and break `Regenerate twice and compare`.
+
+    This replaces a line that read `var["@id"] if isinstance(..., str) else "ex:var"`, whose
+    fallback never fired: the clone always HAD a string @id, the scaffold's own, so every
+    backfilled variable claimed to be the same JSON-LD node as schema:variableMeasured[0].
+    Up to ten members of one array shared ex:adaProduct-var-001. Nothing could see it -- an
+    @id is not a constraint, so constraint_census is blind to it, and no schema pins
+    uniqueness, so validate_examples passed 657/657 over it.
+
+    `used` carries the ids already present in the array, including any a contains clause PINS
+    with a const, so a derived id can never collide with a required one.
+    """
+    base = "ex:var/" + (re.sub(r"[^A-Za-z0-9]+", "-", str(name or "")).strip("-") or "variable")
+    cand, n = base, 2
+    while cand in used:
+        cand, n = "%s-%d" % (base, n), n + 1
+    used.add(cand)
+    return cand
+
+
 def _add_required_variables(ex, tapp, cfg):
     """Add the reported-property variables the profile `contains`-requires.
 
@@ -566,6 +591,8 @@ def _add_required_variables(ex, tapp, cfg):
         return
     template = vm[0]
     have = {v.get("schema:name") for v in vm if isinstance(v, dict)}
+    used_ids = {v.get("@id") for v in vm
+                if isinstance(v, dict) and isinstance(v.get("@id"), str)}
 
     for nm, c in required.items():
         if nm in have:
@@ -577,7 +604,15 @@ def _add_required_variables(ex, tapp, cfg):
             if isinstance(v, dict) and "const" in v:
                 var[k] = copy.deepcopy(v["const"])
         var.setdefault("schema:name", nm)
-        var["@id"] = var.get("@id") if isinstance(var.get("@id"), str) else "ex:var"
+        # A contains clause MAY pin @id with a const (8 do, e.g.
+        # ada:parameter/epmaTAPP/targetMaterialOfSamplingUnit). That pin is a requirement, so it
+        # wins over a derived id; only an unpinned variable gets one minted.
+        pinned = ((c.get("properties") or {}).get("@id") or {}).get("const")
+        if isinstance(pinned, str):
+            var["@id"] = pinned
+            used_ids.add(pinned)
+        else:
+            var["@id"] = _var_id(nm, used_ids)
         ex.setdefault("schema:variableMeasured", []).append(var)
 
 
