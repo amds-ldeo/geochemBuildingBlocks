@@ -1164,7 +1164,7 @@
         "itemIdentifier": "ogch.BaseSchema.geochemProduct",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.json",
       "x-schema-id": "https://w3id.org/geochem/schema/geochemProduct/1.0",
@@ -4988,7 +4988,7 @@
         "itemIdentifier": "ogch.techniqueProfile.geochemProfile.TEM.detail",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -5189,14 +5189,14 @@
         "itemIdentifier": "ogch.BaseSchema.instrument",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "ogch.techniqueProfile.geochemProfile.TEM.tapp": {
       "title": "TEM Technique-Aligned Protocol Profile (temTAPP)",
-      "description": "Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:targetSpeciesTemplate carries per-element columns. Generated from tapp/Current TAPPs/TEM_TAPP_v67.csv by tools/build_tapp.py.",
+      "description": "Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:targetSpeciesTemplate carries per-element columns. Generated from tapp/Current TAPPs/TEM_TAPP_v68.csv by tools/build_tapp.py.",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -5525,7 +5525,7 @@
                                   },
                                   {
                                     "title": "Analysis Inclusion and Rejection Criteria",
-                                    "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
+                                    "description": "The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.",
                                     "type": "object",
                                     "properties": {
                                       "@id": {
@@ -5708,7 +5708,7 @@
                                 {
                                   "contains": {
                                     "title": "Analysis Inclusion and Rejection Criteria",
-                                    "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
+                                    "description": "The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.",
                                     "type": "object",
                                     "properties": {
                                       "@id": {
@@ -10103,7 +10103,7 @@
         "itemIdentifier": "ogch.techniqueProfile.geochemProfile.TEM.tapp",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/tapp/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -11421,7 +11421,7 @@
         "itemIdentifier": "ogch.BaseSchema.creativeWork",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -13355,7 +13355,7 @@
         "itemIdentifier": "ogch.BaseSchema.tappDefinition",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.3",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -13556,7 +13556,7 @@
         "itemIdentifier": "ogch.BaseSchema.instrument",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -13612,7 +13612,7 @@
         "itemIdentifier": "ogch.BaseSchema.laboratory",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -13749,7 +13749,7 @@
         "itemIdentifier": "ogch.BaseSchema.spatialRegistration",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -15283,7 +15283,7 @@
         "itemIdentifier": "ogch.BaseSchema.tabularData",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -16280,7 +16280,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.core",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -16414,14 +16414,14 @@
         "itemIdentifier": "ogch.BaseSchema.modules.calibrationFactor",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "ogch.BaseSchema.modules.aggregation": {
       "title": "TAPP Composition Module: Aggregation",
-      "description": "The shared Aggregation block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_Aggregation.csv), composed by 13 of the sixteen delivery tables. 5 owned fields over 6 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
+      "description": "The shared Aggregation block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_Aggregation.csv), composed by 13 of the sixteen delivery tables. 3 owned fields over 4 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
       "$defs": {
         "AnalysisIdentification": {
           "title": "Aggregation on the analysis",
@@ -16449,7 +16449,7 @@
                     "then": {
                       "properties": {
                         "schema:value": {
-                          "description": "Whether the reported variable is an individual result or combines several, and if combined, how: the statistical model used, including any criteria governing which model is applied, and what the individual results are combined over (for example per grain, per phase within a sample, or per sample). Record 'Not combined' where each individual result is reported on its own. Record the model only; the software implementing it belongs in Data Processing Software.",
+                          "description": "Whether the reported variable is an individual result or combines several, and if combined, how: the statistical model used, including any criteria governing which model is applied, and what the individual results are combined over (for example per grain, per phase within a sample, or per sample). Record 'Not combined' where each individual result is reported on its own. Record the model only; the software implementing it belongs in Data Processing Software. In the dataset: report each combined value with its uncertainty and the number of individual results it combines, and identify, for each individual result, the combined value it contributes to.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -16508,7 +16508,7 @@
                     "then": {
                       "properties": {
                         "dqv:value": {
-                          "description": "The statistic reported to show whether scatter among the individual results contributing to a combined result exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                          "description": "The statistic used to describe the scatter among the individual results contributing to a combined value, or to test whether that scatter exceeds what analytical uncertainty alone predicts: for example one standard deviation of the mean, or the MSWD with its probability of fit. A threshold for accepting it belongs with the inclusion criteria. In the dataset: report, for each combined value, the value of the statistic, and any further statistic (for example the standard error of the mean, or a 95% confidence interval) beside it, named.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -16522,30 +16522,11 @@
                           ],
                           "x-jsonld-id": "http://www.w3.org/ns/dqv#value"
                         }
-                      },
-                      "required": [
-                        "dqv:value"
-                      ]
+                      }
                     }
                   }
                 ]
               },
-              "allOf": [
-                {
-                  "contains": {
-                    "properties": {
-                      "dqv:isMeasurementOf": {
-                        "enum": [
-                          "Goodness-of-Fit"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "dqv:isMeasurementOf"
-                    ]
-                  }
-                }
-              ],
               "x-jsonld-id": "http://www.w3.org/ns/dqv#hasQualityMeasurement"
             }
           }
@@ -16561,7 +16542,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.aggregation",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -16738,7 +16719,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.samplingUnitSelection",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -17907,7 +17888,7 @@
         "itemIdentifier": "ogch.BaseSchema.geochemProduct",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml",
       "x-schema-id": "https://w3id.org/geochem/schema/geochemProduct/1.0",
@@ -18458,7 +18439,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.targetSpecies",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -24449,7 +24430,7 @@
     "itemIdentifier": "ogch.techniqueProfile.geochemProfile.TEM.profile",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-10-29"
+    "dateOfLastChange": "2026-10-31"
   },
   "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
 }

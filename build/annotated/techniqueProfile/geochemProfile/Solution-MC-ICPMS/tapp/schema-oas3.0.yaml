@@ -1623,7 +1623,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tappDefinition
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.3'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.core:
@@ -2389,7 +2389,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.core
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.mcIcpms:
@@ -3134,7 +3134,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.mcIcpms
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.calibrationFactor:
@@ -3240,7 +3240,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.calibrationFactor
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.solutionIntroduction:
@@ -3995,7 +3995,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.solutionIntroduction
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.targetSpecies:
@@ -4036,7 +4036,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.targetSpecies
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.icpms:
@@ -5609,7 +5609,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.icpms
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.compositionQC:
@@ -5646,12 +5646,14 @@ x-defs:
                 then:
                   properties:
                     schema:defaultValue:
-                      description: Detection limit, one per reported concentration
+                      description: 'Detection limit, one per reported concentration
                         variable (one per target species, these being the same set).
                         State the units and whether the values are procedure-typical
                         estimates or session-specific measured values. The calculation
                         method is recorded separately in Detection Limit Method. Record
-                        'N/A' where the procedure reports no concentrations.
+                        ''N/A'' where the procedure reports no concentrations. In
+                        the dataset: report the detection limit of each analysis,
+                        where the procedure computes one.'
                       anyOf:
                       - type: number
                       - type: string
@@ -5751,12 +5753,14 @@ x-defs:
                 then:
                   properties:
                     schema:value:
-                      description: Detection limit, one per reported concentration
+                      description: 'Detection limit, one per reported concentration
                         variable (one per target species, these being the same set).
                         State the units and whether the values are procedure-typical
                         estimates or session-specific measured values. The calculation
                         method is recorded separately in Detection Limit Method. Record
-                        'N/A' where the procedure reports no concentrations.
+                        ''N/A'' where the procedure reports no concentrations. In
+                        the dataset: report the detection limit of each analysis,
+                        where the procedure computes one.'
                       anyOf:
                       - type: number
                       - type: string
@@ -5863,11 +5867,13 @@ x-defs:
             x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       Param_Analysis_detectionLimit:
         title: Detection Limit
-        description: Detection limit, one per reported concentration variable (one
+        description: 'Detection limit, one per reported concentration variable (one
           per target species, these being the same set). State the units and whether
           the values are procedure-typical estimates or session-specific measured
           values. The calculation method is recorded separately in Detection Limit
-          Method. Record 'N/A' where the procedure reports no concentrations.
+          Method. Record ''N/A'' where the procedure reports no concentrations. In
+          the dataset: report the detection limit of each analysis, where the procedure
+          computes one.'
         type: object
         properties:
           '@id':
@@ -5901,11 +5907,13 @@ x-defs:
         - schema:unitText
       Param_Procedure_detectionLimit:
         title: Detection Limit
-        description: Detection limit, one per reported concentration variable (one
+        description: 'Detection limit, one per reported concentration variable (one
           per target species, these being the same set). State the units and whether
           the values are procedure-typical estimates or session-specific measured
           values. The calculation method is recorded separately in Detection Limit
-          Method. Record 'N/A' where the procedure reports no concentrations.
+          Method. Record ''N/A'' where the procedure reports no concentrations. In
+          the dataset: report the detection limit of each analysis, where the procedure
+          computes one.'
         type: object
         properties:
           '@id':
@@ -6039,7 +6047,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.compositionQC
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.collisionCell:
@@ -6501,7 +6509,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.collisionCell
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.identifier:
@@ -6863,7 +6871,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.instrument
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.laboratory:
@@ -6909,7 +6917,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.laboratory
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.person:
@@ -8288,7 +8296,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.geochemProduct
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
     x-schema-id: https://w3id.org/geochem/schema/geochemProduct/1.0
     x-schema-version: https://json-schema.org/draft/2020-12/schema
@@ -9857,7 +9865,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.creativeWork
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.spatialRegistration:
@@ -10012,7 +10020,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.spatialRegistration
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.temporalExtent:
@@ -10839,7 +10847,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tabularData
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.skosProperties.skosConcept:
@@ -14841,7 +14849,7 @@ x-defs:
     x-schema-version: https://json-schema.org/draft/2020-12/schema
 title: Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)
 description: Solution multi-collector ICP-MS extension of the base TAPP definition,
-  generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v91.csv via the path-driven
+  generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v93.csv via the path-driven
   pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
@@ -15072,18 +15080,22 @@ allOf:
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       - title: Analysis Inclusion and Rejection Criteria
                         description: 'The rules determining which individual results
-                          contribute to a combined result, together with the outcome
-                          of applying them: how many results were obtained, how many
-                          were included, and on what grounds any were excluded. An
-                          individual result is the value of the reported quantity
+                          contribute to a combined result: the limits a result must
+                          meet (for example on analytical total or stoichiometry)
+                          and the grounds on which one is rejected (for example overlap
+                          onto a neighbouring phase, or an outlier test with its threshold),
+                          including any acceptance threshold on the dispersion statistic.
+                          An individual result is the value of the reported quantity
                           obtained from one acquisition: a replicate measurement of
                           the same solution or location, a spot or grain within a
                           sample, or an independently prepared aliquot or digestion,
                           whichever the procedure combines. Distinct from filtering
                           the acquired signal during data reduction (removing spikes,
                           cycles or scans, or discarding an acquisition whose signal
-                          is compromised): this field records which finished results
-                          enter the combined result, and on what grounds.'
+                          is compromised): this field records the rules by which finished
+                          results enter a combined result. In the dataset: flag each
+                          individual result excluded from a combined value, with the
+                          rule that excluded it.'
                         type: object
                         properties:
                           '@id':
@@ -15129,18 +15141,22 @@ allOf:
                     - contains:
                         title: Analysis Inclusion and Rejection Criteria
                         description: 'The rules determining which individual results
-                          contribute to a combined result, together with the outcome
-                          of applying them: how many results were obtained, how many
-                          were included, and on what grounds any were excluded. An
-                          individual result is the value of the reported quantity
+                          contribute to a combined result: the limits a result must
+                          meet (for example on analytical total or stoichiometry)
+                          and the grounds on which one is rejected (for example overlap
+                          onto a neighbouring phase, or an outlier test with its threshold),
+                          including any acceptance threshold on the dispersion statistic.
+                          An individual result is the value of the reported quantity
                           obtained from one acquisition: a replicate measurement of
                           the same solution or location, a spot or grain within a
                           sample, or an independently prepared aliquot or digestion,
                           whichever the procedure combines. Distinct from filtering
                           the acquired signal during data reduction (removing spikes,
                           cycles or scans, or discarding an acquisition whose signal
-                          is compromised): this field records which finished results
-                          enter the combined result, and on what grounds.'
+                          is compromised): this field records the rules by which finished
+                          results enter a combined result. In the dataset: flag each
+                          individual result excluded from a combined value, with the
+                          rule that excluded it.'
                         type: object
                         properties:
                           '@id':
@@ -15769,9 +15785,10 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeIsotopePair
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeMixingRatio
         - title: Error Correlation Between Reported Quantities
-          description: The correlation coefficient between pairs of reported quantities
-            whose uncertainties are not independent, together with the pair it applies
-            to and how it was obtained.
+          description: 'Which pairs of reported quantities have uncertainties that
+            are not independent, and how the correlation coefficient between each
+            pair is obtained. In the dataset: report, for each analysis, the correlation
+            coefficient of each such pair.'
           type: object
           properties:
             '@id':
@@ -15787,10 +15804,6 @@ allOf:
               enum:
               - Error Correlation Between Reported Quantities
             schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
               type: string
           required:
           - '@id'
@@ -15798,7 +15811,6 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-          - schema:unitText
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
         - title: Collision/Reaction Gas Mixture Ratio
           description: Where the collision or reaction cell is supplied with a mixture
@@ -15910,9 +15922,10 @@ allOf:
         maxContains: 1
       - contains:
           title: Error Correlation Between Reported Quantities
-          description: The correlation coefficient between pairs of reported quantities
-            whose uncertainties are not independent, together with the pair it applies
-            to and how it was obtained.
+          description: 'Which pairs of reported quantities have uncertainties that
+            are not independent, and how the correlation coefficient between each
+            pair is obtained. In the dataset: report, for each analysis, the correlation
+            coefficient of each such pair.'
           type: object
           properties:
             '@id':
@@ -15928,10 +15941,6 @@ allOf:
               enum:
               - Error Correlation Between Reported Quantities
             schema:value:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
               type: string
           required:
           - '@id'
@@ -15939,7 +15948,6 @@ allOf:
           - schema:propertyID
           - schema:name
           - schema:value
-          - schema:unitText
         minContains: 0
         maxContains: 1
       - contains:
@@ -16116,14 +16124,14 @@ allOf:
               - schema:defaultValue
             - title: Internal (Within-Measurement) Analytical Precision and Assessment
                 Method
-              description: Precision of a single measurement, derived from the scatter
-                of the cycles, sweeps or integrations that make it up, together with
-                the method used to assess it. State the statistic (2SE, 2SD, 1s RSD),
-                the number of cycles it is computed over, and the reported quantity
-                it applies to. Distinct from Counting Statistics Error, which records
-                the uncertainty predicted from the counts rather than the scatter
-                observed; where a procedure reports both, record the observed value
-                here and the predicted value there.
+              description: 'How the precision of a single measurement is assessed
+                from the scatter of the cycles, sweeps or integrations that make it
+                up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is
+                computed over, for each reported quantity. Distinct from Counting
+                Statistics Error, which records how the uncertainty predicted from
+                the counts is computed rather than the scatter observed. In the dataset:
+                report, for each measurement and reported quantity, the internal precision
+                as the stated statistic.'
               type: object
               properties:
                 '@id':
@@ -16193,13 +16201,16 @@ allOf:
               - schema:name
               - ada:dataType
             - title: Counting Statistics Error
-              description: "Uncertainty predicted from counting statistics \u2014
-                the theoretical limit set by the Poisson distribution of the counts
-                accumulated \u2014 for each reported quantity per analysis, with the
-                sigma level stated. Derived from the counts on the target species
-                together with those on any background or blank subtracted from it.
-                Distinct from the scatter actually observed within a measurement or
-                between repeated measurements, which is recorded separately."
+              description: "How the uncertainty predicted from counting statistics
+                \u2014 the theoretical limit set by the Poisson distribution of the
+                counts accumulated \u2014 is computed for each reported quantity,
+                and the sigma level it is quoted at. It is derived from the counts
+                on the target species together with those on any background or blank
+                subtracted from it. Distinct from the scatter actually observed within
+                a measurement or between repeated measurements, which is recorded
+                separately. In the dataset: report, for each analysis and reported
+                quantity, the counting-statistics uncertainty at the stated sigma
+                level."
               type: object
               properties:
                 '@id':
@@ -16357,14 +16368,14 @@ allOf:
           - contains:
               title: Internal (Within-Measurement) Analytical Precision and Assessment
                 Method
-              description: Precision of a single measurement, derived from the scatter
-                of the cycles, sweeps or integrations that make it up, together with
-                the method used to assess it. State the statistic (2SE, 2SD, 1s RSD),
-                the number of cycles it is computed over, and the reported quantity
-                it applies to. Distinct from Counting Statistics Error, which records
-                the uncertainty predicted from the counts rather than the scatter
-                observed; where a procedure reports both, record the observed value
-                here and the predicted value there.
+              description: 'How the precision of a single measurement is assessed
+                from the scatter of the cycles, sweeps or integrations that make it
+                up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is
+                computed over, for each reported quantity. Distinct from Counting
+                Statistics Error, which records how the uncertainty predicted from
+                the counts is computed rather than the scatter observed. In the dataset:
+                report, for each measurement and reported quantity, the internal precision
+                as the stated statistic.'
               type: object
               properties:
                 '@id':
@@ -16440,13 +16451,16 @@ allOf:
             maxContains: 1
           - contains:
               title: Counting Statistics Error
-              description: "Uncertainty predicted from counting statistics \u2014
-                the theoretical limit set by the Poisson distribution of the counts
-                accumulated \u2014 for each reported quantity per analysis, with the
-                sigma level stated. Derived from the counts on the target species
-                together with those on any background or blank subtracted from it.
-                Distinct from the scatter actually observed within a measurement or
-                between repeated measurements, which is recorded separately."
+              description: "How the uncertainty predicted from counting statistics
+                \u2014 the theoretical limit set by the Poisson distribution of the
+                counts accumulated \u2014 is computed for each reported quantity,
+                and the sigma level it is quoted at. It is derived from the counts
+                on the target species together with those on any background or blank
+                subtracted from it. Distinct from the scatter actually observed within
+                a measurement or between repeated measurements, which is recorded
+                separately. In the dataset: report, for each analysis and reported
+                quantity, the counting-statistics uncertainty at the stated sigma
+                level."
               type: object
               properties:
                 '@id':
@@ -17010,5 +17024,5 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 x-schema-version: https://json-schema.org/draft/2020-12/schema

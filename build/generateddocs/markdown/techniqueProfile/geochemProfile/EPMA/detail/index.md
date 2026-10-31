@@ -40,14 +40,10 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially — the contributing counts are stated per aggregate, each Table 1 column being the mean of n point analyses of one phase and textural setting (n = 6, 6, 6, 9, 17, 7 and 5; p.5), with one standard deviation of the mean. No acceptance or rejection rule, and no acquired-versus-included count, is stated",
-  "ada:combinedResults": "wormy type tissintite (n = 6); maskelynite associated with wormy tissintite (n = 6); rimming tissintite (n = 6); maskelynite associated with rimming tissintite (n = 9); maskelynite away from melt pockets (n = 17); pigeonite surrounding tissintite (n = 7); fayalite surrounding tissintite (n = 5) — the columns of Table 1",
   "ada:detectionLimit": "K2O: 0.02 wt% K; Cr2O3: 0.05 wt% Cr; MnO: 0.06 wt% Mn; other: N — Table 1 footnote c, attached to the b.d. entries of the K2O, Cr2O3 and MnO rows: 'b.d. = below detection limit: 0.02 wt% K, 0.05 wt% Cr, 0.06 wt% Mn'",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO: one standard deviation of the mean; other: N — Table 1 note b: 'Errors given inside parentheses are one standard deviation of the mean based on all of the analyses'"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -88,14 +84,10 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the contributing counts are stated per aggregate, each Table 1 column being the mean of n point analyses of one phase and textural setting (n = 6, 6, 6, 9, 17, 7 and 5; p.5), with one standard deviation of the mean. No acceptance or rejection rule, and no acquired-versus-included count, is stated",
-  "ada:combinedResults": "wormy type tissintite (n = 6); maskelynite associated with wormy tissintite (n = 6); rimming tissintite (n = 6); maskelynite associated with rimming tissintite (n = 9); maskelynite away from melt pockets (n = 17); pigeonite surrounding tissintite (n = 7); fayalite surrounding tissintite (n = 5) \u2014 the columns of Table 1",
   "ada:detectionLimit": "K2O: 0.02 wt% K; Cr2O3: 0.05 wt% Cr; MnO: 0.06 wt% Mn; other: N \u2014 Table 1 footnote c, attached to the b.d. entries of the K2O, Cr2O3 and MnO rows: 'b.d. = below detection limit: 0.02 wt% K, 0.05 wt% Cr, 0.06 wt% Mn'",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO: one standard deviation of the mean; other: N \u2014 Table 1 note b: 'Errors given inside parentheses are one standard deviation of the mean based on all of the analyses'"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -108,18 +100,14 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
 <ex:detail-Ma2015> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Ma2015> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — the contributing counts are stated per aggregate, each Table 1 column being the mean of n point analyses of one phase and textural setting (n = 6, 6, 6, 9, 17, 7 and 5; p.5), with one standard deviation of the mean. No acceptance or rejection rule, and no acquired-versus-included count, is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Chi Ma" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "wormy type tissintite (n = 6); maskelynite associated with wormy tissintite (n = 6); rimming tissintite (n = 6); maskelynite associated with rimming tissintite (n = 9); maskelynite away from melt pockets (n = 17); pigeonite surrounding tissintite (n = 7); fayalite surrounding tissintite (n = 5) — the columns of Table 1" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "K2O: 0.02 wt% K; Cr2O3: 0.05 wt% Cr; MnO: 0.06 wt% Mn; other: N — Table 1 footnote c, attached to the b.d. entries of the K2O, Cr2O3 and MnO rows: 'b.d. = below detection limit: 0.02 wt% K, 0.05 wt% Cr, 0.06 wt% Mn'" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "DOE Cooperative Agreement DE-NA0001982; NSF EAR 322082; NASA NNN13D465T; NASA Cosmochemistry NNX11AG58G and NNX12AH63G; NSF EAR 1344942 and 1440005 — acknowledged author by author for the study as a whole; none is attributed to the microprobe work" ;
-    ada:goodnessOfFitOrDispersionStatistic "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO: one standard deviation of the mean; other: N — Table 1 note b: 'Errors given inside parentheses are one standard deviation of the mean based on all of the analyses'" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -165,14 +153,10 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — analyses are reported by phase with no contributing count and no acceptance or rejection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "K2O: 0.01 wt%; SiO2, Al2O3, MgO, CaO, Na2O: 0.02 wt%; TiO2, Cr2O3: 0.03 wt%; FeO: 0.05 wt%; MnO: 0.06 wt% — p.2",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -213,14 +197,10 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 analyses are reported by phase with no contributing count and no acceptance or rejection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "K2O: 0.01 wt%; SiO2, Al2O3, MgO, CaO, Na2O: 0.02 wt%; TiO2, Cr2O3: 0.03 wt%; FeO: 0.05 wt%; MnO: 0.06 wt% \u2014 p.2",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -233,18 +213,14 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
 <ex:detail-Hu2020> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Hu2020> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — analyses are reported by phase with no contributing count and no acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Sen Hu" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "K2O: 0.01 wt%; SiO2, Al2O3, MgO, CaO, Na2O: 0.02 wt%; TiO2, Cr2O3: 0.03 wt%; FeO: 0.05 wt%; MnO: 0.06 wt% — p.2" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NSFC 41573057, 41430105 and 41973062; China Scholarship Council 201804910284; IGGCAS key research program IGGCAS-201905 — 'This study was financially supported by ...'" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -290,14 +266,10 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — the modal fractions use every pixel of the mapped section (\"the number of pixels attributed to each mineral was divided by the total number of pixels in the whole section\", p.3); nothing is admitted or excluded",
-  "ada:combinedResults": "glass inclusion average (n = 73); impact-melt glass average (n = 14) — Table 3: 'Glass inclusion EMP avg (n = 73) 1σ' and the impact-melt 'avg (n = 14) 1σ', whose average 'only included the glassy regions of the impact melt pockets'",
   "ada:detectionLimit": "SiO2, TiO2, Al2O3, MgO, CaO: <0.03 wt%; FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5: <0.05–0.1 wt%; other: N — 'Detection limits are typically <0.03 wt% for SiO2, TiO2, Al2O3, MgO, and CaO; <0.05–0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, and P2O5' (p.3)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b: '1σ is 1 standard deviation of the average'"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -338,14 +310,10 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the modal fractions use every pixel of the mapped section (\"the number of pixels attributed to each mineral was divided by the total number of pixels in the whole section\", p.3); nothing is admitted or excluded",
-  "ada:combinedResults": "glass inclusion average (n = 73); impact-melt glass average (n = 14) \u2014 Table 3: 'Glass inclusion EMP avg (n = 73) 1\u03c3' and the impact-melt 'avg (n = 14) 1\u03c3', whose average 'only included the glassy regions of the impact melt pockets'",
   "ada:detectionLimit": "SiO2, TiO2, Al2O3, MgO, CaO: <0.03 wt%; FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5: <0.05\u20130.1 wt%; other: N \u2014 'Detection limits are typically <0.03 wt% for SiO2, TiO2, Al2O3, MgO, and CaO; <0.05\u20130.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, and P2O5' (p.3)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1\u03c3, one standard deviation of the average; other: N \u2014 Table 3 note b: '1\u03c3 is 1 standard deviation of the average'"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -358,18 +326,14 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
 <ex:detail-Liu2016> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Liu2016> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — the modal fractions use every pixel of the mapped section (\"the number of pixels attributed to each mineral was divided by the total number of pixels in the whole section\", p.3); nothing is admitted or excluded" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "glass inclusion average (n = 73); impact-melt glass average (n = 14) — Table 3: 'Glass inclusion EMP avg (n = 73) 1σ' and the impact-melt 'avg (n = 14) 1σ', whose average 'only included the glassy regions of the impact melt pockets'" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "SiO2, TiO2, Al2O3, MgO, CaO: <0.03 wt%; FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5: <0.05–0.1 wt%; other: N — 'Detection limits are typically <0.03 wt% for SiO2, TiO2, Al2O3, MgO, and CaO; <0.05–0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, and P2O5' (p.3)" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270; NSF EAR-1019770 — 'We acknowledge partial support by ...'" ;
-    ada:goodnessOfFitOrDispersionStatistic "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b: '1σ is 1 standard deviation of the average'" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -415,14 +379,10 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially — contributing counts are stated for the glass averages ('EMP avg (n = 73)' and 'avg (n = 14)', Table 3, p.9). No acceptance or rejection rule is stated. The table's n = 7 and n = 13 are LA-ICP-MS averages, not microprobe ones",
-  "ada:combinedResults": "glass inclusion average (n = 73); impact-melt glass average (n = 14) — Table 3: 'Glass inclusion EMP avg (n = 73) 1σ' and the impact-melt 'avg (n = 14) 1σ', whose average 'only included the glassy regions of the impact melt pockets'",
   "ada:detectionLimit": "SiO2, TiO2, Al2O3, MgO, CaO: <0.03 wt%; FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5: <0.05–0.1 wt%; other: N — 'Detection limits are typically <0.03 wt% for SiO2, TiO2, Al2O3, MgO, and CaO; <0.05–0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, and P2O5' (p.3)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -463,14 +423,10 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 contributing counts are stated for the glass averages ('EMP avg (n = 73)' and 'avg (n = 14)', Table 3, p.9). No acceptance or rejection rule is stated. The table's n = 7 and n = 13 are LA-ICP-MS averages, not microprobe ones",
-  "ada:combinedResults": "glass inclusion average (n = 73); impact-melt glass average (n = 14) \u2014 Table 3: 'Glass inclusion EMP avg (n = 73) 1\u03c3' and the impact-melt 'avg (n = 14) 1\u03c3', whose average 'only included the glassy regions of the impact melt pockets'",
   "ada:detectionLimit": "SiO2, TiO2, Al2O3, MgO, CaO: <0.03 wt%; FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5: <0.05\u20130.1 wt%; other: N \u2014 'Detection limits are typically <0.03 wt% for SiO2, TiO2, Al2O3, MgO, and CaO; <0.05\u20130.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, and P2O5' (p.3)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1\u03c3, one standard deviation of the average; other: N \u2014 Table 3 note b"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -483,18 +439,14 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
 <ex:detail-Liu2016-2> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Liu2016-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — contributing counts are stated for the glass averages ('EMP avg (n = 73)' and 'avg (n = 14)', Table 3, p.9). No acceptance or rejection rule is stated. The table's n = 7 and n = 13 are LA-ICP-MS averages, not microprobe ones" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "glass inclusion average (n = 73); impact-melt glass average (n = 14) — Table 3: 'Glass inclusion EMP avg (n = 73) 1σ' and the impact-melt 'avg (n = 14) 1σ', whose average 'only included the glassy regions of the impact melt pockets'" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "SiO2, TiO2, Al2O3, MgO, CaO: <0.03 wt%; FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5: <0.05–0.1 wt%; other: N — 'Detection limits are typically <0.03 wt% for SiO2, TiO2, Al2O3, MgO, and CaO; <0.05–0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, and P2O5' (p.3)" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270; NSF EAR-1019770 — 'We acknowledge partial support by ...'" ;
-    ada:goodnessOfFitOrDispersionStatistic "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -540,14 +492,10 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially — each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated",
-  "ada:combinedResults": "type liebermannite (n = 6); the second liebermannite (n = 2); the third liebermannite (n = 3); lingunite next to type liebermannite (n = 3); maskelynite near type liebermannite (n = 5); maskelynite near the 2nd liebermannite (n = 4) — the columns of Table 1, where the paper prints 'Maskeleyite'",
   "ada:detectionLimit": "Si: 0.05 wt%; Ti: 0.04 wt%; Al: 0.06 wt%; Fe: 0.06 wt%; Mg: 0.02 wt%; Ca: 0.02 wt%; Na: 0.03 wt%; K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% — 'The detection limits (wt%) are 0.05 Si, 0.04 Ti, ...' (p.2) — stated per element, while Table 1 reports oxides",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "feldspar standards [Si, Al, Ca, Na, K: 1–2%; other: N] — 'The accuracy is 1–2% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' — per element, while Table 1 reports oxides",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O: one standard deviation of the mean; other: N — Table 1 note c, same wording"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -588,14 +536,10 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated",
-  "ada:combinedResults": "type liebermannite (n = 6); the second liebermannite (n = 2); the third liebermannite (n = 3); lingunite next to type liebermannite (n = 3); maskelynite near type liebermannite (n = 5); maskelynite near the 2nd liebermannite (n = 4) \u2014 the columns of Table 1, where the paper prints 'Maskeleyite'",
   "ada:detectionLimit": "Si: 0.05 wt%; Ti: 0.04 wt%; Al: 0.06 wt%; Fe: 0.06 wt%; Mg: 0.02 wt%; Ca: 0.02 wt%; Na: 0.03 wt%; K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% \u2014 'The detection limits (wt%) are 0.05 Si, 0.04 Ti, ...' (p.2) \u2014 stated per element, while Table 1 reports oxides",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "feldspar standards [Si, Al, Ca, Na, K: 1\u20132%; other: N] \u2014 'The accuracy is 1\u20132% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' \u2014 per element, while Table 1 reports oxides",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O: one standard deviation of the mean; other: N \u2014 Table 1 note c, same wording"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -608,18 +552,14 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
 <ex:detail-Ma2017> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Ma2017> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Chi Ma" ;
     ada:analyticalAccuracy "feldspar standards [Si, Al, Ca, Na, K: 1–2%; other: N] — 'The accuracy is 1–2% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' — per element, while Table 1 reports oxides" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "type liebermannite (n = 6); the second liebermannite (n = 2); the third liebermannite (n = 3); lingunite next to type liebermannite (n = 3); maskelynite near type liebermannite (n = 5); maskelynite near the 2nd liebermannite (n = 4) — the columns of Table 1, where the paper prints 'Maskeleyite'" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "Si: 0.05 wt%; Ti: 0.04 wt%; Al: 0.06 wt%; Fe: 0.06 wt%; Mg: 0.02 wt%; Ca: 0.02 wt%; Na: 0.03 wt%; K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% — 'The detection limits (wt%) are 0.05 Si, 0.04 Ti, ...' (p.2) — stated per element, while Table 1 reports oxides" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NNSA Stewardship Science Academic Alliances, DOE Cooperative Agreements DE-NA0001982 and DESC0005278; NASA NNX12AJ01G — 'This work was supported in part by ...'" ;
-    ada:goodnessOfFitOrDispersionStatistic "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O: one standard deviation of the mean; other: N — Table 1 note c, same wording" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -665,14 +605,10 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — the microprobe analyses are reported as \"Representative electron-microprobe measurements\" (p.5) with no contributing count and no selection rule. The counts on p.8 (n = 9, n = 7) are SIMS standard populations, not microprobe aggregates",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "Al2O3, K2O, CaO: 0.03–0.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06–0.09 wt% — 'typically' (p.4)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -713,14 +649,10 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the microprobe analyses are reported as \"Representative electron-microprobe measurements\" (p.5) with no contributing count and no selection rule. The counts on p.8 (n = 9, n = 7) are SIMS standard populations, not microprobe aggregates",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "Al2O3, K2O, CaO: 0.03\u20130.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06\u20130.09 wt% \u2014 'typically' (p.4)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -733,18 +665,14 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
 <ex:detail-Frank2023> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Frank2023> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — the microprobe analyses are reported as \"Representative electron-microprobe measurements\" (p.5) with no contributing count and no selection rule. The counts on p.8 (n = 9, n = 7) are SIMS standard populations, not microprobe aggregates" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "David R. Frank" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "Al2O3, K2O, CaO: 0.03–0.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06–0.09 wt% — 'typically' (p.4)" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNX11AG78G, 13-COS13-0026, NNX14AI19G and 80NSSC18K0586; NASA Cosmochemistry and Emerging Worlds Programs — 'This work was supported by ...'" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -790,14 +718,10 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially — the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 ± 2.7 wt% Fe and 4.6 ± 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated",
-  "ada:combinedResults": "dolomite (n = 37); magnesite (n = 23) — 'Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)'; 'Magnesite contains 14.5 ± 2.7 wt% Fe and 4.6 ± 2.5 wt % Mn (n = 23)'",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N — the carbonate means are given as '±' values ('2.0 ± 0.4 wt% Fe') without naming the statistic"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -838,14 +762,10 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 \u00b1 0.4 wt% Fe and 3.0 \u00b1 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 \u00b1 2.7 wt% Fe and 4.6 \u00b1 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated",
-  "ada:combinedResults": "dolomite (n = 37); magnesite (n = 23) \u2014 'Dolomite contains 2.0 \u00b1 0.4 wt% Fe and 3.0 \u00b1 0.9 wt% Mn (n = 37)'; 'Magnesite contains 14.5 \u00b1 2.7 wt% Fe and 4.6 \u00b1 2.5 wt % Mn (n = 23)'",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N \u2014 the carbonate means are given as '\u00b1' values ('2.0 \u00b1 0.4 wt% Fe') without naming the statistic"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -858,18 +778,14 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
 <ex:detail-Broussard2026> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Broussard2026> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 ± 2.7 wt% Fe and 4.6 ± 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "dolomite (n = 37); magnesite (n = 23) — 'Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)'; 'Magnesite contains 14.5 ± 2.7 wt% Fe and 4.6 ± 2.5 wt % Mn (n = 23)'" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA 80NSSC22K1689; NASA 80NSSC24K1284; McDonnell Center for the Space Sciences — 'Individual funding was provided by ...'" ;
-    ada:goodnessOfFitOrDispersionStatistic "N — the carbonate means are given as '±' values ('2.0 ± 0.4 wt% Fe') without naming the statistic" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -915,14 +831,10 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "N — Table 1 reports one column per apatite grain; no combined value is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -963,14 +875,10 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "N \u2014 Table 1 reports one column per apatite grain; no combined value is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -983,18 +891,14 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
 <ex:detail-Seifert2026> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Seifert2026> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Logan B. Seifert" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "N — Table 1 reports one column per apatite grain; no combined value is stated" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program); NASA Postdoctoral Program — acknowledgements" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1040,14 +944,10 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially — the reported averages state their contributing counts (\"based on 12 analyses\" for orthopyroxene, and \"14 analyses\" for augite, p.2; \"based on 13 analyses\" and \"34 ± 7 mol% on average; 19 analyses\" for the Ca-Eskola component, p.4). No acceptance or rejection rule is stated",
-  "ada:combinedResults": "orthopyroxene (n = 12); augite (n = 14); clinopyroxene in the eclogitic assemblage of zoned veins (n = 13); clinopyroxene in thin melt veins and edge zones (n = 19) — 'based on 12 analyses', '14 analyses' (p.2); Ca-Esk components '41 ± 8 mol% on average; based on 13 analyses' in the former, '34 ± 7 mol% on average; 19 analyses' in the latter (p.4)",
   "ada:detectionLimit": "all: better than 0.02 wt% (typical) — 'Typical detection limits for oxides of most elements were better than 0.02 wt%'",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N — the averages are given as '±' values ('41 ± 8 mol%') without naming the statistic"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -1088,14 +988,10 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the reported averages state their contributing counts (\"based on 12 analyses\" for orthopyroxene, and \"14 analyses\" for augite, p.2; \"based on 13 analyses\" and \"34 \u00b1 7 mol% on average; 19 analyses\" for the Ca-Eskola component, p.4). No acceptance or rejection rule is stated",
-  "ada:combinedResults": "orthopyroxene (n = 12); augite (n = 14); clinopyroxene in the eclogitic assemblage of zoned veins (n = 13); clinopyroxene in thin melt veins and edge zones (n = 19) \u2014 'based on 12 analyses', '14 analyses' (p.2); Ca-Esk components '41 \u00b1 8 mol% on average; based on 13 analyses' in the former, '34 \u00b1 7 mol% on average; 19 analyses' in the latter (p.4)",
   "ada:detectionLimit": "all: better than 0.02 wt% (typical) \u2014 'Typical detection limits for oxides of most elements were better than 0.02 wt%'",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N \u2014 the averages are given as '\u00b1' values ('41 \u00b1 8 mol%') without naming the statistic"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -1108,18 +1004,14 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
 <ex:detail-Pang2016> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Pang2016> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — the reported averages state their contributing counts (\"based on 12 analyses\" for orthopyroxene, and \"14 analyses\" for augite, p.2; \"based on 13 analyses\" and \"34 ± 7 mol% on average; 19 analyses\" for the Ca-Eskola component, p.4). No acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "orthopyroxene (n = 12); augite (n = 14); clinopyroxene in the eclogitic assemblage of zoned veins (n = 13); clinopyroxene in thin melt veins and edge zones (n = 19) — 'based on 12 analyses', '14 analyses' (p.2); Ca-Esk components '41 ± 8 mol% on average; based on 13 analyses' in the former, '34 ± 7 mol% on average; 19 analyses' in the latter (p.4)" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "all: better than 0.02 wt% (typical) — 'Typical detection limits for oxides of most elements were better than 0.02 wt%'" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NSFC 41373065; State Key Laboratory for Mineral Deposits Research ZZKT-201322; Fundamental Research Funds for the Central Universities — 'This study was supported by grants from ...'" ;
-    ada:goodnessOfFitOrDispersionStatistic "N — the averages are given as '±' values ('41 ± 8 mol%') without naming the statistic" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1165,14 +1057,10 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no selection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -1213,14 +1101,10 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no selection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -1233,18 +1117,14 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
 <ex:detail-McCoy2025> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-McCoy2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported by phase with no contributing count and no selection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — 'This material is based on work supported by ...'; individual grants are also listed by person (80NSSC22K1692, MR/T020261/1, ST/V000675/1, 22EXPOSITO)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1290,14 +1170,10 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no selection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -1338,14 +1214,10 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no selection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -1358,18 +1230,14 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
 <ex:detail-McCoy2025-2> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-McCoy2025-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported by phase with no contributing count and no selection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — 'This material is based on work supported by ...'; individual grants are also listed by person (80NSSC22K1692, MR/T020261/1, ST/V000675/1, 22EXPOSITO)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1415,14 +1283,10 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated for the microprobe analyses; the modal abundances come from classified phase-map pixels rather than from admitting or excluding results (p.9)",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -1463,14 +1327,10 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated for the microprobe analyses; the modal abundances come from classified phase-map pixels rather than from admitting or excluding results (p.9)",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -1483,18 +1343,14 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
 <ex:detail-Zega2025> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Zega2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — no contributing count and no acceptance or rejection rule is stated for the microprobe analyses; the modal abundances come from classified phase-map pixels rather than from admitting or excluding results (p.9)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — 'This material is based upon work supported by ...'; the K-ALFAA facility and instrumentation support is under Funding Source for Procedure Development" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1540,14 +1396,10 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "Mg: 0.025 wt%; Fe: 0.025 wt%; Si, K, Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%; other: N — p.11",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -1588,14 +1440,10 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "Mg: 0.025 wt%; Fe: 0.025 wt%; Si, K, Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%; other: N \u2014 p.11",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -1608,18 +1456,14 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
 <ex:detail-Barnes2025> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Barnes2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "Mg: 0.025 wt%; Fe: 0.025 wt%; Si, K, Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%; other: N — p.11" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — acknowledged with the named authors; further grants are listed by person across many laboratories, and none is attributed to the microprobe work" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1665,14 +1509,10 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated for the olivine and pyroxene analyses",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "N — 'Typical detection limits for transition metals were around 250 ppm'; the elements are not named",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -1713,14 +1553,10 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated for the olivine and pyroxene analyses",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "N \u2014 'Typical detection limits for transition metals were around 250 ppm'; the elements are not named",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -1733,18 +1569,14 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
 <ex:detail-Barnes2025-2> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Barnes2025-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — no contributing count and no acceptance or rejection rule is stated for the olivine and pyroxene analyses" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "N — 'Typical detection limits for transition metals were around 250 ppm'; the elements are not named" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — acknowledged with the named authors; further grants are listed by person across many laboratories, and none is attributed to the microprobe work" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
@@ -1790,14 +1622,10 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
   "ada:mapDimensions": 1,
   "ada:mapArea": "N - not stated directly (1,024 pixels at 9.5 um step corresponds to ~9.7 mm per side)",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "all: 0.1–0.2 element wt% — 'for all elements in this map set'",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 
 ```
@@ -1838,14 +1666,10 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
   "ada:mapDimensions": 1,
   "ada:mapArea": "N - not stated directly (1,024 pixels at 9.5 um step corresponds to ~9.7 mm per side)",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "all: 0.1\u20130.2 element wt% \u2014 'for all elements in this map set'",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:edsDeadTime": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:edsDeadTime": -9999
 }
 ```
 
@@ -1858,18 +1682,14 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
 <ex:detail-Neuman2025> a ada:EPMAImage ;
     schema1:measurementTechnique <ex:epmaTAPP-Neuman2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:EPMAImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "all: 0.1–0.2 element wt% — 'for all elements in this map set'" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA ANGSA program 80NSSC19K0958 — 'We thank NASA for support of the ANGSA program (Grant 80NSSC19K0958)'" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea "N - not stated directly (1,024 pixels at 9.5 um step corresponds to ~9.7 mm per side)" ;
     ada:mapDimensions 1 ;
     ada:proceduralBlankLevel "missing" ;
@@ -2273,11 +2093,7 @@ allOf:
                 - schema:value
               - title: EDS Live Time per Point or Pixel
                 description: EDS spectral acquisition live time per analysis point
-                  in seconds. Previously referred to as "EDS Acquisition Time" in
-                  this TAPP and commonly used under that name in EPMA and SEM-EDS
-                  contexts. Renamed to align with TEM-EDS usage, where the per-point
-                  vs. per-pixel distinction (point/line mode vs. spectrum image) is
-                  explicit. In EPMA, acquisition is always per point.
+                  or per pixel in seconds.
                 type: object
                 properties:
                   '@id':
@@ -2449,11 +2265,7 @@ allOf:
             - contains:
                 title: EDS Live Time per Point or Pixel
                 description: EDS spectral acquisition live time per analysis point
-                  in seconds. Previously referred to as "EDS Acquisition Time" in
-                  this TAPP and commonly used under that name in EPMA and SEM-EDS
-                  contexts. Renamed to align with TEM-EDS usage, where the per-point
-                  vs. per-pixel distinction (point/line mode vs. spectrum image) is
-                  explicit. In EPMA, acquisition is always per point.
+                  or per pixel in seconds.
                 type: object
                 properties:
                   '@id':
@@ -2828,7 +2640,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EPMA.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 

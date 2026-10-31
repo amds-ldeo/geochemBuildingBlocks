@@ -1623,7 +1623,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tappDefinition
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.3'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.geochemProduct:
@@ -2555,7 +2555,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.geochemProduct
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
     x-schema-id: https://w3id.org/geochem/schema/geochemProduct/1.0
     x-schema-version: https://json-schema.org/draft/2020-12/schema
@@ -2918,7 +2918,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.instrument
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.laboratory:
@@ -2964,7 +2964,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.laboratory
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.person:
@@ -4378,7 +4378,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.creativeWork
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.spatialRegistration:
@@ -4533,7 +4533,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.spatialRegistration
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.spatialExtent:
@@ -5574,7 +5574,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tabularData
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-10-31'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm:
@@ -9994,12 +9994,14 @@ $defs:
             then:
               properties:
                 schema:defaultValue:
-                  description: Detection limit, one per reported concentration variable
+                  description: 'Detection limit, one per reported concentration variable
                     (one per target species, these being the same set). State the
                     units and whether the values are procedure-typical estimates or
                     session-specific measured values. The calculation method is recorded
-                    separately in Detection Limit Method. Record 'N/A' where the procedure
-                    reports no concentrations.
+                    separately in Detection Limit Method. Record ''N/A'' where the
+                    procedure reports no concentrations. In the dataset: report the
+                    detection limit of each analysis, where the procedure computes
+                    one.'
                   anyOf:
                   - type: number
                   - type: string
@@ -10098,12 +10100,14 @@ $defs:
             then:
               properties:
                 schema:value:
-                  description: Detection limit, one per reported concentration variable
+                  description: 'Detection limit, one per reported concentration variable
                     (one per target species, these being the same set). State the
                     units and whether the values are procedure-typical estimates or
                     session-specific measured values. The calculation method is recorded
-                    separately in Detection Limit Method. Record 'N/A' where the procedure
-                    reports no concentrations.
+                    separately in Detection Limit Method. Record ''N/A'' where the
+                    procedure reports no concentrations. In the dataset: report the
+                    detection limit of each analysis, where the procedure computes
+                    one.'
                   anyOf:
                   - type: number
                   - type: string
@@ -10210,11 +10214,12 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
   Param_Analysis_detectionLimit:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -10248,11 +10253,12 @@ $defs:
     - schema:unitText
   Param_Procedure_detectionLimit:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -10384,5 +10390,5 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.compositionQC
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 x-schema-version: https://json-schema.org/draft/2020-12/schema

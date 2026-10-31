@@ -44,7 +44,7 @@ Pixel coordinate system registration for images and maps. Defines properties: ba
 
 **Type:** schema
 
-The shared Aggregation block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 5 owned fields over 6 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared Aggregation block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 3 owned fields over 4 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.blank` — TAPP Composition Module: Blank
 
@@ -68,7 +68,7 @@ The shared CollisionCell block of the 2026-08-11 TAPP library, composed by 6 of 
 
 **Type:** schema
 
-The shared Geochronology block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 5 owned fields over 13 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared Geochronology block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 4 owned fields over 12 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.mcIcpms` — TAPP Composition Module: MCICPMS
 

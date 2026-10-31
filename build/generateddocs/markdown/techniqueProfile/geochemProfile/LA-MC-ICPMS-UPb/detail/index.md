@@ -206,9 +206,10 @@ allOf:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio
               - title: Error Correlation Between Reported Quantities
-                description: The correlation coefficient between pairs of reported
-                  quantities whose uncertainties are not independent, together with
-                  the pair it applies to and how it was obtained.
+                description: 'Which pairs of reported quantities have uncertainties
+                  that are not independent, and how the correlation coefficient between
+                  each pair is obtained. In the dataset: report, for each analysis,
+                  the correlation coefficient of each such pair.'
                 type: object
                 properties:
                   '@id':
@@ -222,10 +223,6 @@ allOf:
                   schema:name:
                     const: Error Correlation Between Reported Quantities
                   schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -233,7 +230,6 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-                - schema:unitText
               - title: Collision/Reaction Gas Mixture Ratio
                 description: Where the collision or reaction cell is supplied with
                   a mixture of gases rather than a single gas, the identities and
@@ -417,9 +413,10 @@ allOf:
               maxContains: 1
             - contains:
                 title: Error Correlation Between Reported Quantities
-                description: The correlation coefficient between pairs of reported
-                  quantities whose uncertainties are not independent, together with
-                  the pair it applies to and how it was obtained.
+                description: 'Which pairs of reported quantities have uncertainties
+                  that are not independent, and how the correlation coefficient between
+                  each pair is obtained. In the dataset: report, for each analysis,
+                  the correlation coefficient of each such pair.'
                 type: object
                 properties:
                   '@id':
@@ -433,10 +430,6 @@ allOf:
                   schema:name:
                     const: Error Correlation Between Reported Quantities
                   schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -444,7 +437,6 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-                - schema:unitText
               minContains: 0
               maxContains: 1
             - contains:
@@ -807,7 +799,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 

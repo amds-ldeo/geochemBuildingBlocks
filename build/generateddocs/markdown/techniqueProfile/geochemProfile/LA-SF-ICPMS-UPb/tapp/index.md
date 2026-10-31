@@ -84,12 +84,12 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "schema:defaultValue": "raster: 10 µm/s; Ge spots: N/A — 'scanned at 10 µm/s' (§2.2)"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N — the procedure reports no date"
@@ -101,7 +101,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N — the procedure reports no date"
     },
@@ -666,12 +666,12 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "schema:defaultValue": "raster: 10 \u00b5m/s; Ge spots: N/A \u2014 'scanned at 10 \u00b5m/s' (\u00a72.2)"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N \u2014 the procedure reports no date"
@@ -683,7 +683,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N \u2014 the procedure reports no date"
     },
@@ -1182,11 +1182,12 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1197,17 +1198,16 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
+        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Zhang, Chabot, Rubin, Humayun et al." ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -1220,22 +1220,22 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
             schema1:termCode "LA-SF-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Iron Meteorite LA-ICP-MS v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "raster: raster scan over a few millimeters; Ge spots: spot — §2.2" ;
     ada:ablationSpotDurationDefault "20 s for the Ge spots — 'analyzed at 50 Hz for 20 s' (§2.2); the raster duration is not stated" ;
@@ -1368,7 +1368,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
-    ada:dataType "number" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
@@ -1406,10 +1406,10 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> a schema1:PropertyValueSpecification ;
-    schema1:name "Discordance Definition and Values" ;
+<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> a schema1:PropertyValueSpecification ;
+    schema1:name "Discordance Definition" ;
     schema1:value "N — the procedure reports no date" ;
-    schema1:valueName "discordanceDefinitionAndValues" ;
+    schema1:valueName "discordanceDefinition" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -1592,12 +1592,12 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "schema:description": "Ar, 0.81–0.99 L/min — Table B1; 'No N2 was blent into ICP to avoid elevated nitrogen-based spectral interferences'"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N — the procedure reports no date"
@@ -1609,7 +1609,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N — the procedure reports no date"
     },
@@ -2292,12 +2292,12 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "schema:description": "Ar, 0.81\u20130.99 L/min \u2014 Table B1; 'No N2 was blent into ICP to avoid elevated nitrogen-based spectral interferences'"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N \u2014 the procedure reports no date"
@@ -2309,7 +2309,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N \u2014 the procedure reports no date"
     },
@@ -2924,23 +2924,23 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Flat polished thick sections (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                    schema1:description "map — a single pass: 'The laser scanned a grid of parallel, adjacent lines' (§2.2.2)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "map — a single pass: 'The laser scanned a grid of parallel, adjacent lines' (§2.2.2)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
+        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al." ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -2958,12 +2958,12 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
@@ -3098,7 +3098,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
-    ada:dataType "number" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
@@ -3217,10 +3217,10 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> a schema1:PropertyValueSpecification ;
-    schema1:name "Discordance Definition and Values" ;
+<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> a schema1:PropertyValueSpecification ;
+    schema1:name "Discordance Definition" ;
     schema1:value "N — the procedure reports no date" ;
-    schema1:valueName "discordanceDefinitionAndValues" ;
+    schema1:valueName "discordanceDefinition" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -3505,12 +3505,12 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "schema:description": "Ar, 0.947 L/min (both runs) — Table B1; no N2 added"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N — the procedure reports no date"
@@ -3522,7 +3522,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N — the procedure reports no date"
     },
@@ -4224,12 +4224,12 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "schema:description": "Ar, 0.947 L/min (both runs) \u2014 Table B1; no N2 added"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N \u2014 the procedure reports no date"
@@ -4241,7 +4241,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N \u2014 the procedure reports no date"
     },
@@ -4762,6 +4762,13 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "run 1 (major elements); run 2 (trace elements) — two line-scans on the same 400 µm line, each after pre-ablation; 'Every analysis was carried out 3 times' (§2.2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Flat polished thick sections (§2.1)" ;
@@ -4777,20 +4784,13 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "run 1 (major elements); run 2 (trace elements) — two line-scans on the same 400 µm line, each after pre-ablation; 'Every analysis was carried out 3 times' (§2.2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
+        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al." ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -4809,11 +4809,11 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
+            schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
+            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
@@ -4974,7 +4974,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
-    ada:dataType "number" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
@@ -5086,10 +5086,10 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> a schema1:PropertyValueSpecification ;
-    schema1:name "Discordance Definition and Values" ;
+<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> a schema1:PropertyValueSpecification ;
+    schema1:name "Discordance Definition" ;
     schema1:value "N — the procedure reports no date" ;
-    schema1:valueName "discordanceDefinitionAndValues" ;
+    schema1:valueName "discordanceDefinition" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -5273,12 +5273,12 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "schema:description": "Ar make-up: 0.96 l min⁻¹; N₂ not added"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N — the procedure reports no date"
@@ -5290,7 +5290,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N — the procedure reports no date"
     },
@@ -5970,12 +5970,12 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "schema:description": "Ar make-up: 0.96 l min\u207b\u00b9; N\u2082 not added"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N \u2014 the procedure reports no date"
@@ -5987,7 +5987,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N \u2014 the procedure reports no date"
     },
@@ -6587,12 +6587,10 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -6604,16 +6602,18 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
+        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al." ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -6634,11 +6634,11 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: single spot ablation — §2.2.4" ;
     ada:ablationSpotDurationDefault "20 s spot ablation (plus 10 s washout); 25 cycles acquisition" ;
@@ -6799,7 +6799,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
-    ada:dataType "number" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
@@ -6897,10 +6897,10 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> a schema1:PropertyValueSpecification ;
-    schema1:name "Discordance Definition and Values" ;
+<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> a schema1:PropertyValueSpecification ;
+    schema1:name "Discordance Definition" ;
     schema1:value "N — the procedure reports no date" ;
-    schema1:valueName "discordanceDefinitionAndValues" ;
+    schema1:valueName "discordanceDefinition" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -7195,12 +7195,12 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       "schema:defaultValue": "N — parameters lost"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N — the procedure reports no date"
@@ -7212,7 +7212,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N — the procedure reports no date"
     },
@@ -7861,12 +7861,12 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       "schema:defaultValue": "N \u2014 parameters lost"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N \u2014 the procedure reports no date"
@@ -7878,7 +7878,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N \u2014 the procedure reports no date"
     },
@@ -8347,25 +8347,25 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
+        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Mittlefehldt" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -8381,14 +8381,14 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Mittlefehldt (2024) GCA; Lee (Rice University) Excel data reduction spreadsheet" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
+            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: spot mode — 'The laser was run in spot mode' (§3.3)" ;
     ada:ablationSpotDurationDefault "N — parameters lost" ;
@@ -8515,7 +8515,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
-    ada:dataType "number" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> a schema1:PropertyValueSpecification ;
@@ -8616,10 +8616,10 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> a schema1:PropertyValueSpecification ;
-    schema1:name "Discordance Definition and Values" ;
+<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> a schema1:PropertyValueSpecification ;
+    schema1:name "Discordance Definition" ;
     schema1:value "N — the procedure reports no date" ;
-    schema1:valueName "discordanceDefinitionAndValues" ;
+    schema1:valueName "discordanceDefinition" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -8801,12 +8801,12 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "schema:description": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min — Table 2"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N — the procedure reports no date"
@@ -8818,7 +8818,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N — the procedure reports no date"
     },
@@ -9474,12 +9474,12 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "schema:description": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min \u2014 Table 2"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N \u2014 the procedure reports no date"
@@ -9491,7 +9491,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N \u2014 the procedure reports no date"
     },
@@ -10096,7 +10096,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
+        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Navarro, Enzweiler, Crósta et al." ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -10115,13 +10115,13 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             schema1:target [ schema1:name "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
+            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: spot — Experimental section" ;
     ada:ablationSpotDurationDefault "40 s — '20 s of blank measurement (laser-firing with the shutter closed), followed by 40 s of sample ablation'" ;
@@ -10255,7 +10255,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
-    ada:dataType "number" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
@@ -10353,10 +10353,10 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> a schema1:PropertyValueSpecification ;
-    schema1:name "Discordance Definition and Values" ;
+<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> a schema1:PropertyValueSpecification ;
+    schema1:name "Discordance Definition" ;
     schema1:value "N — the procedure reports no date" ;
-    schema1:valueName "discordanceDefinitionAndValues" ;
+    schema1:valueName "discordanceDefinition" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -10538,12 +10538,12 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "schema:description": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min — Table 2"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N — the procedure reports no date"
@@ -10555,7 +10555,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N — the procedure reports no date"
     },
@@ -11211,12 +11211,12 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "schema:description": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min \u2014 Table 2"
     },
     {
-      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "discordanceDefinitionAndValues",
-      "schema:name": "Discordance Definition and Values",
+      "schema:valueName": "discordanceDefinition",
+      "schema:name": "Discordance Definition",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "N \u2014 the procedure reports no date"
@@ -11228,7 +11228,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       ],
       "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
       "schema:name": "Error Correlation Between Reported Quantities",
-      "ada:dataType": "number",
+      "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N \u2014 the procedure reports no date"
     },
@@ -11814,26 +11814,26 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
+        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Navarro, Enzweiler, Crósta et al." ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -11851,14 +11851,14 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: scanning (elemental mapping) — Experimental section" ;
     ada:ablationSpotDurationDefault "N/A — mapping mode" ;
@@ -11992,7 +11992,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
-    ada:dataType "number" ;
+    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
@@ -12090,10 +12090,10 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> a schema1:PropertyValueSpecification ;
-    schema1:name "Discordance Definition and Values" ;
+<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> a schema1:PropertyValueSpecification ;
+    schema1:name "Discordance Definition" ;
     schema1:value "N — the procedure reports no date" ;
-    schema1:valueName "discordanceDefinitionAndValues" ;
+    schema1:valueName "discordanceDefinition" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -12193,7 +12193,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
 $schema: https://json-schema.org/draft/2020-12/schema
 title: LA-SF-ICP-MS U-Pb Geochronology TAPP (laSficpmsUPbTAPP)
 description: Laser-ablation sector-field ICP-MS U-Pb geochronology extension of the
-  base TAPP definition, generated from tapp/Current TAPPs/LA-SF-ICP-MS_UPb_TAPP_v94.csv
+  base TAPP definition, generated from tapp/Current TAPPs/LA-SF-ICP-MS_UPb_TAPP_v96.csv
   via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -12392,18 +12392,22 @@ allOf:
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       - title: Analysis Inclusion and Rejection Criteria
                         description: 'The rules determining which individual results
-                          contribute to a combined result, together with the outcome
-                          of applying them: how many results were obtained, how many
-                          were included, and on what grounds any were excluded. An
-                          individual result is the value of the reported quantity
+                          contribute to a combined result: the limits a result must
+                          meet (for example on analytical total or stoichiometry)
+                          and the grounds on which one is rejected (for example overlap
+                          onto a neighbouring phase, or an outlier test with its threshold),
+                          including any acceptance threshold on the dispersion statistic.
+                          An individual result is the value of the reported quantity
                           obtained from one acquisition: a replicate measurement of
                           the same solution or location, a spot or grain within a
                           sample, or an independently prepared aliquot or digestion,
                           whichever the procedure combines. Distinct from filtering
                           the acquired signal during data reduction (removing spikes,
                           cycles or scans, or discarding an acquisition whose signal
-                          is compromised): this field records which finished results
-                          enter the combined result, and on what grounds.'
+                          is compromised): this field records the rules by which finished
+                          results enter a combined result. In the dataset: flag each
+                          individual result excluded from a combined value, with the
+                          rule that excluded it.'
                         type: object
                         properties:
                           '@id':
@@ -12446,18 +12450,22 @@ allOf:
                     - contains:
                         title: Analysis Inclusion and Rejection Criteria
                         description: 'The rules determining which individual results
-                          contribute to a combined result, together with the outcome
-                          of applying them: how many results were obtained, how many
-                          were included, and on what grounds any were excluded. An
-                          individual result is the value of the reported quantity
+                          contribute to a combined result: the limits a result must
+                          meet (for example on analytical total or stoichiometry)
+                          and the grounds on which one is rejected (for example overlap
+                          onto a neighbouring phase, or an outlier test with its threshold),
+                          including any acceptance threshold on the dispersion statistic.
+                          An individual result is the value of the reported quantity
                           obtained from one acquisition: a replicate measurement of
                           the same solution or location, a spot or grain within a
                           sample, or an independently prepared aliquot or digestion,
                           whichever the procedure combines. Distinct from filtering
                           the acquired signal during data reduction (removing spikes,
                           cycles or scans, or discarding an acquisition whose signal
-                          is compromised): this field records which finished results
-                          enter the combined result, and on what grounds.'
+                          is compromised): this field records the rules by which finished
+                          results enter a combined result. In the dataset: flag each
+                          individual result excluded from a combined value, with the
+                          rule that excluded it.'
                         type: object
                         properties:
                           '@id':
@@ -12601,11 +12609,12 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinitionAndValues
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinition
         - title: Error Correlation Between Reported Quantities
-          description: The correlation coefficient between pairs of reported quantities
-            whose uncertainties are not independent, together with the pair it applies
-            to and how it was obtained.
+          description: 'Which pairs of reported quantities have uncertainties that
+            are not independent, and how the correlation coefficient between each
+            pair is obtained. In the dataset: report, for each analysis, the correlation
+            coefficient of each such pair.'
           type: object
           properties:
             '@id':
@@ -12618,7 +12627,7 @@ allOf:
             schema:name:
               const: Error Correlation Between Reported Quantities
             ada:dataType:
-              const: number
+              const: string
             ada:fieldScope:
               const: session
             schema:readonlyValue:
@@ -12626,11 +12635,7 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              const: dimensionless
+              type: string
           required:
           - '@id'
           - '@type'
@@ -12790,14 +12795,15 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinitionAndValues
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/Param_Procedure_discordanceDefinition
         minContains: 0
         maxContains: 1
       - contains:
           title: Error Correlation Between Reported Quantities
-          description: The correlation coefficient between pairs of reported quantities
-            whose uncertainties are not independent, together with the pair it applies
-            to and how it was obtained.
+          description: 'Which pairs of reported quantities have uncertainties that
+            are not independent, and how the correlation coefficient between each
+            pair is obtained. In the dataset: report, for each analysis, the correlation
+            coefficient of each such pair.'
           type: object
           properties:
             '@id':
@@ -12810,7 +12816,7 @@ allOf:
             schema:name:
               const: Error Correlation Between Reported Quantities
             ada:dataType:
-              const: number
+              const: string
             ada:fieldScope:
               const: session
             schema:readonlyValue:
@@ -12818,11 +12824,7 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              anyOf:
-              - type: number
-              - type: string
-            schema:unitText:
-              const: dimensionless
+              type: string
           required:
           - '@id'
           - '@type'
@@ -13591,13 +13593,16 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - title: Counting Statistics Error
-              description: "Uncertainty predicted from counting statistics \u2014
-                the theoretical limit set by the Poisson distribution of the counts
-                accumulated \u2014 for each reported quantity per analysis, with the
-                sigma level stated. Derived from the counts on the target species
-                together with those on any background or blank subtracted from it.
-                Distinct from the scatter actually observed within a measurement or
-                between repeated measurements, which is recorded separately."
+              description: "How the uncertainty predicted from counting statistics
+                \u2014 the theoretical limit set by the Poisson distribution of the
+                counts accumulated \u2014 is computed for each reported quantity,
+                and the sigma level it is quoted at. It is derived from the counts
+                on the target species together with those on any background or blank
+                subtracted from it. Distinct from the scatter actually observed within
+                a measurement or between repeated measurements, which is recorded
+                separately. In the dataset: report, for each analysis and reported
+                quantity, the counting-statistics uncertainty at the stated sigma
+                level."
               type: object
               properties:
                 '@id':
@@ -13625,14 +13630,14 @@ allOf:
               - ada:dataType
             - title: Internal (Within-Measurement) Analytical Precision and Assessment
                 Method
-              description: Precision of a single measurement, derived from the scatter
-                of the cycles, sweeps or integrations that make it up, together with
-                the method used to assess it. State the statistic (2SE, 2SD, 1s RSD),
-                the number of cycles it is computed over, and the reported quantity
-                it applies to. Distinct from Counting Statistics Error, which records
-                the uncertainty predicted from the counts rather than the scatter
-                observed; where a procedure reports both, record the observed value
-                here and the predicted value there.
+              description: 'How the precision of a single measurement is assessed
+                from the scatter of the cycles, sweeps or integrations that make it
+                up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is
+                computed over, for each reported quantity. Distinct from Counting
+                Statistics Error, which records how the uncertainty predicted from
+                the counts is computed rather than the scatter observed. In the dataset:
+                report, for each measurement and reported quantity, the internal precision
+                as the stated statistic.'
               type: object
               properties:
                 '@id':
@@ -14028,13 +14033,16 @@ allOf:
             maxContains: 1
           - contains:
               title: Counting Statistics Error
-              description: "Uncertainty predicted from counting statistics \u2014
-                the theoretical limit set by the Poisson distribution of the counts
-                accumulated \u2014 for each reported quantity per analysis, with the
-                sigma level stated. Derived from the counts on the target species
-                together with those on any background or blank subtracted from it.
-                Distinct from the scatter actually observed within a measurement or
-                between repeated measurements, which is recorded separately."
+              description: "How the uncertainty predicted from counting statistics
+                \u2014 the theoretical limit set by the Poisson distribution of the
+                counts accumulated \u2014 is computed for each reported quantity,
+                and the sigma level it is quoted at. It is derived from the counts
+                on the target species together with those on any background or blank
+                subtracted from it. Distinct from the scatter actually observed within
+                a measurement or between repeated measurements, which is recorded
+                separately. In the dataset: report, for each analysis and reported
+                quantity, the counting-statistics uncertainty at the stated sigma
+                level."
               type: object
               properties:
                 '@id':
@@ -14065,14 +14073,14 @@ allOf:
           - contains:
               title: Internal (Within-Measurement) Analytical Precision and Assessment
                 Method
-              description: Precision of a single measurement, derived from the scatter
-                of the cycles, sweeps or integrations that make it up, together with
-                the method used to assess it. State the statistic (2SE, 2SD, 1s RSD),
-                the number of cycles it is computed over, and the reported quantity
-                it applies to. Distinct from Counting Statistics Error, which records
-                the uncertainty predicted from the counts rather than the scatter
-                observed; where a procedure reports both, record the observed value
-                here and the predicted value there.
+              description: 'How the precision of a single measurement is assessed
+                from the scatter of the cycles, sweeps or integrations that make it
+                up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is
+                computed over, for each reported quantity. Distinct from Counting
+                Statistics Error, which records how the uncertainty predicted from
+                the counts is computed rather than the scatter observed. In the dataset:
+                report, for each measurement and reported quantity, the internal precision
+                as the stated statistic.'
               type: object
               properties:
                 '@id':
@@ -14167,7 +14175,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 
