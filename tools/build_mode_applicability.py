@@ -51,7 +51,9 @@ import infer_analytical_mode as inf         # noqa: E402
 
 OUT = os.path.join("docs", "mode_applicability.json")
 
-NIL = "http://www.opengis.net/def/nil/OGC/0/"
+import _tapp_lib as _sent                   # noqa: E402
+
+NIL = _sent.NIL          # one home for the OGC nil namespace; see _tapp_lib.SENTINEL_URL
 
 
 def _sidecar_spec(xlsx):

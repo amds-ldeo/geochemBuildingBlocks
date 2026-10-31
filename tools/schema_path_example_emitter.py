@@ -324,6 +324,36 @@ def placeholder(m, item, sidecar):
     return _sent.SENTINEL_TEXT_PREFIX + name
 
 
+_DOI_IN_TEXT = re.compile(r"\bdoi:\s*(10\.\d{4,9}/[^\s,;]+)", re.I)
+
+
+def _link_url(node):
+    """A resolvable URL recovered from a link's OWN name, or None.
+
+    A techniquePublication relatedLink carries its citation as prose -- "Barnes et al. 2025, Nat.
+    Astron.; doi:10.1038/s41550-025-02631-6" -- in schema:target.schema:name, while schema:url was
+    filled with a placeholder. The DOI was therefore present and resolvable in the data and
+    emitted as an absence: measured over the 657 examples, 15 of the 165 placeholder URLs had a
+    parseable DOI sitting beside them, all 15 in epmaTAPP (the other 150 are coupledTechnique
+    links, which genuinely have no link to recover, so the nil reason is right for those).
+
+    Recovery rather than transcription: the DOI is read back out of the name the sidecar already
+    carries, so nothing has to be re-entered and a citation whose prose changes cannot leave the
+    URL behind. Trailing sentence punctuation is stripped because a DOI is often written mid-prose.
+    """
+    if not isinstance(node, dict):
+        return None
+    tgt = node.get("schema:target")
+    names = [node.get("schema:name")]
+    if isinstance(tgt, dict):
+        names.append(tgt.get("schema:name"))
+    for n in names:
+        m = _DOI_IN_TEXT.search(str(n or ""))
+        if m:
+            return "https://doi.org/" + m.group(1).rstrip(".,;)")
+    return None
+
+
 def quantitative_placeholder(dtype):
     """An instance satisfying e.quantitative_leaf for the same Data Type cell.
 
@@ -1163,10 +1193,11 @@ def fill_structural_gaps(inst, resolved_schema, max_passes=6):
                         added += 1
                         break
                 # a labeledLink / identifier requires a resolvable URL the sidecar never carries (a
-                # coupled-technique relatedLink has a name/target but no link) -> a placeholder URL.
+                # coupled-technique relatedLink has a name/target but no link) -> recover a DOI from
+                # the link's own name if it carries one, else the nil-reason IRI.
                 if cand.validator == "required" and "'schema:url'" in cand.message:
                     if isinstance(node, dict) and "schema:url" not in node:
-                        node["schema:url"] = "https://ada.astromat.org/missing"
+                        node["schema:url"] = _link_url(node) or _sent.SENTINEL_URL
                         added += 1
                         break
                 # a 1..* / 0..* property is always a JSON array in these schemas, but a schema path
