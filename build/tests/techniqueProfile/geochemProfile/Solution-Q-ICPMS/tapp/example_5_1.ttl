@@ -14,13 +14,6 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
@@ -28,6 +21,17 @@
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "all: 3σ, calculated for silicate samples at the dilution factor of ~340 where matrix effects are absent — §3.6" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 245 °C, mannitol added after heating); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -39,17 +43,13 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 245 °C, mannitol added after heating); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ] ] ;
+                    schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6) Reported detail: ada:signalCollectionMode = 1 point per mass — Table 1a; ada:driftCorrectionMethod = Mass discrimination from the standard solution average, usually without drift over 2 h; when drift was observed, the standard measured before and after the sample was averaged — §2.7, §2.8." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -148,7 +148,7 @@
     ada:uncertaintyLevel "RSD% with observed ranges in parentheses" ;
     ada:washTimeBetweenSamples "~3 min with 0.5 mol/l HF — §2.1.1; background measured after a 200 s wash (Table 1a)" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
@@ -156,24 +156,24 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Agilent" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500cs (stated section 2.1.1)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "all: no gas introduced into the octopole collision cell — 'collision gases were not introduced into the cell' (§2.1.1)" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -183,7 +183,7 @@
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -191,7 +191,7 @@
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -201,7 +201,7 @@
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;

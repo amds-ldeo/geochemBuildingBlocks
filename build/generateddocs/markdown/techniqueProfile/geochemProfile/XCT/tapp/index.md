@@ -178,8 +178,8 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Eckley2024/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "4000",
@@ -443,8 +443,8 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Eckley2024/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "4000",
@@ -548,17 +548,17 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -569,7 +569,7 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV transmission source; ada:beamHardeningCorrectionMethod = Hardware filter (0.25 mm Al) + software BHC preset; ada:outputDataFormatDefault = TIFF (16-bit, 928 slices)." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Eckley2024/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -602,7 +602,7 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
     bios:computationalTool [ schema1:name "Nikon CTPro3D v5.4" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Eckley2024/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -887,8 +887,8 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Genge2025/instrument/XCT"
     }
   ],
   "ada:rotationRangeDefault": "360°",
@@ -1194,8 +1194,8 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Genge2025/instrument/XCT"
     }
   ],
   "ada:rotationRangeDefault": "360\u00b0",
@@ -1328,7 +1328,7 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = 2000 × 2000 CCD plane (16-bit); ada:beamHardeningCorrectionMethod = Hardware filter (LE4 inbuilt); ada:segmentationMethodDefault = ImageJ threshold-based; TANGO plugin for 3D object detection." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Genge2025/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Not stated" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1374,7 +1374,7 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
     bios:computationalTool [ schema1:name "ImageJ + TANGO plugin (Ollion et al. 2013)" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Genge2025/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -1583,9 +1583,9 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
-      "ada:voxelSizeDefault": -9999
+      "ada:voxelSizeDefault": -9999,
+      "@id": "ex:labxctTAPP-Neuman2025/instrument/XCT"
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -1806,9 +1806,9 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
-      "ada:voxelSizeDefault": -9999
+      "ada:voxelSizeDefault": -9999,
+      "@id": "ex:labxctTAPP-Neuman2025/instrument/XCT"
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -1927,7 +1927,7 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Neuman2025/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1962,7 +1962,7 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
                     ada:tier "M" ] ] ;
     ada:xRaySourceConfiguration "Feinfocus FXE 225.48 microfocal source" .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Neuman2025/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -2139,10 +2139,10 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
       "ada:tubeCurrentDefault": -9999,
-      "ada:voxelSizeDefault": -9999
+      "ada:voxelSizeDefault": -9999,
+      "@id": "ex:labxctTAPP-Neuman2025-2/instrument/XCT"
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -2362,10 +2362,10 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
       "ada:tubeCurrentDefault": -9999,
-      "ada:voxelSizeDefault": -9999
+      "ada:voxelSizeDefault": -9999,
+      "@id": "ex:labxctTAPP-Neuman2025-2/instrument/XCT"
     }
   ],
   "ada:rotationModeDefault": "Continuous rotation",
@@ -2468,23 +2468,23 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode); ada:beamHardeningCorrectionMethod = Software BHC (same factor as 73002 re-used)." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Neuman2025-2/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2519,7 +2519,7 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
                     ada:tier "M" ] ] ;
     ada:xRaySourceConfiguration "Feinfocus FXE 225.48 microfocal source" .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Neuman2025-2/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -2650,9 +2650,9 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
-      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault"
+      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
+      "@id": "ex:labxctTAPP-Shearer2024/instrument/XCT"
     }
   ],
   "schema:measurementTechnique": [
@@ -2823,9 +2823,9 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
-      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault"
+      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
+      "@id": "ex:labxctTAPP-Shearer2024/instrument/XCT"
     }
   ],
   "schema:measurementTechnique": [
@@ -2926,19 +2926,19 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 225 kV multi-metal reflection target source." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Shearer2024/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2972,7 +2972,7 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
                     ada:tier "M" ] ] ;
     ada:xRaySourceConfiguration "225 kV multi-metal reflection target source" .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Shearer2024/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -3101,9 +3101,9 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
-      "ada:tubeCurrentDefault": -9999
+      "ada:tubeCurrentDefault": -9999,
+      "@id": "ex:labxctTAPP-Shearer2024-2/instrument/XCT"
     }
   ],
   "ada:samplingUnitSelectionCriteriaDefault": "Particles >4 mm extracted during dissection are individually bagged and XCT scanned for classification and characterization, without destructive chipping, sectioning or dust removal",
@@ -3289,9 +3289,9 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
-      "ada:tubeCurrentDefault": -9999
+      "ada:tubeCurrentDefault": -9999,
+      "@id": "ex:labxctTAPP-Shearer2024-2/instrument/XCT"
     }
   ],
   "ada:samplingUnitSelectionCriteriaDefault": "Particles >4 mm extracted during dissection are individually bagged and XCT scanned for classification and characterization, without destructive chipping, sectioning or dust removal",
@@ -3383,21 +3383,21 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 particles Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus transmission target source." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Shearer2024-2/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3428,7 +3428,7 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
             ada:targetMaterialDeclaration "Lunar regolith particles (Apollo 17 core)" ] ;
     ada:xRaySourceConfiguration "180 kV nano-focus transmission target source" .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Shearer2024-2/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -3607,10 +3607,10 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
       "ada:tubeCurrentDefault": -9999,
-      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault"
+      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
+      "@id": "ex:labxctTAPP-Tomkinson2015/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "3143",
@@ -3856,10 +3856,10 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
       "ada:tubeCurrentDefault": -9999,
-      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault"
+      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
+      "@id": "ex:labxctTAPP-Tomkinson2015/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "3143",
@@ -3974,22 +3974,22 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary); ada:segmentationMethodDefault = Manual segmentation of 2D slices; grayscale threshold applied to 3D volume." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Tomkinson2015/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4034,7 +4034,7 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
     bios:computationalTool [ schema1:name "Avizo™" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Tomkinson2015/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -4246,8 +4246,8 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Glavin2023/instrument/XCT"
     }
   ],
   "ada:rotationRangeDefault": "360° (continuous)",
@@ -4498,8 +4498,8 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Glavin2023/instrument/XCT"
     }
   ],
   "ada:rotationRangeDefault": "360\u00b0 (continuous)",
@@ -4617,7 +4617,7 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 µm spot size); ada:detectorType = 2000 × 2000 pixel Perkin Elmer flat panel CCD; ada:rotationModeDefault = Continuous 360° rotation; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images)." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Glavin2023/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4653,7 +4653,7 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
     bios:computationalTool [ schema1:name "Nikon CTAgentPro v5.4 (FBP algorithm)" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Glavin2023/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -4877,8 +4877,8 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Dias2019/instrument/XCT"
     }
   ],
   "ada:rotationRangeDefault": "360°",
@@ -5139,8 +5139,8 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Dias2019/instrument/XCT"
     }
   ],
   "ada:rotationRangeDefault": "360\u00b0",
@@ -5254,15 +5254,15 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -5270,7 +5270,7 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 × 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned; ada:segmentationMethodDefault = Adaptive (mean) thresholding." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Dias2019/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5316,7 +5316,7 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
     bios:computationalTool [ schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Dias2019/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -5541,10 +5541,10 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
       "ada:tubeCurrentDefault": -9999,
-      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault"
+      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
+      "@id": "ex:labxctTAPP-Richard2019/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "1601",
@@ -5801,10 +5801,10 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
       "ada:tubeCurrentDefault": -9999,
-      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault"
+      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
+      "@id": "ex:labxctTAPP-Richard2019/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "1601",
@@ -5905,15 +5905,15 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
@@ -5922,7 +5922,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 × 1080 px, 32-bit); ada:segmentationMethodDefault = Grayscale threshold range selection (ImageJ)." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Richard2019/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Lab. de Microtomografía de Rayos X, UNAM, Mexico" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5962,7 +5962,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
     bios:computationalTool [ schema1:name "ImageJ; Avizo 9.2" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Richard2019/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -6222,8 +6222,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Richard2019-2/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "3141",
@@ -6509,8 +6509,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Richard2019-2/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "3141",
@@ -6610,15 +6610,15 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -6628,7 +6628,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required); ada:segmentationMethodDefault = Manual grayscale threshold." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Richard2019-2/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "U. Strathclyde, Glasgow, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -6669,7 +6669,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
     bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Richard2019-2/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -6944,8 +6944,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Richard2019-3/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "3141",
@@ -7231,8 +7231,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:labxctTAPP-Richard2019-3/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "3141",
@@ -7350,7 +7350,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required); ada:segmentationMethodDefault = Manual grayscale threshold." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Richard2019-3/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "U. Strathclyde, Glasgow, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -7391,7 +7391,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
     bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Richard2019-3/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -7641,9 +7641,9 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
-      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault"
+      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
+      "@id": "ex:labxctTAPP-Richard2019-4/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "1200–2000 (varies by sample)",
@@ -7924,9 +7924,9 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
-      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault"
+      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
+      "@id": "ex:labxctTAPP-Richard2019-4/instrument/XCT"
     }
   ],
   "ada:numberOfProjectionsDefault": "1200\u20132000 (varies by sample)",
@@ -8063,7 +8063,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD Hamamatsu (2300 × 2300 px); ada:beamHardeningCorrectionMethod = Software BHC applied per respective software; ada:segmentationMethodDefault = Manual grayscale threshold per phase." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Richard2019-4/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Université de Lorraine, France" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -8109,7 +8109,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
     bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Richard2019-4/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -8270,9 +8270,9 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
-      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault"
+      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
+      "@id": "ex:labxctTAPP-Tait2014/instrument/XCT"
     }
   ],
   "schema:additionalProperty": [
@@ -8506,9 +8506,9 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/XCT",
       "schema:name": "no value available: schema:name",
-      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault"
+      "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
+      "@id": "ex:labxctTAPP-Tait2014/instrument/XCT"
     }
   ],
   "schema:additionalProperty": [
@@ -8665,21 +8665,21 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:segmentationMethodDefault = Dedicated workflow (Godel 2013) modified for plagioclase network segmentation." ;
-    schema1:instrument <ex:instrument/XCT> ;
+    schema1:instrument <ex:labxctTAPP-Tait2014/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CSIRO, Kensington, Western Australia" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -8724,7 +8724,7 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
     bios:computationalTool [ schema1:name "AvizoFire 8.0; Matlab; Drishti 2.0" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/XCT> a schema1:Product,
+<ex:labxctTAPP-Tait2014/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;

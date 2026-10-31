@@ -295,8 +295,8 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -310,7 +310,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -324,7 +324,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -338,7 +338,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -351,8 +351,8 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-P0/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -852,8 +852,8 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -867,7 +867,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -881,7 +881,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -895,7 +895,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -908,8 +908,8 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-P0/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -1132,10 +1132,19 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1149,24 +1158,15 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)" ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionSficpmsTAPP-P0/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Melbourne, Australia (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1229,7 +1229,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
     ada:uncertaintyLevel "2 standard errors for within-run precision; 2sd for the averages of standards — 'Typical within-run precision (2 standards errors)' (§2.4); '(2sd, n = 22)'" ;
     ada:washTimeBetweenSamples "10 s in each of two 2% HNO3 reservoirs, then a third reservoir for the blank — the blank solution 'was replaced every 20 samples' (§2.4)" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionSficpmsTAPP-P0/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
@@ -1238,29 +1238,29 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Nu Instruments" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nu Instruments Attom SC-SF-ICP-MS (stated section 2.3)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
@@ -1269,7 +1269,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionSficpmsTAPP-P0/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -1676,8 +1676,8 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -1714,8 +1714,8 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -1754,8 +1754,8 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -1769,7 +1769,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:model": {
@@ -1823,8 +1823,8 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-P1/instrument/ICPMS"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -2322,8 +2322,8 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -2360,8 +2360,8 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -2400,8 +2400,8 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -2415,7 +2415,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:model": {
@@ -2469,8 +2469,8 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-P1/instrument/ICPMS"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -2732,22 +2732,10 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HCl-HNO3 attack (1.5 ml 6 M HCl + 0.5 ml 8 M HNO3, 130 °C, 48 h); re-dissolution (evaporated at 130 °C close to dryness, then 1.5 ml 10 M HCl) — §2.3.1, for magnetite and pyrite; FER-2 took 1 ml 28 M HF + 1 ml 8 M HNO3 at 130 °C for at least 48 h, then 1.5 ml 10 M HCl for 24 h" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl — §2.3.1" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -2760,13 +2748,25 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "HCl-HNO3 attack (1.5 ml 6 M HCl + 0.5 ml 8 M HNO3, 130 °C, 48 h); re-dissolution (evaporated at 130 °C close to dryness, then 1.5 ml 10 M HCl) — §2.3.1, for magnetite and pyrite; FER-2 took 1 ml 28 M HF + 1 ml 8 M HNO3 at 130 °C for at least 48 h, then 1.5 ml 10 M HCl for 24 h" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl — §2.3.1" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = Rh internal standard — 'In order to correct the instrumental drift, the internal standard concentration of Rh was kept constant at 5 ng mL−1 in the sample, calibration, and blank solutions' (§2.2)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionSficpmsTAPP-P1/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2856,7 +2856,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
     ada:uncertaintyLevel "1 standard deviation -- \"The mean values and respective standard deviations (s) for three analyses\"; \"Mean +/- s (n = 3)\"; \"RSD = standard deviation/mean x 100%\"" ;
     ada:washTimeBetweenSamples "60 s — Table 1; '1 min with 3% v/v HNO3' (§2.1)" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionSficpmsTAPP-P1/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
@@ -2864,17 +2864,17 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Fisher Element I HR-ICP-MS (stated Table 1)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -2884,7 +2884,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -2892,7 +2892,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
@@ -2900,7 +2900,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionSficpmsTAPP-P1/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -3324,8 +3324,8 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -3362,8 +3362,8 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -3424,8 +3424,8 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -3439,7 +3439,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:model": {
@@ -3504,8 +3504,8 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-P2/instrument/ICPMS"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -3943,8 +3943,8 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -3981,8 +3981,8 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -4043,8 +4043,8 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -4058,7 +4058,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:model": {
@@ -4123,8 +4123,8 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-P2/instrument/ICPMS"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -4353,18 +4353,18 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "all: 3σ — Table 2b" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -4385,7 +4385,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
                             schema1:name "ultrasonic HF decomposition: HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Continuous sample introduction with an uptake time of 60 s (0.04 ml per measurement); quartz glass torch with sapphire injector (Table 1b) Reported detail: ada:driftCorrectionMethod = Standard solution every two samples — 'No time drift of fTi was observed during measurements over 2 h, thus all fTi were averaged and used' (§2.7)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionSficpmsTAPP-P2/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1.2)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4451,7 +4451,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
     ada:uncertaintyLevel "RSD% with observed ranges in parentheses" ;
     ada:washTimeBetweenSamples "~3 min with 0.5 mol/l HF — §2.1.2; Table 1b: background measured before each sample 'after 200 s wash'" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionSficpmsTAPP-P2/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
@@ -4460,17 +4460,17 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Finnigan ELEMENT sector-field ICP-MS (stated section 2.1.2)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -4480,7 +4480,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -4488,7 +4488,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -4498,7 +4498,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionSficpmsTAPP-P2/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -4927,8 +4927,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -4965,8 +4965,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -5027,8 +5027,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -5042,7 +5042,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:model": {
@@ -5085,8 +5085,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-P3/instrument/ICPMS"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -5537,8 +5537,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -5575,8 +5575,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -5637,8 +5637,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -5652,7 +5652,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:model": {
@@ -5695,8 +5695,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-P3/instrument/ICPMS"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -5931,22 +5931,6 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3 SD of the reagent blank — Table 5, for a 12 mL sample" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
@@ -5960,10 +5944,26 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — seawater; pre-concentration by chelation; no acid digestion" ] ] ] ;
+                            schema1:name "N/A — seawater; pre-concentration by chelation; no acid digestion" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3 SD of the reagent blank — Table 5, for a 12 mL sample" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Off-line pre-concentration on Toyopearl AF-Chelate-650M resin; enriched isotope spikes added before extraction; standard additions for Mn and Co (§2.2–2.3) Reported detail: ada:driftCorrectionMethod = Elution acid, an enriched-isotope standard and a natural-abundance commercial standard measured every 10–12 samples — 'to assess instrument drift and mass bias' (§2.4)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionSficpmsTAPP-P3/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "National High Magnetic Field Laboratory (NHMFL), Florida State University (stated section 2.4)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -6032,24 +6032,24 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
     ada:uncertaintyLevel "Mixed and each stated: \"Mean blank +/- 1 S.D. (pmoles)\"; \"The precision is calculated as the percent relative standard deviation (%RSD) (n = 3)\" [Table 4 footnote]; \"95% confidence limit\"" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionSficpmsTAPP-P3/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Finnigan Element I (E1) HR-ICP-MS (stated section 2.4)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -6059,7 +6059,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -6067,7 +6067,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -6077,7 +6077,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionSficpmsTAPP-P3/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -6626,8 +6626,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -6676,8 +6676,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -6715,8 +6715,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -6730,7 +6730,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -6789,8 +6789,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-P4/instrument/ICPMS"
     }
   ],
   "ada:numberOfScansPerReplicate": "LR: 15 passes × 3 runs; MR: 5 passes × 3 runs — Table 3; Table 1 prints 3 passes for MR",
@@ -7239,8 +7239,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -7289,8 +7289,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -7328,8 +7328,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -7343,7 +7343,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -7402,8 +7402,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-P4/instrument/ICPMS"
     }
   ],
   "ada:numberOfScansPerReplicate": "LR: 15 passes \u00d7 3 runs; MR: 5 passes \u00d7 3 runs \u2014 Table 3; Table 1 prints 3 passes for MR",
@@ -7516,6 +7516,13 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "LR; MR — low resolution (Δm/m = 300) and medium resolution (Δm/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
@@ -7531,18 +7538,11 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "dissolution: 1 M HNO3 — §2.4" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "LR; MR — low resolution (Δm/m = 300) and medium resolution (Δm/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "dissolution: 1 M HNO3 — §2.4" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (§2.3) Reported detail: ada:driftCorrectionMethod = N — the blocks of seven are bracketed by acid blanks and a consistency standard; at low calcium concentrations there was 'minimal instrumental sensitivity drift' (§2.3.1)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionSficpmsTAPP-P4/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Godwin Laboratory for Palaeoclimate Research, University of Cambridge (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -7615,7 +7615,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     ada:uncertaintyLevel "2 sigma -- \"with 2r analytical uncertainty\" and \"the gray area represents the 2r spread in the B/Ca measured at 10 ppm [Ca]Matrix\" (r = sigma in the extracted text)" ;
     ada:washTimeBetweenSamples "120 s (Table 1)" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionSficpmsTAPP-P4/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
@@ -7624,17 +7624,17 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Element XR single-collector SF-ICP-MS (stated section 2.3)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
@@ -7642,7 +7642,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -7650,7 +7650,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
@@ -7659,7 +7659,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionSficpmsTAPP-P4/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -8096,8 +8096,8 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -8134,8 +8134,8 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -8196,8 +8196,8 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -8211,7 +8211,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:model": {
@@ -8243,8 +8243,8 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -8755,8 +8755,8 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -8793,8 +8793,8 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -8855,8 +8855,8 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -8870,7 +8870,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:model": {
@@ -8902,8 +8902,8 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -9180,26 +9180,19 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "LR; HR — two solutions of different dilution: dilution factor ~21000 for LR and ~1000 for HR; 'the transmission decreases by a factor of about 100 from the LR to the HR mode'" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR — Limits of detection" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1–3), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution — cleanroom, twice sub-boiled acids (Samples and sample preparation)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "LR; HR — two solutions of different dilution: dilution factor ~21000 for LR and ~1000 for HR; 'the transmission decreases by a factor of about 100 from the LR to the HR mode'" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -9211,11 +9204,18 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "hotplate HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3" ] ] ] ;
+                            schema1:name "hotplate HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1–3), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution — cleanroom, twice sub-boiled acids (Samples and sample preparation)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Magnetic jump followed by electric scan (Table 3); acquisition 10 min per sample; ca. 20 min per sample in all, a mass spectrometer efficiency of almost 90% Reported detail: ada:driftCorrectionMethod = N — 'Instrumental drift of SF-ICP-MS has only a negligible effect on the reproducibility of ID determined concentrations since isotope ratios are used'." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Max-Planck-Institut fuer Chemie (MPIC), Mainz, Germany (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -9308,23 +9308,23 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
     ada:uncertaintyLevel "RSD for repeatability of triplicate determinations; \"confidence intervals (1s)\"; the method result is quoted as a \"combined standard uncertainty\"" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "ThermoFinnigan ELEMENT2 (stated section on instrumentation)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -9334,7 +9334,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -9342,7 +9342,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -9352,7 +9352,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionSficpmsTAPP-Willbold2005/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;

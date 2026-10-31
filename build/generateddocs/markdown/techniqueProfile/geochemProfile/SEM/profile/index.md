@@ -207,7 +207,7 @@ and technique component types on the archive distribution. Mock data for validat
               "schema:identifier": [
                 "ex:instrument-ada-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaSEM-example-001/instrument/SEM"
             }
           ]
         },
@@ -761,7 +761,7 @@ and technique component types on the archive distribution. Mock data for validat
               "schema:identifier": [
                 "ex:instrument-ada-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaSEM-example-001/instrument/SEM"
             }
           ]
         },
@@ -1201,12 +1201,12 @@ ex:adaSEM-example-001 a schema1:Dataset,
         <https://example.org/var/Detection-Limit>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value 1e+00 ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ],
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
@@ -1224,8 +1224,8 @@ ex:adaSEM-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                [ ada:tappDefinition ex:semTAPP-P0 ] ;
+            prov:used [ ada:tappDefinition ex:semTAPP-P0 ],
+                [ schema1:instrument <https://example.org/adaSEM-example-001/instrument/SEM> ] ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "SE Imaging" ;
@@ -1305,7 +1305,7 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
 
-<https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
+<https://example.org/adaSEM-example-001/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType ada:ADAInstrument,
         <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,

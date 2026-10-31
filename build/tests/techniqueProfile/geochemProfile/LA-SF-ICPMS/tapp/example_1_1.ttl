@@ -21,18 +21,18 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -40,21 +40,21 @@
             schema1:name "Zhang, Chabot, Rubin, Humayun et al." ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "The raster pass gives the 23-element dataset; a separate set of 150 µm spots on five irons gives more precise Ge, since the raster 'failed to yield useful Ge abundances for Klamath Falls' (§2.2)" ;
-    schema1:instrument <ex:instrument/ICPMS>,
-        <ex:instrument/Laser-Ablation-System> ;
+    schema1:instrument <ex:laSficpmsTAPP-Zhang2022/instrument/ICPMS>,
+        <ex:laSficpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "LA-SF-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Iron Meteorite LA-ICP-MS v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -138,40 +138,40 @@
     bios:computationalTool [ schema1:name "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:laSficpmsTAPP-Zhang2022/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:laSficpmsTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source>,
+        <ex:laSficpmsTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone>,
+        <ex:laSficpmsTAPP-Zhang2022/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:laSficpmsTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:laSficpmsTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:laSficpmsTAPP-Zhang2022/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
 
-<ex:instrument/Laser-Ablation-System> a schema1:Product,
+<ex:laSficpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Laser Ablation System" ;

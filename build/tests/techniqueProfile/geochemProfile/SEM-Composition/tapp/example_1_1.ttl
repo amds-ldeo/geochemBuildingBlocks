@@ -16,20 +16,20 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v86.csv)." ;
-    schema1:instrument <ex:instrument/SEM> ;
+    schema1:instrument <ex:semCompositionTAPP-Genge2025/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -67,14 +67,14 @@
             ada:targetMaterialDeclaration "Al-Cu alloy phases; associated minerals — Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo" ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:semCompositionTAPP-Genge2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "VP-SEM" ;
-    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
-        <ex:instrument/SEM/part/Electron-Source>,
-        <ex:instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:semCompositionTAPP-Genge2025/instrument/SEM/part/EDS-Detector>,
+        <ex:semCompositionTAPP-Genge2025/instrument/SEM/part/Electron-Source>,
+        <ex:semCompositionTAPP-Genge2025/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -88,21 +88,21 @@
     ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:semCompositionTAPP-Genge2025/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "Oxford X-Max SDD system" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:semCompositionTAPP-Genge2025/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:semCompositionTAPP-Genge2025/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;

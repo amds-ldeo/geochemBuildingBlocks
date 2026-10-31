@@ -1,5 +1,5 @@
 Validation report for ogch.BaseSchema.tappDefinition - Technique-Aligned Protocol Profile (TAPP) Definition
-Generated 2026-10-31T03:34:21.091199+00:00
+Generated 2026-10-31T14:18:17.509825+00:00
 === Files ===
 Using exampletappDefinition-all-properties.json from examples
 JSON-LD context is present - uplifting
@@ -25,18 +25,18 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:nbbe0db8a5ac740099b966d5265733d54b4: *none*
- - Shape _:nbbe0db8a5ac740099b966d5265733d54b8: *none*
- - Shape _:nbbe0db8a5ac740099b966d5265733d54b6: *none*
- - Shape _:nbbe0db8a5ac740099b966d5265733d54b19: *none*
- - Shape _:nbbe0db8a5ac740099b966d5265733d54b10: *none*
- - Shape _:nbbe0db8a5ac740099b966d5265733d54b7: *none*
- - Shape _:nbbe0db8a5ac740099b966d5265733d54b26: *none*
+ - Shape _:n2e5bc9ad56814c4c92e482b182688976b8: *none*
+ - Shape _:n2e5bc9ad56814c4c92e482b182688976b5: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape _:n2e5bc9ad56814c4c92e482b182688976b26: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n2e5bc9ad56814c4c92e482b182688976b10: *none*
+ - Shape _:n2e5bc9ad56814c4c92e482b182688976b6: *none*
  - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape _:n2e5bc9ad56814c4c92e482b182688976b7: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:nbbe0db8a5ac740099b966d5265733d54b5: *none*
+ - Shape _:n2e5bc9ad56814c4c92e482b182688976b4: *none*
+ - Shape _:n2e5bc9ad56814c4c92e482b182688976b19: *none*
 
 
 ** Validation error **
@@ -51,6 +51,18 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   	Value Node: [ rdf:type prov:Plan ; schema1:propertyID Literal("Smithsonian catalog") ; schema1:value Literal("NMNH 111312/444") ]
   	Result Path: schema1:identifier
   	Message: identifier rules. a defined term should have an identifier that is a resolvable URI
+  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Warning
+  	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ; sh:minLength Literal("5", datatype=xsd:integer) ] [ sh:class schema1:DefinedTerm ] ) ; sh:path schema1:propertyID ; sh:severity sh:Warning ]
+  	Focus Node: [ rdf:type schema1:PropertyValue ; schema1:url Literal("https://iolite-software.com/") ; schema1:value Literal("NMNH 111312/444") ]
+  	Result Path: schema1:propertyID
+  	Message: Less than 1 values on [ rdf:type schema1:PropertyValue ; schema1:url Literal("https://iolite-software.com/") ; schema1:value Literal("NMNH 111312/444") ]->schema1:propertyID
+  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
+  	Severity: sh:Warning
+  	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ; sh:minLength Literal("5", datatype=xsd:integer) ] [ sh:class schema1:DefinedTerm ] ) ; sh:path schema1:propertyID ; sh:severity sh:Warning ]
+  	Focus Node: [ rdf:type schema1:PropertyValue ; schema1:url Literal("https://iolite-software.com/") ; schema1:value Literal("NMNH 111312/444") ]
+  	Result Path: schema1:propertyID
+  	Message: Less than 1 values on [ rdf:type schema1:PropertyValue ; schema1:url Literal("https://iolite-software.com/") ; schema1:value Literal("NMNH 111312/444") ]->schema1:propertyID
   Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
   	Severity: sh:Warning
   	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ; sh:minLength Literal("5", datatype=xsd:integer) ] [ sh:class schema1:DefinedTerm ] ) ; sh:path schema1:propertyID ; sh:severity sh:Warning ]
@@ -69,101 +81,89 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   	Focus Node: [ rdf:type schema1:PropertyValue ; schema1:url Literal("https://iolite-software.com/") ; schema1:value Literal("NMNH 111312/444") ]
   	Result Path: schema1:propertyID
   	Message: Less than 1 values on [ rdf:type schema1:PropertyValue ; schema1:url Literal("https://iolite-software.com/") ; schema1:value Literal("NMNH 111312/444") ]->schema1:propertyID
-  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
-  	Severity: sh:Warning
-  	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ; sh:minLength Literal("5", datatype=xsd:integer) ] [ sh:class schema1:DefinedTerm ] ) ; sh:path schema1:propertyID ; sh:severity sh:Warning ]
-  	Focus Node: [ rdf:type schema1:PropertyValue ; schema1:url Literal("https://iolite-software.com/") ; schema1:value Literal("NMNH 111312/444") ]
-  	Result Path: schema1:propertyID
-  	Message: Less than 1 values on [ rdf:type schema1:PropertyValue ; schema1:url Literal("https://iolite-software.com/") ; schema1:value Literal("NMNH 111312/444") ]->schema1:propertyID
-  Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
-  	Severity: sh:Warning
-  	Source Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ; sh:minLength Literal("5", datatype=xsd:integer) ] [ sh:class schema1:DefinedTerm ] ) ; sh:path schema1:propertyID ; sh:severity sh:Warning ]
-  	Focus Node: [ rdf:type schema1:PropertyValue ; schema1:url Literal("https://iolite-software.com/") ; schema1:value Literal("NMNH 111312/444") ]
-  	Result Path: schema1:propertyID
-  	Message: Less than 1 values on [ rdf:type schema1:PropertyValue ; schema1:url Literal("https://iolite-software.com/") ; schema1:value Literal("NMNH 111312/444") ]->schema1:propertyID
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
- - Shape _:n90e0b9b51d1f41f98eb74024763adb4db22: *none*
- - Shape _:n90e0b9b51d1f41f98eb74024763adb4db11: *none*
- - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
- - Shape _:n90e0b9b51d1f41f98eb74024763adb4db10: *none*
- - Shape cdifd:CDIFIdentifierShape: *none*
- - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
  - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
- - Shape _:n90e0b9b51d1f41f98eb74024763adb4db23: *none*
- - Shape _:n90e0b9b51d1f41f98eb74024763adb4db20: *none*
- - Shape _:n90e0b9b51d1f41f98eb74024763adb4db25: *none*
- - Shape _:n90e0b9b51d1f41f98eb74024763adb4db21: *none*
+ - Shape _:ne0eaebe09e754a8e833c37f5a5ce22beb25: *none*
+ - Shape _:ne0eaebe09e754a8e833c37f5a5ce22beb22: *none*
+ - Shape _:ne0eaebe09e754a8e833c37f5a5ce22beb23: *none*
  - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:ne0eaebe09e754a8e833c37f5a5ce22beb21: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
+ - Shape cdifd:CDIFIdentifierShape: *none*
+ - Shape _:ne0eaebe09e754a8e833c37f5a5ce22beb20: *none*
  - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:ne0eaebe09e754a8e833c37f5a5ce22beb10: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:ne0eaebe09e754a8e833c37f5a5ce22beb11: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
+ - Shape skosv:prefLabelUniqueLangShape: *none*
  - Shape skosv:conceptBroaderNotSelfShape: *none*
  - Shape skosv:ConceptShape: *none*
- - Shape skosv:prefLabelUniqueLangShape: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
- - Shape cdifd:qualityMeasurementNode: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement
- - Shape _:ne5bf5cb790cb4fb5a843a6561d0d41d3b12: *none*
- - Shape _:ne5bf5cb790cb4fb5a843a6561d0d41d3b4: *none*
- - Shape _:ne5bf5cb790cb4fb5a843a6561d0d41d3b11: *none*
+ - Shape _:n007aa66a2a9b472085acff6130277afdb14: *none*
  - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
- - Shape _:ne5bf5cb790cb4fb5a843a6561d0d41d3b14: *none*
+ - Shape _:n007aa66a2a9b472085acff6130277afdb13: *none*
+ - Shape cdifd:qualityMeasurementNode: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement
+ - Shape _:n007aa66a2a9b472085acff6130277afdb12: *none*
+ - Shape _:n007aa66a2a9b472085acff6130277afdb11: *none*
  - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
- - Shape _:ne5bf5cb790cb4fb5a843a6561d0d41d3b5: *none*
- - Shape _:ne5bf5cb790cb4fb5a843a6561d0d41d3b13: *none*
+ - Shape _:n007aa66a2a9b472085acff6130277afdb4: *none*
+ - Shape _:n007aa66a2a9b472085acff6130277afdb5: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl:
- - Shape _:nd4b7337ca2014530ac21b7583a5504efb5: *none*
- - Shape _:nd4b7337ca2014530ac21b7583a5504efb7: *none*
  - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:nd4b7337ca2014530ac21b7583a5504efb15: *none*
- - Shape cdifd:CDIFLabeledLinkShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:relatedLink,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:inDefinedTermSet
- - Shape _:nd4b7337ca2014530ac21b7583a5504efb6: *none*
- - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:nd4b7337ca2014530ac21b7583a5504efb4: *none*
+ - Shape _:n802c46a39fd54c0cb2638e82c4aa78b3b6: *none*
+ - Shape _:n802c46a39fd54c0cb2638e82c4aa78b3b7: *none*
+ - Shape cdifd:CDIFLabeledLinkShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:relatedLink,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:inDefinedTermSet
  - Shape cdifd:CDIFRelationShape: *none*
+ - Shape _:n802c46a39fd54c0cb2638e82c4aa78b3b15: *none*
+ - Shape _:n802c46a39fd54c0cb2638e82c4aa78b3b5: *none*
+ - Shape _:n802c46a39fd54c0cb2638e82c4aa78b3b4: *none*
+ - Shape cdifd:CDIFRelationShape/sh:property/sh:or/rdf:first: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:
- - Shape cdifd:fundingShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:funding,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b12: *none*
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b17: *none*
- - Shape cdifd:fundingShape/sh:or/rdf:first: *none*
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b26: *none*
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b4: *none*
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b3: *none*
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b15: *none*
  - Shape cdifd:fundingShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b15: *none*
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b3: *none*
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b11: *none*
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b14: *none*
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b13: *none*
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b5: *none*
- - Shape _:n267d737ebecf4646b08398ef81d3efa4b25: *none*
+ - Shape cdifd:fundingShape/sh:or/rdf:first: *none*
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b14: *none*
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b13: *none*
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b4: *none*
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b11: *none*
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b25: *none*
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b12: *none*
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b17: *none*
+ - Shape cdifd:fundingShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:funding
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b26: *none*
+ - Shape _:n715dc3baca654d27bd14b932ff5885b4b5: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
+ - Shape cdifd:CDIFOrganizationShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>,<ex:concord-glass-v1-0-6/instrument/instrument/part/Laser-Ablation-System>/schema1:manufacturer,<ex:concord-glass-v1-0-6/instrument/instrument/part/ICPMS>/schema1:manufacturer,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:funding/schema1:funder
  - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*
- - Shape cdifd:CDIFOrganizationShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>,<ex:instrument/nxs-BaseClass-NXinstrument/part/Laser-Ablation-System>/schema1:manufacturer,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:funding/schema1:funder,<ex:instrument/nxs-BaseClass-NXinstrument/part/ICPMS>/schema1:manufacturer
- - Shape _:n9c6fe6a220f44fb19f320574346a7ecab3: *none*
+ - Shape _:na5e7165267d847b28aa59b9b74854c1db3: *none*
  - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*
 
 
@@ -188,19 +188,19 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   	Message: a contact point e-mail address should be well formed
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:
- - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*
- - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*
- - Shape cdifd:CDIFContactPointShape/sh:or/rdf:first: *none*
- - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:n9e5b6e59805547f8b7f7a5ecd41ed352b21: *none*
- - Shape cdifd:maintainerOrProviderContactPointShape: *none*
  - Shape cdifd:CDIFContactPointShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:contactPoint,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:contactPoint
+ - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFPersonShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>
+ - Shape _:n7218d26b53884ad993966ebc83d4c6cdb21: *none*
+ - Shape cdifd:CDIFContactPointShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*
+ - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*
  - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*
  - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*
- - Shape cdifd:CDIFPersonShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>
  - Shape cdifd:CDIFContactPointShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:maintainerOrProviderContactPointShape: *none*
 
 
 ** Validation error **
@@ -211,7 +211,7 @@ Validation result for _sources/BaseSchema/instrument/rules.shacl:
   Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
   	Severity: sh:Warning
   	Source Shape: [ sh:message Literal("An instrument should have an identifier (schema:identifier).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:identifier ; sh:severity sh:Warning ]
-  	Focus Node: <ex:instrument/nxs-BaseClass-NXinstrument>
+  	Focus Node: <ex:concord-glass-v1-0-6/instrument/instrument>
   	Result Path: schema1:identifier
   	Message: An instrument should have an identifier (schema:identifier).
   
@@ -229,7 +229,7 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   Validation Result in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):
   	Severity: sh:Warning
   	Source Shape: [ sh:message Literal("An instrument should have a category classification from a controlled vocabulary (schema:category).") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema1:category ; sh:severity sh:Warning ]
-  	Focus Node: <ex:instrument/nxs-BaseClass-NXinstrument>
+  	Focus Node: <ex:concord-glass-v1-0-6/instrument/instrument>
   	Result Path: schema1:category
   	Message: An instrument should have a category classification from a controlled vocabulary (schema:category).
   
@@ -251,27 +251,27 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   	Message: a defined term should have an identifier that is a resolvable URI
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db33: *none*
  - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape cdifd:PropertyIDUriShouldBeIRIShape: <https://vocab.onegeochemistry.org/epma/matrix-correction>,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:identifier/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:identifier/schema1:propertyID
- - Shape _:n6eed71306644411f83d334895d69ede2b28: *none*
- - Shape _:n6eed71306644411f83d334895d69ede2b14: *none*
- - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:n6eed71306644411f83d334895d69ede2b33: *none*
- - Shape _:n6eed71306644411f83d334895d69ede2b21: *none*
- - Shape _:n6eed71306644411f83d334895d69ede2b30: *none*
- - Shape _:n6eed71306644411f83d334895d69ede2b31: *none*
- - Shape cdifd:CDIFadditionalPropertyShape: *none*
- - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: bios:LabProcess,ada:EPMAInstrument,<https://manual.nexusformat.org/classes/base_classes/NXsource.html>,<https://www.wikidata.org/wiki/Q3099911>,<https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,<ex:instrument/nxs-BaseClass-NXinstrument/part/ICPMS>/schema1:additionalType,<ex:instrument/nxs-BaseClass-NXinstrument/part/Laser-Ablation-System>/schema1:additionalType
- - Shape _:n6eed71306644411f83d334895d69ede2b7: *none*
- - Shape _:n6eed71306644411f83d334895d69ede2b6: *none*
- - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:n6eed71306644411f83d334895d69ede2b13: *none*
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db21: *none*
  - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*
- - Shape _:n6eed71306644411f83d334895d69ede2b29: *none*
- - Shape cdifd:CDIFAddPropertyTermShape: *none*
- - Shape _:n6eed71306644411f83d334895d69ede2b20: *none*
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db6: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape: *none*
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db30: *none*
  - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db29: *none*
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db31: *none*
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db14: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db7: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: <ex:concord-glass-v1-0-6/instrument/instrument/part/ICPMS>/schema1:additionalType,ada:EPMAInstrument,<https://www.wikidata.org/wiki/Q3099911>,<https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,<https://manual.nexusformat.org/classes/base_classes/NXsource.html>,<ex:concord-glass-v1-0-6/instrument/instrument/part/Laser-Ablation-System>/schema1:additionalType,bios:LabProcess
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db13: *none*
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db20: *none*
+ - Shape cdifd:CDIFAddPropertyTermShape: *none*
+ - Shape _:nc7ab6c94813c4b80b4c580e683bde61db28: *none*
  - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:propertyID,<https://vocab.onegeochemistry.org/epma/matrix-correction>,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:identifier/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:identifier/schema1:propertyID
 
 
 ** Validation error **
@@ -288,14 +288,8 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Si(Li)") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Si(Li)") ]
-  	Message: A Term must have a name (label) or an identifier. It should have both!.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("xenon") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("xenon") ]
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("SDD") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("SDD") ]
   	Message: A Term must have a name (label) or an identifier. It should have both!.
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
@@ -306,36 +300,42 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("SDD") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("SDD") ]
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("xenon") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("xenon") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Si(Li)") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Si(Li)") ]
   	Message: A Term must have a name (label) or an identifier. It should have both!.
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:
- - Shape cdifd:CDIFRoleShape: *none*
- - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:nde3d0445c9ef40d981bf744926e35055b4: *none*
- - Shape _:nde3d0445c9ef40d981bf744926e35055b14: *none*
- - Shape _:nde3d0445c9ef40d981bf744926e35055b18: *none*
- - Shape _:nde3d0445c9ef40d981bf744926e35055b20: *none*
- - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*
- - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
- - Shape _:nde3d0445c9ef40d981bf744926e35055b17: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:nde3d0445c9ef40d981bf744926e35055b3: *none*
- - Shape cdifd:CDIFDefinedTermShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:unitCode,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement/dqv:value,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/schema1:name,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/schema1:alternateName,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:propertyID,_:Nb82f0e3ac4444c50806b07b8bfeb38a2,_:N753ddfab004d4d888ed189fc2998c251,_:N47d2b37365f1486f920554cfd19212ad,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:defaultMonitoredProperties,_:N9aa9489aa1324ce6865df385d0df19ad,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object,_:N465918edf19d4488bd63d83eaf9f8b5c,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:defaultReportedProperties,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement/dqv:isMeasurementOf,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/ada:category
- - Shape _:nde3d0445c9ef40d981bf744926e35055b16: *none*
- - Shape _:nde3d0445c9ef40d981bf744926e35055b15: *none*
+ - Shape _:n6292896194134a14b3dd0fb49da163ccb17: *none*
+ - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n6292896194134a14b3dd0fb49da163ccb18: *none*
+ - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n6292896194134a14b3dd0fb49da163ccb3: *none*
+ - Shape _:n6292896194134a14b3dd0fb49da163ccb14: *none*
+ - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*
+ - Shape _:n6292896194134a14b3dd0fb49da163ccb16: *none*
+ - Shape _:n6292896194134a14b3dd0fb49da163ccb20: *none*
+ - Shape _:n6292896194134a14b3dd0fb49da163ccb4: *none*
+ - Shape cdifd:CDIFDefinedTermShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,_:N4819eb8217264b368cb42eb8aac167c2,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/ada:category,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement/dqv:value,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement/dqv:isMeasurementOf,_:Nb4873e46efc347d3b508c51b3af9c30b,_:N54a7d8b5854641f6bb178ff53d568359,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:unitCode,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:defaultReportedProperties,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/schema1:alternateName,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:defaultMonitoredProperties,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/schema1:name,_:N4d81309e638c42d0ac7933a0399a4294,_:N168530763c2d4d99ad8cfcef61b8f0c0,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object
+ - Shape _:n6292896194134a14b3dd0fb49da163ccb15: *none*
+ - Shape cdifd:CDIFRoleShape: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl:
+ - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape cdifd:CDIFLinkRoleShape: *none*
  - Shape cdifd:CDIFEntryPointShape: *none*
  - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:first: *none*
- - Shape cdifd:CDIFEntryPointShape/sh:or/rdf:rest/rdf:first: *none*
 
 
 ** Validation error **
@@ -375,14 +375,8 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Si(Li)") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Si(Li)") ]
-  	Message: A Term must have a name (label) or an identifier. It should have both!.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("xenon") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("xenon") ]
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("SDD") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("SDD") ]
   	Message: A Term must have a name (label) or an identifier. It should have both!.
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
@@ -393,36 +387,42 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("SDD") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("SDD") ]
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("xenon") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("xenon") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Si(Li)") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Si(Li)") ]
   	Message: A Term must have a name (label) or an identifier. It should have both!.
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
  - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape cdifd:spatialExtentProperty: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/ns1:hasGeometry
- - Shape cdifd:geoCoordinatesNode: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/schema1:geo
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b41: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b15: *none*
- - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b13: *none*
- - Shape cdifd:geoShapeNode: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b3: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b41: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b29: *none*
  - Shape cdifd:spatialExtentProperty/sh:or/rdf:first: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b9: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b29: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b16: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b3: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b40: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b42: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b39: *none*
+ - Shape cdifd:spatialExtentProperty: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/ns1:hasGeometry
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b13: *none*
  - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b24: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b38: *none*
+ - Shape cdifd:geoShapeNode: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b16: *none*
+ - Shape cdifd:CDIFDefinedTermShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,_:N4819eb8217264b368cb42eb8aac167c2,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/ada:category,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement/dqv:value,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement/dqv:isMeasurementOf,_:Nb4873e46efc347d3b508c51b3af9c30b,_:N54a7d8b5854641f6bb178ff53d568359,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:unitCode,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:defaultReportedProperties,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/schema1:alternateName,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:defaultMonitoredProperties,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/schema1:name,_:N4d81309e638c42d0ac7933a0399a4294,_:N168530763c2d4d99ad8cfcef61b8f0c0,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b4: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b38: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b15: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b24: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b9: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b44: *none*
+ - Shape cdifd:geoCoordinatesNode: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/schema1:geo
  - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b10: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b44: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b39: *none*
- - Shape cdifd:CDIFDefinedTermShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:unitCode,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement/dqv:value,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/schema1:name,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:actionProcess/schema1:step/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:location/schema1:alternateName,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:propertyID,_:Nb82f0e3ac4444c50806b07b8bfeb38a2,_:N753ddfab004d4d888ed189fc2998c251,_:N47d2b37365f1486f920554cfd19212ad,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:defaultMonitoredProperties,_:N9aa9489aa1324ce6865df385d0df19ad,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/bios:reagent,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:object,_:N465918edf19d4488bd63d83eaf9f8b5c,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:defaultTargetSpecies,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:defaultReportedProperties,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/dqv:hasQualityMeasurement/dqv:isMeasurementOf,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:propertyID,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/ada:category
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b4: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b42: *none*
- - Shape _:nf2bc676c387b4daf82315ee1de20e8c0b40: *none*
+ - Shape _:na1e6bc70efe94d4a90bbd41456f68ec0b10: *none*
 
 === End SHACL ===
 

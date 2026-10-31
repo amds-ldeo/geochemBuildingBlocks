@@ -208,7 +208,7 @@ and technique component types on the archive distribution. Mock data for validat
               "schema:identifier": [
                 "ex:instrument-ada-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaLAMCICPMSUPb-example-001/instrument/ICPMS"
             }
           ]
         },
@@ -838,7 +838,7 @@ and technique component types on the archive distribution. Mock data for validat
               "schema:identifier": [
                 "ex:instrument-ada-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaLAMCICPMSUPb-example-001/instrument/ICPMS"
             }
           ]
         },
@@ -1357,12 +1357,12 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
         <https://example.org/var/Reported-Date-Type>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ] ;
+            dqv:value "no value available: peakFlatness" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endTime "2026-01-10T12:45:00" ;
@@ -1378,14 +1378,24 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
-                [ ada:tappDefinition ex:laMcicpmsUPbTAPP-P0 ] ;
+            prov:used [ ada:tappDefinition ex:laMcicpmsUPbTAPP-P0 ],
+                [ schema1:instrument <https://example.org/adaLAMCICPMSUPb-example-001/instrument/ICPMS> ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "Spot" ;
     ada:reportedDateType "Weighted mean 206Pb/238U" ;
     ada:sensitivityYield 1e+00 ;
     ada:spotDiameterMeasured 1e+00 ;
     ada:submissionType "BundleDelivery" .
+
+<https://example.org/adaLAMCICPMSUPb-example-001/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType ada:ADAInstrument,
+        <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
+        <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Laser Ablation System" ;
+    schema1:identifier "ex:instrument-ada-001" ;
+    schema1:name "Example ADA Instrument" .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
@@ -1456,16 +1466,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/position_x> ;
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
-
-<https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType ada:ADAInstrument,
-        <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Laser Ablation System" ;
-    schema1:identifier "ex:instrument-ada-001" ;
-    schema1:name "Example ADA Instrument" .
 
 <https://example.org/var/Age-Calculation-Method> a cdi:InstanceVariable,
         schema1:PropertyValue ;

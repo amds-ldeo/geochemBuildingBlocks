@@ -16,10 +16,13 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -31,16 +34,13 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
-    schema1:instrument <ex:instrument/SEM> ;
+    schema1:instrument <ex:semTAPP-Izawa2010-5/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -88,15 +88,15 @@
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:semTAPP-Izawa2010-5/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "FIB-SEM dual-beam" ;
-    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
-        <ex:instrument/SEM/part/EDS-Detector>,
-        <ex:instrument/SEM/part/Electron-Source>,
-        <ex:instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:semTAPP-Izawa2010-5/instrument/SEM/part/BSE-Detector>,
+        <ex:semTAPP-Izawa2010-5/instrument/SEM/part/EDS-Detector>,
+        <ex:semTAPP-Izawa2010-5/instrument/SEM/part/Electron-Source>,
+        <ex:semTAPP-Izawa2010-5/instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -110,27 +110,27 @@
     ada:mappingBeamDiameterDefault -9999 ;
     ada:mappingBeamMode "missing" .
 
-<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:semTAPP-Izawa2010-5/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:semTAPP-Izawa2010-5/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "Oxford Instruments INCA EDX system" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:semTAPP-Izawa2010-5/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:semTAPP-Izawa2010-5/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;

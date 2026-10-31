@@ -14,6 +14,18 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "bomb attack (1 ml HNO3 + 1 ml HF, 190 °C for 48 h, then evaporated to incipient dryness and twice taken to dryness with 1 ml HNO3); re-dissolution (1.5 ml HNO3 + 2.5 ml ultra-pure water, capped, 150 °C overnight) — §3.3 numbers five operations; the evaporations carry no attack of their own" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "bomb attack: HNO3 + HF; re-dissolution: HNO3 — §3.3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
@@ -32,24 +44,12 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard — clean-room conditions (§3.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "bomb attack (1 ml HNO3 + 1 ml HF, 190 °C for 48 h, then evaporated to incipient dryness and twice taken to dryness with 1 ml HNO3); re-dissolution (1.5 ml HNO3 + 2.5 ml ultra-pure water, capped, 150 °C overnight) — §3.3 numbers five operations; the evaporations carry no attack of their own" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "bomb attack: HNO3 + HF; re-dissolution: HNO3 — §3.3" ] ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Auto lens voltages optimised on a 10 ng/ml Mg, Co, Rh, Ce, Pb and U solution; As and Te measured in 4.80 ml sample solution plus 0.20 ml ethanol; HF boiled before sub-boiling distillation to remove volatile As — §3.1, §3.2, §3.3 Reported detail: ada:signalCollectionMode = Peak hopping, one point per peak — §3.1; ada:driftCorrectionMethod = Rh internal standard, and a calibration solution analysed repeatedly as a drift monitor over the run — drift minimised by flushing a rock solution for 30 min before tuning (§3.1)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Continental Dynamics, Northwest University, Xi'an (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -182,7 +182,7 @@
     ada:uncertaintyLevel "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material" ;
     ada:washTimeBetweenSamples "N — 'manual analyses in which care was taken to completely wash-out B and Ta signals between samples' (§3.1)" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
@@ -191,24 +191,24 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "PerkinElmer" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "PerkinElmer SCIEX ELAN 6100 DRC (stated section 3.1)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "N — an ELAN 6100 DRC; no cell gas or cell mode is described (§3.1)" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -218,13 +218,13 @@
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -234,7 +234,7 @@
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;

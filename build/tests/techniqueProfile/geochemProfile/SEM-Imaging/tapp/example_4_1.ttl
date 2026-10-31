@@ -28,7 +28,7 @@
                     ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point." ;
-    schema1:instrument <ex:instrument/SEM> ;
+    schema1:instrument <ex:semImagingTAPP-Gucsik2013/instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
@@ -58,16 +58,16 @@
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:semImagingTAPP-Gucsik2013/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration>,
         <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clGrating> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "Standard SEM" ;
-    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
-        <ex:instrument/SEM/part/Electron-Source>,
-        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:semImagingTAPP-Gucsik2013/instrument/SEM/part/BSE-Detector>,
+        <ex:semImagingTAPP-Gucsik2013/instrument/SEM/part/Electron-Source>,
+        <ex:semImagingTAPP-Gucsik2013/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -77,20 +77,20 @@
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
-<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:semImagingTAPP-Gucsik2013/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:semImagingTAPP-Gucsik2013/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:semImagingTAPP-Gucsik2013/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;

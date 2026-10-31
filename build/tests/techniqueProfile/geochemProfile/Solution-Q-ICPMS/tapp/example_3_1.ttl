@@ -15,9 +15,9 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Rock powders decomposed with the Sm spike; NIST glasses crushed roughly in a silicon nitride mortar, chips hand-picked, washed and dried; solutions diluted with 0.5 mol/l HNO3 to a dilution factor ≥ 1000 — clean room at PML; NIST SRM 610 decomposed without spike, the Sm spike added to its solution" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -42,13 +42,13 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Rock powders decomposed with the Sm spike; NIST glasses crushed roughly in a silicon nitride mortar, chips hand-picked, washed and dried; solutions diluted with 0.5 mol/l HNO3 to a dilution factor ≥ 1000 — clean room at PML; NIST SRM 610 decomposed without spike, the Sm spike added to its solution" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "ICP operating conditions as in Makishima and Nakamura (2006); pseudo-flow injection with transient signals integrated as total counts, ~0.013 ml per measurement; an evaporation test showed no loss of Cd, In, Tl or Bi (ratios 0.996–0.999, Table 2) Reported detail: ada:driftCorrectionMethod = Mass discrimination corrected with the mean elemental ratios of the calibrator measured before and after each sample — step (d)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -138,48 +138,48 @@
     ada:uncertaintyLevel "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"" ;
     ada:washTimeBetweenSamples "~200 s with 0.5 mol/l HNO3 — 0.5 mol/l HF aspirated for 200 s after the Mo standard" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Agilent" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500cs (stated section 2)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;

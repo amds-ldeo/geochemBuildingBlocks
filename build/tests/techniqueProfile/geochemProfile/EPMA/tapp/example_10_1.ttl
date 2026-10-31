@@ -29,8 +29,8 @@
             schema1:name "T. J. McCoy" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 µm spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Magnetite and olivine analyses: 15 kV, 10 nA, 1 µm spot; their own standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use). Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — point analyses with named crystals (LIFL, TAPL, PETL); WDS or EDS is not stated, and the list has no value without one." ;
-    schema1:instrument <ex:instrument/EPMA>,
-        <ex:instrument/SEM> ;
+    schema1:instrument <ex:epmaTAPP-McCoy2025/instrument/EPMA>,
+        <ex:epmaTAPP-McCoy2025/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Smithsonian Institution, National Museum of Natural History" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -100,13 +100,13 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
-<ex:instrument/EPMA> a schema1:Product,
+<ex:epmaTAPP-McCoy2025/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EPMA" ;
-    schema1:hasPart <ex:instrument/EPMA/part/EDS-Detector>,
-        <ex:instrument/EPMA/part/Electron-Source>,
-        <ex:instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:epmaTAPP-McCoy2025/instrument/EPMA/part/EDS-Detector>,
+        <ex:epmaTAPP-McCoy2025/instrument/EPMA/part/Electron-Source>,
+        <ex:epmaTAPP-McCoy2025/instrument/EPMA/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
     schema1:name "no value available: schema:name" ;
@@ -117,26 +117,26 @@
     ada:mappingBeamDiameterDefault -9999 ;
     ada:mappingBeamMode "missing" .
 
-<ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
+<ex:epmaTAPP-McCoy2025/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/EPMA/part/Electron-Source> a schema1:Product,
+<ex:epmaTAPP-McCoy2025/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<ex:instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+<ex:epmaTAPP-McCoy2025/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "N — the crystals (LIFL, TAPL, PETL) are recorded under Diffracting Crystal; the spectrometer configuration and the X-ray lines are not stated" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:epmaTAPP-McCoy2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;

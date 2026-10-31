@@ -15,24 +15,24 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Polished thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Ma et al. 2015, Earth Planet. Sci. Lett. — tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'WDS: 15 kV; 5 nA; beam in focused mode'; point analyses only." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 — 'SEM, EBSD and EPMA analyses were carried out at the Caltech GPS Division Analytical Facility, which is supported, in part, by NSF Grants EAR-0318518 and DMR-0080065'" ] ;
-    schema1:instrument <ex:instrument/EPMA>,
-        <ex:instrument/SEM> ;
+    schema1:instrument <ex:epmaTAPP-Ma2015/instrument/EPMA>,
+        <ex:epmaTAPP-Ma2015/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Caltech GPS Division Analytical Facility" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -107,18 +107,18 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ] .
 
-<ex:instrument/EPMA> a schema1:Product,
+<ex:epmaTAPP-Ma2015/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EPMA" ;
-    schema1:hasPart <ex:instrument/EPMA/part/EDS-Detector>,
-        <ex:instrument/EPMA/part/Electron-Source>,
-        <ex:instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:epmaTAPP-Ma2015/instrument/EPMA/part/EDS-Detector>,
+        <ex:epmaTAPP-Ma2015/instrument/EPMA/part/Electron-Source>,
+        <ex:epmaTAPP-Ma2015/instrument/EPMA/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
     schema1:name "no value available: schema:name" ;
@@ -129,26 +129,26 @@
     ada:mappingBeamDiameterDefault -9999 ;
     ada:mappingBeamMode "missing" .
 
-<ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
+<ex:epmaTAPP-Ma2015/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/EPMA/part/Electron-Source> a schema1:Product,
+<ex:epmaTAPP-Ma2015/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<ex:instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+<ex:epmaTAPP-Ma2015/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:epmaTAPP-Ma2015/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;

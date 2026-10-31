@@ -296,8 +296,8 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -359,8 +359,8 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -374,7 +374,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -388,7 +388,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -402,7 +402,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -461,8 +461,8 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -1029,8 +1029,8 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -1092,8 +1092,8 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -1107,7 +1107,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -1121,7 +1121,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -1135,7 +1135,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -1194,8 +1194,8 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -1484,6 +1484,18 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "bomb attack (1 ml HNO3 + 1 ml HF, 190 °C for 48 h, then evaporated to incipient dryness and twice taken to dryness with 1 ml HNO3); re-dissolution (1.5 ml HNO3 + 2.5 ml ultra-pure water, capped, 150 °C overnight) — §3.3 numbers five operations; the evaporations carry no attack of their own" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "bomb attack: HNO3 + HF; re-dissolution: HNO3 — §3.3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
@@ -1502,24 +1514,12 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard — clean-room conditions (§3.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "bomb attack (1 ml HNO3 + 1 ml HF, 190 °C for 48 h, then evaporated to incipient dryness and twice taken to dryness with 1 ml HNO3); re-dissolution (1.5 ml HNO3 + 2.5 ml ultra-pure water, capped, 150 °C overnight) — §3.3 numbers five operations; the evaporations carry no attack of their own" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "bomb attack: HNO3 + HF; re-dissolution: HNO3 — §3.3" ] ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Auto lens voltages optimised on a 10 ng/ml Mg, Co, Rh, Ce, Pb and U solution; As and Te measured in 4.80 ml sample solution plus 0.20 ml ethanol; HF boiled before sub-boiling distillation to remove volatile As — §3.1, §3.2, §3.3 Reported detail: ada:signalCollectionMode = Peak hopping, one point per peak — §3.1; ada:driftCorrectionMethod = Rh internal standard, and a calibration solution analysed repeatedly as a drift monitor over the run — drift minimised by flushing a rock solution for 30 min before tuning (§3.1)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Continental Dynamics, Northwest University, Xi'an (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1652,7 +1652,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
     ada:uncertaintyLevel "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material" ;
     ada:washTimeBetweenSamples "N — 'manual analyses in which care was taken to completely wash-out B and Ta signals between samples' (§3.1)" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
@@ -1661,24 +1661,24 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "PerkinElmer" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "PerkinElmer SCIEX ELAN 6100 DRC (stated section 3.1)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "N — an ELAN 6100 DRC; no cell gas or cell mode is described (§3.1)" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -1688,13 +1688,13 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -1704,7 +1704,7 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -2102,8 +2102,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -2165,8 +2165,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -2180,7 +2180,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -2194,7 +2194,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -2208,7 +2208,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -2221,8 +2221,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -2785,8 +2785,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -2848,8 +2848,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -2863,7 +2863,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -2877,7 +2877,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -2891,7 +2891,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -2904,8 +2904,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-P1/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -3294,9 +3294,18 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Ten to twenty tests handpicked, crushed gently, cleaned of clays (water, methanol) and silicates, reductively and oxidatively cleaned, rinsed twice in 0.001 M HNO3 and dissolved in 200 µl 0.075 M HNO3. 20 µl diluted for Ca by ICP-AES, the remainder diluted to 100 ppm Ca — §2" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "dissolution (200 µl 0.075 M HNO3) — §2; the paper does not call it a digestion" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "dissolution: 0.075 M HNO3 — §2" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -3311,22 +3320,13 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "dissolution (200 µl 0.075 M HNO3) — §2; the paper does not call it a digestion" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "dissolution: 0.075 M HNO3 — §2" ] ] ] ;
+                    schema1:description "Ten to twenty tests handpicked, crushed gently, cleaned of clays (water, methanol) and silicates, reductively and oxidatively cleaned, rinsed twice in 0.001 M HNO3 and dissolved in 200 µl 0.075 M HNO3. 20 µl diluted for Ca by ICP-AES, the remainder diluted to 100 ppm Ca — §2" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Cetac ASX-100 autosampler; auto lens on; 0.03 mm ID pump tubing at 12 rpm; Ca matrix effects tested over 60–240 ppm Ca (Table 1, §2, §3.5) Reported detail: ada:signalCollectionMode = Peak hopping — Table 1; ada:driftCorrectionMethod = Drift monitors of intermediate concentration every 3 samples, corrected off-line by linear interpolation between two consecutive monitors — §3.4." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-P1/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Cambridge (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3419,7 +3419,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
     ada:uncertaintyLevel "RSD% -- \"RSD% (relative standard deviation) = [SD of measurements/average ratio]*100%\"" ;
     ada:washTimeBetweenSamples "60 s — Table 1; uptake time 65 s" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-P1/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
@@ -3427,24 +3427,24 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "PerkinElmer" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "PerkinElmer Elan DRC II (stated section 2 and Table 1)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "N — an Elan DRC II; no cell gas or cell mode is described" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -3454,13 +3454,13 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -3470,7 +3470,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-P1/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -3903,7 +3903,6 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -3917,7 +3916,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -3931,7 +3930,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -3945,7 +3944,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -3959,7 +3958,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -3973,10 +3972,11 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Torch"
         }
       ],
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -4471,7 +4471,6 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -4485,7 +4484,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -4499,7 +4498,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -4513,7 +4512,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -4527,7 +4526,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -4541,10 +4540,11 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Torch"
         }
       ],
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -4807,9 +4807,9 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Rock powders decomposed with the Sm spike; NIST glasses crushed roughly in a silicon nitride mortar, chips hand-picked, washed and dried; solutions diluted with 0.5 mol/l HNO3 to a dilution factor ≥ 1000 — clean room at PML; NIST SRM 610 decomposed without spike, the Sm spike added to its solution" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -4834,13 +4834,13 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Rock powders decomposed with the Sm spike; NIST glasses crushed roughly in a silicon nitride mortar, chips hand-picked, washed and dried; solutions diluted with 0.5 mol/l HNO3 to a dilution factor ≥ 1000 — clean room at PML; NIST SRM 610 decomposed without spike, the Sm spike added to its solution" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "ICP operating conditions as in Makishima and Nakamura (2006); pseudo-flow injection with transient signals integrated as total counts, ~0.013 ml per measurement; an evaporation test showed no loss of Cd, In, Tl or Bi (ratios 0.996–0.999, Table 2) Reported detail: ada:driftCorrectionMethod = Mass discrimination corrected with the mean elemental ratios of the calibrator measured before and after each sample — step (d)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4930,48 +4930,48 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
     ada:uncertaintyLevel "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"" ;
     ada:washTimeBetweenSamples "~200 s with 0.5 mol/l HNO3 — 0.5 mol/l HF aspirated for 200 s after the Mo standard" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Agilent" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500cs (stated section 2)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -5210,8 +5210,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -5250,7 +5250,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -5264,7 +5264,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -5278,7 +5278,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -5292,7 +5292,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -5305,8 +5305,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -5647,8 +5647,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -5687,7 +5687,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -5701,7 +5701,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -5715,7 +5715,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -5729,7 +5729,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -5742,8 +5742,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -5979,20 +5979,6 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
@@ -6003,11 +5989,25 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "The Zn-isotope procedure digests ~35 mg of bulk powder in HNO3-HF at 120 °C for ~48 h; the digestion for the elemental analysis is not stated — Methods Reported detail: ada:driftCorrectionMethod = Sc, In and Re internal standards — Methods." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut de Physique du Globe de Paris (IPGP), France (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -6065,23 +6065,23 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
     ada:uncertaintyLevel "N -- no uncertainty convention stated for the elemental (Q-ICP-MS) data; the \"2SD, n = 4\" in Methods applies to the delta-66Zn MC-ICP-MS results" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Agilent" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7900 (stated Methods)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
         <https://ada.astromat.org/metadata/parameter/module/CollisionCell/gasFlowRateDefault> ;
@@ -6089,19 +6089,19 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
         "Collision Reaction Cell" ;
     schema1:name "m/z 23–75: collision-reaction cell with helium; other: N — 'analyzing atomic masses from 23 (Na) to 75 (As) in a collision-reaction cell, utilizing helium gas at a flow rate of 5 mL/min' (Methods); the masses are not listed" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
@@ -6110,7 +6110,7 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7900/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -6479,8 +6479,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -6541,8 +6541,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -6604,8 +6604,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -6619,7 +6619,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Torch"
         },
         {
           "schema:additionalType": [
@@ -6633,7 +6633,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Collision-Reaction-Cell"
         }
       ],
       "schema:additionalProperty": [
@@ -6682,8 +6682,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -7231,8 +7231,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -7293,8 +7293,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -7356,8 +7356,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -7371,7 +7371,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Torch"
         },
         {
           "schema:additionalType": [
@@ -7385,7 +7385,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Collision-Reaction-Cell"
         }
       ],
       "schema:additionalProperty": [
@@ -7434,8 +7434,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -7716,13 +7716,6 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
@@ -7730,6 +7723,17 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "all: 3σ, calculated for silicate samples at the dilution factor of ~340 where matrix effects are absent — §3.6" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 245 °C, mannitol added after heating); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -7741,17 +7745,13 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 245 °C, mannitol added after heating); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ] ] ;
+                    schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6) Reported detail: ada:signalCollectionMode = 1 point per mass — Table 1a; ada:driftCorrectionMethod = Mass discrimination from the standard solution average, usually without drift over 2 h; when drift was observed, the standard measured before and after the sample was averaged — §2.7, §2.8." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -7850,7 +7850,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     ada:uncertaintyLevel "RSD% with observed ranges in parentheses" ;
     ada:washTimeBetweenSamples "~3 min with 0.5 mol/l HF — §2.1.1; background measured after a 200 s wash (Table 1a)" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
@@ -7858,24 +7858,24 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Agilent" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500cs (stated section 2.1.1)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "all: no gas introduced into the octopole collision cell — 'collision gases were not introduced into the cell' (§2.1.1)" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -7885,7 +7885,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -7893,7 +7893,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -7903,7 +7903,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -8360,7 +8360,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -8374,7 +8374,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -8388,7 +8388,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -8402,7 +8402,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -8416,7 +8416,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -8429,8 +8429,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -8889,7 +8889,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -8903,7 +8903,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -8917,7 +8917,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -8931,7 +8931,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -8945,7 +8945,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -8958,8 +8958,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -9191,10 +9191,22 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "SPM recovered by centrifugation, oven dried, ground in agate mortars and totally digested: tri-acid for Te, microwave for Se (Se is volatile above 70 °C) — §2.2" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "tri-acid digestion (30 mg in closed PP DigiTUBEs on a heating block, 2 h at 110 °C, with 750 µL 14 M HNO3, 1.5 mL 10 M HCl and 2.5 mL 29 M HF); re-dissolution (evaporated at 120 °C, re-dissolved with 250 µL 14 M HNO3 and heating, brought to 10 mL with Milli-Q water); microwave digestion (40–50 mg, START 1500, 3 mL 65% HNO3, 0.5 mL 30% H2O2, 0.25 mL 40% HF and 0.5 mL Milli-Q water, ramped to 210 °C and held 10 min, cooled overnight); Se recovery (evaporated to dryness at 70 °C in PTFE vessels, recovered with 270 µL 65% HNO3 at 70 °C for 1 h, made up to 6 mL) — §2.2; the first two steps for Te, the last two for Se" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "tri-acid digestion: 14 M HNO3 + 10 M HCl + 29 M HF; re-dissolution: 14 M HNO3; microwave digestion: HNO3 + H2O2 + HF; Se recovery: 65% HNO3 — §2.2" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -9206,25 +9218,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "tri-acid digestion (30 mg in closed PP DigiTUBEs on a heating block, 2 h at 110 °C, with 750 µL 14 M HNO3, 1.5 mL 10 M HCl and 2.5 mL 29 M HF); re-dissolution (evaporated at 120 °C, re-dissolved with 250 µL 14 M HNO3 and heating, brought to 10 mL with Milli-Q water); microwave digestion (40–50 mg, START 1500, 3 mL 65% HNO3, 0.5 mL 30% H2O2, 0.25 mL 40% HF and 0.5 mL Milli-Q water, ramped to 210 °C and held 10 min, cooled overnight); Se recovery (evaporated to dryness at 70 °C in PTFE vessels, recovered with 270 µL 65% HNO3 at 70 °C for 1 h, made up to 6 mL) — §2.2; the first two steps for Te, the last two for Se" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "tri-acid digestion: 14 M HNO3 + 10 M HCl + 29 M HF; re-dissolution: 14 M HNO3; microwave digestion: HNO3 + H2O2 + HF; Se recovery: 65% HNO3 — §2.2" ] ] ] ;
+                    schema1:description "SPM recovered by centrifugation, oven dried, ground in agate mortars and totally digested: tri-acid for Te, microwave for Se (Se is volatile above 70 °C) — §2.2" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v96.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "N — 'Agilent 8800, Basel, Switzerland'; the Basel-area author affiliation is FHNW" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -9298,23 +9298,23 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
     ada:uncertaintyLevel "Mean +/- SD" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Triple quadrupole (ICP-MS/MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Agilent" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 8800 (QQQ-ICP-MS)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
         <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
@@ -9322,25 +9322,25 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "Collision Reaction Cell" ;
     schema1:name "125Te, 77Se: oxygen-shift mode with O2 as cell gas; other: N — §2.3, §2.4" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-Agilent8800/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -9699,7 +9699,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -9713,7 +9713,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -9727,7 +9727,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -9741,7 +9741,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -9755,7 +9755,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -9768,8 +9768,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -10224,7 +10224,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -10238,7 +10238,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -10252,7 +10252,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -10266,7 +10266,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -10280,7 +10280,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -10293,8 +10293,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-P6/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -10521,6 +10521,20 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "KED; O2 mode — '126Te measured in KED-mode (He)'; '125Te ... in mass-shift O2-mode'; Se 'with the O2-mode' (§2.3, §2.4)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -10534,27 +10548,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "KED; O2 mode — '126Te measured in KED-mode (He)'; '125Te ... in mass-shift O2-mode'; Se 'with the O2-mode' (§2.3, §2.4)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "SPM recovered by centrifugation, oven dried (70 °C), ground in agate mortars and aliquoted for tri-acid total digestion and parallel selective extractions (two replicates per extraction mode) — §2.2, Table 1" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v96.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-P6/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "N — instrument given as 'iCAP-TQ, Thermo' with no laboratory stated" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -10627,23 +10627,23 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
     ada:uncertaintyLevel "Mean ± SD" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-P6/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Triple quadrupole (ICP-MS/MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "iCAP-TQ" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
         <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
@@ -10651,25 +10651,25 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "Collision Reaction Cell" ;
     schema1:name "126Te: KED with He; 125Te, 77Se, 78Se, 80Se, 82Se: mass-shift O2 mode; other: N — §2.3, §2.4" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-P6/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -10894,7 +10894,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -10908,7 +10908,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -10922,7 +10922,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -10936,7 +10936,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -10950,7 +10950,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -10963,8 +10963,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -11299,7 +11299,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -11313,7 +11313,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -11327,7 +11327,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -11341,7 +11341,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -11355,7 +11355,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -11368,8 +11368,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-P7/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -11611,16 +11611,16 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Te run; Se run — dissolved Te 'directly analysed by ICP-MS (X-Series II, Thermo Fisher Scientific)' (§2.3), no laboratory named; dissolved Se on the 'XSeries 2, Thermo Fisher Scientific, KIT' (§2.4)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -11632,14 +11632,14 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Te run; Se run — dissolved Te 'directly analysed by ICP-MS (X-Series II, Thermo Fisher Scientific)' (§2.3), no laboratory named; dissolved Se on the 'XSeries 2, Thermo Fisher Scientific, KIT' (§2.4)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v96.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-P7/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Karlsruhe Institute of Technology (KIT), Germany" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -11694,23 +11694,23 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-P7/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "XSeries 2" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
         <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
@@ -11718,25 +11718,25 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "Collision Reaction Cell" ;
     schema1:name "Se masses: CCT mode, collision cell with He:H2; other: N — the Se masses are not listed; no cell mode is stated for Te (§2.4)" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-P7/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -12063,7 +12063,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -12077,7 +12077,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -12091,7 +12091,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -12105,7 +12105,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -12119,7 +12119,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -12132,8 +12132,8 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -12576,7 +12576,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -12590,7 +12590,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -12604,7 +12604,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -12618,7 +12618,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -12632,7 +12632,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -12645,8 +12645,8 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionQicpmsTAPP-P8/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -12847,17 +12847,9 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Group-1; Group-2; Group-3 — the grouping of Yokoyama, Nagashima, et al. (2023), each on its own solution" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -12874,12 +12866,20 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "Group-1; Group-2; Group-3 — the grouping of Yokoyama, Nagashima, et al. (2023), each on its own solution" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard — Methods" ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-P8/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Science Tokyo" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -12991,23 +12991,23 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
     ada:uncertaintyLevel "2σ — Table 1" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Triple quadrupole (ICP-MS/MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "iCAP TQ" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
         <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
@@ -13015,25 +13015,25 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "Collision Reaction Cell" ;
     schema1:name "Li, Be, Sc, Rb, Sr, Y, Ag, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Tl, Pb, Bi, Th, U: non-gas SQ mode; Ga, As, Se, Cd, In, Na, P, K, Ca: O2 mode; Mg, Al, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ti, Zr, Nb, Hf, Ta, Mo, W: He KED mode — Methods" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
