@@ -81,8 +81,8 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -96,7 +96,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -110,7 +110,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -119,10 +119,10 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "no value available: schema:name",
       "ada:acceleratingVoltageDefault": -9999,
-      "ada:mappingBeamCurrentDefault": -9999
+      "ada:mappingBeamCurrentDefault": -9999,
+      "@id": "ex:semFibsemTAPP-Garvie2008/instrument/SEM"
     },
     {
       "schema:additionalType": [
@@ -144,15 +144,15 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/FIBSEM",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM"
     }
   ],
   "schema:actionProcess": {
@@ -329,8 +329,8 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -344,7 +344,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -358,7 +358,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "FIB-SEM dual-beam",
@@ -367,10 +367,10 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "no value available: schema:name",
       "ada:acceleratingVoltageDefault": -9999,
-      "ada:mappingBeamCurrentDefault": -9999
+      "ada:mappingBeamCurrentDefault": -9999,
+      "@id": "ex:semFibsemTAPP-Garvie2008/instrument/SEM"
     },
     {
       "schema:additionalType": [
@@ -392,15 +392,15 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/FIBSEM",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM"
     }
   ],
   "schema:actionProcess": {
@@ -521,21 +521,21 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v45.csv)." ;
-    schema1:instrument <ex:instrument/FIBSEM>,
-        <ex:instrument/SEM> ;
+    schema1:instrument <ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM>,
+        <ex:semFibsemTAPP-Garvie2008/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -562,27 +562,27 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
 
-<ex:instrument/FIBSEM> a schema1:Product,
+<ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "Gallium LMIS (Ga+)" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:semFibsemTAPP-Garvie2008/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "FIB-SEM dual-beam" ;
-    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
-        <ex:instrument/SEM/part/Electron-Source>,
-        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector>,
+        <ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source>,
+        <ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "FEI / Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -592,20 +592,20 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault "5.4 mm (eucentric height for electron and ion columns)" .
 
-<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -679,7 +679,6 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -693,7 +692,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Liu2017/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -707,8 +706,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:description": "missing"
+          "schema:description": "missing",
+          "@id": "ex:semFibsemTAPP-Liu2017/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -722,17 +721,17 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Liu2017/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:name": "no value available: schema:name",
       "ada:acceleratingVoltageDefault": -9999,
       "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999,
-      "schema:description": "missing"
+      "schema:description": "missing",
+      "@id": "ex:semFibsemTAPP-Liu2017/instrument/SEM"
     },
     {
-      "@id": "ex:instrument/FIBSEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -757,9 +756,10 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Liu2017/instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ]
+      ],
+      "@id": "ex:semFibsemTAPP-Liu2017/instrument/FIBSEM"
     }
   ],
   "schema:actionProcess": {
@@ -962,7 +962,6 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -976,7 +975,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Liu2017/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -990,8 +989,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:description": "missing"
+          "schema:description": "missing",
+          "@id": "ex:semFibsemTAPP-Liu2017/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -1005,17 +1004,17 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Liu2017/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:name": "no value available: schema:name",
       "ada:acceleratingVoltageDefault": -9999,
       "ada:mappingBeamCurrentDefault": -9999,
       "ada:workingDistanceDefault": -9999,
-      "schema:description": "missing"
+      "schema:description": "missing",
+      "@id": "ex:semFibsemTAPP-Liu2017/instrument/SEM"
     },
     {
-      "@id": "ex:instrument/FIBSEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -1040,9 +1039,10 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Liu2017/instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ]
+      ],
+      "@id": "ex:semFibsemTAPP-Liu2017/instrument/FIBSEM"
     }
   ],
   "schema:actionProcess": {
@@ -1190,15 +1190,6 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ],
@@ -1209,11 +1200,20 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics." ;
-    schema1:instrument <ex:instrument/FIBSEM>,
-        <ex:instrument/SEM> ;
+    schema1:instrument <ex:semFibsemTAPP-Liu2017/instrument/FIBSEM>,
+        <ex:semFibsemTAPP-Liu2017/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1243,27 +1243,27 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     bios:computationalTool [ schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/FIBSEM> a schema1:Product,
+<ex:semFibsemTAPP-Liu2017/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:semFibsemTAPP-Liu2017/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "missing" .
 
-<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:semFibsemTAPP-Liu2017/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:semFibsemTAPP-Liu2017/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "missing" ;
-    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
-        <ex:instrument/SEM/part/Electron-Source>,
-        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:semFibsemTAPP-Liu2017/instrument/SEM/part/BSE-Detector>,
+        <ex:semFibsemTAPP-Liu2017/instrument/SEM/part/Electron-Source>,
+        <ex:semFibsemTAPP-Liu2017/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -1273,20 +1273,20 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
-<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Liu2017/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:semFibsemTAPP-Liu2017/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Liu2017/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -1378,7 +1378,6 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -1392,7 +1391,7 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -1406,8 +1405,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:description": "missing"
+          "schema:description": "missing",
+          "@id": "ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -1421,14 +1420,14 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:name": "no value available: schema:name",
-      "ada:mappingBeamCurrentDefault": -9999
+      "ada:mappingBeamCurrentDefault": -9999,
+      "@id": "ex:semFibsemTAPP-Zhou2017/instrument/SEM"
     },
     {
-      "@id": "ex:instrument/FIBSEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -1453,9 +1452,10 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ]
+      ],
+      "@id": "ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM"
     }
   ],
   "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
@@ -1621,7 +1621,6 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:hasPart": [
         {
           "@type": [
@@ -1635,7 +1634,7 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -1649,8 +1648,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:description": "missing"
+          "schema:description": "missing",
+          "@id": "ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -1664,14 +1663,14 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:name": "no value available: schema:name",
-      "ada:mappingBeamCurrentDefault": -9999
+      "ada:mappingBeamCurrentDefault": -9999,
+      "@id": "ex:semFibsemTAPP-Zhou2017/instrument/SEM"
     },
     {
-      "@id": "ex:instrument/FIBSEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -1696,9 +1695,10 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ]
+      ],
+      "@id": "ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM"
     }
   ],
   "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
@@ -1807,16 +1807,16 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1826,8 +1826,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
                     schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)." ;
-    schema1:instrument <ex:instrument/FIBSEM>,
-        <ex:instrument/SEM> ;
+    schema1:instrument <ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM>,
+        <ex:semFibsemTAPP-Zhou2017/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Geosciences, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1853,27 +1853,27 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     bios:computationalTool [ schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/FIBSEM> a schema1:Product,
+<ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "missing" .
 
-<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:semFibsemTAPP-Zhou2017/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "N/A" ;
-    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
-        <ex:instrument/SEM/part/Electron-Source>,
-        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector>,
+        <ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source>,
+        <ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -1883,20 +1883,20 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault "4 mm" .
 
-<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -1978,8 +1978,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:semFibsemTAPP-Zega2025/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -1993,7 +1993,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -2007,7 +2007,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -2016,13 +2016,12 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "no value available: schema:name",
       "ada:mappingBeamCurrentDefault": -9999,
-      "ada:workingDistanceDefault": -9999
+      "ada:workingDistanceDefault": -9999,
+      "@id": "ex:semFibsemTAPP-Zega2025/instrument/SEM"
     },
     {
-      "@id": "ex:instrument/FIBSEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -2047,9 +2046,10 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Zega2025/instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ]
+      ],
+      "@id": "ex:semFibsemTAPP-Zega2025/instrument/FIBSEM"
     }
   ],
   "schema:actionProcess": {
@@ -2255,8 +2255,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:semFibsemTAPP-Zega2025/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -2270,7 +2270,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -2284,7 +2284,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -2293,13 +2293,12 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "no value available: schema:name",
       "ada:mappingBeamCurrentDefault": -9999,
-      "ada:workingDistanceDefault": -9999
+      "ada:workingDistanceDefault": -9999,
+      "@id": "ex:semFibsemTAPP-Zega2025/instrument/SEM"
     },
     {
-      "@id": "ex:instrument/FIBSEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -2324,9 +2323,10 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Zega2025/instrument/FIBSEM/part/Ion-Beam-Source"
         }
-      ]
+      ],
+      "@id": "ex:semFibsemTAPP-Zega2025/instrument/FIBSEM"
     }
   ],
   "schema:actionProcess": {
@@ -2469,6 +2469,14 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
@@ -2480,19 +2488,11 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
-    schema1:instrument <ex:instrument/FIBSEM>,
-        <ex:instrument/SEM> ;
+    schema1:instrument <ex:semFibsemTAPP-Zega2025/instrument/FIBSEM>,
+        <ex:semFibsemTAPP-Zega2025/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2519,27 +2519,27 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
 
-<ex:instrument/FIBSEM> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:semFibsemTAPP-Zega2025/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "missing" .
 
-<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "N/A" ;
-    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
-        <ex:instrument/SEM/part/Electron-Source>,
-        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:semFibsemTAPP-Zega2025/instrument/SEM/part/BSE-Detector>,
+        <ex:semFibsemTAPP-Zega2025/instrument/SEM/part/Electron-Source>,
+        <ex:semFibsemTAPP-Zega2025/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -2549,20 +2549,20 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
-<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -2656,8 +2656,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -2671,7 +2671,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -2685,7 +2685,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -2694,10 +2694,10 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "no value available: schema:name",
       "ada:mappingBeamCurrentDefault": -9999,
-      "ada:workingDistanceDefault": -9999
+      "ada:workingDistanceDefault": -9999,
+      "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/SEM"
     },
     {
       "schema:additionalType": [
@@ -2719,15 +2719,15 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM/part/Ion-Beam-Source"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/FIBSEM",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM"
     }
   ],
   "schema:actionProcess": {
@@ -2931,8 +2931,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -2946,7 +2946,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -2960,7 +2960,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -2969,10 +2969,10 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "no value available: schema:name",
       "ada:mappingBeamCurrentDefault": -9999,
-      "ada:workingDistanceDefault": -9999
+      "ada:workingDistanceDefault": -9999,
+      "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/SEM"
     },
     {
       "schema:additionalType": [
@@ -2994,15 +2994,15 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM/part/Ion-Beam-Source"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/FIBSEM",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM"
     }
   ],
   "schema:actionProcess": {
@@ -3144,8 +3144,10 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -3159,14 +3161,12 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
-    schema1:instrument <ex:instrument/FIBSEM>,
-        <ex:instrument/SEM> ;
+    schema1:instrument <ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM>,
+        <ex:semFibsemTAPP-Zega2025-2/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3193,27 +3193,27 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
 
-<ex:instrument/FIBSEM> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "N/A" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-2/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "N/A" ;
-    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
-        <ex:instrument/SEM/part/Electron-Source>,
-        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/BSE-Detector>,
+        <ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/Electron-Source>,
+        <ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -3223,20 +3223,20 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
-<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -3333,8 +3333,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -3348,7 +3348,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -3362,7 +3362,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -3371,10 +3371,10 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "no value available: schema:name",
       "ada:mappingBeamCurrentDefault": -9999,
-      "ada:workingDistanceDefault": -9999
+      "ada:workingDistanceDefault": -9999,
+      "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/SEM"
     },
     {
       "schema:additionalType": [
@@ -3396,15 +3396,15 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM/part/Ion-Beam-Source"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/FIBSEM",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM"
     }
   ],
   "schema:actionProcess": {
@@ -3633,8 +3633,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/Electron-Source"
         },
         {
           "@type": [
@@ -3648,7 +3648,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector"
         },
         {
           "@type": [
@@ -3662,7 +3662,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
+          "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/SE-Detector"
         }
       ],
       "schema:description": "N/A",
@@ -3671,10 +3671,10 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/SEM",
       "schema:name": "no value available: schema:name",
       "ada:mappingBeamCurrentDefault": -9999,
-      "ada:workingDistanceDefault": -9999
+      "ada:workingDistanceDefault": -9999,
+      "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/SEM"
     },
     {
       "schema:additionalType": [
@@ -3696,15 +3696,15 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/FIBSEM/part/Ion-Beam-Source"
+          "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM/part/Ion-Beam-Source"
         }
       ],
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/FIBSEM",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM"
     }
   ],
   "schema:actionProcess": {
@@ -3870,15 +3870,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ],
@@ -3891,11 +3882,20 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
-    schema1:instrument <ex:instrument/FIBSEM>,
-        <ex:instrument/SEM> ;
+    schema1:instrument <ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM>,
+        <ex:semFibsemTAPP-Zega2025-3/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3922,27 +3922,27 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
 
-<ex:instrument/FIBSEM> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "N/A" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-3/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "N/A" ;
-    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
-        <ex:instrument/SEM/part/Electron-Source>,
-        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector>,
+        <ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/Electron-Source>,
+        <ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -3952,20 +3952,20 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
-<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;

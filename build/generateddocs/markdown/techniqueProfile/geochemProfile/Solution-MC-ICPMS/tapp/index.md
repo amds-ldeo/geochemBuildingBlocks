@@ -260,8 +260,8 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -299,8 +299,8 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -314,8 +314,8 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -329,7 +329,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -343,7 +343,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -357,7 +357,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -370,8 +370,8 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -957,8 +957,8 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -996,8 +996,8 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -1011,8 +1011,8 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -1026,7 +1026,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -1040,7 +1040,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -1054,7 +1054,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -1067,8 +1067,8 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P0/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -1422,6 +1422,16 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
                     schema1:name "Sample preparation" ;
@@ -1432,17 +1442,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -1453,7 +1453,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P0/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut für Planetologie, University of Münster" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1537,43 +1537,43 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
     ada:uncertaintyLevel "2 s.d. for external reproducibility (n = 24 for Mo, n = 14 for Ba)" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P0/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune Plus" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -1581,7 +1581,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
@@ -1589,7 +1589,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P0/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -2061,8 +2061,8 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -2123,8 +2123,8 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -2186,8 +2186,8 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -2213,9 +2213,9 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -2229,7 +2229,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -2243,7 +2243,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -2291,8 +2291,8 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -2882,8 +2882,8 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -2944,8 +2944,8 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -3007,8 +3007,8 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -3034,9 +3034,9 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -3050,7 +3050,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -3064,7 +3064,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -3112,8 +3112,8 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P1/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -3436,6 +3436,13 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
@@ -3457,13 +3464,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
@@ -3479,7 +3479,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Laser half: NewWave UP213 (213 nm), He carrier, 60 µm spot, 180 × 80 µm raster, 5 µm/s, 10 Hz, ~9–10 J/cm², ablated aerosol mixed with 2% HNO3 in the spray chamber — Table 1" ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Woods Hole Oceanographic Institution" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3559,7 +3559,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     ada:uncertaintyLevel "1σ internal precision for individual analyses, 2σ external reproducibility for replicates — §2.4" ;
     ada:washTimeBetweenSamples "2 min — Table 1; 4 min after laser analyses" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
@@ -3567,19 +3567,19 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "NEPTUNE (\"Thermo Electron NEPTUNE\")" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -3587,13 +3587,13 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -3603,7 +3603,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -3611,7 +3611,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -3621,7 +3621,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -4190,8 +4190,8 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -4240,8 +4240,8 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -4267,8 +4267,8 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -4294,9 +4294,9 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -4310,7 +4310,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -4324,7 +4324,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -4373,8 +4373,8 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -4981,8 +4981,8 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -5031,8 +5031,8 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -5058,8 +5058,8 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -5085,9 +5085,9 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -5101,7 +5101,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -5115,7 +5115,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -5164,8 +5164,8 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P2/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -5504,6 +5504,13 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "MR; HR — 'either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex Ω desolvating nebulizer system (dry plasma, HR-mode, Ni cones)' (§2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -5513,13 +5520,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "iron aqua regia: 3:1 HCl–HNO3; basalt HF–HNO3: 2:1 HF–HNO3; basalt aqua regia: aqua regia; chloride conversion: 10 M HCl — §2.1" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "MR; HR — 'either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex Ω desolvating nebulizer system (dry plasma, HR-mode, Ni cones)' (§2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -5541,7 +5541,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P2/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5621,7 +5621,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     ada:uncertaintyLevel "95% confidence interval from Student's t — over n = 10–35 repeat measurements of each sample solution (§2.3)" ;
     ada:washTimeBetweenSamples "210 s" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P2/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
@@ -5629,19 +5629,19 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune \"upgraded to Neptune Plus specifications\"" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -5649,20 +5649,20 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -5670,7 +5670,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
@@ -5679,7 +5679,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P2/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -6164,7 +6164,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -6178,8 +6177,8 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -6193,7 +6192,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -6207,7 +6206,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -6221,7 +6220,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -6235,7 +6234,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -6249,10 +6248,11 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Torch"
         }
       ],
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -6833,7 +6833,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
           "@type": [
@@ -6847,8 +6846,8 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -6862,7 +6861,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -6876,7 +6875,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -6890,7 +6889,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -6904,7 +6903,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -6918,10 +6917,11 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Torch"
         }
       ],
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P3/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -7287,6 +7287,15 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
                     schema1:additionalType bios:LabProcess ;
@@ -7305,15 +7314,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "main configuration; subconfiguration — for Dy and Yb 'a subconfiguration was used to monitor isobaric interferences'; the cup configurations are in table S2" ;
                     schema1:name "Data acquisition" ;
@@ -7327,7 +7327,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P3/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -7421,55 +7421,55 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     ada:uncertaintyLevel "95% confidence interval — Student's t, from the sample's own φE values with six or more brackets, otherwise from standards bracketed by standards" ;
     ada:washTimeBetweenSamples "300 s rinsing between bracketed measurements" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P3/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune Plus \"with the addition of an OnTool booster\"" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P3/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -7893,8 +7893,8 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -7920,8 +7920,8 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -7935,8 +7935,8 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -7950,7 +7950,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -7964,7 +7964,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -7978,7 +7978,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -8004,8 +8004,8 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -8602,8 +8602,8 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -8629,8 +8629,8 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -8644,8 +8644,8 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -8659,7 +8659,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -8673,7 +8673,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -8687,7 +8687,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -8713,8 +8713,8 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -9067,13 +9067,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -9083,6 +9076,13 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "chemical abrasion: 29 M HF; U-Pb dissolution: 29 M HF; Zr-only dissolution: 20% HNO3, then 29 M HF; spike equilibration: N" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -9100,7 +9100,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Mo doping test: Offset δ94/90ZrNIST = −63.4 · x, x the Mo/Zr atomic ratio — used to show the residual Mo is negligible" ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Massachusetts Institute of Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -9185,58 +9185,58 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
     bios:computationalTool [ schema1:name "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Nu Instruments" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nu Plasma II" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -9713,8 +9713,8 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -9752,8 +9752,8 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -9790,9 +9790,9 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -9806,7 +9806,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -9820,7 +9820,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -9834,7 +9834,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -9871,8 +9871,8 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -10435,8 +10435,8 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -10474,8 +10474,8 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -10512,9 +10512,9 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -10528,7 +10528,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -10542,7 +10542,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -10556,7 +10556,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -10593,8 +10593,8 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -10893,13 +10893,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Whole-rock powder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
@@ -10924,7 +10917,14 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Whole-rock powder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -10934,7 +10934,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -11008,26 +11008,26 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     ada:uncertaintyLevel "2σ/√n — σ from the standards treated as samples, n the replicates of the sample" ;
     ada:washTimeBetweenSamples "60 s with 0.45 M HNO3 — take-up time 90 s" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
@@ -11036,19 +11036,19 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -11056,7 +11056,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
@@ -11064,7 +11064,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -11432,8 +11432,8 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -11470,9 +11470,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -11486,7 +11486,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -11500,7 +11500,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -11514,7 +11514,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -11528,7 +11528,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -11565,8 +11565,8 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -12175,8 +12175,8 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -12213,9 +12213,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -12229,7 +12229,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -12243,7 +12243,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -12257,7 +12257,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -12271,7 +12271,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -12308,8 +12308,8 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P6/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -12792,6 +12792,13 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "N/A - reference material solutions, no digestion." ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
@@ -12812,13 +12819,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "N/A — reference material solutions, no solid preparation" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
@@ -12834,7 +12834,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P6/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Arthur Holmes Isotope Geology Laboratory, Durham" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -12914,26 +12914,26 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     bios:computationalTool [ schema1:name "Microsoft Excel — \"Following analysis all intensity data was exported and re-processed offline using Excel\"" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P6/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
@@ -12942,25 +12942,25 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
@@ -12969,7 +12969,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P6/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -13337,8 +13337,8 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -13364,9 +13364,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -13380,7 +13380,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -13394,7 +13394,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -13408,7 +13408,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -13422,7 +13422,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -13448,8 +13448,8 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -14025,8 +14025,8 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -14052,9 +14052,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -14068,7 +14068,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -14082,7 +14082,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -14096,7 +14096,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -14110,7 +14110,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -14136,8 +14136,8 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P7/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -14586,6 +14586,20 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "sequence 1; sequence 2 — 'masses 183W to 189Os collected in the first sequence and 188Os to 192Os collected in the second sequence with a 4 s magnet settle time between sequences' (§3.2)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "N/A — reference material solutions, no solid preparation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
@@ -14597,25 +14611,11 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "N/A — reference material solutions, no solid preparation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "N/A - reference material solutions, no digestion." ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "sequence 1; sequence 2 — 'masses 183W to 189Os collected in the first sequence and 188Os to 192Os collected in the second sequence with a 4 s magnet settle time between sequences' (§3.2)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -14626,7 +14626,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P7/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NERC Isotope Geosciences Laboratory (NIGL)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -14706,25 +14706,25 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     bios:computationalTool [ schema1:name "Online processing on the instrument — \"Samples were processed on-line for W and Re interferences and instrumental mass bias\"" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P7/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nu Plasma" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -14732,25 +14732,25 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
@@ -14759,7 +14759,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P7/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -15209,8 +15209,8 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -15271,8 +15271,8 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -15323,8 +15323,8 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -15350,9 +15350,9 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -15366,7 +15366,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -15380,7 +15380,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -15417,8 +15417,8 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -15978,8 +15978,8 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -16040,8 +16040,8 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -16092,8 +16092,8 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -16119,9 +16119,9 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -16135,7 +16135,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -16149,7 +16149,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -16186,8 +16186,8 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -16503,6 +16503,13 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -16515,26 +16522,19 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "spray chamber; APEX — 'measured using both the spray chamber and the APEX sample introduction systems' in most cases (§2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "spray chamber; APEX — 'measured using both the spray chamber and the APEX sample introduction systems' in most cases (§2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -16545,7 +16545,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Extraction voltage −2000 V; peristaltic pump 5 rpm (Table 1)" ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut de Physique du Globe de Paris" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -16622,26 +16622,26 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
     ada:uncertaintyLevel "\"the 2 standard error (2se) is reported unless stated otherwise\"; for samples analysed fewer than 3 times, \"the largest 2 se reported for a sample analyzed multiple times has been used\"" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitorDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune Plus" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -16649,13 +16649,13 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -16664,14 +16664,14 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -16681,7 +16681,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-Moynier2017/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -17203,8 +17203,8 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -17242,8 +17242,8 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -17269,9 +17269,9 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -17285,7 +17285,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -17299,7 +17299,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -17313,7 +17313,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -17339,8 +17339,8 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -17934,8 +17934,8 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -17973,8 +17973,8 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -18000,9 +18000,9 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -18016,7 +18016,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -18030,7 +18030,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -18044,7 +18044,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -18070,8 +18070,8 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P9/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -18410,6 +18410,13 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
@@ -18417,6 +18424,13 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -18428,21 +18442,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "hotplate HF–HNO3: concentrated HF–HNO3; HNO3–HCl: HNO3–HCl; HNO3–H2O2 dissolution: HNO3–H2O2; high-PT HF–HNO3: concentrated HF–HNO3; Parr bomb: concentrated HF–HNO3; Ivuna high-PT: concentrated HF–HNO3, then concentrated HCl" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "hotplate HF–HNO3: concentrated HF–HNO3; HNO3–HCl: HNO3–HCl; HNO3–H2O2 dissolution: HNO3–H2O2; high-PT HF–HNO3: concentrated HF–HNO3; Parr bomb: concentrated HF–HNO3; Ivuna high-PT: concentrated HF–HNO3, then concentrated HCl" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -18453,7 +18453,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P9/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ETH Zurich; sample digestion and separation at Tokyo Institute of Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -18537,25 +18537,25 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     ada:uncertaintyLevel "Both quoted: \"external precision expressed as 2 standard deviations (2SD)\" and 2SE per analysis" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P9/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune Plus" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -18563,26 +18563,26 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
@@ -18590,7 +18590,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P9/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -19059,8 +19059,8 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -19087,8 +19087,8 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -19114,8 +19114,8 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -19141,9 +19141,9 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -19157,7 +19157,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -19171,7 +19171,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -19219,8 +19219,8 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -19816,8 +19816,8 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -19844,8 +19844,8 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -19871,8 +19871,8 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -19898,9 +19898,9 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -19914,7 +19914,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -19928,7 +19928,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -19976,8 +19976,8 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P10/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -20332,13 +20332,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fe; Cr; Mg — separate introduction systems and acquisition settings (Methods)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits — Methods" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -20362,7 +20355,14 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Parr bomb: 3:1 7 M HNO3 : 28 M HF; aqua regia: aqua regia; NaOH fusion: NaOH, then Milli-Q water and HNO3" ] ] ] ;
+                            schema1:name "Parr bomb: 3:1 7 M HNO3 : 28 M HF; aqua regia: aqua regia; NaOH fusion: NaOH, then Milli-Q water and HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Fe; Cr; Mg — separate introduction systems and acquisition settings (Methods)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -20372,7 +20372,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P10/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -20462,7 +20462,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     ada:uncertaintyLevel "\"the mean and 2 x standard error (SE) of ten individual standard-bracketed sample analyses\"" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P10/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -20470,19 +20470,19 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neoma" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -20490,34 +20490,34 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P10/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -21009,8 +21009,8 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -21024,8 +21024,8 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -21039,7 +21039,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -21053,7 +21053,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -21067,7 +21067,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -21081,7 +21081,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -21094,8 +21094,8 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -21645,8 +21645,8 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -21660,8 +21660,8 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -21675,7 +21675,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -21689,7 +21689,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -21703,7 +21703,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -21717,7 +21717,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -21730,8 +21730,8 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P11/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -22016,17 +22016,13 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -22042,13 +22038,17 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault>,
@@ -22056,7 +22056,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P11/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -22132,57 +22132,57 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
     ada:uncertaintyLevel "N — ± values on δ⁴¹K without a stated convention" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P11/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune Plus" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P11/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -22618,8 +22618,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -22645,8 +22645,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -22660,8 +22660,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -22675,7 +22675,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -22689,7 +22689,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -22703,7 +22703,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -22716,8 +22716,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -23260,8 +23260,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "schema:additionalType": [
@@ -23287,8 +23287,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -23302,8 +23302,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -23317,7 +23317,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -23331,7 +23331,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -23345,7 +23345,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -23358,8 +23358,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P12/instrument/ICPMS"
     }
   ],
   "schema:additionalProperty": [
@@ -23649,6 +23649,13 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "K; Cu; Zn — K in dry plasma with high mass resolution, Cu and Zn in wet plasma with low resolution" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -23658,13 +23665,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "HF–HNO3 attack: 3:1 concentrated HF : HNO3; HNO3–HCl flux: concentrated HNO3 and HCl, with H2O2; final uptake: 0.5 M HNO3" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "K; Cu; Zn — K in dry plasma with high mass resolution, Cu and Zn in wet plasma with low resolution" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -23687,7 +23687,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P12/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -23768,58 +23768,58 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     ada:uncertaintyLevel "2 s.d. — Bennu values carry 2 s.e. in the main text" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P12/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune Plus" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P12/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
@@ -24247,9 +24247,9 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -24263,7 +24263,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -24277,7 +24277,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -24291,7 +24291,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -24305,7 +24305,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -24319,7 +24319,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -24332,8 +24332,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -24906,9 +24906,9 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collector"
         },
         {
           "@type": [
@@ -24922,7 +24922,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -24936,7 +24936,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -24950,7 +24950,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "@type": [
@@ -24964,7 +24964,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System"
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Sample-Introduction-System"
         },
         {
           "@type": [
@@ -24978,7 +24978,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:manufacturer": {
@@ -24991,8 +24991,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:solutionMcicpmsTAPP-P13/instrument/ICPMS"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -25312,10 +25312,15 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "configuration 1; configuration 2 — 'Titanium isotopes were collected in two cup configurations'" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "HF–HNO3 attack (concentrated HF and HNO3 3:1, closed beaker, 170 °C, 48 h); HNO3–HCl flux (concentrated HNO3 and HCl, 1 ml H2O2 added slowly during the HNO3 flux to remove organics); final uptake (5 ml 0.5 M HNO3) — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HF–HNO3 attack: 3:1 concentrated HF : HNO3; HNO3–HCl flux: concentrated HNO3 and HCl, with H2O2; final uptake: 0.5 M HNO3" ] ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -25335,15 +25340,10 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HF–HNO3 attack (concentrated HF and HNO3 3:1, closed beaker, 170 °C, 48 h); HNO3–HCl flux (concentrated HNO3 and HCl, 1 ml H2O2 added slowly during the HNO3 flux to remove organics); final uptake (5 ml 0.5 M HNO3) — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF–HNO3 attack: 3:1 concentrated HF : HNO3; HNO3–HCl flux: concentrated HNO3 and HCl, with H2O2; final uptake: 0.5 M HNO3" ] ] ] ;
+                    schema1:description "configuration 1; configuration 2 — 'Titanium isotopes were collected in two cup configurations'" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -25352,7 +25352,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geochemistry and Petrology, ETH Zurich" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -25434,25 +25434,25 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     ada:uncertaintyLevel "2 s.d." ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Neptune Plus" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -25460,31 +25460,31 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;

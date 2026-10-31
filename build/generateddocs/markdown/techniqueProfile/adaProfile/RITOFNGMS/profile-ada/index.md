@@ -240,7 +240,7 @@ Mock data for validation and testing.
               "schema:identifier": [
                 "ex:instrument-ri-tof-ngms-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaRITOFNGMS-example-001/instrument/instrument"
             }
           ]
         }
@@ -686,7 +686,7 @@ Mock data for validation and testing.
               "schema:identifier": [
                 "ex:instrument-ri-tof-ngms-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaRITOFNGMS-example-001/instrument/instrument"
             }
           ]
         }
@@ -1028,8 +1028,16 @@ ex:adaRITOFNGMS-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
+            prov:used [ schema1:instrument <https://example.org/adaRITOFNGMS-example-001/instrument/instrument> ] ] ;
     ada:submissionType "BundleDelivery" .
+
+<https://example.org/adaRITOFNGMS-example-001/instrument/instrument> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType ada:RI-TOF-NGMSInstrument,
+        <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
+        <https://www.wikidata.org/wiki/Q3099911> ;
+    schema1:identifier "ex:instrument-ri-tof-ngms-001" ;
+    schema1:name "Example RI-TOF-NGMS Instrument" .
 
 ex:adaRITOFNGMS-file-001 a cdi:TabularTextDataSet,
         schema1:MediaObject,
@@ -1104,14 +1112,6 @@ ex:adaRITOFNGMS-var-002 a cdi:InstanceVariable,
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/position_x> ;
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
-
-<https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType ada:RI-TOF-NGMSInstrument,
-        <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
-    schema1:identifier "ex:instrument-ri-tof-ngms-001" ;
-    schema1:name "Example RI-TOF-NGMS Instrument" .
 
 
 ```

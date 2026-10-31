@@ -150,8 +150,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -239,9 +239,9 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collector"
         },
         {
           "schema:additionalType": [
@@ -267,8 +267,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -282,7 +282,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -296,7 +296,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -339,8 +339,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS"
     },
     {
       "schema:additionalType": [
@@ -365,7 +365,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/Laser-Ablation-System"
+      "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/Laser-Ablation-System"
     }
   ],
   "ada:backgroundCountTimeDefault": "30 cycles × 0.524 s ≈ 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)",
@@ -855,8 +855,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/ICP-Source",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source"
         },
         {
           "schema:additionalType": [
@@ -944,9 +944,9 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration"
+          "ada:collectorConfiguration": "no value available: ada:collectorConfiguration",
+          "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collector"
         },
         {
           "schema:additionalType": [
@@ -972,8 +972,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone"
         },
         {
           "schema:additionalType": [
@@ -987,7 +987,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             "schema:Product",
             "schema:Thing"
           ],
-          "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
+          "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
           "@type": [
@@ -1001,7 +1001,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             }
           ],
           "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
+          "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Torch"
         }
       ],
       "schema:additionalProperty": [
@@ -1044,8 +1044,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS"
     },
     {
       "schema:additionalType": [
@@ -1070,7 +1070,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/Laser-Ablation-System"
+      "@id": "ex:laMcicpmsTAPP-Zhang2022/instrument/Laser-Ablation-System"
     }
   ],
   "ada:backgroundCountTimeDefault": "30 cycles \u00d7 0.524 s \u2248 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)",
@@ -1462,8 +1462,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     schema1:description "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability Reported detail: ada:isobaricInterferenceCorrectionsApplied = Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "National Natural Science Foundation of China (NSFC)" ] ;
-    schema1:instrument <ex:instrument/ICPMS>,
-        <ex:instrument/Laser-Ablation-System> ;
+    schema1:instrument <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS>,
+        <ex:laMcicpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Geological Processes and Mineral Resources, China Univ. Geosciences, Wuhan, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1546,25 +1546,25 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     bios:computationalTool [ schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field (MC-ICP-MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collector>,
+        <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source>,
+        <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone>,
+        <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferenceCorrectionMethod>,
         <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferingSpecies>,
@@ -1577,13 +1577,13 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "all: Not installed — 'traditional (MC-)ICP-MS without the reaction/collision cell' (p.1); contrasted against 'MC-ICP-MS with collision cell' in the conclusion (pp.8-9)" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -1592,20 +1592,20 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
 
-<ex:instrument/Laser-Ablation-System> a schema1:Product,
+<ex:laMcicpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Laser Ablation System" ;

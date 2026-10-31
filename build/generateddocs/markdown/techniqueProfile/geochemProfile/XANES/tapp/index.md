@@ -48,7 +48,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/nxs-base-classes-NXinstrument-html"
+      "@id": "ex:xanesTAPP-Gainsforth2023/instrument/nxs-base-classes-NXinstrument-html"
     }
   ],
   "schema:measurementTechnique": [
@@ -159,7 +159,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/nxs-base-classes-NXinstrument-html"
+      "@id": "ex:xanesTAPP-Gainsforth2023/instrument/nxs-base-classes-NXinstrument-html"
     }
   ],
   "schema:measurementTechnique": [
@@ -251,7 +251,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     schema1:description "xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source at Lawrence Berkeley National Laboratory | ALS STXM beamline 5.3.2.2 (publication column of XANES_TAPP_draft_v2.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA" ] ;
-    schema1:instrument <ex:instrument/nxs-base-classes-NXinstrument-html> ;
+    schema1:instrument <ex:xanesTAPP-Gainsforth2023/instrument/nxs-base-classes-NXinstrument-html> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/00319zh75" ;
             schema1:name "Advanced Light Source at Lawrence Berkeley National Laboratory" ] ;
@@ -265,7 +265,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
-<ex:instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
+<ex:xanesTAPP-Gainsforth2023/instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
         <https://www.wikidata.org/wiki/Q3099911> ;

@@ -70,7 +70,7 @@ Mock data for validation and testing.
     "ex": "https://example.org/",
     "dcat": "http://www.w3.org/ns/dcat#"
   },
-  "@id": "ex:adaQRIS-example-001",
+  "@id": "ex:adaQRIS-legacy-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
@@ -246,7 +246,7 @@ Mock data for validation and testing.
               "schema:identifier": [
                 "ex:instrument-qris-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaQRIS-legacy-example-001/instrument/instrument"
             }
           ]
         }
@@ -434,7 +434,7 @@ Mock data for validation and testing.
     ],
     "@id": "ex:adaQRIS-metadata-001",
     "schema:about": {
-      "@id": "ex:adaQRIS-example-001"
+      "@id": "ex:adaQRIS-legacy-example-001"
     },
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
@@ -509,7 +509,7 @@ Mock data for validation and testing.
       "dcat": "http://www.w3.org/ns/dcat#"
     }
   ],
-  "@id": "ex:adaQRIS-example-001",
+  "@id": "ex:adaQRIS-legacy-example-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
@@ -685,7 +685,7 @@ Mock data for validation and testing.
               "schema:identifier": [
                 "ex:instrument-qris-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaQRIS-legacy-example-001/instrument/instrument"
             }
           ]
         }
@@ -873,7 +873,7 @@ Mock data for validation and testing.
     ],
     "@id": "ex:adaQRIS-metadata-001",
     "schema:about": {
-      "@id": "ex:adaQRIS-example-001"
+      "@id": "ex:adaQRIS-legacy-example-001"
     },
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
@@ -934,7 +934,34 @@ Mock data for validation and testing.
 @prefix spdx: <http://spdx.org/rdf/terms#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:adaQRIS-example-001 a schema1:Dataset,
+ex:adaQRIS-file-001 a schema1:Collection,
+        schema1:MediaObject,
+        ada:collection ;
+    schema1:additionalType ada:QRISCalibratedCollection ;
+    schema1:description "QRIS data file for ALH 84001 thin section" ;
+    schema1:encodingFormat "image/tiff" ;
+    schema1:name "ALH84001_QRIS_001.tif" ;
+    schema1:size [ a schema1:QuantitativeValue ;
+            schema1:unitText "byte" ;
+            schema1:value 10485760 ] ;
+    spdx:checksum [ a spdx:Checksum ;
+            spdx:algorithm "MD5" ;
+            spdx:checksumValue "d41d8cd98f00b204e9800998ecf8427e" ] ;
+    ada:componentType "ada:QRISCalibratedCollection" .
+
+ex:adaQRIS-file-002 a schema1:DigitalDocument,
+        schema1:MediaObject,
+        ada:document ;
+    schema1:additionalType ada:methodDescription ;
+    schema1:description "Method description document for this analysis" ;
+    schema1:encodingFormat "application/pdf" ;
+    schema1:name "ALH84001_QRIS_methods.pdf" ;
+    schema1:size [ a schema1:QuantitativeValue ;
+            schema1:unitText "byte" ;
+            schema1:value 524288 ] ;
+    ada:componentType "ada:methodDescription" .
+
+ex:adaQRIS-legacy-example-001 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalType ada:DataDeliveryPackage,
         "Quantitative Reflective Imaging System (QRIS)" ;
@@ -1020,35 +1047,16 @@ ex:adaQRIS-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
+            prov:used [ schema1:instrument <https://example.org/adaQRIS-legacy-example-001/instrument/instrument> ] ] ;
     ada:submissionType "BundleDelivery" .
 
-ex:adaQRIS-file-001 a schema1:Collection,
-        schema1:MediaObject,
-        ada:collection ;
-    schema1:additionalType ada:QRISCalibratedCollection ;
-    schema1:description "QRIS data file for ALH 84001 thin section" ;
-    schema1:encodingFormat "image/tiff" ;
-    schema1:name "ALH84001_QRIS_001.tif" ;
-    schema1:size [ a schema1:QuantitativeValue ;
-            schema1:unitText "byte" ;
-            schema1:value 10485760 ] ;
-    spdx:checksum [ a spdx:Checksum ;
-            spdx:algorithm "MD5" ;
-            spdx:checksumValue "d41d8cd98f00b204e9800998ecf8427e" ] ;
-    ada:componentType "ada:QRISCalibratedCollection" .
-
-ex:adaQRIS-file-002 a schema1:DigitalDocument,
-        schema1:MediaObject,
-        ada:document ;
-    schema1:additionalType ada:methodDescription ;
-    schema1:description "Method description document for this analysis" ;
-    schema1:encodingFormat "application/pdf" ;
-    schema1:name "ALH84001_QRIS_methods.pdf" ;
-    schema1:size [ a schema1:QuantitativeValue ;
-            schema1:unitText "byte" ;
-            schema1:value 524288 ] ;
-    ada:componentType "ada:methodDescription" .
+<https://example.org/adaQRIS-legacy-example-001/instrument/instrument> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType ada:QRISInstrument,
+        <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
+        <https://www.wikidata.org/wiki/Q3099911> ;
+    schema1:identifier "ex:instrument-qris-001" ;
+    schema1:name "Example QRIS Instrument" .
 
 ex:adaQRIS-metadata-001 a schema1:Dataset ;
     dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
@@ -1059,7 +1067,7 @@ ex:adaQRIS-metadata-001 a schema1:Dataset ;
         <https://w3id.org/geochem/metadata/profiles/adaProduct>,
         <https://w3id.org/geochem/metadata/profiles/adaQRIS>,
         <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
-    schema1:about ex:adaQRIS-example-001 ;
+    schema1:about ex:adaQRIS-legacy-example-001 ;
     schema1:additionalType dcat:CatalogRecord ;
     schema1:dateModified "2026-01-15" ;
     schema1:includedInDataCatalog [ a schema1:DataCatalog ;
@@ -1092,14 +1100,6 @@ ex:adaQRIS-var-002 a cdi:InstanceVariable,
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/position_x> ;
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
-
-<https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType ada:QRISInstrument,
-        <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
-    schema1:identifier "ex:instrument-qris-001" ;
-    schema1:name "Example QRIS Instrument" .
 
 
 ```
