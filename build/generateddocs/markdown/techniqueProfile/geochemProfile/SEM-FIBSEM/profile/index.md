@@ -293,7 +293,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ex:adaProduct-var-001",
+      "@id": "ex:var/Sampling-Unit-Name",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -766,7 +766,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ex:adaProduct-var-001",
+      "@id": "ex:var/Sampling-Unit-Name",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -1032,7 +1032,8 @@ ex:adaSEMFIBSEM-example-001 a schema1:Dataset,
     schema1:subjectOf ex:adaProduct-metadata-001 ;
     schema1:url "https://astromat.org/products/adaproduct-example-001" ;
     schema1:variableMeasured ex:adaProduct-var-001,
-        ex:adaProduct-var-002 ;
+        ex:adaProduct-var-002,
+        <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
@@ -1108,10 +1109,8 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
-    schema1:description "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
-        "Sampling Unit Name reported for this dataset. Example value." ;
-    schema1:name "Sampling Unit Name",
-        "measurement_value" ;
+    schema1:description "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing." ;
+    schema1:name "measurement_value" ;
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
     schema1:unitText "counts" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
@@ -1136,6 +1135,17 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         "SEM" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
+
+<https://example.org/var/Sampling-Unit-Name> a cdi:InstanceVariable,
+        schema1:PropertyValue ;
+    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
+    cdi:role "MeasureComponent" ;
+    cdi:simpleUnitOfMeasure "counts" ;
+    schema1:description "Sampling Unit Name reported for this dataset. Example value." ;
+    schema1:name "Sampling Unit Name" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
+    schema1:unitText "counts" ;
+    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 
 ```

@@ -294,7 +294,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ex:adaProduct-var-001",
+      "@id": "ex:var/Sampling-Unit-Name",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -313,7 +313,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
-      "@id": "ex:adaProduct-var-001",
+      "@id": "ex:var/Limit-of-Quantification-LOQ-Method",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -333,7 +333,7 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:value": "no value available: schema:value"
     },
     {
-      "@id": "ex:adaProduct-var-001",
+      "@id": "ex:var/Detection-Limit",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -353,7 +353,7 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:value": -9999
     },
     {
-      "@id": "ex:adaProduct-var-001",
+      "@id": "ex:var/Calibration-Factor-and-Determination-Method",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -835,7 +835,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ex:adaProduct-var-001",
+      "@id": "ex:var/Sampling-Unit-Name",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -854,7 +854,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
-      "@id": "ex:adaProduct-var-001",
+      "@id": "ex:var/Limit-of-Quantification-LOQ-Method",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -874,7 +874,7 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:value": "no value available: schema:value"
     },
     {
-      "@id": "ex:adaProduct-var-001",
+      "@id": "ex:var/Detection-Limit",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -894,7 +894,7 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:value": -9999
     },
     {
-      "@id": "ex:adaProduct-var-001",
+      "@id": "ex:var/Calibration-Factor-and-Determination-Method",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -1169,7 +1169,11 @@ ex:adaSolutionSFICPMS-example-001 a schema1:Dataset,
     schema1:subjectOf ex:adaProduct-metadata-001 ;
     schema1:url "https://astromat.org/products/adaproduct-example-001" ;
     schema1:variableMeasured ex:adaProduct-var-001,
-        ex:adaProduct-var-002 ;
+        ex:adaProduct-var-002,
+        <https://example.org/var/Calibration-Factor-and-Determination-Method>,
+        <https://example.org/var/Detection-Limit>,
+        <https://example.org/var/Limit-of-Quantification-LOQ-Method>,
+        <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
@@ -1249,21 +1253,10 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
-    schema1:defaultValue "no value available: schema:defaultValue" ;
-    schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
-        "Detection Limit reported for this dataset. Example value.",
-        "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
-        "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
-        "Sampling Unit Name reported for this dataset. Example value." ;
-    schema1:name "Calibration Factor and Determination Method",
-        "Detection Limit",
-        "Limit of Quantification (LOQ) Method",
-        "Sampling Unit Name",
-        "measurement_value" ;
+    schema1:description "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing." ;
+    schema1:name "measurement_value" ;
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
     schema1:unitText "counts" ;
-    schema1:value -9999,
-        "no value available: schema:value" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 ex:adaProduct-var-002 a cdi:InstanceVariable,
@@ -1286,6 +1279,53 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         "ICPMS" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
+
+<https://example.org/var/Calibration-Factor-and-Determination-Method> a cdi:InstanceVariable,
+        schema1:PropertyValue ;
+    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
+    cdi:role "MeasureComponent" ;
+    cdi:simpleUnitOfMeasure "counts" ;
+    schema1:defaultValue "no value available: schema:defaultValue" ;
+    schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value." ;
+    schema1:name "Calibration Factor and Determination Method" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
+    schema1:unitText "counts" ;
+    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
+
+<https://example.org/var/Detection-Limit> a cdi:InstanceVariable,
+        schema1:PropertyValue ;
+    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
+    cdi:role "MeasureComponent" ;
+    cdi:simpleUnitOfMeasure "counts" ;
+    schema1:description "Detection Limit reported for this dataset. Example value." ;
+    schema1:name "Detection Limit" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
+    schema1:unitText "counts" ;
+    schema1:value -9999 ;
+    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
+
+<https://example.org/var/Limit-of-Quantification-LOQ-Method> a cdi:InstanceVariable,
+        schema1:PropertyValue ;
+    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
+    cdi:role "MeasureComponent" ;
+    cdi:simpleUnitOfMeasure "counts" ;
+    schema1:description "Limit of Quantification (LOQ) Method reported for this dataset. Example value." ;
+    schema1:name "Limit of Quantification (LOQ) Method" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
+    schema1:unitText "counts" ;
+    schema1:value "no value available: schema:value" ;
+    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
+
+<https://example.org/var/Sampling-Unit-Name> a cdi:InstanceVariable,
+        schema1:PropertyValue ;
+    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
+    cdi:role "MeasureComponent" ;
+    cdi:simpleUnitOfMeasure "counts" ;
+    schema1:description "Sampling Unit Name reported for this dataset. Example value." ;
+    schema1:name "Sampling Unit Name" ;
+    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
+    schema1:unitText "counts" ;
+    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 
 ```

@@ -59,56 +59,31 @@
                     schema1:object <file:///github/workspace/#quantifiedConcentrations> ;
                     schema1:position 6 ;
                     dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
-                            dqv:isMeasurementOf "oxide production" ;
-                            dqv:value "ThO/Th ca. 0.7%" ],
-                        [ a dqv:QualityMeasurement ;
                             dqv:isMeasurementOf "detection limit method" ;
-                            dqv:value "Sample-individual LOD per Pettke et al. (2012)" ] ],
+                            dqv:value "Sample-individual LOD per Pettke et al. (2012)" ],
+                        [ a dqv:QualityMeasurement ;
+                            dqv:isMeasurementOf "oxide production" ;
+                            dqv:value "ThO/Th ca. 0.7%" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Volcanic glass shards or tephra grains mounted in epoxy, polished to expose flat surfaces, and carbon coated for prior EPMA analysis of major elements (Si used as internal standard)." ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    schema1:result <file:///github/workspace/#preparedMount> ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 5 ;
-                            schema1:name "Repetition Rate" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "Hz" ;
-                            schema1:valueName "repetitionRate" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 1e-03 ;
-                            schema1:name "Laser Energy" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "mJ" ;
-                            schema1:valueName "laserEnergy" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "193 nm (ArF excimer)" ;
-                            schema1:name "Laser Wavelength" ;
+                            schema1:defaultValue "7 ns" ;
+                            schema1:name "Laser Pulse Time" ;
                             schema1:readonlyValue true ;
-                            schema1:valueName "laserWavelength" ;
+                            schema1:valueName "laserPulseTime" ;
                             schema1:valueRequired true ;
                             ada:category "Laser Conditions" ;
                             ada:dataType "string" ;
                             ada:fieldScope "method" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "point" ;
-                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/laicpms/spot-geometries> ;
-                            schema1:name "Laser Spot Path Geometry" ;
-                            schema1:readonlyValue false ;
-                            schema1:valueName "laserSpotPathGeometry" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "15; 20" ;
@@ -123,14 +98,47 @@
                             ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "7 ns" ;
-                            schema1:name "Laser Pulse Time" ;
+                            schema1:defaultValue "point" ;
+                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/laicpms/spot-geometries> ;
+                            schema1:name "Laser Spot Path Geometry" ;
+                            schema1:readonlyValue false ;
+                            schema1:valueName "laserSpotPathGeometry" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "193 nm (ArF excimer)" ;
+                            schema1:name "Laser Wavelength" ;
                             schema1:readonlyValue true ;
-                            schema1:valueName "laserPulseTime" ;
+                            schema1:valueName "laserWavelength" ;
                             schema1:valueRequired true ;
                             ada:category "Laser Conditions" ;
                             ada:dataType "string" ;
                             ada:fieldScope "method" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 1e-03 ;
+                            schema1:name "Laser Energy" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "mJ" ;
+                            schema1:valueName "laserEnergy" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 5 ;
+                            schema1:name "Repetition Rate" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "Hz" ;
+                            schema1:valueName "repetitionRate" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
                             ada:tier "M" ] ;
                     schema1:description "Ablate sample in point mode with 15â€“20 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device." ;
                     schema1:name "Laser ablation data acquisition" ;
@@ -141,6 +149,27 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 9e-01 ;
+                            schema1:name "Carrier Gas (He) Flow Rate" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "L/min" ;
+                            schema1:valueName "carrierGasHeFlowRate" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "Glass smoothing device" ;
+                            schema1:name "Signal Smoothing" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "signalSmoothing" ;
+                            schema1:valueRequired false ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "R" ],
+                        [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue 8e-01 ;
                             schema1:name "Carrier Gas (Ar) Flow Rate" ;
                             schema1:readonlyValue false ;
@@ -162,16 +191,6 @@
                             ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "Glass smoothing device" ;
-                            schema1:name "Signal Smoothing" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "signalSmoothing" ;
-                            schema1:valueRequired false ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "R" ],
-                        [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue 1200 ;
                             schema1:name "RF Power" ;
                             schema1:readonlyValue false ;
@@ -181,29 +200,10 @@
                             ada:category "ICP-MS Conditions" ;
                             ada:dataType "number" ;
                             ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 9e-01 ;
-                            schema1:name "Carrier Gas (He) Flow Rate" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "L/min" ;
-                            schema1:valueName "carrierGasHeFlowRate" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
                             ada:tier "M" ] ;
                     schema1:description "Tune ICP-MS using auto-tune function on line scan of NIST612. Optimize for maximum sensitivity while minimizing oxide production (ThO/Th ~0.7%)." ;
                     schema1:name "ICP-MS tuning and optimization" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Volcanic glass shards or tephra grains mounted in epoxy, polished to expose flat surfaces, and carbon coated for prior EPMA analysis of major elements (Si used as internal standard)." ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    schema1:result <file:///github/workspace/#preparedMount> ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:agent [ a schema1:Organization ;
             schema1:name "University of Cologne, Institute of Geology and Mineralogy" ] ;
     schema1:datePublished "2022-04-22" ;
@@ -226,16 +226,15 @@
             schema1:name "volcanic glass" ] ;
     schema1:version "1.0" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "Si analyzed by EPMA or EDS" ;
-            schema1:description "Internal standard element and how its concentration is derived for each unknown." ;
-            schema1:name "Internal Standard" ;
+            schema1:defaultValue "No correction other than measurement relative to NIST612 and use of Si as internal standard" ;
+            schema1:name "Element Fractionation Correction" ;
             schema1:readonlyValue true ;
-            schema1:valueName "internalStandard" ;
-            schema1:valueRequired true ;
-            ada:category "Calibration" ;
+            schema1:valueName "elementFractionationCorrection" ;
+            schema1:valueRequired false ;
+            ada:category "Data Processing" ;
             ada:dataType "string" ;
             ada:fieldScope "method" ;
-            ada:tier "M" ],
+            ada:tier "R" ],
         [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "2/4/15" ;
             schema1:description "Ratio of calibration standard / QC standard / unknown analyses in a repeating block." ;
@@ -248,16 +247,6 @@
             ada:fieldScope "session" ;
             ada:tier "R" ],
         [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "No correction other than measurement relative to NIST612 and use of Si as internal standard" ;
-            schema1:name "Element Fractionation Correction" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "elementFractionationCorrection" ;
-            schema1:valueRequired false ;
-            ada:category "Data Processing" ;
-            ada:dataType "string" ;
-            ada:fieldScope "method" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Sample individual LOD calculation according to Pettke et al. (2012)" ;
             schema1:name "Detection Limit Method" ;
             schema1:readonlyValue true ;
@@ -266,7 +255,18 @@
             ada:category "Quality Control" ;
             ada:dataType "string" ;
             ada:fieldScope "method" ;
-            ada:tier "R" ] ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "Si analyzed by EPMA or EDS" ;
+            schema1:description "Internal standard element and how its concentration is derived for each unknown." ;
+            schema1:name "Internal Standard" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "internalStandard" ;
+            schema1:valueRequired true ;
+            ada:category "Calibration" ;
+            ada:dataType "string" ;
+            ada:fieldScope "method" ;
+            ada:tier "M" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ba138",
                 "Ca43",
                 "Ce140",
@@ -297,15 +297,18 @@
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
-                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                                    schema1:termCode "ppm" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "weight percent (%m/m)" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "ppb" ] ] ;
-                    schema1:name "Detection Limit Unit" ;
-                    schema1:valueName "detectionLimitUnit" ;
+                    schema1:description "Element symbol with mass number (e.g. Si29, Ba138, U238)." ;
+                    schema1:name "Measured Isotope" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Typical detection limit at 99% confidence (3-sigma)." ;
+                    schema1:name "Detection Limit" ;
+                    schema1:valueName "detectionLimit" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ],
@@ -319,21 +322,18 @@
                     ada:dataType "number" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:description "Typical detection limit at 99% confidence (3-sigma)." ;
-                    schema1:name "Detection Limit" ;
-                    schema1:valueName "detectionLimit" ;
+                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
+                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
+                                    schema1:termCode "ppb" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "weight percent (%m/m)" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "ppm" ] ] ;
+                    schema1:name "Detection Limit Unit" ;
+                    schema1:valueName "detectionLimitUnit" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:description "Element symbol with mass number (e.g. Si29, Ba138, U238)." ;
-                    schema1:name "Measured Isotope" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "targetSpecies" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:description "Gas blank measurement time before ablation in seconds." ;
                     schema1:minValue 1 ;
