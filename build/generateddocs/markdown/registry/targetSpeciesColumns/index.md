@@ -52,9 +52,11 @@ $defs:
     - ada:dataType
   epma_analyticalPrecision:
     title: Analytical Precision
-    description: Reproducibility of repeated measurements on the same or equivalent
-      reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and the measured value.
+    description: Precision of repeated measurements on the same or equivalent reference
+      material, expressed as 1-sigma relative standard deviation (%). State whether
+      the repeats were made within one session (repeatability) or across sessions
+      (intermediate precision, in ISO 5725 terms). Include reference material name,
+      number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -144,12 +146,14 @@ $defs:
     - ada:dataType
   epma_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -470,12 +474,14 @@ $defs:
     - schema:defaultValue
   laMcicpmsUPb_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -659,13 +665,13 @@ $defs:
     - schema:defaultValue
   laMcicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethod:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -1084,12 +1090,14 @@ $defs:
     - schema:defaultValue
   laMcicpms_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -1301,13 +1309,13 @@ $defs:
     - schema:defaultValue
   laMcicpms_internalAnalyticalPrecisionAndAssessmentMethod:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -1720,12 +1728,14 @@ $defs:
     - schema:defaultValue
   laQicpmsUPb_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -1916,13 +1926,13 @@ $defs:
     - schema:defaultValue
   laQicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethod:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -2309,12 +2319,14 @@ $defs:
     - schema:defaultValue
   laQicpms_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -2505,13 +2517,13 @@ $defs:
     - schema:defaultValue
   laQicpms_internalAnalyticalPrecisionAndAssessmentMethod:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -2898,12 +2910,14 @@ $defs:
     - schema:defaultValue
   laSficpmsUPb_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -3094,13 +3108,13 @@ $defs:
     - schema:defaultValue
   laSficpmsUPb_internalAnalyticalPrecisionAndAssessmentMethod:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -3519,12 +3533,14 @@ $defs:
     - schema:defaultValue
   laSficpms_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -3715,13 +3731,13 @@ $defs:
     - schema:defaultValue
   laSficpms_internalAnalyticalPrecisionAndAssessmentMethod:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -4099,9 +4115,11 @@ $defs:
     - ada:dataType
   semComposition_analyticalPrecision:
     title: Analytical Precision
-    description: Reproducibility of repeated measurements on the same or equivalent
-      reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and the measured value.
+    description: Precision of repeated measurements on the same or equivalent reference
+      material, expressed as 1-sigma relative standard deviation (%). State whether
+      the repeats were made within one session (repeatability) or across sessions
+      (intermediate precision, in ISO 5725 terms). Include reference material name,
+      number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -4285,12 +4303,14 @@ $defs:
     - ada:dataType
   semComposition_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -5033,9 +5053,11 @@ $defs:
     - ada:dataType
   sem_analyticalPrecision:
     title: Analytical Precision
-    description: Reproducibility of repeated measurements on the same or equivalent
-      reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and the measured value.
+    description: Precision of repeated measurements on the same or equivalent reference
+      material, expressed as 1-sigma relative standard deviation (%). State whether
+      the repeats were made within one session (repeatability) or across sessions
+      (intermediate precision, in ISO 5725 terms). Include reference material name,
+      number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -5219,12 +5241,14 @@ $defs:
     - ada:dataType
   sem_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -5943,12 +5967,14 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -6042,13 +6068,13 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_internalAnalyticalPrecisionAndAssessmentMethod:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -6242,12 +6268,14 @@ $defs:
     - schema:defaultValue
   solutionQicpms_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -6433,13 +6461,13 @@ $defs:
     - schema:defaultValue
   solutionQicpms_internalAnalyticalPrecisionAndAssessmentMethod:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -6694,12 +6722,14 @@ $defs:
     - schema:defaultValue
   solutionSficpms_countingStatisticsError:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -6888,13 +6918,13 @@ $defs:
     - schema:defaultValue
   solutionSficpms_internalAnalyticalPrecisionAndAssessmentMethod:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -7189,7 +7219,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.targetSpeciesColumns
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 

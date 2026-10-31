@@ -31,12 +31,14 @@ $defs:
             then:
               properties:
                 schema:defaultValue:
-                  description: Detection limit, one per reported concentration variable
+                  description: 'Detection limit, one per reported concentration variable
                     (one per target species, these being the same set). State the
                     units and whether the values are procedure-typical estimates or
                     session-specific measured values. The calculation method is recorded
-                    separately in Detection Limit Method. Record 'N/A' where the procedure
-                    reports no concentrations.
+                    separately in Detection Limit Method. Record ''N/A'' where the
+                    procedure reports no concentrations. In the dataset: report the
+                    detection limit of each analysis, where the procedure computes
+                    one.'
                   anyOf:
                   - type: number
                   - type: string
@@ -131,12 +133,14 @@ $defs:
             then:
               properties:
                 schema:value:
-                  description: Detection limit, one per reported concentration variable
+                  description: 'Detection limit, one per reported concentration variable
                     (one per target species, these being the same set). State the
                     units and whether the values are procedure-typical estimates or
                     session-specific measured values. The calculation method is recorded
-                    separately in Detection Limit Method. Record 'N/A' where the procedure
-                    reports no concentrations.
+                    separately in Detection Limit Method. Record ''N/A'' where the
+                    procedure reports no concentrations. In the dataset: report the
+                    detection limit of each analysis, where the procedure computes
+                    one.'
                   anyOf:
                   - type: number
                   - type: string
@@ -239,11 +243,12 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
   Param_Analysis_detectionLimit:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -275,11 +280,12 @@ $defs:
     - schema:unitText
   Param_Procedure_detectionLimit:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -399,4 +405,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.compositionQC
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'

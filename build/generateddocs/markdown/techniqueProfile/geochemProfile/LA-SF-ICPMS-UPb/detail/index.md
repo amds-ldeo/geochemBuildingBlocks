@@ -44,19 +44,12 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
   "ada:mappingArea": "Raster over \"a few millimeters\" of polished iron slab surface (area not precisely stated)",
   "ada:signalIntegrationTime": "N — the Ge spots were ablated for 20 s (§2.2)",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially — the rule stated is one of combination rather than rejection: for Ge, Sb, Re, Os and Ir the reported value is \"calculated from the mean of the spot average (Appendix 2) and the raster average in this table\" (Table 3 note, p.4). No acceptance or rejection rule for individual results is stated. The exclusion of \"Binya and Fitzwater Pass ... from the fractional-crystallization modeling of group IIIF\" (p.5) is an interpretive exclusion downstream of the reported values, not a rule about which results make them",
-  "ada:radiogenicFractionOfMeasuredSignal": "N — the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N — the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N — the procedure reports no date",
-  "ada:combinedResults": "raster averages for seven IIIF irons and two pallasites; spot averages — Table 3; Appendix 2",
   "ada:detectionLimit": "N — 'Concentrations below detection limits are not shown' (Table 3); the limits are not given",
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "N — compared with NAA on the same irons rather than a standard: differences 'mostly ... within the range of ±40%', within ±10% for Ni, Co and Ga, up to 30% for Au and As, and W in Cerro del Inca 4.39 ng/g by LA-ICP-MS against 1.06 ng/g by INAA (§2.3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -130,19 +123,12 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
   "ada:mappingArea": "Raster over \"a few millimeters\" of polished iron slab surface (area not precisely stated)",
   "ada:signalIntegrationTime": "N \u2014 the Ge spots were ablated for 20 s (\u00a72.2)",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the rule stated is one of combination rather than rejection: for Ge, Sb, Re, Os and Ir the reported value is \"calculated from the mean of the spot average (Appendix 2) and the raster average in this table\" (Table 3 note, p.4). No acceptance or rejection rule for individual results is stated. The exclusion of \"Binya and Fitzwater Pass ... from the fractional-crystallization modeling of group IIIF\" (p.5) is an interpretive exclusion downstream of the reported values, not a rule about which results make them",
-  "ada:radiogenicFractionOfMeasuredSignal": "N \u2014 the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N \u2014 the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N \u2014 the procedure reports no date",
-  "ada:combinedResults": "raster averages for seven IIIF irons and two pallasites; spot averages \u2014 Table 3; Appendix 2",
   "ada:detectionLimit": "N \u2014 'Concentrations below detection limits are not shown' (Table 3); the limits are not given",
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "N \u2014 compared with NAA on the same irons rather than a standard: differences 'mostly ... within the range of \u00b140%', within \u00b110% for Ni, Co and Ga, up to 30% for Au and As, and W in Cerro del Inca 4.39 ng/g by LA-ICP-MS against 1.06 ng/g by INAA (\u00a72.3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -187,26 +173,19 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
     schema1:measurementTechnique <ex:laSficpmsUPbTAPP-Zhang2022> ;
     ada:ageDatumReferenceEpoch "N — the procedure reports no date" ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — the rule stated is one of combination rather than rejection: for Ge, Sb, Re, Os and Ir the reported value is \"calculated from the mean of the spot average (Appendix 2) and the raster average in this table\" (Table 3 note, p.4). No acceptance or rejection rule for individual results is stated. The exclusion of \"Binya and Fitzwater Pass ... from the fractional-crystallization modeling of group IIIF\" (p.5) is an interpretive exclusion downstream of the reported values, not a rule about which results make them" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "N — compared with NAA on the same irons rather than a standard: differences 'mostly ... within the range of ±40%', within ±10% for Ni, Co and Ga, up to 30% for Au and As, and W in Cerro del Inca 4.39 ng/g by LA-ICP-MS against 1.06 ng/g by INAA (§2.3)" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:combinedResults "raster averages for seven IIIF irons and two pallasites; spot averages — Table 3; Appendix 2" ;
     ada:componentType "ada:LAICPMSGeochronTabular" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "N — 'Concentrations below detection limits are not shown' (Table 3); the limits are not given" ;
-    ada:errorCorrelationBetweenReportedQuantities "N — the procedure reports no date" ;
     ada:fundingSourceForAnalysis "NASA Grants 80NSSC19K1238 (BZ), 80NSSC19K1613 (NLC), 80NSSC18K0595 (MH), NNX17AE77G (AER); NSF Cooperative Agreement DMR-1644779 and State of Florida [Acknowledgements]" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:mappingArea "Raster over \"a few millimeters\" of polished iron slab surface (area not precisely stated)" ;
     ada:numberOfReplicates "N — 'a set of five 150 µm spots were analyzed ... on five of the irons, including both slabs of Klamath Falls' (§2.2)" ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
-    ada:radiogenicFractionOfMeasuredSignal "N — the procedure reports no date" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Labelled by specimen within each meteorite: \"Cerro del Inca (museum number USNM 7062), Clark County (USNM 1304-a), Fitzwater Pass (CML 0413-6), Klamath Falls (USNM 7008-a and AMNH 4926-psl), Moonbi (USNM 1457-a), Nelson County (USNM 674-b), Oakley (iron) (USNM 780-d), and St. Genevieve County (USNM 454-a)\", plus a mount of Zinder and a thin section of NWA 1911 (p.4). Individual spots and lines \"are shown in Appendix 4\" (p.6), not in the archived PDF" ;
     ada:sessionIdentifier "missing" ;
@@ -267,19 +246,12 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:mappingArea": "Each map: 1450×600 µm = 870,000 µm²; total of 8 PMG olivines mapped",
   "ada:signalIntegrationTime": "N/A — mapping",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "N — whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated. For the maps, \"The P-rich veinlets were excluded from the maps prior to the calculation of the correlation coefficients\" (appendix C), which masks pixels within a result rather than admitting or excluding results",
-  "ada:radiogenicFractionOfMeasuredSignal": "N — the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N — the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N — the procedure reports no date",
-  "ada:combinedResults": "'pure' olivine averages from the maps (for example Seymchan and Fukang)",
   "ada:detectionLimit": "all: per-pixel LODs, averaged over the map — Table E1 (Na = 1, Nb = 10), App. C5",
   "ada:limitOfQuantificationMethod": "all: as the LOD, with 10 SD instead of 3 SD — App. C5",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -353,19 +325,12 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:mappingArea": "Each map: 1450\u00d7600 \u00b5m = 870,000 \u00b5m\u00b2; total of 8 PMG olivines mapped",
   "ada:signalIntegrationTime": "N/A \u2014 mapping",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated. For the maps, \"The P-rich veinlets were excluded from the maps prior to the calculation of the correlation coefficients\" (appendix C), which masks pixels within a result rather than admitting or excluding results",
-  "ada:radiogenicFractionOfMeasuredSignal": "N \u2014 the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N \u2014 the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N \u2014 the procedure reports no date",
-  "ada:combinedResults": "'pure' olivine averages from the maps (for example Seymchan and Fukang)",
   "ada:detectionLimit": "all: per-pixel LODs, averaged over the map \u2014 Table E1 (Na = 1, Nb = 10), App. C5",
   "ada:limitOfQuantificationMethod": "all: as the LOD, with 10 SD instead of 3 SD \u2014 App. C5",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -410,26 +375,19 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
     schema1:measurementTechnique <ex:laSficpmsUPbTAPP-Chernonozhkin2021> ;
     ada:ageDatumReferenceEpoch "N — the procedure reports no date" ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated. For the maps, \"The P-rich veinlets were excluded from the maps prior to the calculation of the correlation coefficients\" (appendix C), which masks pixels within a result rather than admitting or excluding results" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:combinedResults "'pure' olivine averages from the maps (for example Seymchan and Fukang)" ;
     ada:componentType "ada:LAICPMSGeochronTabular" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "all: per-pixel LODs, averaged over the map — Table E1 (Na = 1, Nb = 10), App. C5" ;
-    ada:errorCorrelationBetweenReportedQuantities "N — the procedure reports no date" ;
     ada:fundingSourceForAnalysis "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "all: as the LOD, with 10 SD instead of 3 SD — App. C5" ;
     ada:mappingArea "Each map: 1450×600 µm = 870,000 µm²; total of 8 PMG olivines mapped" ;
     ada:numberOfReplicates -9999 ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
-    ada:radiogenicFractionOfMeasuredSignal "N — the procedure reports no date" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — \"Springwater, ... Brenham, Brahin and Seymchan, and ... Imilac, Cumulus Peak 04071, Esquel and Fukang\" (p.2); maps and line scans are not given labels of their own in the paper" ;
     ada:sessionIdentifier "missing" ;
@@ -490,19 +448,12 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:mappingArea": "N/A — line scan + spot; not 2D raster",
   "ada:signalIntegrationTime": "N — 50 s of sample ablation per line (Table B1); the integration window is not stated",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "N — whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated",
-  "ada:radiogenicFractionOfMeasuredSignal": "N — the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N — the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N — the procedure reports no date",
-  "ada:combinedResults": "each main-group pallasite olivine in Table 1 (3 replicates each)",
   "ada:detectionLimit": "Cu: 0.28 ng/g; Cs: 4.9 ng/g; Ba: 16 ng/g; W: 5.4 ng/g; Re: 0.42 ng/g; Ir: 0.95 ng/g; Pt: 0.73 ng/g; Au: 1.8 ng/g; Nb: 0.61 ng/g; other: Table 1 — stated in §3.3; LODs averaged over analyses (Na = 24, Nb = 5). §3.3 also gives 33 ng/g for Sr, which is not among the measured nuclides",
   "ada:limitOfQuantificationMethod": "all: as the LOD, with 10 SD instead of 3 SD — App. C5",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "all: 1 standard deviation — Table 1: 'the uncertainty corresponds to 1 standard deviation'",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -576,19 +527,12 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:mappingArea": "N/A \u2014 line scan + spot; not 2D raster",
   "ada:signalIntegrationTime": "N \u2014 50 s of sample ablation per line (Table B1); the integration window is not stated",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated",
-  "ada:radiogenicFractionOfMeasuredSignal": "N \u2014 the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N \u2014 the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N \u2014 the procedure reports no date",
-  "ada:combinedResults": "each main-group pallasite olivine in Table 1 (3 replicates each)",
   "ada:detectionLimit": "Cu: 0.28 ng/g; Cs: 4.9 ng/g; Ba: 16 ng/g; W: 5.4 ng/g; Re: 0.42 ng/g; Ir: 0.95 ng/g; Pt: 0.73 ng/g; Au: 1.8 ng/g; Nb: 0.61 ng/g; other: Table 1 \u2014 stated in \u00a73.3; LODs averaged over analyses (Na = 24, Nb = 5). \u00a73.3 also gives 33 ng/g for Sr, which is not among the measured nuclides",
   "ada:limitOfQuantificationMethod": "all: as the LOD, with 10 SD instead of 3 SD \u2014 App. C5",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "all: 1 standard deviation \u2014 Table 1: 'the uncertainty corresponds to 1 standard deviation'",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -633,26 +577,19 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
     schema1:measurementTechnique <ex:laSficpmsUPbTAPP-Chernonozhkin2021-2> ;
     ada:ageDatumReferenceEpoch "N — the procedure reports no date" ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:combinedResults "each main-group pallasite olivine in Table 1 (3 replicates each)" ;
     ada:componentType "ada:LAICPMSGeochronTabular" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "Cu: 0.28 ng/g; Cs: 4.9 ng/g; Ba: 16 ng/g; W: 5.4 ng/g; Re: 0.42 ng/g; Ir: 0.95 ng/g; Pt: 0.73 ng/g; Au: 1.8 ng/g; Nb: 0.61 ng/g; other: Table 1 — stated in §3.3; LODs averaged over analyses (Na = 24, Nb = 5). §3.3 also gives 33 ng/g for Sr, which is not among the measured nuclides" ;
-    ada:errorCorrelationBetweenReportedQuantities "N — the procedure reports no date" ;
     ada:fundingSourceForAnalysis "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ;
-    ada:goodnessOfFitOrDispersionStatistic "all: 1 standard deviation — Table 1: 'the uncertainty corresponds to 1 standard deviation'" ;
-    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "all: as the LOD, with 10 SD instead of 3 SD — App. C5" ;
     ada:mappingArea "N/A — line scan + spot; not 2D raster" ;
     ada:numberOfReplicates 3 ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
-    ada:radiogenicFractionOfMeasuredSignal "N — the procedure reports no date" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — \"Springwater, ... Brenham, Brahin and Seymchan, and ... Imilac, Cumulus Peak 04071, Esquel and Fukang\" (p.2); maps and line scans are not given labels of their own in the paper" ;
     ada:sessionIdentifier "missing" ;
@@ -713,19 +650,12 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": "N — 20 s of spot ablation (§2.2.4)",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "N — whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated",
-  "ada:radiogenicFractionOfMeasuredSignal": "N — the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N — the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N — the procedure reports no date",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -799,19 +729,12 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": "N \u2014 20 s of spot ablation (\u00a72.2.4)",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated",
-  "ada:radiogenicFractionOfMeasuredSignal": "N \u2014 the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N \u2014 the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N \u2014 the procedure reports no date",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -856,26 +779,19 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
     schema1:measurementTechnique <ex:laSficpmsUPbTAPP-Chernonozhkin2021-3> ;
     ada:ageDatumReferenceEpoch "N — the procedure reports no date" ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:LAICPMSGeochronTabular" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
-    ada:errorCorrelationBetweenReportedQuantities "N — the procedure reports no date" ;
     ada:fundingSourceForAnalysis "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:mappingArea "missing" ;
     ada:numberOfReplicates "N — Table 2 lists each 'single parallel measurement' per grain; 'Parallel analyses of single phosphate grains are highly reproducible' (§3.4)" ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
-    ada:radiogenicFractionOfMeasuredSignal "N — the procedure reports no date" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Labelled: phosphate grains per pallasite, \"Ph1\", \"Ph2\", \"Ph3\", \"Ph4\" with mineral (\"stanf\", \"merr\"), and each \"single parallel measurement\" numbered (Table 2, p.10) — for Brahin, CMS 04071, Esquel and Seymchan" ;
     ada:sessionIdentifier "missing" ;
@@ -936,19 +852,12 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": "N — parameters lost",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially — the reported values are averages per meteorite (Table E4 of the data file), with the complete set of analyses also released (p.6); trace-element chromatograms were \"scrutinized for unanticipated interferences, improperly chosen backgrounds or other problems\" (p.5). No acceptance or rejection rule is stated for the LA data. The paper's detailed filters — analysis sums 100 ± 2%, stoichiometry limits, Grubb's test rejecting at p<0.01 and tagging at p<0.05, an FeO ceiling of 17.5 wt% for Phillips County, and a zoning profile excluded from that mean — are stated for the EMPA data (p.3) and are not borrowed here",
-  "ada:radiogenicFractionOfMeasuredSignal": "N — the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N — the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N — the procedure reports no date",
-  "ada:combinedResults": "per-split averages (Table L2); per-meteorite weighted means (Table L3)",
   "ada:detectionLimit": "N — LODs not stated; concentrations reported for all nuclides above background",
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "N — the ~0.6% precision on Fe/Mn is for the EMPA (§3.1)",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "N — within-session precision not formally assessed",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "N — LA-ICP-MS Sc agrees with INAA 'with scatter of roughly ±0.5 µg/g'; Cr scatters more (§6.1)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -1022,19 +931,12 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": "N \u2014 parameters lost",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the reported values are averages per meteorite (Table E4 of the data file), with the complete set of analyses also released (p.6); trace-element chromatograms were \"scrutinized for unanticipated interferences, improperly chosen backgrounds or other problems\" (p.5). No acceptance or rejection rule is stated for the LA data. The paper's detailed filters \u2014 analysis sums 100 \u00b1 2%, stoichiometry limits, Grubb's test rejecting at p<0.01 and tagging at p<0.05, an FeO ceiling of 17.5 wt% for Phillips County, and a zoning profile excluded from that mean \u2014 are stated for the EMPA data (p.3) and are not borrowed here",
-  "ada:radiogenicFractionOfMeasuredSignal": "N \u2014 the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N \u2014 the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N \u2014 the procedure reports no date",
-  "ada:combinedResults": "per-split averages (Table L2); per-meteorite weighted means (Table L3)",
   "ada:detectionLimit": "N \u2014 LODs not stated; concentrations reported for all nuclides above background",
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "N \u2014 the ~0.6% precision on Fe/Mn is for the EMPA (\u00a73.1)",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "N \u2014 within-session precision not formally assessed",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "N \u2014 LA-ICP-MS Sc agrees with INAA 'with scatter of roughly \u00b10.5 \u00b5g/g'; Cr scatters more (\u00a76.1)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -1079,26 +981,19 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
     schema1:measurementTechnique <ex:laSficpmsUPbTAPP-Mittlefehldt2024> ;
     ada:ageDatumReferenceEpoch "N — the procedure reports no date" ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — the reported values are averages per meteorite (Table E4 of the data file), with the complete set of analyses also released (p.6); trace-element chromatograms were \"scrutinized for unanticipated interferences, improperly chosen backgrounds or other problems\" (p.5). No acceptance or rejection rule is stated for the LA data. The paper's detailed filters — analysis sums 100 ± 2%, stoichiometry limits, Grubb's test rejecting at p<0.01 and tagging at p<0.05, an FeO ceiling of 17.5 wt% for Phillips County, and a zoning profile excluded from that mean — are stated for the EMPA data (p.3) and are not borrowed here" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "N — LA-ICP-MS Sc agrees with INAA 'with scatter of roughly ±0.5 µg/g'; Cr scatters more (§6.1)" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:combinedResults "per-split averages (Table L2); per-meteorite weighted means (Table L3)" ;
     ada:componentType "ada:LAICPMSGeochronTabular" ;
-    ada:countingStatisticsError "N — the ~0.6% precision on Fe/Mn is for the EMPA (§3.1)" ;
     ada:detectionLimit "N — LODs not stated; concentrations reported for all nuclides above background" ;
-    ada:errorCorrelationBetweenReportedQuantities "N — the procedure reports no date" ;
     ada:fundingSourceForAnalysis "N — no funding section in this appendix document; funding would be in the parent paper which was not assessed" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:mappingArea "missing" ;
     ada:numberOfReplicates "N — variable number of spots per sample" ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
-    ada:radiogenicFractionOfMeasuredSignal "N — the procedure reports no date" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Labelled: samples within each pallasite, e.g. \"Ac-1\", \"Ad-1\", \"Ah-1\", \"Ah-2\", \"Ah-3\", \"Al-1\", \"Br-1\" (Table S1, p.14); laser spots carry labels such as \"laser spot 059-Pa-1\" (p.8)" ;
     ada:sessionIdentifier "missing" ;
@@ -1159,19 +1054,12 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": 40,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially — contributing counts are stated ('n: number of replicates'; 'the mean value of 20 spot measurements in the Arraias meteorite'); no acceptance or rejection rule is stated",
-  "ada:radiogenicFractionOfMeasuredSignal": "N — the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N — the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N — the procedure reports no date",
-  "ada:combinedResults": "per-meteorite averages (Table 3 and the data table for Figs 2 and 3), for example Arraias (20 spots)",
   "ada:detectionLimit": "As: 2; Au: 0.1; Co: 2; Cr: 19; Cu: 0.8; Fe: 60; Ga: 0.3; Ge: 3; Ir: 0.2; Ni: 36; Os: 0.2; Pd: 0.5; Pt: 0.3; Re: 0.1; Rh: 0.1; Ru: 1; W: 1 — µg/g, median values (Table 3 'LOD')",
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "N — precision is stated for samples: RSD <15% for 20 spots in Arraias except Cr (20%), Ir (16%) and Os (20%), and better than 20% for the other meteorites",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "North Chile [all: RSD 20% at worst] — measured as an unknown over four months; its RSD represents 'the laboratory reproducibility or intermediate precision conditions'",
   "ada:analyticalAccuracyAndAssessmentMethod": "N — assessed on eight known iron meteorites, not a standard: 'More than 75% of published values are within the respective LA-ICP-MS result ±2s'; relative differences 'almost always within ±20%' (Fig. 2)",
-  "ada:goodnessOfFitOrDispersionStatistic": "all: s, standard deviation of n measured values, and RSD — data table for Figs 2 and 3",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -1245,19 +1133,12 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": 40,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 contributing counts are stated ('n: number of replicates'; 'the mean value of 20 spot measurements in the Arraias meteorite'); no acceptance or rejection rule is stated",
-  "ada:radiogenicFractionOfMeasuredSignal": "N \u2014 the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N \u2014 the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N \u2014 the procedure reports no date",
-  "ada:combinedResults": "per-meteorite averages (Table 3 and the data table for Figs 2 and 3), for example Arraias (20 spots)",
   "ada:detectionLimit": "As: 2; Au: 0.1; Co: 2; Cr: 19; Cu: 0.8; Fe: 60; Ga: 0.3; Ge: 3; Ir: 0.2; Ni: 36; Os: 0.2; Pd: 0.5; Pt: 0.3; Re: 0.1; Rh: 0.1; Ru: 1; W: 1 \u2014 \u00b5g/g, median values (Table 3 'LOD')",
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "N \u2014 precision is stated for samples: RSD <15% for 20 spots in Arraias except Cr (20%), Ir (16%) and Os (20%), and better than 20% for the other meteorites",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "North Chile [all: RSD 20% at worst] \u2014 measured as an unknown over four months; its RSD represents 'the laboratory reproducibility or intermediate precision conditions'",
   "ada:analyticalAccuracyAndAssessmentMethod": "N \u2014 assessed on eight known iron meteorites, not a standard: 'More than 75% of published values are within the respective LA-ICP-MS result \u00b12s'; relative differences 'almost always within \u00b120%' (Fig. 2)",
-  "ada:goodnessOfFitOrDispersionStatistic": "all: s, standard deviation of n measured values, and RSD \u2014 data table for Figs 2 and 3",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -1302,26 +1183,19 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
     schema1:measurementTechnique <ex:laSficpmsUPbTAPP-Navarro2024> ;
     ada:ageDatumReferenceEpoch "N — the procedure reports no date" ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — contributing counts are stated ('n: number of replicates'; 'the mean value of 20 spot measurements in the Arraias meteorite'); no acceptance or rejection rule is stated" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "N — assessed on eight known iron meteorites, not a standard: 'More than 75% of published values are within the respective LA-ICP-MS result ±2s'; relative differences 'almost always within ±20%' (Fig. 2)" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "North Chile [all: RSD 20% at worst] — measured as an unknown over four months; its RSD represents 'the laboratory reproducibility or intermediate precision conditions'" ;
-    ada:combinedResults "per-meteorite averages (Table 3 and the data table for Figs 2 and 3), for example Arraias (20 spots)" ;
     ada:componentType "ada:LAICPMSGeochronTabular" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "As: 2; Au: 0.1; Co: 2; Cr: 19; Cu: 0.8; Fe: 60; Ga: 0.3; Ge: 3; Ir: 0.2; Ni: 36; Os: 0.2; Pd: 0.5; Pt: 0.3; Re: 0.1; Rh: 0.1; Ru: 1; W: 1 — µg/g, median values (Table 3 'LOD')" ;
-    ada:errorCorrelationBetweenReportedQuantities "N — the procedure reports no date" ;
     ada:fundingSourceForAnalysis "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts for Geoanalysis 2022 presentation; J.E.: CNPq grant 316191/2021-3" ;
-    ada:goodnessOfFitOrDispersionStatistic "all: s, standard deviation of n measured values, and RSD — data table for Figs 2 and 3" ;
-    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:mappingArea "missing" ;
     ada:numberOfReplicates 20 ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
-    ada:radiogenicFractionOfMeasuredSignal "N — the procedure reports no date" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — iron meteorites by name (Table 1, p.2), each analysed as \"fragments about 1 cm\" (p.3); spots and mapped areas are counted (\"points 176\", p.12), not labelled" ;
     ada:sessionIdentifier "missing" ;
@@ -1382,19 +1256,12 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
   "ada:mappingArea": "Augusto Pestana: 30 min mapping session (area not explicitly stated; 150 µm spot at 10 µm s⁻¹)",
   "ada:signalIntegrationTime": "N/A — mapping",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially — the reported values integrate a stated number of points per phase, \"176 kamacite points (211,060 µm2) and 1,173 plessite points (1,712,297 µm2)\" (Table 5, p.12). The points are assigned to a phase rather than admitted or rejected, and no rejection rule is stated",
-  "ada:radiogenicFractionOfMeasuredSignal": "N — the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N — the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N — the procedure reports no date",
-  "ada:combinedResults": "kamacite (176 points, 211,060 µm2); plessite (1,173 points, 1,712,297 µm2) — Table 5",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -1468,19 +1335,12 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
   "ada:mappingArea": "Augusto Pestana: 30 min mapping session (area not explicitly stated; 150 \u00b5m spot at 10 \u00b5m s\u207b\u00b9)",
   "ada:signalIntegrationTime": "N/A \u2014 mapping",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the reported values integrate a stated number of points per phase, \"176 kamacite points (211,060 \u00b5m2) and 1,173 plessite points (1,712,297 \u00b5m2)\" (Table 5, p.12). The points are assigned to a phase rather than admitted or rejected, and no rejection rule is stated",
-  "ada:radiogenicFractionOfMeasuredSignal": "N \u2014 the procedure reports no date",
   "ada:ageDatumReferenceEpoch": "N \u2014 the procedure reports no date",
-  "ada:errorCorrelationBetweenReportedQuantities": "N \u2014 the procedure reports no date",
-  "ada:combinedResults": "kamacite (176 points, 211,060 \u00b5m2); plessite (1,173 points, 1,712,297 \u00b5m2) \u2014 Table 5",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
@@ -1525,26 +1385,19 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
     schema1:measurementTechnique <ex:laSficpmsUPbTAPP-Navarro2024-2> ;
     ada:ageDatumReferenceEpoch "N — the procedure reports no date" ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — the reported values integrate a stated number of points per phase, \"176 kamacite points (211,060 µm2) and 1,173 plessite points (1,712,297 µm2)\" (Table 5, p.12). The points are assigned to a phase rather than admitted or rejected, and no rejection rule is stated" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:combinedResults "kamacite (176 points, 211,060 µm2); plessite (1,173 points, 1,712,297 µm2) — Table 5" ;
     ada:componentType "ada:LAICPMSGeochronTabular" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
-    ada:errorCorrelationBetweenReportedQuantities "N — the procedure reports no date" ;
     ada:fundingSourceForAnalysis "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts; J.E.: CNPq grant 316191/2021-3" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:mappingArea "Augusto Pestana: 30 min mapping session (area not explicitly stated; 150 µm spot at 10 µm s⁻¹)" ;
     ada:numberOfReplicates -9999 ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
-    ada:radiogenicFractionOfMeasuredSignal "N — the procedure reports no date" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — iron meteorites by name (Table 1, p.2), each analysed as \"fragments about 1 cm\" (p.3); spots and mapped areas are counted (\"points 176\", p.12), not labelled" ;
     ada:sessionIdentifier "missing" ;
@@ -1768,9 +1621,10 @@ allOf:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappingArea
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
               - title: Error Correlation Between Reported Quantities
-                description: The correlation coefficient between pairs of reported
-                  quantities whose uncertainties are not independent, together with
-                  the pair it applies to and how it was obtained.
+                description: 'Which pairs of reported quantities have uncertainties
+                  that are not independent, and how the correlation coefficient between
+                  each pair is obtained. In the dataset: report, for each analysis,
+                  the correlation coefficient of each such pair.'
                 type: object
                 properties:
                   '@id':
@@ -1784,10 +1638,6 @@ allOf:
                   schema:name:
                     const: Error Correlation Between Reported Quantities
                   schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -1795,7 +1645,6 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-                - schema:unitText
               - title: Total Integration Time per Output Data Point
                 description: "Total duty-cycle time for one complete mass-scan sweep
                   \u2014 the sum of all per-isotope dwell times plus inter-mass settling
@@ -1969,9 +1818,10 @@ allOf:
               maxContains: 1
             - contains:
                 title: Error Correlation Between Reported Quantities
-                description: The correlation coefficient between pairs of reported
-                  quantities whose uncertainties are not independent, together with
-                  the pair it applies to and how it was obtained.
+                description: 'Which pairs of reported quantities have uncertainties
+                  that are not independent, and how the correlation coefficient between
+                  each pair is obtained. In the dataset: report, for each analysis,
+                  the correlation coefficient of each such pair.'
                 type: object
                 properties:
                   '@id':
@@ -1985,10 +1835,6 @@ allOf:
                   schema:name:
                     const: Error Correlation Between Reported Quantities
                   schema:value:
-                    anyOf:
-                    - type: number
-                    - type: string
-                  schema:unitText:
                     type: string
                 required:
                 - '@id'
@@ -1996,7 +1842,6 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-                - schema:unitText
               minContains: 0
               maxContains: 1
             - contains:
@@ -2327,7 +2172,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 

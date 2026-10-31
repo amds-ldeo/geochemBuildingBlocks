@@ -1164,7 +1164,7 @@
         "itemIdentifier": "ogch.BaseSchema.geochemProduct",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.json",
       "x-schema-id": "https://w3id.org/geochem/schema/geochemProduct/1.0",
@@ -2433,7 +2433,7 @@
         "itemIdentifier": "ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.detail",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/detail/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -2634,14 +2634,14 @@
         "itemIdentifier": "ogch.BaseSchema.instrument",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.tapp": {
       "title": "LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)",
-      "description": "Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v91.csv via the path-driven pipeline.",
+      "description": "Laser-ablation multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-MC-ICPMS_TAPP_v93.csv via the path-driven pipeline.",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -2708,7 +2708,7 @@
                                 "anyOf": [
                                   {
                                     "title": "Analysis Inclusion and Rejection Criteria",
-                                    "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
+                                    "description": "The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.",
                                     "type": "object",
                                     "properties": {
                                       "@id": {
@@ -2770,7 +2770,7 @@
                                 {
                                   "contains": {
                                     "title": "Analysis Inclusion and Rejection Criteria",
-                                    "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
+                                    "description": "The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.",
                                     "type": "object",
                                     "properties": {
                                       "@id": {
@@ -3127,7 +3127,7 @@
                       },
                       {
                         "title": "Counting Statistics Error",
-                        "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                        "description": "How the uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -3177,7 +3177,7 @@
                       },
                       {
                         "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                        "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                        "description": "How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -3349,7 +3349,7 @@
                     {
                       "contains": {
                         "title": "Counting Statistics Error",
-                        "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                        "description": "How the uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -3403,7 +3403,7 @@
                     {
                       "contains": {
                         "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                        "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                        "description": "How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -5381,7 +5381,7 @@
         "itemIdentifier": "ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.tapp",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -6699,7 +6699,7 @@
         "itemIdentifier": "ogch.BaseSchema.creativeWork",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -8633,7 +8633,7 @@
         "itemIdentifier": "ogch.BaseSchema.tappDefinition",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.3",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -8834,7 +8834,7 @@
         "itemIdentifier": "ogch.BaseSchema.instrument",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -8890,7 +8890,7 @@
         "itemIdentifier": "ogch.BaseSchema.laboratory",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -9027,7 +9027,7 @@
         "itemIdentifier": "ogch.BaseSchema.spatialRegistration",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -10561,7 +10561,7 @@
         "itemIdentifier": "ogch.BaseSchema.tabularData",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -11558,7 +11558,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.core",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -12977,7 +12977,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.laserAblation",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -14041,7 +14041,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.mcIcpms",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -14175,14 +14175,14 @@
         "itemIdentifier": "ogch.BaseSchema.modules.calibrationFactor",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "ogch.BaseSchema.modules.aggregation": {
       "title": "TAPP Composition Module: Aggregation",
-      "description": "The shared Aggregation block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_Aggregation.csv), composed by 13 of the sixteen delivery tables. 5 owned fields over 6 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
+      "description": "The shared Aggregation block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_Aggregation.csv), composed by 13 of the sixteen delivery tables. 3 owned fields over 4 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
       "$defs": {
         "AnalysisIdentification": {
           "title": "Aggregation on the analysis",
@@ -14210,7 +14210,7 @@
                     "then": {
                       "properties": {
                         "schema:value": {
-                          "description": "Whether the reported variable is an individual result or combines several, and if combined, how: the statistical model used, including any criteria governing which model is applied, and what the individual results are combined over (for example per grain, per phase within a sample, or per sample). Record 'Not combined' where each individual result is reported on its own. Record the model only; the software implementing it belongs in Data Processing Software.",
+                          "description": "Whether the reported variable is an individual result or combines several, and if combined, how: the statistical model used, including any criteria governing which model is applied, and what the individual results are combined over (for example per grain, per phase within a sample, or per sample). Record 'Not combined' where each individual result is reported on its own. Record the model only; the software implementing it belongs in Data Processing Software. In the dataset: report each combined value with its uncertainty and the number of individual results it combines, and identify, for each individual result, the combined value it contributes to.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -14269,7 +14269,7 @@
                     "then": {
                       "properties": {
                         "dqv:value": {
-                          "description": "The statistic reported to show whether scatter among the individual results contributing to a combined result exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                          "description": "The statistic used to describe the scatter among the individual results contributing to a combined value, or to test whether that scatter exceeds what analytical uncertainty alone predicts: for example one standard deviation of the mean, or the MSWD with its probability of fit. A threshold for accepting it belongs with the inclusion criteria. In the dataset: report, for each combined value, the value of the statistic, and any further statistic (for example the standard error of the mean, or a 95% confidence interval) beside it, named.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -14283,30 +14283,11 @@
                           ],
                           "x-jsonld-id": "http://www.w3.org/ns/dqv#value"
                         }
-                      },
-                      "required": [
-                        "dqv:value"
-                      ]
+                      }
                     }
                   }
                 ]
               },
-              "allOf": [
-                {
-                  "contains": {
-                    "properties": {
-                      "dqv:isMeasurementOf": {
-                        "enum": [
-                          "Goodness-of-Fit"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "dqv:isMeasurementOf"
-                    ]
-                  }
-                }
-              ],
               "x-jsonld-id": "http://www.w3.org/ns/dqv#hasQualityMeasurement"
             }
           }
@@ -14322,7 +14303,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.aggregation",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -16587,7 +16568,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.icpms",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -16622,7 +16603,7 @@
                     "then": {
                       "properties": {
                         "schema:defaultValue": {
-                          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+                          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
                           "anyOf": [
                             {
                               "type": "number"
@@ -16782,7 +16763,7 @@
                     "then": {
                       "properties": {
                         "schema:value": {
-                          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+                          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
                           "anyOf": [
                             {
                               "type": "number"
@@ -16970,7 +16951,7 @@
         },
         "Param_Analysis_detectionLimit": {
           "title": "Detection Limit",
-          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
           "type": "object",
           "properties": {
             "@id": {
@@ -17028,7 +17009,7 @@
         },
         "Param_Procedure_detectionLimit": {
           "title": "Detection Limit",
-          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+          "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
           "type": "object",
           "properties": {
             "@id": {
@@ -17222,7 +17203,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.compositionQC",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -17399,7 +17380,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.samplingUnitSelection",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -18063,7 +18044,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.collisionCell",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -18613,7 +18594,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.targetSpecies",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -24023,7 +24004,7 @@
         "itemIdentifier": "ogch.BaseSchema.geochemProduct",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-10-29"
+        "dateOfLastChange": "2026-10-31"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml",
       "x-schema-id": "https://w3id.org/geochem/schema/geochemProduct/1.0",
@@ -25775,7 +25756,7 @@
     "itemIdentifier": "ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.profile",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-10-29"
+    "dateOfLastChange": "2026-10-31"
   },
   "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
 }

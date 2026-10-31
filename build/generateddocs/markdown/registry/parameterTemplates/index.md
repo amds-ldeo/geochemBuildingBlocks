@@ -379,9 +379,11 @@ $defs:
     - ada:fieldScope
   epma_analyticalPrecisionDefault:
     title: Analytical Precision
-    description: Reproducibility of repeated measurements on the same or equivalent
-      reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and the measured value.
+    description: Precision of repeated measurements on the same or equivalent reference
+      material, expressed as 1-sigma relative standard deviation (%). State whether
+      the repeats were made within one session (repeatability) or across sessions
+      (intermediate precision, in ISO 5725 terms). Include reference material name,
+      number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -549,12 +551,14 @@ $defs:
     - ada:fieldScope
   epma_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -585,11 +589,12 @@ $defs:
     - ada:fieldScope
   epma_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -1220,12 +1225,14 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -1256,11 +1263,12 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -1399,9 +1407,10 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_errorCorrelationBetweenReportedQuantitiesDefault:
     title: Error Correlation Between Reported Quantities
-    description: The correlation coefficient between pairs of reported quantities
-      whose uncertainties are not independent, together with the pair it applies to
-      and how it was obtained.
+    description: 'Which pairs of reported quantities have uncertainties that are not
+      independent, and how the correlation coefficient between each pair is obtained.
+      In the dataset: report, for each analysis, the correlation coefficient of each
+      such pair.'
     type: object
     properties:
       '@id':
@@ -1414,7 +1423,7 @@ $defs:
       schema:name:
         const: Error Correlation Between Reported Quantities
       ada:dataType:
-        const: number
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -1422,11 +1431,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        const: dimensionless
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1534,13 +1539,13 @@ $defs:
     - ada:fieldScope
   laMcicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -2135,12 +2140,14 @@ $defs:
     - ada:fieldScope
   laMcicpms_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -2171,11 +2178,12 @@ $defs:
     - ada:fieldScope
   laMcicpms_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -2412,13 +2420,13 @@ $defs:
     - ada:fieldScope
   laMcicpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -3048,12 +3056,14 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -3084,11 +3094,12 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -3190,9 +3201,10 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_errorCorrelationBetweenReportedQuantitiesDefault:
     title: Error Correlation Between Reported Quantities
-    description: The correlation coefficient between pairs of reported quantities
-      whose uncertainties are not independent, together with the pair it applies to
-      and how it was obtained.
+    description: 'Which pairs of reported quantities have uncertainties that are not
+      independent, and how the correlation coefficient between each pair is obtained.
+      In the dataset: report, for each analysis, the correlation coefficient of each
+      such pair.'
     type: object
     properties:
       '@id':
@@ -3205,7 +3217,7 @@ $defs:
       schema:name:
         const: Error Correlation Between Reported Quantities
       ada:dataType:
-        const: number
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -3213,11 +3225,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        const: dimensionless
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3325,13 +3333,13 @@ $defs:
     - ada:fieldScope
   laQicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -3964,12 +3972,14 @@ $defs:
     - ada:fieldScope
   laQicpms_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -4000,11 +4010,12 @@ $defs:
     - ada:fieldScope
   laQicpms_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -4204,13 +4215,13 @@ $defs:
     - ada:fieldScope
   laQicpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -4844,12 +4855,14 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -4880,11 +4893,12 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -4986,9 +5000,10 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_errorCorrelationBetweenReportedQuantitiesDefault:
     title: Error Correlation Between Reported Quantities
-    description: The correlation coefficient between pairs of reported quantities
-      whose uncertainties are not independent, together with the pair it applies to
-      and how it was obtained.
+    description: 'Which pairs of reported quantities have uncertainties that are not
+      independent, and how the correlation coefficient between each pair is obtained.
+      In the dataset: report, for each analysis, the correlation coefficient of each
+      such pair.'
     type: object
     properties:
       '@id':
@@ -5001,7 +5016,7 @@ $defs:
       schema:name:
         const: Error Correlation Between Reported Quantities
       ada:dataType:
-        const: number
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -5009,11 +5024,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        const: dimensionless
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5121,13 +5132,13 @@ $defs:
     - ada:fieldScope
   laSficpmsUPb_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -5688,12 +5699,14 @@ $defs:
     - ada:fieldScope
   laSficpms_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -5724,11 +5737,12 @@ $defs:
     - ada:fieldScope
   laSficpms_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -5928,13 +5942,13 @@ $defs:
     - ada:fieldScope
   laSficpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -7658,9 +7672,11 @@ $defs:
     - ada:fieldScope
   semComposition_analyticalPrecisionDefault:
     title: Analytical Precision
-    description: Reproducibility of repeated measurements on the same or equivalent
-      reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and the measured value.
+    description: Precision of repeated measurements on the same or equivalent reference
+      material, expressed as 1-sigma relative standard deviation (%). State whether
+      the repeats were made within one session (repeatability) or across sessions
+      (intermediate precision, in ISO 5725 terms). Include reference material name,
+      number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -7865,12 +7881,14 @@ $defs:
     - ada:fieldScope
   semComposition_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -7901,11 +7919,12 @@ $defs:
     - ada:fieldScope
   semComposition_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -8390,9 +8409,11 @@ $defs:
     - ada:fieldScope
   sem_analyticalPrecisionDefault:
     title: Analytical Precision
-    description: Reproducibility of repeated measurements on the same or equivalent
-      reference material, expressed as 1-sigma relative standard deviation (%). Include
-      reference material name, number of analyses (n), and the measured value.
+    description: Precision of repeated measurements on the same or equivalent reference
+      material, expressed as 1-sigma relative standard deviation (%). State whether
+      the repeats were made within one session (repeatability) or across sessions
+      (intermediate precision, in ISO 5725 terms). Include reference material name,
+      number of analyses (n), and the measured value.
     type: object
     properties:
       '@id':
@@ -8630,12 +8651,14 @@ $defs:
     - ada:fieldScope
   sem_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -8666,11 +8689,12 @@ $defs:
     - ada:fieldScope
   sem_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -9121,12 +9145,14 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -9157,11 +9183,12 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -9300,9 +9327,10 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_errorCorrelationBetweenReportedQuantitiesDefault:
     title: Error Correlation Between Reported Quantities
-    description: The correlation coefficient between pairs of reported quantities
-      whose uncertainties are not independent, together with the pair it applies to
-      and how it was obtained.
+    description: 'Which pairs of reported quantities have uncertainties that are not
+      independent, and how the correlation coefficient between each pair is obtained.
+      In the dataset: report, for each analysis, the correlation coefficient of each
+      such pair.'
     type: object
     properties:
       '@id':
@@ -9315,7 +9343,7 @@ $defs:
       schema:name:
         const: Error Correlation Between Reported Quantities
       ada:dataType:
-        const: number
+        const: string
       ada:fieldScope:
         const: session
       schema:readonlyValue:
@@ -9323,11 +9351,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        const: dimensionless
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9403,13 +9427,13 @@ $defs:
     - ada:fieldScope
   solutionMcicpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -9826,12 +9850,14 @@ $defs:
     - ada:fieldScope
   solutionQicpms_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -9862,11 +9888,12 @@ $defs:
     - ada:fieldScope
   solutionQicpms_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -10034,13 +10061,13 @@ $defs:
     - ada:fieldScope
   solutionQicpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -10499,12 +10526,14 @@ $defs:
     - ada:fieldScope
   solutionSficpms_countingStatisticsErrorDefault:
     title: Counting Statistics Error
-    description: "Uncertainty predicted from counting statistics \u2014 the theoretical
-      limit set by the Poisson distribution of the counts accumulated \u2014 for each
-      reported quantity per analysis, with the sigma level stated. Derived from the
-      counts on the target species together with those on any background or blank
-      subtracted from it. Distinct from the scatter actually observed within a measurement
-      or between repeated measurements, which is recorded separately."
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
     type: object
     properties:
       '@id':
@@ -10535,11 +10564,12 @@ $defs:
     - ada:fieldScope
   solutionSficpms_detectionLimitDefault:
     title: Detection Limit
-    description: Detection limit, one per reported concentration variable (one per
+    description: 'Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
       are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record 'N/A' where
-      the procedure reports no concentrations.
+      method is recorded separately in Detection Limit Method. Record ''N/A'' where
+      the procedure reports no concentrations. In the dataset: report the detection
+      limit of each analysis, where the procedure computes one.'
     type: object
     properties:
       '@id':
@@ -10707,13 +10737,13 @@ $defs:
     - ada:fieldScope
   solutionSficpms_internalAnalyticalPrecisionAndAssessmentMethodDefault:
     title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-    description: Precision of a single measurement, derived from the scatter of the
-      cycles, sweeps or integrations that make it up, together with the method used
-      to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it
-      is computed over, and the reported quantity it applies to. Distinct from Counting
-      Statistics Error, which records the uncertainty predicted from the counts rather
-      than the scatter observed; where a procedure reports both, record the observed
-      value here and the predicted value there.
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
     type: object
     properties:
       '@id':
@@ -12535,7 +12565,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.parameterTemplates
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 

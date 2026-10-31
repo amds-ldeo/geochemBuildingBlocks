@@ -45,16 +45,11 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "ada:peakFlatness": "missing",
   "ada:signalIntegrationTime": 60,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Run level, on the results rather than the signal: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8). The cycle-level discards and the two technical criteria (⁸⁷Rb/⁸⁶Sr > 1; ⁸⁸Sr < 0.2 V) act inside an acquisition and are recorded under Spike / Outlier Filtering Approach",
-  "ada:combinedResults": "NWA 10597 Normal-group isochron (36 runs); NWA 10597 SUIA isochron (6 runs, 244 cycles); NWA 6950 Normal-group isochron (94 runs); NWA 6950 SUIA isochron (21 runs) — Table 3; Fig. 6",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "all [⁸⁷Sr/⁸⁶Sr, ⁸⁷Rb/⁸⁶Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] — regression in Fig. 3; relative errors for ⁸⁷Rb/⁸⁶Sr ±3% for most reference glasses, and for ⁸⁷Sr/⁸⁶Sr <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion",
-  "ada:goodnessOfFitOrDispersionStatistic": "Rb–Sr isochron age, initial ⁸⁷Sr/⁸⁶Sr: MSWD from IsoplotR; other: N — Table 3: NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with ⁸⁷Rb/⁸⁶Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize",
@@ -142,16 +137,11 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "ada:peakFlatness": "missing",
   "ada:signalIntegrationTime": 60,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Run level, on the results rather than the signal: runs with stable signals go to the Normal group, runs with large \u2078\u2077Rb/\u2078\u2076Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial \u2078\u2077Sr/\u2078\u2076Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8). The cycle-level discards and the two technical criteria (\u2078\u2077Rb/\u2078\u2076Sr > 1; \u2078\u2078Sr < 0.2 V) act inside an acquisition and are recorded under Spike / Outlier Filtering Approach",
-  "ada:combinedResults": "NWA 10597 Normal-group isochron (36 runs); NWA 10597 SUIA isochron (6 runs, 244 cycles); NWA 6950 Normal-group isochron (94 runs); NWA 6950 SUIA isochron (21 runs) \u2014 Table 3; Fig. 6",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "all [\u2078\u2077Sr/\u2078\u2076Sr, \u2078\u2077Rb/\u2078\u2076Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] \u2014 regression in Fig. 3; relative errors for \u2078\u2077Rb/\u2078\u2076Sr \u00b13% for most reference glasses, and for \u2078\u2077Sr/\u2078\u2076Sr <0.2\u2030 where \u2078\u2077Rb/\u2078\u2076Sr <1",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "all [\u2078\u2077Sr/\u2078\u2076Sr: relative error <0.2\u2030 where \u2078\u2077Rb/\u2078\u2076Sr <1 (12 of 14 reference materials); \u2078\u2077Rb/\u2078\u2076Sr: within \u00b13% for 11 glasses] \u2014 exceptions NIST 610 (\u22122.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated \u00b13% criterion",
-  "ada:goodnessOfFitOrDispersionStatistic": "Rb\u2013Sr isochron age, initial \u2078\u2077Sr/\u2078\u2076Sr: MSWD from IsoplotR; other: N \u2014 Table 3: NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with \u2078\u2077Rb/\u2078\u2076Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize",
@@ -209,19 +199,14 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
         <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize> ;
     schema1:measurementTechnique <ex:laMcicpmsTAPP-Zhang2022> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Run level, on the results rather than the signal: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8). The cycle-level discards and the two technical criteria (⁸⁷Rb/⁸⁶Sr > 1; ⁸⁸Sr < 0.2 V) act inside an acquisition and are recorded under Spike / Outlier Filtering Approach" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:combinedResults "NWA 10597 Normal-group isochron (36 runs); NWA 10597 SUIA isochron (6 runs, 244 cycles); NWA 6950 Normal-group isochron (94 runs); NWA 6950 SUIA isochron (21 runs) — Table 3; Fig. 6" ;
     ada:componentType "ada:LAICPMSTabular" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:fundingSourceForAnalysis "CNSA pre-research project D020205; NSFC 41973013; Natural Science Foundation of Hubei Province 2020CFA045; GPMR State Key Laboratory special fund MSFGPMR04 and MSFGPMR08" ;
-    ada:goodnessOfFitOrDispersionStatistic "Rb–Sr isochron age, initial ⁸⁷Sr/⁸⁶Sr: MSWD from IsoplotR; other: N — Table 3: NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with ⁸⁷Rb/⁸⁶Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)" ;
-    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:mappingArea "missing" ;
     ada:numberOfReplicates -9999 ;
@@ -956,7 +941,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 

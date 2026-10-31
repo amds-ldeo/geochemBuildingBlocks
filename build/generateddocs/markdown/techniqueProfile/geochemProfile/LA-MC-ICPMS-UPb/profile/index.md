@@ -319,26 +319,6 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Radiogenic Fraction of Measured Signal",
-      "schema:description": "Radiogenic Fraction of Measured Signal reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "no value available: schema:value"
-    },
-    {
-      "@id": "ex:adaProduct-var-001",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
       "schema:name": "Age Datum / Reference Epoch",
       "schema:description": "Age Datum / Reference Epoch reported for this dataset. Example value.",
       "schema:propertyID": [
@@ -969,26 +949,6 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Radiogenic Fraction of Measured Signal",
-      "schema:description": "Radiogenic Fraction of Measured Signal reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "no value available: schema:value"
-    },
-    {
-      "@id": "ex:adaProduct-var-001",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
       "schema:name": "Age Datum / Reference Epoch",
       "schema:description": "Age Datum / Reference Epoch reported for this dataset. Example value.",
       "schema:propertyID": [
@@ -1389,10 +1349,10 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: peakFlatness" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
@@ -1479,7 +1439,6 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
         "Inherited or Initial Signal Correction reported for this dataset. Example value.",
         "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
         "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
-        "Radiogenic Fraction of Measured Signal reported for this dataset. Example value.",
         "Reported Date Type reported for this dataset. Example value.",
         "Sampling Unit Name reported for this dataset. Example value." ;
     schema1:name "Age Calculation Method",
@@ -1488,7 +1447,6 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
         "Detection Limit",
         "Inherited or Initial Signal Correction",
         "Limit of Quantification (LOQ) Method",
-        "Radiogenic Fraction of Measured Signal",
         "Reported Date Type",
         "Sampling Unit Name",
         "measurement_value" ;
@@ -1595,7 +1553,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 

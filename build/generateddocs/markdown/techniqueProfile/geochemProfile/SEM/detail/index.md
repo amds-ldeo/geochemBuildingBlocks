@@ -42,16 +42,12 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -95,16 +91,12 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -118,20 +110,16 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 <ex:detail-Garvie2008> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Garvie2008> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -182,16 +170,12 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate, and no selection rule for them is stated",
-  "ada:combinedResults": "N — a sample-preparation procedure produces sections, not results to combine",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N — a sample-preparation procedure produces sections, not results to combine",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -235,16 +219,12 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate, and no selection rule for them is stated",
-  "ada:combinedResults": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -258,20 +238,16 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 <ex:detail-Garvie2008-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Garvie2008-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — a sample-preparation procedure produces sections rather than results to aggregate, and no selection rule for them is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
-    ada:goodnessOfFitOrDispersionStatistic "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -322,16 +298,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -375,16 +347,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -398,20 +366,16 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 <ex:detail-Genge2025> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Genge2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -462,16 +426,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -515,16 +475,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -538,20 +494,16 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 <ex:detail-Genge2025-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Genge2025-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -602,16 +554,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -655,16 +603,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -678,20 +622,16 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 <ex:detail-Genge2025-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Genge2025-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -742,16 +682,12 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — the seven grains are chosen before analysis (recorded under Sampling Unit Selection Criteria), not admitted to or excluded from an aggregate; no contributing count or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -795,16 +731,12 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the seven grains are chosen before analysis (recorded under Sampling Unit Selection Criteria), not admitted to or excluded from an aggregate; no contributing count or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -818,20 +750,16 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
 <ex:detail-Gucsik2013> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Gucsik2013> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — the seven grains are chosen before analysis (recorded under Sampling Unit Selection Criteria), not admitted to or excluded from an aggregate; no contributing count or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -882,16 +810,12 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -935,16 +859,12 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -958,20 +878,16 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
 <ex:detail-Gucsik2013-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Gucsik2013-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -1022,16 +938,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -1075,16 +987,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -1098,20 +1006,16 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
 <ex:detail-Izawa2010> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Izawa2010> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -1162,16 +1066,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -1215,16 +1115,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -1238,20 +1134,16 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
 <ex:detail-Izawa2010-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Izawa2010-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -1302,16 +1194,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "all: 0.5 wt% — 'with a detection limit of 0.5 wt% for most elements' (p.3), a capability of the Quartz XOne system",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -1355,16 +1243,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": "all: 0.5 wt% \u2014 'with a detection limit of 0.5 wt% for most elements' (p.3), a capability of the Quartz XOne system",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -1378,20 +1262,16 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
 <ex:detail-Izawa2010-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Izawa2010-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit "all: 0.5 wt% — 'with a detection limit of 0.5 wt% for most elements' (p.3), a capability of the Quartz XOne system" ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -1442,16 +1322,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -1495,16 +1371,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -1518,20 +1390,16 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
 <ex:detail-Izawa2010-4> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Izawa2010-4> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -1582,16 +1450,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -1635,16 +1499,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -1658,20 +1518,16 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
 <ex:detail-Izawa2010-5> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Izawa2010-5> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -1722,16 +1578,12 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — the pore statistics integrate the whole segmented volume rather than admitting or excluding results; the only stated restriction is of scope, the model focusing \"only ... on the coal sample #1\" (p.8)",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -1775,16 +1627,12 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "9.8 \u00d7 9.8 \u00d7 15 nm voxel size; 600 slices; 7.8 \u00d7 7.8 \u00b5m scanning area; 9.0 \u00b5m total thickness",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the pore statistics integrate the whole segmented volume rather than admitting or excluding results; the only stated restriction is of scope, the model focusing \"only ... on the coal sample #1\" (p.8)",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -1798,20 +1646,16 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 <ex:detail-Liu2017> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Liu2017> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — the pore statistics integrate the whole segmented volume rather than admitting or excluding results; the only stated restriction is of scope, the model focusing \"only ... on the coal sample #1\" (p.8)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness" ;
     ada:mapArea -9999 ;
@@ -1862,16 +1706,12 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -1915,16 +1755,12 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -1938,20 +1774,16 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 <ex:detail-Liu2017-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Liu2017-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -2002,16 +1834,12 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -2055,16 +1883,12 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -2078,20 +1902,16 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 <ex:detail-Liu2017-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Liu2017-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -2142,16 +1962,12 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -2195,16 +2011,12 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -2218,20 +2030,16 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
 <ex:detail-Ma2017> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Ma2017> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -2282,16 +2090,12 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": 0.3,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -2335,16 +2139,12 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": 0.3,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -2358,20 +2158,16 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
 <ex:detail-Ma2017-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Ma2017-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation 3e-01 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -2422,16 +2218,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -2475,16 +2267,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -2498,20 +2286,16 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
 <ex:detail-Pascucci2026> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Pascucci2026> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -2562,16 +2346,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -2615,16 +2395,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -2638,20 +2414,16 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 <ex:detail-Pascucci2026-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Pascucci2026-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -2702,16 +2474,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:mapArea": 10.5,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -2755,16 +2523,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:mapArea": 10.5,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -2778,20 +2542,16 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 <ex:detail-Pascucci2026-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Pascucci2026-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea 1.05e+01 ;
@@ -2842,16 +2602,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -2895,16 +2651,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -2918,20 +2670,16 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
 <ex:detail-Pascucci2026-4> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Pascucci2026-4> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -2982,16 +2730,12 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — no results are admitted or excluded; the volume's adequacy is assessed instead, under \"evaluation of representative volumes\" (§2.3, p.4), and the reported statistics integrate all ~800 slices",
-  "ada:combinedResults": "SC pore diameter; HBC pore diameter; SC throat size (516 throats); HBC throat size (715 throats); SC throat length per size class; HBC throat length per size class — Conclusions and Table 5; the number of pores averaged is not stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -3035,16 +2779,12 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "14.8\u00d714.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609\u00d73.08\u00d75.446 \u00b5m; HBC=4.679\u00d73.2\u00d74.24 \u00b5m; SEM image resolution 2.5 nm",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no results are admitted or excluded; the volume's adequacy is assessed instead, under \"evaluation of representative volumes\" (\u00a72.3, p.4), and the reported statistics integrate all ~800 slices",
-  "ada:combinedResults": "SC pore diameter; HBC pore diameter; SC throat size (516 throats); HBC throat size (715 throats); SC throat length per size class; HBC throat length per size class \u2014 Conclusions and Table 5; the number of pores averaged is not stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -3058,20 +2798,16 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
 <ex:detail-Zhou2017> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zhou2017> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — no results are admitted or excluded; the volume's adequacy is assessed instead, under \"evaluation of representative volumes\" (§2.3, p.4), and the reported statistics integrate all ~800 slices" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "SC pore diameter; HBC pore diameter; SC throat size (516 throats); HBC throat size (715 throats); SC throat length per size class; HBC throat length per size class — Conclusions and Table 5; the number of pores averaged is not stated" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm" ;
     ada:mapArea -9999 ;
@@ -3122,16 +2858,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -3175,16 +2907,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -3198,20 +2926,16 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -3262,16 +2986,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -3315,16 +3035,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -3338,20 +3054,16 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -3402,16 +3114,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -3455,16 +3163,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -3478,20 +3182,16 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -3542,16 +3242,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -3595,16 +3291,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -3618,20 +3310,16 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-4> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-4> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -3682,16 +3370,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -3735,16 +3419,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -3758,20 +3438,16 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-5> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-5> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -3822,16 +3498,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
-  "ada:combinedResults": "N — a sample-preparation procedure produces sections, not results to combine",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N — a sample-preparation procedure produces sections, not results to combine",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -3875,16 +3547,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
-  "ada:combinedResults": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -3898,20 +3566,16 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-6> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-6> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — a sample-preparation procedure produces sections rather than results to aggregate (p.9)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599" ;
-    ada:goodnessOfFitOrDispersionStatistic "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -3962,16 +3626,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
-  "ada:combinedResults": "N — a sample-preparation procedure produces sections, not results to combine",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N — a sample-preparation procedure produces sections, not results to combine",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -4015,16 +3675,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
-  "ada:combinedResults": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -4038,20 +3694,16 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-7> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-7> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — a sample-preparation procedure produces sections rather than results to aggregate (p.9)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ;
-    ada:goodnessOfFitOrDispersionStatistic "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -4102,16 +3754,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate (p.10)",
-  "ada:combinedResults": "N — a sample-preparation procedure produces sections, not results to combine",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N — a sample-preparation procedure produces sections, not results to combine",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -4155,16 +3803,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate (p.10)",
-  "ada:combinedResults": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "N \u2014 a sample-preparation procedure produces sections, not results to combine",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -4178,20 +3822,16 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-8> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-8> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — a sample-preparation procedure produces sections rather than results to aggregate (p.10)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
-    ada:goodnessOfFitOrDispersionStatistic "N — a sample-preparation procedure produces sections, not results to combine" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -4242,16 +3882,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -4295,16 +3931,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -4318,20 +3950,16 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-9> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-9> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -4382,16 +4010,12 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N — this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5σ anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 
@@ -4435,16 +4059,12 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
   "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
-  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5\u03c3 anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure",
-  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
-  "ada:countingStatisticsError": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999,
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
   "ada:voxelSize": "no value available: ada:voxelSize"
 }
 ```
@@ -4458,20 +4078,16 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 <ex:detail-Barnes2025> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Barnes2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5σ anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
-    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMImage" ;
-    ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:imagePixelSize -9999 ;
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
@@ -6420,7 +6036,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 

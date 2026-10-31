@@ -2452,6 +2452,41 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  epma_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   epma_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds,
@@ -2682,7 +2717,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -2724,6 +2762,36 @@ $defs:
         - '@id': ada:parameter/epmaTAPP/constantsAndReferenceValuesUsed
       schema:name:
         const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  epma_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
       schema:value:
         type: string
     required:
@@ -2839,9 +2907,11 @@ $defs:
     - schema:value
   epma_dwellTimePerPixel:
     title: Dwell Time per Pixel
-    description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping,
-      in milliseconds. For WDS: one value per spectrometer assignment per pixel. For
-      EDS: total live-time per spectrum per pixel, a single value.'
+    description: 'Time the electron beam dwells on each pixel (step position) during
+      X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment
+      per pixel. For EDS: a single value, the real (clock) time per pixel; the detector
+      live time, which excludes dead time, is recorded in EDS Live Time per Point
+      or Pixel.'
     type: object
     properties:
       '@id':
@@ -2895,11 +2965,8 @@ $defs:
     - schema:value
   epma_edsLiveTimePerPointOrPixel:
     title: EDS Live Time per Point or Pixel
-    description: EDS spectral acquisition live time per analysis point in seconds.
-      Previously referred to as "EDS Acquisition Time" in this TAPP and commonly used
-      under that name in EPMA and SEM-EDS contexts. Renamed to align with TEM-EDS
-      usage, where the per-point vs. per-pixel distinction (point/line mode vs. spectrum
-      image) is explicit. In EPMA, acquisition is always per point.
+    description: EDS spectral acquisition live time per analysis point or per pixel
+      in seconds.
     type: object
     properties:
       '@id':
@@ -2944,6 +3011,35 @@ $defs:
         - '@id': ada:parameter/epmaTAPP/edsSpectralProcessingType
       schema:name:
         const: EDS Spectral Processing Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  epma_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
       schema:value:
         type: string
     required:
@@ -3100,30 +3196,6 @@ $defs:
         - '@id': ada:parameter/epmaTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  epma_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/epmaTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/epmaTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -5927,6 +5999,41 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpmsUPb_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpmsUPb_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -6165,7 +6272,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -6244,6 +6354,36 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laMcicpmsUPb_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpmsUPb_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
     description: 'DOI or other persistent identifier for the co-registered dataset
@@ -6325,24 +6465,24 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laMcicpmsUPb_discordanceDefinitionAndValues:
-    title: Discordance Definition and Values
-    description: How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
-      chronometers is defined for this procedure, and the discordance values obtained.
-      State the formula used. The rule for excluding discordant analyses, and how
-      many were excluded, belong in Analysis Inclusion and Rejection Criteria.
+  laMcicpmsUPb_discordanceDefinition:
+    title: Discordance Definition
+    description: 'How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
+      chronometers is defined for this procedure: state the formula used. The rule
+      for excluding discordant analyses belongs in Analysis Inclusion and Rejection
+      Criteria. In the dataset: report the discordance of each analysis.'
     type: object
     properties:
       '@id':
-        const: ada:parameter/laMcicpmsUPbTAPP/discordanceDefinitionAndValues
+        const: ada:parameter/laMcicpmsUPbTAPP/discordanceDefinition
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laMcicpmsUPbTAPP/discordanceDefinitionAndValues
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/discordanceDefinition
       schema:name:
-        const: Discordance Definition and Values
+        const: Discordance Definition
       schema:value:
         type: string
     required:
@@ -6431,6 +6571,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpmsUPb_errorCorrelationBetweenReportedQuantities:
+    title: Error Correlation Between Reported Quantities
+    description: 'Which pairs of reported quantities have uncertainties that are not
+      independent, and how the correlation coefficient between each pair is obtained.
+      In the dataset: report, for each analysis, the correlation coefficient of each
+      such pair.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities
+      schema:name:
+        const: Error Correlation Between Reported Quantities
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpmsUPb_fusionFluxAndDilutionRatio:
     title: Fusion Flux and Dilution Ratio
     description: For procedures using fused glass, the flux type and sample:flux dilution
@@ -6447,6 +6613,35 @@ $defs:
         - '@id': ada:parameter/laMcicpmsUPbTAPP/fusionFluxAndDilutionRatio
       schema:name:
         const: Fusion Flux and Dilution Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpmsUPb_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
       schema:value:
         type: string
     required:
@@ -6483,10 +6678,12 @@ $defs:
     - schema:value
   laMcicpmsUPb_inheritedOrInitialSignalCorrection:
     title: Inherited or Initial Signal Correction
-    description: How any non-radiogenic, inherited or pre-existing component of the
+    description: 'How any non-radiogenic, inherited or pre-existing component of the
       measured signal was accounted for, including the composition assumed, its source,
-      and its uncertainty. Record 'None' where the measured quantity accumulates from
-      zero and no such component exists.
+      and its uncertainty. Record ''None'' where the measured quantity accumulates
+      from zero and no such component exists. In the dataset: report, for each analysis,
+      the radiogenic fraction of the measured signal (for U-Pb, Pb*/Pbc; for Ar-Ar,
+      %40Ar*).'
     type: object
     properties:
       '@id':
@@ -6666,6 +6863,35 @@ $defs:
         - '@id': ada:parameter/laMcicpmsUPbTAPP/intermediateDaughterDisequilibriumCorrection
       schema:name:
         const: Intermediate Daughter Disequilibrium Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethod:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
       schema:value:
         type: string
     required:
@@ -7030,30 +7256,6 @@ $defs:
         anyOf:
         - type: number
         - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laMcicpmsUPb_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laMcicpmsUPbTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laMcicpmsUPbTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
-      schema:value:
-        type: string
     required:
     - '@id'
     - '@type'
@@ -7683,6 +7885,41 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpms_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpms_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -7921,7 +8158,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -8000,6 +8240,36 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laMcicpms_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpms_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
     description: 'DOI or other persistent identifier for the co-registered dataset
@@ -8185,6 +8455,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpms_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpms_icpTuning:
     title: ICP Tuning
     description: Description of the approach used to optimise ICP plasma conditions
@@ -8344,6 +8643,35 @@ $defs:
         - '@id': ada:parameter/laMcicpmsTAPP/interPassDataDependency
       schema:name:
         const: Inter-Pass Data Dependency
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpms_internalAnalyticalPrecisionAndAssessmentMethod:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
       schema:value:
         type: string
     required:
@@ -8708,30 +9036,6 @@ $defs:
         anyOf:
         - type: number
         - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laMcicpms_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laMcicpmsTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laMcicpmsTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
-      schema:value:
-        type: string
     required:
     - '@id'
     - '@type'
@@ -9337,6 +9641,41 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpmsUPb_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpmsUPb_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -9575,7 +9914,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -9654,6 +9996,36 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laQicpmsUPb_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpmsUPb_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
     description: 'DOI or other persistent identifier for the co-registered dataset
@@ -9735,24 +10107,24 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laQicpmsUPb_discordanceDefinitionAndValues:
-    title: Discordance Definition and Values
-    description: How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
-      chronometers is defined for this procedure, and the discordance values obtained.
-      State the formula used. The rule for excluding discordant analyses, and how
-      many were excluded, belong in Analysis Inclusion and Rejection Criteria.
+  laQicpmsUPb_discordanceDefinition:
+    title: Discordance Definition
+    description: 'How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
+      chronometers is defined for this procedure: state the formula used. The rule
+      for excluding discordant analyses belongs in Analysis Inclusion and Rejection
+      Criteria. In the dataset: report the discordance of each analysis.'
     type: object
     properties:
       '@id':
-        const: ada:parameter/laQicpmsUPbTAPP/discordanceDefinitionAndValues
+        const: ada:parameter/laQicpmsUPbTAPP/discordanceDefinition
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laQicpmsUPbTAPP/discordanceDefinitionAndValues
+        - '@id': ada:parameter/laQicpmsUPbTAPP/discordanceDefinition
       schema:name:
-        const: Discordance Definition and Values
+        const: Discordance Definition
       schema:value:
         type: string
     required:
@@ -9842,6 +10214,32 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laQicpmsUPb_errorCorrelationBetweenReportedQuantities:
+    title: Error Correlation Between Reported Quantities
+    description: 'Which pairs of reported quantities have uncertainties that are not
+      independent, and how the correlation coefficient between each pair is obtained.
+      In the dataset: report, for each analysis, the correlation coefficient of each
+      such pair.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities
+      schema:name:
+        const: Error Correlation Between Reported Quantities
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpmsUPb_fusionFluxAndDilutionRatio:
     title: Fusion Flux and Dilution Ratio
     description: For procedures using fused glass, the flux type and sample:flux dilution
@@ -9858,6 +10256,35 @@ $defs:
         - '@id': ada:parameter/laQicpmsUPbTAPP/fusionFluxAndDilutionRatio
       schema:name:
         const: Fusion Flux and Dilution Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
       schema:value:
         type: string
     required:
@@ -9894,10 +10321,12 @@ $defs:
     - schema:value
   laQicpmsUPb_inheritedOrInitialSignalCorrection:
     title: Inherited or Initial Signal Correction
-    description: How any non-radiogenic, inherited or pre-existing component of the
+    description: 'How any non-radiogenic, inherited or pre-existing component of the
       measured signal was accounted for, including the composition assumed, its source,
-      and its uncertainty. Record 'None' where the measured quantity accumulates from
-      zero and no such component exists.
+      and its uncertainty. Record ''None'' where the measured quantity accumulates
+      from zero and no such component exists. In the dataset: report, for each analysis,
+      the radiogenic fraction of the measured signal (for U-Pb, Pb*/Pbc; for Ar-Ar,
+      %40Ar*).'
     type: object
     properties:
       '@id':
@@ -10049,6 +10478,35 @@ $defs:
         - '@id': ada:parameter/laQicpmsUPbTAPP/intermediateDaughterDisequilibriumCorrection
       schema:name:
         const: Intermediate Daughter Disequilibrium Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethod:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
       schema:value:
         type: string
     required:
@@ -10354,30 +10812,6 @@ $defs:
         - '@id': ada:parameter/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laQicpmsUPb_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsUPbTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsUPbTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -11070,6 +11504,41 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpms_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpms_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -11308,7 +11777,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -11387,6 +11859,36 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laQicpms_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpms_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
     description: 'DOI or other persistent identifier for the co-registered dataset
@@ -11573,6 +12075,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpms_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpms_icpTuning:
     title: ICP Tuning
     description: Description of the approach used to optimise ICP plasma conditions
@@ -11704,6 +12235,35 @@ $defs:
         - '@id': ada:parameter/laQicpmsTAPP/interPassDataDependency
       schema:name:
         const: Inter-Pass Data Dependency
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpms_internalAnalyticalPrecisionAndAssessmentMethod:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
       schema:value:
         type: string
     required:
@@ -12009,30 +12569,6 @@ $defs:
         - '@id': ada:parameter/laQicpmsTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laQicpms_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -12701,6 +13237,41 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpmsUPb_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpmsUPb_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -12851,7 +13422,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -12930,6 +13504,36 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laSficpmsUPb_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpmsUPb_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
     description: 'DOI or other persistent identifier for the co-registered dataset
@@ -13011,24 +13615,24 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laSficpmsUPb_discordanceDefinitionAndValues:
-    title: Discordance Definition and Values
-    description: How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
-      chronometers is defined for this procedure, and the discordance values obtained.
-      State the formula used. The rule for excluding discordant analyses, and how
-      many were excluded, belong in Analysis Inclusion and Rejection Criteria.
+  laSficpmsUPb_discordanceDefinition:
+    title: Discordance Definition
+    description: 'How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb
+      chronometers is defined for this procedure: state the formula used. The rule
+      for excluding discordant analyses belongs in Analysis Inclusion and Rejection
+      Criteria. In the dataset: report the discordance of each analysis.'
     type: object
     properties:
       '@id':
-        const: ada:parameter/laSficpmsUPbTAPP/discordanceDefinitionAndValues
+        const: ada:parameter/laSficpmsUPbTAPP/discordanceDefinition
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laSficpmsUPbTAPP/discordanceDefinitionAndValues
+        - '@id': ada:parameter/laSficpmsUPbTAPP/discordanceDefinition
       schema:name:
-        const: Discordance Definition and Values
+        const: Discordance Definition
       schema:value:
         type: string
     required:
@@ -13147,6 +13751,32 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laSficpmsUPb_errorCorrelationBetweenReportedQuantities:
+    title: Error Correlation Between Reported Quantities
+    description: 'Which pairs of reported quantities have uncertainties that are not
+      independent, and how the correlation coefficient between each pair is obtained.
+      In the dataset: report, for each analysis, the correlation coefficient of each
+      such pair.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities
+      schema:name:
+        const: Error Correlation Between Reported Quantities
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpmsUPb_fusionFluxAndDilutionRatio:
     title: Fusion Flux and Dilution Ratio
     description: For procedures using fused glass, the flux type and sample:flux dilution
@@ -13163,6 +13793,35 @@ $defs:
         - '@id': ada:parameter/laSficpmsUPbTAPP/fusionFluxAndDilutionRatio
       schema:name:
         const: Fusion Flux and Dilution Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpmsUPb_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
       schema:value:
         type: string
     required:
@@ -13199,10 +13858,12 @@ $defs:
     - schema:value
   laSficpmsUPb_inheritedOrInitialSignalCorrection:
     title: Inherited or Initial Signal Correction
-    description: How any non-radiogenic, inherited or pre-existing component of the
+    description: 'How any non-radiogenic, inherited or pre-existing component of the
       measured signal was accounted for, including the composition assumed, its source,
-      and its uncertainty. Record 'None' where the measured quantity accumulates from
-      zero and no such component exists.
+      and its uncertainty. Record ''None'' where the measured quantity accumulates
+      from zero and no such component exists. In the dataset: report, for each analysis,
+      the radiogenic fraction of the measured signal (for U-Pb, Pb*/Pbc; for Ar-Ar,
+      %40Ar*).'
     type: object
     properties:
       '@id':
@@ -13354,6 +14015,35 @@ $defs:
         - '@id': ada:parameter/laSficpmsUPbTAPP/intermediateDaughterDisequilibriumCorrection
       schema:name:
         const: Intermediate Daughter Disequilibrium Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpmsUPb_internalAnalyticalPrecisionAndAssessmentMethod:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
       schema:value:
         type: string
     required:
@@ -13659,30 +14349,6 @@ $defs:
         - '@id': ada:parameter/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laSficpmsUPb_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsUPbTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsUPbTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -14312,6 +14978,41 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpms_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpms_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -14462,7 +15163,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -14541,6 +15245,36 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  laSficpms_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpms_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
     description: 'DOI or other persistent identifier for the co-registered dataset
@@ -14756,6 +15490,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpms_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpms_icpTuning:
     title: ICP Tuning
     description: Description of the approach used to optimise ICP plasma conditions
@@ -14887,6 +15650,35 @@ $defs:
         - '@id': ada:parameter/laSficpmsTAPP/interPassDataDependency
       schema:name:
         const: Inter-Pass Data Dependency
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpms_internalAnalyticalPrecisionAndAssessmentMethod:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
       schema:value:
         type: string
     required:
@@ -15192,30 +15984,6 @@ $defs:
         - '@id': ada:parameter/laSficpmsTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laSficpms_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -20797,6 +21565,41 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  semComposition_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   semComposition_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds,
@@ -21059,7 +21862,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -21101,6 +21907,36 @@ $defs:
         - '@id': ada:parameter/semCompositionTAPP/constantsAndReferenceValuesUsed
       schema:name:
         const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
       schema:value:
         type: string
     required:
@@ -21329,6 +22165,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  semComposition_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   semComposition_halogenCorrectionOnOxygen:
     title: Halogen Correction on Oxygen
     description: Whether oxygen content was adjusted to account for halogen substitution
@@ -21477,30 +22342,6 @@ $defs:
         - '@id': ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  semComposition_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semCompositionTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/semCompositionTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -23230,6 +24071,41 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  sem_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   sem_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds,
@@ -23623,7 +24499,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -23665,6 +24544,36 @@ $defs:
         - '@id': ada:parameter/semTAPP/constantsAndReferenceValuesUsed
       schema:name:
         const: Constants and Reference Values Used
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sem_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
       schema:value:
         type: string
     required:
@@ -24077,6 +24986,35 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  sem_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   sem_halogenCorrectionOnOxygen:
     title: Halogen Correction on Oxygen
     description: Whether oxygen content was adjusted to account for halogen substitution
@@ -24277,30 +25215,6 @@ $defs:
         - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  sem_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/semTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -25402,6 +26316,41 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionMcicpms_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionMcicpms_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -25583,7 +26532,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -25662,6 +26614,36 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  solutionMcicpms_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionMcicpms_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
     description: 'DOI or other persistent identifier for the co-registered dataset
@@ -25898,6 +26880,61 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionMcicpms_errorCorrelationBetweenReportedQuantities:
+    title: Error Correlation Between Reported Quantities
+    description: 'Which pairs of reported quantities have uncertainties that are not
+      independent, and how the correlation coefficient between each pair is obtained.
+      In the dataset: report, for each analysis, the correlation coefficient of each
+      such pair.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities
+      schema:name:
+        const: Error Correlation Between Reported Quantities
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionMcicpms_icpTuning:
     title: ICP Tuning
     description: Description of the approach used to optimise ICP plasma conditions
@@ -26036,6 +27073,35 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  solutionMcicpms_internalAnalyticalPrecisionAndAssessmentMethod:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionMcicpms_internalStandardConcentration:
     title: Internal Standard Concentration
     description: "Target concentration of internal standard element(s) in all measured
@@ -26288,30 +27354,6 @@ $defs:
         anyOf:
         - type: number
         - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
-      schema:value:
-        type: string
     required:
     - '@id'
     - '@type'
@@ -26756,6 +27798,41 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionQicpms_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionQicpms_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -26937,7 +28014,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -27016,6 +28096,36 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  solutionQicpms_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionQicpms_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
     description: 'DOI or other persistent identifier for the co-registered dataset
@@ -27253,6 +28363,35 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  solutionQicpms_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionQicpms_icpTuning:
     title: ICP Tuning
     description: Description of the approach used to optimise ICP plasma conditions
@@ -27355,6 +28494,35 @@ $defs:
         - '@id': ada:parameter/solutionQicpmsTAPP/instrumentWarmUpSessionDurationLimit
       schema:name:
         const: Instrument Warm-up / Session Duration Limit
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_internalAnalyticalPrecisionAndAssessmentMethod:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
       schema:value:
         type: string
     required:
@@ -27556,30 +28724,6 @@ $defs:
         - '@id': ada:parameter/solutionQicpmsTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -28056,6 +29200,41 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionSficpms_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionSficpms_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -28149,7 +29328,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -28228,6 +29410,36 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  solutionSficpms_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionSficpms_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
     description: 'DOI or other persistent identifier for the co-registered dataset
@@ -28494,6 +29706,35 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  solutionSficpms_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionSficpms_icpTuning:
     title: ICP Tuning
     description: Description of the approach used to optimise ICP plasma conditions
@@ -28596,6 +29837,35 @@ $defs:
         - '@id': ada:parameter/solutionSficpmsTAPP/instrumentWarmUpSessionDurationLimit
       schema:name:
         const: Instrument Warm-up / Session Duration Limit
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_internalAnalyticalPrecisionAndAssessmentMethod:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
       schema:value:
         type: string
     required:
@@ -28797,30 +30067,6 @@ $defs:
         - '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -30263,6 +31509,41 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  tem_analysisInclusionAndRejectionCriteria:
+    title: Analysis Inclusion and Rejection Criteria
+    description: 'The rules determining which individual results contribute to a combined
+      result: the limits a result must meet (for example on analytical total or stoichiometry)
+      and the grounds on which one is rejected (for example overlap onto a neighbouring
+      phase, or an outlier test with its threshold), including any acceptance threshold
+      on the dispersion statistic. An individual result is the value of the reported
+      quantity obtained from one acquisition: a replicate measurement of the same
+      solution or location, a spot or grain within a sample, or an independently prepared
+      aliquot or digestion, whichever the procedure combines. Distinct from filtering
+      the acquired signal during data reduction (removing spikes, cycles or scans,
+      or discarding an acquisition whose signal is compromised): this field records
+      the rules by which finished results enter a combined result. In the dataset:
+      flag each individual result excluded from a combined value, with the rule that
+      excluded it.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/analysisInclusionAndRejectionCriteria
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/temTAPP/analysisInclusionAndRejectionCriteria
+      schema:name:
+        const: Analysis Inclusion and Rejection Criteria
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   tem_analyticalSubMode:
     title: Analytical Sub-mode
     description: Sub-mode(s) of imaging or diffraction performed under this procedure.
@@ -30354,7 +31635,10 @@ $defs:
       governing which model is applied, and what the individual results are combined
       over (for example per grain, per phase within a sample, or per sample). Record
       ''Not combined'' where each individual result is reported on its own. Record
-      the model only; the software implementing it belongs in Data Processing Software.'
+      the model only; the software implementing it belongs in Data Processing Software.
+      In the dataset: report each combined value with its uncertainty and the number
+      of individual results it combines, and identify, for each individual result,
+      the combined value it contributes to.'
     type: object
     properties:
       '@id':
@@ -31051,6 +32335,35 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  tem_goodnessOfFitOrDispersionStatistic:
+    title: Goodness-of-Fit or Dispersion Statistic
+    description: 'The statistic used to describe the scatter among the individual
+      results contributing to a combined value, or to test whether that scatter exceeds
+      what analytical uncertainty alone predicts: for example one standard deviation
+      of the mean, or the MSWD with its probability of fit. A threshold for accepting
+      it belongs with the inclusion criteria. In the dataset: report, for each combined
+      value, the value of the statistic, and any further statistic (for example the
+      standard error of the mean, or a 95% confidence interval) beside it, named.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/goodnessOfFitOrDispersionStatistic
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/temTAPP/goodnessOfFitOrDispersionStatistic
+      schema:name:
+        const: Goodness-of-Fit or Dispersion Statistic
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   tem_haadfCollectionAngles:
     title: HAADF Collection Angles
     description: Inner and outer collection angles of the HAADF detector in milliradians
@@ -31142,30 +32455,6 @@ $defs:
         - '@id': ada:parameter/temTAPP/monochromator
       schema:name:
         const: Monochromator
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  tem_otherStatistics:
-    title: Other Statistics
-    description: Any statistic reported for a combined result beyond the dispersion
-      statistic, with the statistic named and its value.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/temTAPP/otherStatistics
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/temTAPP/otherStatistics
-      schema:name:
-        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -33908,7 +35197,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.parameterValues
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 

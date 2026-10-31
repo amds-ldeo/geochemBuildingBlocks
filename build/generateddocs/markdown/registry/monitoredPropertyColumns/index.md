@@ -92,9 +92,11 @@ $defs:
     - schema:defaultValue
   epma_dwellTimePerPixel:
     title: Dwell Time per Pixel
-    description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping,
-      in milliseconds. For WDS: one value per spectrometer assignment per pixel. For
-      EDS: total live-time per spectrum per pixel, a single value.'
+    description: 'Time the electron beam dwells on each pixel (step position) during
+      X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment
+      per pixel. For EDS: a single value, the real (clock) time per pixel; the detector
+      live time, which excludes dead time, is recorded in EDS Live Time per Point
+      or Pixel.'
     type: object
     properties:
       '@id':
@@ -2300,7 +2302,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.monitoredPropertyColumns
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-29'
+  dateOfLastChange: '2026-10-31'
 
 ```
 
