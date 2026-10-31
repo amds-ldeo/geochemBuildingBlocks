@@ -65,3 +65,27 @@ this example's sources do not support — the distinction the rest of this file 
 Found by stage-2 conformance detection, whose adaProduct presence test requires the ADA marker:
 detection from CONTENT asked a question validation never asked of this file, because its block
 composes geochemProduct and so never enforced adaProduct's requirements.
+
+## 2026-10-30 — two co-authors were identified as the dataset itself
+
+`/schema:creator/@list/1` and `/2` (Ruefenacht, Fehr) each carried `"@id": ""` and
+`"schema:identifier": ""`, copied from the ADA record, which holds an empty string where an author
+has no ORCID. An empty `@id` is not an absent one: in JSON-LD it resolves to the BASE IRI, so both
+co-authors were asserted to be the dataset document — and, being equal, to be each other.
+
+| JSON pointer | source | before | after |
+|---|---|---|---|
+| `/schema:creator/@list/1/@id` | ADA | `""` | *(removed)* |
+| `/schema:creator/@list/1/schema:identifier` | ADA | `""` | *(removed)* |
+| `/schema:creator/@list/2/@id` | ADA | `""` | *(removed)* |
+| `/schema:creator/@list/2/schema:identifier` | ADA | `""` | *(removed)* |
+
+Removed rather than filled. With no `@id` they are blank nodes: distinct, unnamed persons, which
+is exactly what the sources support — `schema:name` and `schema:email` still carry the identity
+that exists, and the first author keeps the ORCID they do have. A nil token is the resolution for
+a property a schema PINS; nothing requires `@id` on a person here, so omission states the absence
+and invents nothing.
+
+The duplicate `ex:adaProduct-var-001` ids in this file's `schema:variableMeasured` were a separate
+defect, fixed in `build_profile._add_required_variables`, which owns those appended members even
+in a source-derived file.
