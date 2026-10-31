@@ -14087,7 +14087,7 @@
                     },
                     {
                       "title": "Error Correlation Between Reported Quantities",
-                      "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                      "description": "Which pairs of reported quantities have uncertainties that are not independent, and how the correlation coefficient between each pair is obtained. In the dataset: report, for each analysis, the correlation coefficient of each such pair.",
                       "type": "object",
                       "properties": {
                         "@id": {
@@ -14109,16 +14109,6 @@
                           "const": "Error Correlation Between Reported Quantities"
                         },
                         "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
                           "type": "string"
                         }
                       },
@@ -14127,8 +14117,7 @@
                         "@type",
                         "schema:propertyID",
                         "schema:name",
-                        "schema:value",
-                        "schema:unitText"
+                        "schema:value"
                       ]
                     },
                     {
@@ -14787,7 +14776,7 @@
                   {
                     "contains": {
                       "title": "Error Correlation Between Reported Quantities",
-                      "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                      "description": "Which pairs of reported quantities have uncertainties that are not independent, and how the correlation coefficient between each pair is obtained. In the dataset: report, for each analysis, the correlation coefficient of each such pair.",
                       "type": "object",
                       "properties": {
                         "@id": {
@@ -14809,16 +14798,6 @@
                           "const": "Error Correlation Between Reported Quantities"
                         },
                         "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
                           "type": "string"
                         }
                       },
@@ -14827,8 +14806,7 @@
                         "@type",
                         "schema:propertyID",
                         "schema:name",
-                        "schema:value",
-                        "schema:unitText"
+                        "schema:value"
                       ]
                     },
                     "minContains": 0,
@@ -22213,7 +22191,7 @@
                 "then": {
                   "properties": {
                     "schema:value": {
-                      "description": "Whether the reported variable is an individual result or combines several, and if combined, how: the statistical model used, including any criteria governing which model is applied, and what the individual results are combined over (for example per grain, per phase within a sample, or per sample). Record 'Not combined' where each individual result is reported on its own. Record the model only; the software implementing it belongs in Data Processing Software.",
+                      "description": "Whether the reported variable is an individual result or combines several, and if combined, how: the statistical model used, including any criteria governing which model is applied, and what the individual results are combined over (for example per grain, per phase within a sample, or per sample). Record 'Not combined' where each individual result is reported on its own. Record the model only; the software implementing it belongs in Data Processing Software. In the dataset: report each combined value with its uncertainty and the number of individual results it combines, and identify, for each individual result, the combined value it contributes to.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -22266,7 +22244,7 @@
                 "then": {
                   "properties": {
                     "dqv:value": {
-                      "description": "The statistic reported to show whether scatter among the individual results contributing to a combined result exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                      "description": "The statistic used to describe the scatter among the individual results contributing to a combined value, or to test whether that scatter exceeds what analytical uncertainty alone predicts: for example one standard deviation of the mean, or the MSWD with its probability of fit. A threshold for accepting it belongs with the inclusion criteria. In the dataset: report, for each combined value, the value of the statistic, and any further statistic (for example the standard error of the mean, or a 95% confidence interval) beside it, named.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -22279,28 +22257,11 @@
                         }
                       ]
                     }
-                  },
-                  "required": [
-                    "dqv:value"
-                  ]
+                  }
                 }
               }
             ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "properties": {
-                  "dqv:isMeasurementOf": {
-                    "const": "Goodness-of-Fit"
-                  }
-                },
-                "required": [
-                  "dqv:isMeasurementOf"
-                ]
-              }
-            }
-          ]
+          }
         }
       }
     },
@@ -22388,7 +22349,7 @@
                 "then": {
                   "properties": {
                     "schema:value": {
-                      "description": "How any non-radiogenic, inherited or pre-existing component of the measured signal was accounted for, including the composition assumed, its source, and its uncertainty. Record 'None' where the measured quantity accumulates from zero and no such component exists.",
+                      "description": "How any non-radiogenic, inherited or pre-existing component of the measured signal was accounted for, including the composition assumed, its source, and its uncertainty. Record 'None' where the measured quantity accumulates from zero and no such component exists. In the dataset: report, for each analysis, the radiogenic fraction of the measured signal (for U-Pb, Pb*/Pbc; for Ar-Ar, %40Ar*).",
                       "anyOf": [
                         {
                           "type": "string"
@@ -22402,39 +22363,6 @@
                       ]
                     }
                   }
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "schema:name": {
-                      "const": "Radiogenic Fraction of Measured Signal"
-                    }
-                  },
-                  "required": [
-                    "schema:name"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:value": {
-                      "description": "The proportion of the measured signal that is radiogenic, as opposed to inherited, initial or otherwise non-radiogenic. Measured companion to Inherited or Initial Signal Correction.",
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  "required": [
-                    "schema:value"
-                  ]
                 }
               },
               {
@@ -22473,18 +22401,6 @@
             ]
           },
           "allOf": [
-            {
-              "contains": {
-                "properties": {
-                  "schema:name": {
-                    "const": "Radiogenic Fraction of Measured Signal"
-                  }
-                },
-                "required": [
-                  "schema:name"
-                ]
-              }
-            },
             {
               "contains": {
                 "properties": {
@@ -22765,7 +22681,7 @@
                 "then": {
                   "properties": {
                     "schema:value": {
-                      "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+                      "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -23257,7 +23173,7 @@
                       },
                       "then": {
                         "title": "LA-Q-ICP-MS U-Pb Geochronology TAPP (laQicpmsUPbTAPP)",
-                        "description": "Laser-ablation quadrupole ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v96.csv via the path-driven pipeline.",
+                        "description": "Laser-ablation quadrupole ICP-MS U-Pb geochronology extension of the base TAPP definition, generated from tapp/Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v98.csv via the path-driven pipeline.",
                         "allOf": [
                           {
                             "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
@@ -25896,7 +25812,7 @@
                                       "then": {
                                         "properties": {
                                           "schema:defaultValue": {
-                                            "description": "How any non-radiogenic, inherited or pre-existing component of the measured signal was accounted for, including the composition assumed, its source, and its uncertainty. Record 'None' where the measured quantity accumulates from zero and no such component exists.",
+                                            "description": "How any non-radiogenic, inherited or pre-existing component of the measured signal was accounted for, including the composition assumed, its source, and its uncertainty. Record 'None' where the measured quantity accumulates from zero and no such component exists. In the dataset: report, for each analysis, the radiogenic fraction of the measured signal (for U-Pb, Pb*/Pbc; for Ar-Ar, %40Ar*).",
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -25994,7 +25910,7 @@
                                 }
                               },
                               "ada:inheritedOrInitialSignalCorrectionDefault": {
-                                "description": "How any non-radiogenic, inherited or pre-existing component of the measured signal was accounted for, including the composition assumed, its source, and its uncertainty. Record 'None' where the measured quantity accumulates from zero and no such component exists.",
+                                "description": "How any non-radiogenic, inherited or pre-existing component of the measured signal was accounted for, including the composition assumed, its source, and its uncertainty. Record 'None' where the measured quantity accumulates from zero and no such component exists. In the dataset: report, for each analysis, the radiogenic fraction of the measured signal (for U-Pb, Pb*/Pbc; for Ar-Ar, %40Ar*).",
                                 "type": "string"
                               }
                             },
@@ -26323,7 +26239,7 @@
                                       "then": {
                                         "properties": {
                                           "schema:defaultValue": {
-                                            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+                                            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
                                             "anyOf": [
                                               {
                                                 "type": "number"
@@ -27231,7 +27147,7 @@
                                                     },
                                                     {
                                                       "title": "Analysis Inclusion and Rejection Criteria",
-                                                      "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
+                                                      "description": "The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -27550,7 +27466,7 @@
                                                   {
                                                     "contains": {
                                                       "title": "Analysis Inclusion and Rejection Criteria",
-                                                      "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
+                                                      "description": "The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -28007,12 +27923,12 @@
                                       ]
                                     },
                                     {
-                                      "title": "Discordance Definition and Values",
-                                      "description": "How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb chronometers is defined for this procedure, and the discordance values obtained. State the formula used. The rule for excluding discordant analyses, and how many were excluded, belong in Analysis Inclusion and Rejection Criteria.",
+                                      "title": "Discordance Definition",
+                                      "description": "How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb chronometers is defined for this procedure: state the formula used. The rule for excluding discordant analyses belongs in Analysis Inclusion and Rejection Criteria. In the dataset: report the discordance of each analysis.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/module/UPb/discordanceDefinitionAndValues"
+                                          "const": "ada:parameter/module/UPb/discordanceDefinition"
                                         },
                                         "@type": {
                                           "const": [
@@ -28020,10 +27936,10 @@
                                           ]
                                         },
                                         "schema:valueName": {
-                                          "const": "discordanceDefinitionAndValues"
+                                          "const": "discordanceDefinition"
                                         },
                                         "schema:name": {
-                                          "const": "Discordance Definition and Values"
+                                          "const": "Discordance Definition"
                                         },
                                         "ada:dataType": {
                                           "const": "string"
@@ -28052,7 +27968,7 @@
                                     },
                                     {
                                       "title": "Error Correlation Between Reported Quantities",
-                                      "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                                      "description": "Which pairs of reported quantities have uncertainties that are not independent, and how the correlation coefficient between each pair is obtained. In the dataset: report, for each analysis, the correlation coefficient of each such pair.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
@@ -28070,7 +27986,7 @@
                                           "const": "Error Correlation Between Reported Quantities"
                                         },
                                         "ada:dataType": {
-                                          "const": "number"
+                                          "const": "string"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -28082,17 +27998,7 @@
                                           "const": "R"
                                         },
                                         "schema:defaultValue": {
-                                          "anyOf": [
-                                            {
-                                              "type": "number"
-                                            },
-                                            {
-                                              "type": "string"
-                                            }
-                                          ]
-                                        },
-                                        "schema:unitText": {
-                                          "const": "dimensionless"
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -28533,12 +28439,12 @@
                                   },
                                   {
                                     "contains": {
-                                      "title": "Discordance Definition and Values",
-                                      "description": "How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb chronometers is defined for this procedure, and the discordance values obtained. State the formula used. The rule for excluding discordant analyses, and how many were excluded, belong in Analysis Inclusion and Rejection Criteria.",
+                                      "title": "Discordance Definition",
+                                      "description": "How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb chronometers is defined for this procedure: state the formula used. The rule for excluding discordant analyses belongs in Analysis Inclusion and Rejection Criteria. In the dataset: report the discordance of each analysis.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
-                                          "const": "ada:parameter/module/UPb/discordanceDefinitionAndValues"
+                                          "const": "ada:parameter/module/UPb/discordanceDefinition"
                                         },
                                         "@type": {
                                           "const": [
@@ -28546,10 +28452,10 @@
                                           ]
                                         },
                                         "schema:valueName": {
-                                          "const": "discordanceDefinitionAndValues"
+                                          "const": "discordanceDefinition"
                                         },
                                         "schema:name": {
-                                          "const": "Discordance Definition and Values"
+                                          "const": "Discordance Definition"
                                         },
                                         "ada:dataType": {
                                           "const": "string"
@@ -28582,7 +28488,7 @@
                                   {
                                     "contains": {
                                       "title": "Error Correlation Between Reported Quantities",
-                                      "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                                      "description": "Which pairs of reported quantities have uncertainties that are not independent, and how the correlation coefficient between each pair is obtained. In the dataset: report, for each analysis, the correlation coefficient of each such pair.",
                                       "type": "object",
                                       "properties": {
                                         "@id": {
@@ -28600,7 +28506,7 @@
                                           "const": "Error Correlation Between Reported Quantities"
                                         },
                                         "ada:dataType": {
-                                          "const": "number"
+                                          "const": "string"
                                         },
                                         "ada:fieldScope": {
                                           "const": "session"
@@ -28612,17 +28518,7 @@
                                           "const": "R"
                                         },
                                         "schema:defaultValue": {
-                                          "anyOf": [
-                                            {
-                                              "type": "number"
-                                            },
-                                            {
-                                              "type": "string"
-                                            }
-                                          ]
-                                        },
-                                        "schema:unitText": {
-                                          "const": "dimensionless"
+                                          "type": "string"
                                         }
                                       },
                                       "required": [
@@ -31641,7 +31537,7 @@
                                         },
                                         {
                                           "title": "Counting Statistics Error",
-                                          "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                          "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -31681,7 +31577,7 @@
                                         },
                                         {
                                           "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                                          "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                                          "description": "How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -32141,7 +32037,7 @@
                                       {
                                         "contains": {
                                           "title": "Counting Statistics Error",
-                                          "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                          "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {
@@ -32185,7 +32081,7 @@
                                       {
                                         "contains": {
                                           "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                                          "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                                          "description": "How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.",
                                           "type": "object",
                                           "properties": {
                                             "@id": {

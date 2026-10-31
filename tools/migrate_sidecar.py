@@ -246,6 +246,26 @@ ALIASES = {
     #   RETIRED with their values folded into `Sample Preparation Method`, which already exists in
     #   every one of those tables with its own placement. Aliasing would stack a second and third
     #   authored path onto one item.
+
+    # --- 2026-10-29 delivery (amds-ldeo/tapp @ 33eb679). Rule 14, "rules in the TAPP, results
+    # in the dataset", NARROWS one item rather than deleting it. ---
+
+    # The item keeps the RULE and sheds the VALUES. Purpose text and Data Type (`Text (free)`)
+    # are identical word for word across v96 -> v98; only the Description moves, from "...is
+    # defined for this procedure, AND THE DISCORDANCE VALUES OBTAINED" to "...is defined for
+    # this procedure: STATE THE FORMULA USED". The definition half survives and keeps its
+    # authored placement; the values half is what Rule 14 sends to the dataset. 3 UPb tables.
+    "Discordance Definition and Values": "Discordance Definition",
+
+    # NOT aliased, and confirmed by Stephen 2026-10-29 as correct deletions: `Combined Results`
+    # and `Other Statistics` (13 tables each), and `Radiogenic Fraction of Measured Signal` (3).
+    # All three are RESULTS rather than rules, which is what Rule 14 removes from the plan side,
+    # and the intake reports no `new` item in any affected technique besides the Discordance
+    # rename above -- so there is nothing for them to be a rename OF. Each was verified present
+    # in the OLD delivery and absent from the NEW, which is what separates a real removal from a
+    # stale sidecar row. Their authored paths are discarded deliberately. The structural half of
+    # the same change shows up in `Key by`: `combined result` disappears as a keying dimension
+    # across 34 rows.
 }
 
 # Items that DROP in the 2026-09 deliveries and are deliberately not aliased. Recorded

@@ -24,10 +24,11 @@
   "ada:eelsEnergyLossRangeDefault",
   "ada:phaseIdentificationMethod",
   "ada:calibrationFactorAndDeterminationMethodDefault",
-  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:analysisInclusionAndRejectionCriteriaDefault",
   "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:edsCalibrationStandardDefault",
+  "ada:goodnessOfFitOrDispersionStatisticDefault",
   "schema:additionalProperty"
  ],
  "pt_keys": [
@@ -102,13 +103,14 @@
   "tem_imageProcessingMethodsApplied",
   "tem_specimenThicknessDeterminationMethod",
   "tem_calibrationFactorAndDeterminationMethod",
+  "tem_analysisInclusionAndRejectionCriteria",
   "tem_combinationMethod",
   "tem_constantsAndReferenceValuesUsed",
   "tem_edsCalibrationStandard",
   "tem_eelsEnergyCalibration",
   "tem_diffractionCalibrationReference",
   "tem_edsCountingStatisticsAccumulationCriterion",
-  "tem_otherStatistics"
+  "tem_goodnessOfFitOrDispersionStatistic"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -119,12 +121,9 @@
   "fundingSourceForAnalysis",
   "sampleName",
   "samplingUnitName",
-  "analysisInclusionAndRejectionCriteria",
-  "combinedResults",
   "edsDetectionLimit",
   "edsDeadTime",
-  "eelsDetectionLimit",
-  "goodnessOfFitOrDispersionStatistic"
+  "eelsDetectionLimit"
  ],
  "detail_req_multivol": [],
  "component_types": [
@@ -157,9 +156,10 @@
   "ada:eelsAcquisitionTimePerSpectrumDefault",
   "ada:eelsEnergyLossRangeDefault",
   "ada:phaseIdentificationMethod",
-  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:analysisInclusionAndRejectionCriteriaDefault",
   "ada:combinationMethodDefault",
-  "ada:edsCalibrationStandardDefault"
+  "ada:edsCalibrationStandardDefault",
+  "ada:goodnessOfFitOrDispersionStatisticDefault"
  ],
  "basic_props": [
   {
@@ -331,7 +331,7 @@
    "required": false
   },
   {
-   "key": "ada:analysisInclusionAndRejectionCriteria",
+   "key": "ada:analysisInclusionAndRejectionCriteriaDefault",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
    "cov": 21,
@@ -356,6 +356,13 @@
    "item": "EDS Calibration Standard(s)",
    "jtype": "string",
    "cov": 3,
+   "required": true
+  },
+  {
+   "key": "ada:goodnessOfFitOrDispersionStatisticDefault",
+   "item": "Goodness-of-Fit or Dispersion Statistic",
+   "jtype": "string",
+   "cov": 1,
    "required": true
   }
  ]

@@ -51,13 +51,14 @@
   "ada:imageRegistration3DDefault",
   "ada:segmentationMethodDefault",
   "ada:calibrationFactorAndDeterminationMethodDefault",
-  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:analysisInclusionAndRejectionCriteriaDefault",
   "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
   "ada:xRayLineOverlapCorrectionsApplied",
   "ada:detectionLimitMethod",
+  "ada:goodnessOfFitOrDispersionStatisticDefault",
   "schema:additionalProperty"
  ],
  "pt_keys": [
@@ -125,12 +126,14 @@
   "sem_imageRegistration3D",
   "sem_segmentationMethod",
   "sem_calibrationFactorAndDeterminationMethod",
+  "sem_analysisInclusionAndRejectionCriteria",
   "sem_combinationMethod",
   "sem_constantsAndReferenceValuesUsed",
   "sem_primaryCalibrationStandardName",
   "sem_secondaryReferenceMaterials",
+  "sem_countingStatisticsError",
   "sem_clWavelengthCalibrationReference",
-  "sem_otherStatistics"
+  "sem_goodnessOfFitOrDispersionStatistic"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -147,16 +150,12 @@
   "mapArea",
   "voxelSizeAndImageStackDimensions",
   "proceduralBlankLevel",
-  "analysisInclusionAndRejectionCriteria",
-  "combinedResults",
   "detectionLimit",
   "analyticalPrecision",
   "analyticalAccuracy",
-  "countingStatisticsError",
   "edsDeadTime",
   "ebsdMeanAngularDeviation",
-  "ebsdIndexingRate",
-  "goodnessOfFitOrDispersionStatistic"
+  "ebsdIndexingRate"
  ],
  "detail_req_multivol": [],
  "component_types": [
@@ -206,9 +205,10 @@
   "ada:imageRegistration3DDefault",
   "ada:segmentationMethodDefault",
   "ada:calibrationFactorAndDeterminationMethodDefault",
-  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:analysisInclusionAndRejectionCriteriaDefault",
   "ada:combinationMethodDefault",
-  "ada:primaryCalibrationStandardNameDefault"
+  "ada:primaryCalibrationStandardNameDefault",
+  "ada:goodnessOfFitOrDispersionStatisticDefault"
  ],
  "basic_props": [
   {
@@ -569,7 +569,7 @@
    "required": true
   },
   {
-   "key": "ada:analysisInclusionAndRejectionCriteria",
+   "key": "ada:analysisInclusionAndRejectionCriteriaDefault",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
    "cov": 32,
@@ -616,6 +616,13 @@
    "jtype": "string",
    "cov": 0,
    "required": false
+  },
+  {
+   "key": "ada:goodnessOfFitOrDispersionStatisticDefault",
+   "item": "Goodness-of-Fit or Dispersion Statistic",
+   "jtype": "string",
+   "cov": 4,
+   "required": true
   }
  ]
 }

@@ -53,7 +53,7 @@
   "ada:interferenceCorrectionMethod",
   "ada:isotopeDilutionDataReductionMethod",
   "ada:calibrationFactorAndDeterminationMethodDefault",
-  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:analysisInclusionAndRejectionCriteriaDefault",
   "ada:ageCalculationMethod",
   "ada:reportedDateTypeDefault",
   "ada:inheritedOrInitialSignalCorrectionDefault",
@@ -65,6 +65,7 @@
   "ada:detectionLimitMethod",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod",
   "ada:analyticalAccuracyAndAssessmentMethod",
+  "ada:goodnessOfFitOrDispersionStatisticDefault",
   "schema:additionalProperty"
  ],
  "pt_keys": [
@@ -137,13 +138,17 @@
   "laSficpmsUPb_memoryEffectMitigation",
   "laSficpmsUPb_normalizationStandardsBasedCorrection",
   "laSficpmsUPb_calibrationFactorAndDeterminationMethod",
+  "laSficpmsUPb_analysisInclusionAndRejectionCriteria",
   "laSficpmsUPb_reportedDateType",
   "laSficpmsUPb_inheritedOrInitialSignalCorrection",
+  "laSficpmsUPb_errorCorrelationBetweenReportedQuantities",
   "laSficpmsUPb_combinationMethod",
   "laSficpmsUPb_constantsAndReferenceValuesUsed",
   "laSficpmsUPb_primaryCalibrationStandardName",
   "laSficpmsUPb_secondaryReferenceMaterials",
-  "laSficpmsUPb_otherStatistics"
+  "laSficpmsUPb_countingStatisticsError",
+  "laSficpmsUPb_internalAnalyticalPrecisionAndAssessmentMethod",
+  "laSficpmsUPb_goodnessOfFitOrDispersionStatistic"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -162,19 +167,12 @@
   "mappingArea",
   "signalIntegrationTime",
   "proceduralBlankLevel",
-  "analysisInclusionAndRejectionCriteria",
-  "radiogenicFractionOfMeasuredSignal",
   "ageDatumReferenceEpoch",
-  "errorCorrelationBetweenReportedQuantities",
-  "combinedResults",
   "detectionLimit",
   "limitOfQuantificationMethod",
-  "countingStatisticsError",
-  "internalAnalyticalPrecisionAndAssessmentMethod",
   "withinSessionAnalyticalPrecisionAndAssessmentMethod",
   "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-  "analyticalAccuracyAndAssessmentMethod",
-  "goodnessOfFitOrDispersionStatistic"
+  "analyticalAccuracyAndAssessmentMethod"
  ],
  "detail_req_multivol": [],
  "component_types": [
@@ -223,7 +221,7 @@
   "ada:spectralInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
-  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:analysisInclusionAndRejectionCriteriaDefault",
   "ada:ageCalculationMethod",
   "ada:reportedDateTypeDefault",
   "ada:inheritedOrInitialSignalCorrectionDefault",
@@ -233,7 +231,8 @@
   "ada:secondaryReferenceMaterialsDefault",
   "ada:detectionLimitMethod",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod",
-  "ada:analyticalAccuracyAndAssessmentMethod"
+  "ada:analyticalAccuracyAndAssessmentMethod",
+  "ada:goodnessOfFitOrDispersionStatisticDefault"
  ],
  "basic_props": [
   {
@@ -608,7 +607,7 @@
    "required": false
   },
   {
-   "key": "ada:analysisInclusionAndRejectionCriteria",
+   "key": "ada:analysisInclusionAndRejectionCriteriaDefault",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
    "cov": 7,
@@ -689,6 +688,13 @@
    "item": "Analytical Accuracy and Assessment Method",
    "jtype": "string",
    "cov": 3,
+   "required": true
+  },
+  {
+   "key": "ada:goodnessOfFitOrDispersionStatisticDefault",
+   "item": "Goodness-of-Fit or Dispersion Statistic",
+   "jtype": "string",
+   "cov": 2,
    "required": true
   }
  ]
