@@ -15,14 +15,6 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -30,6 +22,14 @@
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
                     ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -137,13 +137,13 @@
     schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
+    schema1:defaultValue -9999 ;
     schema1:name "Background Counting Time" ;
     schema1:valueName "backgroundCountingTime" ;
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
+    schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .

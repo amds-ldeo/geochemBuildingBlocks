@@ -103,10 +103,10 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:epmaTAPP-Neuman2025/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -168,13 +168,13 @@
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
+    schema1:defaultValue -9999 ;
     schema1:name "Background Counting Time" ;
     schema1:valueName "backgroundCountingTime" ;
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
+    schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
@@ -196,7 +196,7 @@
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
+    schema1:defaultValue -9999 ;
     schema1:name "Beam Current" ;
     schema1:valueName "beamCurrent" ;
     ada:dataType "number" .
