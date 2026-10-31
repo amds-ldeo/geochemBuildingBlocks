@@ -790,6 +790,13 @@ def build(tapp):
     # remaining violations of CDIF's AdditionalTypeUriShouldBeIRIShape in the */profile
     # examples -- the whole shortfall, in the one example generator that never got the pass.
     import build_tapp_examples as bte
+    # The scaffold's instruments arrive with ITS identifiers, and _retarget_instrument rewrites the
+    # additionalType tokens without touching them -- which is how 35 profile examples carried an
+    # @id naming the NeXus base class beside an additionalType saying SEM. Re-mint under this
+    # document's own scope.
+    import schema_path_example_emitter as spe
+    spe.assign_instrument_ids(ex)
+    spe.assign_instrument_ids(mono)
     bte.idify_uri_values(ex)
     bte.idify_uri_values(mono)
     _wj(os.path.join(d, "example" + cfg["cid"] + ".json"), ex)

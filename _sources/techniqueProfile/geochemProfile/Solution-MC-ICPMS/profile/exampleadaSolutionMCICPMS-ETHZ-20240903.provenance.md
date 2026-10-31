@@ -89,3 +89,25 @@ and invents nothing.
 The duplicate `ex:adaProduct-var-001` ids in this file's `schema:variableMeasured` were a separate
 defect, fixed in `build_profile._add_required_variables`, which owns those appended members even
 in a source-derived file.
+
+## 2026-10-30 — instrument identifiers scoped to this document
+
+`schema:instrument[].@id` was `ex:instrument/<type token>`, derived from the instrument's TYPE.
+A type is not an identity: `ex:instrument/nxs-BaseClass-NXinstrument` -- the NeXus BASE CLASS, a
+type URI standing in for an identifier -- was the `@id` of one JSON-LD node in 113 documents, and
+`ex:instrument/SEM` in 85, each giving that one node a different manufacturer, model and name.
+
+The identifiers below are now scoped by this document's own `@id`, so the instrument this record
+describes is its own node. Nothing referenced the old values -- every occurrence of an instrument
+identifier in the repository is the `@id` declaration itself, so no pointer moved.
+
+| instrument | `@id` |
+|---|---|
+| NeptunePlus | `ex:9q7s-5533/instrument/ICPMS` |
+
+This file is SOURCE-DERIVED, so no generator rewrites it and the generator fix could not reach it;
+the values were re-minted in place with the generators' own scheme
+(`schema_path_example_emitter.assign_instrument_ids`), so a rebuild from scratch would produce the
+same strings.
+
+The document scope is `9q7s-5533`, this record's own `@id`.
