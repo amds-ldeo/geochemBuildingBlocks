@@ -387,6 +387,7 @@ def populate_template_columns(inst, tapp_res):
             obj = ex.instance_from_def(rb)
             if not isinstance(obj, dict):
                 continue                 # a non-object branch (bare string item) — not a column def
+            _sentinel_scaffold_default(obj, rb)
             vn = obj.get("schema:valueName")
             if vn in seen:
                 continue
@@ -394,6 +395,48 @@ def populate_template_columns(inst, tapp_res):
             built.append(obj)
         if built:
             tpl[ckey] = built
+
+
+def _sentinel_scaffold_default(col, branch):
+    """Replace instance_from_def's scaffold NUMBER with the transcription sentinel.
+
+    instance_from_def is a pure schema SAMPLER, and the two halves of it disagree about absence: its
+    text branch returns the "no value available" sentinel, which every vocabulary filter catches,
+    while its numeric branch returns a literal 1. So a column with no publication value arrived
+    carrying 1 -- and 1 is a plausible Beam Current in nA, so no consumer can tell it from a
+    measurement. Barnes+2025 actually used 10 nA; the stored definition said 1.
+
+    _channel_value already gets this right one function below, writing -9999 for a numeric channel
+    with no publication value and calling it "the transcription sentinel, not a fake placeholder".
+    The column path never had the equivalent. Measured before this fix, over the generated examples:
+    162 keyed-table column defaults were a bare 1 -- backgroundCountingTime 56, peakCountingTime 56,
+    dwellTimePerMass 33, beamCurrent 17 -- and NOT ONE was -9999, so the convention never reached
+    this path at all.
+
+    Gated on the SCHEMA, not on the value: a column that legitimately pins its default with const or
+    enum keeps whatever instance_from_def read off that pin. Measured across all 61 techniques, no
+    keyed-table column pins one today, so the guard protects a future one rather than a present one
+    -- which is exactly why it tests the branch instead of testing whether the value happens to be 1.
+
+    A unit-bearing column whose default is an OBJECT (quantitative_placeholder's shape) is left
+    alone: its value is a dict, not a number, so it never reaches the assignment. -9999 would be the
+    wrong repair there, since the object has its own required unitText.
+    """
+    vk = ("schema:defaultValue" if "schema:defaultValue" in col
+          else ("schema:value" if "schema:value" in col else None))
+    if vk is None or col.get("ada:dataType") not in ("number", "integer"):
+        return
+    for src in [branch] + list(branch.get("allOf") or []):
+        if not isinstance(src, dict):
+            continue
+        leaf = (src.get("properties") or {}).get(vk)
+        if not isinstance(leaf, dict):
+            continue
+        for node in [leaf] + [b for b in (leaf.get("anyOf") or []) if isinstance(b, dict)]:
+            if "const" in node or "enum" in node:
+                return                       # the schema pins it; the sampled value IS the pin
+    if isinstance(col[vk], (int, float)) and not isinstance(col[vk], bool):
+        col[vk] = SENTINEL_NUMERIC
 
 
 def _channel_value(col, raw):
