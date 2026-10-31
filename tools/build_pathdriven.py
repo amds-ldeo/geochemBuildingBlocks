@@ -413,6 +413,11 @@ def build_pathdriven(tapp, write_registries=True):
     # fill_nested_required, whose contract is JSON-Schema-required properties.
     # Identifier values on schema:additionalType / schema:propertyID go out as IRI
     # references, which every site now admits after #77 step 1.
+    # Identity last, for the reason in ex.assign_instrument_ids: route() normalised these trees
+    # before the @id above was attached, so it could not scope an identifier then.
+    ex.assign_instrument_ids(tapp_inst)
+    ex.assign_instrument_ids(detail_inst)
+
     bte.idify_uri_values(tapp_inst)
     bte.idify_uri_values(detail_inst)
 

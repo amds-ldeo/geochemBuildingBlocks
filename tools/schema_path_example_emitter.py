@@ -99,14 +99,104 @@ def _module_param_def(item, root):
 WIKIDATA_INSTRUMENT = "https://www.wikidata.org/wiki/Q3099911"
 
 
-def instrument_id(token):
-    """A document-scoped @id for an instrument, derived from its type token.
+def _slug(v, fallback):
+    return re.sub(r"[^A-Za-z0-9]+", "-", str(v or "")).strip("-") or fallback
+
+
+def _type_token(node, fallback):
+    """The instrument/component type token: the first plain string in schema:additionalType.
+
+    additionalType carries a URI-shaped value as a sealed {"@id": ...} reference and a free label as
+    a plain string, so the plain string is the readable type name ('SEM', 'Laser Ablation System').
+    """
+    t = next((x for x in (node.get("schema:additionalType") or []) if isinstance(x, str)), None)
+    return _slug(t, fallback)
+
+
+def doc_scope(doc):
+    """The token that scopes identifiers minted inside `doc`, taken from the document's own @id.
+
+    An instrument is a sub-resource of the document that describes it, so that document's identity
+    is what makes the instrument's identity its own. Nothing else available here is unique per
+    document: the TYPE token is shared by every example of a technique.
+    """
+    r = doc.get("@id")
+    if not isinstance(r, str) or not r:
+        return None
+    tail = r.rstrip("/").rsplit("/", 1)[-1] if "/" in r else r.split(":", 1)[-1]
+    return _slug(tail, "") or None
+
+
+def instrument_id(token, scope):
+    """The @id of an instrument of type `token`, inside a document scoped by `scope`.
 
     Derived rather than sequential so it is stable across regenerations: a counter would rewrite
-    every example on every run.
+    every example on every run and break `Regenerate twice and compare`.
     """
-    return "ex:instrument/" + (re.sub(r"[^A-Za-z0-9]+", "-", str(token or "instrument")).strip("-")
-                               or "instrument")
+    return "ex:%s/instrument/%s" % (scope, _slug(token, "instrument"))
+
+
+def assign_instrument_ids(doc):
+    """Mint the document-scoped @id of every instrument and inline component in `doc`.
+
+    Identity is separate from normalize_instrument_tree's structural work because it needs the whole
+    DOCUMENT, and the normalizer runs before the document has one: route() normalizes each root
+    instance it builds and build_pathdriven wraps that in the @id afterwards. Minting there could
+    only derive an identifier from the TYPE token, and a type is not an identity --
+    `ex:instrument/SEM` was ONE JSON-LD node in 85 documents, each giving it a different
+    manufacturer, model and name, and `ex:instrument/nxs-BaseClass-NXinstrument` -- the NeXus BASE
+    CLASS, a type URI used as an identifier -- was one node in 113.
+
+    Nothing in the repo could see it: an @id is not a constraint, so constraint_census is
+    structurally blind to it, and no schema pins uniqueness, so validate_examples passed 657/657
+    over it.
+
+    Call AFTER the document's @id exists and BEFORE the sentinel fills, which would otherwise find a
+    required @id absent and write "missing" into it.
+
+    Ids are overwritten, because every caller owns the document it passes. An AUTHORED id survives
+    because no generator rebuilds the file carrying it; normalize_instrument_tree is what runs over
+    those, and it leaves @id alone.
+    """
+    scope = doc_scope(doc)
+    if scope is None:
+        # Fail closed and loud. Scoping is the whole point, and the alternative -- falling back to
+        # the type token -- is the degenerate identifier this function exists to retire.
+        raise ValueError("cannot scope instrument identifiers: the document carries no @id")
+    used = set()
+
+    def unique(base):
+        cand, n = base, 2
+        while cand in used:
+            cand, n = "%s-%d" % (base, n), n + 1
+        used.add(cand)
+        return cand
+
+    n = [0]
+
+    def walk(node):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if k == "schema:instrument":
+                    for i in (v if isinstance(v, list) else [v]):
+                        if not isinstance(i, dict):
+                            continue
+                        i["@id"] = unique(instrument_id(_type_token(i, "instrument"), scope))
+                        n[0] += 1
+                        for part in (i.get("schema:hasPart") or []):
+                            # a component is scoped under its parent, so two instruments may each
+                            # carry their own Collector without the identifiers colliding
+                            if isinstance(part, dict):
+                                part["@id"] = unique("%s/part/%s"
+                                                     % (i["@id"], _type_token(part, "component")))
+                                n[0] += 1
+                walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+
+    walk(doc)
+    return n[0]
 
 
 def normalize_instrument_tree(inst):
@@ -120,28 +210,23 @@ def normalize_instrument_tree(inst):
 
     The instrument building block requires, on each node:
       * @type [schema:Product, schema:Thing] -- on the instrument AND every inline component
-      * @id -- so a monitored species can name the device, or the PART, that reports it
       * on a component: the scientific-instrument Wikidata term, and a schema:name
       * @type on schema:model / schema:manufacturer
+
+    @id is also required -- so a monitored species can name the device, or the PART, that reports
+    it -- but it is NOT minted here: an identifier has to be scoped by the document, and this
+    function does not have the document at the point it runs. assign_instrument_ids does that. An
+    @id already present is left alone, which is what lets a source-derived example name its own
+    instruments.
 
     The path interpreter builds these nodes by nesting from [additionalType=...] selectors and
     carries only the metadata leaves, so the discriminators are supplied here rather than left to
     the validator-driven fills, which cannot resolve them through the instrument $def's deep anyOf.
     """
-    def token(node, fallback):
-        t = next((x for x in (node.get("schema:additionalType") or []) if isinstance(x, str)), None)
-        return re.sub(r"[^A-Za-z0-9]+", "-", str(t or fallback)).strip("-") or fallback
-
-    def walk(node, is_component, parent_id=None):
+    def walk(node, is_component):
         if not isinstance(node, dict):
             return
         node.setdefault("@type", ["schema:Product", "schema:Thing"])
-        if not isinstance(node.get("@id"), str):
-            # a component is scoped under its parent, so two instruments may each carry their own
-            # Collector without the identifiers colliding
-            node["@id"] = ("%s/part/%s" % (parent_id or instrument_id("instrument"),
-                                           token(node, "component"))
-                           if is_component else instrument_id(token(node, "instrument")))
         if is_component:
             at = node.setdefault("schema:additionalType", [])
             if not any(isinstance(x, dict) and x.get("@id") == WIKIDATA_INSTRUMENT for x in at):
@@ -154,7 +239,7 @@ def normalize_instrument_tree(inst):
         if isinstance(mf, dict):
             mf.setdefault("@type", ["schema:Organization"])
         for part in (node.get("schema:hasPart") or []):
-            walk(part, True, node.get("@id"))
+            walk(part, True)
 
     def find(n):
         if isinstance(n, dict):
