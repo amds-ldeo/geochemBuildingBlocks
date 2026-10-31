@@ -41,6 +41,11 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TPROF = os.path.join(ROOT, "_sources", "techniqueProfile")
+# "none" STAYS here, although _tapp_lib.SENTINEL_WORDS dropped it on 2026-10-30. The two lists
+# answer different questions: there, whether a term is a publishable VALUE -- and "no action was
+# taken" is one; here, whether a string is a usable NAME for a workflow step, which "None" is not
+# whatever it means as a value. So this is NOT the "one word, two homes" defect that list warns
+# about, and the two must not be unified.
 SENTINELS = {"missing", "nil:missing", "-9999", "n/a", "none", ""}
 # A sentinel that NAMES its field is still a sentinel: "no value available: <property>"
 # alongside the bare "missing". The prefix is imported, never restated.
