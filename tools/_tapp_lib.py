@@ -70,6 +70,20 @@ LEGACY_TEXT_PREFIXES = ("test value ", "example ")
 # bundled in with a rename.
 SENTINEL_TEXT_UNNAMED = SENTINEL_TEXT_PREFIX + "unnamed property"
 
+# The nil-reason IRI for a required LINK that gBB cannot supply, as against the text sentinels
+# above. OGC's nil register, whose members are inapplicable / missing / template / unknown /
+# withheld -- so `missing` is an existing member of a namespace this repo already uses, not a new
+# magic value beside SENTINEL_TEXT, the nil token and the None/Other/N/A trio. That distinction is
+# why this is a consolidation and not the "second sentinel" CLAUDE.md forbids.
+#
+# It replaces a bare `https://ada.astromat.org/missing` inlined in
+# schema_path_example_emitter's gap-filler, which hardcoded a HOST -- and was the odd one out in
+# its own function, where the schema:name branch beside it already read from this module.
+# build_mode_applicability documents /unknown and /inapplicable off the same base and now takes
+# the base from here, so the namespace has one home rather than two.
+NIL = "http://www.opengis.net/def/nil/OGC/0/"
+SENTINEL_URL = NIL + "missing"
+
 
 def is_text_sentinel(v) -> bool:
     """True for any text sentinel: the bare word, the current named form, or a legacy one.
