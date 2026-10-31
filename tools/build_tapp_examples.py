@@ -1450,7 +1450,12 @@ def conform_nested_enums(inst, resolved_schema, max_passes=4):
                 continue
             snapped, _ = _snap_enum(val, enum)
             if snapped is None:
-                snapped = next((o for o in ("Unknown", "N/A", "None", SENTINEL_TEXT) if o in enum), None)
+                # "None" is NOT a fallback. Since 2026-10-30 it is a published concept
+                # meaning "no action was taken", so snapping an unrecognised value onto it would
+                # ASSERT that -- a substantive claim this pass cannot know to be true. What is
+                # left all means "not determined". ("N/A" asserts irrelevance and is arguably the
+                # same mistake; that is a separate ruling and is not made here.)
+                snapped = next((o for o in ("Unknown", "N/A", SENTINEL_TEXT) if o in enum), None)
             if snapped is not None and snapped != val:
                 parent[path[-1]] = snapped
                 changed += 1
