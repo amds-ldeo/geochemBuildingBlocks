@@ -171,14 +171,17 @@ def place_identity(inst, item, sp, v, allowed_techniques=()):
         # additionalType carries a URI-shaped value as a sealed reference
         # and a free label as a plain string -- the selector can name
         # either ('Laser Ablation System' is a label, not a term). The
-        # token itself stays a string: instrument_id() slugifies it, and
+        # token itself stays a string: _type_token() reads the first plain
+        # string out of additionalType to derive the @id, and
         # a dict there would silently rewrite every instrument @id.
         addl = {"@id": token} if ":" in token else token
         arr = inst.setdefault("schema:instrument", [])
         cur = next((i for i in arr if addl in (i.get("schema:additionalType") or [])), None)
         if cur is None:
-            cur = {"@id": ex.instrument_id(token),
-                   "@type": ["schema:Product", "schema:Thing"],
+            # no @id here: identity is minted once, by ex.assign_instrument_ids, after the
+            # document's own @id exists. Deriving one from `token` is what made the TYPE the
+            # identity -- `ex:instrument/SEM` in 85 documents.
+            cur = {"@type": ["schema:Product", "schema:Thing"],
                    "schema:additionalType": [addl, {"@id": WIKIDATA_INSTRUMENT}],
                    "schema:name": ""}
             arr.append(cur)
@@ -588,8 +591,7 @@ def ensure_required_instruments(inst, sp_by_item):
     arr = inst.setdefault("schema:instrument", [])
     for token in sorted(wanted):
         if not any(token in (i.get("schema:additionalType") or []) for i in arr):
-            arr.append({"@id": ex.instrument_id(token),
-                        "@type": ["schema:Product", "schema:Thing"],
+            arr.append({"@type": ["schema:Product", "schema:Thing"],
                         "schema:additionalType": [token, {"@id": WIKIDATA_INSTRUMENT}],
                         "schema:name": "missing"})
 
@@ -1740,6 +1742,10 @@ def main():
             # ProductModel -- so re-run it, then let the validator-driven pass take the rest.
             type_instrument_tree(inst)
             ex.fill_required_types(inst, tapp_res)
+        # Identity last: after every fill, so an instrument a fill created still gets one and a
+        # sentinel written into a required @id is replaced; before idify_uri_values, which wraps an
+        # IRI-shaped schema:additionalType and would hide the type token the id derives from.
+        ex.assign_instrument_ids(inst)
         idify_uri_values(inst)
         fp = os.path.join(TAPP_DIR, f"example{tapp}-{code}.json")
         with open(fp, "w", encoding="utf-8", newline="\n") as f:
@@ -1761,6 +1767,7 @@ def main():
             sentinel_pinned_members(dinst, detail_res)
             type_instrument_tree(dinst)
             ex.fill_required_types(dinst, detail_res)
+        ex.assign_instrument_ids(dinst)
         idify_uri_values(dinst)
         with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),
                   "w", encoding="utf-8", newline="\n") as f:
