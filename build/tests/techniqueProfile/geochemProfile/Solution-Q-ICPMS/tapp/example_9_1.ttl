@@ -14,21 +14,6 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Group-1; Group-2; Group-3 — the grouping of Yokoyama, Nagashima, et al. (2023), each on its own solution" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -44,10 +29,25 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Group-1; Group-2; Group-3 — the grouping of Yokoyama, Nagashima, et al. (2023), each on its own solution" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard — Methods" ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionQicpmsTAPP-P8/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Science Tokyo" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -159,23 +159,23 @@
     ada:uncertaintyLevel "2σ — Table 1" ;
     ada:washTimeBetweenSamples -9999 .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Triple quadrupole (ICP-MS/MS)" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "iCAP TQ" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
         <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
@@ -183,25 +183,25 @@
         "Collision Reaction Cell" ;
     schema1:name "Li, Be, Sc, Rb, Sr, Y, Ag, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Tl, Pb, Bi, Th, U: non-gas SQ mode; Ga, As, Se, Cd, In, Na, P, K, Ca: O2 mode; Mg, Al, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ti, Zr, Nb, Hf, Ta, Mo, W: He KED mode — Methods" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionQicpmsTAPP-P8/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;

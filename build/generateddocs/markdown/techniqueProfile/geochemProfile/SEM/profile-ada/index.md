@@ -263,7 +263,7 @@ Mock data for validation and testing.
               "schema:identifier": [
                 "ex:instrument-sem-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaSEMFull-example-001/instrument/SEM"
             }
           ]
         }
@@ -700,7 +700,7 @@ Mock data for validation and testing.
               "schema:identifier": [
                 "ex:instrument-sem-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaSEMFull-example-001/instrument/SEM"
             }
           ]
         }
@@ -1035,8 +1035,16 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] ;
+            prov:used [ schema1:instrument <https://example.org/adaSEMFull-example-001/instrument/SEM> ] ] ;
     ada:submissionType "BundleDelivery" .
+
+<https://example.org/adaSEMFull-example-001/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
+        <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:identifier "ex:instrument-sem-001" ;
+    schema1:name "Example SEM Instrument" .
 
 ex:adaSEMFull-file-001 a schema1:Collection,
         schema1:MediaObject,
@@ -1107,14 +1115,6 @@ ex:adaSEMFull-var-002 a cdi:InstanceVariable,
     schema1:propertyID <https://ada.astromat.org/vocabulary/variables/position_x> ;
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
-
-<https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:identifier "ex:instrument-sem-001" ;
-    schema1:name "Example SEM Instrument" .
 
 
 ```

@@ -207,7 +207,7 @@ and technique component types on the archive distribution. Mock data for validat
               "schema:identifier": [
                 "ex:instrument-ada-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaSolutionSFICPMS-example-001/instrument/ICPMS"
             }
           ]
         },
@@ -748,7 +748,7 @@ and technique component types on the archive distribution. Mock data for validat
               "schema:identifier": [
                 "ex:instrument-ada-001"
               ],
-              "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
+              "@id": "ex:adaSolutionSFICPMS-example-001/instrument/ICPMS"
             }
           ]
         },
@@ -1195,7 +1195,7 @@ ex:adaSolutionSFICPMS-example-001 a schema1:Dataset,
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
             prov:used [ ada:tappDefinition ex:solutionSficpmsTAPP-P0 ],
-                [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
+                [ schema1:instrument <https://example.org/adaSolutionSFICPMS-example-001/instrument/ICPMS> ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:sensitivityYield 1e+00 ;
@@ -1271,7 +1271,7 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
 
-<https://example.org/instrument/nxs-BaseClass-NXinstrument> a schema1:Product,
+<https://example.org/adaSolutionSFICPMS-example-001/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType ada:ADAInstrument,
         <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,

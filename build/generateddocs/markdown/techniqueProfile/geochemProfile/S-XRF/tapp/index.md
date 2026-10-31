@@ -48,7 +48,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/nxs-base-classes-NXinstrument-html"
+      "@id": "ex:sXrfTAPP-P0/instrument/nxs-base-classes-NXinstrument-html"
     }
   ],
   "schema:measurementTechnique": [
@@ -145,7 +145,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/nxs-base-classes-NXinstrument-html"
+      "@id": "ex:sXrfTAPP-P0/instrument/nxs-base-classes-NXinstrument-html"
     }
   ],
   "schema:measurementTechnique": [
@@ -219,7 +219,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
                     schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotron Radiation Facility | Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering) (publication column of S-XRF_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Synchrotron." ;
-    schema1:instrument <ex:instrument/nxs-base-classes-NXinstrument-html> ;
+    schema1:instrument <ex:sXrfTAPP-P0/instrument/nxs-base-classes-NXinstrument-html> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02550n020" ;
             schema1:name "European Synchrotron Radiation Facility" ] ;
@@ -233,7 +233,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
-<ex:instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
+<ex:sXrfTAPP-P0/instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
         <https://www.wikidata.org/wiki/Q3099911> ;

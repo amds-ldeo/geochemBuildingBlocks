@@ -23,20 +23,20 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
@@ -46,30 +46,30 @@
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)" ;
-    schema1:instrument <ex:instrument/ICPMS>,
-        <ex:instrument/Laser-Ablation-System> ;
+    schema1:instrument <ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS>,
+        <ex:laQicpmsUPbTAPP-Liu2016/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)" ] ;
     schema1:name "laQicpmsUPb protocol — Liu2016" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP gives major element compositions; for spots with EMP data, oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)" ;
     ada:ablationSpotDurationDefault "N — not stated" ;
@@ -172,29 +172,29 @@
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/ICP-Source>,
+        <ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Interface-Cone>,
+        <ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500ce ICP-MS" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
@@ -202,19 +202,19 @@
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
 
-<ex:instrument/Laser-Ablation-System> a schema1:Product,
+<ex:laQicpmsUPbTAPP-Liu2016/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,

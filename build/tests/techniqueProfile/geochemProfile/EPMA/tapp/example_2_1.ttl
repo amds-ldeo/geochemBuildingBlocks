@@ -15,22 +15,22 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Sen Hu" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses ('Quantitative analyses of maskelynite ... were conducted by electron probe microanalysis'); WDS or EDS is not stated, and the list has no value without one." ;
-    schema1:instrument <ex:instrument/EPMA>,
-        <ex:instrument/SEM> ;
+    schema1:instrument <ex:epmaTAPP-Hu2020/instrument/EPMA>,
+        <ex:epmaTAPP-Hu2020/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -42,12 +42,12 @@
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -109,13 +109,13 @@
     bios:computationalTool [ schema1:name "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:instrument/EPMA> a schema1:Product,
+<ex:epmaTAPP-Hu2020/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EPMA" ;
-    schema1:hasPart <ex:instrument/EPMA/part/EDS-Detector>,
-        <ex:instrument/EPMA/part/Electron-Source>,
-        <ex:instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:epmaTAPP-Hu2020/instrument/EPMA/part/EDS-Detector>,
+        <ex:epmaTAPP-Hu2020/instrument/EPMA/part/Electron-Source>,
+        <ex:epmaTAPP-Hu2020/instrument/EPMA/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
     schema1:name "no value available: schema:name" ;
@@ -126,26 +126,26 @@
     ada:mappingBeamDiameterDefault -9999 ;
     ada:mappingBeamMode "missing" .
 
-<ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
+<ex:epmaTAPP-Hu2020/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/EPMA/part/Electron-Source> a schema1:Product,
+<ex:epmaTAPP-Hu2020/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<ex:instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+<ex:epmaTAPP-Hu2020/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:epmaTAPP-Hu2020/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;

@@ -53,8 +53,8 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/STEM",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:stemTAPP-HF5000/instrument/STEM"
     }
   ],
   "schema:measurementTechnique": [
@@ -159,8 +159,8 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/STEM",
-      "schema:name": "no value available: schema:name"
+      "schema:name": "no value available: schema:name",
+      "@id": "ex:stemTAPP-HF5000/instrument/STEM"
     }
   ],
   "schema:measurementTechnique": [
@@ -240,7 +240,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
             schema1:name "Claude assisted" ] ;
     schema1:datePublished "2024-05-16" ;
     schema1:description "stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona | Hitachi HF5000 (25 instrumentMetadata exports) (publication column of STEM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Hitachi." ;
-    schema1:instrument <ex:instrument/STEM> ;
+    schema1:instrument <ex:stemTAPP-HF5000/instrument/STEM> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/03m2x1q45" ;
             schema1:name "University of Arizona" ] ;
@@ -255,7 +255,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
-<ex:instrument/STEM> a schema1:Product,
+<ex:stemTAPP-HF5000/instrument/STEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "STEM" ;
@@ -341,7 +341,6 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
   },
   "schema:instrument": [
     {
-      "@id": "ex:instrument/STEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -353,7 +352,8 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
         }
       ],
       "schema:name": "missing",
-      "ada:acceleratingVoltage": -9999
+      "ada:acceleratingVoltage": -9999,
+      "@id": "ex:stemTAPP-P1/instrument/STEM"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
@@ -447,7 +447,6 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
   },
   "schema:instrument": [
     {
-      "@id": "ex:instrument/STEM",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -459,7 +458,8 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
         }
       ],
       "schema:name": "missing",
-      "ada:acceleratingVoltage": -9999
+      "ada:acceleratingVoltage": -9999,
+      "@id": "ex:stemTAPP-P1/instrument/STEM"
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
@@ -497,7 +497,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
             schema1:name "Claude assisted" ] ;
     schema1:datePublished "2023-12-07" ;
     schema1:description "stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley National Laboratory | FEI TitanX TEM (78 instrumentMetadata exports, dimensions only) (publication column of STEM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FEI." ;
-    schema1:instrument <ex:instrument/STEM> ;
+    schema1:instrument <ex:stemTAPP-P1/instrument/STEM> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02jbv0t02" ;
             schema1:name "Lawrence Berkeley National Laboratory" ] ;
@@ -512,7 +512,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
-<ex:instrument/STEM> a schema1:Product,
+<ex:stemTAPP-P1/instrument/STEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "STEM" ;

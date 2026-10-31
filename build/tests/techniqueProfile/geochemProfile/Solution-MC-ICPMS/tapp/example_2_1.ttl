@@ -14,6 +14,13 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
@@ -35,13 +42,6 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
@@ -57,7 +57,7 @@
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Laser half: NewWave UP213 (213 nm), He carrier, 60 µm spot, 180 × 80 µm raster, 5 µm/s, 10 Hz, ~9–10 J/cm², ablated aerosol mixed with 2% HNO3 in the spray chamber — Table 1" ;
-    schema1:instrument <ex:instrument/ICPMS> ;
+    schema1:instrument <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Woods Hole Oceanographic Institution" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -137,7 +137,7 @@
     ada:uncertaintyLevel "1σ internal precision for individual analyses, 2σ external reproducibility for replicates — §2.4" ;
     ada:washTimeBetweenSamples "2 min — Table 1; 4 min after laser analyses" .
 
-<ex:instrument/ICPMS> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
@@ -145,19 +145,19 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
-        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:instrument/ICPMS/part/ICP-Source>,
-        <ex:instrument/ICPMS/part/Interface-Cone>,
-        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:hasPart <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collector>,
+        <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/ICP-Source>,
+        <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone>,
+        <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "NEPTUNE (\"Thermo Electron NEPTUNE\")" ] ;
     schema1:name "no value available: schema:name" .
 
-<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -165,13 +165,13 @@
     schema1:name "missing" ;
     ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
 
-<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
@@ -181,7 +181,7 @@
         "ICP Source" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
@@ -189,7 +189,7 @@
         "Interface Cone" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
@@ -199,7 +199,7 @@
         "Sample Introduction System" ;
     schema1:name "missing" .
 
-<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+<ex:solutionMcicpmsTAPP-P1/instrument/ICPMS/part/Torch> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;

@@ -31,8 +31,8 @@
             schema1:name "Logan B. Seifert" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — 14 quantitative point analyses; WDS or EDS is not stated, and the list has no value without one." ;
-    schema1:instrument <ex:instrument/EPMA>,
-        <ex:instrument/SEM> ;
+    schema1:instrument <ex:epmaTAPP-Seifert2026/instrument/EPMA>,
+        <ex:epmaTAPP-Seifert2026/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES, NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -44,12 +44,12 @@
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -106,13 +106,13 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
-<ex:instrument/EPMA> a schema1:Product,
+<ex:epmaTAPP-Seifert2026/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EPMA" ;
-    schema1:hasPart <ex:instrument/EPMA/part/EDS-Detector>,
-        <ex:instrument/EPMA/part/Electron-Source>,
-        <ex:instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:epmaTAPP-Seifert2026/instrument/EPMA/part/EDS-Detector>,
+        <ex:epmaTAPP-Seifert2026/instrument/EPMA/part/Electron-Source>,
+        <ex:epmaTAPP-Seifert2026/instrument/EPMA/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
     schema1:name "no value available: schema:name" ;
@@ -123,26 +123,26 @@
     ada:mappingBeamDiameterDefault -9999 ;
     ada:mappingBeamMode "missing" .
 
-<ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
+<ex:epmaTAPP-Seifert2026/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
-<ex:instrument/EPMA/part/Electron-Source> a schema1:Product,
+<ex:epmaTAPP-Seifert2026/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<ex:instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+<ex:epmaTAPP-Seifert2026/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
-<ex:instrument/SEM> a schema1:Product,
+<ex:epmaTAPP-Seifert2026/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
