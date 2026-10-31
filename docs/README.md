@@ -101,6 +101,7 @@ artifact.
 | [ISSUE_2026-09-06_mandatory_selector_contains.md](ISSUE_2026-09-06_mandatory_selector_contains.md) | **open** — a required selector literal becomes a `contains` no ADA record satisfies. The general form of the `Sampling Unit Name` case in `upstream-requests.md` §4 |
 | [PROPOSAL-monitoredSpecies.md](PROPOSAL-monitoredSpecies.md) | **LANDED**, under the renamed `ada:monitoredProperty*` terms — kept as the design record |
 | [PROPOSAL_2026-09-13_cdifCore_bundle_distribution.md](PROPOSAL_2026-09-13_cdifCore_bundle_distribution.md) | raised upstream to `cdifCore`; no adoption observed as of 2026-10-18 |
+| [PROPOSAL_2026-10-31_keyed_value_templates.md](PROPOSAL_2026-10-31_keyed_value_templates.md) | **DRAFT, nothing implemented** — five keyed-value templates (`standardTemplate` and `reportedPropertyTemplate` are new; 54 rows sit under target species today because neither exists). Companion to `amds-ldeo/tapp#22`. Extends the landed `PROPOSAL-monitoredSpecies.md` |
 | [empa-to-epma-rename.md](empa-to-epma-rename.md) | the EMPA → EPMA rename, its scope and what is still outstanding |
 | [upstream-requests.md](upstream-requests.md) | table problems that belong to `amds-ldeo/tapp`, not here |
 | `TierImplementationPatterns.xlsx` | the canonical Protocol × Analysis tier matrix |
