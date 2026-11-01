@@ -657,7 +657,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Analysis point — one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8",
@@ -1362,7 +1362,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Analysis point \u2014 one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8",
@@ -1428,6 +1428,13 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Polished thin section (two-volume cell)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
@@ -1435,13 +1442,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (two-volume cell)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1472,7 +1472,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;

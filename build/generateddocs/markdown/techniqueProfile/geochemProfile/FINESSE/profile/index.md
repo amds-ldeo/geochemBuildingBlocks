@@ -1081,8 +1081,8 @@ ex:adaFINESSE-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/adaFINESSE-example-001/instrument/instrument> ],
-                [ ada:tappDefinition ex:finesseTAPP-P0 ] ] ;
+            prov:used [ ada:tappDefinition ex:finesseTAPP-P0 ],
+                [ schema1:instrument <https://example.org/adaFINESSE-example-001/instrument/instrument> ] ] ;
     ada:analyticalMode "Point spectrum" ;
     ada:submissionType "BundleDelivery" .
 

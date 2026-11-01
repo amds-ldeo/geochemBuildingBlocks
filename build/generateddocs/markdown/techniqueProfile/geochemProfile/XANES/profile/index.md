@@ -1081,8 +1081,8 @@ ex:adaXANES-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:xanesTAPP-P0 ],
-                [ schema1:instrument <https://example.org/adaXANES-example-001/instrument/instrument> ] ] ;
+            prov:used [ schema1:instrument <https://example.org/adaXANES-example-001/instrument/instrument> ],
+                [ ada:tappDefinition ex:xanesTAPP-P0 ] ] ;
     ada:analyticalMode "Hyperspectral image stack" ;
     ada:submissionType "BundleDelivery" .
 

@@ -558,7 +558,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -569,7 +569,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Spot — HSE abundances are reported per metal grain, each with its LA \"spot No.\" (table p.6); the grains are typed by where they sit — interior grains in a chondrule, margin grains in its surficial shell, isolated grains in the matrix (p.1)",
@@ -1188,7 +1188,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -1199,7 +1199,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Spot \u2014 HSE abundances are reported per metal grain, each with its LA \"spot No.\" (table p.6); the grains are typed by where they sit \u2014 interior grains in a chondrule, margin grains in its surficial shell, isolated grains in the matrix (p.1)",
@@ -1278,12 +1278,10 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1295,10 +1293,12 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -1321,12 +1321,12 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:name "Age Calculation Method" ;
@@ -2231,7 +2231,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Aliquot (fused Li-borate glass disc) > Spot — \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), and compositions are reported as the mean of those spots, \"fs-LA-ICP-MS (n = 9 spots)\" (Table 2, p.8)",
@@ -2913,7 +2913,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Aliquot (fused Li-borate glass disc) > Spot \u2014 \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), and compositions are reported as the mean of those spots, \"fs-LA-ICP-MS (n = 9 spots)\" (Table 2, p.8)",
@@ -3007,19 +3007,19 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Pettke (2012) — §3.2" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "all: Pettke (2012) — §3.2" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -3041,15 +3041,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Single spot — Table 1 'Ablation mode'" ;
     ada:ablationSpotDurationDefault "45 s ablation (after 25 s gas blank; 25 s washout between analyses)" ;
@@ -3865,7 +3865,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase (quenched silicate glass of one experimental run) > Spot — \"A Resonetic 193 nm ArF excimer laser with a 40 μm beam diameter for glasses\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
@@ -4411,7 +4411,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase (quenched silicate glass of one experimental run) > Spot \u2014 \"A Resonetic 193 nm ArF excimer laser with a 40 \u03bcm beam diameter for glasses\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
@@ -4488,9 +4488,10 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -4504,10 +4505,9 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -4530,15 +4530,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "N — ablation mode not explicitly stated; \"beam diameter\" terminology used but \"spot\" or \"spot mode\" not written" ;
     ada:ablationSpotDurationDefault -9999 ;
@@ -5256,7 +5256,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase (quenched sulfide of one experimental run) > Spot — \"20 μm for sulfides, selecting grain sizes larger than 20 µm for the latter\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
@@ -5802,7 +5802,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase (quenched sulfide of one experimental run) > Spot \u2014 \"20 \u03bcm for sulfides, selecting grain sizes larger than 20 \u00b5m for the latter\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
@@ -5879,6 +5879,13 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -5891,14 +5898,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -5921,15 +5921,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "N — ablation mode not explicitly stated" ;
     ada:ablationSpotDurationDefault -9999 ;
@@ -6770,7 +6770,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -6781,7 +6781,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Spot — \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF",
@@ -7455,7 +7455,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -7466,7 +7466,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Spot \u2014 \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF",
@@ -7547,13 +7547,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
@@ -7569,7 +7562,14 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                     schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
@@ -7587,22 +7587,22 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
             schema1:termCode "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)" ] ;
     schema1:name "laQicpmsUPb protocol — Liu2016" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP gives major element compositions; for spots with EMP data, oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ] ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)" ;
     ada:ablationSpotDurationDefault "N — not stated" ;
@@ -8519,7 +8519,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -8530,7 +8530,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Spot — \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF",
@@ -9177,7 +9177,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -9188,7 +9188,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Spot \u2014 \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF",
@@ -9312,19 +9312,19 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP CaO is the internal standard: 'we calculated the trace element abundances by normalizing the LA-ICP-MS 40Ca counts to CaO concentrations from the EMP analysis' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)" ;
     ada:ablationSpotDurationDefault "N — not stated" ;

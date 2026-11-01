@@ -1349,10 +1349,10 @@ ex:adaLAQICPMSUPb-example-001 a schema1:Dataset,
         <https://example.org/var/Reported-Date-Type>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endTime "2026-01-10T12:45:00" ;

@@ -26,17 +26,17 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v88.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument <ex:semTAPP-Zega2025-2/instrument/SEM> ;
@@ -49,7 +49,7 @@
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
@@ -86,10 +86,10 @@
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 ;
-    bios:computationalTool [ schema1:name "Oxford AZtec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford AZtec (Point & ID programme)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford AZtec" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:semTAPP-Zega2025-2/instrument/SEM> a schema1:Product,
         schema1:Thing ;
