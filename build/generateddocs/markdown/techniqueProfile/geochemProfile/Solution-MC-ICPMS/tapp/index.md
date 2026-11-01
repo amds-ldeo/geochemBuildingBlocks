@@ -658,7 +658,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Digestion aliquot — \"All samples (0.3–0.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"",
@@ -1355,7 +1355,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Digestion aliquot \u2014 \"All samples (0.3\u20130.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"",
@@ -1429,20 +1429,20 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -1466,7 +1466,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TIMS — Ba isotopes on a Thermo Scientific Triton Plus at the same institute; Hf-W on the same sample digestions" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -2558,7 +2558,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Purified solution aliquot — \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 µg of S\" taken for column purification",
@@ -3379,7 +3379,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Purified solution aliquot \u2014 \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 \u00b5g of S\" taken for column purification",
@@ -3448,20 +3448,20 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -3493,7 +3493,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Functional: the laser is connected directly to the spray chamber so ablated particles mix with 2% HNO3 and are \"effectively analyzed as a wet plasma ensuring that ablated aerosols are closely matrix-matched to solution standards\". Sequence: interchangeable — \"Our setup allows for interchangeable bulk and in situ S isotope measurement\"" ;
                     schema1:name "Laser-ablation MC-ICP-MS — the same NEPTUNE, with a NewWave UP213 laser, \"such that laser ablation and solution aspiration can be operated simultaneously\"" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -4650,7 +4650,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Solution aliquot of a digestion — \"the Fe isotopic compositions were analyzed on solution aliquots (~1-2 mg Fe) of digestions\"; five meteorites cut as \"~50 mg pieces\"",
@@ -5441,7 +5441,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Solution aliquot of a digestion \u2014 \"the Fe isotopic compositions were analyzed on solution aliquots (~1-2 mg Fe) of digestions\"; five meteorites cut as \"~50 mg pieces\"",
@@ -5498,20 +5498,9 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "MR; HR — 'either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex Ω desolvating nebulizer system (dry plasma, HR-mode, Ni cones)' (§2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -5527,10 +5516,21 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "MR; HR — 'either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex Ω desolvating nebulizer system (dry plasma, HR-mode, Ni cones)' (§2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -5554,7 +5554,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "N — the Fe was measured on digestions previously analysed for Pt, Mo, Ni and/or W isotopes (Kruijer et al. 2017 and others)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -7294,17 +7294,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "HF–HNO3–HClO4 attack (3:1 HF/HNO3 with a few drops of HClO4, hot plate, 160 °C, 2 weeks); HCl–HNO3 attack (evaporated, then 2:1 HCl:HNO3, 1 week on a hot plate); final uptake (dried, dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged) — the two attacks 'were performed twice to ensure complete digestion'" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF–HNO3–HClO4 attack: 3:1 HF/HNO3 + HClO4; HCl–HNO3 attack: 2:1 HCl:HNO3; final uptake: concentrated HNO3, then 3 M HNO3" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "CAIs extracted from Allende slabs with a stainless steel dental tool and powdered, digested, REEs recovered from the U/TEVA matrix cut, extracted on TODGA and separated by two-step FPLC on Ln-Spec — Materials and Methods, after Tissot et al. (34)" ;
                     schema1:name "Sample preparation" ;
@@ -7317,7 +7306,18 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "HF–HNO3–HClO4 attack (3:1 HF/HNO3 with a few drops of HClO4, hot plate, 160 °C, 2 weeks); HCl–HNO3 attack (evaporated, then 2:1 HCl:HNO3, 1 week on a hot plate); final uptake (dried, dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged) — the two attacks 'were performed twice to ensure complete digestion'" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HF–HNO3–HClO4 attack: 3:1 HF/HNO3 + HClO4; HCl–HNO3 attack: 2:1 HCl:HNO3; final uptake: concentrated HNO3, then 3 M HNO3" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -8288,7 +8288,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Single crystal — \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"",
@@ -8997,7 +8997,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Single crystal \u2014 \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"",
@@ -9057,6 +9057,18 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "chemical abrasion (19 zircons for U-Pb, annealed at 900 °C for 60 h, then leached in 29 M HF in a Parr vessel at 215 °C for 12 h); U-Pb dissolution (dated crystals, 29 M HF in microcapsules in a Parr vessel, 215 °C, 48 h); Zr-only dissolution (crystals not dated, fluxed in 20% HNO3 at 60 °C for 2 h, then 29 M HF in microcapsules in a Parr vessel, 215 °C, 60 h); spike equilibration (with the ⁹¹Zr–⁹⁶Zr spike, fluxed at 140 °C overnight, dried down twice and redigested) — Materials and Methods" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "chemical abrasion: 29 M HF; U-Pb dissolution: 29 M HF; Zr-only dissolution: 20% HNO3, then 29 M HF; spike equilibration: N" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
@@ -9068,18 +9080,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
                     schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "chemical abrasion (19 zircons for U-Pb, annealed at 900 °C for 60 h, then leached in 29 M HF in a Parr vessel at 215 °C for 12 h); U-Pb dissolution (dated crystals, 29 M HF in microcapsules in a Parr vessel, 215 °C, 48 h); Zr-only dissolution (crystals not dated, fluxed in 20% HNO3 at 60 °C for 2 h, then 29 M HF in microcapsules in a Parr vessel, 215 °C, 60 h); spike equilibration (with the ⁹¹Zr–⁹⁶Zr spike, fluxed at 140 °C overnight, dried down twice and redigested) — Materials and Methods" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "chemical abrasion: 29 M HF; U-Pb dissolution: 29 M HF; Zr-only dissolution: 20% HNO3, then 29 M HF; spike equilibration: N" ] ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -9114,7 +9114,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes" ;
                     schema1:name "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -10892,13 +10892,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
@@ -10906,6 +10899,13 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Whole-rock powder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -10922,9 +10922,9 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Whole-rock powder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -12792,18 +12792,25 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "N/A — reference material solutions, no solid preparation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "N/A - reference material solutions, no digestion." ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "N/A — reference material solutions in 3 or 5 mol/l Teflon-distilled HCl" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -12814,14 +12821,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "N/A — reference material solutions, no solid preparation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
@@ -14587,9 +14587,11 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "N/A — reference material solutions, no solid preparation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "N/A - reference material solutions, no digestion." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -14600,22 +14602,20 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "N/A — reference material solutions, no solid preparation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "N/A - reference material solutions, no digestion." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -16503,6 +16503,22 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "spray chamber; APEX — 'measured using both the spray chamber and the APEX sample introduction systems' in most cases (§2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -16518,23 +16534,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "spray chamber; APEX — 'measured using both the spray chamber and the APEX sample introduction systems' in most cases (§2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -17622,7 +17622,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Digestion aliquot — Ryugu \"aliquots of <25 mg were analyzed with ~40 to 70 ng Zr\"; Tagish Lake 30 mg, Tarda 90 mg, Ivuna 40 and 44 mg \"from a larger homogenized powder (550 mg)\"",
@@ -18353,7 +18353,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Digestion aliquot \u2014 Ryugu \"aliquots of <25 mg were analyzed with ~40 to 70 ng Zr\"; Tagish Lake 30 mg, Tarda 90 mg, Ivuna 40 and 44 mg \"from a larger homogenized powder (550 mg)\"",
@@ -18466,7 +18466,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Mg, K, Ca, Ti, Cr, Fe, Cu, Zn, Mo and Nd isotope data \"all obtained from the same sample digestions and are therefore directly comparable\"" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -19518,7 +19518,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Fraction of a bulk digestion — \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"",
@@ -20275,7 +20275,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Fraction of a bulk digestion \u2014 \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"",
@@ -20332,9 +20332,9 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits — Methods" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "Fe; Cr; Mg — separate introduction systems and acquisition settings (Methods)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -20347,13 +20347,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fe; Cr; Mg — separate introduction systems and acquisition settings (Methods)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -20362,7 +20355,14 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Parr bomb: 3:1 7 M HNO3 : 28 M HF; aqua regia: aqua regia; NaOH fusion: NaOH, then Milli-Q water and HNO3" ] ] ] ;
+                            schema1:name "Parr bomb: 3:1 7 M HNO3 : 28 M HF; aqua regia: aqua regia; NaOH fusion: NaOH, then Milli-Q water and HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits — Methods" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -20385,7 +20385,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "ICP-MS for Sr and Rb weathering assessment; Si isotopes on a separate NaOH-fusion aliquot" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -21323,7 +21323,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:analyticalMode": [
@@ -21959,7 +21959,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:analyticalMode": [
@@ -22017,9 +22017,9 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -22046,9 +22046,9 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault>,
@@ -22070,7 +22070,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Functional: pre-cut and post-cut fractions either side of the K collection were measured by Q-ICP-MS \"to monitor for K loss during column chemistry\". Sequence: Q-ICP-MS check before MC-ICP-MS measurement" ;
                     schema1:name "Laser-fluorination oxygen isotopes on a Thermo Finnigan MAT 253 Plus; K loss monitored by Thermo Fisher iCAP Q ICP-MS" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -22951,7 +22951,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Split of a single digest — \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"",
@@ -23593,7 +23593,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Split of a single digest \u2014 \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"",
@@ -23649,15 +23649,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -23674,6 +23665,15 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
                     schema1:description "K; Cu; Zn — K in dry plasma with high mass resolution, Cu and Zn in wet plasma with low resolution" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -23700,7 +23700,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "High-resolution ICP-MS (Thermo Element XR) at LLNL for bulk elemental abundances, on splits of the same digest" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -24597,7 +24597,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "A 5.2 mg aliquot of Bennu aggregate",
@@ -25256,7 +25256,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "A 5.2 mg aliquot of Bennu aggregate",
@@ -25312,12 +25312,17 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "configuration 1; configuration 2 — 'Titanium isotopes were collected in two cup configurations'" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -25333,17 +25338,12 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "configuration 1; configuration 2 — 'Titanium isotopes were collected in two cup configurations'" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -25365,7 +25365,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Coordinated dissolution shared with the WUSTL K/Cu/Zn procedure; SIMS oxygen isotopes" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;

@@ -14,17 +14,17 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EDS quantification via Velox 2.14 using Brown-Powell ionization cross-section model; FIB foil preparation and STEM imaging at 30 kV/0.4 nA also performed on FEI Scios FIB/SEM (Institute of Geochemistry, CAS) as a coupled step prior to TEM analysis on Talos F200S Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping); ada:edsAcquisitionModeDefault = Spectrum image (map); ada:edsQuantificationMethod = Brown–Powell ionization cross-section model (implemented in Velox 2.14)." ;
@@ -42,7 +42,7 @@
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FEI Scios dual-beam FIB/SEM (Institute of Geochemistry, CAS, Guiyang): BSE and SE imaging at 5 kV/0.8 nA (7 mm WD); EDS mapping at 20 kV/1.6 nA; FIB foil preparation at 30 kV/0.4 nA; STEM imaging of FIB slice at 30 kV/0.4 nA using the same FIB/SEM instrument (all performed prior to TEM on Talos F200S)" ;
                     schema1:name "FIB-SEM (FEI Scios dual-beam); SEM-BSE; SEM-EDS" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -81,9 +81,9 @@
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "dataReduction" ] .
+            ada:toolRole "acquisition" ] .
 
 <ex:temTAPP-Zeng2024/instrument/TEM> a schema1:Product,
         schema1:Thing ;

@@ -297,7 +297,7 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Region of interest (altered rim) — \"We analyzed the FIB sections using different imaging modes\" and \"collected EDS maps and profiles using a probe size of <1 nm\" (p.3); the reported profiles run across the rim and \"The underlying unaltered magnetite\" (p.7)",
@@ -622,7 +622,7 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Region of interest (altered rim) \u2014 \"We analyzed the FIB sections using different imaging modes\" and \"collected EDS maps and profiles using a probe size of <1 nm\" (p.3); the reported profiles run across the rim and \"The underlying unaltered magnetite\" (p.7)",
@@ -668,17 +668,17 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Probe size <1 nm stated for STEM-EDS maps and profiles (Sec 2.6) Reported detail: ada:analyticalSubModeDefault = BF-TEM; HRTEM (TEM Imaging); HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Line scan; Spectrum image (map)." ;
     schema1:instrument <ex:temTAPP-Chaves2023/instrument/TEM> ;
@@ -695,7 +695,7 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (Helios G4 UX, Purdue) prepared electron-transparent lamellae from irradiated pellets (performed before TEM, destructive prep step); XPS and VNIR spectroscopy performed in parallel on same irradiated pellets for chemical and spectral characterization" ;
                     schema1:name "FIB-SEM; XPS; VNIR reflectance spectroscopy" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -1151,7 +1151,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase — the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)",
@@ -1531,7 +1531,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase \u2014 the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)",
@@ -1613,7 +1613,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (TS Helios G3, K-ALFAA) prepared TEM sections from SEM/EMPA-characterized particles; SEM/EMPA/XRD/CL provided mm–µm scale context before TEM; XANES at ALS beamline 5.3.2.2 acquired on FIB sections for Fe oxidation state" ;
                     schema1:name "FIB-SEM; SEM; EMPA; XRD; CL spectroscopy; XANES (synchrotron)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -2078,7 +2078,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase — the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)",
@@ -2434,7 +2434,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase \u2014 the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)",
@@ -2488,18 +2488,18 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -2518,7 +2518,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (FEI Helios G4 UX, Molecular Foundry) prepared TEM sections; XANES acquired at ALS beamline 5.3.2.2 on same sections for C/Fe chemistry" ;
                     schema1:name "FIB-SEM; XANES (synchrotron)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -2965,7 +2965,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Phase — this laboratory did not work on a section: \"TEM samples were prepared by crushing the grain, dropping ethanol onto the resulting powder and touching a TEM copper mesh grid ... to the suspension\" (p.10), and the reported data are the phases in that material (p.3)",
@@ -3322,7 +3322,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Phase \u2014 this laboratory did not work on a section: \"TEM samples were prepared by crushing the grain, dropping ethanol onto the resulting powder and touching a TEM copper mesh grid ... to the suspension\" (p.10), and the reported data are the phases in that material (p.3)",
@@ -3379,17 +3379,17 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Crushing / dispersion on grid" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> ;
@@ -3408,7 +3408,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "None" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -3441,9 +3441,9 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "ThermoScientific Velox" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         [ schema1:name "ThermoScientific Velox" ;
-            ada:toolRole "acquisition" ] .
+            ada:toolRole "dataReduction" ] .
 
 <ex:temTAPP-Zega2025-3/instrument/TEM> a schema1:Product,
         schema1:Thing ;
@@ -3851,7 +3851,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase — the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)",
@@ -4200,7 +4200,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase \u2014 the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)",
@@ -4284,7 +4284,7 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (FEI Quanta3D600) prepared TEM sections from particles characterized by SEM; XRD provided bulk mineralogy context" ;
                     schema1:name "FIB-SEM; SEM; XRD" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -4688,7 +4688,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Region of interest — one section, \"11_5A_1\" (p.3); imaging is reported for named features within it, \"three (one short (1) and two long (2,3)) iron whiskers on the space-exposed surface of iron sulfides\" and the space-weathered rim beneath them (pp.3–4)",
@@ -4997,7 +4997,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Region of interest \u2014 one section, \"11_5A_1\" (p.3); imaging is reported for named features within it, \"three (one short (1) and two long (2,3)) iron whiskers on the space-exposed surface of iron sulfides\" and the space-weathered rim beneath them (pp.3\u20134)",
@@ -5046,17 +5046,17 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional cleaning step after FIB thinning Reported detail: ada:analyticalSubModeDefault = BF-TEM; DF-TEM; ADF-STEM; SAED (Electron Diffraction)." ;
     schema1:instrument <ex:temTAPP-Matsumoto2021/instrument/TEM> ;
@@ -5073,7 +5073,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "SEM (JSM-7001F, Kyushu Univ, 2.0 kV secondary electron imaging) surveyed grain surfaces and selected iron sulfide targets; SEM-EDX (Oxford Inca X-act) identified mineral phases on grain surface; FIB (FEI Helios NanoLab G3 CX, Kyoto Univ) prepared electron-transparent foil (e-beam Pt 5 kV + Ga+ Pt 30 kV; thinned to ~100 nm; cleaned at 5 kV Ga+); additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) performed after FIB" ;
                     schema1:name "SEM (JSM-7001F); SEM-EDX (Oxford Inca X-act); FIB (FEI Helios NanoLab G3 CX)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -5475,7 +5475,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"TEM observations and quantitative EDX analysis\" of the iron sulfides in the section, quantified with \"the Cliff–Lorimer thin film approximation\" against troilite and terrestrial standards (p.3)",
@@ -5802,7 +5802,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"TEM observations and quantitative EDX analysis\" of the iron sulfides in the section, quantified with \"the Cliff\u2013Lorimer thin film approximation\" against troilite and terrestrial standards (p.3)",
@@ -5874,7 +5874,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "SEM (JSM-7001F, Kyushu Univ, 2.0 kV secondary electron imaging) surveyed grain surfaces and selected iron sulfide targets; SEM-EDX (Oxford Inca X-act) identified mineral phases on grain surface; FIB (FEI Helios NanoLab G3 CX, Kyoto Univ) prepared electron-transparent foil (e-beam Pt 5 kV + Ga+ Pt 30 kV; thinned to ~100 nm; cleaned at 5 kV Ga+); additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) performed after FIB" ;
                     schema1:name "SEM (JSM-7001F); SEM-EDX (Oxford Inca X-act); FIB (FEI Helios NanoLab G3 CX)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -6288,7 +6288,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase — \"STEM-EDS mapping and high-resolution STEM imaging\" of the same section (p.3), read for the sulfide, metallic iron and pyroxene phases it contains (p.3)",
@@ -6619,7 +6619,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase \u2014 \"STEM-EDS mapping and high-resolution STEM imaging\" of the same section (p.3), read for the sulfide, metallic iron and pyroxene phases it contains (p.3)",
@@ -6693,7 +6693,7 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "SEM (JSM-7001F, Kyushu Univ, 2.0 kV secondary electron imaging) surveyed grain surfaces and selected iron sulfide targets; SEM-EDX (Oxford Inca X-act) identified mineral phases on grain surface; FIB (FEI Helios NanoLab G3 CX, Kyoto Univ) prepared electron-transparent foil (e-beam Pt 5 kV + Ga+ Pt 30 kV; thinned to ~100 nm; cleaned at 5 kV Ga+); additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) performed after FIB" ;
                     schema1:name "SEM (JSM-7001F); SEM-EDX (Oxford Inca X-act); FIB (FEI Helios NanoLab G3 CX)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -8075,7 +8075,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB slice) > Region of interest — one slice \"about 15 μm, 10 μm and 90–100 nm\" in size (p.6); results are reported for two regions of the impact crater rim, labelled \"Area 1\" and \"Area 2\" (Figs 1–2, p.2)",
@@ -8424,7 +8424,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB slice) > Region of interest \u2014 one slice \"about 15 \u03bcm, 10 \u03bcm and 90\u2013100 nm\" in size (p.6); results are reported for two regions of the impact crater rim, labelled \"Area 1\" and \"Area 2\" (Figs 1\u20132, p.2)",
@@ -8480,17 +8480,17 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EDS quantification via Velox 2.14 using Brown-Powell ionization cross-section model; FIB foil preparation and STEM imaging at 30 kV/0.4 nA also performed on FEI Scios FIB/SEM (Institute of Geochemistry, CAS) as a coupled step prior to TEM analysis on Talos F200S Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; STEM-EDS (X-ray mapping); ada:edsAcquisitionModeDefault = Spectrum image (map); ada:edsQuantificationMethod = Brown–Powell ionization cross-section model (implemented in Velox 2.14)." ;
@@ -8508,7 +8508,7 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FEI Scios dual-beam FIB/SEM (Institute of Geochemistry, CAS, Guiyang): BSE and SE imaging at 5 kV/0.8 nA (7 mm WD); EDS mapping at 20 kV/1.6 nA; FIB foil preparation at 30 kV/0.4 nA; STEM imaging of FIB slice at 30 kV/0.4 nA using the same FIB/SEM instrument (all performed prior to TEM on Talos F200S)" ;
                     schema1:name "FIB-SEM (FEI Scios dual-beam); SEM-BSE; SEM-EDS" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -8547,9 +8547,9 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "dataReduction" ] .
+            ada:toolRole "acquisition" ] .
 
 <ex:temTAPP-Zeng2024/instrument/TEM> a schema1:Product,
         schema1:Thing ;
@@ -8939,7 +8939,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase — \"Four FIB sections\" (p.2), each \"studied using a variety of TEM techniques, including scanning transmission electron microscopy (STEM) imaging, nanodiffraction, and energy-dispersive X-ray spectroscopy (EDS)\", with \"Crystalline phases ... identified by electron nanodiffraction and EDS measurements\" (p.2)",
@@ -9275,7 +9275,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase \u2014 \"Four FIB sections\" (p.2), each \"studied using a variety of TEM techniques, including scanning transmission electron microscopy (STEM) imaging, nanodiffraction, and energy-dispersive X-ray spectroscopy (EDS)\", with \"Crystalline phases ... identified by electron nanodiffraction and EDS measurements\" (p.2)",
@@ -9348,7 +9348,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): BSE imaging of polished, C-coated section for mineral identification; FIB preparation of 4 electron-transparent sections (Pt deposition: e-beam first, then ion beam; sections transferred to Cu TEM half-grids with micromanipulator; final thinning at 2 kV, 72 pA with section on TEM grid)" ;
                     schema1:name "FIB-SEM (Helios 660 dual-beam); SEM-BSE" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -9788,7 +9788,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Region of interest — \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5–10 nm (at the Molecular Foundry)\" (p.2), within the carbonate-bearing sections UH-001 and UH-002 (Fig. 5, p.7)",
@@ -10142,7 +10142,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Region of interest \u2014 \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5\u201310 nm (at the Molecular Foundry)\" (p.2), within the carbonate-bearing sections UH-001 and UH-002 (Fig. 5, p.7)",
@@ -10195,17 +10195,17 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EDS analysis areas 5–10 nm (Molecular Foundry); compositions displayed as color-coded maps in Esprit 1.9; O abundances noted as subject to variable self-absorption; compositions normalized to 100% Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (Z-contrast); STEM-EDS (hyperspectral map); ada:edsAcquisitionModeDefault = Spectrum image (hyperspectral map)." ;
@@ -10223,7 +10223,7 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): BSE imaging of polished, C-coated section for mineral identification; FIB preparation of 4 electron-transparent sections (Pt deposition: e-beam first, then ion beam; sections transferred to Cu TEM half-grids with micromanipulator; final thinning at 2 kV, 72 pA with section on TEM grid)" ;
                     schema1:name "FIB-SEM (Helios 660 dual-beam); SEM-BSE" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -11106,17 +11106,17 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Crushing / dispersion on grid" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> ;
@@ -11179,9 +11179,9 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "TS Velox" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ schema1:name "TS Velox" ;
-            ada:toolRole "dataReduction" ] .
+            ada:toolRole "acquisition" ] .
 
 <ex:temTAPP-Singerling2025/instrument/TEM> a schema1:Product,
         schema1:Thing ;
@@ -11615,7 +11615,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase — four sections cut from the lasered chips (p.4); EDX maps are collected \"for each sample using the 2 nm probe\" with \"The size of the EDX map areas ... optimized to prevent oversampling\" (p.4), and read for the melt layer, vesicles and Fe-Ni-S nanoparticles within it (p.6)",
@@ -11981,7 +11981,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase \u2014 four sections cut from the lasered chips (p.4); EDX maps are collected \"for each sample using the 2 nm probe\" with \"The size of the EDX map areas ... optimized to prevent oversampling\" (p.4), and read for the melt layer, vesicles and Fe-Ni-S nanoparticles within it (p.6)",
@@ -12027,17 +12027,17 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
@@ -12057,7 +12057,7 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Multi-technique coordinated study; TEM/STEM used for microstructural and chemical characterization of FIB-extracted sections from laser-irradiated Murchison chips; STEM results correlated with reflectance, FTIR, and organic chemistry data" ;
                     schema1:name "Pulsed laser irradiation (space weathering simulation); VIS-NIR reflectance spectroscopy (ASD FieldSpec 3); FTIR (Bruker Vertex/Hyperion); Mössbauer spectroscopy (MIMOS-II); μL2MS (two-step laser mass spectrometry); FIB-SEM (FEI Quanta 3D at JSC)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -13182,7 +13182,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Grain (apatite) — one section, \"OREX-803173-100\", carrying \"Ap. #1 and Ap. #2\" (Fig. 5 caption, p.9); compositions are tabulated per grain (Table 2, p.11)",
@@ -13516,7 +13516,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Grain (apatite) \u2014 one section, \"OREX-803173-100\", carrying \"Ap. #1 and Ap. #2\" (Fig. 5 caption, p.9); compositions are tabulated per grain (Table 2, p.11)",
@@ -13591,7 +13591,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Coordinated SEM-EMPA-TEM study of Bennu apatite; TEM provides nanoscale crystallographic and chemical characterization of FIB section from apatite cluster; SAED confirms single-crystal vs. polycrystalline nature" ;
                     schema1:name "SEM (JEOL 7600F + 7900F with Oxford EDS/EBSD/CL at JSC); EMPA (JEOL 8530 at JSC, 15 kV 20 nA 2 µm probe)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -14025,7 +14025,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Grain (apatite) — one section, \"OREX-803173-100\", carrying \"Ap. #1 and Ap. #2\" (Fig. 5 caption, p.9); compositions are tabulated per grain (Table 2, p.11)",
@@ -14369,7 +14369,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Grain (apatite) \u2014 one section, \"OREX-803173-100\", carrying \"Ap. #1 and Ap. #2\" (Fig. 5 caption, p.9); compositions are tabulated per grain (Table 2, p.11)",
@@ -14443,7 +14443,7 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Coordinated SEM-EMPA-TEM study of Bennu apatite; TEM provides nanoscale crystallographic and chemical characterization of FIB section from apatite cluster; SAED confirms single-crystal vs. polycrystalline nature" ;
                     schema1:name "SEM (JEOL 7600F + 7900F with Oxford EDS/EBSD/CL at JSC); EMPA (JEOL 8530 at JSC, 15 kV 20 nA 2 µm probe)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -14888,7 +14888,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Grain (pyroxene) — one section carrying the grains \"1pyx\" and \"2pyx\" (p.3); \"Both EELS and EDS data were acquired as spectrum images (SI), in which a spectrum is acquired at each pixel in a given image\" (p.3)",
@@ -15241,7 +15241,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Grain (pyroxene) \u2014 one section carrying the grains \"1pyx\" and \"2pyx\" (p.3); \"Both EELS and EDS data were acquired as spectrum images (SI), in which a spectrum is acquired at each pixel in a given image\" (p.3)",
@@ -15290,18 +15290,18 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindowDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSizeDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -15320,7 +15320,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Petrographic and crystallographic characterization of exsolved lunar pyroxene (Apollo 17 soil); phase ID by SAED + simulation; Ca distribution by EFTEM; HRTEM lattice imaging; coordinated with EELS on Nion UltraSTEM200-X" ;
                     schema1:name "FIB (FEI Helios G3 Dual Beam at NRL); HAADF-STEM + Dual EELS + EDS (Nion UltraSTEM200-X at NRL; coordinated with JEOL JEM-2200FS)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -15820,7 +15820,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Grain (pyroxene) — one section carrying the grains \"1pyx\" and \"2pyx\" (p.3); \"Both EELS and EDS data were acquired as spectrum images (SI), in which a spectrum is acquired at each pixel in a given image\" (p.3)",
@@ -16218,7 +16218,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Grain (pyroxene) \u2014 one section carrying the grains \"1pyx\" and \"2pyx\" (p.3); \"Both EELS and EDS data were acquired as spectrum images (SI), in which a spectrum is acquired at each pixel in a given image\" (p.3)",
@@ -16292,7 +16292,7 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Fe oxidation state mapping and Fe³⁺/ΣFe quantification in exsolved lunar pyroxene (Apollo 17 soil) using STEM-EELS; MLLS and integral white-line ratio methods; coordinated HAADF-STEM + EDS for compositional mapping" ;
                     schema1:name "FIB (FEI Helios G3 Dual Beam at NRL); BF/EFTEM/SAED/HRTEM (JEOL JEM-2200FS at NRL; coordinated with Nion UltraSTEM200-X)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -16743,7 +16743,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Sub-volume (FIB foil) — one foil per lunar soil grain, \"CE5C0400YJFM00505-G1\" and \"-G2\" (Figs 1, 3, pp.3–4); \"The nanoscale composition and structure of the FIB foils were characterized using an FEI Talos F200X FE-STEM\" (p.2)",
@@ -17068,7 +17068,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Sub-volume (FIB foil) \u2014 one foil per lunar soil grain, \"CE5C0400YJFM00505-G1\" and \"-G2\" (Figs 1, 3, pp.3\u20134); \"The nanoscale composition and structure of the FIB foils were characterized using an FEI Talos F200X FE-STEM\" (p.2)",
@@ -17142,7 +17142,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Nanoscale characterization of Fe-bearing phases in Chang'E-5 lunar soil; HAADF-STEM + EDS for phase morphology and composition mapping; coordinated with Auger (surface Fe valence) and EELS (bulk Fe valence)" ;
                     schema1:name "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); Auger electron spectroscopy (PHI 700/710 scanning Auger nanoprobe at Tsinghua University); TEM-EELS (Hitachi HF5000 at Shanghai Institute of Ceramics CAS; coordinated)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -17594,7 +17594,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Sub-volume (FIB foil) — \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\", reported as \"TEM-EELS point and line analysis results\" (p.5)",
@@ -17962,7 +17962,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Sub-volume (FIB foil) \u2014 \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\", reported as \"TEM-EELS point and line analysis results\" (p.5)",
@@ -18007,17 +18007,17 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyResolution>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault> ;
@@ -18037,7 +18037,7 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "In situ Fe valence state analysis in Chang'E-5 lunar soil by TEM-EELS; Fe L3,2 edge peak position and lineshape comparison to reference standards (Fe⁰, Fe²⁺, Fe³⁺); point analysis and line scan" ;
                     schema1:name "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); HAADF-STEM + EDS (FEI Talos F200X at SINANO CAS; coordinated); Auger electron spectroscopy (PHI 700/710 at Tsinghua University)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
