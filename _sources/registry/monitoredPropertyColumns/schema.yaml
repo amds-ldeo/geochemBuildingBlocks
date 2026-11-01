@@ -210,6 +210,74 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  epma_wdsSpectrometerChannel:
+    title: WDS Spectrometer Channel
+    description: WDS spectrometer position(s) assigned to each target species, one entry per assignment. An target species may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several target species across a run, so the assignment — not the target species — is the unit carrying the spectrometer setup.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/epmaTAPP/wdsSpectrometerChannel
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: wdsSpectrometerChannel
+      schema:name:
+        const: WDS Spectrometer Channel
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - &id007
+          type: string
+        - type: array
+          items: *id007
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  epma_xRayBackgroundCorrectionMethod:
+    title: X-ray Background Correction Method
+    description: 'Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.'
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/epmaTAPP/xRayBackgroundCorrectionMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayBackgroundCorrectionMethod
+      schema:name:
+        const: X-ray Background Correction Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-background-correction-method
+      schema:defaultValue:
+        anyOf:
+        - &id008
+          type: string
+        - type: array
+          items: *id008
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   epma_xRayDetectionMethodPerMonitoredElement:
     title: X-ray Detection Method per Monitored Element
     description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.'
@@ -235,10 +303,10 @@ $defs:
           '@id': ada:vocab/x-ray-detection-method-per-monitored-element
       schema:defaultValue:
         anyOf:
-        - &id007
+        - &id009
           type: string
         - type: array
-          items: *id007
+          items: *id009
     required:
     - '@id'
     - '@type'
@@ -271,10 +339,10 @@ $defs:
           '@id': ada:vocab/x-ray-line
       schema:defaultValue:
         anyOf:
-        - &id008
+        - &id010
           type: string
         - type: array
-          items: *id008
+          items: *id010
     required:
     - '@id'
     - '@type'
@@ -304,10 +372,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id009
+        - &id011
           type: string
         - type: array
-          items: *id009
+          items: *id011
     required:
     - '@id'
     - '@type'
@@ -393,10 +461,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id010
+        - &id012
           type: string
         - type: array
-          items: *id010
+          items: *id012
     required:
     - '@id'
     - '@type'
@@ -454,10 +522,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id011
+        - &id013
           type: string
         - type: array
-          items: *id011
+          items: *id013
     required:
     - '@id'
     - '@type'
@@ -487,10 +555,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id012
+        - &id014
           type: string
         - type: array
-          items: *id012
+          items: *id014
     required:
     - '@id'
     - '@type'
@@ -520,12 +588,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id013
+        - &id015
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id013
+          items: *id015
     required:
     - '@id'
     - '@type'
@@ -555,10 +623,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id014
+        - &id016
           type: string
         - type: array
-          items: *id014
+          items: *id016
     required:
     - '@id'
     - '@type'
@@ -588,10 +656,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id015
+        - &id017
           type: string
         - type: array
-          items: *id015
+          items: *id017
     required:
     - '@id'
     - '@type'
@@ -620,12 +688,12 @@ $defs:
         const: M
       schema:value:
         anyOf:
-        - &id016
+        - &id018
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id016
+          items: *id018
     required:
     - '@id'
     - '@type'
@@ -655,10 +723,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id017
+        - &id019
           type: string
         - type: array
-          items: *id017
+          items: *id019
     required:
     - '@id'
     - '@type'
@@ -828,10 +896,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id018
+        - &id020
           type: string
         - type: array
-          items: *id018
+          items: *id020
     required:
     - '@id'
     - '@type'
@@ -863,10 +931,10 @@ $defs:
           '@id': ada:vocab/diffracting-crystal
       schema:defaultValue:
         anyOf:
-        - &id019
+        - &id021
           type: string
         - type: array
-          items: *id019
+          items: *id021
     required:
     - '@id'
     - '@type'
@@ -896,12 +964,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id020
+        - &id022
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id020
+          items: *id022
     required:
     - '@id'
     - '@type'
@@ -934,10 +1002,10 @@ $defs:
           '@id': ada:vocab/proportional-counter-detector
       schema:defaultValue:
         anyOf:
-        - &id021
+        - &id023
           type: string
         - type: array
-          items: *id021
+          items: *id023
     required:
     - '@id'
     - '@type'
@@ -966,12 +1034,12 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id022
+        - &id024
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id022
+          items: *id024
     required:
     - '@id'
     - '@type'
@@ -1003,10 +1071,10 @@ $defs:
           '@id': ada:vocab/wds-pha-setting
       schema:defaultValue:
         anyOf:
-        - &id023
+        - &id025
           type: string
         - type: array
-          items: *id023
+          items: *id025
     required:
     - '@id'
     - '@type'
@@ -1038,10 +1106,10 @@ $defs:
           '@id': ada:vocab/x-ray-detection-method-per-monitored-element
       schema:defaultValue:
         anyOf:
-        - &id024
+        - &id026
           type: string
         - type: array
-          items: *id024
+          items: *id026
     required:
     - '@id'
     - '@type'
@@ -1074,10 +1142,10 @@ $defs:
           '@id': ada:vocab/x-ray-line
       schema:defaultValue:
         anyOf:
-        - &id025
+        - &id027
           type: string
         - type: array
-          items: *id025
+          items: *id027
     required:
     - '@id'
     - '@type'
@@ -1107,10 +1175,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id026
+        - &id028
           type: string
         - type: array
-          items: *id026
+          items: *id028
     required:
     - '@id'
     - '@type'
@@ -1142,10 +1210,10 @@ $defs:
           '@id': ada:vocab/diffracting-crystal
       schema:defaultValue:
         anyOf:
-        - &id027
+        - &id029
           type: string
         - type: array
-          items: *id027
+          items: *id029
     required:
     - '@id'
     - '@type'
@@ -1175,12 +1243,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id028
+        - &id030
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id028
+          items: *id030
     required:
     - '@id'
     - '@type'
@@ -1213,10 +1281,10 @@ $defs:
           '@id': ada:vocab/proportional-counter-detector
       schema:defaultValue:
         anyOf:
-        - &id029
+        - &id031
           type: string
         - type: array
-          items: *id029
+          items: *id031
     required:
     - '@id'
     - '@type'
@@ -1245,12 +1313,12 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id030
+        - &id032
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id030
+          items: *id032
     required:
     - '@id'
     - '@type'
@@ -1282,10 +1350,10 @@ $defs:
           '@id': ada:vocab/wds-pha-setting
       schema:defaultValue:
         anyOf:
-        - &id031
+        - &id033
           type: string
         - type: array
-          items: *id031
+          items: *id033
     required:
     - '@id'
     - '@type'
@@ -1317,10 +1385,10 @@ $defs:
           '@id': ada:vocab/x-ray-detection-method-per-monitored-element
       schema:defaultValue:
         anyOf:
-        - &id032
+        - &id034
           type: string
         - type: array
-          items: *id032
+          items: *id034
     required:
     - '@id'
     - '@type'
@@ -1353,10 +1421,10 @@ $defs:
           '@id': ada:vocab/x-ray-line
       schema:defaultValue:
         anyOf:
-        - &id033
+        - &id035
           type: string
         - type: array
-          items: *id033
+          items: *id035
     required:
     - '@id'
     - '@type'
@@ -1386,10 +1454,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id034
+        - &id036
           type: string
         - type: array
-          items: *id034
+          items: *id036
     required:
     - '@id'
     - '@type'
@@ -1536,10 +1604,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id035
+        - &id037
           type: string
         - type: array
-          items: *id035
+          items: *id037
     required:
     - '@id'
     - '@type'
@@ -1569,10 +1637,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id036
+        - &id038
           type: string
         - type: array
-          items: *id036
+          items: *id038
     required:
     - '@id'
     - '@type'
@@ -1602,10 +1670,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id037
+        - &id039
           type: string
         - type: array
-          items: *id037
+          items: *id039
     required:
     - '@id'
     - '@type'
@@ -1635,10 +1703,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id038
+        - &id040
           type: string
         - type: array
-          items: *id038
+          items: *id040
     required:
     - '@id'
     - '@type'
@@ -1699,10 +1767,10 @@ $defs:
           '@id': ada:vocab/spectral-interference-corrections-applied
       schema:defaultValue:
         anyOf:
-        - &id039
+        - &id041
           type: string
         - type: array
-          items: *id039
+          items: *id041
     required:
     - '@id'
     - '@type'
@@ -1760,12 +1828,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id040
+        - &id042
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id040
+          items: *id042
     required:
     - '@id'
     - '@type'
@@ -1795,10 +1863,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id041
+        - &id043
           type: string
         - type: array
-          items: *id041
+          items: *id043
     required:
     - '@id'
     - '@type'
@@ -1828,10 +1896,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id042
+        - &id044
           type: string
         - type: array
-          items: *id042
+          items: *id044
     required:
     - '@id'
     - '@type'
@@ -1861,10 +1929,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id043
+        - &id045
           type: string
         - type: array
-          items: *id043
+          items: *id045
     required:
     - '@id'
     - '@type'
@@ -1925,10 +1993,10 @@ $defs:
           '@id': ada:vocab/spectral-interference-corrections-applied
       schema:defaultValue:
         anyOf:
-        - &id044
+        - &id046
           type: string
         - type: array
-          items: *id044
+          items: *id046
     required:
     - '@id'
     - '@type'
@@ -1958,10 +2026,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id045
+        - &id047
           type: string
         - type: array
-          items: *id045
+          items: *id047
     required:
     - '@id'
     - '@type'
@@ -1994,10 +2062,10 @@ $defs:
           '@id': ada:vocab/eels-background-subtraction-method
       schema:defaultValue:
         anyOf:
-        - &id046
+        - &id048
           type: string
         - type: array
-          items: *id046
+          items: *id048
     required:
     - '@id'
     - '@type'
@@ -2026,12 +2094,12 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id047
+        - &id049
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id047
+          items: *id049
     required:
     - '@id'
     - '@type'
@@ -2060,10 +2128,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id048
+        - &id050
           type: string
         - type: array
-          items: *id048
+          items: *id050
     required:
     - '@id'
     - '@type'

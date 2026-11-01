@@ -349,6 +349,112 @@
                 "ada:dataType"
             ]
         },
+        "epma_wdsSpectrometerChannel": {
+            "title": "WDS Spectrometer Channel",
+            "description": "WDS spectrometer position(s) assigned to each target species, one entry per assignment. An target species may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several target species across a run, so the assignment — not the target species — is the unit carrying the spectrometer setup.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/epmaTAPP/wdsSpectrometerChannel"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "wdsSpectrometerChannel"
+                },
+                "schema:name": {
+                    "const": "WDS Spectrometer Channel"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "epma_xRayBackgroundCorrectionMethod": {
+            "title": "X-ray Background Correction Method",
+            "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/epmaTAPP/xRayBackgroundCorrectionMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "xRayBackgroundCorrectionMethod"
+                },
+                "schema:name": {
+                    "const": "X-ray Background Correction Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:inDefinedTermSet": {
+                    "const": {
+                        "@id": "ada:vocab/x-ray-background-correction-method"
+                    }
+                },
+                "schema:defaultValue": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
         "epma_xRayDetectionMethodPerMonitoredElement": {
             "title": "X-ray Detection Method per Monitored Element",
             "description": "The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.",

@@ -43,7 +43,7 @@ import schema_path_example_emitter as ex
 # TAPP's def and its @id const). It also strands any def that lives only in this run:
 # 24 refs across 4 schemas were dangling, including the per-TAPP AnalysisValue variants
 # that are generated in memory and never published to any registry file.
-_REG_RE = re.compile(r"/(parameterTemplates|parameterValues|targetSpeciesColumns|reportedPropertyColumns|monitoredPropertyColumns|targetMaterialColumns)/schema\.yaml#/\$defs/(.+)$")
+_REG_RE = re.compile(r"/(parameterTemplates|parameterValues|targetSpeciesColumns|reportedPropertyColumns|monitoredPropertyColumns|targetMaterialColumns|standardColumns)/schema\.yaml#/\$defs/(.+)$")
 
 
 def _inline_registry_refs(node, registries, cache):
@@ -70,6 +70,7 @@ _REGISTRY_ID_PREFIX = {
     "reportedPropertyColumns": "ada:reportedPropertyColumn/",
     "monitoredPropertyColumns": "ada:monitoredPropertyColumn/",
     "targetMaterialColumns": "ada:targetMaterialColumn/",
+    "standardColumns": "ada:standardColumn/",
     "parameterTemplates": "ada:parameter/",
     "parameterValues": "ada:parameter/",
 }
@@ -260,7 +261,8 @@ def registry_diff(tapp):
     print(f"registry diff for {tapp} — what replace-by-ownership would do\n")
     total_del = 0
     for reg_name in ("targetSpeciesColumns", "reportedPropertyColumns", "monitoredPropertyColumns",
-                     "targetMaterialColumns", "parameterTemplates", "parameterValues"):
+                     "targetMaterialColumns", "standardColumns", "parameterTemplates",
+                     "parameterValues"):
         path = os.path.join(b.ROOT, "_sources", "registry", reg_name, "schema.yaml")
         if not os.path.exists(path):
             continue
@@ -308,7 +310,7 @@ def build_pathdriven(tapp, write_registries=True):
     # copy of everything alongside them — churn without a decision on converging the two routes.
     if write_registries:
         for _reg in ("targetSpeciesColumns", "reportedPropertyColumns", "monitoredPropertyColumns",
-                     "targetMaterialColumns"):
+                     "targetMaterialColumns", "standardColumns"):
             if registries.get(_reg):
                 _write_registry(_reg, registries[_reg], tapp)
 

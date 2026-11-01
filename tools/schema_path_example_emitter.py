@@ -781,7 +781,7 @@ def build_example(tapp, values=None, emit_reported_property=False):
     # minimal valid TAPP-side example (the schema still constrains them). Dataset-side (detail)
     # sample/relatedLink are kept: the detail is validated standalone, not against the strict base.
     SKIP_MD = ("ada:targetSpeciesTemplate", "ada:reportedPropertyTemplate", "ada:monitoredPropertyTemplate",
-               "ada:targetMaterialTemplate",
+               "ada:targetMaterialTemplate", "ada:standardTemplate",
                "bios:computationalTool",
                "schema:actionProcess", "schema:instrument", "schema:object", "schema:relatedLink")
     # Publication mode populates the rich objects from real cells. What still stays out are the
@@ -789,14 +789,14 @@ def build_example(tapp, values=None, emit_reported_property=False):
     # are structural, emitted schema-side, never carrying per-publication values — while the default
     # ROWS (defaultAnalytes / defaultChannels) and the collector-configuration data ARE populated.
     COLUMN_DEFS = ("ada:targetSpeciesColumns", "ada:monitoredPropertyColumns", "ada:reportedPropertyColumns",
-                   "ada:targetMaterialColumns", "ada:collectorConfiguration",
+                   "ada:targetMaterialColumns", "ada:standardColumns", "ada:collectorConfiguration",
                    # reported properties are a conditional template: emitted only when the procedure
                    # enumerates "Reported Variables and Units" (build_tapp_examples gates them),
                    # never by the generic interpreter — otherwise every reported field would appear
                    # both here and on its workflow step.
                    "schema:variableMeasured")
     DEFAULT_ROWS = ("ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
-                    "ada:defaultTargetMaterials")
+                    "ada:defaultTargetMaterials", "ada:defaultStandards")
     # A module-owned field has no path in the technique sidecar (Source = module), and
     # load_spec drops a path-less row, so the item never reaches the loop below -- whatever the
     # publication reported for it went unemitted, and 20 LA examples lost

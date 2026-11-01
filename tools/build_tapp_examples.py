@@ -335,7 +335,8 @@ _HASPART_SEL = re.compile(r"schema:instrument\[\s*schema:additionalType\s*=\s*'(
 _TEMPLATE_COLS = {"ada:targetSpeciesTemplate": "ada:targetSpeciesColumns",
                   "ada:monitoredPropertyTemplate": "ada:monitoredPropertyColumns",
                   "ada:reportedPropertyTemplate": "ada:reportedPropertyColumns",
-                  "ada:targetMaterialTemplate": "ada:targetMaterialColumns"}
+                  "ada:targetMaterialTemplate": "ada:targetMaterialColumns",
+                  "ada:standardTemplate": "ada:standardColumns"}
 
 
 def populate_template_columns(inst, tapp_res):

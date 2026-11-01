@@ -25,8 +25,6 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
-      "ada:beamDiameterDefault": "all: 1 µm — as above",
-      "ada:beamMode": "all: Focused — 'Analyses were performed at 20 kV, using a focused 1-μm beam'",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -161,6 +159,54 @@
         "schema:defaultValue": -9999
       },
       {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": -9999
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamDamageMinimization",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamDamageMinimization",
+        "schema:name": "Beam Damage Minimization",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamDiameter",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamDiameter",
+        "schema:name": "Beam Diameter",
+        "ada:dataType": "number",
+        "schema:defaultValue": -9999
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamMode",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamMode",
+        "schema:name": "Beam Mode",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamRasterDimensions",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamRasterDimensions",
+        "schema:name": "Beam Raster Dimensions",
+        "ada:dataType": "number"
+      },
+      {
         "@id": "ada:targetMaterialColumn/epmaTAPP/peakCountingTime",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -183,9 +229,6 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase identity — \"Olivine and pyroxene grains were identified and characterized at the NHM\" (p.13), the paper's target being the anhydrous silicates in particles P1 and P2",
-  "ada:monitoredElements": [
-    "N — the paper gives beam conditions and a detection limit for transition metals of about 250 ppm for the NHM London instrument (p.13) but names no element"
-  ],
   "schema:location": {
     "@type": [
       "schema:Place"

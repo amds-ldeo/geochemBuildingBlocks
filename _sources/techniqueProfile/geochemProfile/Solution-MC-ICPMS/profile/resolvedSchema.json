@@ -12361,6 +12361,79 @@
                                       "ada:reportedPropertyColumns"
                                     ]
                                   },
+                                  "ada:standardTemplate": {
+                                    "title": "Standard Template",
+                                    "description": "Template for the standards this procedure calibrates against, and the columns that repeat over them. A standard STANDARDIZES something: ada:standardizationType names which domain that is (target species, monitored property or reported property) and the standardization-target column names the member of it. Rows are standard-by-target PAIRS, not one row per standard -- one natural kaersutite standard calibrates Si, Fe and Mg as three rows -- which is why the TAPP workbook keys this as the cross-product `standard x reported property` and why the identifier column is not unique per row.\nScope boundary: this declares the standards table a conforming record must carry. The STANDARD ITSELF is a bios:reagent / #/$defs/Reagent, which already owns the material's identity, its ada:reagentRole (primaryStandard, secondaryStandard) and the schema:citation for its accepted values. A record should reference that entity rather than restate it here; the columns below describe the table, not a second home for the material.",
+                                    "type": "object",
+                                    "properties": {
+                                      "ada:standardColumns": {
+                                        "title": "Standard Columns",
+                                        "type": "array",
+                                        "description": "Columns of the standards table. Must include exactly one column with schema:valueName \"standard\" identifying the standard named in each row.",
+                                        "minItems": 1,
+                                        "items": {
+                                          "$ref": "#/$defs/StandardColumn"
+                                        },
+                                        "contains": {
+                                          "description": "The mandatory standard-identifier column, naming the standard used in each row. Mirrors ReportedPropertyIdentifierColumn, with one difference that matters: it is NOT unique per row, because a row is a standard-by-target pair and one standard calibrates several targets. Like the other identifier columns it maps into schema:variableMeasured/schema:name, because a procedure's several tables share one logical variable registry rather than owning one each.",
+                                          "allOf": [
+                                            {
+                                              "$ref": "#/$defs/StandardColumn"
+                                            },
+                                            {
+                                              "type": "object",
+                                              "properties": {
+                                                "schema:valueName": {
+                                                  "const": "standard"
+                                                },
+                                                "ada:dataType": {
+                                                  "const": "string"
+                                                },
+                                                "schema:readonlyValue": {
+                                                  "const": true
+                                                },
+                                                "schema:valueRequired": {
+                                                  "const": true
+                                                },
+                                                "ada:tier": {
+                                                  "const": "M"
+                                                },
+                                                "ada:cdifPropertyPath": {
+                                                  "const": "#/schema:variableMeasured/schema:name"
+                                                }
+                                              },
+                                              "required": [
+                                                "schema:valueName",
+                                                "ada:dataType",
+                                                "schema:readonlyValue",
+                                                "schema:valueRequired",
+                                                "ada:tier",
+                                                "ada:cdifPropertyPath"
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        "maxContains": 1
+                                      },
+                                      "ada:defaultStandards": {
+                                        "type": "array",
+                                        "description": "The standards this procedure uses by default -- the ROWS of the standards table. Each is a bare string or a schema:DefinedTerm identifying the standard; per-standard column VALUES live in the analysis record, not here.",
+                                        "items": {
+                                          "anyOf": [
+                                            {
+                                              "type": "string"
+                                            },
+                                            {
+                                              "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "ada:standardColumns"
+                                    ]
+                                  },
                                   "dqv:hasQualityMeasurement": {
                                     "description": "Quality measurements that characterize the method's expected performance (e.g. analytical precision, accuracy, counting statistics error). Uses the CDIF qualityMeasure building block.",
                                     "type": "array",
@@ -24040,6 +24113,79 @@
                                 },
                                 "required": [
                                   "ada:reportedPropertyColumns"
+                                ]
+                              },
+                              "ada:standardTemplate": {
+                                "title": "Standard Template",
+                                "description": "Template for the standards this procedure calibrates against, and the columns that repeat over them. A standard STANDARDIZES something: ada:standardizationType names which domain that is (target species, monitored property or reported property) and the standardization-target column names the member of it. Rows are standard-by-target PAIRS, not one row per standard -- one natural kaersutite standard calibrates Si, Fe and Mg as three rows -- which is why the TAPP workbook keys this as the cross-product `standard x reported property` and why the identifier column is not unique per row.\nScope boundary: this declares the standards table a conforming record must carry. The STANDARD ITSELF is a bios:reagent / #/$defs/Reagent, which already owns the material's identity, its ada:reagentRole (primaryStandard, secondaryStandard) and the schema:citation for its accepted values. A record should reference that entity rather than restate it here; the columns below describe the table, not a second home for the material.",
+                                "type": "object",
+                                "properties": {
+                                  "ada:standardColumns": {
+                                    "title": "Standard Columns",
+                                    "type": "array",
+                                    "description": "Columns of the standards table. Must include exactly one column with schema:valueName \"standard\" identifying the standard named in each row.",
+                                    "minItems": 1,
+                                    "items": {
+                                      "$ref": "#/$defs/StandardColumn"
+                                    },
+                                    "contains": {
+                                      "description": "The mandatory standard-identifier column, naming the standard used in each row. Mirrors ReportedPropertyIdentifierColumn, with one difference that matters: it is NOT unique per row, because a row is a standard-by-target pair and one standard calibrates several targets. Like the other identifier columns it maps into schema:variableMeasured/schema:name, because a procedure's several tables share one logical variable registry rather than owning one each.",
+                                      "allOf": [
+                                        {
+                                          "$ref": "#/$defs/StandardColumn"
+                                        },
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "schema:valueName": {
+                                              "const": "standard"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "schema:valueRequired": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "ada:cdifPropertyPath": {
+                                              "const": "#/schema:variableMeasured/schema:name"
+                                            }
+                                          },
+                                          "required": [
+                                            "schema:valueName",
+                                            "ada:dataType",
+                                            "schema:readonlyValue",
+                                            "schema:valueRequired",
+                                            "ada:tier",
+                                            "ada:cdifPropertyPath"
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    "maxContains": 1
+                                  },
+                                  "ada:defaultStandards": {
+                                    "type": "array",
+                                    "description": "The standards this procedure uses by default -- the ROWS of the standards table. Each is a bare string or a schema:DefinedTerm identifying the standard; per-standard column VALUES live in the analysis record, not here.",
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "ada:standardColumns"
                                 ]
                               },
                               "dqv:hasQualityMeasurement": {
@@ -42701,6 +42847,14 @@
     },
     "TargetSpeciesColumn": {
       "description": "One column of the per-target-species parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetSpeciesColumns registry $ref it.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/KeyedTableColumn"
+        }
+      ]
+    },
+    "StandardColumn": {
+      "description": "One column of the standards table. Structurally a KeyedTableColumn, like every other keyed domain's column. The EPMA template worksheet's columns are the worked example: the standard's type and material, what it standardizes (type and target), which target materials it applies to, the citation for its accepted values, and the expected analytical precision and accuracy for that standard-target pair.",
       "allOf": [
         {
           "$ref": "#/$defs/KeyedTableColumn"

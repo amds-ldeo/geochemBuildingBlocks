@@ -3479,6 +3479,89 @@
         "ada:reportedPropertyColumns"
       ]
     },
+    "ada:standardTemplate": {
+      "title": "Standard Template",
+      "description": "Template for the standards this procedure calibrates against, and the columns that repeat over them. A standard STANDARDIZES something: ada:standardizationType names which domain that is (target species, monitored property or reported property) and the standardization-target column names the member of it. Rows are standard-by-target PAIRS, not one row per standard -- one natural kaersutite standard calibrates Si, Fe and Mg as three rows -- which is why the TAPP workbook keys this as the cross-product `standard x reported property` and why the identifier column is not unique per row.\nScope boundary: this declares the standards table a conforming record must carry. The STANDARD ITSELF is a bios:reagent / #/$defs/Reagent, which already owns the material's identity, its ada:reagentRole (primaryStandard, secondaryStandard) and the schema:citation for its accepted values. A record should reference that entity rather than restate it here; the columns below describe the table, not a second home for the material.",
+      "type": "object",
+      "properties": {
+        "ada:standardColumns": {
+          "title": "Standard Columns",
+          "type": "array",
+          "description": "Columns of the standards table. Must include exactly one column with schema:valueName \"standard\" identifying the standard named in each row.",
+          "minItems": 1,
+          "items": {
+            "description": "One column of the standards table. Structurally a KeyedTableColumn, like every other keyed domain's column. The EPMA template worksheet's columns are the worked example: the standard's type and material, what it standardizes (type and target), which target materials it applies to, the citation for its accepted values, and the expected analytical precision and accuracy for that standard-target pair.",
+            "allOf": [
+              {
+                "$ref": "#/$defs/KeyedTableColumn"
+              }
+            ]
+          },
+          "contains": {
+            "description": "The mandatory standard-identifier column, naming the standard used in each row. Mirrors ReportedPropertyIdentifierColumn, with one difference that matters: it is NOT unique per row, because a row is a standard-by-target pair and one standard calibrates several targets. Like the other identifier columns it maps into schema:variableMeasured/schema:name, because a procedure's several tables share one logical variable registry rather than owning one each.",
+            "allOf": [
+              {
+                "description": "One column of the standards table. Structurally a KeyedTableColumn, like every other keyed domain's column. The EPMA template worksheet's columns are the worked example: the standard's type and material, what it standardizes (type and target), which target materials it applies to, the citation for its accepted values, and the expected analytical precision and accuracy for that standard-target pair.",
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/KeyedTableColumn"
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "schema:valueName": {
+                    "const": "standard"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "schema:valueRequired": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "M"
+                  },
+                  "ada:cdifPropertyPath": {
+                    "const": "#/schema:variableMeasured/schema:name"
+                  }
+                },
+                "required": [
+                  "schema:valueName",
+                  "ada:dataType",
+                  "schema:readonlyValue",
+                  "schema:valueRequired",
+                  "ada:tier",
+                  "ada:cdifPropertyPath"
+                ]
+              }
+            ]
+          },
+          "maxContains": 1
+        },
+        "ada:defaultStandards": {
+          "type": "array",
+          "description": "The standards this procedure uses by default -- the ROWS of the standards table. Each is a bare string or a schema:DefinedTerm identifying the standard; per-standard column VALUES live in the analysis record, not here.",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/DefinedTerm"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "ada:standardColumns"
+      ]
+    },
     "dqv:hasQualityMeasurement": {
       "description": "Quality measurements that characterize the method's expected performance (e.g. analytical precision, accuracy, counting statistics error). Uses the CDIF qualityMeasure building block.",
       "type": "array",
@@ -6539,86 +6622,6 @@
                       "ada:dataType",
                       "schema:defaultValue"
                     ]
-                  },
-                  {
-                    "title": "Counting Statistics Error",
-                    "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "countingStatisticsError"
-                      },
-                      "schema:name": {
-                        "const": "Counting Statistics Error"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                    "description": "How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "internalAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "schema:name": {
-                        "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
                   }
                 ]
               },
@@ -6712,94 +6715,6 @@
                   },
                   "minContains": 0,
                   "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Counting Statistics Error",
-                    "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "countingStatisticsError"
-                      },
-                      "schema:name": {
-                        "const": "Counting Statistics Error"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                    "description": "How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "internalAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "schema:name": {
-                        "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
                 }
               ],
               "title": "Target Species Columns"
@@ -6810,9 +6725,319 @@
           ],
           "title": "Target Species Template"
         },
-        "ada:analyticalAccuracy": {
-          "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
-          "type": "string"
+        "ada:standardTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:standardColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "description": "The mandatory standard-identifier column, naming the standard used in each row. Mirrors ReportedPropertyIdentifierColumn, with one difference that matters: it is NOT unique per row, because a row is a standard-by-target pair and one standard calibrates several targets. Like the other identifier columns it maps into schema:variableMeasured/schema:name, because a procedure's several tables share one logical variable registry rather than owning one each.",
+                    "allOf": [
+                      {
+                        "description": "One column of the standards table. Structurally a KeyedTableColumn, like every other keyed domain's column. The EPMA template worksheet's columns are the worked example: the standard's type and material, what it standardizes (type and target), which target materials it applies to, the citation for its accepted values, and the expected analytical precision and accuracy for that standard-target pair.",
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/KeyedTableColumn"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema:valueName": {
+                            "const": "standard"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "schema:readonlyValue": {
+                            "const": true
+                          },
+                          "schema:valueRequired": {
+                            "const": true
+                          },
+                          "ada:tier": {
+                            "const": "M"
+                          },
+                          "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                          }
+                        },
+                        "required": [
+                          "schema:valueName",
+                          "ada:dataType",
+                          "schema:readonlyValue",
+                          "schema:valueRequired",
+                          "ada:tier",
+                          "ada:cdifPropertyPath"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Analytical Accuracy and Assessment Method",
+                    "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:standardColumn/laMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Analytical Accuracy and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                    "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:standardColumn/laMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Within-Session Analytical Precision and Assessment Method",
+                    "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:standardColumn/laMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Within-Session Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Analytical Accuracy and Assessment Method",
+                    "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:standardColumn/laMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "analyticalAccuracyAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Analytical Accuracy and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                    "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:standardColumn/laMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Within-Session Analytical Precision and Assessment Method",
+                    "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:standardColumn/laMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Within-Session Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
+            }
+          }
         },
         "schema:instrument": {
           "type": "array",
@@ -11201,10 +11426,6 @@
             }
           ]
         },
-        "ada:betweenSessionPrecision": {
-          "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
-          "type": "string"
-        },
         "ada:constantsAndReferenceValuesUsedDefault": {
           "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
           "type": "string"
@@ -11426,9 +11647,228 @@
           ],
           "title": "Target Material Template"
         },
-        "ada:withinSessionPrecision": {
-          "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
-          "type": "string"
+        "ada:reportedPropertyTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:reportedPropertyColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors TargetSpeciesIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (target species, monitored property, reported property) over one logical variable registry, not one table per document.",
+                    "allOf": [
+                      {
+                        "$ref": "#/$defs/KeyedTableColumn"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema:valueName": {
+                            "const": "reportedProperty"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "schema:readonlyValue": {
+                            "const": true
+                          },
+                          "schema:valueRequired": {
+                            "const": true
+                          },
+                          "ada:tier": {
+                            "const": "M"
+                          },
+                          "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                          }
+                        },
+                        "required": [
+                          "schema:valueName",
+                          "ada:dataType",
+                          "schema:readonlyValue",
+                          "schema:valueRequired",
+                          "ada:tier",
+                          "ada:cdifPropertyPath"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Counting Statistics Error",
+                    "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "countingStatisticsError"
+                      },
+                      "schema:name": {
+                        "const": "Counting Statistics Error"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                    "description": "How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Counting Statistics Error",
+                    "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "countingStatisticsError"
+                      },
+                      "schema:name": {
+                        "const": "Counting Statistics Error"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                    "description": "How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ],
+              "title": "Reported Property Columns"
+            }
+          },
+          "title": "Reported Property Template"
         },
         "ada:numberOfAcquisitionPasses": {
           "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",
@@ -11455,12 +11895,9 @@
         }
       },
       "required": [
-        "ada:analyticalAccuracy",
-        "ada:betweenSessionPrecision",
         "ada:constantsAndReferenceValuesUsedDefault",
         "ada:isobaricInterferenceCorrectionsApplied",
         "ada:massBiasCorrectionStrategy",
-        "ada:withinSessionPrecision",
         "ada:numberOfAcquisitionPasses"
       ]
     }

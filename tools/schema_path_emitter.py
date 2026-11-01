@@ -197,6 +197,17 @@ KEYED_TABLES = {
                     "#/$defs/ReportedPropertyIdentifierColumn"
         },
     },
+    # Standards. The one keyed domain whose rows are PAIRS -- a standard by the thing it
+    # standardizes -- so its identifier column is deliberately not unique per row. Shape from the
+    # Standards worksheet of metadata/EPMA-templates20261031.xlsx.
+    "ada:standardColumns": {
+        "template": "ada:standardTemplate",
+        "registry": "standardColumns",
+        "identifier_ref": {
+            "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"
+                    "#/$defs/StandardIdentifierColumn"
+        },
+    },
     # ada:collectorConfiguration is deliberately NOT here. It used to serve as the
     # monitored-property column array directly, which made it the container for eight unrelated
     # items and contradicted its own declared Data Type of Text (free). It is now what the sidecar
