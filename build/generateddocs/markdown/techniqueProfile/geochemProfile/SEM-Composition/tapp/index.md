@@ -196,7 +196,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"quantitative EDS analyses\" of the alloy phases and associated minerals in the NG-1 section, with settings given per phase (\"12 kV for metals and 10 kV for silicates and oxides, beam current at 10 nA for metals and 5 nA for silicates and oxides\", p.2)",
@@ -464,7 +464,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"quantitative EDS analyses\" of the alloy phases and associated minerals in the NG-1 section, with settings given per phase (\"12 kV for metals and 10 kV for silicates and oxides, beam current at 10 nA for metals and 5 nA for silicates and oxides\", p.2)",
@@ -579,7 +579,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
@@ -843,7 +843,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point — \"Semiquantitative analyses\" on the same \"seven representative grains (designated as B-1 through B-7)\" of a Kaba thin section (p.2)",
@@ -1091,7 +1091,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 \"Semiquantitative analyses\" on the same \"seven representative grains (designated as B-1 through B-7)\" of a Kaba thin section (p.2)",
@@ -1184,16 +1184,16 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <ex:semCompositionTAPP-Gucsik2013/instrument/SEM> ;
@@ -1204,7 +1204,7 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "CL (same instrument); BSE Imaging (same instrument, same session); EPMA with WDS (JEOL JXA-8900R, out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
@@ -1467,7 +1467,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished thin section) > Phase — \"full spectral imaging, recording all X-rays collected from each pixel location\" over \"polished thin sections\" of Tagish Lake (p.2), read as elemental distribution (p.3)",
@@ -1721,7 +1721,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished thin section) > Phase \u2014 \"full spectral imaging, recording all X-rays collected from each pixel location\" over \"polished thin sections\" of Tagish Lake (p.2), read as elemental distribution (p.3)",
@@ -1835,7 +1835,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
@@ -2098,7 +2098,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"High-resolution BSE imaging and EDX spot analysis were carried out with the Leo 1540 FIB/SEM CrossBeam field emission SEM\" (p.3)",
@@ -2352,7 +2352,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"High-resolution BSE imaging and EDX spot analysis were carried out with the Leo 1540 FIB/SEM CrossBeam field emission SEM\" (p.3)",
@@ -2466,7 +2466,7 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (same instrument); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
@@ -2896,7 +2896,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"semi-quantitative analyses with virtual standards present within the INCA software\" (p.3), to \"determine its elemental composition\" for the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)",
@@ -3325,7 +3325,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"semi-quantitative analyses with virtual standards present within the INCA software\" (p.3), to \"determine its elemental composition\" for the \"NWA 7317 slab\", a \"small fragment of about 10 \u00d7 6 mm\" embedded in epoxy and polished (pp.3\u20134)",
@@ -3449,7 +3449,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
@@ -3987,7 +3987,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished slab) > Phase — elemental mapping of the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4), acquired on \"almost the same portion of the VIS-IR SPIM images\" (p.4) so the two datasets can be compared pixel for pixel",
@@ -4416,7 +4416,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished slab) > Phase \u2014 elemental mapping of the \"NWA 7317 slab\", a \"small fragment of about 10 \u00d7 6 mm\" embedded in epoxy and polished (pp.3\u20134), acquired on \"almost the same portion of the VIS-IR SPIM images\" (p.4) so the two datasets can be compared pixel for pixel",
@@ -4538,7 +4538,7 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
@@ -4595,10 +4595,10 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:semCompositionTAPP-Pascucci2026-2/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -4912,7 +4912,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Region of interest > Analysis point — \"The Oxford AZtec 'Point & ID' programme was used for the acquisition of images and point spectra\" (p.9)",
@@ -5175,7 +5175,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Region of interest > Analysis point \u2014 \"The Oxford AZtec 'Point & ID' programme was used for the acquisition of images and point spectra\" (p.9)",
@@ -5274,16 +5274,16 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v86.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument <ex:semCompositionTAPP-Zega2025/instrument/SEM> ;
@@ -5296,7 +5296,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
@@ -5322,10 +5322,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford AZtec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford AZtec (Point & ID programme)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford AZtec" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:semCompositionTAPP-Zega2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5563,7 +5563,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (particle) > Phase — \"The compositional heterogeneity of the particles was assessed through EDS mapping\" (p.9)",
@@ -5826,7 +5826,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (particle) > Phase \u2014 \"The compositional heterogeneity of the particles was assessed through EDS mapping\" (p.9)",
@@ -5948,7 +5948,7 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE/BSE Imaging (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
@@ -6139,7 +6139,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (presolar grain) > Phase — EDS was used on grains first found by NanoSIMS raster imaging of \"aggregate QL material pressed onto a gold (Au) foil mount\": \"Two O-rich presolar grains were also analysed by SEM-EDS to further constrain the phase and to confirm the phase identifications\" (pp.10–11)",
@@ -6390,7 +6390,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (presolar grain) > Phase \u2014 EDS was used on grains first found by NanoSIMS raster imaging of \"aggregate QL material pressed onto a gold (Au) foil mount\": \"Two O-rich presolar grains were also analysed by SEM-EDS to further constrain the phase and to confirm the phase identifications\" (pp.10\u201311)",
@@ -6555,16 +6555,16 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
     schema1:instrument <ex:semCompositionTAPP-Barnes2025/instrument/SEM> ;
@@ -6576,7 +6576,7 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "NanoSIMS isotope mapping (CAMECA NanoSIMS 50L, NASA JSC); presolar grains identified by NanoSIMS then confirmed by SEM-EDS phase characterisation" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;

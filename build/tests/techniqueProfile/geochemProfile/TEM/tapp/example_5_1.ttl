@@ -14,17 +14,17 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensionsDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -43,7 +43,7 @@
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (FEI Quanta3D600) prepared TEM sections from particles characterized by SEM; XRD provided bulk mineralogy context" ;
                     schema1:name "FIB-SEM; SEM; XRD" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -75,10 +75,10 @@
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    bios:computationalTool [ schema1:name "Thermo System7" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Thermo System7 (EDS quantification)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Thermo System7 (EDS quantification)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Thermo System7" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:temTAPP-Zega2025-4/instrument/TEM> a schema1:Product,
         schema1:Thing ;

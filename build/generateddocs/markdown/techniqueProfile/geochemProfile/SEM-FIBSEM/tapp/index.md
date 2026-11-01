@@ -222,7 +222,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (individual nanoglobule) > Sub-volume (FIB cross-section) — \"The internal structure of the globules was investigated after sectioning by focused ion beam (FIB) milling\" (p.1)",
@@ -470,7 +470,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (individual nanoglobule) > Sub-volume (FIB cross-section) \u2014 \"The internal structure of the globules was investigated after sectioning by focused ion beam (FIB) milling\" (p.1)",
@@ -515,6 +515,14 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -523,15 +531,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v45.csv)." ;
     schema1:instrument <ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM>,
@@ -545,7 +545,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE Imaging (same instrument, pre- and post-FIB milling)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
@@ -858,7 +858,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) — the volume supports \"a three dimensional (3D) pore network model, which was further used to characterize the pore connectivity\" (p.1), with pores classified as coalification-related and mineral-related (p.1); the model \"only focuses on the coal sample #1\" (p.8)",
@@ -1141,7 +1141,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) \u2014 the volume supports \"a three dimensional (3D) pore network model, which was further used to characterize the pore connectivity\" (p.1), with pores classified as coalification-related and mineral-related (p.1); the model \"only focuses on the coal sample #1\" (p.8)",
@@ -1223,7 +1223,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "X-ray CT (Xradia 520 Versa, Carl Zeiss)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "3D Tomography" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
@@ -1814,16 +1814,16 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)." ;
     schema1:instrument <ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM>,
@@ -2148,7 +2148,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (Bennu particle) > Sub-volume (FIB section) — \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
@@ -2425,7 +2425,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (Bennu particle) > Sub-volume (FIB section) \u2014 \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
@@ -2469,18 +2469,18 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -2502,7 +2502,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
@@ -2824,7 +2824,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (Bennu particle) > Sub-volume (FIB section) — \"Bennu particles were placed on PELCO carbon conductive tabs\" for extraction (p.9)",
@@ -3099,7 +3099,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (Bennu particle) > Sub-volume (FIB section) \u2014 \"Bennu particles were placed on PELCO carbon conductive tabs\" for extraction (p.9)",
@@ -3144,12 +3144,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -3162,7 +3156,13 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM>,
@@ -3176,7 +3176,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Synchrotron XANES (ALS, Berkeley); TEM analysis" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
@@ -3526,7 +3526,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (Bennu particle) > Sub-volume (FIB section) — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10)",
@@ -3826,7 +3826,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (Bennu particle) > Sub-volume (FIB section) \u2014 \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10)",
@@ -3879,19 +3879,19 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
     schema1:instrument <ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM>,
@@ -3905,7 +3905,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;

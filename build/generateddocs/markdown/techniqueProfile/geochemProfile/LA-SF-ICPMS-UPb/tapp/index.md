@@ -505,7 +505,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -516,7 +516,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished specimen surface) > Region of interest (raster) — irons \"were analyzed using a raster scan over a few millimeters\" with a 50 μm beam, and compositions are reported as \"raster averages\" per specimen (Table 3, pp.4–5); Ge comes from a set of five 150 μm spots on five of the irons (p.4)",
@@ -1087,7 +1087,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -1098,7 +1098,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished specimen surface) > Region of interest (raster) \u2014 irons \"were analyzed using a raster scan over a few millimeters\" with a 50 \u03bcm beam, and compositions are reported as \"raster averages\" per specimen (Table 3, pp.4\u20135); Ge comes from a set of five 150 \u03bcm spots on five of the irons (p.4)",
@@ -1223,19 +1223,19 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "raster: raster scan over a few millimeters; Ge spots: spot — §2.2" ;
     ada:ablationSpotDurationDefault "20 s for the Ge spots — 'analyzed at 50 Hz for 20 s' (§2.2); the raster duration is not stated" ;
@@ -2136,7 +2136,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (individual olivine crystal) > Region of interest (2D map) — \"2D trace element mapping of olivine crystals\" (p.1); the reported dataset is \"seven 2D element maps of PMG olivine crystals\", filtered and median-smoothed before analysis (p.6)",
@@ -2836,7 +2836,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (individual olivine crystal) > Region of interest (2D map) \u2014 \"2D trace element mapping of olivine crystals\" (p.1); the reported dataset is \"seven 2D element maps of PMG olivine crystals\", filtered and median-smoothed before analysis (p.6)",
@@ -2913,11 +2913,13 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Flat polished thick sections (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 1 and Nb = 10 for a pixel (App. C5)" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -2928,13 +2930,11 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 1 and Nb = 10 for a pixel (App. C5)" ] ] ;
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -2957,15 +2957,15 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: grid of parallel, adjacent lines — §2.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'" ;
     ada:ablationSpotDurationDefault "N/A — mapping mode" ;
@@ -3966,7 +3966,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (individual olivine crystal) > Region of interest (line scan) — \"a second line-scan was completed on top of the first one, using a laser spot of 130 μm diameter ... and a translation speed of 10 μm s−1\" (p.3)",
@@ -4685,7 +4685,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (individual olivine crystal) > Region of interest (line scan) \u2014 \"a second line-scan was completed on top of the first one, using a laser spot of 130 \u03bcm diameter ... and a translation speed of 10 \u03bcm s\u22121\" (p.3)",
@@ -4762,6 +4762,15 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
@@ -4769,15 +4778,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Flat polished thick sections (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -4807,7 +4807,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -5812,7 +5812,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (phosphate crystal) > Spot — compositions are reported per named phosphate grain (\"Ph1\" … \"Ph4\", with \"stanf\" or \"merr\"), each an average of numbered \"single parallel measurement\" spots (Table 2, p.10)",
@@ -6509,7 +6509,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (phosphate crystal) > Spot \u2014 compositions are reported per named phosphate grain (\"Ph1\" \u2026 \"Ph4\", with \"stanf\" or \"merr\"), each an average of numbered \"single parallel measurement\" spots (Table 2, p.10)",
@@ -6595,19 +6595,19 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -6630,15 +6630,15 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
+            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
+            schema1:name "Reported Date Type" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: single spot ablation — §2.2.4" ;
     ada:ablationSpotDurationDefault "20 s spot ablation (plus 10 s washout); 25 cycles acquisition" ;
@@ -7593,7 +7593,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (olivine grain fragment) > Spot — \"The laser was run in spot mode with a 75 µm spot size\" (p.5); results are reported as average analyses per sample, and individual spots carry labels such as \"laser spot 059-Pa-1\" (p.8). Line scans across grain fragments were also run (p.3)",
@@ -8259,7 +8259,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (olivine grain fragment) > Spot \u2014 \"The laser was run in spot mode with a 75 \u00b5m spot size\" (p.5); results are reported as average analyses per sample, and individual spots carry labels such as \"laser spot 059-Pa-1\" (p.8). Line scans across grain fragments were also run (p.3)",
@@ -8345,13 +8345,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
@@ -8359,7 +8352,14 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -8380,15 +8380,15 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Mittlefehldt (2024) GCA; Lee (Rice University) Excel data reduction spreadsheet" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:name "Age Calculation Method" ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: spot mode — 'The laser was run in spot mode' (§3.3)" ;
     ada:ablationSpotDurationDefault "N — parameters lost" ;
@@ -9316,7 +9316,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished ~1 cm fragment) > Spot — \"fragments about 1 cm were mounted in epoxy resin, polished, and cleaned with ultrapure water\" (p.3); the reported quantity is the meteorite's bulk composition for chemical classification (Table 1, p.2)",
@@ -9989,7 +9989,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished ~1 cm fragment) > Spot \u2014 \"fragments about 1 cm were mounted in epoxy resin, polished, and cleaned with ultrapure water\" (p.3); the reported quantity is the meteorite's bulk composition for chemical classification (Table 1, p.2)",
@@ -10113,13 +10113,13 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
@@ -11053,7 +11053,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Region of interest > Phase — \"elemental mapping, conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1); the map is read for the phases it resolves, \"even without prior knowledge regarding natural structural variations\" (p.1)",
@@ -11726,7 +11726,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Region of interest > Phase \u2014 \"elemental mapping, conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1); the map is read for the phases it resolves, \"even without prior knowledge regarding natural structural variations\" (p.1)",
@@ -11850,13 +11850,13 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;

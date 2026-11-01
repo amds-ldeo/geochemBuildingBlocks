@@ -371,7 +371,7 @@ epmaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1016/j.epsl.2015.03.057"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -381,7 +381,7 @@ epmaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — Table 1 reports one column per phase and textural setting (\"Wormy type tissintite\", \"Maskelynite away from melt pockets\" …), each the mean of n = 5–17 focused-beam point analyses (p.5)",
@@ -823,7 +823,7 @@ epmaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1016/j.epsl.2015.03.057"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -833,7 +833,7 @@ epmaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 Table 1 reports one column per phase and textural setting (\"Wormy type tissintite\", \"Maskelynite away from melt pockets\" \u2026), each the mean of n = 5\u201317 focused-beam point analyses (p.5)",
@@ -923,16 +923,16 @@ epmaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Polished thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -953,11 +953,11 @@ epmaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Ma et al. 2015, Earth Planet. Sci. Lett. 422:194-205; doi:10.1016/j.epsl.2015.03.057" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "https://doi.org/10.1016/j.epsl.2015.03.057" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -1015,10 +1015,10 @@ epmaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:epmaTAPP-Ma2015/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -1498,7 +1498,7 @@ epmaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1016/j.gca.2019.06.012"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -1508,7 +1508,7 @@ epmaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by electron probe microanalysis\" (p.2); points are grouped by phase, not reported individually in the archived PDF",
@@ -1937,7 +1937,7 @@ epmaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1016/j.gca.2019.06.012"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -1947,7 +1947,7 @@ epmaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by electron probe microanalysis\" (p.2); points are grouped by phase, not reported individually in the archived PDF",
@@ -2066,13 +2066,13 @@ epmaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "https://doi.org/10.1016/j.gca.2019.06.012" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -2622,7 +2622,7 @@ epmaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.12726"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -2632,7 +2632,7 @@ epmaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (thin section) > Phase — \"elemental X-ray maps (Ca Ka, Al Ka, Fe Ka, and Mg Ka) of four sections\" (p.3); the reported quantity is a modal fraction, \"the number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3)",
@@ -3066,7 +3066,7 @@ epmaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.12726"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -3076,7 +3076,7 @@ epmaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (thin section) > Phase \u2014 \"elemental X-ray maps (Ca Ka, Al Ka, Fe Ka, and Mg Ka) of four sections\" (p.3); the reported quantity is a modal fraction, \"the number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3)",
@@ -3190,11 +3190,11 @@ epmaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "https://doi.org/10.1111/maps.12726" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -3752,7 +3752,7 @@ epmaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.12726"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -3762,7 +3762,7 @@ epmaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"Major and minor element compositions of selected minerals\" by phase (Table 2, p.6); glass compositions are means, \"EMP avg (n = 73)\" and \"avg (n = 14)\" (Table 3, p.9)",
@@ -4196,7 +4196,7 @@ epmaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.12726"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -4206,7 +4206,7 @@ epmaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"Major and minor element compositions of selected minerals\" by phase (Table 2, p.6); glass compositions are means, \"EMP avg (n = 73)\" and \"avg (n = 14)\" (Table 3, p.9)",
@@ -4293,16 +4293,16 @@ epmaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Polished thin sections (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin sections (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses; WDS or EDS is not stated, and the list has no value without one." ;
@@ -4321,11 +4321,11 @@ epmaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "https://doi.org/10.1111/maps.12726" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -4903,7 +4903,7 @@ epmaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.13000"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -4913,7 +4913,7 @@ epmaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point — Table 1 reports one column per occurrence (\"Type liebermannite\", \"The second liebermannite\", \"The third liebermannite\", \"Lingunite next to type liebermannite\" …), each the mean of n = 2–6 points (p.3)",
@@ -5370,7 +5370,7 @@ epmaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.13000"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -5380,7 +5380,7 @@ epmaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 Table 1 reports one column per occurrence (\"Type liebermannite\", \"The second liebermannite\", \"The third liebermannite\", \"Lingunite next to type liebermannite\" \u2026), each the mean of n = 2\u20136 points (p.3)",
@@ -5501,11 +5501,11 @@ epmaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61; doi:10.1111/maps.13000 (file dated 2017)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "https://doi.org/10.1111/maps.13000" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -6051,7 +6051,7 @@ epmaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.14083"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -6061,7 +6061,7 @@ epmaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"Representative electron-microprobe measurements of melilite, grossmanite, and spinel are given in Table 1\" (p.5), all within the single Ivuna CAI",
@@ -6484,7 +6484,7 @@ epmaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.14083"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -6494,7 +6494,7 @@ epmaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"Representative electron-microprobe measurements of melilite, grossmanite, and spinel are given in Table 1\" (p.5), all within the single Ivuna CAI",
@@ -6610,11 +6610,11 @@ epmaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511; doi:10.1111/maps.14083" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "https://doi.org/10.1111/maps.14083" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Petrographic microscopy; SEM-BSE (JEOL 5900LV); EPMA X-ray mapping; Cameca ims1280 ion microprobe (O isotopes; 26Al-26Mg); FIB-TEM" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -7168,7 +7168,7 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.70138"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -7178,7 +7178,7 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Region of interest > Phase — \"wavelength-dispersive quantitative compositional mapping and analysis\" (p.3) of whole fragments; phases are identified within a map (\"Round Phy1 phyllosilicate clast\", \"Lithic clast (LC1)\", Fig. 3, p.6) and abundances given per section (\"sulfides which make up 2.3 areal% of the section\", p.6)",
@@ -7619,7 +7619,7 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.70138"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -7629,7 +7629,7 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Region of interest > Phase \u2014 \"wavelength-dispersive quantitative compositional mapping and analysis\" (p.3) of whole fragments; phases are identified within a map (\"Round Phy1 phyllosilicate clast\", \"Lithic clast (LC1)\", Fig. 3, p.6) and abundances given per section (\"sulfides which make up 2.3 areal% of the section\", p.6)",
@@ -7744,13 +7744,13 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "https://doi.org/10.1111/maps.70138" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -7804,10 +7804,10 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe for EPMA microanalysis software" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Probe for EPMA microanalysis software" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:epmaTAPP-Broussard2026/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -8312,7 +8312,7 @@ epmaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.70167"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -8322,7 +8322,7 @@ epmaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point — Table 1 reports one column per apatite grain (\"Ap. #1\" … \"Ap. #5\") within each of the three particles (p.7)",
@@ -8766,7 +8766,7 @@ epmaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1111/maps.70167"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -8776,7 +8776,7 @@ epmaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 Table 1 reports one column per apatite grain (\"Ap. #1\" \u2026 \"Ap. #5\") within each of the three particles (p.7)",
@@ -8863,16 +8863,16 @@ epmaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/halogenCorrectionOnOxygenDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -8894,11 +8894,11 @@ epmaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "https://doi.org/10.1111/maps.70167" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -9433,7 +9433,7 @@ epmaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/srep26063"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -9443,7 +9443,7 @@ epmaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — compositions are reported as per-phase means, \"The average compositions (Supplementary Table 1) of orthopyroxene\" (p.2) and \"41 ± 8 mol% on average; based on 13 analyses\" (p.4); the individual points are in a supplement not in the archived PDF",
@@ -9847,7 +9847,7 @@ epmaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/srep26063"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -9857,7 +9857,7 @@ epmaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 compositions are reported as per-phase means, \"The average compositions (Supplementary Table 1) of orthopyroxene\" (p.2) and \"41 \u00b1 8 mol% on average; based on 13 analyses\" (p.4); the individual points are in a supplement not in the archived PDF",
@@ -9937,16 +9937,16 @@ epmaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Polished thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'Electron Probe Micro-Analyzer (EPMA) with wavelength dispersive spectrometers (WDS)'." ;
     schema1:instrument <ex:epmaTAPP-Pang2016/instrument/EPMA>,
@@ -9963,11 +9963,11 @@ epmaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "https://doi.org/10.1038/srep26063" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -10486,7 +10486,7 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/s41586-024-08495-6"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -10496,7 +10496,7 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"Electron microprobe analysis was conducted on Ir-coated specimens\" (p.7); results are reported by phase, e.g. \"the calcite has near-end member composition (4 mol.% or less MgCO3 and FeCO3)\" (p.2)",
@@ -10914,7 +10914,7 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/s41586-024-08495-6"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -10924,7 +10924,7 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"Electron microprobe analysis was conducted on Ir-coated specimens\" (p.7); results are reported by phase, e.g. \"the calcite has near-end member composition (4 mol.% or less MgCO3 and FeCO3)\" (p.2)",
@@ -11011,16 +11011,16 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. McCoy" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -11038,13 +11038,13 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
+            schema1:url "https://doi.org/10.1038/s41586-024-08495-6" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -11581,7 +11581,7 @@ epmaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/s41586-024-08495-6"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -11591,7 +11591,7 @@ epmaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"EMPA analyses were carried out using a Cameca SX-100 electron microprobe located at K-ALFAA\" (p.7); results are reported by phase, not per named point",
@@ -12016,7 +12016,7 @@ epmaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/s41586-024-08495-6"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -12026,7 +12026,7 @@ epmaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"EMPA analyses were carried out using a Cameca SX-100 electron microprobe located at K-ALFAA\" (p.7); results are reported by phase, not per named point",
@@ -12133,13 +12133,13 @@ epmaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "https://doi.org/10.1038/s41586-024-08495-6" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -12561,7 +12561,7 @@ epmaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/s41561-025-01741-0"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -12571,7 +12571,7 @@ epmaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Phase — sulfide compositions are reported per grain within named particles (\"Pyrrhotite compositions measured by EMPA\", p.2), and \"phase mapping via electron microprobe analysis (EMPA)\" gives modal abundances of carbonates, sulfides and magnetite per particle (p.2)",
@@ -12886,7 +12886,7 @@ epmaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/s41561-025-01741-0"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -12896,7 +12896,7 @@ epmaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Phase \u2014 sulfide compositions are reported per grain within named particles (\"Pyrrhotite compositions measured by EMPA\", p.2), and \"phase mapping via electron microprobe analysis (EMPA)\" gives modal abundances of carbonates, sulfides and magnetite per particle (p.2)",
@@ -13019,13 +13019,13 @@ epmaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Zega et al. 2025, Nat. Geosci.; doi:10.1038/s41561-025-01741-0" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS; TEM-EDS/EELS; FIB-SEM; XRD; XANES" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Zega et al. 2025, Nat. Geosci.; doi:10.1038/s41561-025-01741-0" ] ;
+            schema1:url "https://doi.org/10.1038/s41561-025-01741-0" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -13488,7 +13488,7 @@ epmaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/s41550-025-02631-6"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -13498,7 +13498,7 @@ epmaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point — \"Aggregate particles (<1 mm) were mounted in epoxy\" and mapped \"of the different grains\"; \"Quantitative analyses were performed with ... beam diameter of 1 µm\", the beam rastered \"over 5 × 5 µm2\" for carbonates (p.11)",
@@ -13926,7 +13926,7 @@ epmaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/s41550-025-02631-6"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -13936,7 +13936,7 @@ epmaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 \"Aggregate particles (<1 mm) were mounted in epoxy\" and mapped \"of the different grains\"; \"Quantitative analyses were performed with ... beam diameter of 1 \u00b5m\", the beam rastered \"over 5 \u00d7 5 \u00b5m2\" for carbonates (p.11)",
@@ -14023,16 +14023,16 @@ epmaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamRasterDimensionsDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si). Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument). Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses on an instrument 'equipped with five wavelength-dispersive spectrometers and one silicon drift detector energy dispersive spectrometer'; which detector measured which element is not stated." ;
@@ -14051,11 +14051,11 @@ epmaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-BSE (JEOL JSM-6510, 15 kV, 3 nA); SEM-EDS (multi-element mapping); SIMS (CAMECA IMS 1270 E7, CRPG); NanoSIMS (K-ALFAA); ICP-MS; MC-ICP-MS; noble gas MS" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
         [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "https://doi.org/10.1038/s41550-025-02631-6" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -14457,7 +14457,7 @@ epmaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/s41550-025-02631-6"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -14467,7 +14467,7 @@ epmaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point — \"Olivine and pyroxene grains were identified and characterized at the NHM\" in particles P1 and P2, and \"Analyses were performed at 20 kV, using a focused 1-μm beam\" (p.13)",
@@ -14751,7 +14751,7 @@ epmaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1038/s41550-025-02631-6"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -14761,7 +14761,7 @@ epmaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 \"Olivine and pyroxene grains were identified and characterized at the NHM\" in particles P1 and P2, and \"Analyses were performed at 20 kV, using a focused 1-\u03bcm beam\" (p.13)",
@@ -14873,13 +14873,13 @@ epmaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "https://doi.org/10.1038/s41550-025-02631-6" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -15351,7 +15351,7 @@ epmaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1029/2024JE008556"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -15362,7 +15362,7 @@ epmaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)",
@@ -15814,7 +15814,7 @@ epmaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "https://doi.org/10.1029/2024JE008556"
     },
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -15825,7 +15825,7 @@ epmaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)",
@@ -15915,16 +15915,16 @@ epmaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "N — attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'" ],
+                    schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "N — attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamRasterDimensionsDefault>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -15941,14 +15941,14 @@ epmaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)" ] ;
+            schema1:url "https://doi.org/10.1029/2024JE008556" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases" ;
                     schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Mapping" ;

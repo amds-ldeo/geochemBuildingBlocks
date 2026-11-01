@@ -140,7 +140,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (individual carbonaceous nanoglobule) — \"low voltage scanning electron microscopy (SEM) was used to characterize the globule forms and external structures\" (p.1) of globules on an Al-SEM stub (p.2)",
@@ -348,7 +348,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (individual carbonaceous nanoglobule) \u2014 \"low voltage scanning electron microscopy (SEM) was used to characterize the globule forms and external structures\" (p.1) of globules on an Al-SEM stub (p.2)",
@@ -435,16 +435,16 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument <ex:semImagingTAPP-Garvie2008/instrument/SEM> ;
@@ -457,7 +457,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB milling and TEM cross-section preparation (same instrument)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "SE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -650,7 +650,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (the NG-1 section) > Phase — BSE imaging was used \"to determine the composition and structure of the Al-Cu alloy phases and associated minerals\" in the NG-1 section, with settings given per phase (\"12 kV for metals and 10 kV for silicates and oxides, beam current at 10 nA for metals and 5 nA for silicates and oxides\", p.2)",
@@ -859,7 +859,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (the NG-1 section) > Phase \u2014 BSE imaging was used \"to determine the composition and structure of the Al-Cu alloy phases and associated minerals\" in the NG-1 section, with settings given per phase (\"12 kV for metals and 10 kV for silicates and oxides, beam current at 10 nA for metals and 5 nA for silicates and oxides\", p.2)",
@@ -970,7 +970,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "BSE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -1227,7 +1227,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Grain — \"Electron back-scatter diffraction (EBSD) analyses were operated at 20 kV and 6 nA in focused beam mode\", the beam \"several nanometers in diameter\" with \"~30 nm\" resolution for diffracted electrons, run for \"Structural information\" on the alloy phases (p.2)",
@@ -1461,7 +1461,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Phase > Grain \u2014 \"Electron back-scatter diffraction (EBSD) analyses were operated at 20 kV and 6 nA in focused beam mode\", the beam \"several nanometers in diameter\" with \"~30 nm\" resolution for diffracted electrons, run for \"Structural information\" on the alloy phases (p.2)",
@@ -1509,18 +1509,18 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
@@ -1534,7 +1534,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "EBSD" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -1765,7 +1765,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Region of interest (core and rim) — CL was measured on \"seven representative grains (designated as B-1 through B-7)\" (p.2); \"CL spectra of red luminescent forsterite grains\" are reported against their cores, which \"show CL blue luminescence\" (p.1)",
@@ -1996,7 +1996,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain > Region of interest (core and rim) \u2014 CL was measured on \"seven representative grains (designated as B-1 through B-7)\" (p.2); \"CL spectra of red luminescent forsterite grains\" are reported against their cores, which \"show CL blue luminescence\" (p.1)",
@@ -2104,7 +2104,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "CL Mapping" ;
     ada:clAcquisitionMode "Spectral point" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -2340,7 +2340,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished thin section) > Region of interest — \"colour SEM-CL analysis of polished thin sections\" (p.1), reported as CL zoning within named textural components, \"relict CAI spinel, in chondrule and AOA forsterite, and in calcite nodules\" (p.1)",
@@ -2586,7 +2586,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished thin section) > Region of interest \u2014 \"colour SEM-CL analysis of polished thin sections\" (p.1), reported as CL zoning within named textural components, \"relict CAI spinel, in chondrule and AOA forsterite, and in calcite nodules\" (p.1)",
@@ -2680,16 +2680,16 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
@@ -2703,7 +2703,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "CL Mapping" ;
     ada:clAcquisitionMode "Multi-channel pseudo-color" ;
     ada:clIntegrationTimeDefault "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)" ;
@@ -2724,10 +2724,10 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:semImagingTAPP-Izawa2010/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -2913,7 +2913,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished thin section) > Phase — \"Backscattered electron images and EDX element maps of the Tagish Lake sections were acquired with the Leo 440 SEM\", providing \"graphical representations of elemental distribution\" (p.3)",
@@ -3122,7 +3122,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished thin section) > Phase \u2014 \"Backscattered electron images and EDX element maps of the Tagish Lake sections were acquired with the Leo 440 SEM\", providing \"graphical representations of elemental distribution\" (p.3)",
@@ -3211,16 +3211,16 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:semImagingTAPP-Izawa2010-2/instrument/SEM> ;
@@ -3233,7 +3233,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (same instrument); CL (Hitachi S-2500C); BSE Imaging (Leo 1540); micro-XRD; EPMA (out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "BSE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -3426,7 +3426,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Region of interest — \"High-resolution BSE imaging ... carried out with the Leo 1540 FIB/SEM CrossBeam field emission SEM\" (p.3), used for \"higher resolution SEM-BSE mapping to document smaller scale relationships\" within \"polished thin sections\" of Tagish Lake (p.2)",
@@ -3635,7 +3635,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Region of interest \u2014 \"High-resolution BSE imaging ... carried out with the Leo 1540 FIB/SEM CrossBeam field emission SEM\" (p.3), used for \"higher resolution SEM-BSE mapping to document smaller scale relationships\" within \"polished thin sections\" of Tagish Lake (p.2)",
@@ -3724,16 +3724,16 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:semImagingTAPP-Izawa2010-3/instrument/SEM> ;
@@ -3746,7 +3746,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (same instrument); BSE Imaging (Leo 440); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "BSE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -3953,7 +3953,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished coal block) > Phase (pore types) — \"Electron microscopy observations further revealed there are coalification-related pores and mineral-related pores in the high-rank coal\" (p.1), imaged on the polished coal blocks \"#1\" and \"#2\" (Table 1, p.2)",
@@ -4175,7 +4175,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished coal block) > Phase (pore types) \u2014 \"Electron microscopy observations further revealed there are coalification-related pores and mineral-related pores in the high-rank coal\" (p.1), imaged on the polished coal blocks \"#1\" and \"#2\" (Table 1, p.2)",
@@ -4285,7 +4285,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "SE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -4500,7 +4500,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished coal block) > Phase (pore types) — higher-resolution imaging of the same pore types (p.1) on the polished coal blocks \"#1\" and \"#2\" (Table 1, p.2)",
@@ -4722,7 +4722,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished coal block) > Phase (pore types) \u2014 higher-resolution imaging of the same pore types (p.1) on the polished coal blocks \"#1\" and \"#2\" (Table 1, p.2)",
@@ -4809,16 +4809,16 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
@@ -4832,7 +4832,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "SE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -5037,7 +5037,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (section 126A) > Phase — the SEM was used \"to characterize chemical compositions and structures of minerals in section 126A\" (p.1); the metal assemblages are shown as whole-section context (Fig. 2, p.3)",
@@ -5249,7 +5249,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (section 126A) > Phase \u2014 the SEM was used \"to characterize chemical compositions and structures of minerals in section 126A\" (p.1); the metal assemblages are shown as whole-section context (Fig. 2, p.3)",
@@ -5336,16 +5336,16 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
     schema1:instrument <ex:semImagingTAPP-Ma2017/instrument/SEM> ;
@@ -5358,7 +5358,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "BSE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -5610,7 +5610,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (single crystal) — one pattern per crystal, \"EBSD patterns of (a) the type hollisterite crystal, indexed with the C2/m Fe3Al structure\" (Fig. 3, p.3), each returning that crystal's cell parameters (p.3)",
@@ -5835,7 +5835,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Grain (single crystal) \u2014 one pattern per crystal, \"EBSD patterns of (a) the type hollisterite crystal, indexed with the C2/m Fe3Al structure\" (Fig. 3, p.3), each returning that crystal's cell parameters (p.3)",
@@ -5907,7 +5907,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "EBSD" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -6124,7 +6124,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished slab) > Phase — BSE images \"were used at high vacuum mode at 20.00 kV accelerating voltage\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)",
@@ -6351,7 +6351,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished slab) > Phase \u2014 BSE images \"were used at high vacuum mode at 20.00 kV accelerating voltage\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 \u00d7 6 mm\" embedded in epoxy and polished (pp.3\u20134)",
@@ -6467,7 +6467,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "BSE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -6669,7 +6669,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished slab) > Region of interest — \"Secondary electrons were used to construct images enlarged up to ×200,000 and resolved up to 5 nm\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)",
@@ -6877,7 +6877,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished slab) > Region of interest \u2014 \"Secondary electrons were used to construct images enlarged up to \u00d7200,000 and resolved up to 5 nm\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 \u00d7 6 mm\" embedded in epoxy and polished (pp.3\u20134)",
@@ -6986,7 +6986,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); EDS (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "SE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -7179,7 +7179,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Region of interest — \"Characterization of regions of interest was performed at an accelerating voltage of 15 kV using both secondary electron (SE) and low-angle backscattered electron imaging modes\", on a particle \"attached to an Al cylinder SEM mount\" (p.9)",
@@ -7393,7 +7393,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Region of interest \u2014 \"Characterization of regions of interest was performed at an accelerating voltage of 15 kV using both secondary electron (SE) and low-angle backscattered electron imaging modes\", on a particle \"attached to an Al cylinder SEM mount\" (p.9)",
@@ -7486,16 +7486,16 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²" ;
     schema1:instrument <ex:semImagingTAPP-Zega2025/instrument/SEM> ;
@@ -7508,7 +7508,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "BSE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -7703,7 +7703,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished section) > Region of interest — \"SE and BSE images were acquired using a Hitachi S-4800 SEM\" on \"Polished sections\" (p.9); the imaged fields are not labelled",
@@ -7911,7 +7911,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished section) > Region of interest \u2014 \"SE and BSE images were acquired using a Hitachi S-4800 SEM\" on \"Polished sections\" (p.9); the imaged fields are not labelled",
@@ -7998,16 +7998,16 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
     schema1:instrument <ex:semImagingTAPP-Zega2025-2/instrument/SEM> ;
@@ -8020,7 +8020,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "SE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -8213,7 +8213,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished section) > Region of interest — \"SE and BSE images were acquired using a Hitachi S-4800 SEM\" on \"Polished sections\" (p.9); the imaged fields are not labelled",
@@ -8421,7 +8421,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished section) > Region of interest \u2014 \"SE and BSE images were acquired using a Hitachi S-4800 SEM\" on \"Polished sections\" (p.9); the imaged fields are not labelled",
@@ -8508,16 +8508,16 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
     schema1:instrument <ex:semImagingTAPP-Zega2025-3/instrument/SEM> ;
@@ -8530,7 +8530,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "BSE Imaging" ;
     ada:clAcquisitionMode "missing" ;
     ada:clIntegrationTimeDefault -9999 ;
@@ -8740,7 +8740,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (particle thin section) > Region of interest — panchromatic and monochromatic CL imaging of \"Bennu particle thin sections\", the emitting volume reaching \"up to 230 nm below the bombarded sample surface and around to 200 nm sideways\" (p.9)",
@@ -8964,7 +8964,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
       "@type": [
         "schema:CreativeWork"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:url": "http://www.opengis.net/def/nil/OGC/0/missing"
     }
   ],
   "ada:samplingUnitType": "Whole sample (particle thin section) > Region of interest \u2014 panchromatic and monochromatic CL imaging of \"Bennu particle thin sections\", the emitting volume reaching \"up to 230 nm below the bombarded sample surface and around to 200 nm sideways\" (p.9)",
@@ -9050,16 +9050,16 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
     schema1:instrument <ex:semImagingTAPP-Zega2025-4/instrument/SEM> ;
@@ -9072,7 +9072,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "CL Mapping" ;
     ada:clAcquisitionMode "Monochromatic imaging" ;
     ada:clIntegrationTimeDefault -9999 ;
