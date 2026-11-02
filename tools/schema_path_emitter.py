@@ -147,7 +147,7 @@ BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool", "ada:combinedResults"}
 # "{'monitoredProperty': '11B'} is not valid under any of the given schemas" while the base reads
 # as though it allows exactly that.
 DEFAULT_ROW_ARRAYS = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
-                      "ada:defaultTargetMaterials"}
+                      "ada:defaultTargetMaterials", "ada:defaultStandards"}
 DEFAULT_ROW_ITEMS = {"anyOf": [{"type": "string"},
                                {"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"},
                                {"type": "object"}]}

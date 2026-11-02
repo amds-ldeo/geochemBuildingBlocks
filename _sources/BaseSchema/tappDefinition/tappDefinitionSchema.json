@@ -1698,7 +1698,56 @@
             ]
         },
         "QualityMeasure": {
-            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/qualityMeasureSchema.json"
+            "description": "CDIF's qualityMeasure, extended with what an ANALYTICAL quality statistic needs beyond a bare value. A precision or accuracy figure is a dataset-level metric, not a per-measurement one (Stephen, 2026-11-01): the RSD is dqv:value, and the properties below say what that number means. Without them an RSD is unusable -- 0.5% at one sigma over three replicates against one standard is a different claim from 0.5% at two sigma over thirty against another.\nada:assessmentMethod is listed here because the workbooks currently BUNDLE it into the item name -- ada:analyticalAccuracyAndAssessmentMethod, and the two ...AnalyticalPrecisionAndAssessmentMethod spellings -- which is two facts in one field. The value belongs in dqv:value and the method beside it.",
+            "allOf": [
+                {
+                    "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/qualityMeasureSchema.json"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "ada:confidenceLevel": {
+                            "title": "Confidence Level",
+                            "description": "The confidence interval the value is quoted at, e.g. \"1 sigma\", \"2 sigma\", \"95%\". A string rather than an enum because the corpus has not been surveyed for its spellings; a vocabulary belongs here once it has.",
+                            "type": "string"
+                        },
+                        "ada:measurementScope": {
+                            "title": "Measurement Scope",
+                            "description": "Over what span the statistic was assessed. Within-session reproducibility and between-session (long-term) reproducibility are different claims about the same procedure, which is why the TAPP workbooks name them as separate items.",
+                            "type": "string",
+                            "enum": [
+                                "within-session",
+                                "between-session"
+                            ]
+                        },
+                        "ada:measuredStandard": {
+                            "title": "Measured Standard",
+                            "description": "The standard this statistic was measured against, as a reference INTO the procedure's standards table (ada:standardTemplate) rather than a restatement of the material. An accuracy figure without the standard behind it cannot be compared with another lab's.",
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "#/$defs/DefinedTerm"
+                                    }
+                                ]
+                            }
+                        },
+                        "ada:assessmentMethod": {
+                            "title": "Assessment Method",
+                            "description": "How the statistic was assessed -- repeat measurement of a secondary standard, replicate digestions, counting statistics. Currently bundled into the workbook item name; see the note above.",
+                            "type": "string"
+                        },
+                        "ada:numberOfReplicates": {
+                            "title": "Number of Replicates",
+                            "description": "How many replicates the statistic is based on. Distinct from a procedure-level replicate count: this one qualifies THIS measure, and three replicates behind an RSD is a weaker claim than thirty.",
+                            "type": "integer"
+                        }
+                    }
+                }
+            ]
         },
         "DefinedTerm": {
             "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/definedTermSchema.json"

@@ -12375,7 +12375,43 @@
                                           "$ref": "#/$defs/StandardColumn"
                                         },
                                         "contains": {
-                                          "$ref": "#/$defs/StandardIdentifierColumn"
+                                          "description": "The mandatory standard-identifier column, naming the standard used in each row. Mirrors ReportedPropertyIdentifierColumn, with one difference that matters: it is NOT unique per row, because a row is a standard-by-target pair and one standard calibrates several targets. Like the other identifier columns it maps into schema:variableMeasured/schema:name, because a procedure's several tables share one logical variable registry rather than owning one each.",
+                                          "allOf": [
+                                            {
+                                              "$ref": "#/$defs/StandardColumn"
+                                            },
+                                            {
+                                              "type": "object",
+                                              "properties": {
+                                                "schema:valueName": {
+                                                  "const": "standard"
+                                                },
+                                                "ada:dataType": {
+                                                  "const": "string"
+                                                },
+                                                "schema:readonlyValue": {
+                                                  "const": true
+                                                },
+                                                "schema:valueRequired": {
+                                                  "const": true
+                                                },
+                                                "ada:tier": {
+                                                  "const": "M"
+                                                },
+                                                "ada:cdifPropertyPath": {
+                                                  "const": "#/schema:variableMeasured/schema:name"
+                                                }
+                                              },
+                                              "required": [
+                                                "schema:valueName",
+                                                "ada:dataType",
+                                                "schema:readonlyValue",
+                                                "schema:valueRequired",
+                                                "ada:tier",
+                                                "ada:cdifPropertyPath"
+                                              ]
+                                            }
+                                          ]
                                         },
                                         "maxContains": 1
                                       },
@@ -24856,7 +24892,43 @@
                                       "$ref": "#/$defs/StandardColumn"
                                     },
                                     "contains": {
-                                      "$ref": "#/$defs/StandardIdentifierColumn"
+                                      "description": "The mandatory standard-identifier column, naming the standard used in each row. Mirrors ReportedPropertyIdentifierColumn, with one difference that matters: it is NOT unique per row, because a row is a standard-by-target pair and one standard calibrates several targets. Like the other identifier columns it maps into schema:variableMeasured/schema:name, because a procedure's several tables share one logical variable registry rather than owning one each.",
+                                      "allOf": [
+                                        {
+                                          "$ref": "#/$defs/StandardColumn"
+                                        },
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "schema:valueName": {
+                                              "const": "standard"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "schema:valueRequired": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "ada:cdifPropertyPath": {
+                                              "const": "#/schema:variableMeasured/schema:name"
+                                            }
+                                          },
+                                          "required": [
+                                            "schema:valueName",
+                                            "ada:dataType",
+                                            "schema:readonlyValue",
+                                            "schema:valueRequired",
+                                            "ada:tier",
+                                            "ada:cdifPropertyPath"
+                                          ]
+                                        }
+                                      ]
                                     },
                                     "maxContains": 1
                                   },
@@ -27328,278 +27400,150 @@
                                 ],
                                 "title": "Target Species Template"
                               },
-                              "ada:standardTemplate": {
-                                "type": "object",
-                                "properties": {
-                                  "ada:standardColumns": {
-                                    "type": "array",
-                                    "items": {
-                                      "anyOf": [
-                                        {
-                                          "$ref": "#/$defs/StandardIdentifierColumn"
+                              "dqv:hasQualityMeasurement": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "allOf": [
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "dqv:isMeasurementOf": {
+                                            "const": "Analytical Accuracy"
+                                          }
                                         },
-                                        {
-                                          "title": "Analytical Accuracy and Assessment Method",
-                                          "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:standardColumn/laMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Analytical Accuracy and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                          ]
-                                        },
-                                        {
-                                          "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                                          "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:standardColumn/laMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
-                                        },
-                                        {
-                                          "title": "Within-Session Analytical Precision and Assessment Method",
-                                          "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:standardColumn/laMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Within-Session Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                          ]
-                                        }
-                                      ]
-                                    },
-                                    "allOf": [
-                                      {
-                                        "contains": {
-                                          "title": "Analytical Accuracy and Assessment Method",
-                                          "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:standardColumn/laMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Analytical Accuracy and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                          ]
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
+                                        "required": [
+                                          "dqv:isMeasurementOf"
+                                        ]
                                       },
-                                      {
-                                        "contains": {
-                                          "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                                          "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:standardColumn/laMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
+                                      "then": {
+                                        "properties": {
+                                          "dqv:value": {
+                                            "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
                                         },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                      },
-                                      {
-                                        "contains": {
-                                          "title": "Within-Session Analytical Precision and Assessment Method",
-                                          "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:standardColumn/laMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Within-Session Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                          ]
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
+                                        "required": [
+                                          "dqv:value"
+                                        ]
                                       }
-                                    ]
+                                    },
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "dqv:isMeasurementOf": {
+                                            "const": "Between-Session Analytical Precision"
+                                          }
+                                        },
+                                        "required": [
+                                          "dqv:isMeasurementOf"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "dqv:value": {
+                                            "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "required": [
+                                          "dqv:value"
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "if": {
+                                        "properties": {
+                                          "dqv:isMeasurementOf": {
+                                            "const": "Within-Session Analytical Precision"
+                                          }
+                                        },
+                                        "required": [
+                                          "dqv:isMeasurementOf"
+                                        ]
+                                      },
+                                      "then": {
+                                        "properties": {
+                                          "dqv:value": {
+                                            "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "required": [
+                                          "dqv:value"
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                },
+                                "allOf": [
+                                  {
+                                    "contains": {
+                                      "properties": {
+                                        "dqv:isMeasurementOf": {
+                                          "const": "Analytical Accuracy"
+                                        }
+                                      },
+                                      "required": [
+                                        "dqv:isMeasurementOf"
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "contains": {
+                                      "properties": {
+                                        "dqv:isMeasurementOf": {
+                                          "const": "Between-Session Analytical Precision"
+                                        }
+                                      },
+                                      "required": [
+                                        "dqv:isMeasurementOf"
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "contains": {
+                                      "properties": {
+                                        "dqv:isMeasurementOf": {
+                                          "const": "Within-Session Analytical Precision"
+                                        }
+                                      },
+                                      "required": [
+                                        "dqv:isMeasurementOf"
+                                      ]
+                                    }
                                   }
-                                }
+                                ]
                               },
                               "schema:instrument": {
                                 "type": "array",
@@ -42214,45 +42158,6 @@
         }
       ]
     },
-    "StandardIdentifierColumn": {
-      "description": "The mandatory standard-identifier column, naming the standard used in each row. Mirrors ReportedPropertyIdentifierColumn, with one difference that matters: it is NOT unique per row, because a row is a standard-by-target pair and one standard calibrates several targets. Like the other identifier columns it maps into schema:variableMeasured/schema:name, because a procedure's several tables share one logical variable registry rather than owning one each.",
-      "allOf": [
-        {
-          "$ref": "#/$defs/StandardColumn"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "schema:valueName": {
-              "const": "standard"
-            },
-            "ada:dataType": {
-              "const": "string"
-            },
-            "schema:readonlyValue": {
-              "const": true
-            },
-            "schema:valueRequired": {
-              "const": true
-            },
-            "ada:tier": {
-              "const": "M"
-            },
-            "ada:cdifPropertyPath": {
-              "const": "#/schema:variableMeasured/schema:name"
-            }
-          },
-          "required": [
-            "schema:valueName",
-            "ada:dataType",
-            "schema:readonlyValue",
-            "schema:valueRequired",
-            "ada:tier",
-            "ada:cdifPropertyPath"
-          ]
-        }
-      ]
-    },
     "TargetMaterialIdentifierColumn": {
       "description": "The mandatory target-material-identifier column, naming the material type in each row. Mirrors TargetSpeciesIdentifierColumn and MonitoredPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the material a sampling unit hit is recorded as a column of the data table -- the variable list is shared across a procedure's table parts rather than owned by any one of them.",
       "allOf": [
@@ -43224,63 +43129,112 @@
       ]
     },
     "QualityMeasure": {
-      "title": "definitions for simple quality measure property",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "dqv:QualityMeasurement"
-          },
-          "minItems": 1
-        },
-        "dqv:isMeasurementOf": {
-          "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "title": "Object Reference",
-              "description": "a resolvable reference to a representation of a quality measure",
-              "type": "object",
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "resolvable @id of the referenced node"
-                }
+      "description": "CDIF's qualityMeasure, extended with what an ANALYTICAL quality statistic needs beyond a bare value. A precision or accuracy figure is a dataset-level metric, not a per-measurement one (Stephen, 2026-11-01): the RSD is dqv:value, and the properties below say what that number means. Without them an RSD is unusable -- 0.5% at one sigma over three replicates against one standard is a different claim from 0.5% at two sigma over thirty against another.\nada:assessmentMethod is listed here because the workbooks currently BUNDLE it into the item name -- ada:analyticalAccuracyAndAssessmentMethod, and the two ...AnalyticalPrecisionAndAssessmentMethod spellings -- which is two facts in one field. The value belongs in dqv:value and the method beside it.",
+      "allOf": [
+        {
+          "title": "definitions for simple quality measure property",
+          "type": "object",
+          "properties": {
+            "@type": {
+              "type": "array",
+              "items": {
+                "type": "string"
               },
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false
+              "contains": {
+                "const": "dqv:QualityMeasurement"
+              },
+              "minItems": 1
             },
-            {
-              "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+            "dqv:isMeasurementOf": {
+              "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "title": "Object Reference",
+                  "description": "a resolvable reference to a representation of a quality measure",
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string",
+                      "description": "resolvable @id of the referenced node"
+                    }
+                  },
+                  "required": [
+                    "@id"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                }
+              ]
+            },
+            "dqv:value": {
+              "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                }
+              ]
             }
+          },
+          "required": [
+            "dqv:isMeasurementOf",
+            "dqv:value"
           ]
         },
-        "dqv:value": {
-          "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
-          "anyOf": [
-            {
+        {
+          "type": "object",
+          "properties": {
+            "ada:confidenceLevel": {
+              "title": "Confidence Level",
+              "description": "The confidence interval the value is quoted at, e.g. \"1 sigma\", \"2 sigma\", \"95%\". A string rather than an enum because the corpus has not been surveyed for its spellings; a vocabulary belongs here once it has.",
               "type": "string"
             },
-            {
-              "type": "number"
+            "ada:measurementScope": {
+              "title": "Measurement Scope",
+              "description": "Over what span the statistic was assessed. Within-session reproducibility and between-session (long-term) reproducibility are different claims about the same procedure, which is why the TAPP workbooks name them as separate items.",
+              "type": "string",
+              "enum": [
+                "within-session",
+                "between-session"
+              ]
             },
-            {
-              "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+            "ada:measuredStandard": {
+              "title": "Measured Standard",
+              "description": "The standard this statistic was measured against, as a reference INTO the procedure's standards table (ada:standardTemplate) rather than a restatement of the material. An accuracy figure without the standard behind it cannot be compared with another lab's.",
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                  }
+                ]
+              }
+            },
+            "ada:assessmentMethod": {
+              "title": "Assessment Method",
+              "description": "How the statistic was assessed -- repeat measurement of a secondary standard, replicate digestions, counting statistics. Currently bundled into the workbook item name; see the note above.",
+              "type": "string"
+            },
+            "ada:numberOfReplicates": {
+              "title": "Number of Replicates",
+              "description": "How many replicates the statistic is based on. Distinct from a procedure-level replicate count: this one qualifies THIS measure, and three replicates behind an RSD is a weaker claim than thirty.",
+              "type": "integer"
             }
-          ]
+          }
         }
-      },
-      "required": [
-        "dqv:isMeasurementOf",
-        "dqv:value"
       ]
     },
     "DcatRole": {

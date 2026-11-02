@@ -7419,355 +7419,404 @@
           "description": "Quality measurements specific to this workflow step.",
           "type": "array",
           "items": {
-            "title": "definitions for simple quality measure property",
-            "type": "object",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "contains": {
-                  "const": "dqv:QualityMeasurement"
-                },
-                "minItems": 1
-              },
-              "dqv:isMeasurementOf": {
-                "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "title": "Object Reference",
-                    "description": "a resolvable reference to a representation of a quality measure",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "description": "resolvable @id of the referenced node"
-                      }
+            "description": "CDIF's qualityMeasure, extended with what an ANALYTICAL quality statistic needs beyond a bare value. A precision or accuracy figure is a dataset-level metric, not a per-measurement one (Stephen, 2026-11-01): the RSD is dqv:value, and the properties below say what that number means. Without them an RSD is unusable -- 0.5% at one sigma over three replicates against one standard is a different claim from 0.5% at two sigma over thirty against another.\nada:assessmentMethod is listed here because the workbooks currently BUNDLE it into the item name -- ada:analyticalAccuracyAndAssessmentMethod, and the two ...AnalyticalPrecisionAndAssessmentMethod spellings -- which is two facts in one field. The value belongs in dqv:value and the method beside it.",
+            "allOf": [
+              {
+                "title": "definitions for simple quality measure property",
+                "type": "object",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
                     },
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false
+                    "contains": {
+                      "const": "dqv:QualityMeasurement"
+                    },
+                    "minItems": 1
                   },
-                  {
-                    "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "schema:DefinedTerm"
-                        },
-                        "minItems": 1
+                  "dqv:isMeasurementOf": {
+                    "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
+                    "anyOf": [
+                      {
+                        "type": "string"
                       },
-                      "schema:name": {
-                        "type": "string",
-                        "description": "text label for the term that is useful to human user"
+                      {
+                        "title": "Object Reference",
+                        "description": "a resolvable reference to a representation of a quality measure",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "type": "string",
+                            "description": "resolvable @id of the referenced node"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false
                       },
-                      "schema:identifier": {
-                        "anyOf": [
-                          {
-                            "type": "string"
+                      {
+                        "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "const": "schema:DefinedTerm"
+                            },
+                            "minItems": 1
                           },
-                          {
-                            "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-                            "type": "object",
-                            "properties": {
-                              "@type": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                },
-                                "contains": {
-                                  "const": "schema:PropertyValue"
-                                },
-                                "minItems": 1
+                          "schema:name": {
+                            "type": "string",
+                            "description": "text label for the term that is useful to human user"
+                          },
+                          "schema:identifier": {
+                            "anyOf": [
+                              {
+                                "type": "string"
                               },
-                              "schema:propertyID": {
-                                "anyOf": [
+                              {
+                                "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                                "type": "object",
+                                "properties": {
+                                  "@type": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "contains": {
+                                      "const": "schema:PropertyValue"
+                                    },
+                                    "minItems": 1
+                                  },
+                                  "schema:propertyID": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "title": "Object Reference",
+                                        "description": "A reference to a node defined elsewhere, by its @id.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "type": "string",
+                                            "description": "resolvable @id of the referenced node"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id"
+                                        ],
+                                        "additionalProperties": false
+                                      }
+                                    ],
+                                    "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                                  },
+                                  "schema:value": {
+                                    "type": "string",
+                                    "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                                  },
+                                  "schema:url": {
+                                    "type": "string",
+                                    "format": "uri",
+                                    "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                                  }
+                                },
+                                "allOf": [
                                   {
-                                    "type": "string"
+                                    "required": [
+                                      "@type"
+                                    ]
                                   },
                                   {
-                                    "title": "Object Reference",
-                                    "description": "A reference to a node defined elsewhere, by its @id.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "type": "string",
-                                        "description": "resolvable @id of the referenced node"
+                                    "anyOf": [
+                                      {
+                                        "required": [
+                                          "schema:value"
+                                        ]
+                                      },
+                                      {
+                                        "required": [
+                                          "schema:url"
+                                        ]
                                       }
-                                    },
-                                    "required": [
-                                      "@id"
-                                    ],
-                                    "additionalProperties": false
+                                    ]
                                   }
-                                ],
-                                "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                              },
-                              "schema:value": {
-                                "type": "string",
-                                "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                              },
-                              "schema:url": {
-                                "type": "string",
-                                "format": "uri",
-                                "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                                ]
                               }
-                            },
-                            "allOf": [
+                            ]
+                          },
+                          "schema:inDefinedTermSet": {
+                            "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "title": "Object Reference",
+                                "description": "A reference to a node defined elsewhere, by its @id.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "type": "string",
+                                    "description": "resolvable @id of the referenced node"
+                                  }
+                                },
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "schema:termCode": {
+                            "type": "string",
+                            "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                          }
+                        },
+                        "allOf": [
+                          {
+                            "required": [
+                              "@type"
+                            ]
+                          },
+                          {
+                            "anyOf": [
                               {
                                 "required": [
-                                  "@type"
+                                  "schema:name"
                                 ]
                               },
                               {
-                                "anyOf": [
+                                "required": [
+                                  "schema:identifier"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "schema:termCode"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "dqv:value": {
+                    "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "contains": {
+                              "const": "schema:DefinedTerm"
+                            },
+                            "minItems": 1
+                          },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "text label for the term that is useful to human user"
+                          },
+                          "schema:identifier": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                                "type": "object",
+                                "properties": {
+                                  "@type": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "contains": {
+                                      "const": "schema:PropertyValue"
+                                    },
+                                    "minItems": 1
+                                  },
+                                  "schema:propertyID": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "title": "Object Reference",
+                                        "description": "A reference to a node defined elsewhere, by its @id.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "type": "string",
+                                            "description": "resolvable @id of the referenced node"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id"
+                                        ],
+                                        "additionalProperties": false
+                                      }
+                                    ],
+                                    "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                                  },
+                                  "schema:value": {
+                                    "type": "string",
+                                    "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                                  },
+                                  "schema:url": {
+                                    "type": "string",
+                                    "format": "uri",
+                                    "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                                  }
+                                },
+                                "allOf": [
                                   {
                                     "required": [
-                                      "schema:value"
+                                      "@type"
                                     ]
                                   },
                                   {
-                                    "required": [
-                                      "schema:url"
+                                    "anyOf": [
+                                      {
+                                        "required": [
+                                          "schema:value"
+                                        ]
+                                      },
+                                      {
+                                        "required": [
+                                          "schema:url"
+                                        ]
+                                      }
                                     ]
                                   }
                                 ]
                               }
                             ]
-                          }
-                        ]
-                      },
-                      "schema:inDefinedTermSet": {
-                        "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-                        "anyOf": [
-                          {
-                            "type": "string"
                           },
-                          {
-                            "title": "Object Reference",
-                            "description": "A reference to a node defined elsewhere, by its @id.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "type": "string",
-                                "description": "resolvable @id of the referenced node"
+                          "schema:inDefinedTermSet": {
+                            "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "title": "Object Reference",
+                                "description": "A reference to a node defined elsewhere, by its @id.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "type": "string",
+                                    "description": "resolvable @id of the referenced node"
+                                  }
+                                },
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false
                               }
-                            },
-                            "required": [
-                              "@id"
-                            ],
-                            "additionalProperties": false
+                            ]
+                          },
+                          "schema:termCode": {
+                            "type": "string",
+                            "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
                           }
-                        ]
-                      },
-                      "schema:termCode": {
-                        "type": "string",
-                        "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-                      }
-                    },
-                    "allOf": [
-                      {
-                        "required": [
-                          "@type"
-                        ]
-                      },
-                      {
-                        "anyOf": [
+                        },
+                        "allOf": [
                           {
                             "required": [
-                              "schema:name"
+                              "@type"
                             ]
                           },
                           {
-                            "required": [
-                              "schema:identifier"
-                            ]
-                          },
-                          {
-                            "required": [
-                              "schema:termCode"
+                            "anyOf": [
+                              {
+                                "required": [
+                                  "schema:name"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "schema:identifier"
+                                ]
+                              },
+                              {
+                                "required": [
+                                  "schema:termCode"
+                                ]
+                              }
                             ]
                           }
                         ]
                       }
                     ]
                   }
+                },
+                "required": [
+                  "dqv:isMeasurementOf",
+                  "dqv:value"
                 ]
               },
-              "dqv:value": {
-                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
-                "anyOf": [
-                  {
+              {
+                "type": "object",
+                "properties": {
+                  "ada:confidenceLevel": {
+                    "title": "Confidence Level",
+                    "description": "The confidence interval the value is quoted at, e.g. \"1 sigma\", \"2 sigma\", \"95%\". A string rather than an enum because the corpus has not been surveyed for its spellings; a vocabulary belongs here once it has.",
                     "type": "string"
                   },
-                  {
-                    "type": "number"
+                  "ada:measurementScope": {
+                    "title": "Measurement Scope",
+                    "description": "Over what span the statistic was assessed. Within-session reproducibility and between-session (long-term) reproducibility are different claims about the same procedure, which is why the TAPP workbooks name them as separate items.",
+                    "type": "string",
+                    "enum": [
+                      "within-session",
+                      "between-session"
+                    ]
                   },
-                  {
-                    "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
+                  "ada:measuredStandard": {
+                    "title": "Measured Standard",
+                    "description": "The standard this statistic was measured against, as a reference INTO the procedure's standards table (ada:standardTemplate) rather than a restatement of the material. An accuracy figure without the standard behind it cannot be compared with another lab's.",
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
                           "type": "string"
                         },
-                        "contains": {
-                          "const": "schema:DefinedTerm"
-                        },
-                        "minItems": 1
-                      },
-                      "schema:name": {
-                        "type": "string",
-                        "description": "text label for the term that is useful to human user"
-                      },
-                      "schema:identifier": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-                            "type": "object",
-                            "properties": {
-                              "@type": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                },
-                                "contains": {
-                                  "const": "schema:PropertyValue"
-                                },
-                                "minItems": 1
-                              },
-                              "schema:propertyID": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "title": "Object Reference",
-                                    "description": "A reference to a node defined elsewhere, by its @id.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "type": "string",
-                                        "description": "resolvable @id of the referenced node"
-                                      }
-                                    },
-                                    "required": [
-                                      "@id"
-                                    ],
-                                    "additionalProperties": false
-                                  }
-                                ],
-                                "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                              },
-                              "schema:value": {
-                                "type": "string",
-                                "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                              },
-                              "schema:url": {
-                                "type": "string",
-                                "format": "uri",
-                                "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                              }
-                            },
-                            "allOf": [
-                              {
-                                "required": [
-                                  "@type"
-                                ]
-                              },
-                              {
-                                "anyOf": [
-                                  {
-                                    "required": [
-                                      "schema:value"
-                                    ]
-                                  },
-                                  {
-                                    "required": [
-                                      "schema:url"
-                                    ]
-                                  }
-                                ]
-                              }
-                            ]
-                          }
-                        ]
-                      },
-                      "schema:inDefinedTermSet": {
-                        "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "title": "Object Reference",
-                            "description": "A reference to a node defined elsewhere, by its @id.",
-                            "type": "object",
-                            "properties": {
-                              "@id": {
-                                "type": "string",
-                                "description": "resolvable @id of the referenced node"
-                              }
-                            },
-                            "required": [
-                              "@id"
-                            ],
-                            "additionalProperties": false
-                          }
-                        ]
-                      },
-                      "schema:termCode": {
-                        "type": "string",
-                        "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-                      }
-                    },
-                    "allOf": [
-                      {
-                        "required": [
-                          "@type"
-                        ]
-                      },
-                      {
-                        "anyOf": [
-                          {
-                            "required": [
-                              "schema:name"
-                            ]
-                          },
-                          {
-                            "required": [
-                              "schema:identifier"
-                            ]
-                          },
-                          {
-                            "required": [
-                              "schema:termCode"
-                            ]
-                          }
-                        ]
-                      }
-                    ]
+                        {
+                          "$ref": "#/$defs/DefinedTerm"
+                        }
+                      ]
+                    }
+                  },
+                  "ada:assessmentMethod": {
+                    "title": "Assessment Method",
+                    "description": "How the statistic was assessed -- repeat measurement of a secondary standard, replicate digestions, counting statistics. Currently bundled into the workbook item name; see the note above.",
+                    "type": "string"
+                  },
+                  "ada:numberOfReplicates": {
+                    "title": "Number of Replicates",
+                    "description": "How many replicates the statistic is based on. Distinct from a procedure-level replicate count: this one qualifies THIS measure, and three replicates behind an RSD is a weaker claim than thirty.",
+                    "type": "integer"
                   }
-                ]
+                }
               }
-            },
-            "required": [
-              "dqv:isMeasurementOf",
-              "dqv:value"
             ]
           }
         }

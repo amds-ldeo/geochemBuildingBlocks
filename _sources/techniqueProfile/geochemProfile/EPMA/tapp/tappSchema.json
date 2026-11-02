@@ -930,190 +930,105 @@
                     ],
                     "title": "Target Species Template"
                 },
-                "ada:standardTemplate": {
-                    "type": "object",
-                    "properties": {
-                        "ada:standardColumns": {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/StandardIdentifierColumn"
+                "dqv:hasQualityMeasurement": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "if": {
+                                    "properties": {
+                                        "dqv:isMeasurementOf": {
+                                            "const": "Analytical Accuracy"
+                                        }
                                     },
-                                    {
-                                        "title": "Analytical Accuracy",
-                                        "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:standardColumn/epmaTAPP/analyticalAccuracy"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalAccuracy"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Accuracy"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Analytical Precision",
-                                        "description": "Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:standardColumn/epmaTAPP/analyticalPrecision"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalPrecision"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Precision"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    }
-                                ]
-                            },
-                            "allOf": [
-                                {
-                                    "contains": {
-                                        "title": "Analytical Accuracy",
-                                        "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:standardColumn/epmaTAPP/analyticalAccuracy"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalAccuracy"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Accuracy"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
+                                    "required": [
+                                        "dqv:isMeasurementOf"
+                                    ]
                                 },
-                                {
-                                    "contains": {
-                                        "title": "Analytical Precision",
-                                        "description": "Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:standardColumn/epmaTAPP/analyticalPrecision"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalPrecision"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Precision"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
+                                "then": {
+                                    "properties": {
+                                        "dqv:value": {
+                                            "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            ]
+                                        }
                                     },
-                                    "minContains": 0,
-                                    "maxContains": 1
+                                    "required": [
+                                        "dqv:value"
+                                    ]
                                 }
-                            ]
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "dqv:isMeasurementOf": {
+                                            "const": "Analytical Precision"
+                                        }
+                                    },
+                                    "required": [
+                                        "dqv:isMeasurementOf"
+                                    ]
+                                },
+                                "then": {
+                                    "properties": {
+                                        "dqv:value": {
+                                            "description": "Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.",
+                                            "anyOf": [
+                                                {
+                                                    "type": "string"
+                                                },
+                                                {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "dqv:value"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "allOf": [
+                        {
+                            "contains": {
+                                "properties": {
+                                    "dqv:isMeasurementOf": {
+                                        "const": "Analytical Accuracy"
+                                    }
+                                },
+                                "required": [
+                                    "dqv:isMeasurementOf"
+                                ]
+                            }
+                        },
+                        {
+                            "contains": {
+                                "properties": {
+                                    "dqv:isMeasurementOf": {
+                                        "const": "Analytical Precision"
+                                    }
+                                },
+                                "required": [
+                                    "dqv:isMeasurementOf"
+                                ]
+                            }
                         }
-                    }
+                    ]
                 },
                 "ada:monitoredPropertyTemplate": {
                     "type": "object",
