@@ -172,7 +172,15 @@
         "schema:datePublished": {
           "title": "Method Start Date",
           "type": "string",
-          "description": "ISO 8601 date when this method configuration was first used."
+          "description": "ISO 8601 date when this method configuration was first used.",
+          "anyOf": [
+            {
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            {
+              "pattern": "^(missing|no value available: .+)$"
+            }
+          ]
         },
         "schema:dateModified": {
           "type": "string",
@@ -1804,6 +1812,22 @@
             ]
           }
         },
+        "schema:license": {
+          "title": "Method License",
+          "description": "Legal statement of conditions for use and access of this method description",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/CreativeWork"
+              }
+            ]
+          }
+        },
         "schema:variableMeasured": {
           "title": "Reported Variables",
           "description": "Variables / properties this procedure reports (e.g. detection limit, limit of quantification, calibration factor, uncertainty propagation method), each modeled as a schema:PropertyValueSpecification (a procedure-level default, carrying schema:defaultValue) or a schema:PropertyValue (a measured value, carrying schema:value), keyed by schema:name. A technique profile enumerates the reported properties it defines; a dataset instance overrides each schema:defaultValue with a schema:value. Left open here — the technique overlay narrows it.",
@@ -2904,6 +2928,32 @@
             }
           }
         }
+      ]
+    },
+    "CreativeWork": {
+      "title": "Creative Work Type",
+      "description": "Shell type for labeled links to other resources. Any schema.org CreativeWork property could be included.",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "contains": {
+            "const": "schema:CreativeWork"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string"
+        },
+        "schema:description": {
+          "type": "string"
+        },
+        "schema:url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type"
       ]
     },
     "GeochemProduct": {
@@ -7914,32 +7964,6 @@
         }
       ]
     },
-    "CreativeWork": {
-      "title": "Creative Work Type",
-      "description": "Shell type for labeled links to other resources. Any schema.org CreativeWork property could be included.",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "contains": {
-            "const": "schema:CreativeWork"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string"
-        },
-        "schema:description": {
-          "type": "string"
-        },
-        "schema:url": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@type"
-      ]
-    },
     "SpatialRegistration": {
       "title": "Spatial Registration Type",
       "description": "The affine transform from an image's pixel coordinates to a coordinate reference system defined on the sample -- origin, pixel scales, rotation and axis sense -- for spatially registered images and maps.\nMODELLED ON A WORLD FILE, the sidecar a GIS writes beside a raster (.tfw, ESRI .wld), whose six parameters are exactly an affine transform. In world-file letters:\n\n    x_crs = ada:originX + ada:pixelScaleX * col + ada:pixelRotationX * row     (C, A, B)\n    y_crs = ada:originY + ada:pixelRotationY * col + ada:pixelScaleY * row     (F, D, E)\n\nDEPARTURES FROM THE WORLD-FILE CONVENTION. Three, each of which says more rather than less -- and each of which a converter has to handle deliberately, because none is a straight copy:\n\n  1. ORIGIN CORNER IS DECLARED, NOT ASSUMED. A world file assumes C,F is the centre of the\n     upper-left pixel. Here ada:originLocation states the corner (upperLeft, upperRight,\n     lowerLeft, lowerRight, center) and ada:coordDef states what the coordinates are measured\n     from. Reading a .tfw therefore means WRITING originLocation: upperLeft explicitly; it is\n     not implied.\n\n  2. ada:pixelScaleY IS A MAGNITUDE, NOT A SIGNED VALUE. A world file conventionally makes E\n     negative to encode the y-axis flip. Here the axis sense is carried by ada:originLocation,\n     so the sign is NOT part of the scale. Importing E means taking its absolute value and\n     recording the flip as a corner; exporting means re-applying the sign. Copying E straight\n     into ada:pixelScaleY silently halves nothing and mirrors everything.\n\n  3. UNITS ARE CARRIED, WHERE A WORLD FILE HAS NONE. ada:pixelUnits and ada:coordUnits state\n     both sides of the scale. A world file is unitless and takes its units from the raster CRS,\n     so an import has to source them from elsewhere and cannot leave them absent -- which is\n     why ada:pixelUnits is in the inline required list.\n\nSCALING AND REGISTRATION ARE SEPARABLE, and $defs/Scaling below is the half that is meaningful on an UNREGISTERED image: a plain ada:image has a pixel size, and ada:pixelScaleX on an ada:EPMAImage is a well-formed statement. Registration is the other half -- where the image sits on the sample, and how its axes relate to the sample's -- and only a map can assert it. The root schema here is scaling PLUS registration and is what the imageMap block references; the image block references $defs/Scaling. One property name, two shapes, so a placement path through either branch resolves.",
@@ -8139,7 +8163,7 @@
                 "ada:supplementalBasemap",
                 "ada:supplementaryImage",
                 "ada:worldFile",
-                "nil:missing"
+                "http://www.opengis.net/def/nil/OGC/0/missing"
               ],
               "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level."
             },

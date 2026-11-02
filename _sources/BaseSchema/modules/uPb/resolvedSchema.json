@@ -172,7 +172,15 @@
         "schema:datePublished": {
           "title": "Method Start Date",
           "type": "string",
-          "description": "ISO 8601 date when this method configuration was first used."
+          "description": "ISO 8601 date when this method configuration was first used.",
+          "anyOf": [
+            {
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            {
+              "pattern": "^(missing|no value available: .+)$"
+            }
+          ]
         },
         "schema:dateModified": {
           "type": "string",
@@ -1804,6 +1812,22 @@
             ]
           }
         },
+        "schema:license": {
+          "title": "Method License",
+          "description": "Legal statement of conditions for use and access of this method description",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/CreativeWork"
+              }
+            ]
+          }
+        },
         "schema:variableMeasured": {
           "title": "Reported Variables",
           "description": "Variables / properties this procedure reports (e.g. detection limit, limit of quantification, calibration factor, uncertainty propagation method), each modeled as a schema:PropertyValueSpecification (a procedure-level default, carrying schema:defaultValue) or a schema:PropertyValue (a measured value, carrying schema:value), keyed by schema:name. A technique profile enumerates the reported properties it defines; a dataset instance overrides each schema:defaultValue with a schema:value. Left open here — the technique overlay narrows it.",
@@ -2904,6 +2928,32 @@
             }
           }
         }
+      ]
+    },
+    "CreativeWork": {
+      "title": "Creative Work Type",
+      "description": "Shell type for labeled links to other resources. Any schema.org CreativeWork property could be included.",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "contains": {
+            "const": "schema:CreativeWork"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string"
+        },
+        "schema:description": {
+          "type": "string"
+        },
+        "schema:url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type"
       ]
     },
     "ProcedureIdentification": {
