@@ -46,7 +46,7 @@ TPROF = os.path.join(ROOT, "_sources", "techniqueProfile")
 # taken" is one; here, whether a string is a usable NAME for a workflow step, which "None" is not
 # whatever it means as a value. So this is NOT the "one word, two homes" defect that list warns
 # about, and the two must not be unified.
-SENTINELS = {"missing", "nil:missing", "-9999", "n/a", "none", ""}
+SENTINELS = {"missing", "-9999", "n/a", "none", ""}
 # A sentinel that NAMES its field is still a sentinel: "no value available: <property>"
 # alongside the bare "missing". The prefix is imported, never restated.
 # The script directory is NOT on sys.path under `python -I` (isolated mode implies -P), so a
@@ -54,6 +54,11 @@ SENTINELS = {"missing", "nil:missing", "-9999", "n/a", "none", ""}
 # because until the sentinel vocabulary was centralised they imported nothing project-local.
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import _tapp_lib as _sent          # the one definition of the sentinel vocabulary
+
+# Added after the import because that is where the value lives. It was the literal "nil:missing"
+# in the set above, which no context expanded; a step NAMED the nil reason is still a placeholder
+# and must still be caught, so the recognised string moves with the emitted one.
+SENTINELS.add(_sent.SENTINEL_URL)
 SENTINEL_TEXT_PREFIX = _sent.SENTINEL_TEXT_PREFIX
 
 

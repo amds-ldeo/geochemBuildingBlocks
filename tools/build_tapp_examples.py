@@ -759,9 +759,6 @@ EMPTY_ARRAY_SENTINEL = {"ada:defaultTargetSpecies", "ada:defaultMonitoredPropert
                         "ada:defaultReportedProperties", "ada:defaultTargetMaterials"}
 
 
-SENTINEL_URI = "nil:missing"
-
-
 # A text sentinel that NAMES the field it stands in for. "missing" alone says a value was not
 # reported; "no value available: schema:description" also says which value, which is what a
 # reader of a synthetic -P0 example needs -- 405 of its text sentinels sat on free-text properties
@@ -783,6 +780,13 @@ SENTINEL_URI = "nil:missing"
 # as a real term.
 import _tapp_lib as _sent
 SENTINEL_TEXT_PREFIX = _sent.SENTINEL_TEXT_PREFIX
+# The OGC nil reason, from _tapp_lib -- the one home for it, shared with the schema:url
+# gap-filler. It was `nil:missing`, a CURIE against a prefix NO CONTEXT DECLARES: zero of the 90
+# context.jsonld files define `nil`, so it never expanded and stayed a bare string a JSON-LD
+# processor may read as a relative IRI or drop. CLAUDE.md already prescribed the expanded form,
+# and the concept's own definition in registry/vocab/componentType.json already called it an "OGC
+# nil reason", so this finishes an intent rather than changing one.
+SENTINEL_URI = _sent.SENTINEL_URL
 
 
 def text_sentinel(name, sub=None, root=None):
@@ -1623,7 +1627,8 @@ def main():
     R = bt.route()
     # jtype comes from the workbook's Data Type column and is the only place URI-ness is recorded:
     # the resolved schema declares a DOI slot as anyOf[string, PropertyValue], indistinguishable
-    # from free text. Needed so a missing identifier gets nil:missing, not "not provided".
+    # from free text. Needed so a missing identifier gets the OGC nil reason (SENTINEL_URI),
+    # not "not provided".
     global JTYPE_BY_PROP
     JTYPE_BY_PROP = {r["name"]: r.get("jtype") for r in R.get("tapp_prop", []) if r.get("name")}
     JTYPE_BY_PROP.update({("ada:" + r["name"]): r.get("jtype")

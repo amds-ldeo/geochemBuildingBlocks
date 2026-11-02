@@ -126,7 +126,7 @@ def main():
 
     # A. universal vocab ⊆ enum cache, EXCEPT the OGC nil reason.
     #
-    # The cache is the Components worksheet, cached; `nil:missing` is deliberately not a
+    # The cache is the Components worksheet, cached; the OGC nil reason is deliberately not a
     # worksheet row -- a nil reason applies to every file type, so apply_componentType_enums
     # appends it to each base BB's enum directly (see NIL_MISSING there). Adding it to the
     # cache would satisfy this check and then be dropped by the next `--refresh`, which is a
