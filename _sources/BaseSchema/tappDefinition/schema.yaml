@@ -97,6 +97,24 @@ properties:
     title: Method Start Date
     type: string
     description: ISO 8601 date when this method configuration was first used.
+    # "ISO 8601" was prose only -- nothing constrained the value, which is how
+    # "16-12-24" (ambiguous in every reading) and "2024/12/01" reached the live method
+    # registry. Both are now rejected.
+    #
+    # The sentinel branch is REQUIRED, not a concession. Module_Core places this field as
+    # `Procedure Start Date`, Protocol-Level Basic, so it is required in all 61 composed
+    # tapp schemas and the builders must write SOMETHING; 247 of the 249 generated examples
+    # carry a text sentinel here. A bare date pattern would fail all 247, and dropping the
+    # requirement would relax a workbook-derived constraint. The second pattern mirrors
+    # _tapp_lib.is_text_sentinel exactly -- "missing", or the "no value available: <name>"
+    # prefix form -- so the two cannot drift.
+    #
+    # Date-only, no time part, because the emitter writes `v.split()[0]`: anything after the
+    # first space is already discarded before it gets here. Widen both together if that
+    # changes.
+    anyOf:
+      - pattern: '^\d{4}-\d{2}-\d{2}$'
+      - pattern: '^(missing|no value available: .+)$'
   'schema:dateModified':
     type: string
     description: ISO 8601 date of last update to this definition. 
@@ -636,6 +654,27 @@ properties:
     type: array
     items:
       $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/schema.yaml
+
+  # Admitted, never required and never emitted here. A licence is a RIGHTS GRANT, so a value
+  # asserts that someone released this method description on these terms -- which is a claim gBB
+  # cannot make on a definition's behalf. The shape mirrors geochemProduct's own schema:license so
+  # the record and plan sides agree, and declaring it is what lets cdifCore's
+  # `anyOf [required schema:license] / [required schema:conditionsOfAccess]` rule be satisfied by a
+  # licence rather than an access restriction.
+  #
+  # NOT discriminated by schema:datePublished. On this side that property is titled "Method Start
+  # Date" -- "when this method configuration was first used" -- not a publication date, and it is a
+  # text sentinel in 219 of the 249 generated examples. Emitting on its presence would licence all
+  # 249; on a real date, 3. Neither is "published".
+  'schema:license':
+    title: Method License
+    description: Legal statement of conditions for use and access of this method description
+    type: array
+    minItems: 0
+    items:
+      anyOf:
+        - type: string
+        - $ref: ../creativeWork/schema.yaml
 
 
   'schema:variableMeasured':

@@ -48,8 +48,13 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 GP = REPO_ROOT / "_sources" / "BaseSchema"
 DEFAULT_CACHE = REPO_ROOT / "tools" / "componentType_enum_cache.json"
 DEFAULT_XLSX = REPO_ROOT.parent.parent / "amds-ldeo" / "metadata" / "ADA-AnalyticalMethodsAndAttributes.xlsx"
-# OGC nil reason, declared in _sources/registry/vocab/componentType.json as nil:missing
-NIL_MISSING = "nil:missing"
+# OGC nil reason, declared as a concept in _sources/registry/vocab/componentType.json. Taken from
+# _tapp_lib so the value admitted by these enums and the value the example builders EMIT cannot
+# drift -- they are the same string or instances fail their own enum.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import _tapp_lib as _sent                      # noqa: E402
+
+NIL_MISSING = _sent.SENTINEL_URL
 
 DESC = "ADA componentType for this file type, as a single string. Allowed values are derived from the ADA Components mapping (see tools/apply_componentType_enums.py)."
 
