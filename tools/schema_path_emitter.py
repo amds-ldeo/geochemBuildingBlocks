@@ -147,7 +147,8 @@ BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool", "ada:combinedResults"}
 # "{'monitoredProperty': '11B'} is not valid under any of the given schemas" while the base reads
 # as though it allows exactly that.
 DEFAULT_ROW_ARRAYS = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
-                      "ada:defaultTargetMaterials", "ada:defaultStandards"}
+                      "ada:defaultTargetMaterials", "ada:defaultStandards",
+                      "ada:defaultReportedProperties"}
 DEFAULT_ROW_ITEMS = {"anyOf": [{"type": "string"},
                                {"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"},
                                {"type": "object"}]}
@@ -230,10 +231,18 @@ def normalize_path(p):
     the reference LA-MC-ICPMS sidecar addresses it — no brackets), whereas the array-segment form
     routes into the append leaf and would emit the raw items schema instead of the members. The
     schema side keys off the property NAME, so both grammars still emit the same array constraint."""
-    return (p.replace(".ada:collectorConfiguration.ada:defaultMonitoredProperties", ".ada:defaultMonitoredProperties")
-             .replace(".ada:defaultTargetSpecies[]", ".ada:defaultTargetSpecies")
-             .replace(".ada:defaultMonitoredProperties[]", ".ada:defaultMonitoredProperties")
-             .replace(".ada:defaultTargetMaterials[]", ".ada:defaultTargetMaterials"))
+    out = p.replace(".ada:collectorConfiguration.ada:defaultMonitoredProperties",
+                    ".ada:defaultMonitoredProperties")
+    # DERIVED from DEFAULT_ROW_ARRAYS rather than listed axis by axis. The list form named three of
+    # the five and silently excluded the rest: a path ending `ada:defaultReportedProperties[]` kept
+    # its array segment, insert() took the branch above that sets `append = Leaf(DEFAULT_ROW_ITEMS)`
+    # -- which ignores the value passed to it -- and to_instance then rendered that SCHEMA as the
+    # array's content. 195 of 657 examples carried {"anyOf": [...]} where their reported properties
+    # should have been, and the parse that produced the members ran correctly the whole time.
+    # One set, one behaviour: an axis added to DEFAULT_ROW_ARRAYS is collapsed here automatically.
+    for _axis in DEFAULT_ROW_ARRAYS:
+        out = out.replace(".%s[]" % _axis, ".%s" % _axis)
+    return out
 
 
 class AddlType:

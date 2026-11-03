@@ -117,7 +117,7 @@ Procedure Start Date,Basic,Read-Only,Date,,module,shared,placement owned by Modu
 Proportional Counter / Detector,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),monitored property
 Protective Coating Deposition,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:protectiveCoatingDepositionDefault,authored,,,
 Protective Coating Deposition,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Protective Coating Deposition'].schema:value,authored,,new in this revision (needs mapping),
-Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
+Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,shared,"consolidated onto the reported-property template 2026-11-02 (Stephen): the rows are the property names, and the cell is kept verbatim beside them in ada:reportedPropertyDeclaration so the units after the dash survive. De-modularised because a default-row array is not composable through allOf.",defines: reported property
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
 Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,sample

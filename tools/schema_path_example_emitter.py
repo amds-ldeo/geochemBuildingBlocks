@@ -665,6 +665,86 @@ def _known_target_species(values):
     return []
 
 
+_DASH_TAIL = re.compile(r"\s+[\u2014\u2013-]\s+")
+# The straight and curly quote marks, as CHARACTERS. Written as the literal text \u2018 once, which
+# made every character of that escape -- u, 2, 0, 1, 8, 9, c, d and the backslash -- a quote
+# delimiter: 'Na2O, MgO' then opened a quoted run at the 2 and swallowed the comma, so the cell
+# silently came back under-split instead of failing.
+_QUOTES = "\"'\u2018\u2019\u201c\u201d"
+
+
+def _split_reported(s, seps):
+    """Split on seps, never inside (), [], {} or a quoted run."""
+    out, buf, depth, q = [], [], 0, None
+    for ch in s:
+        if q:
+            buf.append(ch)
+            if ch == q:
+                q = None
+            continue
+        if ch in _QUOTES:
+            q = {"\u2018": "\u2019", "\u201c": "\u201d"}.get(ch, ch)
+            buf.append(ch)
+            continue
+        if ch in "([{":
+            depth += 1
+        elif ch in ")]}":
+            depth = max(0, depth - 1)
+        if ch in seps and depth == 0:
+            out.append("".join(buf))
+            buf = []
+        else:
+            buf.append(ch)
+    out.append("".join(buf))
+    return [x.strip().strip(_QUOTES).strip() for x in out if x.strip()]
+
+
+def _parse_reported_properties(v):
+    """A 'Reported Variables and Units' cell -> the property names it lists.
+
+    SEPARATE from _parse_grouped_members, which serves the target-species and monitored-
+    property axes, because these cells have two shapes that one does not: a PIPE-separated run
+    of literal column headers taken off a data file ('Num | Size_mm | id | size (mm)'), and a
+    dash-delimited TAIL carrying the units or the table reference rather than another property.
+
+    Measured over the 143 distinct cells in the corpus (2026-11-02):
+        91  semicolon-separated list      25  pipe-separated column headers
+        22  comma-separated, dash tail     2  single property, commas inside parentheses
+         2  single, no delimiter           1  text sentinel
+
+    The comma rule is what that measurement decided. A comma separates properties ONLY when a
+    dash tail was present: both 'comma, no tail' cells in the corpus are ONE property carrying
+    a parenthetical list -- 'Phase volumes within the melt inclusion (glass, clinopyroxene,
+    spinel, vapour)' and 'Absorbed x-ray dose (~180 Gy, the maximum a Bennu sample would
+    receive ...)'. Splitting those yields four fragments and two, none of them a reported
+    property. Depth-aware splitting protects the parenthetical case anyway; the tail test is
+    the second guard.
+
+    The tail is DISCARDED here and re-attached by the caller as ada:reportedPropertyDeclaration
+    -- which is the only reason discarding it is safe: 78 of the 143 have one and they hold the
+    units, in a field named "Reported Variables and Units".
+    """
+    s = (v or "").strip()
+    if not s:
+        return []
+    if _sent.is_text_sentinel(s):
+        return [s]
+    if "|" in s:                                  # literal column headers off a data file
+        m = _split_reported(s, "|")
+        return m if len(m) > 1 else [s]
+    head, tail = s, None
+    parts = _DASH_TAIL.split(s, 1)
+    if len(parts) == 2 and parts[0].strip():
+        head, tail = parts[0].strip(), parts[1].strip()
+    if ";" in head:
+        m = _split_reported(head, ";")
+        return m if len(m) > 1 else [s]
+    if tail is not None and "," in head:
+        m = _split_reported(head, ",")
+        return m if len(m) > 1 else [head]
+    return [head]
+
+
 def _collector_map(values, members):
     """monitored property -> collector, read out of the Collector Configuration cell.
 
@@ -796,7 +876,8 @@ def build_example(tapp, values=None, emit_reported_property=False):
                    # both here and on its workflow step.
                    "schema:variableMeasured")
     DEFAULT_ROWS = ("ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
-                    "ada:defaultTargetMaterials", "ada:defaultStandards")
+                    "ada:defaultTargetMaterials", "ada:defaultStandards",
+                    "ada:defaultReportedProperties")
     # A module-owned field has no path in the technique sidecar (Source = module), and
     # load_spec drops a path-less row, so the item never reaches the loop below -- whatever the
     # publication reported for it went unemitted, and 20 LA examples lost
@@ -846,6 +927,31 @@ def build_example(tapp, values=None, emit_reported_property=False):
                 v = strip_annotation(values[item], m)
                 if not isinstance(v, str):
                     items = v
+                elif parsed.segments[-1].prop == "ada:defaultReportedProperties":
+                    # The property NAMES become the rows, and the cell itself goes beside them in
+                    # ada:reportedPropertyDeclaration whenever the parse did not keep all of it --
+                    # which is what makes dropping the post-dash tail safe, since 78 of the 143
+                    # distinct cells carry one and they hold the units.
+                    #
+                    # The declaration is written HERE rather than by the _DECL block further down:
+                    # that block sits inside the target-species `else`, so a branch that returns
+                    # before it never reaches it. Written the first time, this emitted rows in 196
+                    # examples and the declaration in ZERO -- the units silently gone, which is the
+                    # one outcome the sibling exists to prevent.
+                    items = _parse_reported_properties(v)
+                    if not items:
+                        continue
+                    _parts = _DASH_TAIL.split(v, 1)
+                    if len(_parts) == 2 and _parts[0].strip():
+                        # A tail was split off, so the rows no longer carry the units, the scale,
+                        # the table or the file format that followed the dash. Record the cell they
+                        # were recognised FROM. Keyed on the tail rather than on reconstructing the
+                        # string, because the delimiters never survive a split and a reconstruction
+                        # test would fire on every cell.
+                        _decl = re.sub(r"ada:defaultReportedProperties$",
+                                       "ada:reportedPropertyDeclaration", path)
+                        if _decl != path:
+                            e.insert(roots[parsed.root], spp.parse(_decl), v.strip())
                 elif parsed.segments[-1].prop == "ada:defaultMonitoredProperties":
                     known = _known_target_species(values)
                     rows = _parse_grouped_members(v, known)
@@ -904,7 +1010,9 @@ def build_example(tapp, values=None, emit_reported_property=False):
                         # material axis has the same exposure and the same remedy, and
                         # ada:targetMaterialDeclaration sits on its template for this.
                         _DECL = {"ada:defaultTargetSpecies": "ada:targetSpeciesDeclaration",
-                                 "ada:defaultTargetMaterials": "ada:targetMaterialDeclaration"}
+                                 "ada:defaultTargetMaterials": "ada:targetMaterialDeclaration",
+                                 "ada:defaultReportedProperties":
+                                     "ada:reportedPropertyDeclaration"}
                         decl = path
                         for _axis, _field in _DECL.items():
                             if path.endswith(_axis):

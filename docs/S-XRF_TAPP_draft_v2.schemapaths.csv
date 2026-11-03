@@ -1,4 +1,4 @@
-Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes,Key by
+﻿Metadata Item,Protocol Tier,Analysis Tier,Data Type,Schema Path,Source,Scope,Notes,Key by
 Procedure Name,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
 Technique,Basic,Read-Only,Controlled list,,module,,placement owned by Module Core,
 Procedure Author,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,
@@ -33,7 +33,7 @@ Beamline,Basic,N/A,Text (free),$MethodDefinition.schema:instrument[schema:additi
 Acquisition Software,Basic,Editable,Text (free),,module,,placement owned by Module Core,
 Data Processing Software(s),Basic,Editable,Text (free),,module,,placement owned by Module Core,
 Analytical Mode,Basic,Read-Only,Controlled list,,module,,placement owned by Module Core,
-Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
+Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,shared,"consolidated onto the reported-property template 2026-11-02 (Stephen): the rows are the property names, and the cell is kept verbatim beside them in ada:reportedPropertyDeclaration so the units after the dash survive. De-modularised because a default-row array is not composable through allOf.",defines: reported property
 Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,placement owned by Module CalibrationFactor,reported property
 Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.ada:constantsAndReferenceValuesUsedDefault,inferred,,,
 Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Constants and Reference Values Used'].schema:value,inferred,,,

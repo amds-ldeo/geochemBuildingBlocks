@@ -87,7 +87,7 @@ Sampling Unit Selection Criteria,Basic,Editable,Text (free),,module,,placement o
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Sampling Unit Selection Criteria'].schema:value,authored,,tier rule: added the missing per-analysis value,
 Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,placement owned by Module CalibrationFactor,reported property
 EDS Dead Time,N/A,Basic,Numeric (%),$Dataset.prov:wasGeneratedBy.ada:deadTime,authored,,reviewer: adopt TEM's ada:deadTime everywhere,
-Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
+Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,shared,"consolidated onto the reported-property template 2026-11-02 (Stephen): the rows are the property names, and the cell is kept verbatim beside them in ada:reportedPropertyDeclaration so the units after the dash survive. De-modularised because a default-row array is not composable through allOf.",defines: reported property
 Map Area,N/A,Basic,Numeric + unit,$Dataset.schema:additionalProperty[schema:name='Map Area'].schema:value,authored,,analysis-instance (needs mapping),
 Map Dimensions,N/A,Basic,Numeric pair (pixels x pixels),$Dataset.schema:additionalProperty[schema:name='Map Dimensions'].schema:value,authored,,analysis-instance (needs mapping),
 Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:proceduralBlankLevel,authored,,new in this revision (needs mapping),target species
