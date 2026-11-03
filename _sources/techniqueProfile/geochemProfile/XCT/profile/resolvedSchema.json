@@ -4232,7 +4232,7 @@
                             "ada:supplementalBasemap",
                             "ada:supplementaryImage",
                             "ada:worldFile",
-                            "nil:missing"
+                            "http://www.opengis.net/def/nil/OGC/0/missing"
                           ],
                           "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level."
                         },
@@ -10813,7 +10813,15 @@
                                   "schema:datePublished": {
                                     "title": "Method Start Date",
                                     "type": "string",
-                                    "description": "ISO 8601 date when this method configuration was first used."
+                                    "description": "ISO 8601 date when this method configuration was first used.",
+                                    "anyOf": [
+                                      {
+                                        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                                      },
+                                      {
+                                        "pattern": "^(missing|no value available: .+)$"
+                                      }
+                                    ]
                                   },
                                   "schema:dateModified": {
                                     "type": "string",
@@ -12721,6 +12729,45 @@
                                         {
                                           "required": [
                                             "schema:name"
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "schema:license": {
+                                    "title": "Method License",
+                                    "description": "Legal statement of conditions for use and access of this method description",
+                                    "type": "array",
+                                    "minItems": 0,
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "title": "Creative Work Type",
+                                          "description": "Shell type for labeled links to other resources. Any schema.org CreativeWork property could be included.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@type": {
+                                              "type": "array",
+                                              "contains": {
+                                                "const": "schema:CreativeWork"
+                                              },
+                                              "minItems": 1
+                                            },
+                                            "schema:name": {
+                                              "type": "string"
+                                            },
+                                            "schema:description": {
+                                              "type": "string"
+                                            },
+                                            "schema:url": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@type"
                                           ]
                                         }
                                       ]
@@ -22557,7 +22604,15 @@
                               "schema:datePublished": {
                                 "title": "Method Start Date",
                                 "type": "string",
-                                "description": "ISO 8601 date when this method configuration was first used."
+                                "description": "ISO 8601 date when this method configuration was first used.",
+                                "anyOf": [
+                                  {
+                                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                                  },
+                                  {
+                                    "pattern": "^(missing|no value available: .+)$"
+                                  }
+                                ]
                               },
                               "schema:dateModified": {
                                 "type": "string",
@@ -24465,6 +24520,45 @@
                                     {
                                       "required": [
                                         "schema:name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              },
+                              "schema:license": {
+                                "title": "Method License",
+                                "description": "Legal statement of conditions for use and access of this method description",
+                                "type": "array",
+                                "minItems": 0,
+                                "items": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string"
+                                    },
+                                    {
+                                      "title": "Creative Work Type",
+                                      "description": "Shell type for labeled links to other resources. Any schema.org CreativeWork property could be included.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@type": {
+                                          "type": "array",
+                                          "contains": {
+                                            "const": "schema:CreativeWork"
+                                          },
+                                          "minItems": 1
+                                        },
+                                        "schema:name": {
+                                          "type": "string"
+                                        },
+                                        "schema:description": {
+                                          "type": "string"
+                                        },
+                                        "schema:url": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@type"
                                       ]
                                     }
                                   ]

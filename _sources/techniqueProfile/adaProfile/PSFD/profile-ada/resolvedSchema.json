@@ -579,7 +579,7 @@
                                 "ada:supplementalBasemap",
                                 "ada:supplementaryImage",
                                 "ada:worldFile",
-                                "nil:missing"
+                                "http://www.opengis.net/def/nil/OGC/0/missing"
                               ],
                               "description": "ADA componentType for an image, as a single string. Allowed values are constrained at the technique-profile level."
                             },
@@ -696,7 +696,7 @@
                                 "ada:shapefile",
                                 "ada:supplementaryImage",
                                 "ada:worldFile",
-                                "nil:missing"
+                                "http://www.opengis.net/def/nil/OGC/0/missing"
                               ],
                               "description": "ADA componentType for an imageMap, as a single string. Allowed values are constrained at the technique-profile level."
                             },
@@ -862,7 +862,7 @@
                                     "ada:supplementalBasemap",
                                     "ada:supplementaryImage",
                                     "ada:worldFile",
-                                    "nil:missing"
+                                    "http://www.opengis.net/def/nil/OGC/0/missing"
                                   ],
                                   "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level."
                                 },
@@ -1653,7 +1653,7 @@
                                 "ada:supplementalBasemap",
                                 "ada:supplementaryImage",
                                 "ada:worldFile",
-                                "nil:missing"
+                                "http://www.opengis.net/def/nil/OGC/0/missing"
                               ],
                               "description": "ADA componentType for a collection, as a single string. Allowed values are constrained at the technique-profile level (each adaProfile's schema:hasPart anyOf enumerates the allowed values for that technique, either inline or via a $ref to a detail<Tech> schema). No enum here so that profile-specific componentTypes (e.g. ada:XANESCollection, ada:LIT2DDataCollection) do not require updates to this branch schema."
                             },
@@ -1768,7 +1768,7 @@
                                     "ada:supplementalBasemap",
                                     "ada:supplementaryImage",
                                     "ada:worldFile",
-                                    "nil:missing"
+                                    "http://www.opengis.net/def/nil/OGC/0/missing"
                                   ],
                                   "description": "ADA componentType for a data cube, as a single string. Allowed values are constrained at the technique-profile level."
                                 },
@@ -1970,7 +1970,7 @@
                                 "ada:shapefile",
                                 "ada:supplementalBasemap",
                                 "ada:supplementaryImage",
-                                "nil:missing"
+                                "http://www.opengis.net/def/nil/OGC/0/missing"
                               ],
                               "description": "ADA componentType for a document, as a single string. Allowed values are constrained at the technique-profile level."
                             },
@@ -2039,7 +2039,7 @@
                                 "ada:shapefile",
                                 "ada:supplementalBasemap",
                                 "ada:worldFile",
-                                "nil:missing"
+                                "http://www.opengis.net/def/nil/OGC/0/missing"
                               ],
                               "description": "ADA componentType for a supplemental document image, as a single string. Allowed values are constrained at the technique-profile level."
                             },
@@ -2104,7 +2104,7 @@
                                 "ada:supplementalBasemap",
                                 "ada:supplementaryImage",
                                 "ada:worldFile",
-                                "nil:missing"
+                                "http://www.opengis.net/def/nil/OGC/0/missing"
                               ],
                               "description": "ADA componentType for an other-format file, as a single string. Allowed values are constrained at the technique-profile level."
                             },
@@ -15207,7 +15207,15 @@
                                       "schema:datePublished": {
                                         "title": "Method Start Date",
                                         "type": "string",
-                                        "description": "ISO 8601 date when this method configuration was first used."
+                                        "description": "ISO 8601 date when this method configuration was first used.",
+                                        "anyOf": [
+                                          {
+                                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                                          },
+                                          {
+                                            "pattern": "^(missing|no value available: .+)$"
+                                          }
+                                        ]
                                       },
                                       "schema:dateModified": {
                                         "type": "string",
@@ -18982,6 +18990,45 @@
                                           ]
                                         }
                                       },
+                                      "schema:license": {
+                                        "title": "Method License",
+                                        "description": "Legal statement of conditions for use and access of this method description",
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "items": {
+                                          "anyOf": [
+                                            {
+                                              "type": "string"
+                                            },
+                                            {
+                                              "title": "Creative Work Type",
+                                              "description": "Shell type for labeled links to other resources. Any schema.org CreativeWork property could be included.",
+                                              "type": "object",
+                                              "properties": {
+                                                "@type": {
+                                                  "type": "array",
+                                                  "contains": {
+                                                    "const": "schema:CreativeWork"
+                                                  },
+                                                  "minItems": 1
+                                                },
+                                                "schema:name": {
+                                                  "type": "string"
+                                                },
+                                                "schema:description": {
+                                                  "type": "string"
+                                                },
+                                                "schema:url": {
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "required": [
+                                                "@type"
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      },
                                       "schema:variableMeasured": {
                                         "title": "Reported Variables",
                                         "description": "Variables / properties this procedure reports (e.g. detection limit, limit of quantification, calibration factor, uncertainty propagation method), each modeled as a schema:PropertyValueSpecification (a procedure-level default, carrying schema:defaultValue) or a schema:PropertyValue (a measured value, carrying schema:value), keyed by schema:name. A technique profile enumerates the reported properties it defines; a dataset instance overrides each schema:defaultValue with a schema:value. Left open here — the technique overlay narrows it.",
@@ -21171,7 +21218,7 @@
                                 "ada:supplementalBasemap",
                                 "ada:supplementaryImage",
                                 "ada:worldFile",
-                                "nil:missing"
+                                "http://www.opengis.net/def/nil/OGC/0/missing"
                               ],
                               "description": "ADA componentType for a tabular data file, as a single string. Allowed values are constrained at the technique-profile level."
                             },

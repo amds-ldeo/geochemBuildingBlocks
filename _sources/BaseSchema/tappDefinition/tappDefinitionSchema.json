@@ -102,7 +102,15 @@
         "schema:datePublished": {
             "title": "Method Start Date",
             "type": "string",
-            "description": "ISO 8601 date when this method configuration was first used."
+            "description": "ISO 8601 date when this method configuration was first used.",
+            "anyOf": [
+                {
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                {
+                    "pattern": "^(missing|no value available: .+)$"
+                }
+            ]
         },
         "schema:dateModified": {
             "type": "string",
@@ -557,6 +565,22 @@
             "type": "array",
             "items": {
                 "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/monetaryGrantSchema.json"
+            }
+        },
+        "schema:license": {
+            "title": "Method License",
+            "description": "Legal statement of conditions for use and access of this method description",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "$ref": "../creativeWork/creativeWorkSchema.json"
+                    }
+                ]
             }
         },
         "schema:variableMeasured": {
