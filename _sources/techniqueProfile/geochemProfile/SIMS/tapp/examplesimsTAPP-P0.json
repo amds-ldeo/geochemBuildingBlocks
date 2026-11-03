@@ -18,6 +18,27 @@
   "schema:description": "simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7 (publication column of SIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = CAMECA.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "CAMECA IMS-1270E7",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Analysis Name",
+      "error",
+      "d18O corr",
+      "2SE",
+      "d17O corr",
+      "D17O corr"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -45,9 +66,6 @@
       ],
       "schema:name": "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)."
     }
-  ],
-  "ada:reportedProperties": [
-    "Analysis Name | error | d18O corr | 2SE | d17O corr | D17O corr"
   ],
   "schema:actionProcess": {
     "@type": [

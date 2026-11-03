@@ -141,6 +141,28 @@
       "@id": "ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (µm) — Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10–50 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 × 14.8 nm pixel size (pp.3–4)",
+    "ada:defaultReportedProperties": [
+      "pore-space volume (voxels)",
+      "pore diameter (nm)",
+      "pore connectivity (nominal)",
+      "pore type (nominal)",
+      "throat size (nm)",
+      "throat length (µm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
   "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
   "schema:location": {
@@ -158,9 +180,6 @@
   ],
   "ada:analyticalMode": [
     "3D Tomography"
-  ],
-  "ada:reportedProperties": [
-    "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (µm) — Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10–50 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 × 14.8 nm pixel size (pp.3–4)"
   ],
   "schema:actionProcess": {
     "schema:step": [

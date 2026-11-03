@@ -301,6 +301,37 @@
     "ada:defaultTargetMaterials": []
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Spatial position within the shock assemblage — garnet is analysed \"within the eclogitic mineral assemblage of zoned veins\" and contrasted with grains \"in either thin melt veins or the edge zones of zoned melt veins\" (p.4); the individual grains are not otherwise chosen by a stated rule",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "En, Fs, Wo; Ca-Eskola component; empirical formulae — mol% (p.2, p.4); the oxide analyses are in Supplementary Tables 1–4, not in the archived PDF",
+    "ada:defaultReportedProperties": [
+      "En, Fs, Wo",
+      "Ca-Eskola component",
+      "empirical formulae"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -340,9 +371,6 @@
   "ada:samplingUnitType": "Phase > Analysis point — compositions are reported as per-phase means, \"The average compositions (Supplementary Table 1) of orthopyroxene\" (p.2) and \"41 ± 8 mol% on average; based on 13 analyses\" (p.4); the individual points are in a supplement not in the archived PDF",
   "ada:analyticalMode": [
     "WDS Point Analysis"
-  ],
-  "ada:reportedProperties": [
-    "En, Fs, Wo; Ca-Eskola component; empirical formulae — mol% (p.2, p.4); the oxide analyses are in Supplementary Tables 1–4, not in the archived PDF"
   ],
   "schema:actionProcess": {
     "schema:step": [

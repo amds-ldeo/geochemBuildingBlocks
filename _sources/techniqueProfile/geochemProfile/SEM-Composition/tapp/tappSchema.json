@@ -3476,6 +3476,31 @@
                     ],
                     "readOnly": true
                 },
+                "ada:reportedPropertyTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultReportedProperties": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ada:defaultReportedProperties"
+                    ],
+                    "title": "Reported Property Template"
+                },
                 "ada:edsLiveTimePerPointOrPixelDefault": {
                     "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds.",
                     "anyOf": [

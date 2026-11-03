@@ -232,6 +232,36 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — beam conditions are given per phase (\"Quantitative analyses of silicates, sulfides and oxides were run using a focused beam\"; \"A 2-μm defocused beam size, lower beam currents and shorter count times were used for phosphate and carbonate analyses\", p.9), but that is a setting per phase, not a rule for choosing which grains were analysed",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Fe + Co, S, Ni; modal abundance of carbonates, sulfides and magnetite — sulfide compositions in at% (Fig. 1); modal abundances '0.4–3.4%, ~3–8% and ~3–5%' from the EMPA phase maps (p.2)",
+    "ada:defaultReportedProperties": [
+      "Fe + Co, S, Ni",
+      "modal abundance of carbonates, sulfides and magnetite"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -274,9 +304,6 @@
       "ada:toolRole": "dataReduction",
       "schema:name": "XMapTools (for phase maps)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Fe + Co, S, Ni; modal abundance of carbonates, sulfides and magnetite — sulfide compositions in at% (Fig. 1); modal abundances '0.4–3.4%, ~3–8% and ~3–5%' from the EMPA phase maps (p.2)"
   ],
   "schema:measurementTechnique": [
     {

@@ -381,6 +381,19 @@ allOf:
       description: EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:targetSpeciesTemplate:
       type: object
       properties:

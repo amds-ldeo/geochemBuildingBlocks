@@ -3137,8 +3137,27 @@
                                 }
                             ],
                             "title": "Reported Property Columns"
+                        },
+                        "ada:defaultReportedProperties": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
                         }
                     },
+                    "required": [
+                        "ada:defaultReportedProperties"
+                    ],
                     "title": "Reported Property Template"
                 },
                 "schema:additionalProperty": {

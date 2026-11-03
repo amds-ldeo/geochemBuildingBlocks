@@ -18,6 +18,23 @@
   "schema:description": "vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FTIR microscope (publication column of VNMIR_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Bruker",
   "ada:instrumentModel": "Bruker LUMOS FTIR microscope",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Wavenumber (cm-1) (cm-1)",
+      "Reflectance (Reflectance)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -49,9 +66,6 @@
   ],
   "ada:analyticalMode": [
     "Spectral Point"
-  ],
-  "ada:reportedProperties": [
-    "Wavenumber (cm-1) (cm-1) | Reflectance (Reflectance)"
   ],
   "schema:actionProcess": {
     "@type": [

@@ -1167,6 +1167,13 @@ allOf:
     ada:reportedPropertyTemplate:
       type: object
       properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
         ada:reportedPropertyColumns:
           type: array
           items:
@@ -1236,6 +1243,8 @@ allOf:
             minContains: 0
             maxContains: 1
           title: Reported Property Columns
+      required:
+      - ada:defaultReportedProperties
       title: Reported Property Template
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.

@@ -325,6 +325,44 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Identification by EDS, then by CL — \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO — wt% with totals, per named grain (Table 1)",
+    "ada:defaultReportedProperties": [
+      "F",
+      "Cl",
+      "Na2O",
+      "MgO",
+      "SiO2",
+      "SO3",
+      "P2O5",
+      "CaO",
+      "MnO",
+      "FeO"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
@@ -503,9 +541,6 @@
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point — Table 1 reports one column per apatite grain (\"Ap. #1\" … \"Ap. #5\") within each of the three particles (p.7)",
-  "ada:reportedProperties": [
-    "F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO — wt% with totals, per named grain (Table 1)"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {

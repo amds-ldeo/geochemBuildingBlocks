@@ -18,6 +18,27 @@
   "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = PerkinsElmer.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "PerkinsElmer DSC 8000",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "T",
+      "Standard Deviation",
+      "Step Scan 1 Cp [J/g/K]",
+      "Step Scan 2 Cp [J/g/K]",
+      "Step Scan 3 Cp [J/g/K]",
+      "Averaged Cp [J/g/K]"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -45,9 +66,6 @@
       ],
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
-  ],
-  "ada:reportedProperties": [
-    "T | Standard Deviation | Step Scan 1 Cp [J/g/K] | Step Scan 2 Cp [J/g/K] | Step Scan 3 Cp [J/g/K] | Averaged Cp [J/g/K]"
   ],
   "schema:actionProcess": {
     "@type": [

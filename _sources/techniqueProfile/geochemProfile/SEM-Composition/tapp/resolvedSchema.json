@@ -3460,6 +3460,10 @@
           },
           "maxContains": 1
         },
+        "ada:reportedPropertyDeclaration": {
+          "type": "string",
+          "description": "The reported variables and their units, AS THE SOURCE STATES IT. Free text on purpose, and the counterpart of ada:targetSpeciesDeclaration. The workbook cell is one transcribed statement -- a list of properties followed, after a dash, by the units, the scale, the table it is reported in, or the file format. ada:defaultReportedProperties carries the property names that could be recognised; this carries the statement they were recognised FROM, so the units survive. Measured 2026-11-02 over the 143 distinct cells in the corpus: 78 carry such a tail, holding units (\"per mille relative to NIST SRM984\"), citations (\"Tables 2 and 3\") and formats (\"32-bit floating point .tiff\"). Parsing to rows alone would have dropped every one of them, out of a field named \"Reported Variables and Units\"."
+        },
         "ada:defaultReportedProperties": {
           "type": "array",
           "description": "The reported properties this procedure defines by default — the ROWS of the reported- property table. Each is a bare string or a schema:DefinedTerm identifying the property; per-property column VALUES live in the analysis record, not here.",
@@ -4722,13 +4726,6 @@
           "type": "array",
           "items": {
             "description": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Applies even where a procedure defines no mode flag columns.",
-            "type": "string"
-          }
-        },
-        "ada:reportedProperties": {
-          "type": "array",
-          "items": {
-            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
             "type": "string"
           }
         },
@@ -8626,6 +8623,31 @@
             "missing"
           ],
           "readOnly": true
+        },
+        "ada:reportedPropertyTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultReportedProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "ada:defaultReportedProperties"
+          ],
+          "title": "Reported Property Template"
         },
         "ada:edsLiveTimePerPointOrPixelDefault": {
           "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds.",

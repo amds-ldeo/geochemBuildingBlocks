@@ -315,6 +315,35 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "N — phosphate and carbonate compositions are reported by phase (p.2); the quantitative analyses are in the supplementary tables, not in the archived PDF",
+    "ada:defaultReportedProperties": [
+      "N"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
@@ -509,9 +538,6 @@
   "ada:samplingUnitType": "Phase > Analysis point — \"EMPA analyses were carried out using a Cameca SX-100 electron microprobe located at K-ALFAA\" (p.7); results are reported by phase, not per named point",
   "ada:analyticalMode": [
     "WDS Point Analysis"
-  ],
-  "ada:reportedProperties": [
-    "N — phosphate and carbonate compositions are reported by phase (p.2); the quantitative analyses are in the supplementary tables, not in the archived PDF"
   ],
   "schema:actionProcess": {
     "schema:step": [

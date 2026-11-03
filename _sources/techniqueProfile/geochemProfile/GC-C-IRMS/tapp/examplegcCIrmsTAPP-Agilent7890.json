@@ -18,6 +18,33 @@
   "schema:description": "gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido University | Agilent 7890B with Thermo Delta V GC-C-IRMS instrument (publication column of GC-C-IRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Agilent.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Agilent 7890B with Thermo Delta V GC-C-IRMS instrument",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Date",
+      "Time",
+      "Identifier 1",
+      "Identifier 2",
+      "Analysis",
+      "Method",
+      "Is Ref_",
+      "Rt",
+      "Width",
+      "d 18O/16O",
+      "BGD 44",
+      "BGD 45"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -33,9 +60,6 @@
     "schema:name": "Hokkaido University",
     "schema:identifier": "https://ror.org/04xt43068"
   },
-  "ada:reportedProperties": [
-    "Date | Time | Identifier 1 | Identifier 2 | Analysis | Method | Is Ref_ | Rt | Width | d 18O/16O | BGD 44 | BGD 45"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"

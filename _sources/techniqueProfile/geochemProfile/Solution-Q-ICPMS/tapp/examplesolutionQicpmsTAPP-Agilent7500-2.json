@@ -677,6 +677,30 @@
   "ada:massCyclesPerReplicate": "all: 48 scans in 30 s, 1 point per mass — Table 1a",
   "ada:signalCollectionMode": "N/A",
   "ada:driftCorrectionMethod": "N/A",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "B, Zr, Nb, Mo, Sn, Sb, Hf, Ta (µg/g) — Tables 5–8; Nb from Nb/Zr and Nb/Mo, Ta from Ta/Mo and Ta/Hf, and their averages",
+    "ada:defaultReportedProperties": [
+      "B",
+      "Zr",
+      "Nb",
+      "Mo",
+      "Sn",
+      "Sb",
+      "Hf",
+      "Ta (µg/g)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -707,9 +731,6 @@
   "ada:samplingUnitType": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
   "ada:analyticalMode": [
     "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\""
-  ],
-  "ada:reportedProperties": [
-    "B, Zr, Nb, Mo, Sn, Sb, Hf, Ta (µg/g) — Tables 5–8; Nb from Nb/Zr and Nb/Mo, Ta from Ta/Mo and Ta/Hf, and their averages"
   ],
   "ada:chromatographicSeparationApplied": "None — the method 'does not require ion-exchange separation' (§1); only the Zr–Hf spike was purified",
   "ada:isotopeDilutionSpike": "10B spike; 91Zr–179Hf mixed spike; 97Mo–119Sn–121Sb mixed spike — §2.2.2–2.2.4; Nb and Ta are not spiked",

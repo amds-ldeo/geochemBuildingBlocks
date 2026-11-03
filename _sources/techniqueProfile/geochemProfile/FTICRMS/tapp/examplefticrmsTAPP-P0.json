@@ -18,6 +18,25 @@
   "schema:description": "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FTICR-MS.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "FTICR-MS 12 Tesla Solarix Infinity system",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Intensity",
+      "Mass",
+      "Neutral mass",
+      "Composition"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -45,9 +64,6 @@
       ],
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Intensity | Mass | Neutral mass | Composition"
   ],
   "schema:actionProcess": {
     "@type": [

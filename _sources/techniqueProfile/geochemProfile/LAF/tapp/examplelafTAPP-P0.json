@@ -18,6 +18,27 @@
   "schema:description": "lafTAPP instance derived from ADA n=16 | Greenwood, Richard | Open University | Thermo MAT 253 (publication column of LAF_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Thermo Fisher Scientific",
   "ada:instrumentModel": "Thermo MAT 253",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "None",
+      "DATE",
+      "SAMPLE",
+      "WEIGHT",
+      "d17",
+      "d17SE"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -45,9 +66,6 @@
       ],
       "schema:name": "STFC Grant ST/Y000188/1"
     }
-  ],
-  "ada:reportedProperties": [
-    "None | DATE | SAMPLE | WEIGHT | d17 | d17SE"
   ],
   "schema:actionProcess": {
     "@type": [

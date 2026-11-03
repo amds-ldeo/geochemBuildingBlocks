@@ -18,6 +18,33 @@
   "schema:description": "tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of TDM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Time Stamp (sec)",
+      "Temperature (K)",
+      "Magnetic Field (Oe)",
+      "Pressure (Torr)",
+      "Pressure (Pa)",
+      "DC Moment Fixed Ctr (emu)",
+      "DC Moment Err Fixed Ctr (emu)",
+      "DC Fixed Fit (unitless)",
+      "DC Scan Time (s)",
+      "DC Number of Points",
+      "Temperature (K), 5-300 K, ZFC",
+      "DC Moment Fixed Ctr (emu), 5-300 K, ZFC"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -33,9 +60,6 @@
     "schema:name": "Boston College",
     "schema:identifier": "https://ror.org/02n2fzt79"
   },
-  "ada:reportedProperties": [
-    "Time Stamp (sec) | Temperature (K) | Magnetic Field (Oe) | Pressure (Torr) | Pressure (Pa) | DC Moment Fixed Ctr (emu) | DC Moment Err Fixed Ctr (emu) | DC Fixed Fit (unitless) | DC Scan Time (s) | DC Number of Points | Temperature (K), 5-300 K, ZFC | DC Moment Fixed Ctr (emu), 5-300 K, ZFC"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"

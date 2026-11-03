@@ -174,6 +174,24 @@
   "ada:exposureTimePerProjectionDefault": "750–1250 ms (varies by sample)",
   "ada:beamHardeningCorrectionMethod": "Software BHC applied per respective software",
   "ada:segmentationMethodDefault": "Manual grayscale threshold per phase",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Total fluid inclusion volume (mm3)",
+      "phase volumes (mm3)",
+      "vapour volumetric fraction phi_vap (%)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -210,9 +228,6 @@
   ],
   "ada:analyticalMode": [
     "Single-volume"
-  ],
-  "ada:reportedProperties": [
-    "Total fluid inclusion volume (mm3); phase volumes (mm3); vapour volumetric fraction phi_vap (%)"
   ],
   "schema:actionProcess": {
     "schema:step": [

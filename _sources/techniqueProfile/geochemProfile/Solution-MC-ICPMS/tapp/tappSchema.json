@@ -2706,6 +2706,31 @@
                     ],
                     "title": "Monitored Property Template"
                 },
+                "ada:reportedPropertyTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultReportedProperties": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ada:defaultReportedProperties"
+                    ],
+                    "title": "Reported Property Template"
+                },
                 "ada:massBiasCorrectionStrategy": {
                     "description": "Primary strategy used to correct for instrumental isotopic mass fractionation. Four main strategies: (1) Sample-standard bracketing (SSB): alternating sample and isotopic standard measurements; bias interpolated linearly between bracketing measurements. (2) Double-spike: a mixture of two enriched isotopes of the target species element added before digestion provides an internal monitor of both instrumental and chemical mass fractionation. (3) Internal normalization: an element of known isotopic composition added to samples and standards; measured ratio of normalizing element used to calculate the mass bias factor applied to target species ratios. (4) SSB + internal normalization: both strategies applied simultaneously for redundant bias correction.",
                     "type": "string",

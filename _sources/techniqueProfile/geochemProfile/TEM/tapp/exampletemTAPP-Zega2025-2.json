@@ -281,6 +281,25 @@
     }
   ],
   "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "elemental distribution; phase composition (At%); phase identification (nominal) — Elemental distributions from STEM/EDS maps acquired over minutes to hours and combined in Python (p.10), reported as phase compositions in atomic proportions (At%) and as the phases resolved from them (nominal, Fig. 4, p.4)",
+    "ada:defaultReportedProperties": [
+      "elemental distribution",
+      "phase composition (At%)",
+      "phase identification (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -314,9 +333,6 @@
       "ada:toolRole": "dataReduction",
       "schema:name": "Python (sequential map combination)"
     }
-  ],
-  "ada:reportedProperties": [
-    "elemental distribution; phase composition (At%); phase identification (nominal) — Elemental distributions from STEM/EDS maps acquired over minutes to hours and combined in Python (p.10), reported as phase compositions in atomic proportions (At%) and as the phases resolved from them (nominal, Fig. 4, p.4)"
   ],
   "schema:variableMeasured": [
     {

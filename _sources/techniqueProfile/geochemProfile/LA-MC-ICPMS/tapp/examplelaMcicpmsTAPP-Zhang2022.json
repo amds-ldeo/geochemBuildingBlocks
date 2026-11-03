@@ -569,6 +569,47 @@
       "schema:HowTo"
     ]
   },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3",
+    "ada:defaultReportedProperties": [
+      "⁸⁷Sr/⁸⁶Sr (dimensionless ratio)",
+      "⁸⁷Rb/⁸⁶Sr (dimensionless ratio)",
+      "Rb–Sr isochron age (Ma)",
+      "initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)",
     "ada:targetMaterialColumns": [
@@ -648,9 +689,6 @@
   ],
   "ada:analyticalMode": [
     "Transect"
-  ],
-  "ada:reportedProperties": [
-    "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3"
   ],
   "ada:ablationSamplingMode": [
     "all: Transect — continuous line scan at 2–6 µm s⁻¹"

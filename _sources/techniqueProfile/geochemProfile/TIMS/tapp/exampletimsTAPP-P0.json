@@ -18,6 +18,33 @@
   "schema:description": "timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS (publication column of TIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Triton.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(ETHZ)Triton Thermo Fisher TIMS",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Date",
+      "Sample name",
+      "File name",
+      "Number of cycles",
+      "Intensity 142Nd (V)",
+      "146Nd/144Nd average",
+      "140Ce/144Nd",
+      "147Sm/144Nd",
+      "142Nd/144Nd mass bias corr",
+      "142Nd/144Nd mass bias corr 2SE",
+      "143Nd/144Nd mass bias corr",
+      "143Nd/144Nd mass bias corr 2SE"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -33,9 +60,6 @@
     "schema:name": "ETH Zurich",
     "schema:identifier": "https://ror.org/05a28rw58"
   },
-  "ada:reportedProperties": [
-    "Date | Sample name | File name | Number of cycles | Intensity 142Nd (V) | 146Nd/144Nd average | 140Ce/144Nd | 147Sm/144Nd | 142Nd/144Nd mass bias corr | 142Nd/144Nd mass bias corr 2SE | 143Nd/144Nd mass bias corr | 143Nd/144Nd mass bias corr 2SE"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"

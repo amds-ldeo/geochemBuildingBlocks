@@ -18,6 +18,24 @@
   "schema:description": "ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholtz Zentrum Munchen) | (HGMU) WITec alpha 300 R (publication column of RAMAN_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "WITec",
   "ada:instrumentModel": "(HGMU) WITec alpha 300 R",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Point Number",
+      "Raman shift (cm-1)",
+      "Intensity (a.u.)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -46,9 +64,6 @@
       ],
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)."
     }
-  ],
-  "ada:reportedProperties": [
-    "Point Number | Raman shift (cm-1) | Intensity (a.u.)"
   ],
   "schema:actionProcess": {
     "@type": [

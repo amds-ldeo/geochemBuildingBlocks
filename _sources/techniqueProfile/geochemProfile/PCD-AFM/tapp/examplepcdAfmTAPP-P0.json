@@ -18,6 +18,25 @@
   "schema:description": "pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State University | Bruker MultiMode 8 (publication column of PCD-AFM_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Bruker",
   "ada:instrumentModel": "Bruker MultiMode 8",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Calc_Ramp_Ex_nm",
+      "Calc_Ramp_Rt_nm",
+      "Defl_V_Ex",
+      "Defl_V_Rt"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -33,9 +52,6 @@
     "schema:name": "Arizona State University",
     "schema:identifier": "https://ror.org/03efmqc40"
   },
-  "ada:reportedProperties": [
-    "Calc_Ramp_Ex_nm | Calc_Ramp_Rt_nm | Defl_V_Ex | Defl_V_Rt"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"

@@ -18,6 +18,31 @@
         {
             "type": "object",
             "properties": {
+                "ada:reportedPropertyTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultReportedProperties": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ada:defaultReportedProperties"
+                    ],
+                    "title": "Reported Property Template"
+                },
                 "schema:creator": {
                     "type": "object",
                     "properties": {

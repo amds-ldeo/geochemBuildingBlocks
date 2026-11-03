@@ -114,6 +114,25 @@
       "@id": "ex:semImagingTAPP-Ma2017-2/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "crystal structure identification (nominal); unit-cell parameters (Å, Å3); mean angular deviation (degrees) — Crystal structure identification with unit-cell parameters (Å and Å3) and the fit quality as mean angular deviation (degrees) — e.g. \"with a mean angular deviation of 0.30°~0.45°, revealing the cell parameters: a = 15.60 Å, b = 7.94 Å, c = 12.51 Å\" and cell volume (p.3)",
+    "ada:defaultReportedProperties": [
+      "crystal structure identification (nominal)",
+      "unit-cell parameters (Å, Å3)",
+      "mean angular deviation (degrees)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:ebsdPhaseListDefault": "Hollisterite (C2/m FeAl3); kryachkoite (Cmc21 (Al,Cu)Fe6); stolperite (Pm3m AlCu)",
   "schema:actionProcess": {
     "schema:step": [
@@ -186,9 +205,6 @@
   "ada:samplingUnitType": "Grain (single crystal) — one pattern per crystal, \"EBSD patterns of (a) the type hollisterite crystal, indexed with the C2/m Fe3Al structure\" (Fig. 3, p.3), each returning that crystal's cell parameters (p.3)",
   "ada:analyticalMode": [
     "EBSD"
-  ],
-  "ada:reportedProperties": [
-    "crystal structure identification (nominal); unit-cell parameters (Å, Å3); mean angular deviation (degrees) — Crystal structure identification with unit-cell parameters (Å and Å3) and the fit quality as mean angular deviation (degrees) — e.g. \"with a mean angular deviation of 0.30°~0.45°, revealing the cell parameters: a = 15.60 Å, b = 7.94 Å, c = 12.51 Å\" and cell volume (p.3)"
   ],
   "schema:measurementTechnique": [
     {

@@ -18,6 +18,30 @@
   "schema:description": "dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgary | Test Resources electromechanical press (Model 313Q) (publication column of DSSM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Test.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Test Resources electromechanical press (Model 313Q)",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Time (s)",
+      "Uncorrected Load (N)",
+      "Corrected Load (N)",
+      "Uncorrected Stress (MPa)",
+      "Corrected Stress (MPa)",
+      "Load (N)",
+      "Stress (MPa)",
+      "Displacement (mm)",
+      "Strain"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -33,9 +57,6 @@
     "schema:name": "University of Calgary",
     "schema:identifier": "https://ror.org/03yjb2x39"
   },
-  "ada:reportedProperties": [
-    "Time (s) | Uncorrected Load (N) | Corrected Load (N) | Uncorrected Stress (MPa) | Corrected Stress (MPa) | Load (N) | Stress (MPa) | Displacement (mm) | Strain"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"

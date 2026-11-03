@@ -328,6 +328,38 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "element wt% maps; oxide wt% maps; cation stoichiometry; mineral endmember maps — 32-bit floating point .tiff",
+    "ada:defaultReportedProperties": [
+      "element wt% maps",
+      "oxide wt% maps",
+      "cation stoichiometry",
+      "mineral endmember maps"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
@@ -521,9 +553,6 @@
   ],
   "ada:analyticalMode": [
     "WDS Mapping"
-  ],
-  "ada:reportedProperties": [
-    "element wt% maps; oxide wt% maps; cation stoichiometry; mineral endmember maps — 32-bit floating point .tiff"
   ],
   "schema:actionProcess": {
     "schema:step": [

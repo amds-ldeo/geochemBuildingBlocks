@@ -3460,6 +3460,10 @@
           },
           "maxContains": 1
         },
+        "ada:reportedPropertyDeclaration": {
+          "type": "string",
+          "description": "The reported variables and their units, AS THE SOURCE STATES IT. Free text on purpose, and the counterpart of ada:targetSpeciesDeclaration. The workbook cell is one transcribed statement -- a list of properties followed, after a dash, by the units, the scale, the table it is reported in, or the file format. ada:defaultReportedProperties carries the property names that could be recognised; this carries the statement they were recognised FROM, so the units survive. Measured 2026-11-02 over the 143 distinct cells in the corpus: 78 carry such a tail, holding units (\"per mille relative to NIST SRM984\"), citations (\"Tables 2 and 3\") and formats (\"32-bit floating point .tiff\"). Parsing to rows alone would have dropped every one of them, out of a field named \"Reported Variables and Units\"."
+        },
         "ada:defaultReportedProperties": {
           "type": "array",
           "description": "The reported properties this procedure defines by default — the ROWS of the reported- property table. Each is a bare string or a schema:DefinedTerm identifying the property; per-property column VALUES live in the analysis record, not here.",

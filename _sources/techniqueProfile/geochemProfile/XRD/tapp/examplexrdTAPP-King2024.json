@@ -18,6 +18,23 @@
   "schema:description": "xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction (publication column of XRD_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Custom-built",
   "ada:instrumentModel": "(NHM)Position Sensitive Detector X-ray Diffraction",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Angle (degrees 2theta)",
+      "Intensity (counts)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -46,9 +63,6 @@
       ],
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
-  ],
-  "ada:reportedProperties": [
-    "Angle (degrees 2theta) | Intensity (counts)"
   ],
   "schema:actionProcess": {
     "@type": [

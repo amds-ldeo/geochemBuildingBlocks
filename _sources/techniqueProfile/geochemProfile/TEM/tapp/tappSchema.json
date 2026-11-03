@@ -3623,6 +3623,31 @@
                     ],
                     "title": "Target Species Template"
                 },
+                "ada:reportedPropertyTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultReportedProperties": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ada:defaultReportedProperties"
+                    ],
+                    "title": "Reported Property Template"
+                },
                 "ada:eelsAcquisitionModeDefault": {
                     "description": "Mode of EELS data acquisition. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
                     "type": "string",
