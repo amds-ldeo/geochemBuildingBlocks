@@ -719,7 +719,7 @@ def write_examples(d, name, doc):
             continue          # a published parameter branch, not an instance shape
         inst = _sample(sub, base_dir=d, root=sample_doc)
         # A module $def may $ref a sibling building block by relative path
-        # (../../geochemProduct/schema.yaml#/$defs/UsedComputationalTool). jsonschema cannot follow
+        # (../../geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool). jsonschema cannot follow
         # a relative FILE ref - it falls back to urllib and raises Unresolvable - so the sample is
         # checked against the module's own constraints and any cross-BB ref is left to the resolved
         # schema, which is where those refs are inlined and where CI checks them. Reporting an

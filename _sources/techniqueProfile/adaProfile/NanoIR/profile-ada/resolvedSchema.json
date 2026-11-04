@@ -14484,6 +14484,8 @@
           }
         },
         {
+          "title": "Geochem Base Profile",
+          "description": "The geochemistry overlay on its own: the analytical surface this repository contributes on top of the CDIF profiles. The analysis events that produced a product (instruments, computational tools, reagents, laboratory, samples analysed), the product-type and licence declarations, the distributions and their parts, and the geochem-specific variable, parameter and coverage shapes.\nIt imports no CDIF schema and composes nothing. geochemProduct is the composition -- the CDIF core, data-description, manifest and provenance profiles together with this overlay -- and this file is the half of that which gBB authors. Factored out 2026-11-04, following the cdifProfile / cdifCompositeProfile split upstream, so that what gBB contributes can be read, diffed and reviewed without the imported profiles around it.\n\"Overlay\" rather than \"additions\", deliberately: most of these keys exist upstream and this block narrows them and carries their gBB labels. A pure refinement of a CDIF property is the normal case here, not the exception.\nNot a standalone record schema: on its own it constrains an object that carries the geochem surface and says nothing about the CDIF properties a record also needs. Compose it, or reference geochemProduct.",
           "type": "object",
           "properties": {
             "@type": {

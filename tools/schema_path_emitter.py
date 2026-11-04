@@ -98,13 +98,19 @@ ROLE_KEYS = {"ada:toolRole", "ada:reagentRole"}
 # block demands nothing and the entities come out untyped.
 WRAPPER_ITEM_REF = {
     "schema:instrument": "../../../../BaseSchema/instrument/schema.yaml",
-    # Reference the tool/reagent shapes at their home in the generic geochemProduct base, NOT
-    # through the adaProduct alias: the technique detail is a geochem artifact and must not depend
-    # on the ADA-specific product layer. (The adaProduct alias also mis-resolves as a cross-file
+    # Reference the tool/reagent shapes at their home in geochemBaseProfile, NOT through the
+    # adaProduct alias: the technique detail is a geochem artifact and must not depend on the
+    # ADA-specific product layer. (The adaProduct alias also mis-resolves as a cross-file
     # $ref-of-a-$ref — it inlines the whole product schema, leaking @type [Dataset,Product] onto the
-    # tool/reagent — whereas the direct geochemProduct fragment resolves to the correct shape.)
-    "bios:computationalTool": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool",
-    "bios:reagent": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent",
+    # tool/reagent — whereas the direct fragment resolves to the correct shape.)
+    #
+    # The home was geochemProduct until 2026-11-04, when the overlay and its $defs were factored
+    # into geochemBaseProfile and geochemProduct became the thin composition over the CDIF
+    # profiles. Pointing at geochemProduct#/$defs still RESOLVED afterwards, because resolution
+    # inlines the composition -- which is what makes this the dangerous kind of stale ref: it
+    # would have gone on working while naming a file that no longer defines the shape.
+    "bios:computationalTool": "../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool",
+    "bios:reagent": "../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent",
 }
 
 # Array properties whose ITEMS are a rich object defined elsewhere, keyed by PROPERTY name

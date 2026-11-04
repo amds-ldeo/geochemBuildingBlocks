@@ -7,7 +7,7 @@ reached 0 of 34 technique profiles after the record-side labels landed, while
 `schema:additionalType` -- redefined next to it with no `type` -- survived in all 34.
 
 The fix is for the generator to carry the label over. The labels are NOT stated here:
-`record_labels()` reads them from geochemProduct and `container_labels()` from
+`record_labels()` reads them from geochemBaseProfile and `container_labels()` from
 tappDefinition, each the block that defines the properties in question, so every
 label has one home. A dict of labels in this file would be the second-home shape this
 repo keeps retiring (`ada:procedureAuthorDescription`, and `ada:resultTarget` in #212).
@@ -51,7 +51,15 @@ import os
 import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-GEOCHEM_PRODUCT = os.path.join(ROOT, "_sources", "BaseSchema", "geochemProduct", "schema.yaml")
+# The record-side labels live with the OVERLAY, not with the composition. They were in
+# geochemProduct until 2026-11-04, when the overlay was factored into geochemBaseProfile and
+# geochemProduct became a thin allOf over the four CDIF profiles plus that one block. Pointing
+# here at the composition still OPENED and PARSED -- it is a valid schema with no properties of
+# its own -- so record_labels() returned {} and the three generators that read it emitted every
+# detail and profile block with no record-side label at all. Nothing failed: a title restricts
+# nothing, so validate_examples stayed green and constraint_census structurally cannot see a
+# title. Only a per-artifact title count caught it.
+GEOCHEM_BASE_PROFILE = os.path.join(ROOT, "_sources", "BaseSchema", "geochemBaseProfile", "schema.yaml")
 
 TAPP_DEFINITION = os.path.join(ROOT, "_sources", "BaseSchema", "tappDefinition", "schema.yaml")
 
@@ -75,18 +83,23 @@ _container_cache = None
 
 
 def record_labels():
-    """{property: title} as authored in geochemProduct's own overlay.
+    """{property: title} as authored in geochemBaseProfile's overlay.
 
     Read, never restated, so the labels have one home. Returns {} rather than raising
     if the file cannot be read: a missing label is a raw key in a viewer, which is
     recoverable, where a failed regeneration is not.
+
+    An UNREADABLE file is that recoverable case. A file that reads cleanly and yields
+    NO labels is not -- it means this constant names a block that does not declare the
+    record-side properties, which is how the 2026-11-04 overlay split silently stripped
+    the labels out of every generated block. So that case raises.
     """
     global _record_cache
     if _record_cache is not None:
         return _record_cache
     labels = {}
     try:
-        with open(GEOCHEM_PRODUCT, encoding="utf-8") as fh:
+        with open(GEOCHEM_BASE_PROFILE, encoding="utf-8") as fh:
             doc = yaml.safe_load(fh)
     except Exception:
         _record_cache = {}
@@ -97,6 +110,11 @@ def record_labels():
         for key, node in (entry.get("properties") or {}).items():
             if isinstance(node, dict) and isinstance(node.get("title"), str):
                 labels.setdefault(key, node["title"])
+    if not labels:
+        raise RuntimeError(
+            f"{GEOCHEM_BASE_PROFILE} parsed but declares no titled root properties -- "
+            "the record-side label home has moved. Generators would emit unlabelled "
+            "schemas and no validation gate would see it.")
     _record_cache = labels
     return labels
 

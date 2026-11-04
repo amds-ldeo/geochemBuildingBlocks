@@ -10037,31 +10037,92 @@
         }
       ]
     },
-    "CdifInstanceVariable_cdifConceptOrTermOrString": {
-      "title": "CDIF Concept-or-Term-or-String",
-      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
-      "anyOf": [
-        {
+    "WorkflowHowTo": {
+      "type": "object",
+      "description": "The method's standard workflow expressed as a schema:HowTo. Contains an ordered array of workflow steps in schema:step, where each step is a cdi:Activity + schema:Action.",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:HowTo"
+          },
+          "minItems": 1
+        },
+        "@id": {
           "type": "string"
         },
-        {
-          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+        "schema:name": {
+          "type": "string",
+          "description": "Name of the workflow (e.g. \"EPMA WDS analytical workflow\")."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Overview of the workflow."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to a published protocol document."
+        },
+        "schema:step": {
+          "type": "array",
+          "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action + schema:HowToStep describing a distinct phase of the analytical procedure. This shape carries NO sample-preparation requirement, because it is used for a STEP's sub-workflow as well as for a method's top-level workflow; see MethodWorkflowHowTo for the method form that does require one.",
+          "items": {
+            "$ref": "#/$defs/WorkflowStep"
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "schema:step"
+      ]
+    },
+    "LanguageTaggedValue": {
+      "type": "object",
+      "description": "An RDF literal value with a language tag, serialized as a JSON-LD value object.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "description": "The text content."
+        },
+        "@language": {
+          "type": "string",
+          "description": "BCP 47 language tag (e.g. en, fr, de)."
+        }
+      },
+      "required": [
+        "@value",
+        "@language"
+      ]
+    },
+    "AdditionalProperty_DefinedTerm": {
+      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:DefinedTerm"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "text label for the term that is useful to human user"
+        },
+        "schema:identifier": {
           "anyOf": [
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "reference to a skos concept for the data type"
-                }
-              }
+              "type": "string"
             },
             {
-              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
               "type": "object",
               "properties": {
                 "@type": {
@@ -10070,92 +10131,11 @@
                     "type": "string"
                   },
                   "contains": {
-                    "const": "schema:DefinedTerm"
+                    "const": "schema:PropertyValue"
                   },
                   "minItems": 1
                 },
-                "schema:name": {
-                  "type": "string",
-                  "description": "text label for the term that is useful to human user"
-                },
-                "schema:identifier": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-                      "type": "object",
-                      "properties": {
-                        "@type": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "contains": {
-                            "const": "schema:PropertyValue"
-                          },
-                          "minItems": 1
-                        },
-                        "schema:propertyID": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "title": "Object Reference",
-                              "description": "A reference to a node defined elsewhere, by its @id.",
-                              "type": "object",
-                              "properties": {
-                                "@id": {
-                                  "type": "string",
-                                  "description": "resolvable @id of the referenced node"
-                                }
-                              },
-                              "required": [
-                                "@id"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ],
-                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                        },
-                        "schema:value": {
-                          "type": "string",
-                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                        },
-                        "schema:url": {
-                          "type": "string",
-                          "format": "uri",
-                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                        }
-                      },
-                      "allOf": [
-                        {
-                          "required": [
-                            "@type"
-                          ]
-                        },
-                        {
-                          "anyOf": [
-                            {
-                              "required": [
-                                "schema:value"
-                              ]
-                            },
-                            {
-                              "required": [
-                                "schema:url"
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "schema:inDefinedTermSet": {
-                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                "schema:propertyID": {
                   "anyOf": [
                     {
                       "type": "string"
@@ -10175,11 +10155,17 @@
                       ],
                       "additionalProperties": false
                     }
-                  ]
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
                 },
-                "schema:termCode": {
+                "schema:value": {
                   "type": "string",
-                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                },
+                "schema:url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
                 }
               },
               "allOf": [
@@ -10192,25 +10178,70 @@
                   "anyOf": [
                     {
                       "required": [
-                        "schema:name"
+                        "schema:value"
                       ]
                     },
                     {
                       "required": [
-                        "schema:identifier"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:termCode"
+                        "schema:url"
                       ]
                     }
                   ]
                 }
               ]
+            }
+          ]
+        },
+        "schema:inDefinedTermSet": {
+          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+          "anyOf": [
+            {
+              "type": "string"
             },
             {
-              "$ref": "#/$defs/Concept"
+              "title": "Object Reference",
+              "description": "A reference to a node defined elsewhere, by its @id.",
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "resolvable @id of the referenced node"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "schema:termCode": {
+          "type": "string",
+          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+        }
+      },
+      "allOf": [
+        {
+          "required": [
+            "@type"
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "schema:name"
+              ]
+            },
+            {
+              "required": [
+                "schema:identifier"
+              ]
+            },
+            {
+              "required": [
+                "schema:termCode"
+              ]
             }
           ]
         }
@@ -11562,7 +11593,7 @@
           "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
         },
         "cdi:externalDefinition": {
-          "$ref": "#/$defs/CdifRepresentedVariable_Reference",
+          "$ref": "#/$defs/Reference",
           "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
         },
         "cdi:identifier": {
@@ -11679,7 +11710,7 @@
         "@type"
       ]
     },
-    "CdifRepresentedVariable_Reference": {
+    "Reference": {
       "type": "object",
       "description": "CDIF reference to an external resource by URL, with optional name and description.",
       "properties": {
@@ -11709,6 +11740,185 @@
       },
       "required": [
         "@type"
+      ]
+    },
+    "CdifInstanceVariable_cdifConceptOrTermOrString": {
+      "title": "CDIF Concept-or-Term-or-String",
+      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+          "anyOf": [
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "reference to a skos concept for the data type"
+                }
+              }
+            },
+            {
+              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:DefinedTerm"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "text label for the term that is useful to human user"
+                },
+                "schema:identifier": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "contains": {
+                            "const": "schema:PropertyValue"
+                          },
+                          "minItems": 1
+                        },
+                        "schema:propertyID": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "title": "Object Reference",
+                              "description": "A reference to a node defined elsewhere, by its @id.",
+                              "type": "object",
+                              "properties": {
+                                "@id": {
+                                  "type": "string",
+                                  "description": "resolvable @id of the referenced node"
+                                }
+                              },
+                              "required": [
+                                "@id"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ],
+                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                        },
+                        "schema:value": {
+                          "type": "string",
+                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                        },
+                        "schema:url": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                        }
+                      },
+                      "allOf": [
+                        {
+                          "required": [
+                            "@type"
+                          ]
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "required": [
+                                "schema:value"
+                              ]
+                            },
+                            {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "schema:inDefinedTermSet": {
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "title": "Object Reference",
+                      "description": "A reference to a node defined elsewhere, by its @id.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "type": "string",
+                          "description": "resolvable @id of the referenced node"
+                        }
+                      },
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "schema:termCode": {
+                  "type": "string",
+                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:identifier"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:termCode"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$ref": "#/$defs/Concept"
+            }
+          ]
+        }
       ]
     },
     "StatisticsCollection": {
@@ -11898,7 +12108,7 @@
                             "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                           },
                           "cdi:externalDefinition": {
-                            "$ref": "#/$defs/CdifRepresentedVariable_Reference",
+                            "$ref": "#/$defs/Reference",
                             "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                           },
                           "cdi:identifier": {
@@ -12483,7 +12693,7 @@
                               "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                             },
                             "cdi:externalDefinition": {
-                              "$ref": "#/$defs/CdifRepresentedVariable_Reference",
+                              "$ref": "#/$defs/Reference",
                               "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                             },
                             "cdi:identifier": {
@@ -13495,6 +13705,98 @@
         }
       ]
     },
+    "CdifCodelistConcept": {
+      "description": "A SKOS Concept constrained for CDIF codelist use. Must have a resolvable @id, skos:inScheme, skos:notation, and skos:prefLabel. Becasue JSON-LD is an open-world implementation, any other skos properties may be included.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "Globally unique, resolvable URI for this concept."
+        },
+        "skos:inScheme": {
+          "description": "The concept scheme this concept belongs to. Required for CDIF codelist concepts.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "@id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          }
+        },
+        "skos:prefLabel": {
+          "description": "Preferred lexical label for this concept. A single string,\na single language-tagged value, or an array of language-tagged values.\nEach language should appear at most once.\n\n**Uniqueness rule.** Each language should appear at most once in the\nset of prefLabel values. Two prefLabel values with duplicate `@language`\ntags are non-conformant. Consumers may reject or arbitrarily pick one.\n\n**Relationship to skos:altLabel.** Alternate labels (acronyms,\nspelling variants, obsolete names) go on `skos:altLabel`, NOT on\n`prefLabel`. A concept has exactly one preferred label per language.\n",
+          "type": "string"
+        },
+        "skos:notation": {
+          "description": "Classification code for this concept within a scheme.",
+          "type": "string"
+        },
+        "skos:definition": {
+          "description": "Formal definition of this concept. Optional for CDIF codelist concepts. A plain string.",
+          "type": "string"
+        },
+        "skos:narrower": {
+          "description": "Narrower (child) concepts. If present, each inline concept must also declare skos:broader pointing back to the parent concept. Both skos:narrower and skos:broader must be explicit in CDIF codelists.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id"
+                ]
+              },
+              {
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/CdifCodelistConcept"
+                  },
+                  {
+                    "required": [
+                      "skos:broader"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "skos:broader": {
+          "description": "Broader (parent) concepts. Required on any concept that appears as a skos:narrower value of another concept. CDIF requires both directions to be explicit for hierarchy traversal.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "@id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          }
+        }
+      },
+      "required": [
+        "@id",
+        "skos:inScheme",
+        "skos:prefLabel",
+        "skos:notation"
+      ]
+    },
     "Statistics": {
       "title": "Statistics",
       "description": "A named bundle of one or more Statistic value objects for an instance variable, optionally weighted, optionally broken down by Category.",
@@ -13895,7 +14197,7 @@
                             "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                           },
                           "cdi:externalDefinition": {
-                            "$ref": "#/$defs/CdifRepresentedVariable_Reference",
+                            "$ref": "#/$defs/Reference",
                             "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                           },
                           "cdi:identifier": {
@@ -14456,7 +14758,7 @@
                               "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                             },
                             "cdi:externalDefinition": {
-                              "$ref": "#/$defs/CdifRepresentedVariable_Reference",
+                              "$ref": "#/$defs/Reference",
                               "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                             },
                             "cdi:identifier": {
@@ -15321,7 +15623,7 @@
                             "description": "A human-readable display label for the object. Supports the use of multiple languages. Repeat for labels with different content, for example, labels with differing length limitations."
                           },
                           "cdi:externalDefinition": {
-                            "$ref": "#/$defs/CdifRepresentedVariable_Reference",
+                            "$ref": "#/$defs/Reference",
                             "description": "A reference to an external definition of a concept (that is, a concept which is described outside the content of the DDI-CDI metadata description). An example is a SKOS concept. The definition property is assumed to duplicate the external one referenced if externalDefinition is used. Other corresponding properties are assumed to be included unchanged if used."
                           },
                           "cdi:identifier": {
@@ -15717,308 +16019,6 @@
         "@type",
         "cdi:for",
         "cdi:statistic"
-      ]
-    },
-    "WorkflowHowTo": {
-      "type": "object",
-      "description": "The method's standard workflow expressed as a schema:HowTo. Contains an ordered array of workflow steps in schema:step, where each step is a cdi:Activity + schema:Action.",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:HowTo"
-          },
-          "minItems": 1
-        },
-        "@id": {
-          "type": "string"
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "Name of the workflow (e.g. \"EPMA WDS analytical workflow\")."
-        },
-        "schema:description": {
-          "type": "string",
-          "description": "Overview of the workflow."
-        },
-        "schema:url": {
-          "type": "string",
-          "format": "uri",
-          "description": "URL to a published protocol document."
-        },
-        "schema:step": {
-          "type": "array",
-          "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action + schema:HowToStep describing a distinct phase of the analytical procedure. This shape carries NO sample-preparation requirement, because it is used for a STEP's sub-workflow as well as for a method's top-level workflow; see MethodWorkflowHowTo for the method form that does require one.",
-          "items": {
-            "$ref": "#/$defs/WorkflowStep"
-          }
-        }
-      },
-      "required": [
-        "@type",
-        "schema:step"
-      ]
-    },
-    "LanguageTaggedValue": {
-      "type": "object",
-      "description": "An RDF literal value with a language tag, serialized as a JSON-LD value object.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "description": "The text content."
-        },
-        "@language": {
-          "type": "string",
-          "description": "BCP 47 language tag (e.g. en, fr, de)."
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
-    },
-    "AdditionalProperty_DefinedTerm": {
-      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:DefinedTerm"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "text label for the term that is useful to human user"
-        },
-        "schema:identifier": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:PropertyValue"
-                  },
-                  "minItems": 1
-                },
-                "schema:propertyID": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "title": "Object Reference",
-                      "description": "A reference to a node defined elsewhere, by its @id.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "type": "string",
-                          "description": "resolvable @id of the referenced node"
-                        }
-                      },
-                      "required": [
-                        "@id"
-                      ],
-                      "additionalProperties": false
-                    }
-                  ],
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                },
-                "schema:value": {
-                  "type": "string",
-                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                },
-                "schema:url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                }
-              },
-              "allOf": [
-                {
-                  "required": [
-                    "@type"
-                  ]
-                },
-                {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "schema:value"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:url"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "schema:inDefinedTermSet": {
-          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "title": "Object Reference",
-              "description": "A reference to a node defined elsewhere, by its @id.",
-              "type": "object",
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "resolvable @id of the referenced node"
-                }
-              },
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false
-            }
-          ]
-        },
-        "schema:termCode": {
-          "type": "string",
-          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-        }
-      },
-      "allOf": [
-        {
-          "required": [
-            "@type"
-          ]
-        },
-        {
-          "anyOf": [
-            {
-              "required": [
-                "schema:name"
-              ]
-            },
-            {
-              "required": [
-                "schema:identifier"
-              ]
-            },
-            {
-              "required": [
-                "schema:termCode"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "CdifCodelistConcept": {
-      "description": "A SKOS Concept constrained for CDIF codelist use. Must have a resolvable @id, skos:inScheme, skos:notation, and skos:prefLabel. Becasue JSON-LD is an open-world implementation, any other skos properties may be included.",
-      "type": "object",
-      "properties": {
-        "@id": {
-          "type": "string",
-          "description": "Globally unique, resolvable URI for this concept."
-        },
-        "skos:inScheme": {
-          "description": "The concept scheme this concept belongs to. Required for CDIF codelist concepts.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ]
-          }
-        },
-        "skos:prefLabel": {
-          "description": "Preferred lexical label for this concept. A single string,\na single language-tagged value, or an array of language-tagged values.\nEach language should appear at most once.\n\n**Uniqueness rule.** Each language should appear at most once in the\nset of prefLabel values. Two prefLabel values with duplicate `@language`\ntags are non-conformant. Consumers may reject or arbitrarily pick one.\n\n**Relationship to skos:altLabel.** Alternate labels (acronyms,\nspelling variants, obsolete names) go on `skos:altLabel`, NOT on\n`prefLabel`. A concept has exactly one preferred label per language.\n",
-          "type": "string"
-        },
-        "skos:notation": {
-          "description": "Classification code for this concept within a scheme.",
-          "type": "string"
-        },
-        "skos:definition": {
-          "description": "Formal definition of this concept. Optional for CDIF codelist concepts. A plain string.",
-          "type": "string"
-        },
-        "skos:narrower": {
-          "description": "Narrower (child) concepts. If present, each inline concept must also declare skos:broader pointing back to the parent concept. Both skos:narrower and skos:broader must be explicit in CDIF codelists.",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
-              },
-              {
-                "allOf": [
-                  {
-                    "$ref": "#/$defs/CdifCodelistConcept"
-                  },
-                  {
-                    "required": [
-                      "skos:broader"
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        "skos:broader": {
-          "description": "Broader (parent) concepts. Required on any concept that appears as a skos:narrower value of another concept. CDIF requires both directions to be explicit for hierarchy traversal.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ]
-          }
-        }
-      },
-      "required": [
-        "@id",
-        "skos:inScheme",
-        "skos:prefLabel",
-        "skos:notation"
       ]
     }
   }
