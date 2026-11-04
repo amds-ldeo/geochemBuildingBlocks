@@ -519,7 +519,6 @@ allOf:
         type: array
         items:
           type: object
-          required: ['@type']
           properties:
             "@type":
               description: >-
@@ -604,6 +603,7 @@ allOf:
               format: uri
           required:
             - "schema:description"
+            - "@type"
       "schema:spatialCoverage":
         title: Spatial Coverage
         description: Geographic extent of resource content.
