@@ -662,6 +662,42 @@ def _vocab_dedupe(slug: str) -> str:
     return slug
 
 
+_VOCAB_SCHEME_IDS = set()
+
+
+def vocab_scheme_for(prop: str, dtype: str) -> str | None:
+    """The consolidated ada:vocab scheme a property's VALUES come from, or None.
+
+    ONE resolver, here, for the same reason vocab_slug above is one: every generator that mints a
+    schema:inDefinedTermSet reference must agree with build_vocab_catalog's @id to the character,
+    and the failure mode is silent -- a reference that resolves nowhere looks like working wiring
+    and only check_vocab_references.py would notice. The callers are schema_path_emitter
+    (keyed-table columns and scalar leaves) and build_tapp's two parameter emitters, which
+    build_module_bb delegates to as well.
+
+    `prop` is the PROPERTY NAME as route() computes it (sidecar override, else camel(item)),
+    because that is the key build_vocab_catalog.collect() slugifies. `dtype` is the workbook's
+    Data Type column; only a controlled list earns a reference. Boolean rows do get a Yes/No
+    scheme minted, deliberately not annotated -- pointing a boolean at a two-term list is noise.
+
+    Resolved against the catalog ON DISK and returning None rather than guessing, so a property
+    with no scheme is left unannotated and the reference can never dangle.
+    """
+    if not dtype or "controlled" not in dtype.lower():
+        return None
+    if not _VOCAB_SCHEME_IDS:
+        vdir = Path(__file__).resolve().parent.parent / "_sources" / "registry" / "vocab"
+        for f in sorted(vdir.glob("*.json")):
+            try:
+                sid = json.loads(f.read_text(encoding="utf-8")).get("@id")
+            except Exception:
+                continue
+            if sid:
+                _VOCAB_SCHEME_IDS.add(sid)
+    sid = "ada:vocab/" + vocab_slug(prop)
+    return sid if sid in _VOCAB_SCHEME_IDS else None
+
+
 def concept_obj(scheme_id: str, notation: str, pref_label: str, definition: str | None = None,
                 slug: str | None = None, alt_labels: list[str] | None = None,
                 broader: str | None = None) -> "OrderedDict":

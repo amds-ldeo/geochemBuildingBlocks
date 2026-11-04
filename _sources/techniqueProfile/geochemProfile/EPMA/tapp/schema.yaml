@@ -152,6 +152,7 @@ allOf:
                   - None
                   - missing
                 - type: string
+                schema:inDefinedTermSet: ada:vocab/mapping-beam-mode
                 readOnly: true
               ada:mappingBeamCurrentDefault:
                 description: Probe current in nanoamperes (nA) used during X-ray mapping.
@@ -1264,6 +1265,9 @@ allOf:
               const: EDS Spectral Processing Type
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-spectral-processing-type
           required:
           - '@id'
           - '@type'
@@ -1295,6 +1299,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/halogen-correction-on-oxygen
           required:
           - '@id'
           - '@type'
@@ -1318,6 +1325,9 @@ allOf:
               const: Stage Scan vs. Beam Scan
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/stage-scan-vs-beam-scan
           required:
           - '@id'
           - '@type'
@@ -1346,6 +1356,9 @@ allOf:
               const: EDS Spectral Processing Type
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-spectral-processing-type
           required:
           - '@id'
           - '@type'
@@ -1375,6 +1388,9 @@ allOf:
               const: Stage Scan vs. Beam Scan
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/stage-scan-vs-beam-scan
           required:
           - '@id'
           - '@type'
@@ -1395,6 +1411,7 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/eds-acquisition-mode
       readOnly: true
     schema:object:
       type: array
@@ -1506,6 +1523,7 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/mass-absorption-coefficients
       readOnly: true
     ada:matrixCorrectionMethod:
       description: X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction. For X-ray mapping, applies when raw count maps are converted to quantitative concentration maps. Where the k-factors or calibration constants themselves came from — measured standards, a vendor library, or theoretical cross-sections — is a separate question answered by this technique's calibration-standard field, not here; a procedure may be both absorption-corrected and standardless.
@@ -1526,6 +1544,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/matrix-correction-method
       readOnly: true
     ada:stepSizePixelSizeDefault:
       description: Distance between adjacent measurement points in the X-ray map in micrometers, defining the spatial resolution. Report both X and Y step if they differ.
@@ -1547,6 +1566,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/wds-dead-time-correction
       readOnly: true
     ada:analyticalMode:
       type: array

@@ -72,6 +72,9 @@ allOf:
                         const: R
                       schema:defaultValue:
                         type: string
+                      schema:inDefinedTermSet:
+                        const:
+                          '@id': ada:vocab/sample-heated
                     required:
                     - '@id'
                     - '@type'
@@ -103,6 +106,9 @@ allOf:
                         const: R
                       schema:defaultValue:
                         type: string
+                      schema:inDefinedTermSet:
+                        const:
+                          '@id': ada:vocab/vacuum-exposed-sample
                     required:
                     - '@id'
                     - '@type'
@@ -166,6 +172,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/detector
       readOnly: true
     ada:beamsplitter:
       description: Beamsplitter fitted for this procedure; it sets the accessible spectral range. Record 'N/A' where the procedure uses no interferometer.
@@ -181,6 +188,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/beamsplitter
       readOnly: true
     ada:spectralRangeMinimum:
       description: Short-wavelength (or low-wavenumber) limit the procedure acquires.
@@ -354,6 +362,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/measurement-type
       readOnly: true
     ada:measurementEnvironmentDefault:
       description: Atmosphere the measurement chamber is held in.
@@ -369,6 +378,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/measurement-environment
     ada:spotSizeDefault:
       description: Diameter of the analysed area for a point measurement, or the pixel footprint for a map.
       anyOf:

@@ -124,6 +124,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/sample-mounting-method
           required:
           - '@id'
           - '@type'
@@ -147,6 +150,9 @@ allOf:
               const: X-ray Tube Anode Material
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/x-ray-tube-anode-material
           required:
           - '@id'
           - '@type'
@@ -425,6 +431,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/detector-binning
           required:
           - '@id'
           - '@type'
@@ -549,6 +558,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/ct-number-calibration
           required:
           - '@id'
           - '@type'
@@ -673,6 +685,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/output-bit-depth
           required:
           - '@id'
           - '@type'
@@ -763,6 +778,9 @@ allOf:
               const: X-ray Tube Anode Material
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/x-ray-tube-anode-material
           required:
           - '@id'
           - '@type'
@@ -915,6 +933,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/x-ray-source-configuration
       readOnly: true
     ada:detectorType:
       description: Type of X-ray detector used to record projection images.
@@ -928,6 +947,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/x-ray-detector-type
       readOnly: true
     bios:computationalTool:
       type: array
@@ -1096,6 +1116,9 @@ allOf:
                             const: R
                           schema:defaultValue:
                             type: string
+                          schema:inDefinedTermSet:
+                            const:
+                              '@id': ada:vocab/flat-field-correction
                         required:
                         - '@id'
                         - '@type'
@@ -1162,6 +1185,7 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/rotation-mode
     ada:minimumSubVolumeOverlap:
       description: Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset.
       anyOf:
@@ -1181,6 +1205,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/reconstruction-algorithm
       readOnly: true
     ada:beamHardeningCorrectionMethod:
       description: Strategy used to reduce beam hardening artifacts caused by preferential attenuation of low-energy photons in polychromatic cone-beam XCT. The specific correction parameter value is recorded separately.
@@ -1194,6 +1219,7 @@ allOf:
         - N/A
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/beam-hardening-correction-method
       readOnly: true
     ada:outputDataFormatDefault:
       description: File format of the reconstructed CT volume as output by the reconstruction software. Bit depth is recorded separately in Output Bit Depth.
@@ -1208,6 +1234,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/output-data-format
     ada:segmentationMethodDefault:
       description: Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.
       anyOf:
@@ -1223,6 +1250,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/segmentation-method
     ada:reportedPropertyTemplate:
       type: object
       properties:

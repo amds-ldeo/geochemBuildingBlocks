@@ -503,11 +503,8 @@ def _term_scheme(consts):
     return found.pop() if len(found) == 1 else None
 
 
-_VOCAB_SCHEMES = set()
-
-
 def _vocab_scheme(prop, dtype):
-    """The consolidated ada:vocab scheme a keyed-table column's VALUES come from, or None.
+    """The consolidated ada:vocab scheme a property's VALUES come from, or None.
 
     Sibling of _term_scheme above: that one resolves an instrument SELECTOR TOKEN to its scheme,
     this one resolves a PROPERTY NAME to the scheme of the values that property takes. Both
@@ -530,24 +527,16 @@ def _vocab_scheme(prop, dtype):
     have a single stable target -- and both segments of that IRI had already moved once
     (empaTAPP -> epmaTAPP, analyteEstimationMethod -> targetSpeciesEstimationMethod). One scheme
     per property is what makes the annotation worth minting.
+
+    DELEGATES to _tapp_lib.vocab_scheme_for, which is now the single home. It moved there when
+    the parameter emitters needed the same resolution: they live in build_tapp, this module
+    imports build_tapp, so a resolver here could not be reached from there without inverting the
+    import. Same reason vocab_slug itself lives in _tapp_lib.
     """
-    if not dtype or "controlled" not in dtype.lower():
-        return None
-    # Imported locally, like the _json below and build_tapp's own `import _tapp_lib as L`:
-    # build_tapp imports _tapp_lib only inside functions, and this module imports build_tapp.
+    # Imported locally, like build_tapp's own `import _tapp_lib as L`: build_tapp imports
+    # _tapp_lib only inside functions, and this module imports build_tapp.
     import _tapp_lib as _L
-    if not _VOCAB_SCHEMES:
-        import json as _json
-        import glob as _glob
-        for f in _glob.glob(os.path.join(ROOT, "_sources", "registry", "vocab", "*.json")):
-            try:
-                sid = _json.load(open(f, encoding="utf-8")).get("@id")
-            except Exception:
-                continue
-            if sid:
-                _VOCAB_SCHEMES.add(sid)
-    sid = "ada:vocab/" + _L.vocab_slug(prop)
-    return sid if sid in _VOCAB_SCHEMES else None
+    return _L.vocab_scheme_for(prop, dtype)
 
 
 # ---------- serialize IR -> JSON Schema ----------
@@ -1137,7 +1126,11 @@ def build(tapp):
                     continue
                 bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
                       "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
-                      "desc": m.get("desc", ""), "A": m.get("A", "")}
+                      "desc": m.get("desc", ""), "A": m.get("A", ""),
+                      # RAW Data Type, carried alongside the two derived forms: the parameter
+                      # emitters annotate schema:inDefinedTermSet from it, and "controlled" is
+                      # not recoverable from jtype's "string".
+                      "dt": m.get("dt", "")}
                 if parsed.segments[-1].prop == "schema:defaultValue":
                     name, body = b.param_template_def(bd, pt_seen)
                     registries["parameterTemplates"].update(body); pt_seen.add(name)
@@ -1251,6 +1244,15 @@ def build(tapp):
             if "controlled" in dl:
                 enum = b.enum_terms(m.get("ex")) or None
             leaf = leaf_for(m.get("desc"), m.get("dt"), enum)
+            # A controlled list that lands on a bare scalar -- $MethodDefinition.ada:signalCollectionMode,
+            # or an instrument component's schema:name inside its hasPart branch -- has no object to
+            # hang an instance property on, so the scheme is annotated on the SCHEMA NODE, beside the
+            # enum it documents. Bare CURIE, the form to_schema already uses for a selector token's
+            # scheme and apply_productType_enum.py for a declaration's; the {"const": {"@id": ...}}
+            # form is for the two places the annotation is an instance property (columns, parameters).
+            _lsch = _vocab_scheme(sidecar.get(item, {}).get("name") or b.camel(item), m.get("dt", ""))
+            if _lsch:
+                leaf = {**leaf, "schema:inDefinedTermSet": _lsch}
             if read_only:
                 leaf = {**leaf, "readOnly": True}
             insert(roots[parsed.root], parsed, leaf, require=require, require_array=require_array)

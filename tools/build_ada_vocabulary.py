@@ -161,14 +161,21 @@ def technique_schemes():
     Read from route(), the same source build_vocab_catalog.collect() uses, so the builder and the
     catalog cannot disagree about which technique uses which scheme or what its members are.
 
-    NOT read from the schema:inDefinedTermSet references, though those now exist. Measured
-    2026-10-28: route() yields 402 TAPP x scheme pairs across 61 techniques; the references cover
-    36 across 12, a strict 9% subset with no pair they know that route() does not. Only
-    KEYED-TABLE COLUMNS can carry a reference -- a technique's other controlled properties are
-    hard `enum`s in its tapp/ schema with no reference anywhere -- so a reference-derived relation
-    would under-report by 91%, and quietly, which is the same class of defect as the blind check
-    this replaces. The references are cross-checked against this relation instead, by
-    check_vocab_references.py.
+    NOT read from the schema:inDefinedTermSet references, even though they now reach far more of
+    the tree than they did. Re-measured 2026-11-04, after the references were extended from
+    keyed-table columns alone to parameters and scalar leaves as well: route() yields 402
+    TAPP x scheme pairs across 61 techniques and 86 schemes; the references cover 124 pairs
+    across 20 techniques and 74 schemes. Better than the 36 pairs across 12 of 2026-10-28, and
+    still a 31% subset, with no pair they know that route() does not.
+
+    The reason is no longer "only keyed-table columns can carry a reference" -- that WAS the
+    reason until 2026-11-04 and is now false. What is left is placement: a reference can only sit
+    where the sidecar gives the property a schema path, and 365 controlled-list sidecar rows have
+    none, so 12 of the 86 schemes (icp-ms-type among them, unplaced in all six LA tables) are
+    cited nowhere at all and 41 of the 61 techniques carry no reference. A reference-derived
+    relation would therefore still under-report, and quietly, which is the same class of defect as
+    the blind check this replaces. The references are cross-checked against this relation instead,
+    by check_vocab_references.py.
 
     The member filter is `_tapp_lib.is_sentinel_value`, the SAME predicate build_vocab_catalog
     applies, because a relation that disagrees with the catalog it indexes is the defect this

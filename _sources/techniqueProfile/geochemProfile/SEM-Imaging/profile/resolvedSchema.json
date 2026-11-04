@@ -15568,9 +15568,6 @@
         "allOf": [
           {
             "type": "object",
-            "required": [
-              "schema:description"
-            ],
             "properties": {
               "@type": {
                 "description": "A variable is either a measured VALUE (schema:PropertyValue) or a SPECIFICATION of one (schema:PropertyValueSpecification); exactly which it is decides how a consumer reads schema:value. One of the two must appear. Further type URIs are welcome alongside - cdi:InstanceVariable is the usual companion - so the array is open.",
@@ -15701,7 +15698,11 @@
                 "type": "string",
                 "format": "uri"
               }
-            }
+            },
+            "required": [
+              "schema:description",
+              "@type"
+            ]
           },
           {
             "anyOf": [
@@ -23107,6 +23108,7 @@
                                                               "None",
                                                               "missing"
                                                             ],
+                                                            "schema:inDefinedTermSet": "ada:vocab/se-detector-type",
                                                             "readOnly": true
                                                           },
                                                           {
@@ -23122,6 +23124,7 @@
                                                                 "None",
                                                                 "missing"
                                                               ],
+                                                              "schema:inDefinedTermSet": "ada:vocab/se-detector-type",
                                                               "readOnly": true
                                                             }
                                                           }
@@ -23166,6 +23169,7 @@
                                                               "None",
                                                               "missing"
                                                             ],
+                                                            "schema:inDefinedTermSet": "ada:vocab/bse-detector-type",
                                                             "readOnly": true
                                                           },
                                                           {
@@ -23184,6 +23188,7 @@
                                                                 "None",
                                                                 "missing"
                                                               ],
+                                                              "schema:inDefinedTermSet": "ada:vocab/bse-detector-type",
                                                               "readOnly": true
                                                             }
                                                           }
@@ -24002,6 +24007,7 @@
                                   "None",
                                   "missing"
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/cl-acquisition-mode",
                                 "readOnly": true
                               },
                               "ada:clWavelengthRange": {
@@ -24092,6 +24098,7 @@
                                                       "None",
                                                       "missing"
                                                     ],
+                                                    "schema:inDefinedTermSet": "ada:vocab/ebsd-indexing-method",
                                                     "readOnly": true
                                                   },
                                                   {
@@ -24107,6 +24114,7 @@
                                                         "None",
                                                         "missing"
                                                       ],
+                                                      "schema:inDefinedTermSet": "ada:vocab/ebsd-indexing-method",
                                                       "readOnly": true
                                                     }
                                                   }

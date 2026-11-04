@@ -13446,6 +13446,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/halogen-correction-on-oxygen"
+                          }
                         }
                       },
                       "required": [
@@ -13802,6 +13807,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/halogen-correction-on-oxygen"
+                          }
                         }
                       },
                       "required": [
@@ -15607,9 +15617,6 @@
         "allOf": [
           {
             "type": "object",
-            "required": [
-              "schema:description"
-            ],
             "properties": {
               "@type": {
                 "description": "A variable is either a measured VALUE (schema:PropertyValue) or a SPECIFICATION of one (schema:PropertyValueSpecification); exactly which it is decides how a consumer reads schema:value. One of the two must appear. Further type URIs are welcome alongside - cdi:InstanceVariable is the usual companion - so the array is open.",
@@ -15740,7 +15747,11 @@
                 "type": "string",
                 "format": "uri"
               }
-            }
+            },
+            "required": [
+              "schema:description",
+              "@type"
+            ]
           },
           {
             "anyOf": [
@@ -24312,6 +24323,7 @@
                                                 "type": "string"
                                               }
                                             ],
+                                            "schema:inDefinedTermSet": "ada:vocab/beam-mode",
                                             "readOnly": true
                                           },
                                           "ada:acceleratingVoltageDefault": {
@@ -24364,6 +24376,7 @@
                                                 "type": "string"
                                               }
                                             ],
+                                            "schema:inDefinedTermSet": "ada:vocab/mapping-beam-mode",
                                             "readOnly": true
                                           },
                                           "ada:mappingBeamCurrentDefault": {
@@ -25701,6 +25714,11 @@
                                         },
                                         "schema:value": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/stage-scan-vs-beam-scan"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -25799,6 +25817,11 @@
                                         },
                                         "schema:defaultValue": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/halogen-correction-on-oxygen"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -25835,6 +25858,11 @@
                                         },
                                         "schema:value": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/eds-spectral-processing-type"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -26029,6 +26057,11 @@
                                         },
                                         "schema:value": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/stage-scan-vs-beam-scan"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -26135,6 +26168,11 @@
                                         },
                                         "schema:defaultValue": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/halogen-correction-on-oxygen"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -26175,6 +26213,11 @@
                                         },
                                         "schema:value": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/eds-spectral-processing-type"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -27169,6 +27212,7 @@
                                   "None",
                                   "missing"
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/eds-acquisition-mode",
                                 "readOnly": true
                               },
                               "ada:reportedPropertyTemplate": {
@@ -27239,6 +27283,7 @@
                                     "type": "string"
                                   }
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/matrix-correction-method",
                                 "readOnly": true
                               },
                               "ada:massAbsorptionCoefficients": {
@@ -27256,6 +27301,7 @@
                                   "None",
                                   "missing"
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/mass-absorption-coefficients",
                                 "readOnly": true
                               },
                               "ada:wdsDeadTimeCorrection": {
@@ -27279,6 +27325,7 @@
                                     "type": "string"
                                   }
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/wds-dead-time-correction",
                                 "readOnly": true
                               },
                               "schema:actionProcess": {

@@ -307,6 +307,7 @@ allOf:
                   - None
                   - missing
                 - type: string
+                schema:inDefinedTermSet: ada:vocab/beam-mode
                 readOnly: true
               ada:acceleratingVoltageDefault:
                 description: Electron beam accelerating voltage in kilovolts.
@@ -334,6 +335,7 @@ allOf:
                   - None
                   - missing
                 - type: string
+                schema:inDefinedTermSet: ada:vocab/mapping-beam-mode
                 readOnly: true
               ada:mappingBeamCurrentDefault:
                 description: Probe current in nanoamperes (nA) used during X-ray mapping.
@@ -892,6 +894,9 @@ allOf:
               const: Stage Scan vs. Beam Scan
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/stage-scan-vs-beam-scan
           required:
           - '@id'
           - '@type'
@@ -958,6 +963,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/halogen-correction-on-oxygen
           required:
           - '@id'
           - '@type'
@@ -981,6 +989,9 @@ allOf:
               const: EDS Spectral Processing Type
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-spectral-processing-type
           required:
           - '@id'
           - '@type'
@@ -1015,6 +1026,9 @@ allOf:
               const: Stage Scan vs. Beam Scan
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/stage-scan-vs-beam-scan
           required:
           - '@id'
           - '@type'
@@ -1047,6 +1061,9 @@ allOf:
               const: EDS Spectral Processing Type
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-spectral-processing-type
           required:
           - '@id'
           - '@type'
@@ -1382,6 +1399,7 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/eds-acquisition-mode
       readOnly: true
     ada:reportedPropertyTemplate:
       type: object
@@ -1421,6 +1439,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/matrix-correction-method
       readOnly: true
     ada:massAbsorptionCoefficients:
       description: Database of mass absorption coefficients used in the matrix correction.
@@ -1436,6 +1455,7 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/mass-absorption-coefficients
       readOnly: true
     ada:wdsDeadTimeCorrection:
       description: Method used to correct for WDS proportional counter dead time at high count rates. Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion. Record the algorithm here and any instrument-specific constant alongside it — 'Default constant (manufacturer) — 3 µs, Cameca'. The instrument vendor itself is recorded by Instrument Manufacturer, not by this field's allowed values.
@@ -1452,6 +1472,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/wds-dead-time-correction
       readOnly: true
     schema:actionProcess:
       type: object

@@ -4667,7 +4667,8 @@
                     {
                       "type": "string"
                     }
-                  ]
+                  ],
+                  "schema:inDefinedTermSet": "ada:vocab/output-data-format"
                 },
                 "minItems": 1
               }
@@ -13549,6 +13550,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/sample-mounting-method"
+                          }
                         }
                       },
                       "required": [
@@ -13944,6 +13950,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/detector-binning"
+                          }
                         }
                       },
                       "required": [
@@ -13979,6 +13990,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/rotation-mode"
+                          }
                         }
                       },
                       "required": [
@@ -14154,6 +14170,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/ct-number-calibration"
+                          }
                         }
                       },
                       "required": [
@@ -14189,6 +14210,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/segmentation-method"
+                          }
                         }
                       },
                       "required": [
@@ -14329,6 +14355,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/output-bit-depth"
+                          }
                         }
                       },
                       "required": [
@@ -14473,6 +14504,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/sample-mounting-method"
+                          }
                         }
                       },
                       "required": [
@@ -14904,6 +14940,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/detector-binning"
+                          }
                         }
                       },
                       "required": [
@@ -14943,6 +14984,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/rotation-mode"
+                          }
                         }
                       },
                       "required": [
@@ -15138,6 +15184,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/ct-number-calibration"
+                          }
                         }
                       },
                       "required": [
@@ -15177,6 +15228,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/segmentation-method"
+                          }
                         }
                       },
                       "required": [
@@ -15333,6 +15389,11 @@
                         },
                         "schema:value": {
                           "type": "string"
+                        },
+                        "schema:inDefinedTermSet": {
+                          "const": {
+                            "@id": "ada:vocab/output-bit-depth"
+                          }
                         }
                       },
                       "required": [
@@ -16021,6 +16082,11 @@
                                         },
                                         "schema:value": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/flat-field-correction"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -16130,6 +16196,11 @@
                                         },
                                         "schema:value": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/flat-field-correction"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -17227,9 +17298,6 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": [
-          "schema:description"
-        ],
         "properties": {
           "@type": {
             "description": "A variable is either a measured VALUE (schema:PropertyValue) or a SPECIFICATION of one (schema:PropertyValueSpecification); exactly which it is decides how a consumer reads schema:value. One of the two must appear. Further type URIs are welcome alongside - cdi:InstanceVariable is the usual companion - so the array is open.",
@@ -17360,7 +17428,11 @@
             "type": "string",
             "format": "uri"
           }
-        }
+        },
+        "required": [
+          "schema:description",
+          "@type"
+        ]
       }
     },
     "schema:spatialCoverage": {
@@ -25275,6 +25347,11 @@
                                         },
                                         "schema:defaultValue": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/sample-mounting-method"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -25311,6 +25388,11 @@
                                         },
                                         "schema:value": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/x-ray-tube-anode-material"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -25741,6 +25823,11 @@
                                         },
                                         "schema:defaultValue": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/detector-binning"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -25917,6 +26004,11 @@
                                         },
                                         "schema:defaultValue": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/ct-number-calibration"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -26093,6 +26185,11 @@
                                         },
                                         "schema:defaultValue": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/output-bit-depth"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -26229,6 +26326,11 @@
                                         },
                                         "schema:defaultValue": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/sample-mounting-method"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -26269,6 +26371,11 @@
                                         },
                                         "schema:value": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/x-ray-tube-anode-material"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -26735,6 +26842,11 @@
                                         },
                                         "schema:defaultValue": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/detector-binning"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -26927,6 +27039,11 @@
                                         },
                                         "schema:defaultValue": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/ct-number-calibration"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -27119,6 +27236,11 @@
                                         },
                                         "schema:defaultValue": {
                                           "type": "string"
+                                        },
+                                        "schema:inDefinedTermSet": {
+                                          "const": {
+                                            "@id": "ada:vocab/output-bit-depth"
+                                          }
                                         }
                                       },
                                       "required": [
@@ -27249,6 +27371,7 @@
                                     "type": "string"
                                   }
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/x-ray-source-configuration",
                                 "readOnly": true
                               },
                               "ada:detectorType": {
@@ -27269,6 +27392,7 @@
                                     "type": "string"
                                   }
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/x-ray-detector-type",
                                 "readOnly": true
                               },
                               "bios:computationalTool": {
@@ -27547,6 +27671,11 @@
                                                         },
                                                         "schema:defaultValue": {
                                                           "type": "string"
+                                                        },
+                                                        "schema:inDefinedTermSet": {
+                                                          "const": {
+                                                            "@id": "ada:vocab/flat-field-correction"
+                                                          }
                                                         }
                                                       },
                                                       "required": [
@@ -27683,6 +27812,11 @@
                                                         },
                                                         "schema:defaultValue": {
                                                           "type": "string"
+                                                        },
+                                                        "schema:inDefinedTermSet": {
+                                                          "const": {
+                                                            "@id": "ada:vocab/flat-field-correction"
+                                                          }
                                                         }
                                                       },
                                                       "required": [
@@ -27826,7 +27960,8 @@
                                   "N/A",
                                   "None",
                                   "missing"
-                                ]
+                                ],
+                                "schema:inDefinedTermSet": "ada:vocab/rotation-mode"
                               },
                               "ada:minimumSubVolumeOverlap": {
                                 "description": "Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset.",
@@ -27859,6 +27994,7 @@
                                     "type": "string"
                                   }
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/reconstruction-algorithm",
                                 "readOnly": true
                               },
                               "ada:beamHardeningCorrectionMethod": {
@@ -27879,6 +28015,7 @@
                                     "type": "string"
                                   }
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/beam-hardening-correction-method",
                                 "readOnly": true
                               },
                               "ada:outputDataFormatDefault": {
@@ -27899,7 +28036,8 @@
                                   {
                                     "type": "string"
                                   }
-                                ]
+                                ],
+                                "schema:inDefinedTermSet": "ada:vocab/output-data-format"
                               },
                               "ada:segmentationMethodDefault": {
                                 "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
@@ -27921,7 +28059,8 @@
                                   {
                                     "type": "string"
                                   }
-                                ]
+                                ],
+                                "schema:inDefinedTermSet": "ada:vocab/segmentation-method"
                               },
                               "ada:reportedPropertyTemplate": {
                                 "type": "object",
