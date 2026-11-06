@@ -30,7 +30,14 @@ ROOT = e.ROOT
 
 # a plausible instance @type / @context for the TAPP plan (mirrors the shipped examples)
 _TAPP_TYPE = ["prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"]
+# "ex" is declared because every example this emitter writes USES it -- the root @id is
+# f"ex:{tapp}-P0" and assign_instrument_ids mints ex:instrument/<Token> -- and an undeclared
+# prefix is not a CURIE: the JSON-LD uplift drops the term instead of expanding it, so the
+# identifiers silently vanish from the RDF the SHACL shapes are run against. 537 generated
+# examples were in that state. https://example.org/ is the value the 112 examples that DO
+# declare it already use (and RFC 2606 reserves it for documentation); one prefix, one IRI.
 _CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/",
+        "ex": "https://example.org/",
         "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/", "prov": "http://www.w3.org/ns/prov#",
         "bios": "https://bioschemas.org/", "dqv": "http://www.w3.org/ns/dqv#"}
 

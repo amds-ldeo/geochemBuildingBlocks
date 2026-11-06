@@ -24,7 +24,15 @@ import schema_path_example_emitter as ex  # noqa: E402  (shared nested path inte
 # schema.org-typed marker the instrument BB requires every instrument to carry
 WIKIDATA_INSTRUMENT = "https://www.wikidata.org/wiki/Q3099911"
 
+# "ex" belongs here because these examples USE it: the root @id is ex:<tapp>-<code> and the
+# instrument ids are ex:instrument/<Token>. An undeclared prefix is not a CURIE, so the JSON-LD
+# uplift drops the term rather than expanding it and the identifiers never reach the RDF the
+# SHACL shapes see. https://example.org/ matches what the examples that already declare it use.
+# NOTE: this is the fourth copy of the prefix table in tools/ (see _tapp_lib._ADA_CONTEXT,
+# schema_path_example_emitter._CTX, build_module_bb.PREFIX_IRI) -- one fact, several homes,
+# which is how 537 examples ended up missing this one. Worth consolidating.
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/",
+       "ex": "https://example.org/",
        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/", "bios": "https://bioschemas.org/", "prov": "http://www.w3.org/ns/prov#"}
 SUP = {"⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5",
        "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9"}
@@ -1039,7 +1047,35 @@ def idify_uri_values(inst):
     return converted
 
 
-def name_unnamed_howtos(inst):
+def workflow_name(tapp):
+    """"<Technique> analytical workflow" -- the name pattern tappDefinition documents.
+
+    Derived from TAPP_CONFIGS[tapp]["title"], so it is a function of the source and not of
+    when or how the generator ran. Most titles read "SEM Technique-Aligned Procedure Profile
+    (semTAPP)", but three do not carry that phrase and two carry a parenthetical that belongs
+    to the technique rather than to the TAPP token -- hence the two branches below, checked
+    against all 61.
+    """
+    title = (bt.TAPP_CONFIGS.get(tapp) or {}).get("title") or ""
+    if "Technique-Aligned" in title:
+        tech = title.split("Technique-Aligned")[0]
+    else:
+        # The three U-Pb titles do not carry the phrase: "LA-MC-ICP-MS U-Pb Geochronology TAPP
+        # (laMcicpmsUPbTAPP)". Strip the TAPP token and the word only in THIS branch -- doing it
+        # unconditionally ate semCompositionTAPP's own "(EDS/WDS)", which is part of the technique
+        # name, not a token.
+        tech = re.sub(r"\s*\([^()]*\)\s*$", "", title)
+        tech = re.sub(r"\s+TAPP\s*$", "", tech)
+    tech = tech.strip()
+    # epmaTAPP leads with "EPMA/EPMA". Collapse only a repeated pair, so a genuine "X/Y"
+    # technique name keeps both halves.
+    halves = [x.strip() for x in tech.split("/")]
+    if len(halves) == 2 and halves[0] == halves[1]:
+        tech = halves[0]
+    return f"{tech} analytical workflow" if tech else SENTINEL_TEXT
+
+
+def name_unnamed_howtos(inst, name=None):
     """Give every schema:HowTo a schema:name, which CDIF's SHACL requires.
 
     The two creation sites above now set it, but a HowTo can also be built by
@@ -1048,16 +1084,28 @@ def name_unnamed_howtos(inst):
     {"@type": ["schema:HowTo"]}. That path cannot supply the name, because
     schema:name is not JSON-Schema-required there; only the SHACL asks for it.
 
+    `name` is the value to write -- pass workflow_name(tapp) so the example carries a real
+    workflow name rather than a sentinel. A SHACL minCount is satisfied by any string, so
+    writing "missing" into the 149 publication examples that were missing one would have
+    bought a green shape with junk content. Defaults to SENTINEL_TEXT for callers that have
+    no TAPP in hand.
+
+    Only ABSENT names are filled. A node already carrying "missing" from the fill pass keeps
+    it: that is a different defect, in a different generator, and 80 examples wide.
+
     Returns how many nodes were named. Mutates in place.
     """
     named = 0
+    # NOT `value`: walk() below binds `value` as its loop variable, which would make this
+    # assignment unreachable from inside it and raise UnboundLocalError at every call site.
+    label = name or SENTINEL_TEXT
 
     def walk(node):
         nonlocal named
         if isinstance(node, dict):
             types = node.get("@type")
             if isinstance(types, list) and "schema:HowTo" in types and "schema:name" not in node:
-                node["schema:name"] = SENTINEL_TEXT
+                node["schema:name"] = label
                 named += 1
             for value in node.values():
                 walk(value)
@@ -1532,7 +1580,10 @@ def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_t
     schema:PropertyValue entries (detail_addl). Pairs with the TAPP example by @id."""
     canon_sp = canon_sp or {}
     ct = component_types[0] if component_types else "ada:Tabular"
-    inst = {"@context": {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"},
+    # CTX, not a fresh literal: this was a fifth inline copy of the prefix table and the reason
+    # 222 detail examples still had no "ex" declaration after the other four were fixed. The extra
+    # prefixes CTX carries are inert in JSON-LD, and using it removes a copy instead of adding one.
+    inst = {"@context": CTX,
             "@id": f"ex:{detail_name}-{code}", "@type": [ct], "ada:componentType": ct,
             "schema:measurementTechnique": [{"@id": f"ex:{tapp}-{code}"}]}
     seen = set()
@@ -1801,6 +1852,11 @@ def main():
         # IRI-shaped schema:additionalType and would hide the type token the id derives from.
         ex.assign_instrument_ids(inst)
         idify_uri_values(inst)
+        # After the fills, for the reason name_unnamed_howtos documents: the HowTo that needs a
+        # name is often one fill_nested_required just created. build_pathdriven does this for the
+        # -P0 pair; the publication examples are written here and were getting no such pass, which
+        # left 149 of them with a schema:HowTo carrying no schema:name at all.
+        name_unnamed_howtos(inst, workflow_name(tapp))
         fp = os.path.join(TAPP_DIR, f"example{tapp}-{code}.json")
         with open(fp, "w", encoding="utf-8", newline="\n") as f:
             json.dump(inst, f, indent=2, ensure_ascii=False)
@@ -1823,6 +1879,7 @@ def main():
             ex.fill_required_types(dinst, detail_res)
         ex.assign_instrument_ids(dinst)
         idify_uri_values(dinst)
+        name_unnamed_howtos(dinst, workflow_name(tapp))
         with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),
                   "w", encoding="utf-8", newline="\n") as f:
             json.dump(dinst, f, indent=2, ensure_ascii=False)

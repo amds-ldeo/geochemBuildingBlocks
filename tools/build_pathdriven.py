@@ -423,8 +423,9 @@ def build_pathdriven(tapp, write_registries=True):
     bte.idify_uri_values(tapp_inst)
     bte.idify_uri_values(detail_inst)
 
-    h1 = bte.name_unnamed_howtos(tapp_inst)
-    h2 = bte.name_unnamed_howtos(detail_inst)
+    _wf = bte.workflow_name(tapp)
+    h1 = bte.name_unnamed_howtos(tapp_inst, _wf)
+    h2 = bte.name_unnamed_howtos(detail_inst, _wf)
     if h1 or h2:
         print(f"  named {h1 + h2} unnamed schema:HowTo node(s)")
 

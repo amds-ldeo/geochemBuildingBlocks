@@ -553,6 +553,9 @@ def write_json(path: Path, data: dict):
 _ADA_CONTEXT = OrderedDict([
     ("schema", "http://schema.org/"),
     ("ada", "https://ada.astromat.org/metadata/"),
+    # Declared for the same reason as in build_tapp_examples.CTX: the examples carry ex: @ids,
+    # and an undeclared prefix is dropped by the JSON-LD uplift instead of being expanded.
+    ("ex", "https://example.org/"),
 ])
 
 
