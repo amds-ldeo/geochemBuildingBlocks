@@ -1090,8 +1090,14 @@ def name_unnamed_howtos(inst, name=None):
     bought a green shape with junk content. Defaults to SENTINEL_TEXT for callers that have
     no TAPP in hand.
 
-    Only ABSENT names are filled. A node already carrying "missing" from the fill pass keeps
-    it: that is a different defect, in a different generator, and 80 examples wide.
+    A SENTINEL name counts as absent. The two creation sites above set SENTINEL_TEXT
+    ("missing") when they build the HowTo, which runs BEFORE this pass, so a skip-if-named
+    test left 70 plan-root HowTos named "missing" -- satisfying the shape with junk, next to
+    the real names their siblings carry. Overwriting is safe for exactly the reason those
+    sites already record: nothing keys a discriminator on a HowTo's own name (0 of 3268
+    schema:name discriminators, against 131 that key on a STEP name, where a change would
+    mint a second step). Tested with is_text_sentinel, which matches the bare word and the
+    named "no value available: ..." form but not an authored name.
 
     Returns how many nodes were named. Mutates in place.
     """
@@ -1104,7 +1110,9 @@ def name_unnamed_howtos(inst, name=None):
         nonlocal named
         if isinstance(node, dict):
             types = node.get("@type")
-            if isinstance(types, list) and "schema:HowTo" in types and "schema:name" not in node:
+            if isinstance(types, list) and "schema:HowTo" in types and (
+                    "schema:name" not in node
+                    or _sent.is_text_sentinel(node.get("schema:name"))):
                 node["schema:name"] = label
                 named += 1
             for value in node.values():
