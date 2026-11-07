@@ -764,8 +764,15 @@ NEVER_SENTINEL = {"@type", "@id", "@context"}
 # which properties the generic sentinel must not be allowed to answer.
 ORDINAL_FROM_PATH = {"schema:position"}
 
+# ada:defaultStandards was missing and belongs: all five are array-of-object with no minItems,
+# the shape for which fabricating a member asserts that one EXISTS and then names it "missing".
+# It is declared in 173 resolved schemas and instantiated in 0 examples today, so adding it
+# changes nothing now and stops the set being accidentally four-of-five when a technique starts
+# requiring it. (sentinel_for reaches the same answer from the schema; this list is for the fill
+# sites where the subschema is not locally inspectable.)
 EMPTY_ARRAY_SENTINEL = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
-                        "ada:defaultReportedProperties", "ada:defaultTargetMaterials"}
+                        "ada:defaultReportedProperties", "ada:defaultTargetMaterials",
+                        "ada:defaultStandards"}
 
 
 # A text sentinel that NAMES the field it stands in for. "missing" alone says a value was not
@@ -1592,7 +1599,17 @@ def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_t
     # 222 detail examples still had no "ex" declaration after the other four were fixed. The extra
     # prefixes CTX carries are inert in JSON-LD, and using it removes a copy instead of adding one.
     inst = {"@context": CTX,
-            "@id": f"ex:{detail_name}-{code}", "@type": [ct], "ada:componentType": ct,
+            # QUALIFIED BY TAPP. detail_name is os.path.basename(DETAIL_DIR), which is literally
+            # "detail" for every technique, so this minted ex:detail-P0 in all 34 of them -- one
+            # @id for 34 different records. In RDF the @id IS the identity, so merging those
+            # graphs collapsed 34 techniques' detail records into a single node with their
+            # properties union'd: the same "two files, one @id, is a fork" defect CLAUDE.md
+            # records for the vocabularies, here in the examples. 143 files across 42 colliding
+            # ids, worst ex:detail-P0 at 34. Mirrors the paired TAPP example's ex:{tapp}-{code},
+            # which this record already references in schema:measurementTechnique. The FILENAME is
+            # left alone -- it only has to be unique within its directory, and renaming 222
+            # committed files would buy nothing.
+            "@id": f"ex:{tapp}-{detail_name}-{code}", "@type": [ct], "ada:componentType": ct,
             "schema:measurementTechnique": [{"@id": f"ex:{tapp}-{code}"}]}
     seen = set()
     for b in R["detail_req"]:
