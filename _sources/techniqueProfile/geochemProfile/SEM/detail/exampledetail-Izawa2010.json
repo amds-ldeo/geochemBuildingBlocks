@@ -9,14 +9,195 @@
   },
   "@id": "ex:semTAPP-detail-Izawa2010",
   "@type": [
-    "ada:SEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:semTAPP-Izawa2010",
-      "schema:identifier": "no value available: schema:identifier"
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/semTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "15–20 kV"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:semTAPP-detail-Izawa2010/instrument/SEM"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "Gatan DigitalMicrograph (CL image assembly)",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "Gatan DigitalMicrograph",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semTAPP/chamberPressure",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semTAPP/chamberPressure"
+            }
+          ],
+          "schema:name": "Chamber Pressure",
+          "schema:value": "High vacuum",
+          "schema:unitText": "no value available: unnamed property"
+        },
+        {
+          "@id": "ada:parameter/semTAPP/clIntegrationTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semTAPP/clIntegrationTime"
+            }
+          ],
+          "schema:name": "CL Integration Time",
+          "schema:value": 80,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)"
+        },
+        {
+          "@id": "ada:parameter/semTAPP/workingDistance",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semTAPP/workingDistance"
+            }
+          ],
+          "schema:name": "Working Distance",
+          "schema:value": 10,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "~10 mm"
+        }
+      ],
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "Micro X-ray diffraction reconnaissance — the paper's first stage is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) to document meteorite mineralogy and textures and to identify features of interest\", valuable as \"a 'no-touch' first-pass reconnaissance, which may identify areas for further study\"; it then gives \"point-by-point correlation of crystal structure data with other microscopic and microanalytical data\" (p.2)"
+            }
+          ],
+          "schema:name": "no value available: schema:name"
+        }
+      ],
+      "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Zircon and Accessory Phase Laboratory, University of Western Ontario"
+      },
+      "schema:description": "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          },
+          {
+            "schema:name": "Ion milling",
+            "schema:position": 3,
+            "schema:description": "no value available: schema:description",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:edsDeadTime": -9999
     }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "CL Mapping"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -30,7 +211,6 @@
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
-  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",

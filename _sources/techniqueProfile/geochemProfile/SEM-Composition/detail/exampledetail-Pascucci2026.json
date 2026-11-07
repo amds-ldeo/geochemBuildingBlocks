@@ -9,14 +9,199 @@
   },
   "@id": "ex:semCompositionTAPP-detail-Pascucci2026",
   "@type": [
-    "ada:SEMEDSSpectrum"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:semCompositionTAPP-Pascucci2026",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "VIS-IR imaging spectroscopy, acquired before the section was prepared — the fragment was embedded and polished \"after the SPectral IMager (SPIM) reflectance spectroscopy imagery acquisition\" and only then carbon coated \"for further SEM-EDS and EMPA-WDS analyses\" (p.3). The SEM work is then registered to those images: \"To cover approximately the same area of the SPIM images (9.7 mm large), 10 BSE images, with four consecutive images in the same row, were acquired and mosaicked\" (p.3)"
+            }
+          ],
+          "schema:name": "NWA 7317"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/semCompositionTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semCompositionTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 20,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "20 kV"
+                },
+                {
+                  "@id": "ada:parameter/semCompositionTAPP/beamDiameter",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semCompositionTAPP/beamDiameter"
+                    }
+                  ],
+                  "schema:name": "Beam Diameter",
+                  "schema:value": 30,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "N — a 30 μm aperture is stated (p.3), not a beam diameter"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:semCompositionTAPP-detail-Pascucci2026/instrument/SEM"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "Oxford INCA Energy",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semCompositionTAPP/beamDamageMinimization",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/beamDamageMinimization"
+            }
+          ],
+          "schema:name": "Beam Damage Minimization",
+          "schema:value": "all: SEM-EDS run only after the SPIM reflectance measurements — 'This was done only after the SPIM reflectance acquisitions to try to avoid charging effects and by also reducing thermal damage' (p.3)"
+        },
+        {
+          "@id": "ada:parameter/semCompositionTAPP/chamberPressure",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/chamberPressure"
+            }
+          ],
+          "schema:name": "Chamber Pressure",
+          "schema:value": "High vacuum",
+          "schema:unitText": "no value available: unnamed property"
+        },
+        {
+          "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel"
+            }
+          ],
+          "schema:name": "EDS Live Time per Point or Pixel",
+          "schema:value": 30,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "30 s live time per spot analysis"
+        }
+      ],
+      "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy"
+      },
+      "schema:description": "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy)",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "schema:additionalProperty": [],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:deadTime": -9999
     }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS Point Analysis"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -28,7 +213,6 @@
   "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",

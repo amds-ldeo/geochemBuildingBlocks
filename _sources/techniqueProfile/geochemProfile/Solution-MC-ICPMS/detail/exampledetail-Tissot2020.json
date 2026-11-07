@@ -9,15 +9,256 @@
   },
   "@id": "ex:solutionMcicpmsTAPP-detail-Tissot2020",
   "@type": [
-    "ada:SolutionICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SolutionICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:solutionMcicpmsTAPP-Tissot2020",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample digestion",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
+                  }
+                ],
+                "schema:name": "Digestion Temperature",
+                "schema:value": 900,
+                "schema:unitText": "no value available: unnamed property",
+                "schema:description": "chemical abrasion: 900 °C (annealing), then 215 °C; U-Pb dissolution: 215 °C; Zr-only dissolution: 60 °C, then 215 °C; spike equilibration: 140 °C"
+              },
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration"
+                  }
+                ],
+                "schema:name": "Digestion Duration",
+                "schema:value": "chemical abrasion: 60 h, then 12 h; U-Pb dissolution: 48 h; Zr-only dissolution: 2 h, then 60 h; spike equilibration: overnight"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/Core/constantsReferenceValues",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                  }
+                ],
+                "schema:name": "Constants Reference Values",
+                "schema:value": "N — the constants stated (²³⁸U/²³⁵U = 137.818, ¹⁸O/¹⁶O = 0.00205, α = 0.18%/amu) belong to the coupled ID-TIMS U-Pb work"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 3
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
+                }
+              ],
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 50,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "Single crystals; ~50 µl (5% of sample) taken for concentration measurement"
+            }
+          ],
+          "schema:name": "FC-1 zircon and baddeleyite crystals; ZrNIST reference solution",
+          "schema:description": "no value available: schema:description"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
+                  "schema:value": "On-peak-zero acid blank before each sample \"to account for blank contribution as well as any 'memory' effects from the Aridus II sample introduction system during the run\""
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:solutionMcicpmsTAPP-detail-Tissot2020/instrument/ICPMS"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:proceduralBlankLevel": "N — the blank comparison stated concerns non-radiogenic Pb in the U-Pb work",
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+            }
+          ],
+          "schema:name": "Number of Cycles per Block",
+          "schema:value": 50,
+          "schema:description": "all: 50 cycles"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+            }
+          ],
+          "schema:name": "Integration Time per Cycle",
+          "schema:value": 5,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "all: 5 s"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+            }
+          ],
+          "schema:name": "Double Spike Mixing Ratio",
+          "schema:value": "0.43:0.57 spike-to-sample Zr mass ratio, described as optimal"
+        }
+      ],
+      "ada:deltaOrEpsilonValueReferenceStandard": "Zr: ZrNIST — a NIST gravimetric Zr solution being calibrated as an isotopic reference material",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Massachusetts Institute of Technology"
+      },
+      "schema:description": "Mo doping test: Offset δ94/90ZrNIST = −63.4 · x, x the Mo/Zr atomic ratio — used to show the residual Mo is negligible",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
   ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "ZrNIST [all: 2σ external reproducibility of the spiked ZrNIST measurements in each run]"
+    },
+    {
+      "dqv:isMeasurementOf": "Peak Flatness",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions",
+        "schema:description": "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:sensitivityYield": "N — 'around 572 V/ppm of total Zr'",
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
@@ -28,40 +269,9 @@
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
-  "ada:deltaOrEpsilonValueReferenceStandard": "Zr: ZrNIST — a NIST gravimetric Zr solution being calibrated as an isotopic reference material",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "N — the blank comparison stated concerns non-radiogenic Pb in the U-Pb work",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "ZrNIST [all: 2σ external reproducibility of the spiked ZrNIST measurements in each run]",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:detectionLimit": -9999,
-  "ada:limitOfQuantificationMethod": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock"
-        }
-      ],
-      "schema:name": "Number of Cycles per Block",
-      "schema:value": "all: 50 cycles"
-    },
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio"
-        }
-      ],
-      "schema:name": "Double-Spike Mixing Ratio",
-      "schema:value": "0.43:0.57 spike-to-sample Zr mass ratio, described as optimal"
-    }
-  ]
+  "ada:limitOfQuantificationMethod": "missing"
 }

@@ -9,14 +9,310 @@
   },
   "@id": "ex:laQicpmsUPbTAPP-detail-Nakanishi2022",
   "@type": [
-    "ada:LAICPMSGeochronTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:LAICPMSGeochronTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:laQicpmsUPbTAPP-Nakanishi2022",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+            }
+          ],
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "schema:value": "Secondary-electron imaging on the EPMA, used to place every spot — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the spots carry numbers (\"spot No.\" 201, 202 …) that tie the analyses back to those images (table p.6)"
+        },
+        {
+          "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize"
+            }
+          ],
+          "schema:name": "Transect Rate Mapping Rate or Step Size",
+          "schema:value": "N/A — spot mode"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
+            }
+          ],
+          "schema:name": "Make-up Gas and Flow Rate",
+          "schema:value": 0.9,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "Ar, 0.9–1.2 L/min — Table 1, 'Make-up gas'"
+        },
+        {
+          "@id": "ada:parameter/laQicpmsUPbTAPP/monitoredMasses",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laQicpmsUPbTAPP/monitoredMasses"
+            }
+          ],
+          "schema:name": "Monitored Masses",
+          "schema:value": "⁵⁹Co → Co; ¹⁰¹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ⁶¹Ni, ²⁴Mg, ²⁹Si, ³¹P, ³³S → none — Table 1 'Measured isotopes' and 'Monitored isotopes'; ⁶¹Ni 'was monitored for internal standardization', and Mg, Si, P and S 'to check the involvement of micro-inclusions' (p.3)"
+        },
+        {
+          "@id": "ada:parameter/laQicpmsUPbTAPP/numberOfReplicates",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laQicpmsUPbTAPP/numberOfReplicates"
+            }
+          ],
+          "schema:name": "Number of Replicates",
+          "schema:value": 1,
+          "schema:description": "1–3 spots per metal grain — 'the mean Re/Os abundance ratios for each of the 1–3 analytical spots' (Table 3)"
+        },
+        {
+          "@id": "ada:parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities"
+            }
+          ],
+          "schema:name": "Error Correlation Between Reported Quantities",
+          "schema:value": "N — the procedure reports no date"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Coolant Plasma Gas Flow Rate",
+                      "schema:value": 16,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "Ar, plasma gas 16 L/min; cool gas 12–13 L/min — Table 1 lists both rows under 'Ar gas flow rate'"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Auxiliary Gas Flow Rate",
+                      "schema:value": 0.6,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "Ar, 0.6–1.2 L/min — Table 1, 'Auxiliary'"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": 1400,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "1400 W"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:laQicpmsUPbTAPP-detail-Nakanishi2022/instrument/ICPMS/part/ICP-Source"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "Collision Reaction Cell",
+                  "@id": "ex:laQicpmsUPbTAPP-detail-Nakanishi2022/instrument/ICPMS/part/Collision-Reaction-Cell"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:laQicpmsUPbTAPP-detail-Nakanishi2022/instrument/ICPMS"
+            },
+            {
+              "schema:additionalType": [
+                "Laser Ablation System",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "ada:laserSpotGeometry": "all: 30 µm diameter — 'Each spot analysis on the sample produced a pit of 30 µm in diameter' (p.3)",
+              "ada:laserFluence": "12 J cm⁻²",
+              "ada:laserRepetitionRate": "all: 20 Hz",
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:laQicpmsUPbTAPP-detail-Nakanishi2022/instrument/Laser-Ablation-System"
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "Tawallah Valley (IVB iron meteorite) — 'used as ... a secondary standard' (p.3), its HSE abundances from Walker et al. (2008)",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/ICPMS/filteringApproach",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/ICPMS/filteringApproach"
+                  }
+                ],
+                "schema:name": "Filtering Approach",
+                "schema:value": "N — ²⁴Mg, ²⁹Si, ³¹P and ³³S 'were simultaneously monitored to check the involvement of micro-inclusions' (p.3); what was done with an affected analysis is not stated"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Thick sections embedded in petropoxy 154 resin, the surface finalised by polishing with 0.5 µm diamond paste; carbon-coated before the EPMA measurements (§2.1–2.2). Whether the coat was removed before ablation is not stated; the later 0.5 µm polish (§2.5) preceded micromilling, not ablation",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          }
+        ]
+      },
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan"
+      },
+      "ada:rasterLineSpacing": "N/A — spot mode",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "N — the 2SE is stated for individual measurements (p.4), not for a standard"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "JSPS Grant-in-Aid for Scientific Research (grants 26106002, 26220713, 16H04081, 19H00715, 19H01081, 20H04609)"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EPMA (electron probe microanalysis)",
+        "schema:description": "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]"
+      }
+    }
+  ],
+  "ada:reportedDateType": [
+    "N — the procedure reports no date"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -28,7 +324,6 @@
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
-  "ada:numberOfReplicates": 1,
   "ada:transectLength": -9999,
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": -9999,
@@ -36,36 +331,7 @@
   "ada:ageDatumReferenceEpoch": "N — the procedure reports no date",
   "ada:detectionLimit": "N — LODs not formally stated",
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "N — the 2SE is stated for individual measurements (p.4), not for a standard",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/preAnalysisImagingAndScreening",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/preAnalysisImagingAndScreening"
-        }
-      ],
-      "schema:name": "Pre-Analysis Imaging and Screening",
-      "schema:value": "Secondary-electron imaging on the EPMA, used to place every spot — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the spots carry numbers (\"spot No.\" 201, 202 …) that tie the analyses back to those images (table p.6)"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/transectRateMappingRateOrStepSize",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/transectRateMappingRateOrStepSize"
-        }
-      ],
-      "schema:name": "Transect Rate, Mapping Rate or Step Size",
-      "schema:value": "N/A — spot mode"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }

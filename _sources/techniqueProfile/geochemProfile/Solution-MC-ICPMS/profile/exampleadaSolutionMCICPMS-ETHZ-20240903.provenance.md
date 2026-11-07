@@ -111,3 +111,17 @@ the values were re-minted in place with the generators' own scheme
 same strings.
 
 The document scope is `9q7s-5533`, this record's own `@id`.
+
+## 2026-11-07 — three analytical-quality measures added as SENT
+
+`Within-Session Analytical Precision`, `Between-Session (Long-Term) Analytical Precision` and
+`Analytical Accuracy` moved from the Solution MC-ICP-MS procedure template to
+`$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='...'].dqv:value`: each is the session's own
+result, not the method's expected performance. All three are Analysis-Level Basic, so requiredness
+follows the path and the profile now pins each with `contains`. Nothing was unpinned — the
+dataset-root `dqv` node pinned no measure before this change.
+
+All three carry `missing`. That is **not** an assertion that the session's sources omit them — it
+records that they were NOT TRANSCRIBED in this pass. The 117 `.exp` Analysis Data Reports and the
+session methodDescription are the places to look; whoever can open them should replace these three
+sentinels with the real values.

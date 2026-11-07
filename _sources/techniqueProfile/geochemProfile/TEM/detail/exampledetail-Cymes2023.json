@@ -9,13 +9,215 @@
   },
   "@id": "ex:temTAPP-detail-Cymes2023",
   "@type": [
-    "ada:TEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:TEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:temTAPP-Cymes2023",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/temTAPP/samplePreparationDetails",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/temTAPP/samplePreparationDetails"
+                  }
+                ],
+                "schema:name": "Sample Preparation Details",
+                "schema:value": "FEI Helios G3 Dual Beam FIB-SEM at NRL; ~80 nm amorphous C coating applied to grain before FIB; 1–2 µm e-beam amorphous C protection strip; initial in situ thinning to ~1–2 µm, then Pt-welded to Cu TEM half-grid; thinned to ~80–100 nm; stored under N₂; baked 140°C for 8 h under vacuum before TEM"
+              }
+            ],
+            "schema:description": "FIB lift-out (Ga+)",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/temTAPP/imageProcessingMethodsApplied"
+                  }
+                ],
+                "schema:name": "Image Processing Methods Applied",
+                "schema:value": "Inverse FFT with spot-pass filter for HRTEM images"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "FIB-SEM imaging of the dispersed soil grains — \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)"
+            }
+          ],
+          "schema:name": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)"
+        }
+      ],
+      "prov:used": [
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "SingleCrystal (CrystalMaker Software, Ltd., Oxford, UK)",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "TEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/temTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/temTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 200,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "200 keV"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:temTAPP-detail-Cymes2023/instrument/TEM"
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/temTAPP/analyticalSubMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/analyticalSubMode"
+            }
+          ],
+          "schema:name": "Analytical Sub-mode",
+          "schema:value": "BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/eftemEnergyWindow",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/eftemEnergyWindow"
+            }
+          ],
+          "schema:name": "EFTEM Energy Window",
+          "schema:value": "10 eV (Ca M-edge EFTEM centered at 35 eV energy loss)"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/selectedAreaApertureSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/selectedAreaApertureSize"
+            }
+          ],
+          "schema:name": "Selected-Area Aperture Size",
+          "schema:value": "100 nm (SAED aperture)"
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Naval Research Laboratory, Washington, D.C., USA"
+      },
+      "schema:description": "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2₁/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N₂ and baked 140°C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning.",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:deadTime": -9999
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "B.A. Cymes; K.D. Burgess; R.M. Stroud"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB (FEI Helios G3 Dual Beam at NRL); HAADF-STEM + Dual EELS + EDS (Nion UltraSTEM200-X at NRL; coordinated with JEOL JEM-2200FS)",
+        "schema:description": "Petrographic and crystallographic characterization of exsolved lunar pyroxene (Apollo 17 soil); phase ID by SAED + simulation; Ca distribution by EFTEM; HRTEM lattice imaging; coordinated with EELS on Nion UltraSTEM200-X"
+      }
     }
   ],
   "ada:sessionIdentifier": "missing",

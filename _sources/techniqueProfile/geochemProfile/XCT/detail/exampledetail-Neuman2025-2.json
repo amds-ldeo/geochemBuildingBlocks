@@ -9,23 +9,225 @@
   },
   "@id": "ex:labxctTAPP-detail-Neuman2025-2",
   "@type": [
-    "ada:XCTVolume"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XCTVolume",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:labxctTAPP-Neuman2025-2",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/sampleDimensions",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/sampleDimensions"
+                }
+              ],
+              "schema:name": "Sample Dimensions (L × W × H)",
+              "schema:value": "~35 cm length core"
+            }
+          ],
+          "schema:name": "Apollo 17 core 73001"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleMountingMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/sampleMountingMethod"
+            }
+          ],
+          "schema:name": "Sample Mounting Method",
+          "schema:value": "Custom PVC tube; core left in its stainless-steel outer sleeve — \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning. The core was positioned for scanning in a custom PVC tube mount\" (Neuman et al. 2025, pp.4–5)"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/rotationMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/rotationMode"
+            }
+          ],
+          "schema:name": "Rotation Mode",
+          "schema:value": "Non-continuous rotation (to avoid rotational mismatch of continuous mode)"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethod"
+            }
+          ],
+          "schema:name": "Ring Artifact Correction Method",
+          "schema:value": "Post-reconstruction ring corrections applied"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "XCT",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 190,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "190 kV"
+                },
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                    }
+                  ],
+                  "schema:name": "X-ray Pre-filter",
+                  "schema:value": "None (steel sleeve acts as effective filter)"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:labxctTAPP-detail-Neuman2025-2/instrument/XCT"
+            }
+          ]
+        }
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
+                  }
+                ],
+                "schema:name": "Sub-volume Stitching and Registration Method",
+                "schema:value": "Digital stitching; manual realignment of raw projection images for rotational misalignment (up to 0.35°); additional cone-beam, BH, and scattering corrections applied"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          }
+        ]
+      },
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "UTCT Facility, U. Texas"
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Beam Hardening Artifact Assessment",
+      "dqv:value": "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied"
+    },
+    {
+      "dqv:isMeasurementOf": "Ring Artifact Severity and Correction Outcome",
+      "dqv:value": "Post-reconstruction ring corrections applied; severity not documented"
+    },
+    {
+      "dqv:isMeasurementOf": "Metal Streak Artifact Assessment",
+      "dqv:value": "Steel outer sleeve caused secondary BH and scattering artifact resulting in uneven brightness; corrected with asymmetric + symmetric corrections"
+    }
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfSubVolumes",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/numberOfSubVolumes"
+        }
+      ],
+      "schema:name": "Number of Sub-volumes",
+      "schema:value": 9,
+      "schema:description": "9 volumes"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/voiApplied",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/voiApplied"
+        }
+      ],
+      "schema:name": "VOI Applied",
+      "schema:value": "Full core length per sub-volume"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Multi-volume stitching"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73001",
-  "ada:samplingUnitName": "Sample name only — core 73001, \"A series of nine scan volumes was acquired along the length of the core\" (p.5); the volumes are counted, not labelled",
-  "ada:numberOfSubVolumes": 9,
-  "ada:voiApplied": "Full core length per sub-volume"
+  "ada:samplingUnitName": "Sample name only — core 73001, \"A series of nine scan volumes was acquired along the length of the core\" (p.5); the volumes are counted, not labelled"
 }

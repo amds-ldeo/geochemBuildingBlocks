@@ -1061,8 +1061,29 @@ def build_example(tapp, values=None, emit_reported_property=False):
                 trunc = spp.ParsedPath(parsed.root, parsed.segments[:-1])
                 e.insert(roots[parsed.root], trunc, element=e.Leaf(elem))
                 continue
-            e.insert(roots[parsed.root], parsed,
-                     strip_annotation(values[item], m) if pub else placeholder(m, item, sidecar))
+            if not pub:
+                e.insert(roots[parsed.root], parsed, placeholder(m, item, sidecar))
+                continue
+            val = strip_annotation(values[item], m)
+            # The same ruling placeholder() records above, now for a TRANSCRIBED value. A
+            # QuantitativeValue Data Type wants an OBJECT, and this branch was inserting the bare
+            # cell: STEM's Image Width / Image Height are "Integer (QuantitativeValue)" and their
+            # publication examples wrote schema:width: "2048" against a schema requiring
+            # {@type: [schema:QuantitativeValue], schema:value, schema:unitText}, failing their own
+            # generated schema. That is the THIRD reader of this one cell to disagree with the
+            # other two -- schema emitter, placeholder, values path -- so it uses the same
+            # e.is_quantitative token test and the same unit-read-off-the-schema shape rather than
+            # restating either.
+            #
+            # Only when a number was actually extracted: schema:value is typed integer/number, so
+            # wrapping non-numeric prose would trade a clear shape failure for a subtler type one.
+            if e.is_quantitative(m.get("dt")):
+                num, _desc = numify(val, b.jtype(m.get("dt", "")))
+                if isinstance(num, (int, float)) and not isinstance(num, bool):
+                    qv = quantitative_placeholder(m.get("dt"))
+                    qv["schema:value"] = num
+                    val = qv
+            e.insert(roots[parsed.root], parsed, val)
     out = {r: e.to_instance(o) for r, o in roots.items()}
     for v in out.values():
         normalize_instrument_tree(v)

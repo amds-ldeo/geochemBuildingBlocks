@@ -9,13 +9,95 @@
   },
   "@id": "ex:temTAPP-detail-Xing2023",
   "@type": [
-    "ada:TEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:TEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:temTAPP-Xing2023",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "N — review article; it reports no original analyses"
+            }
+          ],
+          "schema:name": "no value available: schema:name"
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/temTAPP/edsCalibrationStandard",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/edsCalibrationStandard"
+            }
+          ],
+          "schema:name": "EDS Calibration Standard(s)",
+          "schema:value": "Standard sample with similar thickness and chemical composition recommended for quantitative EDS; enables ~0.1% compositional error"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/edsDetectionLimit",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/edsDetectionLimit"
+            }
+          ],
+          "schema:name": "EDS Detection Limit",
+          "schema:value": 1000,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "all: ~1000 ppm (~0.1 wt%) — for major elements; a general statement in a review, not a measured value"
+        }
+      ],
+      "schema:description": "Review paper — no original analytical data. Key points: (1) FIB is dominant sample prep method in NEPS; plasma cleaning recommended to reduce contamination. (2) Aberration-corrected HAADF-STEM enables atomic-resolution phase ID. (3) Cryo-TEM holder recommended for beam-sensitive samples (clay minerals, Fe-Mn oxyhydroxides). (4) EDS detection limit ~1000 ppm; EELS preferred for trace elements and valence state analysis. DOI: 10.1021/acsearthspacechem.2c00278",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Review covers: FIB (described as most important method in NEPS); ultramicrotomy; Ar ion milling; powder dispersion on carbon-film grid",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:deadTime": -9999
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -25,7 +107,6 @@
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N — review article; it reports no original analyses",
-  "ada:edsDetectionLimit": "all: ~1000 ppm (~0.1 wt%) — for major elements; a general statement in a review, not a measured value",
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": "all: ~10 ppm — STEM-EELS, for transition metals and lanthanides in powdered glass with high beam stability; a general statement in a review"
 }

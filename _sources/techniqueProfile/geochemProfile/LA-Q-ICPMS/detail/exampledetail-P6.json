@@ -9,15 +9,311 @@
   },
   "@id": "ex:laQicpmsTAPP-detail-P6",
   "@type": [
-    "ada:LAICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:LAICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:laQicpmsTAPP-P6",
-      "schema:identifier": "no value available: schema:identifier"
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                    }
+                  ],
+                  "schema:name": "Mass Resolution Setting",
+                  "schema:value": "~300"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                    }
+                  ],
+                  "schema:name": "ICP Tuning",
+                  "schema:value": "Two-stage: first optimised in solution single-quadrupole and no-gas modes to tune for a robust plasma (U/Th = 1.00-1.05) and minimise oxides (ThO/Th < 0.5%); then switched to TQ and NH3 mode, with lenses tuned to maximise sensitivity for Hf reaction products while keeping Lu and Yb reaction rates low"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Coolant Plasma Gas Flow Rate",
+                      "schema:value": 15.0,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "15.00 L min-1 Ar"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Auxiliary Gas Flow Rate",
+                      "schema:value": 0.8,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "0.80 L min-1 Ar"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": 1350,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "1350 W"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:laQicpmsTAPP-detail-P6/instrument/ICPMS/part/ICP-Source"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/CollisionCell/cellExitDiscriminationVoltage",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/CollisionCell/cellExitDiscriminationVoltage"
+                        }
+                      ],
+                      "schema:name": "Cell Exit Discrimination Voltage",
+                      "schema:value": -40.0,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "CR exit lens -40.00 V (cell bias -4.200 V, CR amplitude 189.3 V, CR entry lens -144.0 V also tabulated)"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:laQicpmsTAPP-detail-P6/instrument/ICPMS/part/Collision-Reaction-Cell"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:laQicpmsTAPP-detail-P6/instrument/ICPMS"
+            },
+            {
+              "schema:additionalType": [
+                "Laser Ablation System",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "ada:laserSpotGeometry": "all: 50, 90, 150 µm — Table 1 'Spot size'; chosen according to Lu and Hf contents",
+              "ada:laserFluence": "4 J cm-2",
+              "ada:laserRepetitionRate": "all: 10 Hz — Table 1",
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:laQicpmsTAPP-detail-P6/instrument/Laser-Ablation-System"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "ARM-1; MG-1, BS-1, XENOA, M1567; Otter Lake, NW-1, MAP-3 — ARM-1 'is used for the quality control' of Lu and Hf concentrations; the xenotime and apatite U–Pb reference materials test the Lu–Hf ages against their ID-TIMS U–Pb ages",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
+            }
+          ],
+          "schema:name": "Make-up Gas and Flow Rate",
+          "schema:value": 2,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "N2 enhancement gas, 4.0 mL min-1, added to the carrier gas after the sample chamber to enhance sensitivity; an 80% sensitivity improvement is reported"
+        },
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPoint",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPoint"
+            }
+          ],
+          "schema:name": "Total Integration Time per Output Data Point",
+          "schema:value": 0.659,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "0.659 s"
+        },
+        {
+          "@id": "ada:parameter/module/Core/constantsReferenceValues",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/Core/constantsReferenceValues"
+            }
+          ],
+          "schema:name": "Constants Reference Values",
+          "schema:value": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga"
+        },
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio"
+            }
+          ],
+          "schema:name": "Collision/Reaction Gas Mixture Ratio",
+          "schema:value": "all: high-purity NH3 — found more effective than the commonly used 1:9 NH3-He mixture; He pre-mixed with NH3 was tested for the effect of mixture composition"
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS)"
+      },
+      "schema:identifier": "N — 20 analytical sessions over 3 months referenced, no identifier stated",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "Xenotime XN02, MG-1, BS-1, XENOA, M1567; apatite Otter Lake, NW-1, MAP-3; two metamorphic garnets; NIST SRM 610"
+        }
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "N — not described; §2.1 gives only the origin of the megacrysts and single crystals, and the acknowledgements credit sample preparation without stating a method",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          }
+        ]
+      },
+      "ada:ablationSpotDuration": "25 s",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
   ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: 1.5–8.1%]; Otter Lake, NW-1, MAP-3 [common-Hf-corrected single-spot age: 9.2–36.0%] — isochron age uncertainties of 3.5–10% for the garnet samples"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: generally better than 1.5%] — against ID-TIMS U–Pb ages of the same reference materials"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "Lu-Hf isochron age, Lu-Hf weighted-mean age: MSWD; other: N — e.g. MSWD = 2.3 (n = 236, XN02) and MSWD = 0.6 (n = 15, weighted-mean Lu-Hf age 489.8 ± 2.2 Ma)"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "ada:spotDiameterMeasured": "50, 90, 150 um",
   "ada:sessionIdentifier": "N — 20 analytical sessions over 3 months referenced, no identifier stated",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
@@ -35,8 +331,5 @@
   "ada:proceduralBlankLevel": "missing",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: 1.5–8.1%]; Otter Lake, NW-1, MAP-3 [common-Hf-corrected single-spot age: 9.2–36.0%] — isochron age uncertainties of 3.5–10% for the garnet samples",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: generally better than 1.5%] — against ID-TIMS U–Pb ages of the same reference materials",
-  "ada:spotDiameterMeasured": -9999
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing"
 }

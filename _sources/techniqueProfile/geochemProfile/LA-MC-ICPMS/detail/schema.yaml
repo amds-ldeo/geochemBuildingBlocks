@@ -524,3 +524,79 @@ allOf:
         required:
         - ada:proceduralBlankLevel
       title: Analysis Events
+    dqv:hasQualityMeasurement:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: Analytical Accuracy
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+            required:
+            - dqv:value
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: Between-Session Analytical Precision
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+            required:
+            - dqv:value
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: Within-Session Analytical Precision
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+            required:
+            - dqv:value
+      allOf:
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: Analytical Accuracy
+          required:
+          - dqv:isMeasurementOf
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: Between-Session Analytical Precision
+          required:
+          - dqv:isMeasurementOf
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: Within-Session Analytical Precision
+          required:
+          - dqv:isMeasurementOf
+      title: Quality Measurements

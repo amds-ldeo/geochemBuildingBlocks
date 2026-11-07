@@ -9,13 +9,208 @@
   },
   "@id": "ex:temTAPP-detail-Seifert2026-2",
   "@type": [
-    "ada:TEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:TEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:temTAPP-Seifert2026-2",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/temTAPP/samplePreparationDetails",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/temTAPP/samplePreparationDetails"
+                  }
+                ],
+                "schema:name": "Sample Preparation Details",
+                "schema:value": "FEI Quanta 3D FEG FIB-SEM at JSC; stair-step milling; in situ extraction; thinned to electron transparency (≤100 nm); techniques following Holzapfel et al. 2009, Seifert et al. 2022, Zega et al. 2007"
+              }
+            ],
+            "schema:description": "FIB lift-out (Ga+)",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "SEM EDS mapping and CL imaging at JSC — apatite grains \"were identified via EDS mapping and point analysis\", then \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2); the FIB cut was placed across two grains chosen for that zoning, with the transect \"indicated by the dashed white line\" on the BSE image and the CL image shown \"before preparation of the FIB section\" (Fig. 5, p.9)"
+            }
+          ],
+          "schema:name": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
+          "schema:identifier": "OREX-803173-100 (OSIRIS-REx curation number)"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/temTAPP/spectroscopicDetector",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/spectroscopicDetector"
+            }
+          ],
+          "schema:name": "Spectroscopic Detector(s)",
+          "schema:value": "EDS (Oxford X-Max N 100 TLE, dual 100 mm² windowless SDDs)"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/analyticalSubMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/analyticalSubMode"
+            }
+          ],
+          "schema:name": "Analytical Sub-mode",
+          "schema:value": "BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
+            }
+          ],
+          "schema:name": "EDS Acquisition Mode",
+          "schema:value": "Spectrum imaging (EDS elemental maps); false-color maps"
+        }
+      ],
+      "prov:used": [
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "SingleCrystal (CrystalMaker Software)",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "TEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/temTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/temTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 200,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "200 kV"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:temTAPP-detail-Seifert2026-2/instrument/TEM"
+            }
+          ]
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), Lunar and Planetary Laboratory, University of Arizona, Tucson, AZ, USA"
+      },
+      "schema:description": "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1.",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:deadTime": -9999
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "L.B. Seifert; T.M. Erickson; L.P. Keller; K. Thomas-Keprta; L. Le; J. Gorce; Z. Rahman; T.J. Zega; H.C. Connolly Jr.; D.S. Lauretta"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM (JEOL 7600F + 7900F with Oxford EDS/EBSD/CL at JSC); EMPA (JEOL 8530 at JSC, 15 kV 20 nA 2 µm probe)",
+        "schema:description": "Coordinated SEM-EMPA-TEM study of Bennu apatite; TEM provides nanoscale crystallographic and chemical characterization of FIB section from apatite cluster; SAED confirms single-crystal vs. polycrystalline nature"
+      }
     }
   ],
   "ada:sessionIdentifier": "missing",

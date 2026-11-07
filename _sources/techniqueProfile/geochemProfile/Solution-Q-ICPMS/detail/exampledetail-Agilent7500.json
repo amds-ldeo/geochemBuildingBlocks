@@ -9,15 +9,189 @@
   },
   "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500",
   "@type": [
-    "ada:SolutionICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SolutionICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:solutionQicpmsTAPP-Agilent7500",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample digestion",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
+                  }
+                ],
+                "schema:name": "Digestion Temperature",
+                "schema:value": 245,
+                "schema:unitText": "no value available: unnamed property",
+                "schema:description": "bomb HF: 245 °C; other: N"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/Core/constantsReferenceValues",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                  }
+                ],
+                "schema:name": "Constants Reference Values",
+                "schema:value": "115Sn/118Sn = 0.014 and 113In/115In = 0.0448 (Rosman and Taylor 1998); 94Mo/95Mo = 0.58; MoOH+/MoO+ ~0.15 (measured); 111Cd/113Cd = 1.05 as reference"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Rock powders decomposed with the Sm spike; NIST glasses crushed roughly in a silicon nitride mortar, chips hand-picked, washed and dried; solutions diluted with 0.5 mol/l HNO3 to a dilution factor ≥ 1000 — clean room at PML; NIST SRM 610 decomposed without spike, the Sm spike added to its solution",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 3
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
+                }
+              ],
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15–42 mg (basalts and andesites); 30–63 mg (peridotites); 8–22 mg (NIST glasses); 9–28 mg (chondrites)"
+            }
+          ],
+          "schema:name": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses",
+          "schema:description": "no value available: schema:description"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
+                  "schema:value": "~200 s wash with 0.5 mol/l HNO3, and 200 s with 0.5 mol/l HF after the Mo standard, since Mo was difficult to wash out with HNO3"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500/instrument/ICPMS"
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 — the chondrites are samples",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:proceduralBlankLevel": "Cd: 16 pg; In: <0.2 pg; Tl: 4 pg; Bi: 3 pg — total dissolution blanks, similar for the ultrasonic and bomb digestions, n = 4 (Table 1)",
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)"
+      },
+      "schema:identifier": "N -- \"an average of eight sessions\" referenced; no session identifier stated",
+      "schema:description": "ICP operating conditions as in Makishima and Nakamura (2006); pseudo-flow injection with transient signals integrated as total counts, ~0.013 ml per measurement; an evaporation test showed no loss of Cd, In, Tl or Bi (ratios 0.996–0.999, Table 2)",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:startTime": "no value available: schema:startTime"
     }
   ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "all [Cd: 2.0%; In, Tl, Bi: 1.6%] — RPD of X/¹⁴⁹Sm between neighbouring calibrator runs (Table 1)"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "JB-2, JB-3, JA-1, JA-2, JA-3, BHVO-1, AGV-1 [Cd: 3–10%]; JP-1, PCC-1, DTS-1 [Cd: 7–16%]; NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 [Cd: 2–3%; In: 0.7–3%; Tl: 6–12%; Bi: 1–4%] — intermediate precision, RSD of n = 4–8 separate decompositions (Tables 3 and 4)"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "JB-2, JB-3, JA-1, JA-2, JA-3 [Cd: broadly similar to the reference values of Govindaraju (1994) and Imai et al. (1995)]; BHVO-1, AGV-1 [Cd: differ from those reference values] — Table 3; In, Tl and Bi compared with previous studies"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "all: RSD — 'The normalised ratios after evaporation together with the RSD (n = 5)'"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\""
+  ],
+  "ada:sensitivityYield": "111Cd: 0.04; 115In: 0.5; 149Sm: 0.09; 205Tl: 0.5; 209Bi: 0.6 — count pg⁻¹ ml (Table 1)",
   "ada:sessionIdentifier": "N -- \"an average of eight sessions\" referenced; no session identifier stated",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
@@ -29,10 +203,6 @@
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Cd: 16 pg; In: <0.2 pg; Tl: 4 pg; Bi: 3 pg — total dissolution blanks, similar for the ultrasonic and bomb digestions, n = 4 (Table 1)",
   "ada:detectionLimit": "Cd: 0.8; In: 0.2; Tl: 0.9; Bi: 0.2 — 3s, in pg/ml in solution and in ng/g in silicates at DF 1000 (Table 1)",
-  "ada:limitOfQuantificationMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "all [Cd: 2.0%; In, Tl, Bi: 1.6%] — RPD of X/¹⁴⁹Sm between neighbouring calibrator runs (Table 1)",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "JB-2, JB-3, JA-1, JA-2, JA-3, BHVO-1, AGV-1 [Cd: 3–10%]; JP-1, PCC-1, DTS-1 [Cd: 7–16%]; NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 [Cd: 2–3%; In: 0.7–3%; Tl: 6–12%; Bi: 1–4%] — intermediate precision, RSD of n = 4–8 separate decompositions (Tables 3 and 4)",
-  "ada:analyticalAccuracyAndAssessmentMethod": "JB-2, JB-3, JA-1, JA-2, JA-3 [Cd: broadly similar to the reference values of Govindaraju (1994) and Imai et al. (1995)]; BHVO-1, AGV-1 [Cd: differ from those reference values] — Table 3; In, Tl and Bi compared with previous studies"
+  "ada:limitOfQuantificationMethod": "missing"
 }

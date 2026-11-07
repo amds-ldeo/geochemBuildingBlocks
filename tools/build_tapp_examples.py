@@ -1589,16 +1589,78 @@ def coerce(v, jtype):
 _SIMPLE_DATASET_LEAF = re.compile(r"^\$Dataset\.([A-Za-z]+:[A-Za-z0-9]+)$")
 
 
-def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_types, canon_sp=None):
+def _placed_scalars(tree):
+    """Every scalar build_example actually wrote into the $Dataset tree, as stripped strings.
+
+    Used by build_detail's unplaced_only pass to answer "did this row's transcribed value land?"
+    rather than the weaker "does this row have an authored path?" -- see the gate for why.
+    """
+    out = set()
+
+    def walk(o):
+        if isinstance(o, dict):
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+        elif o is not None and not isinstance(o, bool):
+            out.add(str(o).strip())
+
+    walk(tree)
+    return out
+
+
+def _value_landed(v, placed):
+    """True when v is already carried somewhere in the placed $Dataset tree.
+
+    Deliberately asymmetric. A false POSITIVE drops a transcribed value for good; a false
+    NEGATIVE only repeats it at a tolerated flat key. So this errs toward "not landed":
+    exact match, or containment in a longer placed string (the emitter may wrap or
+    annotation-strip a value), or -- for a measurement such as "0.5 um" that becomes a
+    QuantitativeValue -- a match on the leading numeric token alone.
+    """
+    if v is None:
+        return False
+    s = str(v).strip()
+    if not s:
+        return True                      # nothing to carry
+    if s in placed:
+        return True
+    if len(s) >= 8 and any(s in p for p in placed):
+        return True
+    head = s.split()[0].rstrip(",;")
+    try:
+        float(head)
+    except ValueError:
+        return False
+    return head in placed or str(float(head)) in placed
+
+
+def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_types, canon_sp=None,
+                 unplaced_only=False, placed=None):
     """Build one analysis-level detail-block instance from a publication column:
     componentType + required analysis-level (detail_req) fields + per-dataset
-    schema:PropertyValue entries (detail_addl). Pairs with the TAPP example by @id."""
+    schema:PropertyValue entries (detail_addl). Pairs with the TAPP example by @id.
+
+    unplaced_only=True returns ONLY the flat ada:<name> fields for detail_req rows that have NO
+    authored path, and no envelope. The caller merges those over build_example's placed $Dataset
+    tree, because build_example places an item AT its canonical path and an item without one has
+    no path to be placed at -- so this fallback is its only carrier. Measured when the whole
+    function was replaced: 173 of 222 examples lost 356 transcribed publication values, every one
+    of them free text on an unplaced row (detection-limit tables, sample-labelling notes). The
+    rows that DO carry an authored path are skipped here ONLY when that path actually carried
+    the value (see the gate): build_example has then put it at its real home, and emitting it
+    flat as well is the bypass this change removes. When the path placed nothing, the flat key
+    is kept, because a silently dropped value is worse than an undeclared key. `placed` is the
+    set of scalars build_example really wrote, from _placed_scalars().
+    """
     canon_sp = canon_sp or {}
     ct = component_types[0] if component_types else "ada:Tabular"
     # CTX, not a fresh literal: this was a fifth inline copy of the prefix table and the reason
     # 222 detail examples still had no "ex" declaration after the other four were fixed. The extra
     # prefixes CTX carries are inert in JSON-LD, and using it removes a copy instead of adding one.
-    inst = {"@context": CTX,
+    inst = {} if unplaced_only else {"@context": CTX,
             # QUALIFIED BY TAPP. detail_name is os.path.basename(DETAIL_DIR), which is literally
             # "detail" for every technique, so this minted ex:detail-P0 in all 34 of them -- one
             # @id for 34 different records. In RDF the @id IS the identity, so merging those
@@ -1625,6 +1687,21 @@ def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_t
         # (the analysis-level grant, distinct from procedure funding $MethodDefinition.schema:funding;
         # ada:fundingSourceForAnalysis was a camelCase artifact). Nested / $MethodDefinition paths
         # keep the tolerated flat ada:<name> form (the schema does not require those keys).
+        if unplaced_only and canon_sp.get(b["item"], "").strip():
+            # The row HAS an authored path, so build_example owns its placement -- but skip it
+            # here only if the transcribed value ACTUALLY LANDED. "Has a path" is not the same
+            # question, and the gap between them loses content silently: a keyed-table COLUMN
+            # array holds PropertyValueSpecifications, not values, so a figure pathed to
+            # ada:targetSpeciesColumns[] is placed NOWHERE, and some keyed selector paths
+            # ($Dataset.schema:variableMeasured[schema:name='...']) are not filled either. At
+            # HEAD this fallback was unconditional, which masked both. Measured when the gate
+            # was "has a path" alone: 87 transcribed values vanished from 222 detail examples
+            # while validate_examples stayed green -- losing content only makes an instance
+            # smaller and more permissively valid. Content preservation is the invariant; the
+            # undeclared flat key is the lesser evil, and it self-retires per row as the path
+            # becomes placeable.
+            if _value_landed(v, placed or set()):
+                continue
         m = _SIMPLE_DATASET_LEAF.match(canon_sp.get(b["item"], ""))
         leaf = m.group(1) if m else None
         if leaf == "schema:funding":
@@ -1638,8 +1715,11 @@ def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_t
             inst[key] = coerce(v, b["jtype"])
         elif not b["multivol_only"]:   # required -> sentinel
             inst[key] = (-9999 if b["jtype"] in ("number", "integer") else "missing")
+    # detail_addl is already path-driven -- it keeps only rows whose canonical path is the
+    # detail-root schema:additionalProperty -- so build_example places those; skip the block
+    # entirely when only the unplaced are wanted.
     saps, seen_pv = [], set()
-    for b in R["detail_addl"]:
+    for b in (R["detail_addl"] if not unplaced_only else []):
         if b["name"] in seen_pv:
             continue
         # Only a param whose canonical path is the detail-ROOT schema:additionalProperty belongs in
@@ -1831,7 +1911,10 @@ def main():
         # a publication that lists Reported Variables populates schema:variableMeasured from the
         # 'reported property' rows; otherwise those rows defer to their non-reported counterparts.
         emit_rp = bool(cell(pubval.get("Reported Variables and Units", {}).get(pc)))
-        md = ex.build_example(tapp, values=values, emit_reported_property=emit_rp)["MethodDefinition"]
+        # Keep BOTH roots. The ["Dataset"] half was being discarded and build_detail hand-rolled a
+        # flat replacement for it, which is what the comment above promises this call avoids.
+        built = ex.build_example(tapp, values=values, emit_reported_property=emit_rp)
+        md = built["MethodDefinition"]
         md.pop("@type", None)                          # the envelope owns the TAPP @type
         name = md.pop("schema:name", "") or f"{short} protocol — {code}"
         inst = {"@context": CTX, "@id": f"ex:{tapp}-{code}",
@@ -1890,7 +1973,38 @@ def main():
         # paired analysis-level detail-block example — apply the same structural completion the TAPP
         # example gets: type the instrument tree, fill @type/structural gaps, then sentinel every
         # still-absent required analysis field (ada:stepSize et al.).
-        dinst = build_detail(tapp, code, pc, R, pubval, PARAM_BASE, detail_name, component_types, canon_sp)
+        # THE DATASET HALF OF THE SAME CALL, not a second construction of it. build_detail minted
+        # `ada:` + camelCase(item) for every row whose authored path was not a single-segment
+        # $Dataset leaf -- nested path, selector path or $MethodDefinition path alike -- so 31 of the
+        # 48 flat root keys that no schema declared were authored placements being bypassed:
+        # ada:sessionIdentifier against $Dataset.prov:wasGeneratedBy.schema:identifier,
+        # ada:samplingUnitName against Module_Core's variableMeasured[schema:name='Sampling Unit
+        # Name'], and so on. Measured on aivaTAPP: 10 paths with 8 flat keys becomes 42 placed ones.
+        #
+        # It also fixes the SHAPE. detail/schema.yaml is a DATASET-ROOT block -- allOf over the
+        # modules' AnalysisIdentification plus a prov:wasGeneratedBy overlay -- and these examples
+        # were typed ["ada:quickLook"] with an ada:componentType the block never declares, i.e. a
+        # hasPart component demonstrating a schema that describes a Dataset. It validated only
+        # because that schema requires nothing and leaves additionalProperties unset. Dataset-level
+        # facts have nowhere to go in a component, which is WHY they were being flattened onto it.
+        # CLAUDE.md's detail-placement rule says the dataset-root form is the correct design and the
+        # descriptions calling these hasPart-item blocks are the error.
+        #
+        # The TAPP pairing build_detail carried as schema:measurementTechnique {@id} now lives in
+        # the @id itself, ex:{tapp}-detail-{code}, which names both the technique and the column;
+        # overwriting the emitter's own authored schema:measurementTechnique would re-introduce
+        # exactly the hand-rolled-over-authored precedence this change removes.
+        dinst = {"@context": CTX, "@id": f"ex:{tapp}-{detail_name}-{code}",
+                 "@type": ["schema:Dataset", "schema:Product"],
+                 **built["Dataset"]}
+        # ...and re-add the UNPLACED rows only. build_example places an item at its canonical
+        # path; a row with no authored path has no path to be placed at, and the flat fallback is
+        # the only thing carrying its transcribed content. setdefault, not assignment: anything
+        # build_example placed wins, so an authored home is never overwritten by a flat key.
+        for _k, _v in build_detail(tapp, code, pc, R, pubval, PARAM_BASE, detail_name,
+                                   component_types, canon_sp, unplaced_only=True,
+                                   placed=_placed_scalars(built["Dataset"])).items():
+            dinst.setdefault(_k, _v)
         type_instrument_tree(dinst)
         if detail_res is not None:
             conform_nested_enums(dinst, detail_res)

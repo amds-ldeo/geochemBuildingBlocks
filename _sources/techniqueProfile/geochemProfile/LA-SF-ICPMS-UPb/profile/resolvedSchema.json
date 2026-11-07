@@ -11205,6 +11205,152 @@
         "@type",
         "@id"
       ]
+    },
+    "dqv:hasQualityMeasurement": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "dqv:isMeasurementOf": {
+                  "const": "Within-Session Analytical Precision"
+                }
+              },
+              "required": [
+                "dqv:isMeasurementOf"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dqv:value": {
+                  "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "dqv:value"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "dqv:isMeasurementOf": {
+                  "const": "Between-Session Analytical Precision"
+                }
+              },
+              "required": [
+                "dqv:isMeasurementOf"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dqv:value": {
+                  "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "dqv:value"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "dqv:isMeasurementOf": {
+                  "const": "Analytical Accuracy"
+                }
+              },
+              "required": [
+                "dqv:isMeasurementOf"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dqv:value": {
+                  "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "dqv:value"
+              ]
+            }
+          }
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "dqv:isMeasurementOf": {
+                "const": "Within-Session Analytical Precision"
+              }
+            },
+            "required": [
+              "dqv:isMeasurementOf"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "dqv:isMeasurementOf": {
+                "const": "Between-Session Analytical Precision"
+              }
+            },
+            "required": [
+              "dqv:isMeasurementOf"
+            ]
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "dqv:isMeasurementOf": {
+                "const": "Analytical Accuracy"
+              }
+            },
+            "required": [
+              "dqv:isMeasurementOf"
+            ]
+          }
+        }
+      ],
+      "title": "Quality Measurements"
     }
   },
   "allOf": [
@@ -30793,128 +30939,6 @@
                                           ]
                                         },
                                         {
-                                          "title": "Within-Session Analytical Precision and Assessment Method",
-                                          "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Within-Session Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                          ]
-                                        },
-                                        {
-                                          "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                                          "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
-                                        },
-                                        {
-                                          "title": "Analytical Accuracy and Assessment Method",
-                                          "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Analytical Accuracy and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                          ]
-                                        },
-                                        {
                                           "title": "Counting Statistics Error",
                                           "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
                                           "type": "object",
@@ -31304,140 +31328,6 @@
                                             },
                                             "schema:readonlyValue": {
                                               "const": true
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                          ]
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                      },
-                                      {
-                                        "contains": {
-                                          "title": "Within-Session Analytical Precision and Assessment Method",
-                                          "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Within-Session Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                          ]
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                      },
-                                      {
-                                        "contains": {
-                                          "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                                          "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                      },
-                                      {
-                                        "contains": {
-                                          "title": "Analytical Accuracy and Assessment Method",
-                                          "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                              "const": "Analytical Accuracy and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
                                             },
                                             "ada:tier": {
                                               "const": "M"

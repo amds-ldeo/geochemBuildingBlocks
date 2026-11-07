@@ -708,62 +708,6 @@ allOf:
               - schema:name
               - ada:dataType
             - &id004
-              title: Analytical Accuracy
-              description: Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/semTAPP/analyticalAccuracy
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracy
-                schema:name:
-                  const: Analytical Accuracy
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id005
-              title: Analytical Precision
-              description: Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/semTAPP/analyticalPrecision
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalPrecision
-                schema:name:
-                  const: Analytical Precision
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id006
               title: X-ray Background Correction Method
               description: 'Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.'
               type: object
@@ -795,7 +739,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id007
+            - &id005
               title: Beam Current
               description: Electron beam probe current for point analysis. For sub-nA values use decimal notation (e.g., 0.4 nA). The current used while the beam scans an area, for a map or an image, is recorded under Mapping Beam Current.
               type: object
@@ -826,7 +770,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id008
+            - &id006
               title: Blank Correction
               description: Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).
               type: object
@@ -854,7 +798,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id009
+            - &id007
               title: Counting Statistics Error
               description: 'How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.'
               type: object
@@ -882,7 +826,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id010
+            - &id008
               title: Interference Correction Standard
               description: Reference material used to quantify and calibrate the interference correction.
               type: object
@@ -910,7 +854,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id011
+            - &id009
               title: X-ray Line Overlap Corrections Applied
               description: Whether a spectral interference correction was applied. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
               type: object
@@ -942,7 +886,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id012
+            - &id010
               title: Interfering Elements
               description: Element(s) whose X-ray lines overlap with the measured peak, requiring a correction.
               type: object
@@ -970,7 +914,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id013
+            - &id011
               title: Time-Dependent Intensity Correction
               description: Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).
               type: object
@@ -1001,7 +945,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id014
+            - &id012
               title: WDS Spectrometer Channel
               description: WDS spectrometer position(s) assigned to each target species, one entry per assignment. An target species may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several target species across a run, so the assignment — not the target species — is the unit carrying the spectrometer setup.
               type: object
@@ -1060,12 +1004,6 @@ allOf:
           - contains: *id012
             minContains: 0
             maxContains: 1
-          - contains: *id013
-            minContains: 0
-            maxContains: 1
-          - contains: *id014
-            minContains: 0
-            maxContains: 1
           title: Target Species Columns
       required:
       - ada:defaultTargetSpecies
@@ -1078,7 +1016,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
-            - &id015
+            - &id013
               title: Background Counting Time
               description: Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.
               type: object
@@ -1109,7 +1047,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id016
+            - &id014
               title: Peak Counting Time
               description: Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.
               type: object
@@ -1140,7 +1078,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id017
+            - &id015
               title: Primary Calibration Standard Name
               description: Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.
               type: object
@@ -1170,13 +1108,13 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
+          - contains: *id013
+            minContains: 0
+            maxContains: 1
+          - contains: *id014
+            minContains: 0
+            maxContains: 1
           - contains: *id015
-            minContains: 0
-            maxContains: 1
-          - contains: *id016
-            minContains: 0
-            maxContains: 1
-          - contains: *id017
             minContains: 0
             maxContains: 1
           title: Target Material Columns
@@ -1199,7 +1137,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id026
+            - &id024
               title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.
               type: object
@@ -1221,17 +1159,17 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id018
+                  - &id016
                     type: string
                   - type: array
-                    items: *id018
+                    items: *id016
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id027
+            - &id025
               title: Diffracting Crystal
               description: Analyzing crystal (monochromator).
               type: object
@@ -1256,10 +1194,10 @@ allOf:
                     '@id': ada:vocab/diffracting-crystal
                 schema:defaultValue:
                   anyOf:
-                  - &id019
+                  - &id017
                     type: string
                   - type: array
-                    items: *id019
+                    items: *id017
               required:
               - '@id'
               - '@type'
@@ -1267,7 +1205,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id028
+            - &id026
               title: Dwell Time per Pixel
               description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. For WDS mapping, the dwell time is per spectrometer per pixel.
               type: object
@@ -1289,12 +1227,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id020
+                  - &id018
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id020
+                    items: *id018
               required:
               - '@id'
               - '@type'
@@ -1302,7 +1240,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id029
+            - &id027
               title: Proportional Counter / Detector
               description: Type of detector used.
               type: object
@@ -1327,17 +1265,17 @@ allOf:
                     '@id': ada:vocab/proportional-counter-detector
                 schema:defaultValue:
                   anyOf:
-                  - &id021
+                  - &id019
                     type: string
                   - type: array
-                    items: *id021
+                    items: *id019
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id030
+            - &id028
               title: Sequence
               description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.
               type: object
@@ -1359,19 +1297,19 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id022
+                  - &id020
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id022
+                    items: *id020
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id031
+            - &id029
               title: WDS PHA Setting
               description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.
               type: object
@@ -1396,17 +1334,17 @@ allOf:
                     '@id': ada:vocab/wds-pha-setting
                 schema:defaultValue:
                   anyOf:
-                  - &id023
+                  - &id021
                     type: string
                   - type: array
-                    items: *id023
+                    items: *id021
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id032
+            - &id030
               title: X-ray Line
               description: X-ray emission line measured.
               type: object
@@ -1431,10 +1369,10 @@ allOf:
                     '@id': ada:vocab/x-ray-line
                 schema:defaultValue:
                   anyOf:
-                  - &id024
+                  - &id022
                     type: string
                   - type: array
-                    items: *id024
+                    items: *id022
               required:
               - '@id'
               - '@type'
@@ -1442,7 +1380,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id033
+            - &id031
               title: X-ray Detection Method per Monitored Element
               description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.'
               type: object
@@ -1467,10 +1405,10 @@ allOf:
                     '@id': ada:vocab/x-ray-detection-method-per-monitored-element
                 schema:defaultValue:
                   anyOf:
-                  - &id025
+                  - &id023
                     type: string
                   - type: array
-                    items: *id025
+                    items: *id023
               required:
               - '@id'
               - '@type'
@@ -1479,6 +1417,12 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
+          - contains: *id024
+            minContains: 0
+            maxContains: 1
+          - contains: *id025
+            minContains: 0
+            maxContains: 1
           - contains: *id026
             minContains: 0
             maxContains: 1
@@ -1497,19 +1441,13 @@ allOf:
           - contains: *id031
             minContains: 0
             maxContains: 1
-          - contains: *id032
-            minContains: 0
-            maxContains: 1
-          - contains: *id033
-            minContains: 0
-            maxContains: 1
           title: Monitored Property Columns
       title: Monitored Property Template
     schema:additionalProperty:
       type: array
       items:
         anyOf:
-        - &id034
+        - &id032
           title: Beam Damage Minimization
           description: 'Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points.'
           type: object
@@ -1540,7 +1478,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id035
+        - &id033
           title: Beam Raster Dimensions
           description: Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.
           type: object
@@ -1575,7 +1513,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id036
+        - &id034
           title: Chamber Pressure
           description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.
           type: object
@@ -1610,7 +1548,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id037
+        - &id035
           title: CL Wavelength Calibration Reference
           description: Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
           type: object
@@ -1641,7 +1579,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id038
+        - &id036
           title: Drift Correction
           description: 'Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals.'
           type: object
@@ -1672,7 +1610,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id039
+        - &id037
           title: EBSD Frame Time
           description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
           type: object
@@ -1733,7 +1671,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id040
+        - &id038
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.
           type: object
@@ -1767,7 +1705,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id041
+        - &id039
           title: Image Pixel Size
           description: Physical size of each image pixel at the sample surface, in nm or µm. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.
           type: object
@@ -1829,6 +1767,12 @@ allOf:
           - schema:value
           readOnly: true
       allOf:
+      - contains: *id032
+        minContains: 0
+        maxContains: 1
+      - contains: *id033
+        minContains: 0
+        maxContains: 1
       - contains: *id034
         minContains: 0
         maxContains: 1
@@ -1839,12 +1783,6 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id037
-        minContains: 0
-        maxContains: 1
-      - contains: *id038
-        minContains: 0
-        maxContains: 1
-      - contains: *id039
         minContains: 0
         maxContains: 1
       - contains:
@@ -1876,10 +1814,10 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id040
+      - contains: *id038
         minContains: 0
         maxContains: 1
-      - contains: *id041
+      - contains: *id039
         minContains: 0
         maxContains: 1
       - contains:
