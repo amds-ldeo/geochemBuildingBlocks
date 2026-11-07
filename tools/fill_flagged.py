@@ -30,20 +30,32 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
 import schemapath_io
 
+# REMOVED 2026-11-07: "Sample Name", "Analytical Mode" and "Additional Notes".
+#
+# All three named epmaTAPP as the source to copy a path FROM, and all three are now EMPTY in
+# EPMA_TAPP_v91 with Source=module -- because Module_Core owns them with authored paths:
+#
+#   Sample Name       $Dataset.prov:wasGeneratedBy.schema:object[@type='...materialsample'].schema:name
+#   Analytical Mode   $MethodDefinition.ada:analyticalMode[]  +  $Dataset.ada:analyticalMode[]
+#   Additional Notes  $Dataset.prov:wasGeneratedBy.schema:description  +  $MethodDefinition.schema:description
+#
+# So EPMA's blanks are CORRECT -- simplify_sidecars blanks a technique row a module covers -- and
+# these three entries could never fire again: there is nothing left at the source to copy, and the
+# placement they would have propagated now arrives by composition instead. Dead by supersession,
+# not by removal.
+#
+# Why they looked alive: each carried a confident provenance note ("identical in all 8 sidecars
+# that place it"), which was true when written and says nothing about whether the source still
+# carries a path. A FILLS entry is only reachable if its source row is non-empty; none of these
+# three is. Checked before deleting: the module placements above are all Source=authored, so the
+# fields are genuinely provided, not lost.
+#
+# "Constants and Reference Values Used" SURVIVES and is the contrast that shows the rule: it still
+# has two real authored paths in EPMA_TAPP_v91, dual-homed procedure-default + analysis-value, so
+# it remains copyable.
+
 # item -> (source TAPP, why that source, note recorded on each filled row)
 FILLS = {
-    "Sample Name": (
-        "epmaTAPP",
-        "identical in all 8 sidecars that place it",
-        "shared analysis-instance row"),
-    "Analytical Mode": (
-        "epmaTAPP",
-        "identical in all 8 sidecars that place it",
-        "shared procedure row"),
-    "Additional Notes": (
-        "epmaTAPP",
-        "identical in all 8 sidecars that place it",
-        "dual-home decision: procedure default + analysis-tier value"),
     "Constants and Reference Values Used": (
         "epmaTAPP",
         "re-attributed 2026-08-21: the original source, geochronTAPP, has been retired from the "
@@ -74,17 +86,23 @@ FILLS = {
         "epmaTAPP",
         "identical authored placement in epmaTAPP and semTAPP",
         "shared analysis-instance row"),
-    "Session Identifier": (
-        "semTAPP",
-        "reviewer's standing rule: the session identifier is always the analysis activity's own "
-        "schema:identifier, in every technique",
-        "analysis-session identifier"),
-    "Target Selection Criteria": (
-        "epmaTAPP",
-        "authored by hand in epmaTAPP, semTAPP and labxctTAPP with the identical path; the only "
-        "competing variant is the bootstrap-inferred dual-home pair in the LA family and temTAPP, "
-        "and an inferred path is not independent evidence",
-        "procedure default, following the authored epmaTAPP/semTAPP placement"),
+    # REMOVED 2026-11-07, for the two DIFFERENT reasons a FILLS entry dies. Found by checking all
+    # 25 entries for reachability rather than the three that were reported:
+    #
+    # "Session Identifier" <- semTAPP. Its reviewer rule still reads true -- the session identifier
+    # IS the analysis activity's own schema:identifier -- and that is exactly why the entry is
+    # dead: Module_Core now authors $Dataset.prov:wasGeneratedBy.schema:identifier, so semTAPP's
+    # row is blank with Source=module and the rule it states is enforced by composition instead of
+    # by copying. Dead by SUPERSESSION; the statement outliving its mechanism is what made it look
+    # alive.
+    #
+    # "Target Selection Criteria" <- epmaTAPP. Dead by RENAME: the item does not exist in any of
+    # the 16 live tables. Upstream renamed targetSelection to samplingUnitSelection in af3f7bc, so
+    # the live item is "Sampling Unit Selection Criteria" (13 tables), and that one is owned by
+    # Module_SamplingUnitSelection with two authored paths
+    # ($Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name=...].schema:value and
+    # $MethodDefinition.ada:samplingUnitSelectionCriteriaDefault). So it needs no fill under either
+    # name, and re-pointing the entry at the new name would duplicate the module.
     "Reported Variables and Units": (
         "semTAPP",
         "re-attributed 2026-08-21: geochronTAPP, the reported-property pilot this followed, has "
