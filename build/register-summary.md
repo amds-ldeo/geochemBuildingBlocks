@@ -254,7 +254,7 @@ Supplemental document images including analysis locations and context photos. De
 
 **Type:** schema
 
-ADA laboratory/facility building block extending core CDIF spatialExtent (schema:Place). Adds nxs:BaseClass/NXsource classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates from core.
+ADA laboratory/facility building block extending core CDIF spatialExtent (schema:Place). Adds a Wikidata laboratory (Q483242) classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates from core.
 
 ### `ogch.BaseSchema.dataCube` — Data Cube Type
 

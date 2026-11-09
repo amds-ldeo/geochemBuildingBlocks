@@ -43,13 +43,13 @@ ex:temTAPP-detail-Zeng2024 a schema1:Dataset,
                     schema1:identifier "CE5C0600YJFM00304 (China National Space Administration allocation number)" ;
                     schema1:name "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Zeng2024/instrument/TEM> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-                            ada:toolRole "acquisition" ],
+                            ada:toolRole "dataReduction" ],
                         [ a schema1:SoftwareApplication ;
                             schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/temTAPP-detail-Zeng2024/instrument/TEM> ] ;
+                            ada:toolRole "acquisition" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;

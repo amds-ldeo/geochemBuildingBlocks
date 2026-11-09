@@ -224,7 +224,7 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
           {
-            "@id": "nxs:base_classes/NXsource.html"
+            "@id": "https://www.wikidata.org/wiki/Q483242"
           }
         ]
       },
@@ -712,7 +712,7 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
           {
-            "@id": "nxs:base_classes/NXsource.html"
+            "@id": "https://www.wikidata.org/wiki/Q483242"
           }
         ]
       },
@@ -1071,7 +1071,7 @@ ex:adaNIMI-example-001 a schema1:Dataset,
             schema1:endTime "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
-                    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
             schema1:object [ a schema1:Thing,
@@ -1081,8 +1081,8 @@ ex:adaNIMI-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:niMiTAPP-P0 ],
-                [ schema1:instrument <https://example.org/adaNIMI-example-001/instrument/instrument> ] ] ;
+            prov:used [ schema1:instrument <https://example.org/adaNIMI-example-001/instrument/instrument> ],
+                [ ada:tappDefinition ex:niMiTAPP-P0 ] ] ;
     ada:analyticalMode "Point spectrum" ;
     ada:submissionType "BundleDelivery" .
 

@@ -13,26 +13,26 @@ ex:solutionMcicpmsTAPP-detail-P2 a schema1:Dataset,
             schema1:target [ schema1:name "N — the Fe was measured on digestions previously analysed for Pt, Mo, Ni and/or W isotopes (Kruijer et al. 2017 and others)" ] ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+        [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "BHVO-2, BCR-2 [\"μ54Fe(7/6)\": average 2 ± 2 (95% c.i.); \"μ58Fe(7/6)\": average 4 ± 6 (95% c.i.); other: normal within uncertainties] — §3; agreeing with Schiller et al. (2020)" ] ;
+            dqv:value "BHVO-2, BCR-2 [\"μ54Fe(7/6)\": average 2 ± 2 (95% c.i.); \"μ58Fe(7/6)\": average 4 ± 6 (95% c.i.); other: normal within uncertainties] — §3; agreeing with Schiller et al. (2020)" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -52,10 +52,10 @@ ex:solutionMcicpmsTAPP-detail-P2 a schema1:Dataset,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Toluca, Gibeon, Duchesne, Skookum, Tlacotepec and 18 further iron meteorites; BHVO-2, BCR-2; IRMM-524a" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
+            prov:used [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P2/instrument/ICPMS> ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "BHVO-2, BCR-2 — §2.1" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P2/instrument/ICPMS> ] ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:deltaOrEpsilonValueReferenceStandard "Fe: IRMM-524a — 'that has an identical isotopic composition to IRMM-014' (§2.3)" ;
             ada:proceduralBlankLevel "Fe: ~70 ng — 'negligible considering that 1-2 mg Fe was purified for each sample' (§2.2)" ] ;

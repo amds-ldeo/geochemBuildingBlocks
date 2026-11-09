@@ -13,15 +13,15 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Flat polished thick sections (§2.1)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:description "Flat polished thick sections (§2.1)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/numberOfReplicates>,
@@ -35,11 +35,11 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/Laser-Ablation-System> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "In-house MatLab script (Appendix C3)" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS>,
+                        <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/Laser-Ablation-System> ] ;
             ada:ablationSpotDuration "20 s spot ablation (plus 10 s washout); 25 cycles acquisition" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;

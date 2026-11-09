@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "ADA Analysis Laboratory",
-  "description": "ADA laboratory or facility building block. Extends the core CDIF spatialExtent (schema:Place) with NeXus NXsource classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.",
+  "description": "ADA laboratory or facility building block. Extends the core CDIF spatialExtent (schema:Place) with a Wikidata laboratory classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.",
   "allOf": [
     {
       "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.json"
@@ -18,7 +18,7 @@
           "x-jsonld-id": "http://schema.org/alternateName"
         },
         "schema:additionalType": {
-          "description": "Must classify the place as a NeXus NXsource. The value is a sealed reference ({\"@id\": ...}) so JSON-LD expands it to a real IRI; written as a bare string it stays a literal that looks like a URI and resolves to nothing. The two-segment path is the form that actually resolves -- .../classes/BaseClass/NXsource is a 404, .../classes/base_classes/NXsource.html is not.",
+          "description": "Must classify the place as a laboratory. The value is a sealed reference ({\"@id\": ...}) so JSON-LD expands it to a real IRI; written as a bare string it stays a literal that looks like a URI and resolves to nothing. The IRI is spelled out in full rather than as a CURIE because no context in this repo defines a Wikidata prefix -- the instrument block writes https://www.wikidata.org/wiki/Q3099911 the same way.\nWikidata Q483242 \"laboratory\" is a subclass of facility (Q13226383), which is what makes it right for a schema:Place. An Organization type would not be: schema:DiagnosticLab is clinical and sits under MedicalOrganization, and schema:ResearchOrganization is an organization rather than a place.\nThis slot held nxs:base_classes/NXsource.html until 2026-11-09. That was wrong -- NXsource is the radiation or particle source that produces a beam, not the place it stands in; its name field conventionally carries a facility name, which is the likely route to the confusion. NeXus has no facility or laboratory base class, so unlike the instrument block -- where NXinstrument is correct and sits beside its Wikidata class -- there is nothing to keep here alongside Q483242. Bioschemas has no Laboratory type either; its LabProtocol and LabProcess describe the procedure and the run, not the place.",
           "type": "array",
           "items": {
             "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json"
@@ -31,7 +31,7 @@
             ],
             "properties": {
               "@id": {
-                "const": "nxs:base_classes/NXsource.html"
+                "const": "https://www.wikidata.org/wiki/Q483242"
               }
             }
           },
@@ -41,8 +41,7 @@
     }
   ],
   "x-jsonld-prefixes": {
-    "schema": "http://schema.org/",
-    "nxs": "https://manual.nexusformat.org/classes/"
+    "schema": "http://schema.org/"
   },
   "x-bblocks-metadata": {
     "itemIdentifier": "ogch.BaseSchema.laboratory",
