@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -135,6 +137,22 @@
   "ada:rotationRangeDefault": "360\u00b0",
   "ada:numberOfProjectionsDefault": "2000",
   "ada:segmentationMethodDefault": "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Plagioclase network interconnectivity"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -172,9 +190,6 @@
   "ada:analyticalMode": [
     "Single-volume"
   ],
-  "ada:reportedProperties": [
-    "Plagioclase network interconnectivity"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -209,7 +224,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Lab-XCT analytical workflow"
   },
   "schema:variableMeasured": [
     {

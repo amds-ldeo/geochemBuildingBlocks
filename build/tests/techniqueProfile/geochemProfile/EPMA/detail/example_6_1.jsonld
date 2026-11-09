@@ -7,19 +7,153 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EPMA/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Frank2023",
+  "@id": "ex:epmaTAPP-detail-Frank2023",
   "@type": [
-    "ada:EPMAImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:EPMAImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:epmaTAPP-Frank2023",
-      "schema:identifier": "no value available: schema:identifier"
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "EPMA",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 20,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "20 kV"
+                },
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                    }
+                  ],
+                  "schema:name": "Beam Diameter",
+                  "schema:value": 1,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "all: 1 \u00b5m \u2014 p.3"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:epmaTAPP-detail-Frank2023/instrument/EPMA"
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "N \u2014 no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "Petrographic microscopy and SEM \u2014 \"The CAI was characterized by petrographic microscope, scanning electron microscope, electron microprobe, and X-ray mapping before being measured for oxygen isotopes\" (p.3); the object itself had been found during an earlier survey of matrix compositions (p.3)"
+            }
+          ],
+          "schema:name": "Ivuna CI chondrite, section MZ2"
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "ARES, NASA Johnson Space Center"
+      },
+      "schema:description": "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 \u2014 CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" \u2014 NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 \u00b5m focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. No EPMA secondary standard is named (San Carlos olivine standardised the SIMS work). Detection limits stated per element group.",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:deadTime": -9999
     }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "David R. Frank"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA NNX11AG78G, 13-COS13-0026, NNX14AI19G and 80NSSC18K0586; NASA Cosmochemistry and Emerging Worlds Programs \u2014 'This work was supported by ...'"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Petrographic microscopy; SEM-BSE (JEOL 5900LV); EPMA X-ray mapping; Cameca ims1280 ion microprobe (O isotopes; 26Al-26Mg); FIB-TEM"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "same submission \u2014 'All data are included within the manuscript'"
+    }
+  ],
+  "ada:analyticalMode": [
+    "N \u2014 point analyses and X-ray mapping ('electron microprobe, and X-ray mapping'); WDS or EDS is not stated, and the list has no value without one"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "David R. Frank",
@@ -31,7 +165,6 @@
   "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:detectionLimit": "Al2O3, K2O, CaO: 0.03\u20130.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06\u20130.09 wt% \u2014 'typically' (p.4)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",

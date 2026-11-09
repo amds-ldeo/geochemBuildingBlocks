@@ -1,13 +1,38 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Pascucci2026-2> a ada:SEMImage ;
-    schema1:measurementTechnique <ex:semImagingTAPP-Pascucci2026-2> ;
+ex:semImagingTAPP-detail-Pascucci2026-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); EDS (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:description "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "NWA 7317" ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:SEMImage" ;
+    ada:analyticalMode "SE Imaging" ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
@@ -17,5 +42,8 @@
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semImagingTAPP-Pascucci2026-2> schema1:identifier "no value available: schema:identifier" .
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "VIS-IR imaging spectroscopy, acquired before the section was prepared — the fragment was embedded and polished \"after the SPectral IMager (SPIM) reflectance spectroscopy imagery acquisition\" and only then carbon coated \"for further SEM-EDS and EMPA-WDS analyses\" (p.3). The SEM work is then registered to those images: \"To cover approximately the same area of the SPIM images (9.7 mm large), 10 BSE images, with four consecutive images in the same row, were acquired and mosaicked\" (p.3)" .
 

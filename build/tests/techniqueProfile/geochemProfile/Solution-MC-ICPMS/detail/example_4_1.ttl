@@ -1,40 +1,112 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-P3> a ada:SolutionICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
-        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P3> ;
+ex:solutionMcicpmsTAPP-detail-P3 a schema1:Dataset,
+        schema1:Product ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "BCR-2 [all: zero within error bars, typically < 0.05‰/amu] — Assessment of data accuracy; replicates from the Mo-chemistry matrix cut agree, with LREEs shifted ~0.1‰/amu" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "CAIs extracted from Allende slabs with a stainless steel dental tool and powdered, digested, REEs recovered from the U/TEVA matrix cut, extracted on TODGA and separated by two-step FPLC on Ln-Spec — Materials and Methods, after Tissot et al. (34)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
+                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
+                <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
+                <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "University of Chicago" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Group II CAIs including FG-FT-4, FG-FT-8 and FG-FT-9" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "BCR-2 — 'processed with the CAIs'" ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
+            ada:combinedResults [ ] ;
+            ada:deltaOrEpsilonValueReferenceStandard "Ce, Nd, Sm, Eu, Gd, Dy, Er, Yb: OL-REE series — prepared in-house from high-purity ESPI oxide powders" ;
+            ada:proceduralBlankLevel "Ce, Nd, Sm, Eu, Gd, Dy, Er, Yb: < 0.25 ng — 'negligible compared to the amounts of REEs in the samples'" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "BCR-2 [all: zero within error bars, typically < 0.05‰/amu] — Assessment of data accuracy; replicates from the Mo-chemistry matrix cut agree, with LREEs shifted ~0.1‰/amu" ;
+    ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:componentType "ada:SolutionICPMSTabular" ;
-    ada:deltaOrEpsilonValueReferenceStandard "Ce, Nd, Sm, Eu, Gd, Dy, Er, Yb: OL-REE series — prepared in-house from high-purity ESPI oxide powders" ;
     ada:detectionLimit -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:oxideProduction "missing" ;
     ada:peakFlatness "missing" ;
-    ada:proceduralBlankLevel "Ce, Nd, Sm, Eu, Gd, Dy, Er, Yb: < 0.25 ng — 'negligible compared to the amounts of REEs in the samples'" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Group II CAIs including FG-FT-4, FG-FT-8 and FG-FT-9" ;
     ada:samplingUnitName "Labelled: each CAI by name under its specimen number — Table 1's \"Sample\" and \"CAI name\" columns give e.g. ME-3364-25.2 \"FG-FT-3\", ME-2639-16.2 \"FG-FT-4\", AL3S5 \"FG-FT-8\", AL4S6 \"FG-FT-9\", AL8S2 \"FG-FT-10\" (p.3); † marks a second analysis of FG-FT-4, -8 and -9. BCR-2 by name only" ;
+    ada:sensitivityYield "140Ce: 10 V; 142Nd: 4 V; 152Sm: 3.5 V; 151Eu, 158Gd: 2 V; 164Dy: 3 V; 166Er, 174Yb: 1.5 V; other: N — at 15–25 ppb (LREE) or 1.5–10 ppb; the text prints '151Er' for ¹⁵¹Eu" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:solutionMcicpmsTAPP-P3> schema1:identifier "no value available: schema:identifier" .
-
-<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
-    schema1:name "Double-Spike Mixing Ratio" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> ;
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> a schema1:PropertyValue ;
+    schema1:name "Double Spike Mixing Ratio" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> ;
     schema1:value "N/A — no double spike used" .
 
-<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle> a schema1:PropertyValue ;
+    schema1:description "all: 8.184 s — 4.142 s in the subconfiguration" ;
+    schema1:name "Integration Time per Cycle" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 8.184e+00 .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+    schema1:description "main configuration: 40 cycles; subconfiguration: 2, measured at the beginning — Materials and Methods" ;
     schema1:name "Number of Cycles per Block" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:value "main configuration: 40 cycles; subconfiguration: 2, measured at the beginning — Materials and Methods" .
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
+    schema1:value 40 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> a schema1:PropertyValue ;
+    schema1:name "Digestion Duration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> ;
+    schema1:value "HF–HNO3–HClO4 attack: 2 weeks; HCl–HNO3 attack: 1 week; final uptake: N" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> a schema1:PropertyValue ;
+    schema1:description "HF–HNO3–HClO4 attack: 160 °C; other: N" ;
+    schema1:name "Digestion Temperature" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 3 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> a schema1:PropertyValue ;
+    schema1:description "N — ~30% of the U/TEVA matrix cut, equivalent to 24% of the whole CAI; CAIs of 15–440 mg" ;
+    schema1:name "Sample Aliquot Mass or Volume" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 30 .
 

@@ -7,19 +7,162 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Genge2025-2",
+  "@id": "ex:semImagingTAPP-detail-Genge2025-2",
   "@type": [
-    "ada:SEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:semImagingTAPP-Genge2025-2",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "N \u2014 the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
+            }
+          ],
+          "schema:name": "no value available: schema:name"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 20,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "20 kV"
+                },
+                {
+                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                    }
+                  ],
+                  "schema:name": "Mapping Beam Current",
+                  "schema:value": 6,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "6 nA"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:semImagingTAPP-detail-Genge2025-2/instrument/SEM"
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semImagingTAPP/chamberPressure",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/chamberPressure"
+            }
+          ],
+          "schema:name": "Chamber Pressure",
+          "schema:value": 25,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "25 Pa (variable pressure mode)"
+        }
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabase",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/semImagingTAPP/crystalStructureDatabase"
+                  }
+                ],
+                "schema:name": "Crystal Structure Database",
+                "schema:value": "ICSD (Inorganic Crystal Structure Database)"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          }
+        ]
+      },
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "GPS Division Analytical Facility, California Institute of Technology"
+      },
+      "schema:description": "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "EBSD"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",

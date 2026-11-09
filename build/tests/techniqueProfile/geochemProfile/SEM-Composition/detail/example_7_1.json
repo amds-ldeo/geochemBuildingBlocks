@@ -1,18 +1,172 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Zega2025",
+  "@id": "ex:semCompositionTAPP-detail-Zega2025",
   "@type": [
-    "ada:SEMEDSSpectrum"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMEDSSpectrum",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:semCompositionTAPP-Zega2025",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "Optical microscopy before coating \u2014 \"After initial documentation by optical microscopy, the sample was sputter coated with ~5 nm of C to assist with charge dissipation during SEM analysis\" (p.9)"
+            }
+          ],
+          "schema:name": "no value available: schema:name"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/semCompositionTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semCompositionTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "15 kV"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:semCompositionTAPP-detail-Zega2025/instrument/SEM"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "Oxford AZtec (Point & ID programme)",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "Oxford AZtec",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel"
+            }
+          ],
+          "schema:name": "EDS Live Time per Point or Pixel",
+          "schema:value": 20,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "20 to 200 s (per point)"
+        }
+      ],
+      "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA Johnson Space Center (JSC), Houston, TX, USA"
+      },
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "schema:additionalProperty": [],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:deadTime": -9999
     }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "EDS Point Analysis"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -24,7 +178,6 @@
   "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",

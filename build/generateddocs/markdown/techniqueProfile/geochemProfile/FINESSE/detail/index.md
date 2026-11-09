@@ -16,17 +16,37 @@ detail instance derived from ADA n=8 | no named analyst | Open University | FINE
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:finesseTAPP-detail-P0",
   "@type": [
-    "ada:FINESSECollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:FINESSECollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:finesseTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Open University",
+        "schema:identifier": "https://ror.org/05mzfcs16"
+      },
+      "schema:identifier": "20240302_FINESSE_OU_OREX-103001-21_1",
+      "schema:startTime": "2023-12-14",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-103001-21"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20240302_FINESSE_OU_OREX-103001-21_1",
@@ -51,18 +71,38 @@ detail instance derived from ADA n=8 | no named analyst | Open University | FINE
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/FINESSE/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:finesseTAPP-detail-P0",
   "@type": [
-    "ada:FINESSECollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:FINESSECollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:finesseTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Open University",
+        "schema:identifier": "https://ror.org/05mzfcs16"
+      },
+      "schema:identifier": "20240302_FINESSE_OU_OREX-103001-21_1",
+      "schema:startTime": "2023-12-14",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-103001-21"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20240302_FINESSE_OU_OREX-103001-21_1",
@@ -78,20 +118,27 @@ detail instance derived from ADA n=8 | no named analyst | Open University | FINE
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:FINESSECollection ;
-    schema1:measurementTechnique <ex:finesseTAPP-P0> ;
+ex:finesseTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240302_FINESSE_OU_OREX-103001-21_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/05mzfcs16" ;
+                    schema1:name "Open University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-103001-21" ] ;
+            schema1:startTime "2023-12-14" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-12-14" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:FINESSECollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-103001-21" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240302_FINESSE_OU_OREX-103001-21_1" .
-
-<ex:finesseTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +204,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.FINESSE.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

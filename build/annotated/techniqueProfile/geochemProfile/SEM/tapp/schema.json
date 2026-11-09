@@ -48,7 +48,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "schema:inDefinedTermSet": "ada:vocab/segmentation-method"
         },
         "schema:instrument": {
           "type": "array",
@@ -111,6 +112,7 @@
                           "type": "string"
                         }
                       ],
+                      "schema:inDefinedTermSet": "ada:vocab/beam-mode",
                       "readOnly": true
                     },
                     "schema:hasPart": {
@@ -151,6 +153,7 @@
                                         "None",
                                         "missing"
                                       ],
+                                      "schema:inDefinedTermSet": "ada:vocab/bse-detector-type",
                                       "readOnly": true
                                     },
                                     {
@@ -169,6 +172,7 @@
                                           "None",
                                           "missing"
                                         ],
+                                        "schema:inDefinedTermSet": "ada:vocab/bse-detector-type",
                                         "readOnly": true
                                       }
                                     }
@@ -594,6 +598,7 @@
                             "None",
                             "missing"
                           ],
+                          "schema:inDefinedTermSet": "ada:vocab/ion-beam-source",
                           "readOnly": true
                         },
                         {
@@ -609,6 +614,7 @@
                               "None",
                               "missing"
                             ],
+                            "schema:inDefinedTermSet": "ada:vocab/ion-beam-source",
                             "readOnly": true
                           }
                         }
@@ -631,6 +637,7 @@
                           "type": "string"
                         }
                       ],
+                      "schema:inDefinedTermSet": "ada:vocab/mapping-beam-mode",
                       "readOnly": true
                     },
                     "ada:mappingBeamCurrentDefault": {
@@ -931,6 +938,7 @@
                                 "None",
                                 "missing"
                               ],
+                              "schema:inDefinedTermSet": "ada:vocab/ebsd-indexing-method",
                               "readOnly": true
                             },
                             {
@@ -946,6 +954,7 @@
                                   "None",
                                   "missing"
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/ebsd-indexing-method",
                                 "readOnly": true
                               }
                             }
@@ -1010,6 +1019,7 @@
                                 "None",
                                 "missing"
                               ],
+                              "schema:inDefinedTermSet": "ada:vocab/lift-out-method",
                               "readOnly": true
                             },
                             {
@@ -1023,6 +1033,7 @@
                                   "None",
                                   "missing"
                                 ],
+                                "schema:inDefinedTermSet": "ada:vocab/lift-out-method",
                                 "readOnly": true
                               }
                             }
@@ -1186,86 +1197,6 @@
                         "const": {
                           "@id": "ada:vocab/target-species-estimation-method"
                         }
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Analytical Accuracy",
-                    "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/semTAPP/analyticalAccuracy"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "analyticalAccuracy"
-                      },
-                      "schema:name": {
-                        "const": "Analytical Accuracy"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Analytical Precision",
-                    "description": "Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/semTAPP/analyticalPrecision"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "analyticalPrecision"
-                      },
-                      "schema:name": {
-                        "const": "Analytical Precision"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
                       },
                       "schema:defaultValue": {
                         "type": "string"
@@ -1700,94 +1631,6 @@
                         "const": {
                           "@id": "ada:vocab/target-species-estimation-method"
                         }
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Analytical Accuracy",
-                    "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/semTAPP/analyticalAccuracy"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "analyticalAccuracy"
-                      },
-                      "schema:name": {
-                        "const": "Analytical Accuracy"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Analytical Precision",
-                    "description": "Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/semTAPP/analyticalPrecision"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "analyticalPrecision"
-                      },
-                      "schema:name": {
-                        "const": "Analytical Precision"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
                       },
                       "schema:defaultValue": {
                         "type": "string"
@@ -3847,6 +3690,11 @@
                   },
                   "schema:value": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/eds-spectral-processing-type"
+                    }
                   }
                 },
                 "required": [
@@ -3891,6 +3739,11 @@
                   },
                   "schema:defaultValue": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/halogen-correction-on-oxygen"
+                    }
                   }
                 },
                 "required": [
@@ -3981,6 +3834,11 @@
                   },
                   "schema:value": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/stage-scan-vs-beam-scan"
+                    }
                   }
                 },
                 "required": [
@@ -4339,6 +4197,11 @@
                   },
                   "schema:value": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/eds-spectral-processing-type"
+                    }
                   }
                 },
                 "required": [
@@ -4387,6 +4250,11 @@
                   },
                   "schema:defaultValue": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/halogen-correction-on-oxygen"
+                    }
                   }
                 },
                 "required": [
@@ -4485,6 +4353,11 @@
                   },
                   "schema:value": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/stage-scan-vs-beam-scan"
+                    }
                   }
                 },
                 "required": [
@@ -4514,6 +4387,7 @@
             "None",
             "missing"
           ],
+          "schema:inDefinedTermSet": "ada:vocab/cl-acquisition-mode",
           "readOnly": true
         },
         "ada:clIntegrationTimeDefault": {
@@ -4610,6 +4484,7 @@
             "None",
             "missing"
           ],
+          "schema:inDefinedTermSet": "ada:vocab/eds-acquisition-mode",
           "readOnly": true
         },
         "ada:edsLiveTimePerPointOrPixelDefault": {
@@ -4706,6 +4581,7 @@
             "None",
             "missing"
           ],
+          "schema:inDefinedTermSet": "ada:vocab/mass-absorption-coefficients",
           "readOnly": true
         },
         "ada:matrixCorrectionMethod": {
@@ -4729,7 +4605,33 @@
               "type": "string"
             }
           ],
+          "schema:inDefinedTermSet": "ada:vocab/matrix-correction-method",
           "readOnly": true
+        },
+        "ada:reportedPropertyTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultReportedProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "ada:defaultReportedProperties"
+          ],
+          "title": "Reported Property Template"
         },
         "ada:sampleTiltAngle": {
           "description": "Sample tilt angle for EBSD acquisition in degrees, measured from horizontal.",
@@ -4755,6 +4657,7 @@
             "None",
             "missing"
           ],
+          "schema:inDefinedTermSet": "ada:vocab/se-detector-type",
           "readOnly": true
         },
         "ada:stepSizePixelSizeDefault": {
@@ -4789,6 +4692,7 @@
               "type": "string"
             }
           ],
+          "schema:inDefinedTermSet": "ada:vocab/wds-dead-time-correction",
           "readOnly": true
         },
         "ada:workingDistanceDefault": {
@@ -4855,6 +4759,6 @@
     "itemIdentifier": "ogch.techniqueProfile.geochemProfile.SEM.tapp",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-10-31"
+    "dateOfLastChange": "2026-11-09"
   }
 }

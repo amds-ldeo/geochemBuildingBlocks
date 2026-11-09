@@ -1,13 +1,54 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Cymes2023> a ada:TEMImage ;
-    schema1:measurementTechnique <ex:temTAPP-Cymes2023> ;
+ex:temTAPP-detail-Cymes2023 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "B.A. Cymes; K.D. Burgess; R.M. Stroud" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Petrographic and crystallographic characterization of exsolved lunar pyroxene (Apollo 17 soil); phase ID by SAED + simulation; Ca distribution by EFTEM; HRTEM lattice imaging; coordinated with EELS on Nion UltraSTEM200-X" ;
+                    schema1:name "FIB (FEI Helios G3 Dual Beam at NRL); HAADF-STEM + Dual EELS + EDS (Nion UltraSTEM200-X at NRL; coordinated with JEOL JEM-2200FS)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "FIB lift-out (Ga+)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> ;
+            schema1:description "JEOL JEM-2200FS at NRL with in-column Omega energy filter; Gatan OneView camera; 200 keV. EFTEM Ca M-edge mapping (35 eV loss, 10-eV slit) used to distinguish Ca-rich augite from Ca-poor pigeonite lamellae in exsolved grain \"2pyx\". SAED simulated with SingleCrystal (CrystalMaker Software); [1-11] zone axis of pigeonite (P2₁/c) and augite (C2/c) confirmed. HRTEM + inverse FFT (spot-pass filter) for lattice deformation visualization. FIB section stored under N₂ and baked 140°C/8h under vacuum before TEM. Coordinated with Nion UltraSTEM200-X (same FIB section). Pt-welded to Cu TEM half-grid after initial in situ thinning." ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Cymes2023/instrument/TEM> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "SingleCrystal (CrystalMaker Software, Ltd., Oxford, UK)" ;
+                            ada:toolRole "dataReduction" ] ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "B.A. Cymes; K.D. Burgess; R.M. Stroud" ;
-    ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
     ada:eelsDetectionLimit -9999 ;
@@ -16,5 +57,47 @@
     ada:samplingUnitName "Labelled: one FIB section of Apollo 17 soil 71501 \"containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx”\" (p.3)" ;
     ada:sessionIdentifier "missing" .
 
-<ex:temTAPP-Cymes2023> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/temTAPP-detail-Cymes2023/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "FIB-SEM imaging of the dispersed soil grains — \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "200 keV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> ;
+    schema1:value "BF-TEM; EFTEM (Ca M-edge, 35 eV loss, 10-eV slit); SAED; HRTEM" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow> a schema1:PropertyValue ;
+    schema1:name "EFTEM Energy Window" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow> ;
+    schema1:value "10 eV (Ca M-edge EFTEM centered at 35 eV energy loss)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> a schema1:PropertyValue ;
+    schema1:name "Image Processing Methods Applied" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
+    schema1:value "Inverse FFT with spot-pass filter for HRTEM images" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> a schema1:PropertyValue ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+    schema1:value "FEI Helios G3 Dual Beam FIB-SEM at NRL; ~80 nm amorphous C coating applied to grain before FIB; 1–2 µm e-beam amorphous C protection strip; initial in situ thinning to ~1–2 µm, then Pt-welded to Cu TEM half-grid; thinned to ~80–100 nm; stored under N₂; baked 140°C for 8 h under vacuum before TEM" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> a schema1:PropertyValue ;
+    schema1:name "Selected-Area Aperture Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> ;
+    schema1:value "100 nm (SAED aperture)" .
 

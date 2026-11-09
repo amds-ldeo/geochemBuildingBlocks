@@ -1,18 +1,30 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semTAPP-Barnes2025> a cdi:Activity,
+ex:semTAPP-Barnes2025 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -26,21 +38,10 @@
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
-    schema1:instrument <ex:semTAPP-Barnes2025/instrument/SEM> ;
+    schema1:instrument <https://example.org/semTAPP-Barnes2025/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Astromaterials Research and Exploration Science Division (ARES), NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -65,7 +66,16 @@
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — no element set is named for the JSC SEM-EDS of the two presolar grains (p.2, p.11, Extended Data Fig. 8). The 'multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains' (p.11) is the CRPG JEOL JSM-6510 work on other samples" ;
-    ada:reportedProperties "elemental composition of the presolar grains; phase assignment (nominal: silicate vs oxide) — Elemental composition of the two presolar grains, used \"to further constrain the phase and to confirm the phase identifications made based on the NanoSIMS data\" (p.11); the reported output is the phase assignment (nominal: silicate vs oxide)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "elemental composition of the presolar grains",
+                "phase assignment (nominal: silicate vs oxide)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "elemental composition of the presolar grains; phase assignment (nominal: silicate vs oxide) — Elemental composition of the two presolar grains, used \"to further constrain the phase and to confirm the phase identifications made based on the NanoSIMS data\" (p.11); the reported output is the phase assignment (nominal: silicate vs oxide)" ] ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Isotopic anomaly, found by prior NanoSIMS imaging — grains \"were considered presolar if their isotopic composition differed from the reference ratios by >5σ and if the isotopic anomaly was present in multiple consecutive frames\", and of those \"Two O-rich presolar grains were also analysed by SEM-EDS to further constrain the phase\" (p.11)" ;
     ada:samplingUnitType "Grain (presolar grain) > Phase — EDS was used on grains first found by NanoSIMS raster imaging of \"aggregate QL material pressed onto a gold (Au) foil mount\": \"Two O-rich presolar grains were also analysed by SEM-EDS to further constrain the phase and to confirm the phase identifications\" (pp.10–11)" ;
@@ -87,53 +97,6 @@
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<ex:semTAPP-Barnes2025/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "missing" ;
-    schema1:hasPart <ex:semTAPP-Barnes2025/instrument/SEM/part/BSE-Detector>,
-        <ex:semTAPP-Barnes2025/instrument/SEM/part/EDS-Detector>,
-        <ex:semTAPP-Barnes2025/instrument/SEM/part/Electron-Source>,
-        <ex:semTAPP-Barnes2025/instrument/SEM/part/WDS-Spectrometer> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "no value available: schema:name" ] ;
-    schema1:name "missing" ;
-    ada:acceleratingVoltageDefault -9999 ;
-    ada:beamDiameterDefault -9999 ;
-    ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" ;
-    ada:mappingBeamCurrentDefault -9999 ;
-    ada:mappingBeamDiameterDefault -9999 ;
-    ada:mappingBeamMode "missing" .
-
-<ex:semTAPP-Barnes2025/instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "missing" .
-
-<ex:semTAPP-Barnes2025/instrument/SEM/part/EDS-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EDS Detector" ;
-    schema1:name "missing" .
-
-<ex:semTAPP-Barnes2025/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<ex:semTAPP-Barnes2025/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "WDS Spectrometer" ;
-    schema1:name "missing" .
-
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Background Counting Time" ;
@@ -151,4 +114,51 @@
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
+
+<https://example.org/semTAPP-Barnes2025/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "missing" ;
+    schema1:hasPart <https://example.org/semTAPP-Barnes2025/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semTAPP-Barnes2025/instrument/SEM/part/EDS-Detector>,
+        <https://example.org/semTAPP-Barnes2025/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semTAPP-Barnes2025/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "no value available: schema:name" ] ;
+    schema1:name "missing" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
+
+<https://example.org/semTAPP-Barnes2025/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/semTAPP-Barnes2025/instrument/SEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/semTAPP-Barnes2025/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<https://example.org/semTAPP-Barnes2025/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
 

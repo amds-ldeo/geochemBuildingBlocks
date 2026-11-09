@@ -17,6 +17,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -70,7 +71,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Synchrotron-based X-ray Fluorescence Spectroscopy analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -105,6 +106,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -113,6 +115,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -167,7 +170,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Synchrotron-based X-ray Fluorescence Spectroscopy analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -199,17 +202,18 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:sXrfTAPP-P0> a cdi:Activity,
+ex:sXrfTAPP-P0 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Synchrotron-based X-ray Fluorescence Spectroscopy analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -219,7 +223,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
                     schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotron Radiation Facility | Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering) (publication column of S-XRF_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Synchrotron." ;
-    schema1:instrument <ex:sXrfTAPP-P0/instrument/nxs-base-classes-NXinstrument-html> ;
+    schema1:instrument <https://example.org/sXrfTAPP-P0/instrument/nxs-base-classes-NXinstrument-html> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02550n020" ;
             schema1:name "European Synchrotron Radiation Facility" ] ;
@@ -233,7 +237,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
-<ex:sXrfTAPP-P0/instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
+<https://example.org/sXrfTAPP-P0/instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
         <https://www.wikidata.org/wiki/Q3099911> ;
@@ -382,6 +386,19 @@ allOf:
                       const: nxs:base_classes/NXinstrument.html
           required:
           - schema:additionalType
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -400,7 +417,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.S-XRF.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

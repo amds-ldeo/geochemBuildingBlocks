@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -181,7 +182,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Solution Q-ICP-MS analytical workflow"
   },
   "schema:object": [
     {
@@ -525,35 +527,6 @@
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -671,6 +644,70 @@
     }
   ],
   "ada:driftCorrectionMethod": "N/A",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Li, Be, B, Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Ge, As, Rb, Sr, Y, Zr, Nb, Mo, Cd, In, Sn, Sb, Te, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Tl, Pb, Bi, Th, U (ppm) \u2014 Table 2; blanks in ppb",
+    "ada:defaultReportedProperties": [
+      "Li",
+      "Be",
+      "B",
+      "Sc",
+      "V",
+      "Cr",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ga",
+      "Ge",
+      "As",
+      "Rb",
+      "Sr",
+      "Y",
+      "Zr",
+      "Nb",
+      "Mo",
+      "Cd",
+      "In",
+      "Sn",
+      "Sb",
+      "Te",
+      "Cs",
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Hf",
+      "Ta",
+      "W",
+      "Tl",
+      "Pb",
+      "Bi",
+      "Th",
+      "U (ppm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -688,9 +725,6 @@
   "ada:samplingUnitType": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\""
-  ],
-  "ada:reportedProperties": [
-    "Li, Be, B, Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Ge, As, Rb, Sr, Y, Zr, Nb, Mo, Cd, In, Sn, Sb, Te, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Tl, Pb, Bi, Th, U (ppm) \u2014 Table 2; blanks in ppb"
   ],
   "ada:chromatographicSeparationApplied": "None \u2014 the digest is analysed directly (\u00a73.3)",
   "ada:isotopeDilutionSpike": "None",

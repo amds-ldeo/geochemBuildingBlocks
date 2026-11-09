@@ -1,16 +1,18 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:temTAPP-Seifert2026> a cdi:Activity,
+ex:temTAPP-Seifert2026 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "TEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -27,7 +29,7 @@
                     schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5–7 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007. Reported detail: ada:spectroscopicDetectorDefault = EDS (JEOL 60 mm² SDD); ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping; ada:edsAcquisitionModeDefault = Spectrum imaging (EDS elemental maps); false-color RGB maps." ;
-    schema1:instrument <ex:temTAPP-Seifert2026/instrument/TEM> ;
+    schema1:instrument <https://example.org/temTAPP-Seifert2026/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Electron Beam Analysis Laboratories, ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -56,7 +58,19 @@
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "no value available: ada:eelsEnergyLossRangeDefault" ;
     ada:phaseIdentificationMethod "no value available: ada:phaseIdentificationMethod" ;
-    ada:reportedProperties "F, Cl, SiO2, P2O5, CaO, MnO, Fe2O3 (wt%); total (wt%); crystallinity (nominal); crystal orientation (nominal); textural relationships (nominal) — Apatite compositions by STEM EDS as oxide concentrations (wt%: F, Cl, SiO2, P2O5, CaO, MnO, Fe2O3, with totals; Table 2, p.11); crystallinity and orientation from zone-axis SAED patterns (nominal, p.12); textural relationships between apatite and phyllosilicate (nominal, Figs 6–7, pp.10–12)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "F, Cl, SiO2, P2O5, CaO, MnO, Fe2O3 (wt%)",
+                "crystal orientation (nominal)",
+                "crystallinity (nominal)",
+                "textural relationships (nominal)",
+                "total (wt%)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "F, Cl, SiO2, P2O5, CaO, MnO, Fe2O3 (wt%); total (wt%); crystallinity (nominal); crystal orientation (nominal); textural relationships (nominal) — Apatite compositions by STEM EDS as oxide concentrations (wt%: F, Cl, SiO2, P2O5, CaO, MnO, Fe2O3, with totals; Table 2, p.11); crystallinity and orientation from zone-axis SAED patterns (nominal, p.12); textural relationships between apatite and phyllosilicate (nominal, Figs 6–7, pp.10–12)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Zoning, seen in CL before extraction — \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Grain (apatite) — one section, \"OREX-803173-100\", carrying \"Ap. #1 and Ap. #2\" (Fig. 5 caption, p.9); compositions are tabulated per grain (Table 2, p.11)" ;
     ada:spectroscopicDetectorDefault "N/A" ;
@@ -87,70 +101,6 @@
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
 
-<ex:temTAPP-Seifert2026/instrument/TEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "TEM" ;
-    schema1:hasPart <ex:temTAPP-Seifert2026/instrument/TEM/part/4D-STEM-Detector>,
-        <ex:temTAPP-Seifert2026/instrument/TEM/part/Aberration-Corrector>,
-        <ex:temTAPP-Seifert2026/instrument/TEM/part/EDS-Detector>,
-        <ex:temTAPP-Seifert2026/instrument/TEM/part/EELS-Spectrometer>,
-        <ex:temTAPP-Seifert2026/instrument/TEM/part/Electron-Source>,
-        <ex:temTAPP-Seifert2026/instrument/TEM/part/Imaging-Detector>,
-        <ex:temTAPP-Seifert2026/instrument/TEM/part/Monochromator> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "JEOL" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "JEOL 2500SE" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault "200 kV" .
-
-<ex:temTAPP-Seifert2026/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "4D-STEM Detector" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Seifert2026/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Aberration Corrector" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Seifert2026/instrument/TEM/part/EDS-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EDS Detector" ;
-    schema1:description "JEOL 60 mm² silicon-drift detector (SDD) for EDS" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Seifert2026/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EELS Spectrometer" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Seifert2026/instrument/TEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "Unknown" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Seifert2026/instrument/TEM/part/Imaging-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Imaging Detector" ;
-    schema1:description "BF STEM detector; DF STEM detector; SE STEM detector" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Seifert2026/instrument/TEM/part/Monochromator> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Monochromator" ;
-    schema1:name "missing" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "SEM EDS mapping and CL imaging at JSC — apatite grains \"were identified via EDS mapping and point analysis\", then \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2); the FIB cut was placed across two grains chosen for that zoning, with the transect \"indicated by the dashed white line\" on the BSE image and the CL image shown \"before preparation of the FIB section\" (Fig. 5, p.9)" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -164,4 +114,68 @@
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/temTAPP-Seifert2026/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/temTAPP-Seifert2026/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/temTAPP-Seifert2026/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/temTAPP-Seifert2026/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/temTAPP-Seifert2026/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/temTAPP-Seifert2026/instrument/TEM/part/Electron-Source>,
+        <https://example.org/temTAPP-Seifert2026/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/temTAPP-Seifert2026/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL 2500SE" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/temTAPP-Seifert2026/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Seifert2026/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Seifert2026/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "JEOL 60 mm² silicon-drift detector (SDD) for EDS" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Seifert2026/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Seifert2026/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Seifert2026/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "BF STEM detector; DF STEM detector; SE STEM detector" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Seifert2026/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
 

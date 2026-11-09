@@ -1,24 +1,166 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Glavin2023> a ada:XCTVolume ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique <ex:labxctTAPP-Glavin2023> ;
+ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
+        schema1:Product ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Scott A. Eckley" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:distribution [ schema1:encodingFormat "TIFF (continuous series of 2D TIFF images)" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSize>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistance>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistance> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
+                    schema1:name "Murchison B (USNM 5453,1)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Glavin2023/instrument/XCT> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Nikon CTAgentPro v5.4 (FBP algorithm)" ;
+                            ada:toolRole "dataReduction" ] ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Scott A. Eckley" ;
-    ada:componentType "ada:XCTVolume" ;
+    ada:analyticalMode "Single-volume" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "Murchison B (USNM 5453,1)" ;
     ada:samplingUnitName "Labelled: the split \"Murchison B (mass = 4.6430 g)\", scanned in its sealed vial; its counterpart \"Murchison A\" was the unscanned control (p.3)" ;
-    ada:sessionIdentifier "missing" ;
-    ada:voiApplied "Full vial volume (2000 × 2000 × 2000 voxels)" .
+    ada:sessionIdentifier "missing" .
 
-<ex:labxctTAPP-Glavin2023> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/labxctTAPP-detail-Glavin2023/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 160 .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
     schema1:value "~30 µm — stated as \"resolution limits of ~30 µm (around 3x the voxel size)\" against an 11.54 µm voxel. Rule-of-thumb estimate; no PSF or MTF measurement" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> a schema1:PropertyValue ;
+    schema1:description "1.00 s per frame" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1e+00 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection> a schema1:PropertyValue ;
+    schema1:description "8 frames averaged per projection" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection> ;
+    schema1:value 8 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> a schema1:PropertyValue ;
+    schema1:name "Number of Projections" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> ;
+    schema1:value 3141 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode> a schema1:PropertyValue ;
+    schema1:name "Rotation Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode> ;
+    schema1:value "Continuous 360° rotation" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange> a schema1:PropertyValue ;
+    schema1:description "360° (continuous)" ;
+    schema1:name "Rotation Range" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 360 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSize> a schema1:PropertyValue ;
+    schema1:description "0.115°" ;
+    schema1:name "Rotation Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1.15e-01 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> a schema1:PropertyValue ;
+    schema1:description "4.6430 g (Murchison B in vial)" ;
+    schema1:name "Sample Mass" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 4.643e+00 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> a schema1:PropertyValue ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
+    schema1:value "Glass vial placed in scanner" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistance> a schema1:PropertyValue ;
+    schema1:description "679.51 mm" ;
+    schema1:name "Source-to-Detector Distance (SDD)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistance> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 6.7951e+02 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistance> a schema1:PropertyValue ;
+    schema1:description "39.22 mm" ;
+    schema1:name "Source-to-Object Distance (SOD)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistance> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 3.922e+01 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent> a schema1:PropertyValue ;
+    schema1:description "38 µA" ;
+    schema1:name "Tube Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 38 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> a schema1:PropertyValue ;
+    schema1:name "VOI Applied" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    schema1:value "Full vial volume (2000 × 2000 × 2000 voxels)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> a schema1:PropertyValue ;
+    schema1:description "11.54 µm (cubic voxel edge)" ;
+    schema1:name "Voxel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1.154e+01 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> a schema1:PropertyValue ;
+    schema1:name "X-ray Pre-filter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
+    schema1:value "None (intentionally unfiltered; worst-case dose experiment)" .
 

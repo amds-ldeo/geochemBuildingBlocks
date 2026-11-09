@@ -1,17 +1,181 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Liu2016-2",
+  "@id": "ex:epmaTAPP-detail-Liu2016-2",
   "@type": [
-    "ada:EPMAImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:EPMAImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:epmaTAPP-Liu2016-2",
-      "schema:identifier": "no value available: schema:identifier"
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "EPMA",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "15 kV"
+                },
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                    }
+                  ],
+                  "schema:name": "Beam Diameter",
+                  "schema:value": 1,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "olivine, pyroxene, Fe-Ti-Cr oxides: 1\u20132 \u00b5m; maskelynite, phosphate, sulfide, glass: 5\u201310 \u00b5m \u2014 p.3"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:epmaTAPP-detail-Liu2016-2/instrument/EPMA"
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/epmaTAPP/beamDamageMinimization",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDamageMinimization"
+            }
+          ],
+          "schema:name": "Beam Damage Minimization",
+          "schema:value": "N \u2014 a defocused 5\u201310 \u00b5m beam at 10 nA is used for maskelynite, phosphate, sulfide and glass, but the paper gives no reason for it"
+        }
+      ],
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "Petrographic microscopy and SEM \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" (p.3); the same sections then went to both microprobes"
+            }
+          ],
+          "schema:name": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B"
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Division of Geological and Planetary Sciences, Caltech"
+      },
+      "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. \u2014 Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA.",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Polished thin sections (coating type N)",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "schema:additionalProperty": [],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:deadTime": -9999
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270; NSF EAR-1019770 \u2014 'We acknowledge partial support by ...'"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "N \u2014 quantitative point analyses; WDS or EDS is not stated, and the list has no value without one"
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1\u03c3, one standard deviation of the average; other: N \u2014 Table 3 note b"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -24,7 +188,6 @@
   "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:detectionLimit": "SiO2, TiO2, Al2O3, MgO, CaO: <0.03 wt%; FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5: <0.05\u20130.1 wt%; other: N \u2014 'Detection limits are typically <0.03 wt% for SiO2, TiO2, Al2O3, MgO, and CaO; <0.05\u20130.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, and P2O5' (p.3)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",

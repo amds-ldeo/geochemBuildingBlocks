@@ -16,17 +16,53 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Gainsforth2023",
+  "@id": "ex:xanesTAPP-detail-Gainsforth2023",
   "@type": [
-    "ada:XANESCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XANESCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:xanesTAPP-Gainsforth2023",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Advanced Light Source at Lawrence Berkeley National Laboratory",
+        "schema:identifier": "https://ror.org/00319zh75"
+      },
+      "schema:identifier": "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)",
+      "schema:startTime": "2023-11-12 | 2023-12-06 | (+4 more)",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Gainsforth, Zack"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA"
     }
   ],
   "ada:sessionIdentifier": "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)",
@@ -51,18 +87,54 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XANES/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Gainsforth2023",
+  "@id": "ex:xanesTAPP-detail-Gainsforth2023",
   "@type": [
-    "ada:XANESCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XANESCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:xanesTAPP-Gainsforth2023",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Advanced Light Source at Lawrence Berkeley National Laboratory",
+        "schema:identifier": "https://ror.org/00319zh75"
+      },
+      "schema:identifier": "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)",
+      "schema:startTime": "2023-11-12 | 2023-12-06 | (+4 more)",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Gainsforth, Zack"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA"
     }
   ],
   "ada:sessionIdentifier": "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)",
@@ -78,20 +150,31 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-Gainsforth2023> a ada:XANESCollection ;
-    schema1:measurementTechnique <ex:xanesTAPP-Gainsforth2023> ;
+ex:xanesTAPP-detail-Gainsforth2023 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Gainsforth, Zack" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA" ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/00319zh75" ;
+                    schema1:name "Advanced Light Source at Lawrence Berkeley National Laboratory" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)" ] ;
+            schema1:startTime "2023-11-12 | 2023-12-06 | (+4 more)" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-12 | 2023-12-06 | (+4 more)" ;
     ada:analyst "Gainsforth, Zack" ;
-    ada:componentType "ada:XANESCollection" ;
     ada:fundingSourceForAnalysis "NASA" ;
     ada:sampleName "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)" .
-
-<ex:xanesTAPP-Gainsforth2023> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +240,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XANES.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

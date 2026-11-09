@@ -172,6 +172,9 @@ allOf:
                             const: R
                           schema:defaultValue:
                             type: string
+                          schema:inDefinedTermSet:
+                            const:
+                              '@id': ada:vocab/eels-plural-scattering-correction
                         required:
                         - '@id'
                         - '@type'
@@ -287,6 +290,9 @@ allOf:
                             const: R
                           schema:defaultValue:
                             type: string
+                          schema:inDefinedTermSet:
+                            const:
+                              '@id': ada:vocab/eels-plural-scattering-correction
                         required:
                         - '@id'
                         - '@type'
@@ -539,6 +545,7 @@ allOf:
                             - N/A
                             - None
                             - missing
+                            schema:inDefinedTermSet: ada:vocab/aberration-corrector
                             readOnly: true
                           - type: array
                             items:
@@ -553,6 +560,7 @@ allOf:
                               - N/A
                               - None
                               - missing
+                              schema:inDefinedTermSet: ada:vocab/aberration-corrector
                               readOnly: true
                       required:
                       - schema:description
@@ -581,6 +589,7 @@ allOf:
                             - N/A
                             - None
                             - missing
+                            schema:inDefinedTermSet: ada:vocab/monochromator
                             readOnly: true
                           - type: array
                             items:
@@ -593,6 +602,7 @@ allOf:
                               - N/A
                               - None
                               - missing
+                              schema:inDefinedTermSet: ada:vocab/monochromator
                               readOnly: true
                   - if:
                       properties:
@@ -826,6 +836,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/sample-holder
           required:
           - '@id'
           - '@type'
@@ -1200,6 +1213,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/diffraction-camera-length-calibration-method
           required:
           - '@id'
           - '@type'
@@ -1381,6 +1397,9 @@ allOf:
               const: EDS Spectral Processing Type
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-spectral-processing-type
           required:
           - '@id'
           - '@type'
@@ -1411,6 +1430,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/specimen-thickness-determination-method
           required:
           - '@id'
           - '@type'
@@ -1581,6 +1603,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eels-chemical-state-determination-method
           required:
           - '@id'
           - '@type'
@@ -1613,6 +1638,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/sample-holder
           required:
           - '@id'
           - '@type'
@@ -2020,6 +2048,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/diffraction-camera-length-calibration-method
           required:
           - '@id'
           - '@type'
@@ -2219,6 +2250,9 @@ allOf:
               const: EDS Spectral Processing Type
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-spectral-processing-type
           required:
           - '@id'
           - '@type'
@@ -2252,6 +2286,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/specimen-thickness-determination-method
           required:
           - '@id'
           - '@type'
@@ -2437,6 +2474,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eels-chemical-state-determination-method
           required:
           - '@id'
           - '@type'
@@ -2460,6 +2500,7 @@ allOf:
       - None
       - N/A
       - missing
+      schema:inDefinedTermSet: ada:vocab/spectroscopic-detector
     bios:computationalTool:
       type: array
       items:
@@ -2509,6 +2550,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/analytical-sub-mode
     ada:convergenceSemiAngle:
       description: Semi-angle of the converged electron probe in milliradians.
       anyOf:
@@ -2554,6 +2596,7 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/eds-acquisition-mode
     ada:edsQuantificationMethod:
       description: "X-ray matrix correction algorithm applied during quantitative
         EDS or WDS data reduction. For X-ray mapping, applies when raw count maps
@@ -2572,6 +2615,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/matrix-correction-method
       readOnly: true
     ada:targetSpeciesTemplate:
       type: object
@@ -2587,6 +2631,19 @@ allOf:
       required:
       - ada:defaultTargetSpecies
       title: Target Species Template
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:eelsAcquisitionModeDefault:
       description: Mode of EELS data acquisition. Record 'N/A' where EELS is not listed
         in Spectroscopic Detector(s).
@@ -2600,6 +2657,7 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/eels-acquisition-mode
     ada:eelsEdgesDefault:
       type: array
       items:
@@ -2927,4 +2985,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'

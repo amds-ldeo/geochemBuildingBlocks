@@ -1,19 +1,31 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-P1> a ada:STEMImage ;
-    schema1:measurementTechnique <ex:stemTAPP-P1> ;
+ex:stemTAPP-detail-P1 a schema1:Dataset,
+        schema1:Product ;
+    schema1:distribution [ schema1:hasPart [ schema1:height [ a schema1:QuantitativeValue ;
+                            schema1:unitText "pixel" ;
+                            schema1:value 2048 ] ;
+                    schema1:width [ a schema1:QuantitativeValue ;
+                            schema1:unitText "pixel" ;
+                            schema1:value 2048 ] ] ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/02jbv0t02" ;
+                    schema1:name "Lawrence Berkeley National Laboratory" ] ;
+            schema1:startTime "2023-12-07" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-12-07" ;
     ada:analyst "missing" ;
+    ada:analyticalMode "STEM" ;
     ada:cameraLength -9999 ;
-    ada:componentType "ada:STEMImage" ;
     ada:dwellTimePerProbePosition -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:imageHeight 2048 ;
     ada:imagePixelSize 2.2766e+00 ;
-    ada:imageWidth 2048 ;
     ada:magnification -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "missing" ;
@@ -22,6 +34,4 @@
     ada:stageTiltBeta -9999 ;
     ada:stageXPosition -9999 ;
     ada:stageYPosition -9999 .
-
-<ex:stemTAPP-P1> schema1:identifier "no value available: schema:identifier" .
 

@@ -16,17 +16,37 @@ detail instance derived from ADA n=10 | no named analyst | Arizona State Univers
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:pcdAfmTAPP-detail-P0",
   "@type": [
-    "ada:PCDAFMCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:PCDAFMCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:pcdAfmTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Arizona State University",
+        "schema:identifier": "https://ror.org/03efmqc40"
+      },
+      "schema:identifier": "20241217_PCD-AFM_ASU_multiSample_1",
+      "schema:startTime": "2024-10-30",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803312-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20241217_PCD-AFM_ASU_multiSample_1",
@@ -51,18 +71,38 @@ detail instance derived from ADA n=10 | no named analyst | Arizona State Univers
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/PCD-AFM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:pcdAfmTAPP-detail-P0",
   "@type": [
-    "ada:PCDAFMCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:PCDAFMCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:pcdAfmTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Arizona State University",
+        "schema:identifier": "https://ror.org/03efmqc40"
+      },
+      "schema:identifier": "20241217_PCD-AFM_ASU_multiSample_1",
+      "schema:startTime": "2024-10-30",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803312-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20241217_PCD-AFM_ASU_multiSample_1",
@@ -78,20 +118,27 @@ detail instance derived from ADA n=10 | no named analyst | Arizona State Univers
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:PCDAFMCollection ;
-    schema1:measurementTechnique <ex:pcdAfmTAPP-P0> ;
+ex:pcdAfmTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20241217_PCD-AFM_ASU_multiSample_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/03efmqc40" ;
+                    schema1:name "Arizona State University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-803312-0" ] ;
+            schema1:startTime "2024-10-30" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-10-30" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:PCDAFMCollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-803312-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241217_PCD-AFM_ASU_multiSample_1" .
-
-<ex:pcdAfmTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +204,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.PCD-AFM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

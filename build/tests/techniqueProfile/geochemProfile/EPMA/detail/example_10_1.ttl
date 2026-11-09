@@ -1,25 +1,87 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-McCoy2025> a ada:EPMAImage ;
-    schema1:measurementTechnique <ex:epmaTAPP-McCoy2025> ;
+ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
+        schema1:Product ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — 'This material is based on work supported by ...'; individual grants are also listed by person (80NSSC22K1692, MR/T020261/1, ST/V000675/1, 22EXPOSITO)" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "astromat.org, at the DOIs in Extended Data Table 3 — 'Instrument data supporting the experimental results from the samples analysed in this study will be available from Astromat (astromat.org) at the DOIs listed in Extended Data Table 3'" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 µm spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Magnetite and olivine analyses: 15 kV, 10 nA, 1 µm spot; their own standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use)." ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Smithsonian Institution, National Museum of Natural History" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:identifier "OREX-8#####-### (NASA curatorial ID, not IGSN)" ;
+                    schema1:name "Bennu OSIRIS-REx samples (OREX-8#####-###)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine — carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)" ;
+                            ada:reagentRole "referenceMaterial" ] ],
+                [ schema1:instrument <https://example.org/epmaTAPP-detail-McCoy2025/instrument/EPMA> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ;
+            ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
+    ada:analyticalMode "N — point analyses with named crystals (LIFL, TAPL, PETL); WDS or EDS is not stated, and the list has no value without one" ;
     ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:EPMAImage" ;
     ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — 'This material is based on work supported by ...'; individual grants are also listed by person (80NSSC22K1692, MR/T020261/1, ST/V000675/1, 22EXPOSITO)" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "Bennu OSIRIS-REx samples (OREX-8#####-###)" ;
     ada:samplingUnitName "N — the Smithsonian microprobe passage names no specimens (\"conducted on Ir-coated specimens\", p.7); the paper's OREX numbers identify figure images, not microprobe analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-McCoy2025> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/epmaTAPP-detail-McCoy2025/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "15 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 15 .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> a schema1:PropertyValue ;
+    schema1:description "carbonate: 5 µm; magnetite, olivine: 1 µm — 'with an analytical spot size of 5 µm' (carbonates); 'Analyses were conducted at 15kV and 10nA, with an analytical spot size of 1µm' (the magnetite and olivine sentence)" ;
+    schema1:name "Beam Diameter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 5 .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "SEM mapping at the Smithsonian — particles 'analysed at 15 kV and around 0.5 nA in high vacuum using a Thermo Fisher Quattro FE-SEM'; 'Maps of loose grains were investigated, then used to inform sectioning' (p.7)" .
 

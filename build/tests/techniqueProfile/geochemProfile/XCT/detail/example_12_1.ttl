@@ -1,24 +1,154 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Richard2019-3> a ada:XCTVolume ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique <ex:labxctTAPP-Richard2019-3> ;
+ex:labxctTAPP-detail-Richard2019-3 a schema1:Dataset,
+        schema1:Product ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/totalScanDuration>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "U. Strathclyde, Glasgow, UK" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
+                        <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "Sample B (synthetic quartz)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Richard2019-3/instrument/XCT> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Avizo 9.2.0" ;
+                            ada:toolRole "dataReduction" ] ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:XCTVolume" ;
+    ada:analyticalMode "Single-volume" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:sampleDimensions "3 × 5 × 2 cm" ;
     ada:sampleName "Sample B (synthetic quartz)" ;
     ada:samplingUnitName "Labelled: the region-of-interest scan of Sample B, \"shown in Fig. 2 (fluid inclusion #3)\" (Table 1 note, p.3)" ;
-    ada:sessionIdentifier "missing" ;
-    ada:voiApplied "Full scan volume" .
+    ada:sessionIdentifier "missing" .
 
-<ex:labxctTAPP-Richard2019-3> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/labxctTAPP-detail-Richard2019-3/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "160 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 160 .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
     schema1:value "N — the paper's \"spatial resolution\" figures are given in µm/px with voxel volumes, i.e. the voxel size (7.7 µm); no effective resolution reported" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> a schema1:PropertyValue ;
+    schema1:description "1.415 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1.415e+00 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection> a schema1:PropertyValue ;
+    schema1:description "1 frame per projection" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection> ;
+    schema1:value 1 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> a schema1:PropertyValue ;
+    schema1:name "Number of Projections" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> ;
+    schema1:value 3141 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod> a schema1:PropertyValue ;
+    schema1:name "Phase Identification Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod> ;
+    schema1:value "Phase identified by grayscale contrast (vapor darker, liquid brighter)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> a schema1:PropertyValue ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+    schema1:value "3 × 5 × 2 cm" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod> a schema1:PropertyValue ;
+    schema1:name "Segmentation Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod> ;
+    schema1:value "Manual grayscale threshold" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> a schema1:PropertyValue ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> ;
+    schema1:value "Manual threshold: vapor = darker, liquid = brighter pixels; specific values N" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/totalScanDuration> a schema1:PropertyValue ;
+    schema1:name "Total Scan Duration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/totalScanDuration> ;
+    schema1:value "75 min" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent> a schema1:PropertyValue ;
+    schema1:description "46 µA (Ag target)" ;
+    schema1:name "Tube Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 46 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> a schema1:PropertyValue ;
+    schema1:name "VOI Applied" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    schema1:value "Full scan volume" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> a schema1:PropertyValue ;
+    schema1:description "7.7 µm" ;
+    schema1:name "Voxel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 7.7e+00 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> a schema1:PropertyValue ;
+    schema1:description "7.4 W" ;
+    schema1:name "X-ray Power" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 7.4e+00 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> a schema1:PropertyValue ;
+    schema1:name "X-ray Pre-filter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
+    schema1:value "None (conditions did not require filtering)" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "Optical photography identifying the fluid inclusion array; inclusion #3 targeted for the high-resolution region-of-interest scan (Fig. 2)" .
 

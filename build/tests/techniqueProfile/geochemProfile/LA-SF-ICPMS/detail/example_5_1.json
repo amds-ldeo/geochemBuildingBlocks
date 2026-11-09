@@ -1,17 +1,330 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Mittlefehldt2024",
+  "@id": "ex:laSficpmsTAPP-detail-Mittlefehldt2024",
   "@type": [
-    "ada:LAICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:LAICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:laSficpmsTAPP-Mittlefehldt2024",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatment",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatment"
+                  }
+                ],
+                "schema:name": "Pre Ablation Surface Treatment",
+                "schema:value": "N \u2014 grains imaged by SEM to locate inclusion-free regions"
+              }
+            ],
+            "schema:description": "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H\u2082O, hand-picked, polished grain mounts",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/LaserAblation/signalSmoothing",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/LaserAblation/signalSmoothing"
+                  }
+                ],
+                "schema:name": "Signal Smoothing",
+                "schema:value": "N \u2014 parameters lost"
+              },
+              {
+                "@id": "ada:parameter/module/ICPMS/filteringApproach",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/ICPMS/filteringApproach"
+                  }
+                ],
+                "schema:name": "Filtering Approach",
+                "schema:value": "Time steps with enhanced count rates from inclusions or heterogeneity excluded from the data reduction \u2014 \u00a73.3"
+              },
+              {
+                "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection"
+                  }
+                ],
+                "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+                "schema:value": "N \u2014 parameters lost"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          }
+        ]
+      },
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+            }
+          ],
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "schema:value": "SEM imaging of the grain mounts, used to place the spots \u2014 \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5); the grains are the same mounts already used for EMPA (p.5)"
+        },
+        {
+          "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize"
+            }
+          ],
+          "schema:name": "Transect Rate Mapping Rate or Step Size",
+          "schema:value": "N/A \u2014 spot mode"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
+            }
+          ],
+          "schema:name": "Make-up Gas and Flow Rate",
+          "schema:value": "N \u2014 parameters lost",
+          "schema:unitText": "no value available: unnamed property"
+        },
+        {
+          "@id": "ada:parameter/laSficpmsTAPP/numberOfReplicates",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laSficpmsTAPP/numberOfReplicates"
+            }
+          ],
+          "schema:name": "Number of Replicates",
+          "schema:value": "N \u2014 variable number of spots per sample"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/signalIntegrationTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/ICPMS/signalIntegrationTime"
+            }
+          ],
+          "schema:name": "Signal Integration Time",
+          "schema:value": "N \u2014 parameters lost",
+          "schema:unitText": "no value available: unnamed property"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                    }
+                  ],
+                  "schema:name": "Mass Resolution Setting",
+                  "schema:value": "Medium (m/\u0394m of 4000) \u2014 \u00a73.3"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                    }
+                  ],
+                  "schema:name": "ICP Tuning",
+                  "schema:value": "N \u2014 parameters lost"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
+                  "schema:value": "N \u2014 parameters lost"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": "N \u2014 parameters lost",
+                      "schema:unitText": "no value available: unnamed property"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:laSficpmsTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:laSficpmsTAPP-detail-Mittlefehldt2024/instrument/ICPMS"
+            },
+            {
+              "schema:additionalType": [
+                "Laser Ablation System",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "ada:laserSpotGeometry": "all: 75 \u00b5m spot size \u2014 \u00a73.3",
+              "ada:laserFluence": "N \u2014 parameters lost",
+              "ada:laserRepetitionRate": "N \u2014 parameters lost",
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:laSficpmsTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA"
+      },
+      "schema:description": "The files documenting the analysis parameters (gas flows, laser power, etc.) were lost during an extended shutdown of the JSC ICP-MS laboratory; the grains are the EMPA grain mounts, 'low in inclusions, [but] not devoid of them' (\u00a73.3)",
+      "ada:ablationSpotDuration": "N \u2014 parameters lost",
+      "ada:rasterLineSpacing": "N/A \u2014 spot mode",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
+    }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "N \u2014 within-session precision not formally assessed"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "N \u2014 LA-ICP-MS Sc agrees with INAA 'with scatter of roughly \u00b10.5 \u00b5g/g'; Cr scatters more (\u00a76.1)"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "N \u2014 no funding section in this appendix document; funding would be in the parent paper which was not assessed"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -24,43 +337,11 @@
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
-  "ada:numberOfReplicates": "N \u2014 variable number of spots per sample",
   "ada:transectLength": -9999,
   "ada:mappingArea": "missing",
-  "ada:signalIntegrationTime": "N \u2014 parameters lost",
   "ada:proceduralBlankLevel": "missing",
   "ada:detectionLimit": "N \u2014 LODs not stated; concentrations reported for all nuclides above background",
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "N \u2014 within-session precision not formally assessed",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "N \u2014 LA-ICP-MS Sc agrees with INAA 'with scatter of roughly \u00b10.5 \u00b5g/g'; Cr scatters more (\u00a76.1)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laSficpmsTAPP/preAnalysisImagingAndScreening",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsTAPP/preAnalysisImagingAndScreening"
-        }
-      ],
-      "schema:name": "Pre-Analysis Imaging and Screening",
-      "schema:value": "SEM imaging of the grain mounts, used to place the spots \u2014 \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5); the grains are the same mounts already used for EMPA (p.5)"
-    },
-    {
-      "@id": "ada:parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize"
-        }
-      ],
-      "schema:name": "Transect Rate, Mapping Rate or Step Size",
-      "schema:value": "N/A \u2014 spot mode"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }

@@ -16,17 +16,52 @@ detail instance derived from ADA n=10 | Haenecour, Pierre | University of Arizon
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:vlmTAPP-detail-P0",
   "@type": [
-    "ada:VLMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:VLMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:vlmTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of Arizona"
+      },
+      "schema:identifier": "20240320_vlm_uaz_orex-501085-0_1",
+      "schema:startTime": "2023-11-15",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-501085-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Haenecour, Pierre"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20240320_vlm_uaz_orex-501085-0_1",
@@ -51,18 +86,53 @@ detail instance derived from ADA n=10 | Haenecour, Pierre | University of Arizon
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VLM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:vlmTAPP-detail-P0",
   "@type": [
-    "ada:VLMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:VLMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:vlmTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of Arizona"
+      },
+      "schema:identifier": "20240320_vlm_uaz_orex-501085-0_1",
+      "schema:startTime": "2023-11-15",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-501085-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Haenecour, Pierre"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20240320_vlm_uaz_orex-501085-0_1",
@@ -78,20 +148,30 @@ detail instance derived from ADA n=10 | Haenecour, Pierre | University of Arizon
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:VLMImage ;
-    schema1:measurementTechnique <ex:vlmTAPP-P0> ;
+ex:vlmTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Haenecour, Pierre" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240320_vlm_uaz_orex-501085-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "University of Arizona" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-501085-0" ] ;
+            schema1:startTime "2023-11-15" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-15" ;
     ada:analyst "Haenecour, Pierre" ;
-    ada:componentType "ada:VLMImage" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-501085-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240320_vlm_uaz_orex-501085-0_1" .
-
-<ex:vlmTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.VLM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

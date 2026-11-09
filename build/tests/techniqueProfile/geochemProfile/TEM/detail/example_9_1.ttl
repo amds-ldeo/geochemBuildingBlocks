@@ -1,13 +1,52 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-KellerBerger2014> a ada:TEMImage ;
-    schema1:measurementTechnique <ex:temTAPP-KellerBerger2014> ;
+ex:temTAPP-detail-KellerBerger2014 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Lindsay P. Keller; Eve L. Berger" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "Ultramicrotomy" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> ;
+            schema1:description "Incident probe diameter 4 nm for spectrum imaging (9 nA); EDS spectrum images: successive layers combined for >10% counting statistics per pixel; solar flare track density ~2×10¹⁰ cm⁻² in RA-QD02-0211" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Robert M. Walker Laboratory for Space Science, Code KR, Astromaterials Research and Exploration Science (ARES), NASA Johnson Space Center" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-KellerBerger2014/instrument/TEM> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Lindsay P. Keller; Eve L. Berger" ;
-    ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
     ada:eelsDetectionLimit -9999 ;
@@ -16,5 +55,80 @@
     ada:samplingUnitName "Labelled: \"particles RA-QD02-0125 and RA-QD02-0211\" (p.2); the \"thin sections (approximately 60-nm thick) ... prepared using ultramicrotomy\" from them (p.2) are not labelled" ;
     ada:sessionIdentifier "missing" .
 
-<ex:temTAPP-KellerBerger2014> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/temTAPP-detail-KellerBerger2014/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "N — the particles were embedded and ultramicrotomed directly (\"Both particles were embedded in low-viscosity epoxy and thin sections (approximately 60-nm thick) were prepared using ultramicrotomy\", p.2); no prior imaging or screening is described" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "200 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> ;
+    schema1:value "BF-STEM; DF-STEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); STEM-EDS (spectrum imaging)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel> a schema1:PropertyValue ;
+    schema1:description "50 µs/pixel" ;
+    schema1:name "Dwell Time per Pixel" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 50 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
+    schema1:name "EDS Acquisition Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
+    schema1:value "Spectrum image (map); line profile" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion> a schema1:PropertyValue ;
+    schema1:name "EDS Counting Statistics / Accumulation Criterion" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterion> ;
+    schema1:value "Successive layers averaged for >10% counting statistics" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> a schema1:PropertyValue ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+    schema1:value "Particles embedded in low-viscosity epoxy; thin sections ~60 nm thick prepared by ultramicrotomy" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> a schema1:PropertyValue ;
+    schema1:name "Spectroscopic Detector(s)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
+    schema1:value "EDS only" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> a schema1:PropertyValue ;
+    schema1:name "STEM Frame Averaging" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> ;
+    schema1:value "Multiple consecutive spectrum image layers accumulated (target: >10% counting statistics per pixel for major elements)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> a schema1:PropertyValue ;
+    schema1:description "9 nA" ;
+    schema1:name "STEM Probe Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 9 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> a schema1:PropertyValue ;
+    schema1:description "4 nm" ;
+    schema1:name "STEM Probe Diameter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 4 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> a schema1:PropertyValue ;
+    schema1:description "256 × 204 pixels (typical; optimized to limit over- or under-sampling with 4-nm probe)" ;
+    schema1:name "STEM Scan Dimensions" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 256 .
 

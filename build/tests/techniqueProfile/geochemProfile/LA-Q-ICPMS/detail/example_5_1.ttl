@@ -1,43 +1,200 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Liu2016> a ada:LAICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening>,
-        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2016> ;
+ex:laQicpmsTAPP-detail-Liu2016 a schema1:Dataset,
+        schema1:Product ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270 and EAR-1019770 — acknowledgements; Y.L. was also supported by the Jet Propulsion Laboratory" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "EMP gives major element compositions; for spots with EMP data, oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' — Methods, p.4" ;
+                    schema1:name "EPMA (EMP)" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: 1σ, one standard deviation of the average — Table 3 note b: '1σ is 1 standard deviation of the average'" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "N — oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' (Methods, p.4)" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "N — not stated" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatio>,
+                                <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
+                            schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/numberOfReplicates>,
+                <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
+                <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
+                <https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea>,
+                <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectLength>,
+                <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize>,
+                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+            schema1:description "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Department of Geosciences, Virginia Tech" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "Tissint Martian meteorite" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N — not stated" ;
+                            ada:reagentRole "referenceMaterial" ] ],
+                [ schema1:instrument <https://example.org/laQicpmsTAPP-detail-Liu2016/instrument/ICPMS>,
+                        <https://example.org/laQicpmsTAPP-detail-Liu2016/instrument/Laser-Ablation-System> ] ;
+            ada:ablationSpotDuration "N — not stated" ;
+            ada:combinedResults [ ] ;
+            ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;
+            ada:rasterLineSpacing "N/A — spot analysis" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "N — oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' (Methods, p.4)" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:componentType "ada:LAICPMSTabular" ;
     ada:detectionLimit "K: 16.7; Ti: 1.12; V: 3; Mn: 4.54; Zn: 0.69; Sr: 0.147; Nb: 0.103; Ba: 0.049; La: 0.113; Ce: 1.102; Pr: 0.580; Nd: 0.129; Sm: 0.457; Eu: 0.228; Gd: 0.453; Tb: 0.079; Dy: 0.222; Ho: 0.135; Er: 0.353; Tm: 0.630; Yb: 0.364; Lu: 0.117; Hf: 0.365; Ta: 0.333; W: 0.254; other: N — ppm; Table 3 'LOD' column, beside a single glass-inclusion analysis (n = 1)" ;
     ada:fundingSourceForAnalysis "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270 and EAR-1019770 — acknowledgements; Y.L. was also supported by the Jet Propulsion Laboratory" ;
     ada:limitOfQuantificationMethod "missing" ;
-    ada:mappingArea "N/A — spot analysis" ;
-    ada:numberOfReplicates "N — not stated" ;
     ada:oxideProduction "N — not stated" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Tissint Martian meteorite" ;
     ada:samplingUnitName "Labelled sections: \"UT1 to UT3 (formerly referred to as MT-1, MT-2, MT-3)\" (p.3). LA-ICP-MS results are averages (\"n = 7\", \"n = 13\", table p.9); individual analyses are in \"Table S1 in supporting information\" (p.7), not in the archived PDF" ;
     ada:sessionIdentifier "missing" ;
-    ada:signalIntegrationTime "N — not stated" ;
     ada:spotDiameter -9999 ;
     ada:spotDiameterMeasured -9999 ;
-    ada:transectLength "N/A — spot analysis" ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laQicpmsTAPP-Liu2016> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/laQicpmsTAPP-detail-Liu2016/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/laQicpmsTAPP-detail-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/laQicpmsTAPP-detail-Liu2016/instrument/ICPMS/part/ICP-Source> ;
+    schema1:name "no value available: schema:name" .
 
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
-    schema1:name "Pre-Analysis Imaging and Screening" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
-    schema1:value "Petrographic microscopy, SEM and EMP — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)" .
+<https://example.org/laQicpmsTAPP-detail-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "Collision Reaction Cell" .
 
-<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
-    schema1:name "Transect Rate, Mapping Rate or Step Size" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> ;
+<https://example.org/laQicpmsTAPP-detail-Liu2016/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsTAPP-detail-Liu2016/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergy> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:name "no value available: schema:name" ;
+    ada:laserFluence "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)" ;
+    ada:laserRepetitionRate "all: 5 Hz" ;
+    ada:laserSpotGeometry "all: 24 and 32 µm diameter, and 90 µm for a few olivine analyses — '24 and 32 µm diameter were commonly used for silicates and glass, and a few analyses were conducted on olivines using a 90 µm beam to evaluate whether the low signals of REEs are a result of insufficient sampling' (Methods, p.4)" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/numberOfReplicates> a schema1:PropertyValue ;
+    schema1:name "Number of Replicates" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/numberOfReplicates> ;
+    schema1:value "N — not stated" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate> a schema1:PropertyValue ;
+    schema1:name "Coolant Plasma Gas Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N — not stated" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> a schema1:PropertyValue ;
+    schema1:name "ICP Tuning" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> ;
+    schema1:value "N — not stated" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate> a schema1:PropertyValue ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N — not stated" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> a schema1:PropertyValue ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
+    schema1:value "N — not stated" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> a schema1:PropertyValue ;
+    schema1:name "RF Power" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N — not stated" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime> a schema1:PropertyValue ;
+    schema1:name "Signal Integration Time" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N — not stated" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatio> a schema1:PropertyValue ;
+    schema1:name "Fusion Flux and Dilution Ratio" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatio> ;
+    schema1:value "N/A — in situ" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergy> a schema1:PropertyValue ;
+    schema1:description "150 mJ output energy — Methods, p.4" ;
+    schema1:name "Laser Energy" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergy> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 150 .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea> a schema1:PropertyValue ;
+    schema1:name "Mapping Area" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea> ;
     schema1:value "N/A — spot analysis" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> a schema1:PropertyValue ;
+    schema1:name "Pre Ablation Surface Treatment" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
+    schema1:value "N — not stated" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> a schema1:PropertyValue ;
+    schema1:name "Signal Smoothing" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
+    schema1:value "N — not stated" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectLength> a schema1:PropertyValue ;
+    schema1:name "Transect Length" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectLength> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N/A — spot analysis" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
+    schema1:name "Transect Rate Mapping Rate or Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize> ;
+    schema1:value "N/A — spot analysis" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "Petrographic microscopy, SEM and EMP — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)" .
 

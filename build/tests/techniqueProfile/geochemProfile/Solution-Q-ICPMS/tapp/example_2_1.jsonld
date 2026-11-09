@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -347,35 +349,6 @@
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -604,6 +577,26 @@
     ],
     "@type": [
       "schema:HowTo"
+    ],
+    "schema:name": "Solution Q-ICP-MS analytical workflow"
+  },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (\u00b5mol/mol); Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); U/Ca (nmol/mol) \u2014 Table 2 note a",
+    "ada:defaultReportedProperties": [
+      "Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (\u00b5mol/mol)",
+      "Mg/Ca, Sr/Ca, Al/Ca (mmol/mol)",
+      "U/Ca (nmol/mol)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
     ]
   },
   "schema:additionalProperty": [
@@ -649,9 +642,6 @@
   "ada:samplingUnitType": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler"
-  ],
-  "ada:reportedProperties": [
-    "Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (\u00b5mol/mol); Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); U/Ca (nmol/mol) \u2014 Table 2 note a"
   ],
   "ada:chromatographicSeparationApplied": "None",
   "ada:isotopeDilutionSpike": "None",

@@ -1,13 +1,56 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Zega2025-3> a ada:TEMImage ;
-    schema1:measurementTechnique <ex:temTAPP-Zega2025-3> ;
+ex:temTAPP-detail-Zega2025-3 a schema1:Dataset,
+        schema1:Product ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "None" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "Crushing / dispersion on grid" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAngles>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "no value available: schema:name" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Zega2025-3/instrument/TEM> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "ThermoScientific Velox" ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "ThermoScientific Velox" ;
+                            ada:toolRole "dataReduction" ] ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
     ada:eelsDetectionLimit -9999 ;
@@ -16,5 +59,52 @@
     ada:samplingUnitName "N — the Goethe passage names no specimen (\"TEM samples were prepared by crushing the grain\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2–3, p.3) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" .
 
-<ex:temTAPP-Zega2025-3> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/temTAPP-detail-Zega2025-3/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "N — this laboratory crushed its material onto a grid (\"TEM samples were prepared by crushing the grain\", p.10); no imaging or screening precedes that step" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "200 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> ;
+    schema1:value "HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference> a schema1:PropertyValue ;
+    schema1:name "Diffraction Calibration Reference" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference> ;
+    schema1:value "External standard (AGAR S106 cross grating, 3 mm)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod> a schema1:PropertyValue ;
+    schema1:name "Diffraction Camera Length Calibration Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod> ;
+    schema1:value "External standard (AGAR S106 cross grating, 3 mm)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAngles> a schema1:PropertyValue ;
+    schema1:name "HAADF Collection Angles" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAngles> ;
+    schema1:value "Inner 58 mrad (HAADF)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> a schema1:PropertyValue ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+    schema1:value "Grain crushed; ethanol added to powder; copper mesh grid with lacey carbon support touched to suspension until all material picked up" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> a schema1:PropertyValue ;
+    schema1:name "Spectroscopic Detector(s)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
+    schema1:value "EDS only" .
 

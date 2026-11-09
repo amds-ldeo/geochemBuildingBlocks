@@ -1,16 +1,23 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:DSSMTabular ;
-    schema1:measurementTechnique <ex:dssmTAPP-P0> ;
+ex:dssmTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20250328_DSSM_UCa_OREX-800123-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/03yjb2x39" ;
+                    schema1:name "University of Calgary" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800123-0" ] ;
+            schema1:startTime "2025-03-28" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2025-03-28" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:DSSMTabular" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800123-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250328_DSSM_UCa_OREX-800123-0_1" .
-
-<ex:dssmTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 

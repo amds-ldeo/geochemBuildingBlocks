@@ -7,18 +7,190 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Liu2025-2",
+  "@id": "ex:laQicpmsTAPP-detail-Liu2025-2",
   "@type": [
-    "ada:LAICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:LAICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:laQicpmsTAPP-Liu2025-2",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+            }
+          ],
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "schema:value": "Optical microscopy, then EMP \u2014 \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)"
+        },
+        {
+          "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize"
+            }
+          ],
+          "schema:name": "Transect Rate Mapping Rate or Step Size",
+          "schema:value": "N/A \u2014 spot mode"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
+            }
+          ],
+          "schema:name": "Make-up Gas and Flow Rate",
+          "schema:value": 2,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "N2 or Ar mixed into the He carrier; amounts not stated \u2014 \u00a72.2.2"
+        }
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/ICPMS/filteringApproach",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/ICPMS/filteringApproach"
+                  }
+                ],
+                "schema:name": "Filtering Approach",
+                "schema:value": "Au micronugget spikes identified in the time-resolved signal and removed, or the analysis not considered \u2014 'only analyses free from micronuggets or where the spikes from the micronuggets could be easily removed were considered (Fig. 1)' (\u00a72.2.2)"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (\u00a72.1)",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          }
+        ]
+      },
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology \u2014 LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (\u00a72.2.2)"
+      },
+      "schema:description": "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (\u00a72.2.2)",
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "Laser Ablation System",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "ada:laserSpotGeometry": "all: 20 \u00b5m beam diameter \u2014 '20 \u03bcm for sulfides, selecting grain sizes larger than 20 \u00b5m for the latter' (\u00a72.2.2)",
+              "ada:laserFluence": "~2.5 J cm\u207b\u00b2",
+              "ada:laserRepetitionRate": "all: 7 Hz \u2014 'operated at 7 Hz ablation frequency' (\u00a72.2.2)",
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:laQicpmsTAPP-detail-Liu2025-2/instrument/Laser-Ablation-System"
+            },
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "ICPMS",
+              "@id": "ex:laQicpmsTAPP-detail-Liu2025-2/instrument/ICPMS"
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "NIST 612; BCR-2G \u2014 'NIST 612 and BCR-2G as monitoring standards' (\u00a72.2.2)",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:rasterLineSpacing": "N/A \u2014 spot mode",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
+    }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "N \u2014 data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (\u00a72.2.2)"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Strategic Priority Research Program (B) of CAS (XDB0840200); NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
     }
   ],
   "ada:sessionIdentifier": "missing",
@@ -40,34 +212,5 @@
   "ada:limitOfQuantificationMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "N \u2014 data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (\u00a72.2.2)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
-        }
-      ],
-      "schema:name": "Pre-Analysis Imaging and Screening",
-      "schema:value": "Optical microscopy, then EMP \u2014 \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize"
-        }
-      ],
-      "schema:name": "Transect Rate, Mapping Rate or Step Size",
-      "schema:value": "N/A \u2014 spot mode"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }

@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -205,6 +206,26 @@
   "ada:exposureTimePerProjectionDefault": "33 s (A0180-A); 28 s (A0180-B)",
   "ada:beamHardeningCorrectionMethod": "Hardware filter (LE4 inbuilt)",
   "ada:segmentationMethodDefault": "ImageJ threshold-based; TANGO plugin for 3D object detection",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "microchondrule and sulphide-silicate object diameter (\u00b5m); shape factor; object abundance; particle volume \u2014 Microchondrule / sulphide-silicate object diameter (um) and shape factor; object abundance; particle volume",
+    "ada:defaultReportedProperties": [
+      "microchondrule and sulphide-silicate object diameter (\u00b5m)",
+      "shape factor",
+      "object abundance",
+      "particle volume"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -235,9 +256,6 @@
   "ada:samplingUnitType": "Sub-volume > Grain (sub-samples A0180-A and A0180-B; size and shape factor reported per microchondrule / sulphide-silicate object)",
   "ada:analyticalMode": [
     "Single-volume"
-  ],
-  "ada:reportedProperties": [
-    "microchondrule and sulphide-silicate object diameter (\u00b5m); shape factor; object abundance; particle volume \u2014 Microchondrule / sulphide-silicate object diameter (um) and shape factor; object abundance; particle volume"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -273,7 +291,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Lab-XCT analytical workflow"
   },
   "schema:variableMeasured": [
     {

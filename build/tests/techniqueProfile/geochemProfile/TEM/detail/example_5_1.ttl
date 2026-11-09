@@ -1,13 +1,60 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Zega2025-4> a ada:TEMImage ;
-    schema1:measurementTechnique <ex:temTAPP-Zega2025-4> ;
+ex:temTAPP-detail-Zega2025-4 a schema1:Dataset,
+        schema1:Product ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA NNH09ZDA007O; NNM10AA11C" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "FIB-SEM (FEI Quanta3D600) prepared TEM sections from particles characterized by SEM; XRD provided bulk mineralogy context" ;
+                    schema1:name "FIB-SEM; SEM; XRD" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "FIB lift-out (Ga ion)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> ;
+            schema1:description "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "ARES Division, NASA Johnson Space Center" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "no value available: schema:name" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Thermo System7 (EDS quantification)" ;
+                            ada:toolRole "dataReduction" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Thermo System7" ;
+                            ada:toolRole "acquisition" ] ],
+                [ schema1:instrument <https://example.org/temTAPP-detail-Zega2025-4/instrument/TEM> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
     ada:eelsDetectionLimit -9999 ;
@@ -16,5 +63,66 @@
     ada:samplingUnitName "N — the JSC TEM passage names no specimen (\"FIB sections were analysed using a JEOL 2500SE\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2–3, p.3) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" .
 
-<ex:temTAPP-Zega2025-4> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/temTAPP-detail-Zega2025-4/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "N — this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "200 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> ;
+    schema1:value "BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel> a schema1:PropertyValue ;
+    schema1:description "50 µs" ;
+    schema1:name "Dwell Time per Pixel" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 50 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
+    schema1:name "EDS Acquisition Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
+    schema1:value "Spectrum image (map)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard> a schema1:PropertyValue ;
+    schema1:name "EDS Calibration Standard(s)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard> ;
+    schema1:value "k-factors from well-characterized standards (standards not specified); Thermo System7" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> a schema1:PropertyValue ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+    schema1:value "FEI Quanta3D600 dual-beam FIB-SEM; e-beam C cap 0.5–1 µm + ion-beam C cap 2–3 µm; milling 30 kV Ga+ → 16 kV → 5 kV final; ~100 nm thick; ion-beam Pt weld to Cu half grids" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> a schema1:PropertyValue ;
+    schema1:name "Spectroscopic Detector(s)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
+    schema1:value "EDS and EELS" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> a schema1:PropertyValue ;
+    schema1:name "STEM Frame Averaging" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveraging> ;
+    schema1:value "Successive frames until counting statistics <1% for major elements" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> a schema1:PropertyValue ;
+    schema1:description "256×200 pixels (EDS spectrum images)" ;
+    schema1:name "STEM Scan Dimensions" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensions> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 256 .
 

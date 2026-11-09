@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -28,6 +30,27 @@
   "schema:description": "amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Purdue Rare Isotope Measurement (PRIME) Lab AMS facility (publication column of AMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Purdue.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Purdue Rare Isotope Measurement (PRIME) Lab AMS facility",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Sample Name",
+      "Sample Holder",
+      "Sample Description",
+      "Type of sample",
+      "PRIME ID",
+      "10Be/9Be ratio"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -56,14 +79,11 @@
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP."
     }
   ],
-  "ada:reportedProperties": [
-    "Sample Name | Sample Holder | Sample Description | Type of sample | PRIME ID | 10Be/9Be ratio"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Accelerator Mass Spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [

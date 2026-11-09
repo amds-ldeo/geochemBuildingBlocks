@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -94,7 +96,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "SEM analytical workflow"
   },
   "ada:ebsdPhaseListDefault": "Hollisterite (C2/m FeAl3); kryachkoite (Cmc21 (Al,Cu)Fe6); stolperite (Pm3m AlCu)",
   "schema:instrument": [
@@ -192,6 +195,25 @@
       "@id": "ex:semTAPP-Ma2017-2/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "crystal structure identification (nominal); unit-cell parameters (\u00c5, \u00c53); mean angular deviation (degrees) \u2014 Crystal structure identification with unit-cell parameters (\u00c5 and \u00c53) and the fit quality as mean angular deviation (degrees) \u2014 e.g. \"with a mean angular deviation of 0.30\u00b0~0.45\u00b0, revealing the cell parameters: a = 15.60 \u00c5, b = 7.94 \u00c5, c = 12.51 \u00c5\" and cell volume (p.3)",
+    "ada:defaultReportedProperties": [
+      "crystal structure identification (nominal)",
+      "unit-cell parameters (\u00c5, \u00c53)",
+      "mean angular deviation (degrees)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "hollisterite",
@@ -270,9 +292,6 @@
   "ada:samplingUnitType": "Grain (single crystal) \u2014 one pattern per crystal, \"EBSD patterns of (a) the type hollisterite crystal, indexed with the C2/m Fe3Al structure\" (Fig. 3, p.3), each returning that crystal's cell parameters (p.3)",
   "ada:analyticalMode": [
     "EBSD"
-  ],
-  "ada:reportedProperties": [
-    "crystal structure identification (nominal); unit-cell parameters (\u00c5, \u00c53); mean angular deviation (degrees) \u2014 Crystal structure identification with unit-cell parameters (\u00c5 and \u00c53) and the fit quality as mean angular deviation (degrees) \u2014 e.g. \"with a mean angular deviation of 0.30\u00b0~0.45\u00b0, revealing the cell parameters: a = 15.60 \u00c5, b = 7.94 \u00c5, c = 12.51 \u00c5\" and cell volume (p.3)"
   ],
   "schema:measurementTechnique": [
     {

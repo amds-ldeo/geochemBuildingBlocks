@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -28,6 +30,25 @@
   "schema:description": "vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Nexus 870 FTIR (publication column of VNMIR_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Thermo Fisher Scientific (Nicolet)",
   "ada:instrumentModel": "Thermo/Nicolet Nexus 870 FTIR",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Wavelength (nm) (nm)",
+      "Reflectance",
+      "Reflectance (Reflectance)",
+      "Standard Deviation"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -60,14 +81,11 @@
   "ada:analyticalMode": [
     "Spectral Point"
   ],
-  "ada:reportedProperties": [
-    "Wavelength (nm) (nm) | Reflectance | Reflectance (Reflectance) | Standard Deviation"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "VNMIR analytical workflow",
     "schema:step": [
       {
         "@type": [

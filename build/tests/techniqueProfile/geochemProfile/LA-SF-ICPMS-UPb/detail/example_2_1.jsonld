@@ -7,19 +7,347 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-SF-ICPMS-UPb/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Chernonozhkin2021",
+  "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021",
   "@type": [
-    "ada:LAICPMSGeochronTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:LAICPMSGeochronTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+            }
+          ],
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "schema:value": "\u03bcXRF mapping of larger sections, on which the ablation is sited \u2014 Fe K\u03b1 intensity maps identify the mineral phases \"based on the intensities of the K\u03b1 lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca and P)\", and the LA-ICP-MS areas correspond \"to the locations indicated on the larger \u03bcXRF maps as black rectangles\" (p.4). The instrument is a Bruker M4 Tornado with a Rh-anode source at 50 kV and 150 \u03bcA, focused to \"a 25 \u03bcm spot (measured for Mo K\u03b1)\" (p.3)"
+        },
+        {
+          "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSize"
+            }
+          ],
+          "schema:name": "Transect Rate Mapping Rate or Step Size",
+          "schema:value": "all: 9 \u00b5m/s \u2014 translation speed (\u00a72.2.2)"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
+            }
+          ],
+          "schema:name": "Make-up Gas and Flow Rate",
+          "schema:value": 0.81,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "Ar, 0.81\u20130.99 L/min \u2014 Table B1; 'No N2 was blent into ICP to avoid elevated nitrogen-based spectral interferences'"
+        },
+        {
+          "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses"
+            }
+          ],
+          "schema:name": "Monitored Masses",
+          "schema:value": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u2074\u2075Sc \u2192 Sc; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2076\u2070Ni \u2192 Ni; \u2077\u00b9Ga \u2192 Ga; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2079\u2075Pt \u2192 Pt \u2014 'a total scan cycle time of 1.944 s for 14 nuclides' (\u00a72.2.2)"
+        },
+        {
+          "@id": "ada:parameter/module/LaserAblation/mappingArea",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/LaserAblation/mappingArea"
+            }
+          ],
+          "schema:name": "Mapping Area",
+          "schema:value": "Each map: 1450\u00d7600 \u00b5m = 870,000 \u00b5m\u00b2; total of 8 PMG olivines mapped"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/signalIntegrationTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/ICPMS/signalIntegrationTime"
+            }
+          ],
+          "schema:name": "Signal Integration Time",
+          "schema:value": "N/A \u2014 mapping",
+          "schema:unitText": "no value available: unnamed property"
+        },
+        {
+          "@id": "ada:parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities"
+            }
+          ],
+          "schema:name": "Error Correlation Between Reported Quantities",
+          "schema:value": "N \u2014 the procedure reports no date"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                    }
+                  ],
+                  "schema:name": "Mass Resolution Setting",
+                  "schema:value": "Low (M/\u0394M = 300) \u2014 \u00a72.2.2"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                    }
+                  ],
+                  "schema:name": "ICP Tuning",
+                  "schema:value": "N \u2014 oxide-based interferences 'were further minimized during tuning' (App. C4); no tuning procedure is described"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
+                  "schema:value": "Washout typically less than 1 s \u2014 \u00a72.2.2"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Coolant Plasma Gas Flow Rate",
+                      "schema:value": 15,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "Ar, 15 L/min \u2014 Table B1"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Auxiliary Gas Flow Rate",
+                      "schema:value": 0.81,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "Ar, 0.81 L/min \u2014 Table B1"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": 800,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "800 W \u2014 cool plasma (\u00a72.2.2, Table B1)"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS"
+            },
+            {
+              "schema:additionalType": [
+                "Laser Ablation System",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "ada:laserSpotGeometry": "all: 20 \u00b5m \u00d7 20 \u00b5m square-masked \u2014 \u00a72.2.2",
+              "ada:laserFluence": "5\u20137 J cm\u207b\u00b2",
+              "ada:laserRepetitionRate": "all: 20 Hz",
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "In-house MatLab script (Appendix C1)",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/ICPMS/filteringApproach",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/ICPMS/filteringApproach"
+                  }
+                ],
+                "schema:name": "Filtering Approach",
+                "schema:value": "P-rich veinlet pixels masked: P2O5 above the best-fitting Gaussian of each map's P2O5 histogram plus 3 standard deviations \u2014 \u00a73.1; 'A MATLAB script was applied to mask pixels representing veinlets'"
+              },
+              {
+                "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection"
+                  }
+                ],
+                "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+                "schema:value": "N \u2014 'Triple' detection (Table B1); a cross-calibration is not described"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Flat polished thick sections (\u00a72.1)",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          }
+        ]
+      },
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium"
+      },
+      "schema:description": "Cool plasma (800 W) mapping with a lateral resolution of approximately 20 \u00b5m; P-rich veinlets masked before averaging (\u00a72.2.2, \u00a73.1)",
+      "ada:ablationSpotDuration": "N/A \u2014 mapping mode",
+      "ada:rasterLineSpacing": "Adjacent lines \u2014 'a grid of parallel, adjacent lines using a 20 \u00b5m \u00d7 20 \u00b5m square-masked laser spot' (\u00a72.2.2)",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent"
+    }
+  ],
+  "ada:reportedDateType": [
+    "N \u2014 the procedure reports no date"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -33,8 +361,6 @@
   "ada:analysisLocationSpotCoordinates": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:transectLength": -9999,
-  "ada:mappingArea": "Each map: 1450\u00d7600 \u00b5m = 870,000 \u00b5m\u00b2; total of 8 PMG olivines mapped",
-  "ada:signalIntegrationTime": "N/A \u2014 mapping",
   "ada:proceduralBlankLevel": "missing",
   "ada:ageDatumReferenceEpoch": "N \u2014 the procedure reports no date",
   "ada:detectionLimit": "all: per-pixel LODs, averaged over the map \u2014 Table E1 (Na = 1, Nb = 10), App. C5",
@@ -42,33 +368,5 @@
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening"
-        }
-      ],
-      "schema:name": "Pre-Analysis Imaging and Screening",
-      "schema:value": "\u03bcXRF mapping of larger sections, on which the ablation is sited \u2014 Fe K\u03b1 intensity maps identify the mineral phases \"based on the intensities of the K\u03b1 lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca and P)\", and the LA-ICP-MS areas correspond \"to the locations indicated on the larger \u03bcXRF maps as black rectangles\" (p.4). The instrument is a Bruker M4 Tornado with a Rh-anode source at 50 kV and 150 \u03bcA, focused to \"a 25 \u03bcm spot (measured for Mo K\u03b1)\" (p.3)"
-    },
-    {
-      "@id": "ada:parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize"
-        }
-      ],
-      "schema:name": "Transect Rate, Mapping Rate or Step Size",
-      "schema:value": "all: 9 \u00b5m/s \u2014 translation speed (\u00a72.2.2)"
-    }
-  ],
   "ada:spotDiameterMeasured": -9999
 }

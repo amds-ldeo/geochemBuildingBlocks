@@ -1,25 +1,43 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Barnes2025> a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique <ex:semCompositionTAPP-Barnes2025> ;
+ex:semCompositionTAPP-detail-Barnes2025 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "NanoSIMS isotope mapping (CAMECA NanoSIMS 50L, NASA JSC); presolar grains identified by NanoSIMS then confirmed by SEM-EDS phase characterisation" ] ] ;
+    prov:wasGeneratedBy [ schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Astromaterials Research and Exploration Science Division (ARES), NASA Johnson Space Center, Houston, TX, USA" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "OREX-501018-100" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ;
+            ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
+    ada:analyticalMode "EDS Mapping" ;
     ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
     ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "OREX-501018-100" ;
     ada:samplingUnitName "Labelled: \"Bennu sample OREX-501018-100\" (Extended Data Fig. 8 caption, p.27), \"aggregate QL material pressed onto a gold (Au) foil mount\" (p.10); the presolar-grain regions are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Barnes2025> schema1:identifier "no value available: schema:identifier" .
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "NanoSIMS isotope imaging — the two grains this procedure analyses were found by raster ion imaging of the Au foil mount, each image \"256 × 256 pixels, analysed at 1,800 μs per pixel for 32 frames\", with grains counted presolar if their composition \"differed from the reference ratios by >5σ\" and the anomaly persisted across frames; \"Two O-rich presolar grains were also analysed by SEM-EDS to further constrain the phase\" (p.11)" .
 

@@ -1,15 +1,42 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-P7> a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique <ex:solutionQicpmsTAPP-P7> ;
+ex:solutionQicpmsTAPP-detail-P7 a schema1:Dataset,
+        schema1:Product ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "Te, Se: SD — Figs 1–2" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "CRM-TMDW [Se: 98–106% recovery (N = 16)]; NIST 1643f [Se: 100–102% (N = 16); Te: 85–91% (N = 4)] — §2.3, §2.4" ] ;
+    prov:wasGeneratedBy [ schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Karlsruhe Institute of Technology (KIT), Germany" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "N — sorption kinetics and isotherm solutions; CRMs CRM-TMDW and NIST 1643f" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "CRM-TMDW, NIST 1643f — drinking water and freshwater" ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
+            ada:combinedResults [ ] ;
+            ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "CRM-TMDW [Se: 98–106% recovery (N = 16)]; NIST 1643f [Se: 100–102% (N = 16); Te: 85–91% (N = 4)] — §2.3, §2.4" ;
+    ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:componentType "ada:SolutionICPMSTabular" ;
     ada:detectionLimit "Te: 0.01 µg/L; Se: 0.06 µg/L — N = 10 (§2.3, §2.4)" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -23,5 +50,8 @@
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:solutionQicpmsTAPP-P7> schema1:identifier "no value available: schema:identifier" .
+<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio> a schema1:PropertyValue ;
+    schema1:name "Collision/Reaction Gas Mixture Ratio" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio> ;
+    schema1:value "Se masses: He:H2 = 92% : 8%; other: N — 'to minimise 40Ar37Cl interferences' (§2.4)" .
 

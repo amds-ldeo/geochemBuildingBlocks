@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -156,6 +158,23 @@
   "ada:samplingUnitSelectionCriteriaDefault": "Single 2.7 g chip (~1.1 x 1.2 x 0.8 cm) taken from the outer part of one stone, selected because it provides a profile from the weathered exterior to the fresh interior; six 2-D slices at ~1 mm spacing extracted for modal analysis",
   "ada:reconstructionAlgorithm": "Filtered back projection (Nikon proprietary)",
   "ada:segmentationMethodDefault": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite",
+      "slice area (mm2)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -186,9 +205,6 @@
   "ada:samplingUnitType": "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)",
   "ada:analyticalMode": [
     "Single-volume"
-  ],
-  "ada:reportedProperties": [
-    "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite; slice area (mm2)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -224,7 +240,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Lab-XCT analytical workflow"
   },
   "schema:variableMeasured": [
     {

@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -204,7 +206,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Solution Q-ICP-MS analytical workflow"
   },
   "schema:object": [
     {
@@ -522,35 +525,6 @@
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -687,6 +661,30 @@
   "ada:massCyclesPerReplicate": "all: 48 scans in 30 s, 1 point per mass \u2014 Table 1a",
   "ada:signalCollectionMode": "N/A",
   "ada:driftCorrectionMethod": "N/A",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "B, Zr, Nb, Mo, Sn, Sb, Hf, Ta (\u00b5g/g) \u2014 Tables 5\u20138; Nb from Nb/Zr and Nb/Mo, Ta from Ta/Mo and Ta/Hf, and their averages",
+    "ada:defaultReportedProperties": [
+      "B",
+      "Zr",
+      "Nb",
+      "Mo",
+      "Sn",
+      "Sb",
+      "Hf",
+      "Ta (\u00b5g/g)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -717,9 +715,6 @@
   "ada:samplingUnitType": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
   "ada:analyticalMode": [
     "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\""
-  ],
-  "ada:reportedProperties": [
-    "B, Zr, Nb, Mo, Sn, Sb, Hf, Ta (\u00b5g/g) \u2014 Tables 5\u20138; Nb from Nb/Zr and Nb/Mo, Ta from Ta/Mo and Ta/Hf, and their averages"
   ],
   "ada:chromatographicSeparationApplied": "None \u2014 the method 'does not require ion-exchange separation' (\u00a71); only the Zr\u2013Hf spike was purified",
   "ada:isotopeDilutionSpike": "10B spike; 91Zr\u2013179Hf mixed spike; 97Mo\u2013119Sn\u2013121Sb mixed spike \u2014 \u00a72.2.2\u20132.2.4; Nb and Ta are not spiked",

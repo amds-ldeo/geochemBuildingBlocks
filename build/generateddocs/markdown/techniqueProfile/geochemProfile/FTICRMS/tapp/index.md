@@ -17,6 +17,7 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -33,6 +34,25 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
   "schema:description": "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FTICR-MS.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "FTICR-MS 12 Tesla Solarix Infinity system",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Intensity",
+      "Mass",
+      "Neutral mass",
+      "Composition"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -61,14 +81,11 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)"
     }
   ],
-  "ada:reportedProperties": [
-    "Intensity | Mass | Neutral mass | Composition"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -109,6 +126,7 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -117,6 +135,7 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -134,6 +153,25 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
   "schema:description": "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FTICR-MS.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "FTICR-MS 12 Tesla Solarix Infinity system",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Intensity",
+      "Mass",
+      "Neutral mass",
+      "Composition"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -162,14 +200,11 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)"
     }
   ],
-  "ada:reportedProperties": [
-    "Intensity | Mass | Neutral mass | Composition"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -207,17 +242,18 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:fticrmsTAPP-P0> a cdi:Activity,
+ex:fticrmsTAPP-P0 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -241,7 +277,17 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
     ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "FTICR-MS 12 Tesla Solarix Infinity system" ;
-    ada:reportedProperties "Intensity | Mass | Neutral mass | Composition" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Composition",
+                "Intensity",
+                "Mass",
+                "Neutral mass" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
@@ -339,6 +385,19 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -357,7 +416,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.FTICRMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

@@ -1,15 +1,50 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Liu2017-2> a ada:SEMImage ;
-    schema1:measurementTechnique <ex:semTAPP-Liu2017-2> ;
+ex:semTAPP-detail-Liu2017-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure> ;
+            schema1:description "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "no value available: schema:name" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            ada:combinedResults [ ] ;
+            ada:edsDeadTime -9999 ;
+            ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
+    ada:analyticalMode "SE Imaging" ;
     ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMImage" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
@@ -19,12 +54,20 @@
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
     ada:voxelSize "no value available: ada:voxelSize" .
 
-<ex:semTAPP-Liu2017-2> schema1:identifier "no value available: schema:identifier" .
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "N — the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure> a schema1:PropertyValue ;
+    schema1:name "Chamber Pressure" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "High vacuum" .
 

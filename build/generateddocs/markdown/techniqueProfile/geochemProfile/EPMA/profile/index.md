@@ -525,14 +525,22 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
-  "ada:analyticalMode": [
-    "EDS Point Analysis"
-  ],
   "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: analyticalAccuracy"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Precision",
+      "dqv:value": "no value available: analyticalPrecision"
+    },
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
       "dqv:value": "no value available: goodnessOfFitOrDispersionStatistic"
     }
+  ],
+  "ada:analyticalMode": [
+    "EDS Point Analysis"
   ]
 }
 
@@ -1061,14 +1069,22 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
-  "ada:analyticalMode": [
-    "EDS Point Analysis"
-  ],
   "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: analyticalAccuracy"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Precision",
+      "dqv:value": "no value available: analyticalPrecision"
+    },
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
       "dqv:value": "no value available: goodnessOfFitOrDispersionStatistic"
     }
+  ],
+  "ada:analyticalMode": [
+    "EDS Point Analysis"
   ]
 }
 ```
@@ -1165,7 +1181,11 @@ ex:adaEPMA-example-001 a schema1:Dataset,
         <https://example.org/var/Detection-Limit>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: analyticalPrecision" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: analyticalAccuracy" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
@@ -1182,8 +1202,8 @@ ex:adaEPMA-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/adaEPMA-example-001/instrument/EPMA> ],
-                [ ada:tappDefinition ex:epmaTAPP-P0 ] ;
+            prov:used [ ada:tappDefinition ex:epmaTAPP-P0 ],
+                [ schema1:instrument <https://example.org/adaEPMA-example-001/instrument/EPMA> ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
@@ -1388,7 +1408,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EPMA.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

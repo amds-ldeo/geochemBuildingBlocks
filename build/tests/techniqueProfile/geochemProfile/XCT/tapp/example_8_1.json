@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -166,6 +167,22 @@
   "ada:reconstructionAlgorithm": "Filtered back projection (FBP)",
   "ada:beamHardeningCorrectionMethod": "None (intentionally unfiltered; no software BHC mentioned)",
   "ada:outputDataFormatDefault": "TIFF (continuous series of 2D TIFF images)",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Absorbed x-ray dose (~180 Gy, the maximum a Bennu sample would receive during an XCT imaging experiment)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -183,9 +200,6 @@
   "ada:samplingUnitType": "Aliquot (~1 g crushed Murchison B in a glass vial)",
   "ada:analyticalMode": [
     "Single-volume"
-  ],
-  "ada:reportedProperties": [
-    "Absorbed x-ray dose (~180 Gy, the maximum a Bennu sample would receive during an XCT imaging experiment)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -221,7 +235,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Lab-XCT analytical workflow"
   },
   "schema:variableMeasured": [
     {

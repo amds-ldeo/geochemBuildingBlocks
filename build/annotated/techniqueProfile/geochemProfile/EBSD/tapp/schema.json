@@ -18,6 +18,31 @@
     {
       "type": "object",
       "properties": {
+        "ada:reportedPropertyTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultReportedProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "ada:defaultReportedProperties"
+          ],
+          "title": "Reported Property Template"
+        },
         "schema:creator": {
           "type": "object",
           "properties": {
@@ -199,6 +224,7 @@
                                         "Speed 1",
                                         "missing"
                                       ],
+                                      "schema:inDefinedTermSet": "ada:vocab/ebsd-camera-speed-setting",
                                       "readOnly": true
                                     },
                                     {
@@ -209,6 +235,7 @@
                                           "Speed 1",
                                           "missing"
                                         ],
+                                        "schema:inDefinedTermSet": "ada:vocab/ebsd-camera-speed-setting",
                                         "readOnly": true
                                       }
                                     }
@@ -527,6 +554,6 @@
     "itemIdentifier": "ogch.techniqueProfile.geochemProfile.EBSD.tapp",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-10-31"
+    "dateOfLastChange": "2026-11-09"
   }
 }

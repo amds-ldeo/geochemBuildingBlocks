@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -123,6 +125,24 @@
       "@id": "ex:semTAPP-Izawa2010-3/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "elemental distribution (counts per pixel); phase identification (nominal) \u2014 Elemental distribution as X-ray maps (counts per pixel, \"full spectral imaging, recording all X-rays collected from each pixel location\", p.3) and the phase identifications read from them (nominal); BSE images give the accompanying textural relationships (nominal)",
+    "ada:defaultReportedProperties": [
+      "elemental distribution (counts per pixel)",
+      "phase identification (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "carbonaceous chondrite"
@@ -198,9 +218,6 @@
   "ada:analyticalMode": [
     "EDS Mapping"
   ],
-  "ada:reportedProperties": [
-    "elemental distribution (counts per pixel); phase identification (nominal) \u2014 Elemental distribution as X-ray maps (counts per pixel, \"full spectral imaging, recording all X-rays collected from each pixel location\", p.3) and the phase identifications read from them (nominal); BSE images give the accompanying textural relationships (nominal)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -214,7 +231,7 @@
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "SEM analytical workflow",
     "schema:step": [
       {
         "@type": [

@@ -17,6 +17,7 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -33,6 +34,33 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
   "schema:description": "timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS (publication column of TIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Triton.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(ETHZ)Triton Thermo Fisher TIMS",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Date",
+      "Sample name",
+      "File name",
+      "Number of cycles",
+      "Intensity 142Nd (V)",
+      "146Nd/144Nd average",
+      "140Ce/144Nd",
+      "147Sm/144Nd",
+      "142Nd/144Nd mass bias corr",
+      "142Nd/144Nd mass bias corr 2SE",
+      "143Nd/144Nd mass bias corr",
+      "143Nd/144Nd mass bias corr 2SE"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -48,14 +76,11 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
     "schema:name": "ETH Zurich",
     "schema:identifier": "https://ror.org/05a28rw58"
   },
-  "ada:reportedProperties": [
-    "Date | Sample name | File name | Number of cycles | Intensity 142Nd (V) | 146Nd/144Nd average | 140Ce/144Nd | 147Sm/144Nd | 142Nd/144Nd mass bias corr | 142Nd/144Nd mass bias corr 2SE | 143Nd/144Nd mass bias corr | 143Nd/144Nd mass bias corr 2SE"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Thermal ionization mass spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -96,6 +121,7 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -104,6 +130,7 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -121,6 +148,33 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
   "schema:description": "timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS (publication column of TIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Triton.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(ETHZ)Triton Thermo Fisher TIMS",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Date",
+      "Sample name",
+      "File name",
+      "Number of cycles",
+      "Intensity 142Nd (V)",
+      "146Nd/144Nd average",
+      "140Ce/144Nd",
+      "147Sm/144Nd",
+      "142Nd/144Nd mass bias corr",
+      "142Nd/144Nd mass bias corr 2SE",
+      "143Nd/144Nd mass bias corr",
+      "143Nd/144Nd mass bias corr 2SE"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -136,14 +190,11 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
     "schema:name": "ETH Zurich",
     "schema:identifier": "https://ror.org/05a28rw58"
   },
-  "ada:reportedProperties": [
-    "Date | Sample name | File name | Number of cycles | Intensity 142Nd (V) | 146Nd/144Nd average | 140Ce/144Nd | 147Sm/144Nd | 142Nd/144Nd mass bias corr | 142Nd/144Nd mass bias corr 2SE | 143Nd/144Nd mass bias corr | 143Nd/144Nd mass bias corr 2SE"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Thermal ionization mass spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -181,17 +232,18 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:timsTAPP-P0> a cdi:Activity,
+ex:timsTAPP-P0 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Thermal ionization mass spectrometry analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -212,7 +264,25 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
     ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(ETHZ)Triton Thermo Fisher TIMS" ;
-    ada:reportedProperties "Date | Sample name | File name | Number of cycles | Intensity 142Nd (V) | 146Nd/144Nd average | 140Ce/144Nd | 147Sm/144Nd | 142Nd/144Nd mass bias corr | 142Nd/144Nd mass bias corr 2SE | 143Nd/144Nd mass bias corr | 143Nd/144Nd mass bias corr 2SE" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "140Ce/144Nd",
+                "142Nd/144Nd mass bias corr",
+                "142Nd/144Nd mass bias corr 2SE",
+                "143Nd/144Nd mass bias corr",
+                "143Nd/144Nd mass bias corr 2SE",
+                "146Nd/144Nd average",
+                "147Sm/144Nd",
+                "Date",
+                "File name",
+                "Intensity 142Nd (V)",
+                "Number of cycles",
+                "Sample name" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
@@ -309,6 +379,19 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -327,7 +410,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TIMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

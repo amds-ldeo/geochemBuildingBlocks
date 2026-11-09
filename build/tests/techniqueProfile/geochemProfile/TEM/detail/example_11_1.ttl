@@ -1,13 +1,49 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Dobrica2022> a ada:TEMImage ;
-    schema1:measurementTechnique <ex:temTAPP-Dobrica2022> ;
+ex:temTAPP-detail-Dobrica2022 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "E. Dobrica; K.K. Ohtaki; C. Engrand" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): BSE imaging of polished, C-coated section for mineral identification; FIB preparation of 4 electron-transparent sections (Pt deposition: e-beam first, then ion beam; sections transferred to Cu TEM half-grids with micromanipulator; final thinning at 2 kV, 72 pA with section on TEM grid)" ;
+                    schema1:name "FIB-SEM (Helios 660 dual-beam); SEM-BSE" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "FIB lift-out (Ga+)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/cameraLength>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
+            schema1:description "FIB sections transferred to Cu TEM half-grids (not standard full grids); nanodiffraction used 0.1–0.3 mrad convergence angle in STEM mode (quasi-parallel beam); some carbonate compositions and modulation measurements reported using Molecular Foundry TitanX EDS (see separate column)" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Advanced Electron Microscopy Center (AEMC), University of Hawai'i at Manoa, USA" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Dobrica2022/instrument/TEM> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "E. Dobrica; K.K. Ohtaki; C. Engrand" ;
-    ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
     ada:eelsDetectionLimit -9999 ;
@@ -16,5 +52,44 @@
     ada:samplingUnitName "Labelled: \"Four FIB sections\" from micrometeorite 03-36-46 (p.2) — \"region A (UH-001 ...)\", \"region B (UH-002 ...)\", \"Ca-phosphates (UH-003 ...)\" and \"magnetite (UH-006 ...)\" (p.3)" ;
     ada:sessionIdentifier "missing" .
 
-<ex:temTAPP-Dobrica2022> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/temTAPP-detail-Dobrica2022/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "SEM/EDS identification in the polished section — the sections were cut at phases \"identified in the polished section by SEM/EDS\", avoiding \"the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); BSE micrographs show the external and polished surfaces and the extraction sites as white rectangles (Fig. 1, p.3)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "300 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 300 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> ;
+    schema1:value "DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/cameraLength> a schema1:PropertyValue ;
+    schema1:description "295 mm (stated for nanodiffraction)" ;
+    schema1:name "Camera Length" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/cameraLength> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 295 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> a schema1:PropertyValue ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+    schema1:value "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): particle polished and C-coated; Pt deposited by e-beam deposition then by ion beam deposition; sections (~2 µm thick) transferred to Cu TEM half-grids; final thinning at 2 kV, 72 pA with section on TEM grid; 4 FIB sections: UH-001 (carbonate region A), UH-002 (carbonate region B), UH-003 (Ca-phosphates), UH-006 (magnetite)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> a schema1:PropertyValue ;
+    schema1:name "Spectroscopic Detector(s)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
+    schema1:value "EDS only" .
 

@@ -1,13 +1,55 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Mo2022-2> a ada:TEMImage ;
-    schema1:measurementTechnique <ex:temTAPP-Mo2022-2> ;
+ex:temTAPP-detail-Mo2022-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "B. Mo; Z. Guo; Y. Li; D. Zhu; X. Zeng; X. Li; J. Liu; Y. Wu" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "In situ Fe valence state analysis in Chang'E-5 lunar soil by TEM-EELS; Fe L3,2 edge peak position and lineshape comparison to reference standards (Fe⁰, Fe²⁺, Fe³⁺); point analysis and line scan" ;
+                    schema1:name "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); HAADF-STEM + EDS (FEI Talos F200X at SINANO CAS; coordinated); Auger electron spectroscopy (PHI 700/710 at Tsinghua University)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "FIB lift-out (Ga+)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethod>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
+            schema1:description "Hitachi HF5000 at Shanghai Institute of Ceramics CAS; 200 kV; 100 pA; Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer. Energy resolution: 0.5–0.7 eV FWHM at ZLP. Fe L3,2 edge: L3 peak positions 707.7 eV (Fe⁰), 707.2 eV (Fe²⁺), 709.0 eV (Fe³⁺). EELS acquired in DualEELS mode; 10 s point analysis, 18 s line scan. Reference standards: Fe metal + troilite (L6 ordinary chondrite GRV051874) for Fe⁰/Fe²⁺; terrestrial hematite for Fe³⁺; wüstite and hematite from Yao et al. 2018 (AES refs). ZLP aligned before spectral comparison. Background and continuum removal methods not stated. Valence state ID is qualitative (peak position + lineshape). Coordinated with FEI Talos F200X (EDS at SINANO) and PHI 700/710 Auger nanoprobe." ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:identifier "CE5C0400YJFM00505 (CAS allocation number)" ;
+                    schema1:name "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Mo2022-2/instrument/TEM> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "B. Mo; Z. Guo; Y. Li; D. Zhu; X. Zeng; X. Li; J. Liu; Y. Wu" ;
-    ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
     ada:eelsDetectionLimit -9999 ;
@@ -16,5 +58,71 @@
     ada:samplingUnitName "Labelled: \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5)" ;
     ada:sessionIdentifier "missing" .
 
-<ex:temTAPP-Mo2022-2> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/temTAPP-detail-Mo2022-2/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "The earlier analyses on the same foil — \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5), the foil having been sited from the BSE image (Fig. 1, p.3)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "200 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> ;
+    schema1:value "HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode> a schema1:PropertyValue ;
+    schema1:name "EELS Acquisition Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode> ;
+    schema1:value "Point analysis and line scan EELS" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum> a schema1:PropertyValue ;
+    schema1:description "Fe (L3,2)" ;
+    schema1:name "EELS Acquisition Time per Spectrum" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 3 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethod> a schema1:PropertyValue ;
+    schema1:name "EELS Chemical State Determination Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethod> ;
+    schema1:value "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe⁰, Fe²⁺, Fe³⁺)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges> a schema1:PropertyValue ;
+    schema1:name "EELS Edges" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges> ;
+    schema1:value "\"Fe L3,2 edge\" (~707–709 eV) → Fe — L3 peak at 707.7 eV for Fe⁰, 707.2 eV for Fe²⁺, 709.0 eV for Fe³⁺" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange> a schema1:PropertyValue ;
+    schema1:name "EELS Energy Loss Range" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange> ;
+    schema1:value "Fe (L3,2)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> a schema1:PropertyValue ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+    schema1:value "FEI Scios Dual-beam FIB-SEM at Institute of Geochemistry, CAS (IGCAS), Guiyang; Wirth method (Wirth, 2009 Chem. Geol.); ultrathin foils <100 nm; characterized in sequence: FE-STEM → Auger nanoprobe → TEM-EELS; FIB foils cleaned with 1 keV Ar+ beam (PHI 710) before Auger and EELS analysis" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> a schema1:PropertyValue ;
+    schema1:name "Spectroscopic Detector(s)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
+    schema1:value "EELS (Gatan GIF Quantum ER System Model 965)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> a schema1:PropertyValue ;
+    schema1:description "100 pA" ;
+    schema1:name "STEM Probe Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 100 .
 

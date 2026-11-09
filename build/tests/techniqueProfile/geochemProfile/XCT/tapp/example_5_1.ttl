@@ -1,16 +1,18 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:labxctTAPP-Shearer2024> a cdi:Activity,
+ex:labxctTAPP-Shearer2024 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "Lab-XCT analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -27,7 +29,7 @@
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 225 kV multi-metal reflection target source." ;
-    schema1:instrument <ex:labxctTAPP-Shearer2024/instrument/XCT> ;
+    schema1:instrument <https://example.org/labxctTAPP-Shearer2024/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -44,7 +46,15 @@
     ada:numberOfProjectionsDefault -9999 ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
-    ada:reportedProperties "Space between the bottom tip of the CSVC and the Teflon cap; Teflon cap location and integrity (nominal)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Space between the bottom tip of the CSVC and the Teflon cap",
+                "Teflon cap location and integrity (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:rotationModeDefault "missing" ;
     ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
@@ -61,7 +71,14 @@
                     ada:tier "M" ] ] ;
     ada:xRaySourceConfiguration "225 kV multi-metal reflection target source" .
 
-<ex:labxctTAPP-Shearer2024/instrument/XCT> a schema1:Product,
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Sealed container (the unopened 73001 CSVC); stage holder N — \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://example.org/labxctTAPP-Shearer2024/instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -74,11 +91,4 @@
     ada:tubeCurrentDefault "179 mA (possibly typo for µA per source)" ;
     ada:voxelSizeDefault "38.49 µm voxel edge" ;
     ada:xRayPreFilterDefault "no value available: ada:xRayPreFilterDefault" .
-
-<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Sealed container (the unopened 73001 CSVC); stage holder N — \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
-    schema1:name "Sample Mounting Method" ;
-    schema1:valueName "sampleMountingMethodDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
 

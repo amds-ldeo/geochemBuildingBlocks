@@ -1,43 +1,157 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Navarro2024-2> a ada:LAICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/preAnalysisImagingAndScreening>,
-        <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:measurementTechnique <ex:laSficpmsTAPP-Navarro2024-2> ;
+ex:laSficpmsTAPP-detail-Navarro2024-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts; J.E.: CNPq grant 316191/2021-3" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
+                <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
+                <https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea>,
+                <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize>,
+                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+            schema1:description "Mapping over regions with diverse phases of Augusto Pestana; Fe + Ni + Co = 100% normalisation 'is mandatory when acquiring elemental maps of multiphasic samples'" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/ICPMS>,
+                        <https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System> ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
+            ada:ablationSpotDuration "N/A — mapping mode" ;
+            ada:combinedResults [ ] ;
+            ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:componentType "ada:LAICPMSTabular" ;
     ada:detectionLimit -9999 ;
     ada:fundingSourceForAnalysis "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts; J.E.: CNPq grant 316191/2021-3" ;
     ada:limitOfQuantificationMethod "missing" ;
-    ada:mappingArea "Augusto Pestana: 30 min mapping session (area not explicitly stated; 150 µm spot at 10 µm s⁻¹)" ;
     ada:numberOfReplicates -9999 ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — iron meteorites by name (Table 1, p.2), each analysed as \"fragments about 1 cm\" (p.3); spots and mapped areas are counted (\"points 176\", p.12), not labelled" ;
     ada:sessionIdentifier "missing" ;
-    ada:signalIntegrationTime "N/A — mapping" ;
     ada:spotDiameter -9999 ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laSficpmsTAPP-Navarro2024-2> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/ICPMS/part/ICP-Source> ;
+    schema1:name "no value available: schema:name" .
 
-<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+<https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:name "no value available: schema:name" ;
+    ada:laserFluence "7 J cm⁻²" ;
+    ada:laserRepetitionRate "all: 10 Hz" ;
+    ada:laserSpotGeometry "all: 150 µm² square spot — as written: 'targeting a 150 μm2 square spot'" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate> a schema1:PropertyValue ;
+    schema1:description "0.9 L/min — Table 2" ;
+    schema1:name "Auxiliary Gas Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 9e-01 .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate> a schema1:PropertyValue ;
+    schema1:description "16 L/min — Table 2 'plasma gas flow rate'" ;
+    schema1:name "Coolant Plasma Gas Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 16 .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> a schema1:PropertyValue ;
+    schema1:name "ICP Tuning" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> ;
+    schema1:value "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' — Experimental section" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate> a schema1:PropertyValue ;
+    schema1:description "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min — Table 2" ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 2 .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> a schema1:PropertyValue ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
+    schema1:value "Low resolution (M/ΔM = 300)" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> a schema1:PropertyValue ;
+    schema1:description "1200 W" ;
+    schema1:name "RF Power" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1200 .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime> a schema1:PropertyValue ;
+    schema1:name "Signal Integration Time" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N/A — mapping" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea> a schema1:PropertyValue ;
+    schema1:name "Mapping Area" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea> ;
+    schema1:value "Augusto Pestana: 30 min mapping session (area not explicitly stated; 150 µm spot at 10 µm s⁻¹)" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
+    schema1:name "Transect Rate Mapping Rate or Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize> ;
+    schema1:value "all: 10 µm/s — 'scanning at a speed of 10 μm s−1'" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
     schema1:value "Chemical etching to reveal the phases before mapping — \"For the mapping experiment, the polished surface of the Augusto Pestana sample was etched with freshly prepared Nital solution (2% v/v HNO3 ... in 99.5% absolute ethanol) to reveal the presence of different phases (in this case, kamacite and plessite)\" (p.3). Not imaging, but the screening step that sites the map" .
 
-<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
-    schema1:name "Transect Rate, Mapping Rate or Step Size" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:value "all: 10 µm/s — 'scanning at a speed of 10 μm s−1'" .
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> a schema1:PropertyValue ;
+    schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+    schema1:value "N — 'detector cross-calibration were systematically checked and redone if required'; Fe and Ni measured on low-abundance isotopes in analog mode" .
 

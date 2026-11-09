@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -178,7 +180,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Solution MC-ICP-MS analytical workflow"
   },
   "schema:object": [
     {
@@ -435,31 +438,12 @@
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
         "ada:dataType": "string"
       },
       {
@@ -470,16 +454,30 @@
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
+      }
+    ]
+  },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "\u03c6Ce, \u03c6Nd, \u03c6Sm, \u03c6Eu, \u03c6Gd, \u03c6Dy, \u03c6Er, \u03c6Yb \u2014 \u2030/amu relative to the OL-REE standards (Eq. 1)",
+    "ada:defaultReportedProperties": [
+      "\u03c6Ce",
+      "\u03c6Nd",
+      "\u03c6Sm",
+      "\u03c6Eu",
+      "\u03c6Gd",
+      "\u03c6Dy",
+      "\u03c6Er",
+      "\u03c6Yb"
+    ],
+    "ada:reportedPropertyColumns": [
       {
-        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "schema:valueName": "reportedProperty",
         "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
       }
     ]
   },
@@ -632,9 +630,6 @@
   "ada:samplingUnitType": "Fraction of a CAI digestion \u2014 \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "\u03c6Ce, \u03c6Nd, \u03c6Sm, \u03c6Eu, \u03c6Gd, \u03c6Dy, \u03c6Er, \u03c6Yb \u2014 \u2030/amu relative to the OL-REE standards (Eq. 1)"
   ],
   "ada:chromatographicSeparationApplied": "Yes, U/TEVA, TODGA, then two-step FPLC on Ln-Spec resin (70 cm x 1.6 mm, 1.4 ml of 25\u201350 \u00b5m resin, 94 steps, 188 ml, 16 h at 70 \u00b0C, 0.17 ml/min). Overall yields >95%",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",

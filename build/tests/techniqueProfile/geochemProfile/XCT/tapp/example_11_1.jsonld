@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -209,6 +211,25 @@
   "ada:samplingUnitSelectionCriteriaDefault": "No sectioning was carried out prior to HRXCT scanning; Sample B was scanned entirely",
   "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
   "ada:segmentationMethodDefault": "Manual grayscale threshold",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Total fluid inclusion volume (mm3)",
+      "vapour volume (mm3)",
+      "liquid volume (mm3)",
+      "vapour volumetric fraction phi_vap (%)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -226,9 +247,6 @@
   "ada:samplingUnitType": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)",
   "ada:analyticalMode": [
     "Single-volume"
-  ],
-  "ada:reportedProperties": [
-    "Total fluid inclusion volume (mm3); vapour volume (mm3); liquid volume (mm3); vapour volumetric fraction phi_vap (%)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -264,7 +282,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Lab-XCT analytical workflow"
   },
   "schema:variableMeasured": [
     {

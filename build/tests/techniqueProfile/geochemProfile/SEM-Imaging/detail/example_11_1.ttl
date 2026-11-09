@@ -1,15 +1,49 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Ma2017-2> a ada:SEMImage ;
-    schema1:measurementTechnique <ex:semImagingTAPP-Ma2017-2> ;
+ex:semImagingTAPP-detail-Ma2017-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value "0.30°~0.45° (all three mineral phases: hollisterite, kryachkoite, stolperite)" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabase> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/ebsdPhaseList> ;
+            schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:identifier "USNM 7908 (section 126A)" ;
+                    schema1:name "Section 126A (USNM 7908)" ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:SEMImage" ;
+    ada:analyticalMode "EBSD" ;
     ada:ebsdIndexingRate -9999 ;
-    ada:ebsdMeanAngularDeviation 3e-01 ;
     ada:fundingSourceForAnalysis "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ;
     ada:imagePixelSize -9999 ;
     ada:sampleName "Section 126A (USNM 7908)" ;
@@ -17,5 +51,18 @@
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semImagingTAPP-Ma2017-2> schema1:identifier "no value available: schema:identifier" .
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "N — no prior screening is described; the EBSD patterns are acquired on the same instrument as the BSE imaging, \"an HKL EBSD system on the ZEISS 1550VP SEM\" (p.2)" .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabase> a schema1:PropertyValue ;
+    schema1:name "Crystal Structure Database" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabase> ;
+    schema1:value "Literature crystal structures: Black et al. 1961 (Cmc21 (Al,Cu)Fe6 for kryachkoite); Zhang et al. 2005 (Pm3m AlCu for stolperite)" .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/ebsdPhaseList> a schema1:PropertyValue ;
+    schema1:name "EBSD Phase List" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/ebsdPhaseList> ;
+    schema1:value "Hollisterite (C2/m FeAl3); kryachkoite (Cmc21 (Al,Cu)Fe6); stolperite (Pm3m AlCu)" .
 

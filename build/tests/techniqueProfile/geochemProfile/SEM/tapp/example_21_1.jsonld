@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -121,6 +123,24 @@
       "@id": "ex:semTAPP-Pascucci2026-4/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "surface topography (nominal); texture (nominal) \u2014 Surface topography and texture (nominal), imaged \"enlarged up to \u00d7200,000 and resolved up to 5 nm\" (p.3)",
+    "ada:defaultReportedProperties": [
+      "surface topography (nominal)",
+      "texture (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "carbonaceous chondrite"
@@ -196,9 +216,6 @@
   "ada:analyticalMode": [
     "SE Imaging"
   ],
-  "ada:reportedProperties": [
-    "surface topography (nominal); texture (nominal) \u2014 Surface topography and texture (nominal), imaged \"enlarged up to \u00d7200,000 and resolved up to 5 nm\" (p.3)"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -254,7 +271,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "SEM analytical workflow"
   },
   "schema:measurementTechnique": [
     {

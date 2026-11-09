@@ -16,17 +16,52 @@ detail instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agile
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Agilent5977",
+  "@id": "ex:gcmsTAPP-detail-Agilent5977",
   "@type": [
-    "ada:GCMSCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:GCMSCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:gcmsTAPP-Agilent5977",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Tohoku University"
+      },
+      "schema:identifier": "20241121_gc-ms_tu_orex-800107-108_1",
+      "schema:startTime": "2023-10-03",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800107-108"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Sako, Sunami"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa."
     }
   ],
   "ada:sessionIdentifier": "20241121_gc-ms_tu_orex-800107-108_1",
@@ -51,18 +86,53 @@ detail instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agile
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/GCMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Agilent5977",
+  "@id": "ex:gcmsTAPP-detail-Agilent5977",
   "@type": [
-    "ada:GCMSCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:GCMSCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:gcmsTAPP-Agilent5977",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Tohoku University"
+      },
+      "schema:identifier": "20241121_gc-ms_tu_orex-800107-108_1",
+      "schema:startTime": "2023-10-03",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800107-108"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Sako, Sunami"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa."
     }
   ],
   "ada:sessionIdentifier": "20241121_gc-ms_tu_orex-800107-108_1",
@@ -78,20 +148,30 @@ detail instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agile
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-Agilent5977> a ada:GCMSCollection ;
-    schema1:measurementTechnique <ex:gcmsTAPP-Agilent5977> ;
+ex:gcmsTAPP-detail-Agilent5977 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Sako, Sunami" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20241121_gc-ms_tu_orex-800107-108_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Tohoku University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800107-108" ] ;
+            schema1:startTime "2023-10-03" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-10-03" ;
     ada:analyst "Sako, Sunami" ;
-    ada:componentType "ada:GCMSCollection" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa." ;
     ada:sampleName "OREX-800107-108" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241121_gc-ms_tu_orex-800107-108_1" .
-
-<ex:gcmsTAPP-Agilent5977> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.GCMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

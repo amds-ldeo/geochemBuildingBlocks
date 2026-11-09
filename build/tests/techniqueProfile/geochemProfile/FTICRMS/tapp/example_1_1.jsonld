@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -28,6 +30,25 @@
   "schema:description": "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FTICR-MS.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "FTICR-MS 12 Tesla Solarix Infinity system",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Intensity",
+      "Mass",
+      "Neutral mass",
+      "Composition"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -56,14 +77,11 @@
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)"
     }
   ],
-  "ada:reportedProperties": [
-    "Intensity | Mass | Neutral mass | Composition"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [

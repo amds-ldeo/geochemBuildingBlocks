@@ -1,23 +1,19 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semFibsemTAPP-Garvie2008> a cdi:Activity,
+ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "FIB-SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -28,14 +24,20 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v45.csv)." ;
-    schema1:instrument <ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM>,
-        <ex:semFibsemTAPP-Garvie2008/instrument/SEM> ;
+    schema1:instrument <https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM>,
+        <https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -49,7 +51,15 @@
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
-    ada:reportedProperties "internal structure of the sectioned globules (nominal) — Internal structure of the sectioned globules (nominal) — \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "internal structure of the sectioned globules (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "internal structure of the sectioned globules (nominal) — Internal structure of the sectioned globules (nominal) — \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper claims the capability without stating a rule: \"The rapid site-specific cross-sectioning capabilities of the FIB allow the preservation of the internal morphology of the nanoglobules\" (p.1), but which globules were sectioned is not said" ;
     ada:samplingUnitType "Grain (individual nanoglobule) > Sub-volume (FIB cross-section) — \"The internal structure of the globules was investigated after sectioning by focused ion beam (FIB) milling\" (p.1)" ;
     ada:segmentationMethod3DDefault "missing" ;
@@ -62,27 +72,27 @@
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "no value available: schema:name" .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "Gallium LMIS (Ga+)" .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/SEM> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "FIB-SEM dual-beam" ;
-    schema1:hasPart <ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector>,
-        <ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source>,
-        <ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "FEI / Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -92,20 +102,20 @@
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault "5.4 mm (eucentric height for electron and ion columns)" .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;

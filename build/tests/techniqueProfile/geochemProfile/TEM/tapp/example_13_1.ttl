@@ -1,16 +1,18 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:temTAPP-Singerling2025> a cdi:Activity,
+ex:temTAPP-Singerling2025 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "TEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -30,7 +32,7 @@
         <https://ada.astromat.org/metadata/parameter/temTAPP/haadfCollectionAnglesDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Na,Ca carbonate grains extremely beam-sensitive: amorphized under electron beam; samples re-analyzed in 4 sessions (Dec 2023 – Dec 2024) to track terrestrial alteration; NO FIB used (authors note FIB may destroy beam-sensitive Na,Ca carbonates); underlying TEM data deposited at AstroMat (Table A4 supplementary); note: same Goethe lab and instrument (Talos F200X G2) as in Zega2025 Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; SAED (Electron Diffraction); STEM-EDS (point; map); ada:edsAcquisitionModeDefault = Spectrum image (map); point analysis; ada:edsQuantificationMethod = Cliff-Lorimer (k-factor) method; no absorption corrections." ;
-    schema1:instrument <ex:temTAPP-Singerling2025/instrument/TEM> ;
+    schema1:instrument <https://example.org/temTAPP-Singerling2025/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University, Frankfurt, Germany" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -54,7 +56,20 @@
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "no value available: ada:eelsEnergyLossRangeDefault" ;
     ada:phaseIdentificationMethod "SAED (few reflections due to beam sensitivity / poor crystallinity) matched against literature crystal structures (Dickens and Brown 1969 for gaylussite/pirssonite; McKie and Frankis 1977 for nyerereite); EDS cation ratios compared to theoretical mineral formulae (H and reliable O not measurable by EDS)" ;
-    ada:reportedProperties "carbonate composition (at%); change in composition over time (at%); grain dimensions (nm); grain area (µm2); areal fraction of carbonates; phase identification (nominal) — Na,Ca carbonate compositions from TEM EDS, reported as atomic percentages and as changes in them over time (at%: \"+9.4 at.% C, +5.6 at.% F, +4.1 at.% Ca, +3.5 at.% Cl, –19 at.% O, and –4.8 at.% Na\" for grain 11, p.3); grain dimensions (nm: shortest axes 140–860 nm, longest 640–2360 nm, p.2); grain area and the areal fraction the carbonates represent (µm2, p.2); phase identifications from SAED (nominal)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "areal fraction of carbonates",
+                "carbonate composition (at%)",
+                "change in composition over time (at%)",
+                "grain area (µm2)",
+                "grain dimensions (nm)",
+                "phase identification (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "carbonate composition (at%); change in composition over time (at%); grain dimensions (nm); grain area (µm2); areal fraction of carbonates; phase identification (nominal) — Na,Ca carbonate compositions from TEM EDS, reported as atomic percentages and as changes in them over time (at%: \"+9.4 at.% C, +5.6 at.% F, +4.1 at.% Ca, +3.5 at.% Cl, –19 at.% O, and –4.8 at.% Na\" for grain 11, p.3); grain dimensions (nm: shortest axes 140–860 nm, longest 640–2360 nm, p.2); grain area and the areal fraction the carbonates represent (µm2, p.2); phase identifications from SAED (nominal)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "None, stated explicitly — \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)" ;
     ada:samplingUnitType "Grain > Phase — the particle was crushed onto a grid, and \"28 fine particles\" were investigated \"within which we identified four Na,Ca carbonates: grains 4, 11 ..., 22, and 27\" (p.2); compositions come \"from TEM EDS analyses\" per grain (Table 1, p.2)" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
@@ -87,73 +102,9 @@
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "TS Velox" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         [ schema1:name "TS Velox" ;
-            ada:toolRole "acquisition" ] .
-
-<ex:temTAPP-Singerling2025/instrument/TEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "TEM" ;
-    schema1:hasPart <ex:temTAPP-Singerling2025/instrument/TEM/part/4D-STEM-Detector>,
-        <ex:temTAPP-Singerling2025/instrument/TEM/part/Aberration-Corrector>,
-        <ex:temTAPP-Singerling2025/instrument/TEM/part/EDS-Detector>,
-        <ex:temTAPP-Singerling2025/instrument/TEM/part/EELS-Spectrometer>,
-        <ex:temTAPP-Singerling2025/instrument/TEM/part/Electron-Source>,
-        <ex:temTAPP-Singerling2025/instrument/TEM/part/Imaging-Detector>,
-        <ex:temTAPP-Singerling2025/instrument/TEM/part/Monochromator> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Unknown" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Scientific Talos F200X G2 S/TEM" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault "200 kV" .
-
-<ex:temTAPP-Singerling2025/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "4D-STEM Detector" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Singerling2025/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Aberration Corrector" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Singerling2025/instrument/TEM/part/EDS-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EDS Detector" ;
-    schema1:description "Super-X G2 EDS system: four windowless silicon drift detectors; collection solid angle up to 0.9 srad" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Singerling2025/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EELS Spectrometer" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Singerling2025/instrument/TEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Singerling2025/instrument/TEM/part/Imaging-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Imaging Detector" ;
-    schema1:description "TS Ceta-S 4k × 4k 16M camera (TEM images and SAED)" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Singerling2025/instrument/TEM/part/Monochromator> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Monochromator" ;
-    schema1:name "missing" .
+            ada:toolRole "dataReduction" ] .
 
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the particle was crushed onto a grid and the fine particles taken as they came: \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)" ;
@@ -189,4 +140,68 @@
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/temTAPP-Singerling2025/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/temTAPP-Singerling2025/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/temTAPP-Singerling2025/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/temTAPP-Singerling2025/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/temTAPP-Singerling2025/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/temTAPP-Singerling2025/instrument/TEM/part/Electron-Source>,
+        <https://example.org/temTAPP-Singerling2025/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/temTAPP-Singerling2025/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Unknown" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Scientific Talos F200X G2 S/TEM" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/temTAPP-Singerling2025/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Singerling2025/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Singerling2025/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Super-X G2 EDS system: four windowless silicon drift detectors; collection solid angle up to 0.9 srad" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Singerling2025/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Singerling2025/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Singerling2025/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "TS Ceta-S 4k × 4k 16M camera (TEM images and SAED)" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Singerling2025/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
 

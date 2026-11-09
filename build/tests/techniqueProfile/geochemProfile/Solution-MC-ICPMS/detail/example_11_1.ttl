@@ -1,18 +1,68 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-P10> a ada:SolutionICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
-        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P10> ;
+ex:solutionMcicpmsTAPP-detail-P10 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "ICP-MS for Sr and Rb weathering assessment; Si isotopes on a separate NaOH-fusion aliquot" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "N — BHVO2 and DTS-2b results are in Supplementary Dataset 2" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
+                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits — Methods" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
+                <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
+                <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "BHVO2 and DTS-2b processed alongside the samples" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P10/instrument/ICPMS> ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "BHVO2, DTS-2b — 'processed alongside the samples'" ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
+            ada:combinedResults [ ] ;
+            ada:deltaOrEpsilonValueReferenceStandard "Fe: IRMM-014; Cr: SRM979; Mg: DTS-2b" ;
+            ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "N — BHVO2 and DTS-2b results are in Supplementary Dataset 2" ;
+    ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:componentType "ada:SolutionICPMSTabular" ;
-    ada:deltaOrEpsilonValueReferenceStandard "Fe: IRMM-014; Cr: SRM979; Mg: DTS-2b" ;
     ada:detectionLimit -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
@@ -22,19 +72,100 @@
     ada:sampleDescription "missing" ;
     ada:sampleName "BHVO2 and DTS-2b processed alongside the samples" ;
     ada:samplingUnitName "Labelled where a meteorite was analysed twice: \"NWA 16569 (1)\", \"NWA 16569 (2)\", \"NWA 16554 (1)\", \"NWA 16554 (2)\" (Table 1, p.2); the other chondrites by name only" ;
+    ada:sensitivityYield "24Mg, 25Mg, 26Mg: 80–90 V; other: N — typical signal intensities" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:solutionMcicpmsTAPP-P10> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/solutionMcicpmsTAPP-detail-P10/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/solutionMcicpmsTAPP-detail-P10/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/solutionMcicpmsTAPP-detail-P10/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/solutionMcicpmsTAPP-detail-P10/instrument/ICPMS/part/Sample-Introduction-System> ;
+    schema1:name "no value available: schema:name" .
 
-<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
-    schema1:name "Double-Spike Mixing Ratio" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> ;
+<https://example.org/solutionMcicpmsTAPP-detail-P10/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "Collision Reaction Cell" .
+
+<https://example.org/solutionMcicpmsTAPP-detail-P10/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/solutionMcicpmsTAPP-detail-P10/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> a schema1:PropertyValue ;
+    schema1:name "ICP Tuning" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> ;
+    schema1:value "Measured \"at low radiofrequency power and sample gas inflow\" deliberately, to reduce gas-based interferences" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate> a schema1:PropertyValue ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "None, no auxiliary gas to the introduction system for Cr — Cr 'measured without the use of an auxiliary gas to the introduction system to reduce gas-based interferences'" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> a schema1:PropertyValue ;
+    schema1:name "RF Power" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N — Cr measured 'at low radiofrequency power and sample gas inflow'" .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> a schema1:PropertyValue ;
+    schema1:name "Double Spike Mixing Ratio" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> ;
     schema1:value "N/A — no double spike used" .
 
-<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle> a schema1:PropertyValue ;
+    schema1:description "54Fe, 56Fe, 57Fe, 58Fe, 50Cr, 52Cr, 53Cr, 54Cr: 8.3 s; 24Mg, 25Mg, 26Mg: 16.7 s; other: N" ;
+    schema1:name "Integration Time per Cycle" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 54 .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+    schema1:description "Fe: 200 cycles; Cr: 100 cycles; Mg: 100 cycles" ;
     schema1:name "Number of Cycles per Block" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:value "Fe: 200 cycles; Cr: 100 cycles; Mg: 100 cycles" .
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> a schema1:PropertyValue ;
+    schema1:name "Digestion Duration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> ;
+    schema1:value "Parr bomb: 3 days; aqua regia: 2 days; NaOH fusion: 13 min" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> a schema1:PropertyValue ;
+    schema1:description "Parr bomb: 150 °C, then 210 °C; aqua regia: N; NaOH fusion: 720 °C" ;
+    schema1:name "Digestion Temperature" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 150 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> a schema1:PropertyValue ;
+    schema1:description "~100–200 mg of saw dust and crushed pieces — 5% fractions for ICPMS and for Al/Mg" ;
+    schema1:name "Sample Aliquot Mass or Volume" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 100 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> a schema1:PropertyValue ;
+    schema1:description "30 µl/min — for Fe, Cr and Mg" ;
+    schema1:name "Sample Uptake Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 30 .
 

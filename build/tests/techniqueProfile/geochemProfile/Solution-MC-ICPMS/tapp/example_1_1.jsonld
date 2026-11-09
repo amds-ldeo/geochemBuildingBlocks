@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -179,7 +181,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Solution MC-ICP-MS analytical workflow"
   },
   "schema:object": [
     {
@@ -489,31 +492,12 @@
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
         "ada:dataType": "string"
       },
       {
@@ -524,16 +508,27 @@
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
+      }
+    ]
+  },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "\u03b592Mo, \u03b594Mo, \u03b595Mo, \u03b597Mo, \u03b5100Mo \u2014 \u03b5\u2071Mo = [(\u2071Mo/\u2079\u2076Mo)sample/(\u2071Mo/\u2079\u2076Mo)standard \u2212 1] \u00d7 10\u2074, relative to the Alfa Aesar standard",
+    "ada:defaultReportedProperties": [
+      "\u03b592Mo",
+      "\u03b594Mo",
+      "\u03b595Mo",
+      "\u03b597Mo",
+      "\u03b5100Mo"
+    ],
+    "ada:reportedPropertyColumns": [
       {
-        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "schema:valueName": "reportedProperty",
         "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
       }
     ]
   },
@@ -659,9 +654,6 @@
   "ada:samplingUnitType": "Digestion aliquot \u2014 \"All samples (0.3\u20130.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "\u03b592Mo, \u03b594Mo, \u03b595Mo, \u03b597Mo, \u03b5100Mo \u2014 \u03b5\u2071Mo = [(\u2071Mo/\u2079\u2076Mo)sample/(\u2071Mo/\u2079\u2076Mo)standard \u2212 1] \u00d7 10\u2074, relative to the Alfa Aesar standard"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "98Mo/96Mo = 1.453173",
   "ada:chromatographicSeparationApplied": "Yes, two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8",

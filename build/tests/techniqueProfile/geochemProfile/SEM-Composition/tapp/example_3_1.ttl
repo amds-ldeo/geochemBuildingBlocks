@@ -1,17 +1,18 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semCompositionTAPP-Izawa2010> a cdi:Activity,
+ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "SEM Composition (EDS/WDS) analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -28,7 +29,7 @@
                     schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
-    schema1:instrument <ex:semCompositionTAPP-Izawa2010/instrument/SEM> ;
+    schema1:instrument <https://example.org/semCompositionTAPP-Izawa2010/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Surface Science Western" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -47,7 +48,16 @@
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — the Leo 440 SEM carries \"a Gresham light element detector and a Quartz XOne EDX analysis system, capable of detecting all elements from C to U, with a detection limit of ~0.5 wt% for most elements\" (p.3). That is the detector's range, not the set monitored; the maps' elements are not enumerated" ;
-    ada:reportedProperties "elemental distribution (counts per pixel); phase identification (nominal) — Elemental distribution as X-ray maps (counts per pixel, \"full spectral imaging, recording all X-rays collected from each pixel location\", p.3) and the phase identifications read from them (nominal); BSE images give the accompanying textural relationships (nominal)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "elemental distribution (counts per pixel)",
+                "phase identification (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "elemental distribution (counts per pixel); phase identification (nominal) — Elemental distribution as X-ray maps (counts per pixel, \"full spectral imaging, recording all X-rays collected from each pixel location\", p.3) and the phase identifications read from them (nominal); BSE images give the accompanying textural relationships (nominal)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Located by prior μXRD reconnaissance — the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)" ;
     ada:samplingUnitType "Whole sample (polished thin section) > Phase — \"full spectral imaging, recording all X-rays collected from each pixel location\" over \"polished thin sections\" of Tagish Lake (p.2), read as elemental distribution (p.3)" ;
     ada:stepSizePixelSizeDefault -9999 ;
@@ -64,47 +74,6 @@
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" .
-
-<ex:semCompositionTAPP-Izawa2010/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "Standard SEM" ;
-    schema1:hasPart <ex:semCompositionTAPP-Izawa2010/instrument/SEM/part/EDS-Detector>,
-        <ex:semCompositionTAPP-Izawa2010/instrument/SEM/part/Electron-Source>,
-        <ex:semCompositionTAPP-Izawa2010/instrument/SEM/part/WDS-Spectrometer> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Zeiss" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Leo 440" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault -9999 ;
-    ada:beamDiameterDefault -9999 ;
-    ada:beamMode "missing" ;
-    ada:mappingBeamCurrentDefault -9999 ;
-    ada:mappingBeamDiameterDefault -9999 ;
-    ada:mappingBeamMode "missing" ;
-    ada:workingDistanceDefault -9999 .
-
-<ex:semCompositionTAPP-Izawa2010/instrument/SEM/part/EDS-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EDS Detector" ;
-    schema1:description "Gresham light element detector; Quartz XOne EDX analysis system (full spectral imaging)" ;
-    schema1:name "missing" .
-
-<ex:semCompositionTAPP-Izawa2010/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<ex:semCompositionTAPP-Izawa2010/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "WDS Spectrometer" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
@@ -123,4 +92,45 @@
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
+
+<https://example.org/semCompositionTAPP-Izawa2010/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "Standard SEM" ;
+    schema1:hasPart <https://example.org/semCompositionTAPP-Izawa2010/instrument/SEM/part/EDS-Detector>,
+        <https://example.org/semCompositionTAPP-Izawa2010/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semCompositionTAPP-Izawa2010/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Leo 440" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
+    ada:workingDistanceDefault -9999 .
+
+<https://example.org/semCompositionTAPP-Izawa2010/instrument/SEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Gresham light element detector; Quartz XOne EDX analysis system (full spectral imaging)" ;
+    schema1:name "missing" .
+
+<https://example.org/semCompositionTAPP-Izawa2010/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<https://example.org/semCompositionTAPP-Izawa2010/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
 

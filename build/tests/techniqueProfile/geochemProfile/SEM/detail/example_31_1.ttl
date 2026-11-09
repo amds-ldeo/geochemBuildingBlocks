@@ -1,15 +1,50 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Zega2025-9> a ada:SEMImage ;
-    schema1:measurementTechnique <ex:semTAPP-Zega2025-9> ;
+ex:semTAPP-detail-Zega2025-9 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
+            schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Université Côte d'Azur / Observatoire de la Côte d'Azur, Valbonne, France" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "no value available: schema:name" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/semTAPP-detail-Zega2025-9/instrument/SEM> ] ;
+            ada:combinedResults [ ] ;
+            ada:edsDeadTime -9999 ;
+            ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
+    ada:analyticalMode "CL Mapping" ;
     ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMImage" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
@@ -19,12 +54,36 @@
     ada:imageStackDimensions "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "N — the cathodoluminescence passage names no specimen (p.9)" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
     ada:voxelSize "no value available: ada:voxelSize" .
 
-<ex:semTAPP-Zega2025-9> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/semTAPP-detail-Zega2025-9/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/semTAPP/mappingBeamCurrent> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "N — the cathodoluminescence passage describes the instrument and beam conditions only (p.9)" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "5 keV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 5 .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/mappingBeamCurrent> a schema1:PropertyValue ;
+    schema1:description "1 to 4 nA" ;
+    schema1:name "Mapping Beam Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semTAPP/mappingBeamCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1 .
 

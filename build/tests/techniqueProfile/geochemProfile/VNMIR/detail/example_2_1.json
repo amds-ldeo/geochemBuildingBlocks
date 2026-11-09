@@ -1,18 +1,60 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Hiroi2023-2",
+  "@id": "ex:vnmirTAPP-detail-Hiroi2023-2",
   "@type": [
-    "ada:VNMIRSpectralPoint"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:VNMIRSpectralPoint",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:vnmirTAPP-Hiroi2023-2",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Brown University",
+        "schema:identifier": "https://ror.org/05gq02987"
+      },
+      "schema:identifier": "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)",
+      "schema:startTime": "2023-11-14 | 2024-09-16 | (+4 more)",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime",
+      "ada:emissionAngle": -9999,
+      "ada:incidenceAngle": -9999,
+      "ada:sampleTemperature": -9999
     }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Hiroi, Takahiro"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
   ],
   "ada:sessionIdentifier": "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)",
   "ada:analyst": "Hiroi, Takahiro",

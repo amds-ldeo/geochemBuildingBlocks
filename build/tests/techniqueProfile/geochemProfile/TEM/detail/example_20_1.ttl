@@ -1,13 +1,50 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Mo2022> a ada:TEMImage ;
-    schema1:measurementTechnique <ex:temTAPP-Mo2022> ;
+ex:temTAPP-detail-Mo2022 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "B. Mo; Z. Guo; Y. Li; D. Zhu; X. Zeng; X. Li; J. Liu; Y. Wu" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Nanoscale characterization of Fe-bearing phases in Chang'E-5 lunar soil; HAADF-STEM + EDS for phase morphology and composition mapping; coordinated with Auger (surface Fe valence) and EELS (bulk Fe valence)" ;
+                    schema1:name "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); Auger electron spectroscopy (PHI 700/710 scanning Auger nanoprobe at Tsinghua University); TEM-EELS (Hitachi HF5000 at Shanghai Institute of Ceramics CAS; coordinated)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "FIB lift-out (Ga+)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
+            schema1:description "FEI Talos F200X at SINANO CAS, Suzhou; 200 kV; FE-STEM. HAADF-STEM + EDS for Fe distribution mapping in np-Fe0, glass matrix, olivine. Phase identification by FFT of DF image lattice fringes (olivine d-spacings confirmed). Sample CE5C0400YJFM00505 allocated by China National Space Administration; stored and mounted in Ar-filled glovebox at IGCAS CAS; Au-coated. FIB foils prepared by Wirth method at IGCAS CAS; <100 nm. Coordinated with Hitachi HF5000 (EELS at Shanghai Institute of Ceramics CAS) and PHI 700/710 Auger nanoprobe (at Tsinghua University)." ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Suzhou Institute of Nano-tech and Nano-bionics (SINANO), Chinese Academy of Sciences, Suzhou, China" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:identifier "CE5C0400YJFM00505 (CAS allocation number)" ;
+                    schema1:name "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Mo2022/instrument/TEM> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "B. Mo; Z. Guo; Y. Li; D. Zhu; X. Zeng; X. Li; J. Liu; Y. Wu" ;
-    ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
     ada:eelsDetectionLimit -9999 ;
@@ -16,5 +53,42 @@
     ada:samplingUnitName "Labelled: \"Two grains were selected from CE-5 lunar soil (CE5C0400YJFM00505)\" (p.2), \"CE5C0400YJFM00505-G1\" and \"CE5C0400YJFM00505-G2\", with a \"FIB foil extracted from\" each (Figs 1, 3–4, pp.3–4)" ;
     ada:sessionIdentifier "missing" .
 
-<ex:temTAPP-Mo2022> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/temTAPP-detail-Mo2022/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "BSE imaging and FIB site selection — \"Back-scattered electron image of CE5C0400YJFM00505-G1. The green rectangle indicates the FIB site\" (Fig. 1 caption, p.3), and the same for grain G2 (Fig. 3, p.4); the foils were then characterized in sequence by FE-STEM, scanning Auger nanoprobe and TEM-EELS (p.2)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "200 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> ;
+    schema1:value "HAADF-STEM; STEM-EDS mapping; BF-TEM (FFT lattice fringe analysis)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
+    schema1:name "EDS Acquisition Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
+    schema1:value "EDS chemical mapping (Fe distribution)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> a schema1:PropertyValue ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+    schema1:value "FEI Scios Dual-beam FIB-SEM at Institute of Geochemistry, CAS (IGCAS), Guiyang; Wirth method (Wirth, 2009 Chem. Geol.); ultrathin foils <100 nm; characterized in sequence: FE-STEM → Auger nanoprobe → TEM-EELS; FIB foils cleaned with 1 keV Ar+ beam (PHI 710) before Auger and EELS analysis" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> a schema1:PropertyValue ;
+    schema1:name "Spectroscopic Detector(s)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
+    schema1:value "EDS detector (model not specified)" .
 

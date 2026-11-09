@@ -16,17 +16,52 @@ detail instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | I
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:litTAPP-detail-P0",
   "@type": [
-    "ada:analysisLocation"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:analysisLocation",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:litTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Nagoya University"
+      },
+      "schema:identifier": "20241022_lit_nu_orex-800118-0_1",
+      "schema:startTime": "2024-01-10",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800118-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Ishizaki, Takuya"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20241022_lit_nu_orex-800118-0_1",
@@ -51,18 +86,53 @@ detail instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | I
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LIT/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:litTAPP-detail-P0",
   "@type": [
-    "ada:analysisLocation"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:analysisLocation",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:litTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Nagoya University"
+      },
+      "schema:identifier": "20241022_lit_nu_orex-800118-0_1",
+      "schema:startTime": "2024-01-10",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800118-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Ishizaki, Takuya"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20241022_lit_nu_orex-800118-0_1",
@@ -78,20 +148,30 @@ detail instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | I
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:analysisLocation ;
-    schema1:measurementTechnique <ex:litTAPP-P0> ;
+ex:litTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Ishizaki, Takuya" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20241022_lit_nu_orex-800118-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Nagoya University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800118-0" ] ;
+            schema1:startTime "2024-01-10" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-01-10" ;
     ada:analyst "Ishizaki, Takuya" ;
-    ada:componentType "ada:analysisLocation" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-800118-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241022_lit_nu_orex-800118-0_1" .
-
-<ex:litTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LIT.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

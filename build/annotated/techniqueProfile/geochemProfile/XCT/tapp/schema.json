@@ -244,6 +244,11 @@
                   },
                   "schema:defaultValue": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/sample-mounting-method"
+                    }
                   }
                 },
                 "required": [
@@ -280,6 +285,11 @@
                   },
                   "schema:value": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/x-ray-tube-anode-material"
+                    }
                   }
                 },
                 "required": [
@@ -710,6 +720,11 @@
                   },
                   "schema:defaultValue": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/detector-binning"
+                    }
                   }
                 },
                 "required": [
@@ -886,6 +901,11 @@
                   },
                   "schema:defaultValue": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/ct-number-calibration"
+                    }
                   }
                 },
                 "required": [
@@ -1062,6 +1082,11 @@
                   },
                   "schema:defaultValue": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/output-bit-depth"
+                    }
                   }
                 },
                 "required": [
@@ -1198,6 +1223,11 @@
                   },
                   "schema:defaultValue": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/sample-mounting-method"
+                    }
                   }
                 },
                 "required": [
@@ -1238,6 +1268,11 @@
                   },
                   "schema:value": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/x-ray-tube-anode-material"
+                    }
                   }
                 },
                 "required": [
@@ -1704,6 +1739,11 @@
                   },
                   "schema:defaultValue": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/detector-binning"
+                    }
                   }
                 },
                 "required": [
@@ -1896,6 +1936,11 @@
                   },
                   "schema:defaultValue": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/ct-number-calibration"
+                    }
                   }
                 },
                 "required": [
@@ -2088,6 +2133,11 @@
                   },
                   "schema:defaultValue": {
                     "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/output-bit-depth"
+                    }
                   }
                 },
                 "required": [
@@ -2218,6 +2268,7 @@
               "type": "string"
             }
           ],
+          "schema:inDefinedTermSet": "ada:vocab/x-ray-source-configuration",
           "readOnly": true
         },
         "ada:detectorType": {
@@ -2238,6 +2289,7 @@
               "type": "string"
             }
           ],
+          "schema:inDefinedTermSet": "ada:vocab/x-ray-detector-type",
           "readOnly": true
         },
         "bios:computationalTool": {
@@ -2516,6 +2568,11 @@
                                   },
                                   "schema:defaultValue": {
                                     "type": "string"
+                                  },
+                                  "schema:inDefinedTermSet": {
+                                    "const": {
+                                      "@id": "ada:vocab/flat-field-correction"
+                                    }
                                   }
                                 },
                                 "required": [
@@ -2611,6 +2668,11 @@
                                   },
                                   "schema:defaultValue": {
                                     "type": "string"
+                                  },
+                                  "schema:inDefinedTermSet": {
+                                    "const": {
+                                      "@id": "ada:vocab/flat-field-correction"
+                                    }
                                   }
                                 },
                                 "required": [
@@ -2713,7 +2775,8 @@
             "N/A",
             "None",
             "missing"
-          ]
+          ],
+          "schema:inDefinedTermSet": "ada:vocab/rotation-mode"
         },
         "ada:minimumSubVolumeOverlap": {
           "description": "Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset.",
@@ -2746,6 +2809,7 @@
               "type": "string"
             }
           ],
+          "schema:inDefinedTermSet": "ada:vocab/reconstruction-algorithm",
           "readOnly": true
         },
         "ada:beamHardeningCorrectionMethod": {
@@ -2766,6 +2830,7 @@
               "type": "string"
             }
           ],
+          "schema:inDefinedTermSet": "ada:vocab/beam-hardening-correction-method",
           "readOnly": true
         },
         "ada:outputDataFormatDefault": {
@@ -2786,7 +2851,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "schema:inDefinedTermSet": "ada:vocab/output-data-format"
         },
         "ada:segmentationMethodDefault": {
           "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
@@ -2808,7 +2874,33 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "schema:inDefinedTermSet": "ada:vocab/segmentation-method"
+        },
+        "ada:reportedPropertyTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultReportedProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "ada:defaultReportedProperties"
+          ],
+          "title": "Reported Property Template"
         },
         "ada:analyticalMode": {
           "type": "array",
@@ -2842,6 +2934,6 @@
     "itemIdentifier": "ogch.techniqueProfile.geochemProfile.XCT.tapp",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-10-31"
+    "dateOfLastChange": "2026-11-09"
   }
 }

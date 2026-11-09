@@ -1,13 +1,25 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Izawa2010-3> a ada:SEMImage ;
-    schema1:measurementTechnique <ex:semImagingTAPP-Izawa2010-3> ;
+ex:semImagingTAPP-detail-Izawa2010-3 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "EDS (same instrument); BSE Imaging (Leo 440); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "no value available: schema:name" ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:SEMImage" ;
+    ada:analyticalMode "BSE Imaging" ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
@@ -17,5 +29,8 @@
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semImagingTAPP-Izawa2010-3> schema1:identifier "no value available: schema:identifier" .
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "Micro X-ray diffraction reconnaissance — the paper's first stage is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) to document meteorite mineralogy and textures and to identify features of interest\", valuable as \"a 'no-touch' first-pass reconnaissance, which may identify areas for further study\"; it then gives \"point-by-point correlation of crystal structure data with other microscopic and microanalytical data\" (p.2); this procedure is the third stage, run on features the earlier stages located" .
 

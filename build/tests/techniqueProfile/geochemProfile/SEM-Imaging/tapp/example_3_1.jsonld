@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -119,6 +121,25 @@
       "@id": "ex:semImagingTAPP-Genge2025-2/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "crystal structure (nominal); crystal orientation (nominal); cell constants (\u00c5) \u2014 Crystal structure and orientation of the alloy phases (nominal), acquired for \"Structural information\" at 20 kV and 6 nA with ~30 nm spatial resolution for the diffracted electrons (p.2)",
+    "ada:defaultReportedProperties": [
+      "crystal structure (nominal)",
+      "crystal orientation (nominal)",
+      "cell constants (\u00c5)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semImagingTAPP/chamberPressureDefault",
@@ -182,7 +203,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "SEM Imaging analytical workflow"
   },
   "schema:location": {
     "@type": [
@@ -205,9 +227,6 @@
   "ada:samplingUnitType": "Phase > Grain \u2014 \"Electron back-scatter diffraction (EBSD) analyses were operated at 20 kV and 6 nA in focused beam mode\", the beam \"several nanometers in diameter\" with \"~30 nm\" resolution for diffracted electrons, run for \"Structural information\" on the alloy phases (p.2)",
   "ada:analyticalMode": [
     "EBSD"
-  ],
-  "ada:reportedProperties": [
-    "crystal structure (nominal); crystal orientation (nominal); cell constants (\u00c5) \u2014 Crystal structure and orientation of the alloy phases (nominal), acquired for \"Structural information\" at 20 kV and 6 nA with ~30 nm spatial resolution for the diffracted electrons (p.2)"
   ],
   "schema:measurementTechnique": [
     {

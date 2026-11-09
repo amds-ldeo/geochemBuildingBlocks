@@ -16,18 +16,182 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-HF5000",
+  "@id": "ex:stemTAPP-detail-HF5000",
   "@type": [
-    "ada:STEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:STEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:stemTAPP-HF5000",
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "STEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/stemTAPP/magnification",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/stemTAPP/magnification"
+                    }
+                  ],
+                  "schema:name": "Magnification",
+                  "schema:value": 14000
+                },
+                {
+                  "@id": "ada:parameter/stemTAPP/cameraLength",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/stemTAPP/cameraLength"
+                    }
+                  ],
+                  "schema:name": "Camera Length",
+                  "schema:value": 37,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "37 mm"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:stemTAPP-detail-HF5000/instrument/STEM"
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/stemTAPP/dwellTimePerProbePosition",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/stemTAPP/dwellTimePerProbePosition"
+            }
+          ],
+          "schema:name": "Dwell Time per Probe Position",
+          "schema:value": 4,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "4e-06 s"
+        },
+        {
+          "@id": "ada:parameter/stemTAPP/stageXPosition",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/stemTAPP/stageXPosition"
+            }
+          ],
+          "schema:name": "Stage X Position",
+          "schema:value": -0.1375
+        },
+        {
+          "@id": "ada:parameter/stemTAPP/stageYPosition",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/stemTAPP/stageYPosition"
+            }
+          ],
+          "schema:name": "Stage Y Position",
+          "schema:value": -0.1776
+        },
+        {
+          "@id": "ada:parameter/stemTAPP/stageTiltAlpha",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/stemTAPP/stageTiltAlpha"
+            }
+          ],
+          "schema:name": "Stage Tilt Alpha",
+          "schema:value": 0.0,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "0.0 deg"
+        },
+        {
+          "@id": "ada:parameter/stemTAPP/stageTiltBeta",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/stemTAPP/stageTiltBeta"
+            }
+          ],
+          "schema:name": "Stage Tilt Beta",
+          "schema:value": 0.1,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "0.1 deg"
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of Arizona",
+        "schema:identifier": "https://ror.org/03m2x1q45"
+      },
+      "schema:startTime": "2024-05-16",
+      "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier"
     }
+  ],
+  "schema:distribution": {
+    "schema:hasPart": {
+      "schema:width": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 2048,
+        "schema:unitText": "pixel"
+      },
+      "schema:height": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 2048,
+        "schema:unitText": "pixel"
+      }
+    }
+  },
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Maizey; Beau"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "STEM"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "Maizey; Beau",
@@ -36,16 +200,7 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "missing",
-  "ada:magnification": 14000,
-  "ada:dwellTimePerProbePosition": 4,
-  "ada:cameraLength": 37,
-  "ada:stageXPosition": -0.1375,
-  "ada:stageYPosition": -0.1776,
-  "ada:stageTiltAlpha": 0.0,
-  "ada:stageTiltBeta": 0.1,
-  "ada:imagePixelSize": 0.3696,
-  "ada:imageWidth": 2048,
-  "ada:imageHeight": 2048
+  "ada:imagePixelSize": 0.3696
 }
 
 ```
@@ -61,19 +216,183 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-HF5000",
+  "@id": "ex:stemTAPP-detail-HF5000",
   "@type": [
-    "ada:STEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:STEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:stemTAPP-HF5000",
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "STEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/stemTAPP/magnification",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/stemTAPP/magnification"
+                    }
+                  ],
+                  "schema:name": "Magnification",
+                  "schema:value": 14000
+                },
+                {
+                  "@id": "ada:parameter/stemTAPP/cameraLength",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/stemTAPP/cameraLength"
+                    }
+                  ],
+                  "schema:name": "Camera Length",
+                  "schema:value": 37,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "37 mm"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:stemTAPP-detail-HF5000/instrument/STEM"
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/stemTAPP/dwellTimePerProbePosition",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/stemTAPP/dwellTimePerProbePosition"
+            }
+          ],
+          "schema:name": "Dwell Time per Probe Position",
+          "schema:value": 4,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "4e-06 s"
+        },
+        {
+          "@id": "ada:parameter/stemTAPP/stageXPosition",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/stemTAPP/stageXPosition"
+            }
+          ],
+          "schema:name": "Stage X Position",
+          "schema:value": -0.1375
+        },
+        {
+          "@id": "ada:parameter/stemTAPP/stageYPosition",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/stemTAPP/stageYPosition"
+            }
+          ],
+          "schema:name": "Stage Y Position",
+          "schema:value": -0.1776
+        },
+        {
+          "@id": "ada:parameter/stemTAPP/stageTiltAlpha",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/stemTAPP/stageTiltAlpha"
+            }
+          ],
+          "schema:name": "Stage Tilt Alpha",
+          "schema:value": 0.0,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "0.0 deg"
+        },
+        {
+          "@id": "ada:parameter/stemTAPP/stageTiltBeta",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/stemTAPP/stageTiltBeta"
+            }
+          ],
+          "schema:name": "Stage Tilt Beta",
+          "schema:value": 0.1,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "0.1 deg"
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of Arizona",
+        "schema:identifier": "https://ror.org/03m2x1q45"
+      },
+      "schema:startTime": "2024-05-16",
+      "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier"
     }
+  ],
+  "schema:distribution": {
+    "schema:hasPart": {
+      "schema:width": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 2048,
+        "schema:unitText": "pixel"
+      },
+      "schema:height": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 2048,
+        "schema:unitText": "pixel"
+      }
+    }
+  },
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Maizey; Beau"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "STEM"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "Maizey; Beau",
@@ -82,47 +401,100 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "missing",
-  "ada:magnification": 14000,
-  "ada:dwellTimePerProbePosition": 4,
-  "ada:cameraLength": 37,
-  "ada:stageXPosition": -0.1375,
-  "ada:stageYPosition": -0.1776,
-  "ada:stageTiltAlpha": 0.0,
-  "ada:stageTiltBeta": 0.1,
-  "ada:imagePixelSize": 0.3696,
-  "ada:imageWidth": 2048,
-  "ada:imageHeight": 2048
+  "ada:imagePixelSize": 0.3696
 }
 ```
 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-HF5000> a ada:STEMImage ;
-    schema1:measurementTechnique <ex:stemTAPP-HF5000> ;
+ex:stemTAPP-detail-HF5000 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Maizey; Beau" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:distribution [ schema1:hasPart [ schema1:height [ a schema1:QuantitativeValue ;
+                            schema1:unitText "pixel" ;
+                            schema1:value 2048 ] ;
+                    schema1:width [ a schema1:QuantitativeValue ;
+                            schema1:unitText "pixel" ;
+                            schema1:value 2048 ] ] ] ;
+    prov:wasGeneratedBy [ schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/stemTAPP/dwellTimePerProbePosition>,
+                <https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltAlpha>,
+                <https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltBeta>,
+                <https://ada.astromat.org/metadata/parameter/stemTAPP/stageXPosition>,
+                <https://ada.astromat.org/metadata/parameter/stemTAPP/stageYPosition> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/03m2x1q45" ;
+                    schema1:name "University of Arizona" ] ;
+            schema1:startTime "2024-05-16" ;
+            prov:used [ schema1:instrument <https://example.org/stemTAPP-detail-HF5000/instrument/STEM> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-05-16" ;
     ada:analyst "Maizey; Beau" ;
-    ada:cameraLength 37 ;
-    ada:componentType "ada:STEMImage" ;
-    ada:dwellTimePerProbePosition 4 ;
+    ada:analyticalMode "STEM" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:imageHeight 2048 ;
     ada:imagePixelSize 3.696e-01 ;
-    ada:imageWidth 2048 ;
-    ada:magnification 14000 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stageTiltAlpha 0e+00 ;
-    ada:stageTiltBeta 1e-01 ;
-    ada:stageXPosition -1.375e-01 ;
-    ada:stageYPosition -1.776e-01 .
+    ada:sessionIdentifier "missing" .
 
-<ex:stemTAPP-HF5000> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/stemTAPP-detail-HF5000/instrument/STEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/stemTAPP/cameraLength>,
+        <https://ada.astromat.org/metadata/parameter/stemTAPP/magnification> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "STEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/cameraLength> a schema1:PropertyValue ;
+    schema1:description "37 mm" ;
+    schema1:name "Camera Length" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/cameraLength> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 37 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/dwellTimePerProbePosition> a schema1:PropertyValue ;
+    schema1:description "4e-06 s" ;
+    schema1:name "Dwell Time per Probe Position" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/dwellTimePerProbePosition> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 4 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/magnification> a schema1:PropertyValue ;
+    schema1:name "Magnification" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/magnification> ;
+    schema1:value 14000 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltAlpha> a schema1:PropertyValue ;
+    schema1:description "0.0 deg" ;
+    schema1:name "Stage Tilt Alpha" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltAlpha> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 0e+00 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltBeta> a schema1:PropertyValue ;
+    schema1:description "0.1 deg" ;
+    schema1:name "Stage Tilt Beta" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltBeta> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1e-01 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/stageXPosition> a schema1:PropertyValue ;
+    schema1:name "Stage X Position" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/stageXPosition> ;
+    schema1:value -1.375e-01 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/stageYPosition> a schema1:PropertyValue ;
+    schema1:name "Stage Y Position" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/stageYPosition> ;
+    schema1:value -1.776e-01 .
 
 
 ```
@@ -135,18 +507,51 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P1",
+  "@id": "ex:stemTAPP-detail-P1",
   "@type": [
-    "ada:STEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:STEMImage",
-  "schema:measurementTechnique": [
+  "schema:distribution": {
+    "schema:hasPart": {
+      "schema:width": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 2048,
+        "schema:unitText": "pixel"
+      },
+      "schema:height": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 2048,
+        "schema:unitText": "pixel"
+      }
+    }
+  },
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:stemTAPP-P1",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Lawrence Berkeley National Laboratory",
+        "schema:identifier": "https://ror.org/02jbv0t02"
+      },
+      "schema:startTime": "2023-12-07",
+      "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier"
     }
+  ],
+  "ada:analyticalMode": [
+    "STEM"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -162,9 +567,7 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
   "ada:stageYPosition": -9999,
   "ada:stageTiltAlpha": -9999,
   "ada:stageTiltBeta": -9999,
-  "ada:imagePixelSize": 2.2766,
-  "ada:imageWidth": 2048,
-  "ada:imageHeight": 2048
+  "ada:imagePixelSize": 2.2766
 }
 
 ```
@@ -180,19 +583,52 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P1",
+  "@id": "ex:stemTAPP-detail-P1",
   "@type": [
-    "ada:STEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:STEMImage",
-  "schema:measurementTechnique": [
+  "schema:distribution": {
+    "schema:hasPart": {
+      "schema:width": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 2048,
+        "schema:unitText": "pixel"
+      },
+      "schema:height": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 2048,
+        "schema:unitText": "pixel"
+      }
+    }
+  },
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:stemTAPP-P1",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Lawrence Berkeley National Laboratory",
+        "schema:identifier": "https://ror.org/02jbv0t02"
+      },
+      "schema:startTime": "2023-12-07",
+      "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier"
     }
+  ],
+  "ada:analyticalMode": [
+    "STEM"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -208,30 +644,40 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
   "ada:stageYPosition": -9999,
   "ada:stageTiltAlpha": -9999,
   "ada:stageTiltBeta": -9999,
-  "ada:imagePixelSize": 2.2766,
-  "ada:imageWidth": 2048,
-  "ada:imageHeight": 2048
+  "ada:imagePixelSize": 2.2766
 }
 ```
 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-P1> a ada:STEMImage ;
-    schema1:measurementTechnique <ex:stemTAPP-P1> ;
+ex:stemTAPP-detail-P1 a schema1:Dataset,
+        schema1:Product ;
+    schema1:distribution [ schema1:hasPart [ schema1:height [ a schema1:QuantitativeValue ;
+                            schema1:unitText "pixel" ;
+                            schema1:value 2048 ] ;
+                    schema1:width [ a schema1:QuantitativeValue ;
+                            schema1:unitText "pixel" ;
+                            schema1:value 2048 ] ] ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/02jbv0t02" ;
+                    schema1:name "Lawrence Berkeley National Laboratory" ] ;
+            schema1:startTime "2023-12-07" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-12-07" ;
     ada:analyst "missing" ;
+    ada:analyticalMode "STEM" ;
     ada:cameraLength -9999 ;
-    ada:componentType "ada:STEMImage" ;
     ada:dwellTimePerProbePosition -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:imageHeight 2048 ;
     ada:imagePixelSize 2.2766e+00 ;
-    ada:imageWidth 2048 ;
     ada:magnification -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "missing" ;
@@ -240,8 +686,6 @@ detail instance derived from ADA n=694 | no named analyst | Lawrence Berkeley Na
     ada:stageTiltBeta -9999 ;
     ada:stageXPosition -9999 ;
     ada:stageYPosition -9999 .
-
-<ex:stemTAPP-P1> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -767,7 +1211,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.STEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

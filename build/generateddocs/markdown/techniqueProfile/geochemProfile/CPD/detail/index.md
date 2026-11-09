@@ -16,17 +16,37 @@ detail instance derived from ADA n=10 | no named analyst | NASA Johnson Space Ce
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:cpdTAPP-detail-P0",
   "@type": [
-    "ada:CPDImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:CPDImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:cpdTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA Johnson Space Center",
+        "schema:identifier": "https://ror.org/04xx4z452"
+      },
+      "schema:identifier": "20231016_CPD_JSC-ARES_OREX-580001-0_1",
+      "schema:startTime": "2023-09-24",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-108001-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20231016_CPD_JSC-ARES_OREX-580001-0_1",
@@ -51,18 +71,38 @@ detail instance derived from ADA n=10 | no named analyst | NASA Johnson Space Ce
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/CPD/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:cpdTAPP-detail-P0",
   "@type": [
-    "ada:CPDImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:CPDImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:cpdTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA Johnson Space Center",
+        "schema:identifier": "https://ror.org/04xx4z452"
+      },
+      "schema:identifier": "20231016_CPD_JSC-ARES_OREX-580001-0_1",
+      "schema:startTime": "2023-09-24",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-108001-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20231016_CPD_JSC-ARES_OREX-580001-0_1",
@@ -78,20 +118,27 @@ detail instance derived from ADA n=10 | no named analyst | NASA Johnson Space Ce
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:CPDImage ;
-    schema1:measurementTechnique <ex:cpdTAPP-P0> ;
+ex:cpdTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20231016_CPD_JSC-ARES_OREX-580001-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/04xx4z452" ;
+                    schema1:name "NASA Johnson Space Center" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-108001-0" ] ;
+            schema1:startTime "2023-09-24" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-09-24" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:CPDImage" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-108001-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231016_CPD_JSC-ARES_OREX-580001-0_1" .
-
-<ex:cpdTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +204,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.CPD.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

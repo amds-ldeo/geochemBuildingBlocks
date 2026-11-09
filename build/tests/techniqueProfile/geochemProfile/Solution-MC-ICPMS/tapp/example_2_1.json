@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -194,7 +195,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Solution MC-ICP-MS analytical workflow"
   },
   "schema:object": [
     {
@@ -624,31 +626,12 @@
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
         "ada:dataType": "string"
       },
       {
@@ -659,16 +642,24 @@
         "schema:valueName": "countingStatisticsError",
         "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
-      },
+      }
+    ]
+  },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "\u03b434S, \u03b433S \u2014 \u2030 on the V-CDT scale (\u00a72.4)",
+    "ada:defaultReportedProperties": [
+      "\u03b434S",
+      "\u03b433S"
+    ],
+    "ada:reportedPropertyColumns": [
       {
-        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "schema:valueName": "reportedProperty",
         "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
       }
     ]
   },
@@ -773,9 +764,6 @@
   "ada:samplingUnitType": "Purified solution aliquot \u2014 \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 \u00b5g of S\" taken for column purification",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "\u03b434S, \u03b433S \u2014 \u2030 on the V-CDT scale (\u00a72.4)"
   ],
   "ada:chromatographicSeparationApplied": "Yes, AG50-X8 (H+) cation exchange, 2.5 ml resin conditioned with 1.4 N HNO3; S and oxyanions pass, matrix retained; yield 98 \u00b1 4% (\u00a72.2)",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",

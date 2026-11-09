@@ -17,6 +17,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -84,7 +85,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "XANES analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -119,6 +120,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -127,6 +129,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -195,7 +198,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "XANES analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -227,17 +230,18 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:xanesTAPP-Gainsforth2023> a cdi:Activity,
+ex:xanesTAPP-Gainsforth2023 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "XANES analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -251,7 +255,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     schema1:description "xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source at Lawrence Berkeley National Laboratory | ALS STXM beamline 5.3.2.2 (publication column of XANES_TAPP_draft_v2.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA" ] ;
-    schema1:instrument <ex:xanesTAPP-Gainsforth2023/instrument/nxs-base-classes-NXinstrument-html> ;
+    schema1:instrument <https://example.org/xanesTAPP-Gainsforth2023/instrument/nxs-base-classes-NXinstrument-html> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/00319zh75" ;
             schema1:name "Advanced Light Source at Lawrence Berkeley National Laboratory" ] ;
@@ -265,7 +269,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
-<ex:xanesTAPP-Gainsforth2023/instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
+<https://example.org/xanesTAPP-Gainsforth2023/instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
         <https://www.wikidata.org/wiki/Q3099911> ;
@@ -410,6 +414,19 @@ allOf:
                       const: nxs:base_classes/NXinstrument.html
           required:
           - schema:additionalType
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -428,7 +445,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XANES.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

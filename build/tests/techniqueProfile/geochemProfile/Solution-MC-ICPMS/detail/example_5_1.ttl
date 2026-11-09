@@ -1,40 +1,135 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Tissot2020> a ada:SolutionICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
-        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-Tissot2020> ;
+ex:solutionMcicpmsTAPP-detail-Tissot2020 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes" ;
+                    schema1:name "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "ZrNIST [all: 2σ external reproducibility of the spiked ZrNIST measurements in each run]" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
+                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
+                <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
+                <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
+            schema1:description "Mo doping test: Offset δ94/90ZrNIST = −63.4 · x, x the Mo/Zr atomic ratio — used to show the residual Mo is negligible" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Massachusetts Institute of Technology" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "FC-1 zircon and baddeleyite crystals; ZrNIST reference solution" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-Tissot2020/instrument/ICPMS> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"" ;
+                            ada:toolRole "dataReduction" ] ] ;
+            ada:combinedResults [ ] ;
+            ada:deltaOrEpsilonValueReferenceStandard "Zr: ZrNIST — a NIST gravimetric Zr solution being calibrated as an isotopic reference material" ;
+            ada:proceduralBlankLevel "N — the blank comparison stated concerns non-radiogenic Pb in the U-Pb work" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
+    ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:componentType "ada:SolutionICPMSTabular" ;
-    ada:deltaOrEpsilonValueReferenceStandard "Zr: ZrNIST — a NIST gravimetric Zr solution being calibrated as an isotopic reference material" ;
     ada:detectionLimit -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:oxideProduction "missing" ;
     ada:peakFlatness "missing" ;
-    ada:proceduralBlankLevel "N — the blank comparison stated concerns non-radiogenic Pb in the U-Pb work" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "FC-1 zircon and baddeleyite crystals; ZrNIST reference solution" ;
     ada:samplingUnitName "Labelled: single crystals of FC-1 — zircons \"z1\"–\"z16\" with \"3_z…\" and \"4_z…\" series (e.g. \"4_z15R\", \"4_z17\"), baddeleyites \"b1\"–\"b8\" with \"3_b…\" and \"4_b…\" series, and bulk rock \"WR1\" (Table 1, pp.4–6); \"CA\"/\"Untr.\" beside each label marks chemical abrasion, not identity" ;
+    ada:sensitivityYield "N — 'around 572 V/ppm of total Zr'" ;
     ada:sessionIdentifier "missing" ;
-    ada:signalIntegrationTime -9999 ;
-    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "ZrNIST [all: 2σ external reproducibility of the spiked ZrNIST measurements in each run]" .
+    ada:signalIntegrationTime -9999 .
 
-<ex:solutionMcicpmsTAPP-Tissot2020> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/solutionMcicpmsTAPP-detail-Tissot2020/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:name "no value available: schema:name" .
 
-<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
-    schema1:name "Double-Spike Mixing Ratio" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> ;
+<https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> a schema1:PropertyValue ;
+    schema1:name "Constants Reference Values" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
+    schema1:value "N — the constants stated (²³⁸U/²³⁵U = 137.818, ¹⁸O/¹⁶O = 0.00205, α = 0.18%/amu) belong to the coupled ID-TIMS U-Pb work" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> a schema1:PropertyValue ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
+    schema1:value "On-peak-zero acid blank before each sample \"to account for blank contribution as well as any 'memory' effects from the Aridus II sample introduction system during the run\"" .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> a schema1:PropertyValue ;
+    schema1:name "Double Spike Mixing Ratio" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> ;
     schema1:value "0.43:0.57 spike-to-sample Zr mass ratio, described as optimal" .
 
-<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle> a schema1:PropertyValue ;
+    schema1:description "all: 5 s" ;
+    schema1:name "Integration Time per Cycle" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 5 .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+    schema1:description "all: 50 cycles" ;
     schema1:name "Number of Cycles per Block" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:value "all: 50 cycles" .
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
+    schema1:value 50 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> a schema1:PropertyValue ;
+    schema1:name "Digestion Duration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> ;
+    schema1:value "chemical abrasion: 60 h, then 12 h; U-Pb dissolution: 48 h; Zr-only dissolution: 2 h, then 60 h; spike equilibration: overnight" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> a schema1:PropertyValue ;
+    schema1:description "chemical abrasion: 900 °C (annealing), then 215 °C; U-Pb dissolution: 215 °C; Zr-only dissolution: 60 °C, then 215 °C; spike equilibration: 140 °C" ;
+    schema1:name "Digestion Temperature" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 900 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> a schema1:PropertyValue ;
+    schema1:description "Single crystals; ~50 µl (5% of sample) taken for concentration measurement" ;
+    schema1:name "Sample Aliquot Mass or Volume" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 50 .
 

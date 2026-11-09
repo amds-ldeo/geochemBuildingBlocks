@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -164,7 +166,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Solution Q-ICP-MS analytical workflow"
   },
   "schema:object": [
     {
@@ -343,35 +346,6 @@
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -455,6 +429,24 @@
       }
     ]
   },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Te, Se (mg/kg) \u2014 particulate concentrations",
+    "ada:defaultReportedProperties": [
+      "Te",
+      "Se (mg/kg)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition",
@@ -488,9 +480,6 @@
   "ada:samplingUnitType": "Weighed sediment aliquot \u2014 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "Te, Se (mg/kg) \u2014 particulate concentrations"
   ],
   "ada:chromatographicSeparationApplied": "None",
   "ada:finalSolutionMatrix": "N \u2014 digests brought to 10 mL with Milli-Q water; extracts in their extraction reagents",

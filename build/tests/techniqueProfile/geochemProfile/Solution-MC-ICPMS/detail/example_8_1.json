@@ -1,19 +1,299 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P7",
+  "@id": "ex:solutionMcicpmsTAPP-detail-P7",
   "@type": [
-    "ada:SolutionICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SolutionICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:solutionMcicpmsTAPP-P7",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
+                }
+              ],
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 6400,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "~6400 \u00b5l of solution per analysis"
+            }
+          ],
+          "schema:name": "DTM and LOsST Os isotope reference materials",
+          "schema:description": "no value available: schema:description"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "Sample Introduction System",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
+                        }
+                      ],
+                      "schema:name": "Sample Uptake Rate",
+                      "schema:value": 400,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "~400 \u00b5l/min, free aspiration \u2014 \u00a73.2; ~6400 \u00b5l over a ~16 min analysis"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P7/instrument/ICPMS/part/Sample-Introduction-System"
+                },
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "ICP Source",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P7/instrument/ICPMS/part/ICP-Source"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "Collision Reaction Cell",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P7/instrument/ICPMS/part/Collision-Reaction-Cell"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
+                  "schema:value": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:solutionMcicpmsTAPP-detail-P7/instrument/ICPMS"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "Online processing on the instrument \u2014 \"Samples were processed on-line for W and Re interferences and instrumental mass bias\"",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "DTM, LOsST",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement"
+            }
+          ],
+          "schema:name": "Number of Blocks per Measurement",
+          "schema:value": 1,
+          "schema:description": "1 block"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+            }
+          ],
+          "schema:name": "Number of Cycles per Block",
+          "schema:value": 50,
+          "schema:description": "all: 50 cycles \u2014 1 block"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+            }
+          ],
+          "schema:name": "Integration Time per Cycle",
+          "schema:value": 183,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "183W, 184Os, 185Re, 186Os, 187Os: 8 s; 190Os, 192Os: 4 s; 188Os, 189Os: 8 s (sequence 1), 4 s (sequence 2) \u2014 Table 2b"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+            }
+          ],
+          "schema:name": "Double Spike Mixing Ratio",
+          "schema:value": "N/A \u2014 no double spike used"
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NERC Isotope Geosciences Laboratory (NIGL)"
+      },
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "N/A \u2014 reference material solutions, no solid preparation",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample digestion",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 3,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:deltaOrEpsilonValueReferenceStandard": "no value available: ada:deltaOrEpsilonValueReferenceStandard",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
   ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "DTM [187Os/188Os: compared with Durham N-TIMS 0.173927 \u00b1 5] \u2014 Table 7a"
+    },
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "DTM [187Os/188Os: 0.173910 \u00b1 21 (2SD, n = 9)] \u2014 session 23-05-06 (Table 7a)"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "all: 2SD \u2014 'Reported errors are 2SD unless otherwise stated'"
+    },
+    {
+      "dqv:isMeasurementOf": "Peak Flatness",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:sensitivityYield": "N \u2014 ~20 V for a 1 \u00b5g/ml Os solution at ~400 \u00b5l/min",
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
@@ -27,50 +307,7 @@
   "ada:deltaOrEpsilonValueReferenceStandard": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "DTM [187Os/188Os: 0.173910 \u00b1 21 (2SD, n = 9)] \u2014 session 23-05-06 (Table 7a)",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "DTM [187Os/188Os: compared with Durham N-TIMS 0.173927 \u00b1 5] \u2014 Table 7a",
   "ada:detectionLimit": -9999,
-  "ada:limitOfQuantificationMethod": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement"
-        }
-      ],
-      "schema:name": "Number of Blocks per Measurement",
-      "schema:value": 1
-    },
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock"
-        }
-      ],
-      "schema:name": "Number of Cycles per Block",
-      "schema:value": "all: 50 cycles \u2014 1 block"
-    },
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio"
-        }
-      ],
-      "schema:name": "Double-Spike Mixing Ratio",
-      "schema:value": "N/A \u2014 no double spike used"
-    }
-  ]
+  "ada:limitOfQuantificationMethod": "missing"
 }

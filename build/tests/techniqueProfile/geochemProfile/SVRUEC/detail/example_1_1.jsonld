@@ -7,18 +7,53 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SVRUEC/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Model5077",
+  "@id": "ex:svruecTAPP-detail-Model5077",
   "@type": [
-    "ada:SVRUECTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SVRUECTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:svruecTAPP-Model5077",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of Calgary"
+      },
+      "schema:identifier": "20241216_sv-ruec_uca_orex-800123-0_1",
+      "schema:startTime": "2024-12-16",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800123-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Hanton, Lincoln"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Grant 22EXPOSICA from Planetary Exploration, Space Exploration, Canadian Space Agency. This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20241216_sv-ruec_uca_orex-800123-0_1",

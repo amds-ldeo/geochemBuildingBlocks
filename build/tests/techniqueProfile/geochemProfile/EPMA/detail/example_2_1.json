@@ -1,18 +1,176 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Hu2020",
+  "@id": "ex:epmaTAPP-detail-Hu2020",
   "@type": [
-    "ada:EPMAImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:EPMAImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:epmaTAPP-Hu2020",
-      "schema:identifier": "no value available: schema:identifier"
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "EPMA",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "15 kV"
+                },
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                    }
+                  ],
+                  "schema:name": "Beam Diameter",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "N \u2014 only 15 kV and 10 nA are given"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:epmaTAPP-detail-Hu2020/instrument/EPMA"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "N \u2014 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "SEM imaging and EDS mapping on three instruments before the probe \u2014 \"Scanning electron microscopy (SEM) imaging and energy dispersive X-ray spectroscopy (EDS) mapping were conducted\" on a Nova NanoSEM 450 at IGGCAS, a SUPRA55 at NAOC and a JEOL JSM-7100F at NIPR, after which \"Quantitative analyses ... were conducted by electron probe microanalysis (EPMA) with the JEOL JXA-8100 at IGGCAS\" (p.2)"
+            }
+          ],
+          "schema:name": "NWA 8657 shergottite"
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing"
+      },
+      "schema:description": "Hu et al. 2020, Geochim. Cosmochim. Acta \u2014 coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn K\u03b1 / Cr K\u03b2 interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated.",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Polished thick section (NWA 8657); carbon coating N",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "schema:additionalProperty": [],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:deadTime": -9999
     }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Sen Hu"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NSFC 41573057, 41430105 and 41973062; China Scholarship Council 201804910284; IGGCAS key research program IGGCAS-201905 \u2014 'This study was financially supported by ...'"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "https://doi.org/10.1016/j.gca.2020.07.021 \u2014 'Supplementary data to this article can be found online at ...'"
+    }
+  ],
+  "ada:analyticalMode": [
+    "N \u2014 quantitative point analyses ('Quantitative analyses of maskelynite ... were conducted by electron probe microanalysis'); WDS or EDS is not stated, and the list has no value without one"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "Sen Hu",
@@ -24,7 +182,6 @@
   "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:detectionLimit": "K2O: 0.01 wt%; SiO2, Al2O3, MgO, CaO, Na2O: 0.02 wt%; TiO2, Cr2O3: 0.03 wt%; FeO: 0.05 wt%; MnO: 0.06 wt% \u2014 p.2",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",

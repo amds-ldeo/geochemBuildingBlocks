@@ -1,16 +1,18 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:solutionQicpmsTAPP-Gao2008> a cdi:Activity,
+ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "Solution Q-ICP-MS analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -27,6 +29,13 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard — clean-room conditions (§3.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
@@ -37,19 +46,12 @@
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard — clean-room conditions (§3.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Auto lens voltages optimised on a 10 ng/ml Mg, Co, Rh, Ce, Pb and U solution; As and Te measured in 4.80 ml sample solution plus 0.20 ml ethanol; HF boiled before sub-boiling distillation to remove volatile As — §3.1, §3.2, §3.3 Reported detail: ada:signalCollectionMode = Peak hopping, one point per peak — §3.1; ada:driftCorrectionMethod = Rh internal standard, and a calibration solution analysed repeatedly as a drift monitor over the run — drift minimised by flushing a rock solution for 30 min before tuning (§3.1)." ;
-    schema1:instrument <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS> ;
+    schema1:instrument <https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Continental Dynamics, Northwest University, Xi'an (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -89,7 +91,62 @@
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ and Ce2+/Ce+ below 2.5%, with the nebulizer gas flow optimised for maximum Mg, Co, Rh, Ce, Pb and U signals — §3.1" ;
-    ada:reportedProperties "Li, Be, B, Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Ge, As, Rb, Sr, Y, Zr, Nb, Mo, Cd, In, Sn, Sb, Te, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Tl, Pb, Bi, Th, U (ppm) — Table 2; blanks in ppb" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "As",
+                "B",
+                "Ba",
+                "Be",
+                "Bi",
+                "Cd",
+                "Ce",
+                "Co",
+                "Cr",
+                "Cs",
+                "Cu",
+                "Dy",
+                "Er",
+                "Eu",
+                "Ga",
+                "Gd",
+                "Ge",
+                "Hf",
+                "Ho",
+                "In",
+                "La",
+                "Li",
+                "Lu",
+                "Mo",
+                "Nb",
+                "Nd",
+                "Ni",
+                "Pb",
+                "Pr",
+                "Rb",
+                "Sb",
+                "Sc",
+                "Sm",
+                "Sn",
+                "Sr",
+                "Ta",
+                "Tb",
+                "Te",
+                "Th",
+                "Tl",
+                "Tm",
+                "U (ppm)",
+                "V",
+                "W",
+                "Y",
+                "Yb",
+                "Zn",
+                "Zr" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Li, Be, B, Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Ge, As, Rb, Sr, Y, Zr, Nb, Mo, Cd, In, Sn, Sb, Te, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Tl, Pb, Bi, Th, U (ppm) — Table 2; blanks in ppb" ] ;
     ada:samplingUnitType "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml" ;
     ada:secondaryReferenceMaterialDefault "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 — five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (§3.4)" ;
     ada:signalCollectionMode "Peak hopping" ;
@@ -173,72 +230,11 @@
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material" ;
     ada:washTimeBetweenSamples "N — 'manual analyses in which care was taken to completely wash-out B and Ta signals between samples' (§3.1)" .
-
-<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/ICP-Source>,
-        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Interface-Cone>,
-        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "PerkinElmer" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "PerkinElmer SCIEX ELAN 6100 DRC (stated section 3.1)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "N — an ELAN 6100 DRC; no cell gas or cell mode is described (§3.1)" .
-
-<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<ex:solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
@@ -411,17 +407,6 @@
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -438,9 +423,61 @@
     schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault>,
+        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)" ;
+    schema1:hasPart <https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Sample-Introduction-System>,
+        <https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "PerkinElmer" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "PerkinElmer SCIEX ELAN 6100 DRC (stated section 3.1)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "N — an ELAN 6100 DRC; no cell gas or cell mode is described (§3.1)" .
+
+<https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<https://example.org/solutionQicpmsTAPP-Gao2008/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
 

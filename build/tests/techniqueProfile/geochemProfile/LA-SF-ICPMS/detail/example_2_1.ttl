@@ -1,43 +1,167 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Chernonozhkin2021> a ada:LAICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/preAnalysisImagingAndScreening>,
-        <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:measurementTechnique <ex:laSficpmsTAPP-Chernonozhkin2021> ;
+ex:laSficpmsTAPP-detail-Chernonozhkin2021 a schema1:Dataset,
+        schema1:Product ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach>,
+                                <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Flat polished thick sections (§2.1)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
+                <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
+                <https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea>,
+                <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize>,
+                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+            schema1:description "Cool plasma (800 W) mapping with a lateral resolution of approximately 20 µm; P-rich veinlets masked before averaging (§2.2.2, §3.1)" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "In-house MatLab script (Appendix C1)" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021/instrument/ICPMS>,
+                        <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System> ] ;
+            ada:ablationSpotDuration "N/A — mapping mode" ;
+            ada:combinedResults [ ] ;
+            ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;
+            ada:rasterLineSpacing "Adjacent lines — 'a grid of parallel, adjacent lines using a 20 µm × 20 µm square-masked laser spot' (§2.2.2)" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
-    ada:componentType "ada:LAICPMSTabular" ;
     ada:detectionLimit "all: per-pixel LODs, averaged over the map — Table E1 (Na = 1, Nb = 10), App. C5" ;
     ada:fundingSourceForAnalysis "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ;
     ada:limitOfQuantificationMethod "all: as the LOD, with 10 SD instead of 3 SD — App. C5" ;
-    ada:mappingArea "Each map: 1450×600 µm = 870,000 µm²; total of 8 PMG olivines mapped" ;
     ada:numberOfReplicates -9999 ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — \"Springwater, ... Brenham, Brahin and Seymchan, and ... Imilac, Cumulus Peak 04071, Esquel and Fukang\" (p.2); maps and line scans are not given labels of their own in the paper" ;
     ada:sessionIdentifier "missing" ;
-    ada:signalIntegrationTime "N/A — mapping" ;
     ada:spotDiameter -9999 ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:laSficpmsTAPP-Chernonozhkin2021> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source> ;
+    schema1:name "no value available: schema:name" .
 
-<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+<https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:name "no value available: schema:name" ;
+    ada:laserFluence "5–7 J cm⁻²" ;
+    ada:laserRepetitionRate "all: 20 Hz" ;
+    ada:laserSpotGeometry "all: 20 µm × 20 µm square-masked — §2.2.2" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate> a schema1:PropertyValue ;
+    schema1:description "Ar, 0.81 L/min — Table B1" ;
+    schema1:name "Auxiliary Gas Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 8.1e-01 .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate> a schema1:PropertyValue ;
+    schema1:description "Ar, 15 L/min — Table B1" ;
+    schema1:name "Coolant Plasma Gas Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 15 .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> a schema1:PropertyValue ;
+    schema1:name "Filtering Approach" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
+    schema1:value "P-rich veinlet pixels masked: P2O5 above the best-fitting Gaussian of each map's P2O5 histogram plus 3 standard deviations — §3.1; 'A MATLAB script was applied to mask pixels representing veinlets'" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> a schema1:PropertyValue ;
+    schema1:name "ICP Tuning" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> ;
+    schema1:value "N — oxide-based interferences 'were further minimized during tuning' (App. C4); no tuning procedure is described" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate> a schema1:PropertyValue ;
+    schema1:description "Ar, 0.81–0.99 L/min — Table B1; 'No N2 was blent into ICP to avoid elevated nitrogen-based spectral interferences'" ;
+    schema1:name "Make-up Gas and Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 8.1e-01 .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> a schema1:PropertyValue ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
+    schema1:value "Low (M/ΔM = 300) — §2.2.2" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> a schema1:PropertyValue ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
+    schema1:value "Washout typically less than 1 s — §2.2.2" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> a schema1:PropertyValue ;
+    schema1:description "800 W — cool plasma (§2.2.2, Table B1)" ;
+    schema1:name "RF Power" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 800 .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime> a schema1:PropertyValue ;
+    schema1:name "Signal Integration Time" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N/A — mapping" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea> a schema1:PropertyValue ;
+    schema1:name "Mapping Area" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea> ;
+    schema1:value "Each map: 1450×600 µm = 870,000 µm²; total of 8 PMG olivines mapped" .
+
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
+    schema1:name "Transect Rate Mapping Rate or Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize> ;
+    schema1:value "all: 9 µm/s — translation speed (§2.2.2)" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
     schema1:value "μXRF mapping of larger sections, on which the ablation is sited — Fe Kα intensity maps identify the mineral phases \"based on the intensities of the Kα lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca and P)\", and the LA-ICP-MS areas correspond \"to the locations indicated on the larger μXRF maps as black rectangles\" (p.4). The instrument is a Bruker M4 Tornado with a Rh-anode source at 50 kV and 150 μA, focused to \"a 25 μm spot (measured for Mo Kα)\" (p.3)" .
 
-<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
-    schema1:name "Transect Rate, Mapping Rate or Step Size" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:value "all: 9 µm/s — translation speed (§2.2.2)" .
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> a schema1:PropertyValue ;
+    schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+    schema1:value "N — 'Triple' detection (Table B1); a cross-calibration is not described" .
 

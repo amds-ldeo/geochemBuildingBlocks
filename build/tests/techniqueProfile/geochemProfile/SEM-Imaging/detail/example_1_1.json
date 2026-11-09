@@ -1,18 +1,162 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Garvie2008",
+  "@id": "ex:semImagingTAPP-detail-Garvie2008",
   "@type": [
-    "ada:SEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:semImagingTAPP-Garvie2008",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "N \u2014 the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
+            }
+          ],
+          "schema:name": "no value available: schema:name"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 500,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "500 V; 1 kV; 5 kV"
+                },
+                {
+                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                    }
+                  ],
+                  "schema:name": "Working Distance",
+                  "schema:value": 0.5,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "0.5\u20135.4 mm"
+                },
+                {
+                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                    }
+                  ],
+                  "schema:name": "Mapping Beam Current",
+                  "schema:value": 70,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:semImagingTAPP-detail-Garvie2008/instrument/SEM"
+            }
+          ]
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "School of Earth and Space Exploration / School of Materials, Arizona State University"
+      },
+      "schema:description": "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB milling and TEM cross-section preparation (same instrument)"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "SE Imaging"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",

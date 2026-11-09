@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -120,6 +122,25 @@
       "@id": "ex:semImagingTAPP-Garvie2008/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "globule morphology (nominal); globule size (\u00b5m); surface structure (nominal) \u2014 Globule morphology, size and surface structure (nominal, with sizes in \u00b5m) \u2014 the imaging is used \"to characterize the globule forms and external structures\" (p.1)",
+    "ada:defaultReportedProperties": [
+      "globule morphology (nominal)",
+      "globule size (\u00b5m)",
+      "surface structure (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -141,9 +162,6 @@
   "ada:samplingUnitType": "Grain (individual carbonaceous nanoglobule) \u2014 \"low voltage scanning electron microscopy (SEM) was used to characterize the globule forms and external structures\" (p.1) of globules on an Al-SEM stub (p.2)",
   "ada:analyticalMode": [
     "SE Imaging"
-  ],
-  "ada:reportedProperties": [
-    "globule morphology (nominal); globule size (\u00b5m); surface structure (nominal) \u2014 Globule morphology, size and surface structure (nominal, with sizes in \u00b5m) \u2014 the imaging is used \"to characterize the globule forms and external structures\" (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -180,7 +198,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "SEM Imaging analytical workflow"
   },
   "schema:measurementTechnique": [
     {

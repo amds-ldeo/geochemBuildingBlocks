@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -110,6 +111,24 @@
       "@id": "ex:semImagingTAPP-Pascucci2026-2/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "surface topography (nominal); texture (nominal) \u2014 Surface topography and texture (nominal), imaged \"enlarged up to \u00d7200,000 and resolved up to 5 nm\" (p.3)",
+    "ada:defaultReportedProperties": [
+      "surface topography (nominal)",
+      "texture (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -131,9 +150,6 @@
   "ada:samplingUnitType": "Whole sample (polished slab) > Region of interest \u2014 \"Secondary electrons were used to construct images enlarged up to \u00d7200,000 and resolved up to 5 nm\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 \u00d7 6 mm\" embedded in epoxy and polished (pp.3\u20134)",
   "ada:analyticalMode": [
     "SE Imaging"
-  ],
-  "ada:reportedProperties": [
-    "surface topography (nominal); texture (nominal) \u2014 Surface topography and texture (nominal), imaged \"enlarged up to \u00d7200,000 and resolved up to 5 nm\" (p.3)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -170,7 +186,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "SEM Imaging analytical workflow"
   },
   "schema:measurementTechnique": [
     {

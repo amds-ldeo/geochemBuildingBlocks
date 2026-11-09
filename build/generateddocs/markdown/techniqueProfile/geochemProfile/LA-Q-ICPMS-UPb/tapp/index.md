@@ -17,6 +17,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -394,35 +395,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -443,6 +415,25 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     ]
   },
   "ada:massesMeasuredDefault": "⁵⁹Co → Co; ¹⁰¹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ⁶¹Ni, ²⁴Mg, ²⁹Si, ³¹P, ³³S → none — Table 1 'Measured isotopes' and 'Monitored isotopes'; ⁶¹Ni 'was monitored for internal standardization', and Mg, Si, P and S 'to check the involvement of micro-inclusions' (p.3)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm); HSE/Ir ratios; Re/Os abundance ratio — HSE abundances in metal, e.g. 'Ir abundance ranging from 1.08 to 2.53 ppm' (p.5), with major element abundances from EPMA alongside; the Re/Os abundance ratio feeds the reported 187Re/188Os, 'determined by the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS' (Table 3, p.8)",
+    "ada:defaultReportedProperties": [
+      "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm)",
+      "HSE/Ir ratios",
+      "Re/Os abundance ratio"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -519,7 +510,8 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -573,9 +565,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     }
   ],
   "ada:samplingUnitType": "Grain > Spot — HSE abundances are reported per metal grain, each with its LA \"spot No.\" (table p.6); the grains are typed by where they sit — interior grains in a chondrule, margin grains in its surficial shell, isolated grains in the matrix (p.1)",
-  "ada:reportedProperties": [
-    "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm); HSE/Ir ratios; Re/Os abundance ratio — HSE abundances in metal, e.g. 'Ir abundance ranging from 1.08 to 2.53 ppm' (p.5), with major element abundances from EPMA alongside; the Re/Os abundance ratio feeds the reported 187Re/188Os, 'determined by the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS' (Table 3, p.8)"
-  ],
   "ada:ablationSamplingMode": [
     "all: Spot — 'ablated by a spot analysis mode' (p.3)"
   ],
@@ -638,6 +627,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -646,6 +636,7 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -1024,35 +1015,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1073,6 +1035,25 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     ]
   },
   "ada:massesMeasuredDefault": "\u2075\u2079Co \u2192 Co; \u00b9\u2070\u00b9Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2075Pd \u2192 Pd; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2078\u2079Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au; \u2076\u00b9Ni, \u00b2\u2074Mg, \u00b2\u2079Si, \u00b3\u00b9P, \u00b3\u00b3S \u2192 none \u2014 Table 1 'Measured isotopes' and 'Monitored isotopes'; \u2076\u00b9Ni 'was monitored for internal standardization', and Mg, Si, P and S 'to check the involvement of micro-inclusions' (p.3)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm); HSE/Ir ratios; Re/Os abundance ratio \u2014 HSE abundances in metal, e.g. 'Ir abundance ranging from 1.08 to 2.53 ppm' (p.5), with major element abundances from EPMA alongside; the Re/Os abundance ratio feeds the reported 187Re/188Os, 'determined by the mean Re/Os abundance ratios for each of the 1\u20133 analytical spots measured by LA-ICP-MS' (Table 3, p.8)",
+    "ada:defaultReportedProperties": [
+      "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm)",
+      "HSE/Ir ratios",
+      "Re/Os abundance ratio"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -1149,7 +1130,8 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -1203,9 +1185,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     }
   ],
   "ada:samplingUnitType": "Grain > Spot \u2014 HSE abundances are reported per metal grain, each with its LA \"spot No.\" (table p.6); the grains are typed by where they sit \u2014 interior grains in a chondrule, margin grains in its surficial shell, isolated grains in the matrix (p.1)",
-  "ada:reportedProperties": [
-    "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm); HSE/Ir ratios; Re/Os abundance ratio \u2014 HSE abundances in metal, e.g. 'Ir abundance ranging from 1.08 to 2.53 ppm' (p.5), with major element abundances from EPMA alongside; the Re/Os abundance ratio feeds the reported 187Re/188Os, 'determined by the mean Re/Os abundance ratios for each of the 1\u20133 analytical spots measured by LA-ICP-MS' (Table 3, p.8)"
-  ],
   "ada:ablationSamplingMode": [
     "all: Spot \u2014 'ablated by a spot analysis mode' (p.3)"
   ],
@@ -1265,16 +1244,18 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laQicpmsUPbTAPP-Nakanishi2022> a cdi:Activity,
+ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-Q-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1311,8 +1292,8 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     schema1:description "laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal (HSE) Spot analysis fs-LA-Q-ICP-MS Tokyo Institute of Technology (publication column of LA-Q-ICP-MS_UPb_TAPP_v98.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the JSPS Grants-in-Aid support the study as a whole and are recorded under Funding Source for Analysis" ] ;
-    schema1:instrument <ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS>,
-        <ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS>,
+        <https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1327,14 +1308,14 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'ablated by a spot analysis mode' (p.3)" ;
     ada:ablationSpotDurationDefault -9999 ;
@@ -1354,7 +1335,17 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm); HSE/Ir ratios; Re/Os abundance ratio — HSE abundances in metal, e.g. 'Ir abundance ranging from 1.08 to 2.53 ppm' (p.5), with major element abundances from EPMA alongside; the Re/Os abundance ratio feeds the reported 187Re/188Os, 'determined by the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS' (Table 3, p.8)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "HSE/Ir ratios",
+                "Re/Os abundance ratio",
+                "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm); HSE/Ir ratios; Re/Os abundance ratio — HSE abundances in metal, e.g. 'Ir abundance ranging from 1.08 to 2.53 ppm' (p.5), with major element abundances from EPMA alongside; the Re/Os abundance ratio feeds the reported 187Re/188Os, 'determined by the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS' (Table 3, p.8)" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Picked off prior electron images — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the grains themselves are sorted by setting into interior, margin and isolated metal (p.1)" ;
     ada:samplingUnitType "Grain > Spot — HSE abundances are reported per metal grain, each with its LA \"spot No.\" (table p.6); the grains are typed by where they sit — interior grains in a chondrule, margin grains in its surficial shell, isolated grains in the matrix (p.1)" ;
@@ -1388,8 +1379,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/dwellTimePerMass>,
@@ -1397,66 +1386,9 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
-
-<ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/ICP-Source>,
-        <ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Scientific X-series 2 (Q-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "Quartz torch with quartz injector — Table 1" .
-
-<ex:laQicpmsUPbTAPP-Nakanishi2022/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:laserFluenceDefault "12 J cm⁻²" ;
-    ada:laserRepetitionRateDefault "all: 20 Hz" ;
-    ada:laserSpotGeometryDefault "all: 30 µm diameter — 'Each spot analysis on the sample produced a pit of 30 µm in diameter' (p.3)" ;
-    ada:laserType "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -1552,17 +1484,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -1609,11 +1530,61 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)" ;
+    schema1:hasPart <https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Scientific X-series 2 (Q-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "Quartz torch with quartz injector — Table 1" .
+
+<https://example.org/laQicpmsUPbTAPP-Nakanishi2022/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:laserFluenceDefault "12 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "all: 20 Hz" ;
+    ada:laserSpotGeometryDefault "all: 30 µm diameter — 'Each spot analysis on the sample produced a pit of 30 µm in diameter' (p.3)" ;
+    ada:laserType "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -1632,6 +1603,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -1774,7 +1746,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Coverage — \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), the grid being the test of whether the fused disc is homogeneous",
   "schema:additionalProperty": [
@@ -2144,35 +2117,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2193,6 +2137,54 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     ]
   },
   "ada:massesMeasuredDefault": "N — the isotopes measured are not stated in the paper",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Th, U — concentrations reported as 'Mean' with a '95% CI' per sample (Table 2), which gives no unit; the LODs are in µg g⁻¹ (§3.2). Relative standard deviations are the precision measure (§3.5)",
+    "ada:defaultReportedProperties": [
+      "Sc",
+      "V",
+      "Cr",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ga",
+      "Rb",
+      "Sr",
+      "Y",
+      "Zr",
+      "Nb",
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Hf",
+      "Ta",
+      "Th",
+      "U"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
   "schema:measurementTechnique": [
     {
@@ -2240,9 +2232,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
       "ada:toolRole": "dataReduction",
       "schema:name": "Iolite 4 (Paton et al. 2011)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Th, U — concentrations reported as 'Mean' with a '95% CI' per sample (Table 2), which gives no unit; the LODs are in µg g⁻¹ (§3.2). Relative standard deviations are the precision measure (§3.5)"
   ],
   "ada:ablationSamplingMode": [
     "all: Single spot — Table 1 'Ablation mode'"
@@ -2305,6 +2294,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -2313,6 +2303,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -2456,7 +2447,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Coverage \u2014 \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), the grid being the test of whether the fused disc is homogeneous",
   "schema:additionalProperty": [
@@ -2826,35 +2818,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2875,6 +2838,54 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     ]
   },
   "ada:massesMeasuredDefault": "N \u2014 the isotopes measured are not stated in the paper",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Th, U \u2014 concentrations reported as 'Mean' with a '95% CI' per sample (Table 2), which gives no unit; the LODs are in \u00b5g g\u207b\u00b9 (\u00a73.2). Relative standard deviations are the precision measure (\u00a73.5)",
+    "ada:defaultReportedProperties": [
+      "Sc",
+      "V",
+      "Cr",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ga",
+      "Rb",
+      "Sr",
+      "Y",
+      "Zr",
+      "Nb",
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Hf",
+      "Ta",
+      "Th",
+      "U"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
   "schema:measurementTechnique": [
     {
@@ -2922,9 +2933,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
       "ada:toolRole": "dataReduction",
       "schema:name": "Iolite 4 (Paton et al. 2011)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Th, U \u2014 concentrations reported as 'Mean' with a '95% CI' per sample (Table 2), which gives no unit; the LODs are in \u00b5g g\u207b\u00b9 (\u00a73.2). Relative standard deviations are the precision measure (\u00a73.5)"
   ],
   "ada:ablationSamplingMode": [
     "all: Single spot \u2014 Table 1 'Ablation mode'"
@@ -2984,17 +2992,28 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laQicpmsUPbTAPP-Liu2024> a cdi:Activity,
+ex:laQicpmsUPbTAPP-Liu2024 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-Q-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: Pettke (2012) — §3.2" ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
@@ -3010,16 +3029,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Pettke (2012) — §3.2" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -3031,8 +3041,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     schema1:description "laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples (Li-borate flux glass) Spot analysis fs-LA-Q-ICP-MS Chinese Academy of Sciences (publication column of LA-Q-ICP-MS_UPb_TAPP_v98.csv)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the CAS Strategy Priority Research Program and NSFC grant support the study as a whole and are recorded under Funding Source for Analysis" ] ;
-    schema1:instrument <ex:laQicpmsUPbTAPP-Liu2024/instrument/ICPMS>,
-        <ex:laQicpmsUPbTAPP-Liu2024/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/ICPMS>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3042,12 +3052,12 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
@@ -3069,7 +3079,46 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     ada:oxideProductionMethodAndThreshold "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Th, U — concentrations reported as 'Mean' with a '95% CI' per sample (Table 2), which gives no unit; the LODs are in µg g⁻¹ (§3.2). Relative standard deviations are the precision measure (§3.5)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Ba",
+                "Ce",
+                "Co",
+                "Cr",
+                "Cu",
+                "Dy",
+                "Er",
+                "Eu",
+                "Ga",
+                "Gd",
+                "Hf",
+                "Ho",
+                "La",
+                "Lu",
+                "Nb",
+                "Nd",
+                "Ni",
+                "Pr",
+                "Rb",
+                "Sc",
+                "Sm",
+                "Sr",
+                "Ta",
+                "Tb",
+                "Th",
+                "Tm",
+                "U",
+                "V",
+                "Y",
+                "Yb",
+                "Zn",
+                "Zr" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Th, U — concentrations reported as 'Mean' with a '95% CI' per sample (Table 2), which gives no unit; the LODs are in µg g⁻¹ (§3.2). Relative standard deviations are the precision measure (§3.5)" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Coverage — \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), the grid being the test of whether the fused disc is homogeneous" ;
     ada:samplingUnitType "Aliquot (fused Li-borate glass disc) > Spot — \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), and compositions are reported as the mean of those spots, \"fs-LA-ICP-MS (n = 9 spots)\" (Table 2, p.8)" ;
@@ -3126,8 +3175,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/dwellTimePerMass>,
@@ -3135,70 +3182,11 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "Iolite 4 (Paton et al. 2011)" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laQicpmsUPbTAPP-Liu2024/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "N — ICP-MS type not stated; Agilent 8900 model named but \"quadrupole\" or \"ICP-MS/MS\" not used in paper" ;
-    schema1:hasPart <ex:laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/ICP-Source>,
-        <ex:laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2024/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:laserFluenceDefault "6.79 J cm⁻²" ;
-    ada:laserRepetitionRateDefault "all: 1 Hz" ;
-    ada:laserSpotGeometryDefault "all: 100 µm — '100 µm-diameter ablating spots' (§2.2); Table 1 gives 'Ablation spot size 100 × 100 µm'" ;
-    ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -3314,17 +3302,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -3371,11 +3348,63 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "N — ICP-MS type not stated; Agilent 8900 model named but \"quadrupole\" or \"ICP-MS/MS\" not used in paper" ;
+    schema1:hasPart <https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2024/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:laserFluenceDefault "6.79 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "all: 1 Hz" ;
+    ada:laserSpotGeometryDefault "all: 100 µm — '100 µm-diameter ablating spots' (§2.2); Table 1 gives 'Ablation spot size 100 × 100 µm'" ;
+    ada:laserType "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -3394,6 +3423,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -3701,35 +3731,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3750,6 +3751,24 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     ]
   },
   "ada:massesMeasuredDefault": "N — the isotopes measured are not stated",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched silicate melt, per run (Table 1, p.3); S and H2O come from other methods, and the derived quantity reported is the sulfide/melt partition coefficient DAu (dimensionless, p.2)",
+    "ada:defaultReportedProperties": [
+      "Au (ppm)",
+      "Cu (ppm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -3826,7 +3845,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -3869,9 +3889,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     }
   ],
   "ada:samplingUnitType": "Phase (quenched silicate glass of one experimental run) > Spot — \"A Resonetic 193 nm ArF excimer laser with a 40 μm beam diameter for glasses\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
-  "ada:reportedProperties": [
-    "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched silicate melt, per run (Table 1, p.3); S and H2O come from other methods, and the derived quantity reported is the sulfide/melt partition coefficient DAu (dimensionless, p.2)"
-  ],
   "ada:ablationSamplingMode": [
     "N — ablation mode not explicitly stated; \"beam diameter\" terminology used but \"spot\" or \"spot mode\" not written"
   ],
@@ -3931,6 +3948,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -3939,6 +3957,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -4247,35 +4266,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -4296,6 +4286,24 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     ]
   },
   "ada:massesMeasuredDefault": "N \u2014 the isotopes measured are not stated",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Au (ppm); Cu (ppm) \u2014 Au and Cu contents of the quenched silicate melt, per run (Table 1, p.3); S and H2O come from other methods, and the derived quantity reported is the sulfide/melt partition coefficient DAu (dimensionless, p.2)",
+    "ada:defaultReportedProperties": [
+      "Au (ppm)",
+      "Cu (ppm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -4372,7 +4380,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -4415,9 +4424,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     }
   ],
   "ada:samplingUnitType": "Phase (quenched silicate glass of one experimental run) > Spot \u2014 \"A Resonetic 193 nm ArF excimer laser with a 40 \u03bcm beam diameter for glasses\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
-  "ada:reportedProperties": [
-    "Au (ppm); Cu (ppm) \u2014 Au and Cu contents of the quenched silicate melt, per run (Table 1, p.3); S and H2O come from other methods, and the derived quantity reported is the sulfide/melt partition coefficient DAu (dimensionless, p.2)"
-  ],
   "ada:ablationSamplingMode": [
     "N \u2014 ablation mode not explicitly stated; \"beam diameter\" terminology used but \"spot\" or \"spot mode\" not written"
   ],
@@ -4474,24 +4480,25 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laQicpmsUPbTAPP-Liu2025> a cdi:Activity,
+ex:laQicpmsUPbTAPP-Liu2025 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-Q-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -4505,9 +4512,10 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -4520,8 +4528,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     schema1:description "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the CAS Strategic Priority Research Program and NSFC grants support the study as a whole and are recorded under Funding Source for Analysis" ] ;
-    schema1:instrument <ex:laQicpmsUPbTAPP-Liu2025/instrument/ICPMS>,
-        <ex:laQicpmsUPbTAPP-Liu2025/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/ICPMS>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology — LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (§2.2.2)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4532,9 +4540,9 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
             schema1:target [ schema1:name "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
@@ -4557,7 +4565,16 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched silicate melt, per run (Table 1, p.3); S and H2O come from other methods, and the derived quantity reported is the sulfide/melt partition coefficient DAu (dimensionless, p.2)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Au (ppm)",
+                "Cu (ppm)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched silicate melt, per run (Table 1, p.3); S and H2O come from other methods, and the derived quantity reported is the sulfide/melt partition coefficient DAu (dimensionless, p.2)" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper states the beam diameter used for glasses (\"40 μm beam diameter for glasses\", p.4) but no rule for choosing where in a run product to ablate" ;
     ada:samplingUnitType "Phase (quenched silicate glass of one experimental run) > Spot — \"A Resonetic 193 nm ArF excimer laser with a 40 μm beam diameter for glasses\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)" ;
@@ -4584,8 +4601,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/dwellTimePerMass>,
@@ -4593,61 +4608,9 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
-
-<ex:laQicpmsUPbTAPP-Liu2025/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "N — ICP-MS type not stated; Agilent 7900 model named but \"quadrupole\" not explicitly stated" ;
-    schema1:hasPart <ex:laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/ICP-Source>,
-        <ex:laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2025/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Resonetic 193 nm ArF excimer laser; CetacAnalyte HE system — §2.2.2" ] ;
-    schema1:name "N — the paper names the 'CetacAnalyte HE system', not its cell" ;
-    ada:laserFluenceDefault "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")" ;
-    ada:laserRepetitionRateDefault "all: 7 Hz — 'operated at 7 Hz ablation frequency' (§2.2.2)" ;
-    ada:laserSpotGeometryDefault "all: 40 µm beam diameter — 'a 40 μm beam diameter for glasses' (§2.2.2)" ;
-    ada:laserType "193 nm ArF excimer — §2.2.2" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -4705,17 +4668,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -4762,11 +4714,56 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "N — ICP-MS type not stated; Agilent 7900 model named but \"quadrupole\" not explicitly stated" ;
+    schema1:hasPart <https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2025/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Resonetic 193 nm ArF excimer laser; CetacAnalyte HE system — §2.2.2" ] ;
+    schema1:name "N — the paper names the 'CetacAnalyte HE system', not its cell" ;
+    ada:laserFluenceDefault "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")" ;
+    ada:laserRepetitionRateDefault "all: 7 Hz — 'operated at 7 Hz ablation frequency' (§2.2.2)" ;
+    ada:laserSpotGeometryDefault "all: 40 µm beam diameter — 'a 40 μm beam diameter for glasses' (§2.2.2)" ;
+    ada:laserType "193 nm ArF excimer — §2.2.2" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -4785,6 +4782,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -5092,35 +5090,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -5141,6 +5110,24 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     ]
   },
   "ada:massesMeasuredDefault": "N — the isotopes measured are not stated",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched sulfide per run (Table 1, p.3), which with the coexisting glass give the sulfide/melt partition coefficient DAu (dimensionless, p.2)",
+    "ada:defaultReportedProperties": [
+      "Au (ppm)",
+      "Cu (ppm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -5217,7 +5204,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -5260,9 +5248,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     }
   ],
   "ada:samplingUnitType": "Phase (quenched sulfide of one experimental run) > Spot — \"20 μm for sulfides, selecting grain sizes larger than 20 µm for the latter\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
-  "ada:reportedProperties": [
-    "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched sulfide per run (Table 1, p.3), which with the coexisting glass give the sulfide/melt partition coefficient DAu (dimensionless, p.2)"
-  ],
   "ada:ablationSamplingMode": [
     "N — ablation mode not explicitly stated"
   ],
@@ -5322,6 +5307,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -5330,6 +5316,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -5638,35 +5625,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -5687,6 +5645,24 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     ]
   },
   "ada:massesMeasuredDefault": "N \u2014 the isotopes measured are not stated",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Au (ppm); Cu (ppm) \u2014 Au and Cu contents of the quenched sulfide per run (Table 1, p.3), which with the coexisting glass give the sulfide/melt partition coefficient DAu (dimensionless, p.2)",
+    "ada:defaultReportedProperties": [
+      "Au (ppm)",
+      "Cu (ppm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -5763,7 +5739,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -5806,9 +5783,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     }
   ],
   "ada:samplingUnitType": "Phase (quenched sulfide of one experimental run) > Spot \u2014 \"20 \u03bcm for sulfides, selecting grain sizes larger than 20 \u00b5m for the latter\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
-  "ada:reportedProperties": [
-    "Au (ppm); Cu (ppm) \u2014 Au and Cu contents of the quenched sulfide per run (Table 1, p.3), which with the coexisting glass give the sulfide/melt partition coefficient DAu (dimensionless, p.2)"
-  ],
   "ada:ablationSamplingMode": [
     "N \u2014 ablation mode not explicitly stated"
   ],
@@ -5865,16 +5839,18 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laQicpmsUPbTAPP-Liu2025-2> a cdi:Activity,
+ex:laQicpmsUPbTAPP-Liu2025-2 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-Q-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -5885,20 +5861,20 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -5911,8 +5887,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     schema1:description "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the CAS Strategic Priority Research Program and NSFC grants support the study as a whole and are recorded under Funding Source for Analysis" ] ;
-    schema1:instrument <ex:laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS>,
-        <ex:laQicpmsUPbTAPP-Liu2025-2/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology — LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (§2.2.2)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5923,11 +5899,11 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
             schema1:target [ schema1:name "Liu et al. (2025) GCA 393, 170; Xu et al. (2022)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
@@ -5948,7 +5924,16 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched sulfide per run (Table 1, p.3), which with the coexisting glass give the sulfide/melt partition coefficient DAu (dimensionless, p.2)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Au (ppm)",
+                "Cu (ppm)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched sulfide per run (Table 1, p.3), which with the coexisting glass give the sulfide/melt partition coefficient DAu (dimensionless, p.2)" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Sulfide grains larger than 20 µm, wider than the beam — '20 μm for sulfides, selecting grain sizes larger than 20 µm for the latter' (§2.2.2)" ;
     ada:samplingUnitType "Phase (quenched sulfide of one experimental run) > Spot — \"20 μm for sulfides, selecting grain sizes larger than 20 µm for the latter\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)" ;
@@ -5975,8 +5960,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/dwellTimePerMass>,
@@ -5984,61 +5967,9 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
-
-<ex:laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "N — ICP-MS type not stated" ;
-    schema1:hasPart <ex:laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/ICP-Source>,
-        <ex:laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2025-2/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Resonetic 193 nm ArF excimer laser; CetacAnalyte HE system — §2.2.2" ] ;
-    schema1:name "N — the paper names the 'CetacAnalyte HE system', not its cell" ;
-    ada:laserFluenceDefault "~2.5 J cm⁻²" ;
-    ada:laserRepetitionRateDefault "all: 7 Hz — 'operated at 7 Hz ablation frequency' (§2.2.2)" ;
-    ada:laserSpotGeometryDefault "all: 20 µm beam diameter — '20 μm for sulfides, selecting grain sizes larger than 20 µm for the latter' (§2.2.2)" ;
-    ada:laserType "193 nm ArF excimer — §2.2.2" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -6096,17 +6027,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -6153,11 +6073,56 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "N — ICP-MS type not stated" ;
+    schema1:hasPart <https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7900 (Q-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2025-2/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Resonetic 193 nm ArF excimer laser; CetacAnalyte HE system — §2.2.2" ] ;
+    schema1:name "N — the paper names the 'CetacAnalyte HE system', not its cell" ;
+    ada:laserFluenceDefault "~2.5 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "all: 7 Hz — 'operated at 7 Hz ablation frequency' (§2.2.2)" ;
+    ada:laserSpotGeometryDefault "all: 20 µm beam diameter — '20 μm for sulfides, selecting grain sizes larger than 20 µm for the latter' (§2.2.2)" ;
+    ada:laserType "193 nm ArF excimer — §2.2.2" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -6176,6 +6141,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -6321,7 +6287,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units",
   "schema:additionalProperty": [
@@ -6697,35 +6664,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -6746,6 +6684,63 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     ]
   },
   "ada:massesMeasuredDefault": "N — only ⁴⁰Ca is named, as the phosphate internal standard",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U (ppm) — trace element abundances in ppm, glass averages with 1σ and n in Table 3; mineral data in Table S1, not in the archived PDF",
+    "ada:defaultReportedProperties": [
+      "Li",
+      "Be",
+      "K",
+      "Sc",
+      "Ti",
+      "V",
+      "Cr",
+      "Mn",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ga",
+      "Ge",
+      "Rb",
+      "Sr",
+      "Y",
+      "Zr",
+      "Nb",
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Hf",
+      "Ta",
+      "W",
+      "Au",
+      "Pb",
+      "Th",
+      "U (ppm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "50 s — 'The background was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4)",
   "schema:measurementTechnique": [
     {
@@ -6790,9 +6785,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "ada:toolRole": "dataReduction",
       "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U (ppm) — trace element abundances in ppm, glass averages with 1σ and n in Table 3; mineral data in Table S1, not in the archived PDF"
   ],
   "ada:ablationSamplingMode": [
     "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)"
@@ -6852,6 +6844,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -6860,6 +6853,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -7006,7 +7000,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units",
   "schema:additionalProperty": [
@@ -7382,35 +7377,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7431,6 +7397,63 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     ]
   },
   "ada:massesMeasuredDefault": "N \u2014 only \u2074\u2070Ca is named, as the phosphate internal standard",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U (ppm) \u2014 trace element abundances in ppm, glass averages with 1\u03c3 and n in Table 3; mineral data in Table S1, not in the archived PDF",
+    "ada:defaultReportedProperties": [
+      "Li",
+      "Be",
+      "K",
+      "Sc",
+      "Ti",
+      "V",
+      "Cr",
+      "Mn",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ga",
+      "Ge",
+      "Rb",
+      "Sr",
+      "Y",
+      "Zr",
+      "Nb",
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Hf",
+      "Ta",
+      "W",
+      "Au",
+      "Pb",
+      "Th",
+      "U (ppm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "50 s \u2014 'The background was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4)",
   "schema:measurementTechnique": [
     {
@@ -7475,9 +7498,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "ada:toolRole": "dataReduction",
       "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U (ppm) \u2014 trace element abundances in ppm, glass averages with 1\u03c3 and n in Table 3; mineral data in Table S1, not in the archived PDF"
   ],
   "ada:ablationSamplingMode": [
     "all: Spot \u2014 'The time-lapse plots of each spot were examined' (Methods, p.4)"
@@ -7534,25 +7554,25 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laQicpmsUPbTAPP-Liu2016> a cdi:Activity,
+ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-Q-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -7566,10 +7586,12 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
@@ -7579,8 +7601,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)" ;
-    schema1:instrument <ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS>,
-        <ex:laQicpmsUPbTAPP-Liu2016/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/ICPMS>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -7595,14 +7617,14 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)" ;
     ada:ablationSpotDurationDefault "N — not stated" ;
@@ -7621,7 +7643,55 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     ada:oxideProductionMethodAndThreshold "N — not stated" ;
     ada:rasterLineSpacingDefault "N/A — spot analysis" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U (ppm) — trace element abundances in ppm, glass averages with 1σ and n in Table 3; mineral data in Table S1, not in the archived PDF" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Au",
+                "Ba",
+                "Be",
+                "Ce",
+                "Co",
+                "Cr",
+                "Cu",
+                "Dy",
+                "Er",
+                "Eu",
+                "Ga",
+                "Gd",
+                "Ge",
+                "Hf",
+                "Ho",
+                "K",
+                "La",
+                "Li",
+                "Lu",
+                "Mn",
+                "Nb",
+                "Nd",
+                "Ni",
+                "Pb",
+                "Pr",
+                "Rb",
+                "Sc",
+                "Sm",
+                "Sr",
+                "Ta",
+                "Tb",
+                "Th",
+                "Ti",
+                "Tm",
+                "U (ppm)",
+                "V",
+                "W",
+                "Y",
+                "Yb",
+                "Zn",
+                "Zr" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U (ppm) — trace element abundances in ppm, glass averages with 1σ and n in Table 3; mineral data in Table S1, not in the archived PDF" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "N — spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units" ;
     ada:samplingUnitType "Phase > Spot — \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF" ;
@@ -7689,8 +7759,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/dwellTimePerMass>,
@@ -7698,67 +7766,11 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS" ;
-    schema1:hasPart <ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/ICP-Source>,
-        <ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Agilent 7500ce ICP-MS" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2016/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "GeoLasPro 193 nm Excimer laser-ablation system — Methods, p.4" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:laserFluenceDefault "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)" ;
-    ada:laserRepetitionRateDefault "all: 5 Hz" ;
-    ada:laserSpotGeometryDefault "all: 24 and 32 µm diameter, and 90 µm for a few olivine analyses — '24 and 32 µm diameter were commonly used for silicates and glass, and a few analyses were conducted on olivines using a 90 µm beam to evaluate whether the low signals of REEs are a result of insufficient sampling' (Methods, p.4)" ;
-    ada:laserType "193 nm Excimer (ArF excimer)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -7872,17 +7884,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -7929,11 +7930,60 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7500ce ICP-MS" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2016/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "GeoLasPro 193 nm Excimer laser-ablation system — Methods, p.4" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:laserFluenceDefault "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)" ;
+    ada:laserRepetitionRateDefault "all: 5 Hz" ;
+    ada:laserSpotGeometryDefault "all: 24 and 32 µm diameter, and 90 µm for a few olivine analyses — '24 and 32 µm diameter were commonly used for silicates and glass, and a few analyses were conducted on olivines using a 90 µm beam to evaluate whether the low signals of REEs are a result of insufficient sampling' (Methods, p.4)" ;
+    ada:laserType "193 nm Excimer (ArF excimer)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -7952,6 +8002,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -8095,7 +8146,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units",
   "schema:additionalProperty": [
@@ -8446,35 +8498,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -8495,6 +8518,25 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     ]
   },
   "ada:massesMeasuredDefault": "N — only ⁴⁰Ca is named, as the phosphate internal standard",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm); Sr; Ti — merrillite REE, chondrite-normalized in Fig. 9; data in Table S1, not in the archived PDF",
+    "ada:defaultReportedProperties": [
+      "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm)",
+      "Sr",
+      "Ti"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "50 s — 'The background was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4)",
   "schema:measurementTechnique": [
     {
@@ -8539,9 +8581,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "ada:toolRole": "dataReduction",
       "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
     }
-  ],
-  "ada:reportedProperties": [
-    "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm); Sr; Ti — merrillite REE, chondrite-normalized in Fig. 9; data in Table S1, not in the archived PDF"
   ],
   "ada:ablationSamplingMode": [
     "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)"
@@ -8601,6 +8640,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -8609,6 +8649,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -8753,7 +8794,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-Q-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units",
   "schema:additionalProperty": [
@@ -9104,35 +9146,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -9153,6 +9166,25 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     ]
   },
   "ada:massesMeasuredDefault": "N \u2014 only \u2074\u2070Ca is named, as the phosphate internal standard",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm); Sr; Ti \u2014 merrillite REE, chondrite-normalized in Fig. 9; data in Table S1, not in the archived PDF",
+    "ada:defaultReportedProperties": [
+      "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm)",
+      "Sr",
+      "Ti"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "50 s \u2014 'The background was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4)",
   "schema:measurementTechnique": [
     {
@@ -9197,9 +9229,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
       "ada:toolRole": "dataReduction",
       "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
     }
-  ],
-  "ada:reportedProperties": [
-    "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm); Sr; Ti \u2014 merrillite REE, chondrite-normalized in Fig. 9; data in Table S1, not in the archived PDF"
   ],
   "ada:ablationSamplingMode": [
     "all: Spot \u2014 'The time-lapse plots of each spot were examined' (Methods, p.4)"
@@ -9256,17 +9285,28 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laQicpmsUPbTAPP-Liu2016-2> a cdi:Activity,
+ex:laQicpmsUPbTAPP-Liu2016-2 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-Q-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -9282,16 +9322,7 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                     schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
@@ -9301,8 +9332,8 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite Phosphate (merrillite) Spot analysis LA-Q-ICP-MS Virginia Tech (publication column of LA-Q-ICP-MS_UPb_TAPP_v98.csv)." ;
-    schema1:instrument <ex:laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS>,
-        <ex:laQicpmsUPbTAPP-Liu2016-2/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -9319,12 +9350,12 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ] ;
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)" ;
     ada:ablationSpotDurationDefault "N — not stated" ;
@@ -9343,7 +9374,17 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     ada:oxideProductionMethodAndThreshold "N — not stated" ;
     ada:rasterLineSpacingDefault "N/A — spot analysis" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm); Sr; Ti — merrillite REE, chondrite-normalized in Fig. 9; data in Table S1, not in the archived PDF" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm)",
+                "Sr",
+                "Ti" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm); Sr; Ti — merrillite REE, chondrite-normalized in Fig. 9; data in Table S1, not in the archived PDF" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "N — spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units" ;
     ada:samplingUnitType "Phase > Spot — \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF" ;
@@ -9384,8 +9425,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/dwellTimePerMass>,
@@ -9393,67 +9432,11 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/interferingSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "AMS ver. 1.0 (Mutchler et al. 2008)" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS" ;
-    schema1:hasPart <ex:laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/ICP-Source>,
-        <ex:laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Agilent 7500ce ICP-MS" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laQicpmsUPbTAPP-Liu2016-2/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "GeoLasPro 193 nm Excimer laser-ablation system — Methods, p.4" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:laserFluenceDefault "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)" ;
-    ada:laserRepetitionRateDefault "all: 5 Hz" ;
-    ada:laserSpotGeometryDefault "all: ~24 µm diameter — 'The smaller spot (~24 µm) size was used for phosphate analysis' (Methods, p.4)" ;
-    ada:laserType "193 nm Excimer (ArF excimer)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -9567,17 +9550,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -9624,11 +9596,60 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7500ce ICP-MS" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laQicpmsUPbTAPP-Liu2016-2/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergyDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "GeoLasPro 193 nm Excimer laser-ablation system — Methods, p.4" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:laserFluenceDefault "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)" ;
+    ada:laserRepetitionRateDefault "all: 5 Hz" ;
+    ada:laserSpotGeometryDefault "all: ~24 µm diameter — 'The smaller spot (~24 µm) size was used for phosphate analysis' (Methods, p.4)" ;
+    ada:laserType "193 nm Excimer (ArF excimer)" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -10970,109 +10991,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Within-Session Analytical Precision and Assessment Method
-              description: Precision of repeated measurements within a single analytical
-                session and the method used to assess it. Report both the assessment
-                method and the precision values. The assessment method must specify
-                the reference material or standard measured, the number of replicates
-                n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
-                Distinct from the internal precision of a single measurement, which
-                derives from counting statistics over the cycles of that measurement
-                rather than from repeated analyses.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: withinSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Within-Session Analytical Precision and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Between-Session (Long-Term) Analytical Precision and Assessment
-                Method
-              description: "Precision of measurements across multiple analytical sessions
-                over weeks to months \u2014 long-term or intermediate precision \u2014
-                and the method used to assess it. Report both the assessment method
-                and the precision values, specifying the reference material, the number
-                of measurements and sessions, the time span covered, and the statistic
-                reported."
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Between-Session (Long-Term) Analytical Precision and Assessment
-                    Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Analytical Accuracy and Assessment Method
-              description: Offset between measured and accepted values for secondary
-                reference materials, and the method used to assess it. Specify the
-                reference material and the source of its accepted values, the number
-                of analyses, and the quantities assessed. Report systematic biases
-                and their likely causes. Express the offset in the form appropriate
-                to what the procedure reports - percent relative bias for concentrations,
-                or deviation in delta or ratio units for isotopic quantities.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracyAndAssessmentMethod
-                schema:name:
-                  const: Analytical Accuracy and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: Counting Statistics Error
               description: "How the uncertainty predicted from counting statistics
                 \u2014 the theoretical limit set by the Poisson distribution of the
@@ -11367,118 +11285,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Within-Session Analytical Precision and Assessment Method
-              description: Precision of repeated measurements within a single analytical
-                session and the method used to assess it. Report both the assessment
-                method and the precision values. The assessment method must specify
-                the reference material or standard measured, the number of replicates
-                n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
-                Distinct from the internal precision of a single measurement, which
-                derives from counting statistics over the cycles of that measurement
-                rather than from repeated analyses.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: withinSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Within-Session Analytical Precision and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Between-Session (Long-Term) Analytical Precision and Assessment
-                Method
-              description: "Precision of measurements across multiple analytical sessions
-                over weeks to months \u2014 long-term or intermediate precision \u2014
-                and the method used to assess it. Report both the assessment method
-                and the precision values, specifying the reference material, the number
-                of measurements and sessions, the time span covered, and the statistic
-                reported."
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Between-Session (Long-Term) Analytical Precision and Assessment
-                    Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Analytical Accuracy and Assessment Method
-              description: Offset between measured and accepted values for secondary
-                reference materials, and the method used to assess it. Specify the
-                reference material and the source of its accepted values, the number
-                of analyses, and the quantities assessed. Report systematic biases
-                and their likely causes. Express the offset in the form appropriate
-                to what the procedure reports - percent relative bias for concentrations,
-                or deviation in delta or ratio units for isotopic quantities.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracyAndAssessmentMethod
-                schema:name:
-                  const: Analytical Accuracy and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Counting Statistics Error
               description: "How the uncertainty predicted from counting statistics
                 \u2014 the theoretical limit set by the Poisson distribution of the
@@ -11572,6 +11378,19 @@ allOf:
         the element symbols appearing here.
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:signalCollectionMode:
       description: Mode used to collect ion signal across the monitored masses. In
         peak hopping mode, the quadrupole jumps sequentially between pre-set mass
@@ -11584,6 +11403,7 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/signal-collection-mode
       readOnly: true
     ada:massBiasCorrectionStrategy:
       description: 'Strategy used to correct instrumental isotopic mass fractionation,
@@ -11628,7 +11448,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS-UPb.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

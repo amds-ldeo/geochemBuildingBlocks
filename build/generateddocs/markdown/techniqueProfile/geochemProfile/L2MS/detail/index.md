@@ -16,17 +16,52 @@ detail instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cente
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:l2msTAPP-detail-P0",
   "@type": [
-    "ada:L2MSCube"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:L2MSCube",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:l2msTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA Johnson Space Center"
+      },
+      "schema:identifier": "20231127_ul2ms_jsc-ares_orex-501006-0_1",
+      "schema:startTime": "2024-05-24",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-501006-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Clemett, Simon"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20231127_ul2ms_jsc-ares_orex-501006-0_1",
@@ -51,18 +86,53 @@ detail instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cente
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/L2MS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:l2msTAPP-detail-P0",
   "@type": [
-    "ada:L2MSCube"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:L2MSCube",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:l2msTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA Johnson Space Center"
+      },
+      "schema:identifier": "20231127_ul2ms_jsc-ares_orex-501006-0_1",
+      "schema:startTime": "2024-05-24",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-501006-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Clemett, Simon"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20231127_ul2ms_jsc-ares_orex-501006-0_1",
@@ -78,20 +148,30 @@ detail instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cente
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:L2MSCube ;
-    schema1:measurementTechnique <ex:l2msTAPP-P0> ;
+ex:l2msTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Clemett, Simon" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20231127_ul2ms_jsc-ares_orex-501006-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "NASA Johnson Space Center" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-501006-0" ] ;
+            schema1:startTime "2024-05-24" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-05-24" ;
     ada:analyst "Clemett, Simon" ;
-    ada:componentType "ada:L2MSCube" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-501006-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231127_ul2ms_jsc-ares_orex-501006-0_1" .
-
-<ex:l2msTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.L2MS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

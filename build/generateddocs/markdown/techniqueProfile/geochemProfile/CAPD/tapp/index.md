@@ -17,6 +17,7 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -33,6 +34,33 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
   "schema:description": "capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of CAPD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "T [K] Raw Data",
+      "T [K] Raw Data Error",
+      "Capacitance [pF] Raw data",
+      "Capacitance [pF] Raw data Error",
+      "T [K] Data",
+      "T [K] Data Error",
+      "a [1/K]",
+      "a [1/K] x 10^-6",
+      "T [K] dilatometer calibration (avg)",
+      "Capacitance [pF] dilatometer calibration (avg)",
+      "T [K] OFHC Cu Std. Reference",
+      "a [1/K] OFHC Cu Std. Reference"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -48,14 +76,11 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     "schema:name": "Boston College",
     "schema:identifier": "https://ror.org/02n2fzt79"
   },
-  "ada:reportedProperties": [
-    "T [K] Raw Data | T [K] Raw Data Error | Capacitance [pF] Raw data | Capacitance [pF] Raw data Error | T [K] Data | T [K] Data Error | a [1/K] | a [1/K] x 10^-6 | T [K] dilatometer calibration (avg) | Capacitance [pF] dilatometer calibration (avg) | T [K] OFHC Cu Std. Reference | a [1/K] OFHC Cu Std. Reference"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Capacitance Dilatometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -96,6 +121,7 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -104,6 +130,7 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -121,6 +148,33 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
   "schema:description": "capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of CAPD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "T [K] Raw Data",
+      "T [K] Raw Data Error",
+      "Capacitance [pF] Raw data",
+      "Capacitance [pF] Raw data Error",
+      "T [K] Data",
+      "T [K] Data Error",
+      "a [1/K]",
+      "a [1/K] x 10^-6",
+      "T [K] dilatometer calibration (avg)",
+      "Capacitance [pF] dilatometer calibration (avg)",
+      "T [K] OFHC Cu Std. Reference",
+      "a [1/K] OFHC Cu Std. Reference"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -136,14 +190,11 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     "schema:name": "Boston College",
     "schema:identifier": "https://ror.org/02n2fzt79"
   },
-  "ada:reportedProperties": [
-    "T [K] Raw Data | T [K] Raw Data Error | Capacitance [pF] Raw data | Capacitance [pF] Raw data Error | T [K] Data | T [K] Data Error | a [1/K] | a [1/K] x 10^-6 | T [K] dilatometer calibration (avg) | Capacitance [pF] dilatometer calibration (avg) | T [K] OFHC Cu Std. Reference | a [1/K] OFHC Cu Std. Reference"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Capacitance Dilatometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -181,17 +232,18 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:capdTAPP-P0> a cdi:Activity,
+ex:capdTAPP-P0 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Capacitance Dilatometry analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -212,7 +264,25 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)" ;
-    ada:reportedProperties "T [K] Raw Data | T [K] Raw Data Error | Capacitance [pF] Raw data | Capacitance [pF] Raw data Error | T [K] Data | T [K] Data Error | a [1/K] | a [1/K] x 10^-6 | T [K] dilatometer calibration (avg) | Capacitance [pF] dilatometer calibration (avg) | T [K] OFHC Cu Std. Reference | a [1/K] OFHC Cu Std. Reference" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Capacitance [pF] Raw data",
+                "Capacitance [pF] Raw data Error",
+                "Capacitance [pF] dilatometer calibration (avg)",
+                "T [K] Data",
+                "T [K] Data Error",
+                "T [K] OFHC Cu Std. Reference",
+                "T [K] Raw Data",
+                "T [K] Raw Data Error",
+                "T [K] dilatometer calibration (avg)",
+                "a [1/K]",
+                "a [1/K] OFHC Cu Std. Reference",
+                "a [1/K] x 10^-6" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
@@ -309,6 +379,19 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -327,7 +410,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.CAPD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

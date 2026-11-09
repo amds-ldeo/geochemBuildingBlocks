@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -322,35 +324,6 @@
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -367,6 +340,24 @@
         "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
         "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
         "ada:dataType": "string"
+      }
+    ]
+  },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (\u00b5g/g) \u2014 abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'",
+    "ada:defaultReportedProperties": [
+      "P, Fe, Co, Ni (mg/g)",
+      "V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (\u00b5g/g)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
       }
     ]
   },
@@ -434,7 +425,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -485,9 +477,6 @@
       "ada:toolRole": "dataReduction",
       "schema:name": "N \u2014 paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named"
     }
-  ],
-  "ada:reportedProperties": [
-    "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (\u00b5g/g) \u2014 abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'"
   ],
   "ada:ablationSamplingMode": [
     "raster: raster scan over a few millimeters; Ge spots: spot \u2014 \u00a72.2"

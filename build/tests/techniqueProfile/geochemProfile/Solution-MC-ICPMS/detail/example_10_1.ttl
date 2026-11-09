@@ -1,40 +1,162 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-P9> a ada:SolutionICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
-        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P9> ;
+ex:solutionMcicpmsTAPP-detail-P9 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "Mg, K, Ca, Ti, Cr, Fe, Cu, Zn, Mo and Nd isotope data \"all obtained from the same sample digestions and are therefore directly comparable\"" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "all [ε91Zr: 0.35; ε92Zr: 0.21; ε96Zr: 1.00] — 2SD of NIST SRM 3169 for an average session at 30 ppb (n = 32)" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: 2SD of the individual measurements — Fig. 1: 'the 2 sd calculated from the individual sample measurements'" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [all: measured repeatedly to verify data quality] — doping tests with Ti, V, Cr, Mo, Hf and W 'have no effect on the accuracy of the Zr isotope data'" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [ε91Zr: 0.3; ε92Zr: 0.2; ε96Zr: 1.0] — average 2SD over 10 months, n = 13–99 (eucrites and Colony n = 17–38)" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
+                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
+                <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
+                <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "ETH Zurich; sample digestion and separation at Tokyo Institute of Technology" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ryugu A0106, A0106-A0107 and C0108; Tagish Lake, Tarda, Ivuna (PB and high PT), Orgueil, Murchison, Colony; eucrites Bouvante and Bereba; BHVO-2, BCR-2, AGV-1, SCo-1; NIST SRM 3169" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony" ;
+                            ada:reagentRole "referenceMaterial" ] ],
+                [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P9/instrument/ICPMS> ] ;
+            ada:combinedResults [ ] ;
+            ada:deltaOrEpsilonValueReferenceStandard "Zr: NIST SRM 3169" ;
+            ada:proceduralBlankLevel "Zr: 0.08–0.24 ng — 0.08 and 0.24 ng with Tarda and Tagish Lake, 0.09 and 0.13 ng with Ivuna" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [all: measured repeatedly to verify data quality] — doping tests with Ti, V, Cr, Mo, Hf and W 'have no effect on the accuracy of the Zr isotope data'" ;
-    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [ε91Zr: 0.3; ε92Zr: 0.2; ε96Zr: 1.0] — average 2SD over 10 months, n = 13–99 (eucrites and Colony n = 17–38)" ;
-    ada:componentType "ada:SolutionICPMSTabular" ;
-    ada:deltaOrEpsilonValueReferenceStandard "Zr: NIST SRM 3169" ;
+    ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:detectionLimit -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:oxideProduction "missing" ;
     ada:peakFlatness "missing" ;
-    ada:proceduralBlankLevel "Zr: 0.08–0.24 ng — 0.08 and 0.24 ng with Tarda and Tagish Lake, 0.09 and 0.13 ng with Ivuna" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Ryugu A0106, A0106-A0107 and C0108; Tagish Lake, Tarda, Ivuna (PB and high PT), Orgueil, Murchison, Colony; eucrites Bouvante and Bereba; BHVO-2, BCR-2, AGV-1, SCo-1; NIST SRM 3169" ;
     ada:samplingUnitName "Labelled by digestion where a sample was digested more than one way: \"Ivuna PB\" and \"Ivuna high PT\", \"30 mg Tagish Lake (labeled high PT)\" and \"90 mg Tarda (high PT)\" (p.4); Ryugu A0106, A0106-A0107 and C0108 and the other samples by name only" ;
+    ada:sensitivityYield "N — total Zr ion beams 3.5–13 V at 30 ppb" ;
     ada:sessionIdentifier "missing" ;
-    ada:signalIntegrationTime -9999 ;
-    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "all [ε91Zr: 0.35; ε92Zr: 0.21; ε96Zr: 1.00] — 2SD of NIST SRM 3169 for an average session at 30 ppb (n = 32)" .
+    ada:signalIntegrationTime -9999 .
 
-<ex:solutionMcicpmsTAPP-P9> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/solutionMcicpmsTAPP-detail-P9/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/Sample-Introduction-System> ;
+    schema1:name "no value available: schema:name" .
 
-<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
-    schema1:name "Double-Spike Mixing Ratio" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> ;
+<https://example.org/solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "Collision Reaction Cell" .
+
+<https://example.org/solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "ICP Source" .
+
+<https://example.org/solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> a schema1:PropertyValue ;
+    schema1:name "Constants Reference Values" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
+    schema1:value "94Zr/90Zr = 0.3381 and 91Zr/90Zr = 0.21798, both Minster & Ricard (1981)" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> a schema1:PropertyValue ;
+    schema1:name "ICP Tuning" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> ;
+    schema1:value "\"Tuning was performed to minimize interferences of 40Ar2 16O+ and 40Ar2 14N+ on 96Zr+ and 94Zr+ and with it the on-peak background corrections\"" .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> a schema1:PropertyValue ;
+    schema1:name "Double Spike Mixing Ratio" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> ;
     schema1:value "N/A — no double spike used" .
 
-<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle> a schema1:PropertyValue ;
+    schema1:description "all: 4.2 s" ;
+    schema1:name "Integration Time per Cycle" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 4.2e+00 .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+    schema1:description "all: 60 ratios — static collection" ;
     schema1:name "Number of Cycles per Block" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:value "all: 60 ratios — static collection" .
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
+    schema1:value 60 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> a schema1:PropertyValue ;
+    schema1:name "Digestion Duration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> ;
+    schema1:value "hotplate HF–HNO3: 3–7 days; HNO3–HCl: 12 h; high-PT HF–HNO3: about a week; Ivuna high-PT: 3 days, then 2 days; other: N" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> a schema1:PropertyValue ;
+    schema1:description "hotplate HF–HNO3: 180 °C; HNO3–HCl: 120 °C; high-PT HF–HNO3: 220 °C; Parr bomb: 170 °C; Ivuna high-PT: 160 °C; other: N" ;
+    schema1:name "Digestion Temperature" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 3 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> a schema1:PropertyValue ;
+    schema1:description "Ryugu <25 mg with ~40–70 ng Zr; 15 ng Zr consumed per 30 ppb analysis" ;
+    schema1:name "Sample Aliquot Mass or Volume" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 25 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> a schema1:PropertyValue ;
+    schema1:description "~0.05 mL/min" ;
+    schema1:name "Sample Uptake Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 5e-02 .
 

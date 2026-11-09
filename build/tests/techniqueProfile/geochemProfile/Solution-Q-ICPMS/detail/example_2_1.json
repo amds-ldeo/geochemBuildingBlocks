@@ -1,19 +1,338 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P1",
+  "@id": "ex:solutionQicpmsTAPP-detail-P1",
   "@type": [
-    "ada:SolutionICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SolutionICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:solutionQicpmsTAPP-P1",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
+                }
+              ],
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 300,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "Ten to twenty tests, about 300 \u00b5g of shells \u2014 \u00a72; one measurement uses 250 \u00b5l at 100 ppm Ca, equivalent to 60 \u00b5g calcite"
+            }
+          ],
+          "schema:name": "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods",
+          "schema:description": "no value available: schema:description"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "Sample Introduction System",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
+                        }
+                      ],
+                      "schema:name": "Sample Uptake Rate",
+                      "schema:value": 60,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "~60 uL/min (stated Table 1; 0.03 mm ID pump tubing)"
+                    },
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Nebulizer Gas Flow Rate",
+                      "schema:value": 0.99,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "0.99-1.02 L/min (Table 1)"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionQicpmsTAPP-detail-P1/instrument/ICPMS/part/Sample-Introduction-System"
+                },
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": 1300,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "1300 W (Table 1)"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Coolant Plasma Gas Flow Rate",
+                      "schema:value": 15,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "15 L/min (Table 1)"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Auxiliary Gas Flow Rate",
+                      "schema:value": 1.2,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "1.2 L/min (Table 1)"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionQicpmsTAPP-detail-P1/instrument/ICPMS/part/ICP-Source"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "Collision Reaction Cell",
+                  "@id": "ex:solutionQicpmsTAPP-detail-P1/instrument/ICPMS/part/Collision-Reaction-Cell"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
+                  "schema:value": "Longer washout and uptake times for B, and a quartz spray chamber to reduce B blanks \u2014 \u00a72, \u00a73.2"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                    }
+                  ],
+                  "schema:name": "ICP Tuning",
+                  "schema:value": "\"The instrument sensitivity was optimized daily using a 10 ppb Mg-In-U standard\"; \"Plasma robustness was monitored by constraining CeO/Ce ratio within 3% to refrain formation of polyatomic oxides\""
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:solutionQicpmsTAPP-detail-P1/instrument/ICPMS"
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "N \u2014 precision and accuracy are assessed on external standards of known ratio (Table 2); core-top results are compared with published data (Table 4)",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection"
+                  }
+                ],
+                "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+                "schema:value": "N/A \u2014 all isotopes in pulse mode 'to avoid the need for cross calibration' (\u00a73.1)"
+              },
+              {
+                "@id": "ada:parameter/module/Core/constantsReferenceValues",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                  }
+                ],
+                "schema:name": "Constants Reference Values",
+                "schema:value": "Natural isotopic abundances used to select isotopes and derive correction factors: the Li standard \"was artificially depleted of 7Li (92.32% vs 92.48% for natural)\"; \"The natural abundance of 11B (80.17%) is also different from values of foraminiferal samples which are expected to be 80.40-80.43% if assumed to have d11B ratios of 25-27 permil\", giving \"correction factors (0.9983 for Li and 0.9968-0.9971 for B)\"; 111Cd 12.8%, 112Cd 24.1%, 114Cd 28.7%, 238U 99.3%"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Ten to twenty tests handpicked, crushed gently, cleaned of clays (water, methanol) and silicates, reductively and oxidatively cleaned, rinsed twice in 0.001 M HNO3 and dissolved in 200 \u00b5l 0.075 M HNO3. 20 \u00b5l diluted for Ca by ICP-AES, the remainder diluted to 100 ppm Ca \u2014 \u00a72",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          },
+          {
+            "schema:name": "Sample digestion",
+            "schema:position": 3,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "ada:proceduralBlankLevel": "Li, Mg, Sr: <1%; Cd: <2%; Zn: <4%; U: <5%; B: 5%; other: N \u2014 relative to typical foraminiferal ratios; Ca also <1%; B was 30% with a glass spray chamber (\u00a73.2)",
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of Cambridge (affiliation)"
+      },
+      "schema:identifier": "N -- \"a typical run (~5 hr)\" referenced; no run identifier stated",
+      "schema:description": "Cetac ASX-100 autosampler; auto lens on; 0.03 mm ID pump tubing at 12 rpm; Ca matrix effects tested over 60\u2013240 ppm Ca (Table 1, \u00a72, \u00a73.5)",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:startTime": "no value available: schema:startTime"
     }
   ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "all [Li/Ca: 2.42%; B/Ca: 4.17%; Mg/Ca: 1.39%; Al/Ca: 14.06%; Mn/Ca: 0.93%; Zn/Ca: 2.83% (1.2\u20137.8), 5.05% (0.5\u20131.2); Sr/Ca: 0.92%; Cd/Ca: 2.37% (0.07\u20130.24), 4.80% (0.01\u20130.07); U/Ca: 2.54%] \u2014 RSD of external standards over three months, n = 120 except Zn/Ca 88 and 32, Cd/Ca 50 and 70 (Table 2, \u00a73.6)"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "all [Li/Ca: 0.39%; B/Ca: 2.57%; Mg/Ca: 0.61%; Al/Ca: 9.30%; Mn/Ca: 0.23%; Zn/Ca: 0.82% (1.2\u20137.8), 1.69% (0.5\u20131.2); Sr/Ca: 0.34%; Cd/Ca: 0.93% (0.07\u20130.24), 0.80% (0.01\u20130.07); U/Ca: 1.09%] \u2014 Acc.% = (average measured \u2212 true)/true \u00d7 100 on external standards (Table 2)"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "all: RSD% = SD of measurements / average ratio \u00d7 100 \u2014 table notes"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "ICP-AES (for initial [Ca] determination; stated section 2)",
+        "schema:description": "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler"
+  ],
+  "ada:sensitivityYield": "7Li: 2500 cps/ppb; 11B: 1000 cps/ppb; 25Mg: 800 cps/ppb; 46Ca: 0.5 cps/ppb; 27Al: 15000 cps/ppb; 55Mn: 12000 cps/ppb; 66Zn: 2500 cps/ppb; 87Sr: 1500 cps/ppb; 111Cd: 1500 cps/ppb; 238U: 9000 cps/ppb \u2014 typical count rate (Table 1); ~40 kHz for 1 ppb \u00b9\u00b9\u2075In at 60 \u00b5l/min (\u00a72)",
   "ada:sessionIdentifier": "N -- \"a typical run (~5 hr)\" referenced; no run identifier stated",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
@@ -25,10 +344,7 @@
   "ada:numberOfReplicates": 6,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Li, Mg, Sr: <1%; Cd: <2%; Zn: <4%; U: <5%; B: 5%; other: N \u2014 relative to typical foraminiferal ratios; Ca also <1%; B was 30% with a glass spray chamber (\u00a73.2)",
   "ada:detectionLimit": "Li/Ca: 0.5; B/Ca: 15; Mg/Ca: 0.03; Al/Ca: 0.05; Mn/Ca: 0.3; Zn/Ca: 0.05; Sr/Ca: 0.02; Cd/Ca: 0.005; U/Ca: 0.5 \u2014 in the units of the ratio (Table 2)",
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "all [Li/Ca: 2.42%; B/Ca: 4.17%; Mg/Ca: 1.39%; Al/Ca: 14.06%; Mn/Ca: 0.93%; Zn/Ca: 2.83% (1.2\u20137.8), 5.05% (0.5\u20131.2); Sr/Ca: 0.92%; Cd/Ca: 2.37% (0.07\u20130.24), 4.80% (0.01\u20130.07); U/Ca: 2.54%] \u2014 RSD of external standards over three months, n = 120 except Zn/Ca 88 and 32, Cd/Ca 50 and 70 (Table 2, \u00a73.6)",
-  "ada:analyticalAccuracyAndAssessmentMethod": "all [Li/Ca: 0.39%; B/Ca: 2.57%; Mg/Ca: 0.61%; Al/Ca: 9.30%; Mn/Ca: 0.23%; Zn/Ca: 0.82% (1.2\u20137.8), 1.69% (0.5\u20131.2); Sr/Ca: 0.34%; Cd/Ca: 0.93% (0.07\u20130.24), 0.80% (0.01\u20130.07); U/Ca: 1.09%] \u2014 Acc.% = (average measured \u2212 true)/true \u00d7 100 on external standards (Table 2)"
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing"
 }

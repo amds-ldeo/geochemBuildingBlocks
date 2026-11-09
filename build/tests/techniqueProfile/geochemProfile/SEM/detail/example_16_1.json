@@ -1,18 +1,111 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Ma2017",
+  "@id": "ex:semTAPP-detail-Ma2017",
   "@type": [
-    "ada:SEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:semTAPP-Ma2017",
-      "schema:identifier": "no value available: schema:identifier"
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "N \u2014 the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
+            }
+          ],
+          "schema:name": "Section 126A (USNM 7908)",
+          "schema:identifier": "USNM 7908 (section 126A)"
+        }
+      ],
+      "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA"
+      },
+      "schema:description": "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          },
+          {
+            "schema:name": "Ion milling",
+            "schema:position": 3,
+            "schema:description": "no value available: schema:description",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:edsDeadTime": -9999
     }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "BSE Imaging"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -26,7 +119,6 @@
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimensions": "missing",
-  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",

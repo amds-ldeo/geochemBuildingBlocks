@@ -7,20 +7,213 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P13",
+  "@id": "ex:solutionMcicpmsTAPP-detail-P13",
   "@type": [
-    "ada:SolutionICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SolutionICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:solutionMcicpmsTAPP-P13",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample digestion",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
+                  }
+                ],
+                "schema:name": "Digestion Temperature",
+                "schema:value": 3,
+                "schema:unitText": "no value available: unnamed property",
+                "schema:description": "HF\u2013HNO3 attack: 170 \u00b0C; other: N"
+              },
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration"
+                  }
+                ],
+                "schema:name": "Digestion Duration",
+                "schema:value": "HF\u2013HNO3 attack: 48 h; other: N"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL \u2014 coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 3,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
+                }
+              ],
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 5.2,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "5.2 mg"
+            }
+          ],
+          "schema:name": "OREX-803015-100, a 5.2 mg aliquot of Bennu aggregate",
+          "schema:identifier": "OREX-803015-100",
+          "schema:description": "no value available: schema:description"
+        }
+      ],
+      "ada:proceduralBlankLevel": "Ti: 3.7 ng \u2014 a maximum blank contribution of 0.18%",
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+            }
+          ],
+          "schema:name": "Number of Cycles per Block",
+          "schema:value": 40,
+          "schema:description": "all: 40 cycles"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+            }
+          ],
+          "schema:name": "Integration Time per Cycle",
+          "schema:value": 46,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "46Ti, 47Ti, 48Ti, 44Ca: 8.39 s; 51V, 52Cr, 53Cr: 4.19 s; 49Ti, 50Ti: 8.39 s (configuration 1), 4.19 s (configuration 2)"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+            }
+          ],
+          "schema:name": "Double Spike Mixing Ratio",
+          "schema:value": "N/A \u2014 no double spike used"
+        }
+      ],
+      "ada:deltaOrEpsilonValueReferenceStandard": "Ti: in-house Alfa Aesar Ti wire standard",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Institute of Geochemistry and Petrology, ETH Zurich"
+      },
+      "prov:used": [
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "BHVO-2, Agua Zarcas \u2014 Agua Zarcas is a CM2 chondrite",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
   ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "BHVO-2, Agua Zarcas [all: analysed alongside Bennu to verify accuracy and reproducibility]"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "BHVO-2 [\u03b546Ti: \u00b10.17; \u03b548Ti: \u00b10.09; \u03b550Ti: \u00b10.16] \u2014 2 s.d. of 9 analyses"
+    },
+    {
+      "dqv:isMeasurementOf": "Peak Flatness",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Coordinated dissolution shared with the WUSTL K/Cu/Zn procedure; SIMS oxygen isotopes"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:sensitivityYield": "48Ti: ~40 V \u2014 about 0.3 \u00b5g Ti consumed per measurement",
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
@@ -31,40 +224,8 @@
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
-  "ada:deltaOrEpsilonValueReferenceStandard": "Ti: in-house Alfa Aesar Ti wire standard",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Ti: 3.7 ng \u2014 a maximum blank contribution of 0.18%",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "BHVO-2 [\u03b546Ti: \u00b10.17; \u03b548Ti: \u00b10.09; \u03b550Ti: \u00b10.16] \u2014 2 s.d. of 9 analyses",
-  "ada:analyticalAccuracyAndAssessmentMethod": "BHVO-2, Agua Zarcas [all: analysed alongside Bennu to verify accuracy and reproducibility]",
   "ada:detectionLimit": -9999,
-  "ada:limitOfQuantificationMethod": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock"
-        }
-      ],
-      "schema:name": "Number of Cycles per Block",
-      "schema:value": "all: 40 cycles"
-    },
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio"
-        }
-      ],
-      "schema:name": "Double-Spike Mixing Ratio",
-      "schema:value": "N/A \u2014 no double spike used"
-    }
-  ]
+  "ada:limitOfQuantificationMethod": "missing"
 }

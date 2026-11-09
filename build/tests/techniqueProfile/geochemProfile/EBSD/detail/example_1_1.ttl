@@ -1,21 +1,118 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-P0> a ada:SEMEBSDGrainImageMap ;
-    schema1:measurementTechnique <ex:ebsdTAPP-P0> ;
+ex:ebsdTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Nicholas E Timms" ] ;
+            schema1:roleName "analyst" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/ebsdTAPP/crystalStructureFileSources>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdCameraExposureTime>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdIndexingRate>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsChannels>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsProcessTime>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/houghResolution>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/mapStepSize> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/02n415q13" ;
+                    schema1:name "Curtin University" ] ;
+            schema1:startTime "2023-11-16" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "AZtecCrystal" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/ebsdTAPP-detail-P0/instrument/SEM> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-16" ;
     ada:analyst "Nicholas E Timms" ;
-    ada:componentType "ada:SEMEBSDGrainImageMap" ;
-    ada:ebsdCameraExposureTime 20 ;
-    ada:ebsdIndexingRate "~45-1005 points per second" ;
+    ada:analyticalMode "Simultaneous EBSD-EDS mapping" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:mapStepSize 60 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:workingDistance 1.78e+01 .
+    ada:sessionIdentifier "missing" .
 
-<ex:ebsdTAPP-P0> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/ebsdTAPP-detail-P0/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/ebsdTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/ebsdTAPP/beamCurrent>,
+        <https://ada.astromat.org/metadata/parameter/ebsdTAPP/workingDistance> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "20 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 20 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/beamCurrent> a schema1:PropertyValue ;
+    schema1:description "~1.5 nA" ;
+    schema1:name "Beam Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/beamCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1.5e+00 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/crystalStructureFileSources> a schema1:PropertyValue ;
+    schema1:name "Crystal Structure File Sources" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/crystalStructureFileSources> ;
+    schema1:value "HKL; ICSD; American Mineralogist" .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdCameraExposureTime> a schema1:PropertyValue ;
+    schema1:description "20-25 ms" ;
+    schema1:name "EBSD Camera Exposure Time" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdCameraExposureTime> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 20 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdIndexingRate> a schema1:PropertyValue ;
+    schema1:description "~45-1005 points per second" ;
+    schema1:name "EBSD Indexing Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdIndexingRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 45 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsChannels> a schema1:PropertyValue ;
+    schema1:name "EDS Channels" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsChannels> ;
+    schema1:value 2024 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsProcessTime> a schema1:PropertyValue ;
+    schema1:name "EDS Process Time" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsProcessTime> ;
+    schema1:value 5 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/houghResolution> a schema1:PropertyValue ;
+    schema1:name "Hough Resolution" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/houghResolution> ;
+    schema1:value 60 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/mapStepSize> a schema1:PropertyValue ;
+    schema1:description "60-600 nm" ;
+    schema1:name "Map Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/mapStepSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 60 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/workingDistance> a schema1:PropertyValue ;
+    schema1:description "17.8-18.3 mm" ;
+    schema1:name "Working Distance" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/workingDistance> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1.78e+01 .
 

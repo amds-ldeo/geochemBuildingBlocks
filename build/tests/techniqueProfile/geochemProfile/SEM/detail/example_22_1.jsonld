@@ -7,19 +7,188 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Zhou2017",
+  "@id": "ex:semTAPP-detail-Zhou2017",
   "@type": [
-    "ada:SEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:semTAPP-Zhou2017",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/semTAPP/imageRegistration3D",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semTAPP/imageRegistration3D"
+            }
+          ],
+          "schema:name": "3D Image Registration",
+          "schema:value": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment"
+        },
+        {
+          "@id": "ada:parameter/semTAPP/segmentationMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semTAPP/segmentationMethod"
+            }
+          ],
+          "schema:name": "Segmentation Method",
+          "schema:value": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)"
+        },
+        {
+          "@id": "ada:parameter/semTAPP/workingDistance",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/semTAPP/workingDistance"
+            }
+          ],
+          "schema:name": "Working Distance",
+          "schema:value": 4,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "4 mm"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/semTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/semTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 2,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "2 kV (SEM imaging)"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:semTAPP-detail-Zhou2017/instrument/SEM"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "N \u2014 the preparation is mechanical and chemical only (\"polished with dry emery paper and then ground by argon ion\", p.3); no imaging or screening precedes the tomography"
+            }
+          ],
+          "schema:name": "SC; HBC"
+        }
+      ],
+      "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "China University of Geosciences, Beijing, China"
+      },
+      "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Cuboidal samples (~0.5\u00d71\u00d71 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          },
+          {
+            "schema:name": "Ion milling",
+            "schema:position": 3,
+            "schema:description": "no value available: schema:description",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:edsDeadTime": -9999
     }
+  ],
+  "ada:voxelSize": "14.8\u00d714.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609\u00d73.08\u00d75.446 \u00b5m; HBC=4.679\u00d73.2\u00d74.24 \u00b5m; SEM image resolution 2.5 nm",
+  "ada:imageStackDimensions": "14.8\u00d714.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609\u00d73.08\u00d75.446 \u00b5m; HBC=4.679\u00d73.2\u00d74.24 \u00b5m; SEM image resolution 2.5 nm",
+  "ada:analyticalMode": [
+    "3D Tomography"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -32,13 +201,10 @@
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:imageStackDimensions": "14.8\u00d714.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609\u00d73.08\u00d75.446 \u00b5m; HBC=4.679\u00d73.2\u00d74.24 \u00b5m; SEM image resolution 2.5 nm",
-  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:edsDeadTime": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
-  "ada:ebsdIndexingRate": -9999,
-  "ada:voxelSize": "no value available: ada:voxelSize"
+  "ada:ebsdIndexingRate": -9999
 }

@@ -7,20 +7,339 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P2",
+  "@id": "ex:solutionMcicpmsTAPP-detail-P2",
   "@type": [
-    "ada:SolutionICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SolutionICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:solutionMcicpmsTAPP-P2",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample digestion",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
+                  }
+                ],
+                "schema:name": "Digestion Temperature",
+                "schema:value": 120,
+                "schema:unitText": "no value available: unnamed property",
+                "schema:description": "iron aqua regia: 120 \u00b0C; basalt HF\u2013HNO3: 150 \u00b0C; other: N \u2014 \u00a72.1"
+              },
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration"
+                  }
+                ],
+                "schema:name": "Digestion Duration",
+                "schema:value": "iron aqua regia: 24 h; basalt HF\u2013HNO3: 48 h; other: N \u2014 \u00a72.1"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/Core/constantsReferenceValues",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                  }
+                ],
+                "schema:name": "Constants Reference Values",
+                "schema:value": "57Fe/56Fe = 0.023095 and 57Fe/54Fe = 0.362549, \"the certified ratios of IRMM-014\" (Craddock and Dauphas, 2010)"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 3
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
+                }
+              ],
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "~1-2 mg Fe per analysis; ~50 mg meteorite pieces"
+            }
+          ],
+          "schema:name": "Toluca, Gibeon, Duchesne, Skookum, Tlacotepec and 18 further iron meteorites; BHVO-2, BCR-2; IRMM-524a",
+          "schema:description": "no value available: schema:description"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "Sample Introduction System",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
+                        }
+                      ],
+                      "schema:name": "Sample Uptake Rate",
+                      "schema:value": 100,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "~100 \u00b5l/min"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
+                        }
+                      ],
+                      "schema:name": "Make-up Gas and Flow Rate",
+                      "schema:value": 2,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "None \u2014 the Apex \u03a9 was run \"with no auxiliary N2 flow\""
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P2/instrument/ICPMS/part/Sample-Introduction-System"
+                },
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "ICP Source",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P2/instrument/ICPMS/part/ICP-Source"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "Collision Reaction Cell",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P2/instrument/ICPMS/part/Collision-Reaction-Cell"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
+                  "schema:value": "210 s washout between all measurements"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:solutionMcicpmsTAPP-detail-P2/instrument/ICPMS"
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "BHVO-2, BCR-2 \u2014 \u00a72.1",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:proceduralBlankLevel": "Fe: ~70 ng \u2014 'negligible considering that 1-2 mg Fe was purified for each sample' (\u00a72.2)",
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+            }
+          ],
+          "schema:name": "Number of Cycles per Block",
+          "schema:value": 25,
+          "schema:description": "HR: 25 cycles; MR: 50 cycles \u2014 \u00a72.3"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+            }
+          ],
+          "schema:name": "Integration Time per Cycle",
+          "schema:value": 8.369,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "all: 8.369 s \u2014 \u00a72.3"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+            }
+          ],
+          "schema:name": "Double Spike Mixing Ratio",
+          "schema:value": "N/A \u2014 no double spike used"
+        }
+      ],
+      "ada:deltaOrEpsilonValueReferenceStandard": "Fe: IRMM-524a \u2014 'that has an identical isotopic composition to IRMM-014' (\u00a72.3)",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of Chicago"
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
   ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "BHVO-2, BCR-2 [\"\u03bc54Fe(7/6)\": average 2 \u00b1 2 (95% c.i.); \"\u03bc58Fe(7/6)\": average 4 \u00b1 6 (95% c.i.); other: normal within uncertainties] \u2014 \u00a73; agreeing with Schiller et al. (2020)"
+    },
+    {
+      "dqv:isMeasurementOf": "Peak Flatness",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "N \u2014 the Fe was measured on digestions previously analysed for Pt, Mo, Ni and/or W isotopes (Kruijer et al. 2017 and others)"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:sensitivityYield": "56Fe: 1.4 nA (wet plasma, MR) to 2 nA (dry plasma, HR) \u2014 \u00a72.3",
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
@@ -31,40 +350,9 @@
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
-  "ada:deltaOrEpsilonValueReferenceStandard": "Fe: IRMM-524a \u2014 'that has an identical isotopic composition to IRMM-014' (\u00a72.3)",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Fe: ~70 ng \u2014 'negligible considering that 1-2 mg Fe was purified for each sample' (\u00a72.2)",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "BHVO-2, BCR-2 [\"\u03bc54Fe(7/6)\": average 2 \u00b1 2 (95% c.i.); \"\u03bc58Fe(7/6)\": average 4 \u00b1 6 (95% c.i.); other: normal within uncertainties] \u2014 \u00a73; agreeing with Schiller et al. (2020)",
   "ada:detectionLimit": -9999,
-  "ada:limitOfQuantificationMethod": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock"
-        }
-      ],
-      "schema:name": "Number of Cycles per Block",
-      "schema:value": "HR: 25 cycles; MR: 50 cycles \u2014 \u00a72.3"
-    },
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio"
-        }
-      ],
-      "schema:name": "Double-Spike Mixing Ratio",
-      "schema:value": "N/A \u2014 no double spike used"
-    }
-  ]
+  "ada:limitOfQuantificationMethod": "missing"
 }

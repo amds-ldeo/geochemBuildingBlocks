@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -79,7 +80,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "TEM analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting \u2014 the mapping is of the carbonate-bearing sections, \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5\u201310 nm (at the Molecular Foundry)\" (p.2)",
   "schema:object": [
@@ -265,6 +267,25 @@
       }
     ]
   },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "carbonate composition (mole%); MnO (wt%); FeO (wt%) \u2014 Carbonate compositions from EDS hyperspectral maps, normalised to 100% and reported as oxide mole percentages on the MgCO3-CaCO3-(Fe + Mn)CO3 ternary (mole%, Fig. 5, p.7) \u2014 with the ranges also given in wt% (\"2.9\u20138.1 wt.% MnO, 2.5\u20136.0 wt.% FeO\", p.5); the EDS detection limit is stated (p.2)",
+    "ada:defaultReportedProperties": [
+      "carbonate composition (mole%)",
+      "MnO (wt%)",
+      "FeO (wt%)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "EDS quantification: compositions normalized to 100%; carbonate chemistry (MgCO3\u2013CaCO3\u2013(Fe+Mn)CO3 ternary) used for dolomite/ankerite ID; structural formulae from EDS spot analyses over 5\u201310 nm areas; detection limit <0.1 wt% (stated for TEM EDS measurements)",
   "schema:additionalProperty": [
     {
@@ -313,9 +334,6 @@
       "ada:toolRole": "dataReduction",
       "schema:name": "Bruker Esprit 1.9"
     }
-  ],
-  "ada:reportedProperties": [
-    "carbonate composition (mole%); MnO (wt%); FeO (wt%) \u2014 Carbonate compositions from EDS hyperspectral maps, normalised to 100% and reported as oxide mole percentages on the MgCO3-CaCO3-(Fe + Mn)CO3 ternary (mole%, Fig. 5, p.7) \u2014 with the ranges also given in wt% (\"2.9\u20138.1 wt.% MnO, 2.5\u20136.0 wt.% FeO\", p.5); the EDS detection limit is stated (p.2)"
   ],
   "schema:variableMeasured": [
     {

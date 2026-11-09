@@ -1,16 +1,23 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:SThMCollection ;
-    schema1:measurementTechnique <ex:sthmAfmTAPP-P0> ;
+ex:sthmAfmTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20250523_STHM-AFM_YU_OREX-800088-5_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/05fq50484" ;
+                    schema1:name "York University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800088-5" ] ;
+            schema1:startTime "2024-11-28" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-11-28" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:SThMCollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800088-5" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250523_STHM-AFM_YU_OREX-800088-5_1" .
-
-<ex:sthmAfmTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 

@@ -1,25 +1,81 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Barnes2025-2> a ada:EPMAImage ;
-    schema1:measurementTechnique <ex:epmaTAPP-Barnes2025-2> ;
+ex:epmaTAPP-detail-Barnes2025-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — acknowledged with the named authors; further grants are listed by person across many laboratories, and none is attributed to the microprobe work" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not given. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA." ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Natural History Museum (NHM), London, UK" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:identifier "OREX-501054-0; OREX-501059-0 (NASA curatorial IDs, not IGSN)" ;
+                    schema1:name "OREX-501054-0 and OREX-501059-0 (particles P1, P2)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Barnes2025-2/instrument/EPMA> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ;
+            ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
+    ada:analyticalMode "N — point analyses ('Analyses were performed at 20 kV, using a focused 1-μm beam'); WDS or EDS is not stated, and the list has no value without one" ;
     ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:EPMAImage" ;
     ada:detectionLimit "N — 'Typical detection limits for transition metals were around 250 ppm'; the elements are not named" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — acknowledged with the named authors; further grants are listed by person across many laboratories, and none is attributed to the microprobe work" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "OREX-501054-0 and OREX-501059-0 (particles P1, P2)" ;
     ada:samplingUnitName "Labelled: \"The samples OREX-501054-0 and OREX-501059-0 ... fragmented into particles, identified as P1 and P2\" (p.13); the olivine and pyroxene grains within them are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Barnes2025-2> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/epmaTAPP-detail-Barnes2025-2/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "20 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 20 .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> a schema1:PropertyValue ;
+    schema1:description "all: 1 µm — as above" ;
+    schema1:name "Beam Diameter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1 .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "SEM characterisation at the NHM — \"Olivine and pyroxene grains were identified and characterized at the NHM\" and \"Following characterization by SEM/EPMA, an additional carbon coat was added for a total thickness of ~30 nm\" (p.13); additional quantitative data came from a Zeiss EVO 15LS analytical SEM with an Oxford X-Max80 EDS (p.13)" .
 

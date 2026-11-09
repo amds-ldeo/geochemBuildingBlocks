@@ -447,6 +447,7 @@ allOf:
                   - None
                   - missing
                 - type: string
+                schema:inDefinedTermSet: ada:vocab/beam-mode
                 readOnly: true
               ada:acceleratingVoltageDefault:
                 description: Electron beam accelerating voltage in kilovolts.
@@ -481,6 +482,7 @@ allOf:
                   - None
                   - missing
                 - type: string
+                schema:inDefinedTermSet: ada:vocab/mapping-beam-mode
                 readOnly: true
               ada:mappingBeamCurrentDefault:
                 description: Probe current in nanoamperes (nA) used during X-ray mapping.
@@ -794,67 +796,6 @@ allOf:
                   const: string
                 schema:readonlyValue:
                   const: true
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Analytical Precision
-              description: Precision of repeated measurements on the same or equivalent
-                reference material, expressed as 1-sigma relative standard deviation
-                (%). State whether the repeats were made within one session (repeatability)
-                or across sessions (intermediate precision, in ISO 5725 terms). Include
-                reference material name, number of analyses (n), and the measured
-                value.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalPrecision
-                schema:name:
-                  const: Analytical Precision
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Analytical Accuracy
-              description: Offset between measured and accepted reference values for
-                secondary standards, expressed as percent relative bias. Include reference
-                material, reference value source, and the measured value.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracy
-                schema:name:
-                  const: Analytical Accuracy
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
                 ada:tier:
                   const: R
                 schema:defaultValue:
@@ -1213,73 +1154,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Analytical Precision
-              description: Precision of repeated measurements on the same or equivalent
-                reference material, expressed as 1-sigma relative standard deviation
-                (%). State whether the repeats were made within one session (repeatability)
-                or across sessions (intermediate precision, in ISO 5725 terms). Include
-                reference material name, number of analyses (n), and the measured
-                value.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalPrecision
-                schema:name:
-                  const: Analytical Precision
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Analytical Accuracy
-              description: Offset between measured and accepted reference values for
-                secondary standards, expressed as percent relative bias. Include reference
-                material, reference value source, and the measured value.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracy
-                schema:name:
-                  const: Analytical Accuracy
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Counting Statistics Error
               description: "How the uncertainty predicted from counting statistics
                 \u2014 the theoretical limit set by the Poisson distribution of the
@@ -1455,6 +1329,9 @@ allOf:
               const: Stage Scan vs. Beam Scan
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/stage-scan-vs-beam-scan
           required:
           - '@id'
           - '@type'
@@ -1524,6 +1401,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/halogen-correction-on-oxygen
           required:
           - '@id'
           - '@type'
@@ -1551,6 +1431,9 @@ allOf:
               const: EDS Spectral Processing Type
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-spectral-processing-type
           required:
           - '@id'
           - '@type'
@@ -1690,6 +1573,9 @@ allOf:
               const: Stage Scan vs. Beam Scan
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/stage-scan-vs-beam-scan
           required:
           - '@id'
           - '@type'
@@ -1765,6 +1651,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/halogen-correction-on-oxygen
           required:
           - '@id'
           - '@type'
@@ -1795,6 +1684,9 @@ allOf:
               const: EDS Spectral Processing Type
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-spectral-processing-type
           required:
           - '@id'
           - '@type'
@@ -2449,7 +2341,21 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/eds-acquisition-mode
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:edsLiveTimePerPointOrPixelDefault:
       description: EDS spectral acquisition live time per analysis point or per pixel
         in seconds.
@@ -2483,6 +2389,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/matrix-correction-method
       readOnly: true
     ada:massAbsorptionCoefficients:
       description: Database of mass absorption coefficients used in the matrix correction.
@@ -2498,6 +2405,7 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/mass-absorption-coefficients
       readOnly: true
     ada:wdsDeadTimeCorrection:
       description: "Method used to correct for WDS proportional counter dead time
@@ -2522,6 +2430,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/wds-dead-time-correction
       readOnly: true
     schema:actionProcess:
       type: object
@@ -2686,4 +2595,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'

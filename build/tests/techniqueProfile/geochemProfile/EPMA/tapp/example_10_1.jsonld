@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -35,8 +37,6 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "carbonate: 5 \u00b5m; magnetite, olivine: 1 \u00b5m \u2014 'with an analytical spot size of 5 \u00b5m' (carbonates); 'Analyses were conducted at 15kV and 10nA, with an analytical spot size of 1\u00b5m' (the magnetite and olivine sentence)",
-      "ada:beamMode": "N \u2014 only spot sizes are given",
       "schema:hasPart": [
         {
           "schema:additionalType": [
@@ -149,59 +149,12 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/analyticalAccuracy",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "xRayBackgroundCorrectionMethod",
-        "schema:name": "X-ray Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/beamCurrent",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": -9999
-      },
-      {
         "@id": "ada:targetSpeciesColumn/epmaTAPP/blankCorrection",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "blankCorrection",
         "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
       },
       {
@@ -299,6 +252,54 @@
         "schema:defaultValue": -9999
       },
       {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": -9999
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamDamageMinimization",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamDamageMinimization",
+        "schema:name": "Beam Damage Minimization",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamDiameter",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamDiameter",
+        "schema:name": "Beam Diameter",
+        "ada:dataType": "number",
+        "schema:defaultValue": -9999
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamMode",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamMode",
+        "schema:name": "Beam Mode",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamRasterDimensions",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamRasterDimensions",
+        "schema:name": "Beam Raster Dimensions",
+        "ada:dataType": "number"
+      },
+      {
         "@id": "ada:targetMaterialColumn/epmaTAPP/peakCountingTime",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -321,9 +322,160 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
-  "ada:monitoredElements": [
-    "Fe, Mn, Mg, Ca \u2014 all determined. \"Carbonate analyses were run at 15 kV and 10 nA, with an analytical spot size of 5 \u00b5m. Fe and Mn were analysed using a LIFL crystal, Mg using a TAPL crystal and Ca using a PETL crystal\" (p.7)"
-  ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Carbonate end-member composition (mol%: MgCO3, FeCO3, MnCO3 \u2014 calcite is \"near-end member composition (4 mol.% or less MgCO3 and FeCO3; 0.1 mol.% or less MnCO3)\", p.2); phase identifications (nominal)",
+    "ada:defaultReportedProperties": [
+      "Carbonate end-member composition (mol%: MgCO3, FeCO3, MnCO3"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
+      {
+        "monitoredProperty": "Fe"
+      },
+      {
+        "monitoredProperty": "Mn"
+      },
+      {
+        "monitoredProperty": "Mg"
+      },
+      {
+        "monitoredProperty": "Ca"
+      }
+    ],
+    "ada:monitoredPropertyColumns": [
+      {
+        "schema:valueName": "monitoredProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/backgroundPosition",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundPosition",
+        "schema:name": "Background Position(s)",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/diffractingCrystal",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "diffractingCrystal",
+        "schema:name": "Diffracting Crystal",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/dwellTimePerPixel",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerPixel",
+        "schema:name": "Dwell Time per Pixel",
+        "ada:dataType": "number",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/proportionalCounterDetector",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "proportionalCounterDetector",
+        "schema:name": "Proportional Counter / Detector",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/sequence",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "sequence",
+        "schema:name": "Sequence",
+        "ada:dataType": "integer"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/wdsPhaSetting",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "wdsPhaSetting",
+        "schema:name": "WDS PHA Setting",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/wdsSpectrometerChannel",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "wdsSpectrometerChannel",
+        "schema:name": "WDS Spectrometer Channel",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/xRayLine",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLine",
+        "schema:name": "X-ray Line",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/xRayDetectionMethodPerMonitoredElement",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayDetectionMethodPerMonitoredElement",
+        "schema:name": "X-ray Detection Method per Monitored Element",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      }
+    ]
+  },
   "schema:creator": {
     "schema:name": "T. J. McCoy",
     "@type": [
@@ -359,9 +511,6 @@
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"Electron microprobe analysis was conducted on Ir-coated specimens\" (p.7); results are reported by phase, e.g. \"the calcite has near-end member composition (4 mol.% or less MgCO3 and FeCO3)\" (p.2)",
-  "ada:reportedProperties": [
-    "Carbonate end-member composition (mol%: MgCO3, FeCO3, MnCO3 \u2014 calcite is \"near-end member composition (4 mol.% or less MgCO3 and FeCO3; 0.1 mol.% or less MnCO3)\", p.2); phase identifications (nominal)"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -397,7 +546,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "EPMA analytical workflow"
   },
   "schema:measurementTechnique": [
     {

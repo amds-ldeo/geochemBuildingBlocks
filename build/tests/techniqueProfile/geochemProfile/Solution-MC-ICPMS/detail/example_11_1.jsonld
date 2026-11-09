@@ -7,20 +7,339 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P10",
+  "@id": "ex:solutionMcicpmsTAPP-detail-P10",
   "@type": [
-    "ada:SolutionICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SolutionICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:solutionMcicpmsTAPP-P10",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample digestion",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
+                  }
+                ],
+                "schema:name": "Digestion Temperature",
+                "schema:value": 150,
+                "schema:unitText": "no value available: unnamed property",
+                "schema:description": "Parr bomb: 150 \u00b0C, then 210 \u00b0C; aqua regia: N; NaOH fusion: 720 \u00b0C"
+              },
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration"
+                  }
+                ],
+                "schema:name": "Digestion Duration",
+                "schema:value": "Parr bomb: 3 days; aqua regia: 2 days; NaOH fusion: 13 min"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits \u2014 Methods",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 3,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
+                }
+              ],
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 100,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "~100\u2013200 mg of saw dust and crushed pieces \u2014 5% fractions for ICPMS and for Al/Mg"
+            }
+          ],
+          "schema:name": "BHVO2 and DTS-2b processed alongside the samples",
+          "schema:description": "no value available: schema:description"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "Sample Introduction System",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
+                        }
+                      ],
+                      "schema:name": "Sample Uptake Rate",
+                      "schema:value": 30,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "30 \u00b5l/min \u2014 for Fe, Cr and Mg"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
+                        }
+                      ],
+                      "schema:name": "Make-up Gas and Flow Rate",
+                      "schema:value": "None, no auxiliary gas to the introduction system for Cr \u2014 Cr 'measured without the use of an auxiliary gas to the introduction system to reduce gas-based interferences'",
+                      "schema:unitText": "no value available: unnamed property"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P10/instrument/ICPMS/part/Sample-Introduction-System"
+                },
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": "N \u2014 Cr measured 'at low radiofrequency power and sample gas inflow'",
+                      "schema:unitText": "no value available: unnamed property"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P10/instrument/ICPMS/part/ICP-Source"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "Collision Reaction Cell",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P10/instrument/ICPMS/part/Collision-Reaction-Cell"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                    }
+                  ],
+                  "schema:name": "ICP Tuning",
+                  "schema:value": "Measured \"at low radiofrequency power and sample gas inflow\" deliberately, to reduce gas-based interferences"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:solutionMcicpmsTAPP-detail-P10/instrument/ICPMS"
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "BHVO2, DTS-2b \u2014 'processed alongside the samples'",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+            }
+          ],
+          "schema:name": "Number of Cycles per Block",
+          "schema:value": 200,
+          "schema:description": "Fe: 200 cycles; Cr: 100 cycles; Mg: 100 cycles"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+            }
+          ],
+          "schema:name": "Integration Time per Cycle",
+          "schema:value": 54,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "54Fe, 56Fe, 57Fe, 58Fe, 50Cr, 52Cr, 53Cr, 54Cr: 8.3 s; 24Mg, 25Mg, 26Mg: 16.7 s; other: N"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+            }
+          ],
+          "schema:name": "Double Spike Mixing Ratio",
+          "schema:value": "N/A \u2014 no double spike used"
+        }
+      ],
+      "ada:deltaOrEpsilonValueReferenceStandard": "Fe: IRMM-014; Cr: SRM979; Mg: DTS-2b",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen"
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
   ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "N \u2014 BHVO2 and DTS-2b results are in Supplementary Dataset 2"
+    },
+    {
+      "dqv:isMeasurementOf": "Peak Flatness",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "ICP-MS for Sr and Rb weathering assessment; Si isotopes on a separate NaOH-fusion aliquot"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:sensitivityYield": "24Mg, 25Mg, 26Mg: 80\u201390 V; other: N \u2014 typical signal intensities",
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
@@ -31,40 +350,10 @@
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
-  "ada:deltaOrEpsilonValueReferenceStandard": "Fe: IRMM-014; Cr: SRM979; Mg: DTS-2b",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "N \u2014 BHVO2 and DTS-2b results are in Supplementary Dataset 2",
   "ada:detectionLimit": -9999,
-  "ada:limitOfQuantificationMethod": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock"
-        }
-      ],
-      "schema:name": "Number of Cycles per Block",
-      "schema:value": "Fe: 200 cycles; Cr: 100 cycles; Mg: 100 cycles"
-    },
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio"
-        }
-      ],
-      "schema:name": "Double-Spike Mixing Ratio",
-      "schema:value": "N/A \u2014 no double spike used"
-    }
-  ]
+  "ada:limitOfQuantificationMethod": "missing"
 }

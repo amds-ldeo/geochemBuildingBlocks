@@ -16,17 +16,52 @@ detail instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pur
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:amsTAPP-detail-P0",
   "@type": [
-    "ada:processingMethod"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:processingMethod",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:amsTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Purdue University"
+      },
+      "schema:identifier": "20240409_ams_pu_multisample_1",
+      "schema:startTime": "2024-03-06",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803052-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Thomas Woodruff"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP."
     }
   ],
   "ada:sessionIdentifier": "20240409_ams_pu_multisample_1",
@@ -51,18 +86,53 @@ detail instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pur
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/AMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:amsTAPP-detail-P0",
   "@type": [
-    "ada:processingMethod"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:processingMethod",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:amsTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Purdue University"
+      },
+      "schema:identifier": "20240409_ams_pu_multisample_1",
+      "schema:startTime": "2024-03-06",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803052-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Thomas Woodruff"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP."
     }
   ],
   "ada:sessionIdentifier": "20240409_ams_pu_multisample_1",
@@ -78,20 +148,30 @@ detail instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pur
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:processingMethod ;
-    schema1:measurementTechnique <ex:amsTAPP-P0> ;
+ex:amsTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Thomas Woodruff" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240409_ams_pu_multisample_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Purdue University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-803052-0" ] ;
+            schema1:startTime "2024-03-06" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-03-06" ;
     ada:analyst "Thomas Woodruff" ;
-    ada:componentType "ada:processingMethod" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP." ;
     ada:sampleName "OREX-803052-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240409_ams_pu_multisample_1" .
-
-<ex:amsTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.AMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

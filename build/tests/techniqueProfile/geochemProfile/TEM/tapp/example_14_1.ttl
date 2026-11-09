@@ -1,36 +1,38 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:temTAPP-Thompson2020> a cdi:Activity,
+ex:temTAPP-Thompson2020 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "TEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "STEM probe diameter = 2 nm (used for EDS spectrum imaging); 1% counting statistics criterion for EDX accumulation. Same instrument (JEOL 2500SE at ARES JSC) as KellerBerger2014. Phase ID relies entirely on HRTEM+FFT (no SAED used). Reported detail: ada:spectroscopicDetectorDefault = EDS (thin-window Thermo EDX); ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles); ada:edsAcquisitionModeDefault = Spectrum imaging (spatially resolved maps and line profiles); successive accumulated scans." ;
-    schema1:instrument <ex:temTAPP-Thompson2020/instrument/TEM> ;
+    schema1:instrument <https://example.org/temTAPP-Thompson2020/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -59,7 +61,20 @@
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "no value available: ada:eelsEnergyLossRangeDefault" ;
     ada:phaseIdentificationMethod "HRTEM lattice fringe imaging + FFT; EDS composition maps (no SAED; phase ID by d-spacings from HRTEM); phases identified: pentlandite, Fe-Ni-S, magnetite, serpentine, chrysotile, olivine, metallic Fe" ;
-    ada:reportedProperties "rim microstructure (nominal); rim composition; melt-layer thickness (nm); nanoparticle size (nm); nanoparticle composition; vesicle and melt textures (nominal) — Microstructure and composition of the space-weathered rims — EDX element maps quantified for \"major and minor elements for each sample using the 2 nm probe\" (p.4); melt-layer thickness (nm: \"variably thick (100–500 nm) glassy material\", p.6); nanoparticle sizes and compositions (nm, \"ranging in size from 5 to 50 nm but typically <10 nm\", with Fe-Ni-S compositions, p.6); vesicle and melt textures (nominal)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "melt-layer thickness (nm)",
+                "nanoparticle composition",
+                "nanoparticle size (nm)",
+                "rim composition",
+                "rim microstructure (nominal)",
+                "vesicle and melt textures (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "rim microstructure (nominal); rim composition; melt-layer thickness (nm); nanoparticle size (nm); nanoparticle composition; vesicle and melt textures (nominal) — Microstructure and composition of the space-weathered rims — EDX element maps quantified for \"major and minor elements for each sample using the 2 nm probe\" (p.4); melt-layer thickness (nm: \"variably thick (100–500 nm) glassy material\", p.6); nanoparticle sizes and compositions (nm, \"ranging in size from 5 to 50 nm but typically <10 nm\", with Fe-Ni-S compositions, p.6); vesicle and melt textures (nominal)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Picked in the SEM first, by lasering dose and phase — \"We identified regions of interest in the SEM for further investigation in the TEM\", and the four sections comprise a 1× lasered matrix region, a 5× lasered matrix region \"dominated by phyllosilicates\", a 5× lasered sulfide grain and a 5× lasered olivine grain (p.4)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Phase — four sections cut from the lasered chips (p.4); EDX maps are collected \"for each sample using the 2 nm probe\" with \"The size of the EDX map areas ... optimized to prevent oversampling\" (p.4), and read for the melt layer, vesicles and Fe-Ni-S nanoparticles within it (p.6)" ;
     ada:spectroscopicDetectorDefault "N/A" ;
@@ -86,70 +101,6 @@
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
-
-<ex:temTAPP-Thompson2020/instrument/TEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "TEM" ;
-    schema1:hasPart <ex:temTAPP-Thompson2020/instrument/TEM/part/4D-STEM-Detector>,
-        <ex:temTAPP-Thompson2020/instrument/TEM/part/Aberration-Corrector>,
-        <ex:temTAPP-Thompson2020/instrument/TEM/part/EDS-Detector>,
-        <ex:temTAPP-Thompson2020/instrument/TEM/part/EELS-Spectrometer>,
-        <ex:temTAPP-Thompson2020/instrument/TEM/part/Electron-Source>,
-        <ex:temTAPP-Thompson2020/instrument/TEM/part/Imaging-Detector>,
-        <ex:temTAPP-Thompson2020/instrument/TEM/part/Monochromator> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "JEOL" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "JEOL 2500SE" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault "200 kV" .
-
-<ex:temTAPP-Thompson2020/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "4D-STEM Detector" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Thompson2020/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Aberration Corrector" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Thompson2020/instrument/TEM/part/EDS-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EDS Detector" ;
-    schema1:description "Thin-window Thermo energy-dispersive X-ray spectrometer; 50 mm² detector; configured for large solid-angle X-ray collection" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Thompson2020/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EELS Spectrometer" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Thompson2020/instrument/TEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "Unknown" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Thompson2020/instrument/TEM/part/Imaging-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Imaging Detector" ;
-    schema1:description "BF detector; DF (ADF) detector" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Thompson2020/instrument/TEM/part/Monochromator> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Monochromator" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "SEM survey on the FIB-SEM, used to pick the section sites — \"We investigated the surface morphology and composition of irradiated regions of the 1 and 5 lasered samples using the FEI Quanta 3D focused ion beam scanning electron microscope (FIB-SEM) at JSC. We identified regions of interest in the SEM for further investigation in the TEM\" (p.4); reflectance, FTIR and Mössbauer spectra were also collected on the same chips before sectioning (pp.3–4)" ;
@@ -186,4 +137,68 @@
     schema1:valueName "stemProbeDiameterDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://example.org/temTAPP-Thompson2020/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/temTAPP-Thompson2020/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/temTAPP-Thompson2020/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/temTAPP-Thompson2020/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/temTAPP-Thompson2020/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/temTAPP-Thompson2020/instrument/TEM/part/Electron-Source>,
+        <https://example.org/temTAPP-Thompson2020/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/temTAPP-Thompson2020/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL 2500SE" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault "200 kV" .
+
+<https://example.org/temTAPP-Thompson2020/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Thompson2020/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Thompson2020/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Thin-window Thermo energy-dispersive X-ray spectrometer; 50 mm² detector; configured for large solid-angle X-ray collection" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Thompson2020/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Thompson2020/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Thompson2020/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:description "BF detector; DF (ADF) detector" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Thompson2020/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
 

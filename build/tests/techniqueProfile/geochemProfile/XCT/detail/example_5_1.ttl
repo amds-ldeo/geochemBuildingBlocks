@@ -1,13 +1,37 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Shearer2024> a ada:XCTVolume ;
+ex:labxctTAPP-detail-Shearer2024 a schema1:Dataset,
+        schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique <ex:labxctTAPP-Shearer2024> ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "73001 CSVC" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Shearer2024/instrument/XCT> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:XCTVolume" ;
+    ada:analyticalMode "Single-volume" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "73001 CSVC" ;
@@ -15,10 +39,43 @@
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
-<ex:labxctTAPP-Shearer2024> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/labxctTAPP-detail-Shearer2024/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "215 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 215 .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
     schema1:value "N — voxel size only (38.49 µm); no effective resolution reported. The paper's \"spatial resolution of 60 µm\" is the multispectral core imager, not this XCT scan" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> a schema1:PropertyValue ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
+    schema1:value "Sealed container (the unopened 73001 CSVC); stage holder N — \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent> a schema1:PropertyValue ;
+    schema1:description "179 mA (possibly typo for µA per source)" ;
+    schema1:name "Tube Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 179 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> a schema1:PropertyValue ;
+    schema1:description "38.49 µm voxel edge" ;
+    schema1:name "Voxel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 3.849e+01 .
 

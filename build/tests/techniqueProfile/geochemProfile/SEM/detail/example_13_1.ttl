@@ -1,15 +1,55 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Liu2017> a ada:SEMImage ;
-    schema1:measurementTechnique <ex:semTAPP-Liu2017> ;
+ex:semTAPP-detail-Liu2017 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "X-ray CT (Xradia 520 Versa, Carl Zeiss)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> ;
+                            schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/segmentationMethod> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening>,
+                        <https://ada.astromat.org/metadata/parameter/semTAPP/sliceThickness> ;
+                    schema1:name "no value available: schema:name" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
+                            ada:toolRole "dataReduction" ] ] ;
+            ada:combinedResults [ ] ;
+            ada:edsDeadTime -9999 ;
+            ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
+    ada:analyticalMode "3D Tomography" ;
     ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMImage" ;
     ada:detectionLimit -9999 ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
@@ -19,12 +59,31 @@
     ada:imageStackDimensions "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); the 3D pore-network model \"only focuses on the coal sample #1\" (p.8)" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" ;
-    ada:voxelSize "no value available: ada:voxelSize" .
+    ada:voxelSize "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness" .
 
-<ex:semTAPP-Liu2017> schema1:identifier "no value available: schema:identifier" .
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "N — X-ray micro-CT is run on the same samples (\"The scanning area of the X-ray CT scan was 2 mm in diameter and 1 mm in height ... pixel resolution was 1 µm\", p.3), but as a parallel measurement feeding the same pore-network model, not as a screening step that sites the FIB-SEM volume" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> a schema1:PropertyValue ;
+    schema1:name "Protective Coating Deposition" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> ;
+    schema1:value "No coating applied; not sputtered with gold or other materials" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/segmentationMethod> a schema1:PropertyValue ;
+    schema1:name "Segmentation Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semTAPP/segmentationMethod> ;
+    schema1:value "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/sliceThickness> a schema1:PropertyValue ;
+    schema1:description "15 nm (single layer scanning thickness = 9.0 µm total / 600 slices)" ;
+    schema1:name "Slice Thickness" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semTAPP/sliceThickness> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 15 .
 

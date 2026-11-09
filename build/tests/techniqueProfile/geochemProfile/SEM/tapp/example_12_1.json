@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -113,6 +114,24 @@
       "@id": "ex:semTAPP-Izawa2010-5/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "elemental composition of the analysed phases; phase identification (nominal) \u2014 Elemental compositions of the analysed phases, used with the \u03bcXRD and CL data for phase identification (nominal); the EDX system detects \"all elements from C to U, with a detection limit of 0.5 wt% for most elements\" (p.3)",
+    "ada:defaultReportedProperties": [
+      "elemental composition of the analysed phases",
+      "phase identification (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "carbonaceous chondrite"
@@ -188,9 +207,6 @@
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
-  "ada:reportedProperties": [
-    "elemental composition of the analysed phases; phase identification (nominal) \u2014 Elemental compositions of the analysed phases, used with the \u03bcXRD and CL data for phase identification (nominal); the EDX system detects \"all elements from C to U, with a detection limit of 0.5 wt% for most elements\" (p.3)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -204,7 +220,7 @@
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "SEM analytical workflow",
     "schema:step": [
       {
         "@type": [

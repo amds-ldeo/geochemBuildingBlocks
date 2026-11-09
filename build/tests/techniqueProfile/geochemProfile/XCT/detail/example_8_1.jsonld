@@ -7,29 +7,307 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Glavin2023",
+  "@id": "ex:labxctTAPP-detail-Glavin2023",
   "@type": [
-    "ada:XCTVolume"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XCTVolume",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:labxctTAPP-Glavin2023",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/labxctTAPP/sampleMountingMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/sampleMountingMethod"
+            }
+          ],
+          "schema:name": "Sample Mounting Method",
+          "schema:value": "Glass vial placed in scanner"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sourceToObjectDistance",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/sourceToObjectDistance"
+            }
+          ],
+          "schema:name": "Source-to-Object Distance (SOD)",
+          "schema:value": 39.22,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "39.22 mm"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/sourceToDetectorDistance",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/sourceToDetectorDistance"
+            }
+          ],
+          "schema:name": "Source-to-Detector Distance (SDD)",
+          "schema:value": 679.51,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "679.51 mm"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/rotationRange",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/rotationRange"
+            }
+          ],
+          "schema:name": "Rotation Range",
+          "schema:value": 360,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "360\u00b0 (continuous)"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/numberOfProjections",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/numberOfProjections"
+            }
+          ],
+          "schema:name": "Number of Projections",
+          "schema:value": 3141
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/rotationStepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/rotationStepSize"
+            }
+          ],
+          "schema:name": "Rotation Step Size",
+          "schema:value": 0.115,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "0.115\u00b0"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/exposureTimePerProjection",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/exposureTimePerProjection"
+            }
+          ],
+          "schema:name": "Exposure Time per Projection",
+          "schema:value": 1.0,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "1.00 s per frame"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjection",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjection"
+            }
+          ],
+          "schema:name": "Frames Averaged per Projection",
+          "schema:value": 8,
+          "schema:description": "8 frames averaged per projection"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/rotationMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/rotationMode"
+            }
+          ],
+          "schema:name": "Rotation Mode",
+          "schema:value": "Continuous 360\u00b0 rotation"
+        }
+      ],
+      "prov:used": [
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "Nikon CTAgentPro v5.4 (FBP algorithm)",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "XCT",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 160,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)"
+                },
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                    }
+                  ],
+                  "schema:name": "Tube Current",
+                  "schema:value": 38,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "38 \u00b5A"
+                },
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                    }
+                  ],
+                  "schema:name": "X-ray Pre-filter",
+                  "schema:value": "None (intentionally unfiltered; worst-case dose experiment)"
+                },
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/voxelSize"
+                    }
+                  ],
+                  "schema:name": "Voxel Size",
+                  "schema:value": 11.54,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "11.54 \u00b5m (cubic voxel edge)"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:labxctTAPP-detail-Glavin2023/instrument/XCT"
+            }
+          ]
+        }
+      ],
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/sampleMass",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/sampleMass"
+                }
+              ],
+              "schema:name": "Sample Mass",
+              "schema:value": 4.643,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "4.6430 g (Murchison B in vial)"
+            }
+          ],
+          "schema:name": "Murchison B (USNM 5453,1)"
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA JSC Astromaterials X-FaCT Lab"
+      },
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Powder or crushed split \u2014 chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
   ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "Scott A. Eckley",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleDimensions": "missing",
-  "ada:sampleName": "Murchison B (USNM 5453,1)",
-  "ada:samplingUnitName": "Labelled: the split \"Murchison B (mass = 4.6430 g)\", scanned in its sealed vial; its counterpart \"Murchison A\" was the unscanned control (p.3)",
-  "ada:voiApplied": "Full vial volume (2000 \u00d7 2000 \u00d7 2000 voxels)",
+  "schema:distribution": [
+    {
+      "schema:encodingFormat": [
+        "TIFF (continuous series of 2D TIFF images)"
+      ]
+    }
+  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
@@ -43,6 +321,38 @@
       ],
       "schema:name": "Effective Spatial Resolution (PSF/MTF)",
       "schema:value": "~30 \u00b5m \u2014 stated as \"resolution limits of ~30 \u00b5m (around 3x the voxel size)\" against an 11.54 \u00b5m voxel. Rule-of-thumb estimate; no PSF or MTF measurement"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/voiApplied",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/voiApplied"
+        }
+      ],
+      "schema:name": "VOI Applied",
+      "schema:value": "Full vial volume (2000 \u00d7 2000 \u00d7 2000 voxels)"
     }
-  ]
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Scott A. Eckley"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Single-volume"
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "Scott A. Eckley",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleDimensions": "missing",
+  "ada:sampleName": "Murchison B (USNM 5453,1)",
+  "ada:samplingUnitName": "Labelled: the split \"Murchison B (mass = 4.6430 g)\", scanned in its sealed vial; its counterpart \"Murchison A\" was the unscanned control (p.3)"
 }

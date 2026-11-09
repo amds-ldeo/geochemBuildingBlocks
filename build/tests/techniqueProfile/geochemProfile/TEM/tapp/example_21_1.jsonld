@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -88,7 +90,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "TEM analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Continuity with the earlier analyses \u2014 \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5)",
   "schema:object": [
@@ -305,6 +308,24 @@
       }
     ]
   },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "\"Fe L3,2 spectra\"; Fe oxidation state (nominal) \u2014 Iron oxidation state from TEM-EELS, acquired in DualEELS mode with 0.5\u20130.7 eV energy resolution at the zero-loss peak (p.3) and reported as Fe L3,2 spectra for point and line analyses against standard references (Figs 4\u20135, p.5); the derived output is the Fe0/Fe2+/Fe3+ assignment per point (nominal)",
+    "ada:defaultReportedProperties": [
+      "Fe L3,2 spectra",
+      "Fe oxidation state (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:eelsAcquisitionModeDefault": "Line scan",
   "ada:eelsEdgesDefault": [
     "\"Fe L3,2 edge\" (~707\u2013709 eV) \u2192 Fe \u2014 L3 peak at 707.7 eV for Fe\u2070, 707.2 eV for Fe\u00b2\u207a, 709.0 eV for Fe\u00b3\u207a"
@@ -340,9 +361,6 @@
     }
   ],
   "ada:samplingUnitType": "Grain > Sub-volume (FIB foil) \u2014 \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\", reported as \"TEM-EELS point and line analysis results\" (p.5)",
-  "ada:reportedProperties": [
-    "\"Fe L3,2 spectra\"; Fe oxidation state (nominal) \u2014 Iron oxidation state from TEM-EELS, acquired in DualEELS mode with 0.5\u20130.7 eV energy resolution at the zero-loss peak (p.3) and reported as Fe L3,2 spectra for point and line analyses against standard references (Figs 4\u20135, p.5); the derived output is the Fe0/Fe2+/Fe3+ assignment per point (nominal)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

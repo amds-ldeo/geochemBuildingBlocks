@@ -17,6 +17,7 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -33,6 +34,27 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
   "schema:description": "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Densinator.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Densinator - Custom-built glove-box mounted pycnometer",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "stdev",
+      "P1",
+      "P atm",
+      "Loop",
+      "Start",
+      "End"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -61,14 +83,11 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "stdev | P1 | P atm | Loop | Start | End"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Gas pycnometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -109,6 +128,7 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -117,6 +137,7 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -134,6 +155,27 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
   "schema:description": "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Densinator.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Densinator - Custom-built glove-box mounted pycnometer",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "stdev",
+      "P1",
+      "P atm",
+      "Loop",
+      "Start",
+      "End"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -162,14 +204,11 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "stdev | P1 | P atm | Loop | Start | End"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Gas pycnometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -207,17 +246,18 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:gpycTAPP-P0> a cdi:Activity,
+ex:gpycTAPP-P0 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Gas pycnometry analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -241,7 +281,19 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
     ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Densinator - Custom-built glove-box mounted pycnometer" ;
-    ada:reportedProperties "stdev | P1 | P atm | Loop | Start | End" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "End",
+                "Loop",
+                "P atm",
+                "P1",
+                "Start",
+                "stdev" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
@@ -337,6 +389,19 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -355,7 +420,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.GPYC.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

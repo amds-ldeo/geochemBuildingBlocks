@@ -1,24 +1,126 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Richard2019> a ada:XCTVolume ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique <ex:labxctTAPP-Richard2019> ;
+ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
+        schema1:Product ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepth>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Lab. de Microtomografía de Rayos X, UNAM, Mexico" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+                    schema1:name "Sample A (olivine)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Richard2019/instrument/XCT> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "ImageJ; Avizo 9.2" ;
+                            ada:toolRole "dataReduction" ] ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:XCTVolume" ;
+    ada:analyticalMode "Single-volume" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:sampleDimensions "~1 mm olivine" ;
     ada:sampleName "Sample A (olivine)" ;
     ada:samplingUnitName "Labelled: \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2), hosting one silicate melt inclusion (Fig. 1, p.4)" ;
-    ada:sessionIdentifier "missing" ;
-    ada:voiApplied "Full scan volume" .
+    ada:sessionIdentifier "missing" .
 
-<ex:labxctTAPP-Richard2019> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/labxctTAPP-detail-Richard2019/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "30 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 30 .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
     schema1:value "N — the paper's \"spatial resolution of 2.06 µm/px (8.7 µm³/vx)\" is the voxel size; no effective resolution reported" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> a schema1:PropertyValue ;
+    schema1:description "8 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 8 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection> a schema1:PropertyValue ;
+    schema1:description "~200 reference (blank) images taken; number of frames averaged per projection N" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection> ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> a schema1:PropertyValue ;
+    schema1:name "Number of Projections" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> ;
+    schema1:value 1601 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepth> a schema1:PropertyValue ;
+    schema1:name "Output Bit Depth" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepth> ;
+    schema1:value "32-bit (ZEISS XRM output)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod> a schema1:PropertyValue ;
+    schema1:name "Phase Identification Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod> ;
+    schema1:value "Phase identified by grayscale contrast (vapor vs. silicate/mineral)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> a schema1:PropertyValue ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+    schema1:value "~1 mm olivine" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod> a schema1:PropertyValue ;
+    schema1:name "Segmentation Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod> ;
+    schema1:value "Grayscale threshold range selection (ImageJ)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> a schema1:PropertyValue ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> ;
+    schema1:value "Threshold range selected to include all voxels of one phase while excluding adjacent phases; specific values N" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> a schema1:PropertyValue ;
+    schema1:name "VOI Applied" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    schema1:value "Full scan volume" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> a schema1:PropertyValue ;
+    schema1:description "2.06 µm/px" ;
+    schema1:name "Voxel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 2.06e+00 .
 

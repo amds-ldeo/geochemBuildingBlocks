@@ -1,30 +1,34 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:solutionMcicpmsTAPP-P13> a cdi:Activity,
+ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "Solution MC-ICP-MS analytical workflow" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "configuration 1; configuration 2 — 'Titanium isotopes were collected in two cup configurations'" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -40,12 +44,10 @@
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -54,7 +56,7 @@
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
-    schema1:instrument <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS> ;
+    schema1:instrument <https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geochemistry and Petrology, ETH Zurich" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -104,7 +106,17 @@
                 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses "2" ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
-    ada:reportedProperties "ε46Ti, ε48Ti, ε50Ti — parts per 10⁴ relative to an in-house Alfa Aesar Ti wire standard" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "ε46Ti",
+                "ε48Ti",
+                "ε50Ti" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "ε46Ti, ε48Ti, ε50Ti — parts per 10⁴ relative to an in-house Alfa Aesar Ti wire standard" ] ;
     ada:samplingUnitType "A 5.2 mg aliquot of Bennu aggregate" ;
     ada:secondaryReferenceMaterialDefault "BHVO-2, Agua Zarcas — Agua Zarcas is a CM2 chondrite" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
@@ -127,70 +139,11 @@
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "2 s.d." ;
     ada:washTimeBetweenSamples -9999 .
-
-<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collector>,
-        <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/ICP-Source>,
-        <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Interface-Cone>,
-        <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Sample-Introduction-System>,
-        <ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune Plus" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:name "missing" ;
-    ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
-
-<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<ex:solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
@@ -324,17 +277,6 @@
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -351,9 +293,59 @@
     schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collector>,
+        <https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Sample-Introduction-System>,
+        <https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune Plus" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:name "missing" ;
+    ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
+
+<https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
 

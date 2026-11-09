@@ -52,6 +52,235 @@
         "schema:defaultValue"
       ]
     },
+    "epma_beamCurrent": {
+      "title": "Beam Current",
+      "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:targetMaterialColumn/epmaTAPP/beamCurrent"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "beamCurrent"
+        },
+        "schema:name": {
+          "const": "Beam Current"
+        },
+        "ada:dataType": {
+          "const": "number"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        },
+        "schema:defaultValue": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType",
+        "schema:defaultValue"
+      ]
+    },
+    "epma_beamDamageMinimization": {
+      "title": "Beam Damage Minimization",
+      "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:targetMaterialColumn/epmaTAPP/beamDamageMinimization"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "beamDamageMinimization"
+        },
+        "schema:name": {
+          "const": "Beam Damage Minimization"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
+    "epma_beamDiameter": {
+      "title": "Beam Diameter",
+      "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:targetMaterialColumn/epmaTAPP/beamDiameter"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "beamDiameter"
+        },
+        "schema:name": {
+          "const": "Beam Diameter"
+        },
+        "ada:dataType": {
+          "const": "number"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "M"
+        },
+        "schema:defaultValue": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType",
+        "schema:defaultValue"
+      ]
+    },
+    "epma_beamMode": {
+      "title": "Beam Mode",
+      "description": "Whether the electron beam was operated as a stationary focused spot, defocused to a specified diameter, or rastered over a small area during a single-point analysis. Must be consistent with the Beam Diameter and Beam Raster Dimensions fields. For mapping, beam scanning is controlled by Step Size / Pixel Size and Stage Scan vs. Beam Scan instead.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:targetMaterialColumn/epmaTAPP/beamMode"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "beamMode"
+        },
+        "schema:name": {
+          "const": "Beam Mode"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        },
+        "schema:inDefinedTermSet": {
+          "const": {
+            "@id": "ada:vocab/beam-mode"
+          }
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType",
+        "schema:defaultValue"
+      ]
+    },
+    "epma_beamRasterDimensions": {
+      "title": "Beam Raster Dimensions",
+      "description": "Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width \u00d7 height in \u00b5m. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:targetMaterialColumn/epmaTAPP/beamRasterDimensions"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "beamRasterDimensions"
+        },
+        "schema:name": {
+          "const": "Beam Raster Dimensions"
+        },
+        "ada:dataType": {
+          "const": "number"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "epma_peakCountingTime": {
       "title": "Peak Counting Time",
       "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
@@ -789,6 +1018,6 @@
     "itemIdentifier": "ogch.registry.targetMaterialColumns",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-10-31"
+    "dateOfLastChange": "2026-11-09"
   }
 }

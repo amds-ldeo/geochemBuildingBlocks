@@ -1,24 +1,135 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Tomkinson2015> a ada:XCTVolume ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique <ex:labxctTAPP-Tomkinson2015> ;
+ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
+        schema1:Product ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "BSE images compared with XCT attenuation contrast" ;
+                    schema1:name "SEM-BSE (qualitative comparison)" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution" ],
+        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "High noise in central portion of sample attributed to BH; augite/mesostasis difficult to distinguish in central region" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteria>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
+                        <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
+                    schema1:name "NWA 5790" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Avizo™" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:XCTVolume" ;
+    ada:analyticalMode "Single-volume" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:sampleDimensions "~1.1 × 1.2 × 0.8 cm" ;
     ada:sampleName "NWA 5790" ;
     ada:samplingUnitName "Labelled: 2-D slices of the one scanned volume — \"XCT slice 500\" to \"XCT slice 1000\" (Table 1, p.2) — of \"a single 2.7 g chip\" of NWA 5790 (p.3)" ;
-    ada:sessionIdentifier "missing" ;
-    ada:voiApplied "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy" .
+    ada:sessionIdentifier "missing" .
 
-<ex:labxctTAPP-Tomkinson2015> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 120 .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
     schema1:value "N — the paper states \"a resolution of 10.3 x 10.3 x 10.3 µm³ per voxel\", i.e. the voxel size; no effective resolution reported" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> a schema1:PropertyValue ;
+    schema1:description "20 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 20 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> a schema1:PropertyValue ;
+    schema1:name "Number of Projections" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> ;
+    schema1:value 3143 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteria> a schema1:PropertyValue ;
+    schema1:name "Partial Volume Effect Criteria" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteria> ;
+    schema1:value "Errors from threshold + PVE generally <5% for grains >125 voxels; features smaller than ~3 voxels unreliable" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod> a schema1:PropertyValue ;
+    schema1:name "Phase Identification Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod> ;
+    schema1:value "Phases: augite, mesostasis, olivine, titanomagnetite, pore space — identified by grayscale correlated to linear attenuation coefficients; verified with SEM" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> a schema1:PropertyValue ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+    schema1:value "~1.1 × 1.2 × 0.8 cm" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> a schema1:PropertyValue ;
+    schema1:description "2.7 g" ;
+    schema1:name "Sample Mass" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 2.7e+00 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod> a schema1:PropertyValue ;
+    schema1:name "Segmentation Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod> ;
+    schema1:value "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> a schema1:PropertyValue ;
+    schema1:name "Segmentation Threshold Values or Criteria" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> ;
+    schema1:value "Thresholds not given numerically; SEM images used to define phases; errors from threshold + subvoxel variability generally <5% for grains >125 voxels" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> a schema1:PropertyValue ;
+    schema1:name "VOI Applied" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    schema1:value "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> a schema1:PropertyValue ;
+    schema1:description "10.3 × 10.3 × 10.3 µm³" ;
+    schema1:name "Voxel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1.03e+01 .
 

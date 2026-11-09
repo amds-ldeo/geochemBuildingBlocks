@@ -1,17 +1,18 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:nanosimsTAPP-P0> a cdi:Activity,
+ex:nanosimsTAPP-P0 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Nanoscale secondary ion mass spectrometry analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -35,7 +36,19 @@
     ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(OU)NanoSIMS 50L" ;
-    ada:reportedProperties "Sample Name | X | Y | Z | 16O Counts | 17O/16O Ratio" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "16O Counts",
+                "17O/16O Ratio",
+                "Sample Name",
+                "X",
+                "Y",
+                "Z" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .

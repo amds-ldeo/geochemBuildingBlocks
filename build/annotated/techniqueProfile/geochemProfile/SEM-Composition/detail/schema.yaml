@@ -206,6 +206,9 @@ allOf:
                     const: Halogen Correction on Oxygen
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/halogen-correction-on-oxygen
                 required:
                 - '@id'
                 - '@type'
@@ -423,6 +426,9 @@ allOf:
                     const: Halogen Correction on Oxygen
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/halogen-correction-on-oxygen
                 required:
                 - '@id'
                 - '@type'
@@ -930,6 +936,66 @@ allOf:
         minContains: 0
         maxContains: 1
       title: Additional Properties
+    dqv:hasQualityMeasurement:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: Analytical Precision
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Precision of repeated measurements on the same or equivalent
+                  reference material, expressed as 1-sigma relative standard deviation
+                  (%). State whether the repeats were made within one session (repeatability)
+                  or across sessions (intermediate precision, in ISO 5725 terms).
+                  Include reference material name, number of analyses (n), and the
+                  measured value.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+            required:
+            - dqv:value
+        - if:
+            properties:
+              dqv:isMeasurementOf:
+                const: Analytical Accuracy
+            required:
+            - dqv:isMeasurementOf
+          then:
+            properties:
+              dqv:value:
+                description: Offset between measured and accepted reference values
+                  for secondary standards, expressed as percent relative bias. Include
+                  reference material, reference value source, and the measured value.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+            required:
+            - dqv:value
+      allOf:
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: Analytical Precision
+          required:
+          - dqv:isMeasurementOf
+      - contains:
+          properties:
+            dqv:isMeasurementOf:
+              const: Analytical Accuracy
+          required:
+          - dqv:isMeasurementOf
+      title: Quality Measurements
     schema:variableMeasured:
       type: array
       items:
@@ -1010,4 +1076,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'

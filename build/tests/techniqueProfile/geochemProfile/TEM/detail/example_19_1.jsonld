@@ -7,18 +7,312 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Cymes2023-2",
+  "@id": "ex:temTAPP-detail-Cymes2023-2",
   "@type": [
-    "ada:TEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:TEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:temTAPP-Cymes2023-2",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/temTAPP/samplePreparationDetails",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/temTAPP/samplePreparationDetails"
+                  }
+                ],
+                "schema:name": "Sample Preparation Details",
+                "schema:value": "FEI Helios G3 Dual Beam FIB-SEM at NRL; ~80 nm amorphous C coating applied to grain before FIB; 1\u20132 \u00b5m e-beam amorphous C protection strip; initial in situ thinning to ~1\u20132 \u00b5m, then Pt-welded to Cu TEM half-grid; thinned to ~80\u2013100 nm; stored under N\u2082; baked 140\u00b0C for 8 h under vacuum before TEM"
+              }
+            ],
+            "schema:description": "FIB lift-out (Ga+)",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "FIB-SEM imaging of the dispersed soil grains \u2014 \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)"
+            }
+          ],
+          "schema:name": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) \u2014 Apollo 17 soil 71501 (<45 \u00b5m fraction)"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/temTAPP/spectroscopicDetector",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/spectroscopicDetector"
+            }
+          ],
+          "schema:name": "Spectroscopic Detector(s)",
+          "schema:value": "EELS (Gatan Enfinium ER Dual EELS); EDS (Bruker X-Flash windowless SDD, 0.7 sr solid angle)"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/analyticalSubMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/analyticalSubMode"
+            }
+          ],
+          "schema:name": "Analytical Sub-mode",
+          "schema:value": "HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/stemProbeDiameter",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/stemProbeDiameter"
+            }
+          ],
+          "schema:name": "STEM Probe Diameter",
+          "schema:value": 0.1,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "0.1 nm"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/stemProbeCurrent",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/stemProbeCurrent"
+            }
+          ],
+          "schema:name": "STEM Probe Current",
+          "schema:value": 40,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "40 pA"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
+            }
+          ],
+          "schema:name": "EDS Acquisition Mode",
+          "schema:value": "Spectrum imaging (SI): simultaneous EELS + EDS at each pixel; both low-loss and core-loss EELS collected"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/eelsAcquisitionMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/eelsAcquisitionMode"
+            }
+          ],
+          "schema:name": "EELS Acquisition Mode",
+          "schema:value": "Dual EELS spectrum imaging (simultaneous low-loss and core-loss)"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/eelsEdges",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/eelsEdges"
+            }
+          ],
+          "schema:name": "EELS Edges",
+          "schema:value": "\"Fe L2,3 edge\" (700\u2013735 eV) \u2192 Fe; \"O K-edge\" (528\u2013550 eV) \u2192 O"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrum"
+            }
+          ],
+          "schema:name": "EELS Acquisition Time per Spectrum",
+          "schema:value": 2,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "Fe (L2,3); O (K)"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/eelsEnergyLossRange",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/eelsEnergyLossRange"
+            }
+          ],
+          "schema:name": "EELS Energy Loss Range",
+          "schema:value": "Fe (L2,3); O (K)"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/eelsEnergyCalibration",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/eelsEnergyCalibration"
+            }
+          ],
+          "schema:name": "EELS Energy Calibration",
+          "schema:value": "EELS reference standards collected on same microscope and spectrometer: FeNi metal (Fe\u2070); w\u00fcstite (FeO) powder (Fe\u00b2\u207a); synthetic Fe\u00b3\u207a-bearing glass (Fe\u00b3\u207a); magnetite Fe\u2083O\u2084 (mixed Fe\u00b2\u207a/Fe\u00b3\u207a) \u2014 Burgess & Stroud (2018b)"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethod"
+            }
+          ],
+          "schema:name": "EELS Chemical State Determination Method",
+          "schema:value": "Integral white-line intensity ratio I(L3)/I(L2) \u2192 Van Aken & Liebscher (2002) universal calibration curve for Fe\u00b3\u207a/\u03a3Fe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "TEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/temTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/temTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 200,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "200 keV"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:temTAPP-detail-Cymes2023-2/instrument/TEM"
+            }
+          ]
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Naval Research Laboratory, Washington, D.C., USA"
+      },
+      "schema:description": "Nion UltraSTEM200-X at NRL; dedicated aberration-corrected STEM; cold-FEG; 0.1 nm probe diameter; 40 pA; 200 keV. Gatan Enfinium ER Dual EELS (simultaneous low-loss + core-loss spectrum imaging). Bruker X-Flash windowless SDD EDS (0.7 sr). EELS Fe\u00b3\u207a/\u03a3Fe quantified by integral I(L3)/I(L2) ratio \u2192 Van Aken & Liebscher (2002) universal calibration curve. Oxidation state maps by MLLS fitting with 2 reference spectra; Fe\u2070+Fe\u00b2\u207a not separated by MLLS (overlapping L3 peaks); Fe\u2070 identified by anti-correlation with O K-edge. EDS: Cliff-Lorimer; detector-specific k-factors; 60% O assumed; no absorption correction. Coordinated with JEOL JEM-2200FS (same FIB section). EELS + EDS acquisition details in supplementary Fig. S1. Data deposited at Zenodo: 10.5281/zenodo.7439174.",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:deadTime": -9999
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "B.A. Cymes; K.D. Burgess; R.M. Stroud"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "FIB (FEI Helios G3 Dual Beam at NRL); BF/EFTEM/SAED/HRTEM (JEOL JEM-2200FS at NRL; coordinated with Nion UltraSTEM200-X)",
+        "schema:description": "Fe oxidation state mapping and Fe\u00b3\u207a/\u03a3Fe quantification in exsolved lunar pyroxene (Apollo 17 soil) using STEM-EELS; MLLS and integral white-line ratio methods; coordinated HAADF-STEM + EDS for compositional mapping"
+      }
+    },
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "Zenodo repository: 10.5281/zenodo.7439174"
     }
   ],
   "ada:sessionIdentifier": "missing",

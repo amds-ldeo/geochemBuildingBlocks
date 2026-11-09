@@ -16,18 +16,239 @@ detail instance derived from ADA n=1354 | Nicholas E Timms | Curtin University |
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:ebsdTAPP-detail-P0",
   "@type": [
-    "ada:SEMEBSDGrainImageMap"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMEBSDGrainImageMap",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:ebsdTAPP-P0",
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/ebsdTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/ebsdTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 20,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "20 kV"
+                },
+                {
+                  "@id": "ada:parameter/ebsdTAPP/beamCurrent",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/ebsdTAPP/beamCurrent"
+                    }
+                  ],
+                  "schema:name": "Beam Current",
+                  "schema:value": 1.5,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "~1.5 nA"
+                },
+                {
+                  "@id": "ada:parameter/ebsdTAPP/workingDistance",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/ebsdTAPP/workingDistance"
+                    }
+                  ],
+                  "schema:name": "Working Distance",
+                  "schema:value": 17.8,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "17.8-18.3 mm"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:ebsdTAPP-detail-P0/instrument/SEM"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "Oxford Instruments AZtec v5.1 Symmetry",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "AZtecCrystal",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/ebsdTAPP/ebsdCameraExposureTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/ebsdCameraExposureTime"
+            }
+          ],
+          "schema:name": "EBSD Camera Exposure Time",
+          "schema:value": 20,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "20-25 ms"
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/houghResolution",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/houghResolution"
+            }
+          ],
+          "schema:name": "Hough Resolution",
+          "schema:value": 60
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/mapStepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/mapStepSize"
+            }
+          ],
+          "schema:name": "Map Step Size",
+          "schema:value": 60,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "60-600 nm"
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/ebsdIndexingRate",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/ebsdIndexingRate"
+            }
+          ],
+          "schema:name": "EBSD Indexing Rate",
+          "schema:value": 45,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "~45-1005 points per second"
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/edsChannels",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/edsChannels"
+            }
+          ],
+          "schema:name": "EDS Channels",
+          "schema:value": 2024
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/edsProcessTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/edsProcessTime"
+            }
+          ],
+          "schema:name": "EDS Process Time",
+          "schema:value": 5
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/crystalStructureFileSources",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/crystalStructureFileSources"
+            }
+          ],
+          "schema:name": "Crystal Structure File Sources",
+          "schema:value": "HKL; ICSD; American Mineralogist"
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Curtin University",
+        "schema:identifier": "https://ror.org/02n415q13"
+      },
+      "schema:startTime": "2023-11-16",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier"
     }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Nicholas E Timms"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Simultaneous EBSD-EDS mapping"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "Nicholas E Timms",
@@ -35,11 +256,7 @@ detail instance derived from ADA n=1354 | Nicholas E Timms | Curtin University |
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnitName": "missing",
-  "ada:workingDistance": 17.8,
-  "ada:ebsdCameraExposureTime": 20,
-  "ada:mapStepSize": 60,
-  "ada:ebsdIndexingRate": "~45-1005 points per second"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -55,19 +272,240 @@ detail instance derived from ADA n=1354 | Nicholas E Timms | Curtin University |
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EBSD/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:ebsdTAPP-detail-P0",
   "@type": [
-    "ada:SEMEBSDGrainImageMap"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMEBSDGrainImageMap",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:ebsdTAPP-P0",
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "SEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/ebsdTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/ebsdTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 20,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "20 kV"
+                },
+                {
+                  "@id": "ada:parameter/ebsdTAPP/beamCurrent",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/ebsdTAPP/beamCurrent"
+                    }
+                  ],
+                  "schema:name": "Beam Current",
+                  "schema:value": 1.5,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "~1.5 nA"
+                },
+                {
+                  "@id": "ada:parameter/ebsdTAPP/workingDistance",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/ebsdTAPP/workingDistance"
+                    }
+                  ],
+                  "schema:name": "Working Distance",
+                  "schema:value": 17.8,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "17.8-18.3 mm"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:ebsdTAPP-detail-P0/instrument/SEM"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "Oxford Instruments AZtec v5.1 Symmetry",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "AZtecCrystal",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/ebsdTAPP/ebsdCameraExposureTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/ebsdCameraExposureTime"
+            }
+          ],
+          "schema:name": "EBSD Camera Exposure Time",
+          "schema:value": 20,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "20-25 ms"
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/houghResolution",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/houghResolution"
+            }
+          ],
+          "schema:name": "Hough Resolution",
+          "schema:value": 60
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/mapStepSize",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/mapStepSize"
+            }
+          ],
+          "schema:name": "Map Step Size",
+          "schema:value": 60,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "60-600 nm"
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/ebsdIndexingRate",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/ebsdIndexingRate"
+            }
+          ],
+          "schema:name": "EBSD Indexing Rate",
+          "schema:value": 45,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "~45-1005 points per second"
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/edsChannels",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/edsChannels"
+            }
+          ],
+          "schema:name": "EDS Channels",
+          "schema:value": 2024
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/edsProcessTime",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/edsProcessTime"
+            }
+          ],
+          "schema:name": "EDS Process Time",
+          "schema:value": 5
+        },
+        {
+          "@id": "ada:parameter/ebsdTAPP/crystalStructureFileSources",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/crystalStructureFileSources"
+            }
+          ],
+          "schema:name": "Crystal Structure File Sources",
+          "schema:value": "HKL; ICSD; American Mineralogist"
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Curtin University",
+        "schema:identifier": "https://ror.org/02n415q13"
+      },
+      "schema:startTime": "2023-11-16",
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier"
     }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Nicholas E Timms"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Simultaneous EBSD-EDS mapping"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "Nicholas E Timms",
@@ -75,36 +513,129 @@ detail instance derived from ADA n=1354 | Nicholas E Timms | Curtin University |
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnitName": "missing",
-  "ada:workingDistance": 17.8,
-  "ada:ebsdCameraExposureTime": 20,
-  "ada:mapStepSize": 60,
-  "ada:ebsdIndexingRate": "~45-1005 points per second"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-P0> a ada:SEMEBSDGrainImageMap ;
-    schema1:measurementTechnique <ex:ebsdTAPP-P0> ;
+ex:ebsdTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Nicholas E Timms" ] ;
+            schema1:roleName "analyst" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/ebsdTAPP/crystalStructureFileSources>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdCameraExposureTime>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdIndexingRate>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsChannels>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsProcessTime>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/houghResolution>,
+                <https://ada.astromat.org/metadata/parameter/ebsdTAPP/mapStepSize> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/02n415q13" ;
+                    schema1:name "Curtin University" ] ;
+            schema1:startTime "2023-11-16" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "AZtecCrystal" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/ebsdTAPP-detail-P0/instrument/SEM> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-16" ;
     ada:analyst "Nicholas E Timms" ;
-    ada:componentType "ada:SEMEBSDGrainImageMap" ;
-    ada:ebsdCameraExposureTime 20 ;
-    ada:ebsdIndexingRate "~45-1005 points per second" ;
+    ada:analyticalMode "Simultaneous EBSD-EDS mapping" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:mapStepSize 60 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:workingDistance 1.78e+01 .
+    ada:sessionIdentifier "missing" .
 
-<ex:ebsdTAPP-P0> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/ebsdTAPP-detail-P0/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/ebsdTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/ebsdTAPP/beamCurrent>,
+        <https://ada.astromat.org/metadata/parameter/ebsdTAPP/workingDistance> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "20 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 20 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/beamCurrent> a schema1:PropertyValue ;
+    schema1:description "~1.5 nA" ;
+    schema1:name "Beam Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/beamCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1.5e+00 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/crystalStructureFileSources> a schema1:PropertyValue ;
+    schema1:name "Crystal Structure File Sources" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/crystalStructureFileSources> ;
+    schema1:value "HKL; ICSD; American Mineralogist" .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdCameraExposureTime> a schema1:PropertyValue ;
+    schema1:description "20-25 ms" ;
+    schema1:name "EBSD Camera Exposure Time" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdCameraExposureTime> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 20 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdIndexingRate> a schema1:PropertyValue ;
+    schema1:description "~45-1005 points per second" ;
+    schema1:name "EBSD Indexing Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/ebsdIndexingRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 45 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsChannels> a schema1:PropertyValue ;
+    schema1:name "EDS Channels" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsChannels> ;
+    schema1:value 2024 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsProcessTime> a schema1:PropertyValue ;
+    schema1:name "EDS Process Time" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/edsProcessTime> ;
+    schema1:value 5 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/houghResolution> a schema1:PropertyValue ;
+    schema1:name "Hough Resolution" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/houghResolution> ;
+    schema1:value 60 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/mapStepSize> a schema1:PropertyValue ;
+    schema1:description "60-600 nm" ;
+    schema1:name "Map Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/mapStepSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 60 .
+
+<https://ada.astromat.org/metadata/parameter/ebsdTAPP/workingDistance> a schema1:PropertyValue ;
+    schema1:description "17.8-18.3 mm" ;
+    schema1:name "Working Distance" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/ebsdTAPP/workingDistance> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1.78e+01 .
 
 
 ```
@@ -755,7 +1286,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EBSD.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

@@ -17,6 +17,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -349,35 +350,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -398,6 +370,24 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     ]
   },
   "ada:massesMeasuredDefault": "³¹P → P; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁷¹Ga → Ga; ⁷⁴Ge → Ge; ⁷⁵As → As; ⁹⁵Mo → Mo; ¹⁰²Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁶Pd → Pd; ¹²⁰Sn → Sn; ¹²¹Sb → Sb; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹⁰Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — 'were used to acquire the peaks 31P, 51V, ... and 197Au' (§2.2)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (µg/g) — abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'",
+    "ada:defaultReportedProperties": [
+      "P, Fe, Co, Ni (mg/g)",
+      "V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (µg/g)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -474,7 +464,8 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -525,9 +516,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "ada:toolRole": "dataReduction",
       "schema:name": "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named"
     }
-  ],
-  "ada:reportedProperties": [
-    "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (µg/g) — abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'"
   ],
   "ada:ablationSamplingMode": [
     "raster: raster scan over a few millimeters; Ge spots: spot — §2.2"
@@ -590,6 +578,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -598,6 +587,7 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -931,35 +921,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -980,6 +941,24 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     ]
   },
   "ada:massesMeasuredDefault": "\u00b3\u00b9P \u2192 P; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b3Cu \u2192 Cu; \u2077\u00b9Ga \u2192 Ga; \u2077\u2074Ge \u2192 Ge; \u2077\u2075As \u2192 As; \u2079\u2075Mo \u2192 Mo; \u00b9\u2070\u00b2Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2076Pd \u2192 Pd; \u00b9\u00b2\u2070Sn \u2192 Sn; \u00b9\u00b2\u00b9Sb \u2192 Sb; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2079\u2070Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au \u2014 'were used to acquire the peaks 31P, 51V, ... and 197Au' (\u00a72.2)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (\u00b5g/g) \u2014 abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'",
+    "ada:defaultReportedProperties": [
+      "P, Fe, Co, Ni (mg/g)",
+      "V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (\u00b5g/g)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -1056,7 +1035,8 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -1107,9 +1087,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "ada:toolRole": "dataReduction",
       "schema:name": "N \u2014 paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named"
     }
-  ],
-  "ada:reportedProperties": [
-    "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (\u00b5g/g) \u2014 abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'"
   ],
   "ada:ablationSamplingMode": [
     "raster: raster scan over a few millimeters; Ge spots: spot \u2014 \u00a72.2"
@@ -1169,24 +1146,19 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laSficpmsUPbTAPP-Zhang2022> a cdi:Activity,
+ex:laSficpmsUPbTAPP-Zhang2022 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
@@ -1195,6 +1167,13 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1212,30 +1191,30 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
             schema1:name "Zhang, Chabot, Rubin, Humayun et al." ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "The raster pass gives the 23-element dataset; a separate set of 150 µm spots on five irons gives more precise Ge, since the raster 'failed to yield useful Ge abundances for Klamath Falls' (§2.2)" ;
-    schema1:instrument <ex:laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS>,
-        <ex:laSficpmsUPbTAPP-Zhang2022/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS>,
+        <https://example.org/laSficpmsUPbTAPP-Zhang2022/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "LA-SF-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Iron Meteorite LA-ICP-MS v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "raster: raster scan over a few millimeters; Ge spots: spot — §2.2" ;
     ada:ablationSpotDurationDefault "20 s for the Ge spots — 'analyzed at 50 Hz for 20 s' (§2.2); the raster duration is not stated" ;
@@ -1256,7 +1235,16 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "no value available: ada:rasterLineSpacingDefault" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (µg/g) — abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "P, Fe, Co, Ni (mg/g)",
+                "V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (µg/g)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (µg/g) — abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Representativeness of the exsolution banding — the raster \"yielded more representative sampling of the kamacite-taenite banding\", and where it \"failed to yield useful Ge abundances for Klamath Falls ... To obtain more precise Ge, a set of five 150 μm spots were analyzed ... on five of the irons\" (p.4)" ;
     ada:samplingUnitType "Whole sample (polished specimen surface) > Region of interest (raster) — irons \"were analyzed using a raster scan over a few millimeters\" with a 50 μm beam, and compositions are reported as \"raster averages\" per specimen (Table 3, pp.4–5); Ge comes from a set of five 150 μm spots on five of the irons (p.4)" ;
@@ -1302,8 +1290,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
@@ -1312,57 +1298,11 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS" ;
-    schema1:hasPart <ex:laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source>,
-        <ex:laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Zhang2022/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "ElectroScientific Instruments New Wave UP193FX — §2.2" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:laserFluenceDefault -9999 ;
-    ada:laserRepetitionRateDefault "raster: 50 Hz; Ge spots: 50 Hz — §2.2" ;
-    ada:laserSpotGeometryDefault "raster: 50 µm beam spot; Ge spots: 150 µm — §2.2" ;
-    ada:laserType "no value available: ada:laserType" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -1426,17 +1366,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -1489,11 +1418,50 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Zhang2022/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Zhang2022/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "ElectroScientific Instruments New Wave UP193FX — §2.2" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:laserFluenceDefault -9999 ;
+    ada:laserRepetitionRateDefault "raster: 50 Hz; Ge spots: 50 Hz — §2.2" ;
+    ada:laserSpotGeometryDefault "raster: 50 µm beam spot; Ge spots: 150 µm — §2.2" ;
+    ada:laserType "no value available: ada:laserType" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -1512,6 +1480,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -1959,35 +1928,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2008,6 +1948,25 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ]
   },
   "ada:massesMeasuredDefault": "²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁶⁰Ni → Ni; ⁷¹Ga → Ga; ¹³⁹La → La; ¹⁵³Eu → Eu; ¹⁹⁵Pt → Pt — 'a total scan cycle time of 1.944 s for 14 nuclides' (§2.2.2)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, µg/g); Fa#; principal-component scores — '2D concentration matrices of all target elements'; pure-olivine averages in Table E1",
+    "ada:defaultReportedProperties": [
+      "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, µg/g)",
+      "Fa#",
+      "principal-component scores"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "all: low resolution (M/ΔM = 300) — Table B1",
   "ada:backgroundCountTimeDefault": "10 gas-blank scans before each line, 80 during ablation — Table B1",
   "schema:actionProcess": {
@@ -2097,7 +2056,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -2145,9 +2105,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:toolRole": "dataReduction",
       "schema:name": "In-house MatLab script (Appendix C1)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, µg/g); Fa#; principal-component scores — '2D concentration matrices of all target elements'; pure-olivine averages in Table E1"
   ],
   "ada:ablationSamplingMode": [
     "all: grid of parallel, adjacent lines — §2.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'"
@@ -2203,6 +2160,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -2211,6 +2169,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -2659,35 +2618,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2708,6 +2638,25 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ]
   },
   "ada:massesMeasuredDefault": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u2074\u2075Sc \u2192 Sc; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2076\u2070Ni \u2192 Ni; \u2077\u00b9Ga \u2192 Ga; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2079\u2075Pt \u2192 Pt \u2014 'a total scan cycle time of 1.944 s for 14 nuclides' (\u00a72.2.2)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, \u00b5g/g); Fa#; principal-component scores \u2014 '2D concentration matrices of all target elements'; pure-olivine averages in Table E1",
+    "ada:defaultReportedProperties": [
+      "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, \u00b5g/g)",
+      "Fa#",
+      "principal-component scores"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "all: low resolution (M/\u0394M = 300) \u2014 Table B1",
   "ada:backgroundCountTimeDefault": "10 gas-blank scans before each line, 80 during ablation \u2014 Table B1",
   "schema:actionProcess": {
@@ -2797,7 +2746,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -2845,9 +2795,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:toolRole": "dataReduction",
       "schema:name": "In-house MatLab script (Appendix C1)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, \u00b5g/g); Fa#; principal-component scores \u2014 '2D concentration matrices of all target elements'; pure-olivine averages in Table E1"
   ],
   "ada:ablationSamplingMode": [
     "all: grid of parallel, adjacent lines \u2014 \u00a72.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'"
@@ -2900,16 +2847,18 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021> a cdi:Activity,
+ex:laSficpmsUPbTAPP-Chernonozhkin2021 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -2947,8 +2896,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:description "Cool plasma (800 W) mapping with a lateral resolution of approximately 20 µm; P-rich veinlets masked before averaging (§2.2.2, §3.1)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the BELSPO, FWO, BOF-UGent and Humboldt support is for the study as a whole and is recorded under Funding Source for Analysis" ] ;
-    schema1:instrument <ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS>,
-        <ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS>,
+        <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2958,14 +2907,14 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ] ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: grid of parallel, adjacent lines — §2.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'" ;
     ada:ablationSpotDurationDefault "N/A — mapping mode" ;
@@ -2985,7 +2934,17 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "Adjacent lines — 'a grid of parallel, adjacent lines using a 20 µm × 20 µm square-masked laser spot' (§2.2.2)" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, µg/g); Fa#; principal-component scores — '2D concentration matrices of all target elements'; pure-olivine averages in Table E1" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Fa#",
+                "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, µg/g)",
+                "principal-component scores" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, µg/g); Fa#; principal-component scores — '2D concentration matrices of all target elements'; pure-olivine averages in Table E1" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Position relative to the metal-olivine rim, sited on a prior μXRF survey — \"The locations for LA-ICP-MS mapping were selected to be close to the metal-olivine rims of large olivine crystals with the laser beam rastering from the olivine rim in the direction of the olivine core\", at locations \"indicated on the larger μXRF maps as black rectangles\" (p.4)" ;
     ada:samplingUnitType "Grain (individual olivine crystal) > Region of interest (2D map) — \"2D trace element mapping of olivine crystals\" (p.1); the reported dataset is \"seven 2D element maps of PMG olivine crystals\", filtered and median-smoothed before analysis (p.6)" ;
@@ -3022,8 +2981,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
@@ -3032,67 +2989,11 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C1)" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Double-focusing sector field ICP-MS (explicitly stated: \"Thermo Scientific Element XR double-focusing sector field ICP-MS unit\")",
-        "ICPMS" ;
-    schema1:hasPart <ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source>,
-        <ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserBeamEnergyProfile>,
-        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
-    schema1:name "HELEX II two-volume ablation cell" ;
-    ada:laserFluenceDefault "5–7 J cm⁻²" ;
-    ada:laserRepetitionRateDefault "all: 20 Hz" ;
-    ada:laserSpotGeometryDefault "all: 20 µm × 20 µm square-masked — §2.2.2" ;
-    ada:laserType "193 nm ArF* excimer — §2.2.2" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -3237,17 +3138,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -3300,11 +3190,60 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Double-focusing sector field ICP-MS (explicitly stated: \"Thermo Scientific Element XR double-focusing sector field ICP-MS unit\")",
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserBeamEnergyProfile>,
+        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
+    schema1:name "HELEX II two-volume ablation cell" ;
+    ada:laserFluenceDefault "5–7 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "all: 20 Hz" ;
+    ada:laserSpotGeometryDefault "all: 20 µm × 20 µm square-masked — §2.2.2" ;
+    ada:laserType "193 nm ArF* excimer — §2.2.2" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -3323,6 +3262,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -3466,7 +3406,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Position relative to the metal-olivine rim — the line scans run \"from the olivine rim in the direction of the olivine core\" on large olivine crystals sited from the μXRF maps (p.4); the surface is pre-ablated before each analysis (p.3)",
   "schema:additionalProperty": [
@@ -3878,35 +3819,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3927,6 +3839,24 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ]
   },
   "ada:massesMeasuredDefault": "²⁵Mg → Mg; ²⁹Si → Si; ³¹P → P; ⁴⁴Ca → Ca; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁷Li → Li; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ²³²Th → Th; ²³⁸U → U — run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (§2.2.3), ⁵³Cr also in run 2 (Table B1)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (µg/g); Fa# — Table 1, 'the average from 3 replicate measurements'",
+    "ada:defaultReportedProperties": [
+      "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (µg/g)",
+      "Fa#"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "run 1: medium resolution (M/ΔM = 4000); run 2: low resolution (M/ΔM = 300) — §2.2.3",
   "ada:backgroundCountTimeDefault": "5 gas-blank scans and 24 ablation scans per analysis, both runs; 10 s of blank per run — Table B1",
   "schema:measurementTechnique": [
@@ -3975,9 +3905,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:toolRole": "dataReduction",
       "schema:name": "In-house MatLab script (Appendix C2)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (µg/g); Fa# — Table 1, 'the average from 3 replicate measurements'"
   ],
   "ada:ablationSamplingMode": [
     "run 1: line scan, 400 µm; run 2: line scan on top of run 1, 400 µm — 'a second line-scan was completed on top of the first one' (§2.2.3)"
@@ -4033,6 +3960,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -4041,6 +3969,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -4185,7 +4114,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Position relative to the metal-olivine rim \u2014 the line scans run \"from the olivine rim in the direction of the olivine core\" on large olivine crystals sited from the \u03bcXRF maps (p.4); the surface is pre-ablated before each analysis (p.3)",
   "schema:additionalProperty": [
@@ -4597,35 +4527,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -4646,6 +4547,24 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ]
   },
   "ada:massesMeasuredDefault": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u2074\u2074Ca \u2192 Ca; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2077Li \u2192 Li; \u2074\u2075Sc \u2192 Sc; \u2075\u00b9V \u2192 V; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b3Cu \u2192 Cu; \u2076\u2076Zn \u2192 Zn; \u2078\u2079Y \u2192 Y; \u2079\u2070Zr \u2192 Zr; \u2079\u00b3Nb \u2192 Nb; \u00b9\u00b3\u00b3Cs \u2192 Cs; \u00b9\u00b3\u2077Ba \u2192 Ba; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2074\u2070Ce \u2192 Ce; \u00b9\u2074\u00b9Pr \u2192 Pr; \u00b9\u2074\u2075Nd \u2192 Nd; \u00b9\u2074\u2077Sm \u2192 Sm; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2075\u2078Gd \u2192 Gd; \u00b9\u2075\u2079Tb \u2192 Tb; \u00b9\u2076\u2074Dy \u2192 Dy; \u00b9\u2076\u2075Ho \u2192 Ho; \u00b9\u2076\u2070Er \u2192 Er; \u00b9\u2076\u2079Tm \u2192 Tm; \u00b9\u2077\u2074Yb \u2192 Yb; \u00b9\u2077\u2075Lu \u2192 Lu; \u00b9\u2078\u2070Hf \u2192 Hf; \u00b9\u2078\u00b9Ta \u2192 Ta; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au; \u00b2\u00b3\u00b2Th \u2192 Th; \u00b2\u00b3\u2078U \u2192 U \u2014 run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (\u00a72.2.3), \u2075\u00b3Cr also in run 2 (Table B1)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (\u00b5g/g); Fa# \u2014 Table 1, 'the average from 3 replicate measurements'",
+    "ada:defaultReportedProperties": [
+      "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (\u00b5g/g)",
+      "Fa#"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "run 1: medium resolution (M/\u0394M = 4000); run 2: low resolution (M/\u0394M = 300) \u2014 \u00a72.2.3",
   "ada:backgroundCountTimeDefault": "5 gas-blank scans and 24 ablation scans per analysis, both runs; 10 s of blank per run \u2014 Table B1",
   "schema:measurementTechnique": [
@@ -4694,9 +4613,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:toolRole": "dataReduction",
       "schema:name": "In-house MatLab script (Appendix C2)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (\u00b5g/g); Fa# \u2014 Table 1, 'the average from 3 replicate measurements'"
   ],
   "ada:ablationSamplingMode": [
     "run 1: line scan, 400 \u00b5m; run 2: line scan on top of run 1, 400 \u00b5m \u2014 'a second line-scan was completed on top of the first one' (\u00a72.2.3)"
@@ -4749,16 +4665,18 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-2> a cdi:Activity,
+ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -4769,22 +4687,22 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Flat polished thick sections (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -4797,8 +4715,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:description "Two line-scan runs on the same line after pre-ablation: run 1 (30 µm, medium resolution) gives the major elements and Cr, which normalises run 2 (130 µm, low resolution) for the trace elements (§2.2.3, App. C2)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the BELSPO, FWO, BOF-UGent and Humboldt support is for the study as a whole and is recorded under Funding Source for Analysis" ] ;
-    schema1:instrument <ex:laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS>,
-        <ex:laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS>,
+        <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4809,13 +4727,13 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "run 1: line scan, 400 µm; run 2: line scan on top of run 1, 400 µm — 'a second line-scan was completed on top of the first one' (§2.2.3)" ;
     ada:ablationSpotDurationDefault "50 s of sample ablation per 400 µm line, both runs — Table B1" ;
@@ -4835,7 +4753,16 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — line scan + spot; not 2D mapping" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (µg/g); Fa# — Table 1, 'the average from 3 replicate measurements'" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Fa#",
+                "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (µg/g)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (µg/g); Fa# — Table 1, 'the average from 3 replicate measurements'" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Position relative to the metal-olivine rim — the line scans run \"from the olivine rim in the direction of the olivine core\" on large olivine crystals sited from the μXRF maps (p.4); the surface is pre-ablated before each analysis (p.3)" ;
     ada:samplingUnitType "Grain (individual olivine crystal) > Region of interest (line scan) — \"a second line-scan was completed on top of the first one, using a laser spot of 130 μm diameter ... and a translation speed of 10 μm s−1\" (p.3)" ;
@@ -4900,8 +4827,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
@@ -4910,65 +4835,11 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C2)" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Double-focusing sector field ICP-MS (explicitly stated)",
-        "ICPMS" ;
-    schema1:hasPart <ex:laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/ICP-Source>,
-        <ex:laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
-    schema1:name "HELEX II two-volume ablation cell" ;
-    ada:laserFluenceDefault "4.72 J/cm² (both runs) — §2.2.3" ;
-    ada:laserRepetitionRateDefault "run 1: 20 Hz; run 2: 40 Hz" ;
-    ada:laserSpotGeometryDefault "run 1: 30 µm diameter circular-masked; run 2: 130 µm diameter — §2.2.3" ;
-    ada:laserType "193 nm ArF* excimer — §2.2.2" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -5106,17 +4977,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -5169,11 +5029,58 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Double-focusing sector field ICP-MS (explicitly stated)",
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-2/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
+    schema1:name "HELEX II two-volume ablation cell" ;
+    ada:laserFluenceDefault "4.72 J/cm² (both runs) — §2.2.3" ;
+    ada:laserRepetitionRateDefault "run 1: 20 Hz; run 2: 40 Hz" ;
+    ada:laserSpotGeometryDefault "run 1: 30 µm diameter circular-masked; run 2: 130 µm diameter — §2.2.3" ;
+    ada:laserType "193 nm ArF* excimer — §2.2.2" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -5192,6 +5099,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -5647,35 +5555,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -5696,6 +5575,24 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ]
   },
   "ada:massesMeasuredDefault": "²³Na → Na; ²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ³⁹K → K; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁵Rb → Rb; ⁸⁸Sr → Sr; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ²⁰⁸Pb → Pb; ²³²Th → Th; ²³⁸U → U — §2.2.4",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g); phosphate mineral (nominal) — Table 2, each 'single parallel measurement' listed per grain",
+    "ada:defaultReportedProperties": [
+      "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g)",
+      "phosphate mineral (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)",
   "schema:actionProcess": {
     "schema:step": [
@@ -5773,7 +5670,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -5821,9 +5719,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:toolRole": "dataReduction",
       "schema:name": "In-house MatLab script (Appendix C3)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g); phosphate mineral (nominal) — Table 2, each 'single parallel measurement' listed per grain"
   ],
   "ada:ablationSamplingMode": [
     "all: single spot ablation — §2.2.4"
@@ -5880,6 +5775,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -5888,6 +5784,7 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -6344,35 +6241,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -6393,6 +6261,24 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ]
   },
   "ada:massesMeasuredDefault": "\u00b2\u00b3Na \u2192 Na; \u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u00b3\u2079K \u2192 K; \u2074\u2074Ca \u2192 Ca; \u2074\u2075Sc \u2192 Sc; \u2074\u2077Ti \u2192 Ti; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b3Cu \u2192 Cu; \u2076\u2076Zn \u2192 Zn; \u2078\u2075Rb \u2192 Rb; \u2078\u2078Sr \u2192 Sr; \u2078\u2079Y \u2192 Y; \u2079\u2070Zr \u2192 Zr; \u2079\u00b3Nb \u2192 Nb; \u00b9\u00b3\u00b3Cs \u2192 Cs; \u00b9\u00b3\u2077Ba \u2192 Ba; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2074\u2070Ce \u2192 Ce; \u00b9\u2074\u00b9Pr \u2192 Pr; \u00b9\u2074\u2075Nd \u2192 Nd; \u00b9\u2074\u2077Sm \u2192 Sm; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2075\u2078Gd \u2192 Gd; \u00b9\u2075\u2079Tb \u2192 Tb; \u00b9\u2076\u2074Dy \u2192 Dy; \u00b9\u2076\u2075Ho \u2192 Ho; \u00b9\u2076\u2070Er \u2192 Er; \u00b9\u2076\u2079Tm \u2192 Tm; \u00b9\u2077\u2074Yb \u2192 Yb; \u00b9\u2077\u2075Lu \u2192 Lu; \u00b9\u2078\u2070Hf \u2192 Hf; \u00b9\u2078\u00b9Ta \u2192 Ta; \u00b2\u2070\u2078Pb \u2192 Pb; \u00b2\u00b3\u00b2Th \u2192 Th; \u00b2\u00b3\u2078U \u2192 U \u2014 \u00a72.2.4",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (\u00b5g/g); phosphate mineral (nominal) \u2014 Table 2, each 'single parallel measurement' listed per grain",
+    "ada:defaultReportedProperties": [
+      "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (\u00b5g/g)",
+      "phosphate mineral (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)",
   "schema:actionProcess": {
     "schema:step": [
@@ -6470,7 +6356,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -6518,9 +6405,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:toolRole": "dataReduction",
       "schema:name": "In-house MatLab script (Appendix C3)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (\u00b5g/g); phosphate mineral (nominal) \u2014 Table 2, each 'single parallel measurement' listed per grain"
   ],
   "ada:ablationSamplingMode": [
     "all: single spot ablation \u2014 \u00a72.2.4"
@@ -6574,24 +6458,27 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-3> a cdi:Activity,
+ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Flat polished thick sections (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -6602,12 +6489,11 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -6620,8 +6506,8 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:description "No phosphate reference material exists, so glasses calibrate (App. C3); grains identified as stanfieldite or merrillite from a Ca/(Ca + Mg) plot (§3.4)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the BELSPO, FWO, BOF-UGent and Humboldt support is for the study as a whole and is recorded under Funding Source for Analysis" ] ;
-    schema1:instrument <ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS>,
-        <ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS>,
+        <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -6631,14 +6517,14 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: single spot ablation — §2.2.4" ;
     ada:ablationSpotDurationDefault "20 s spot ablation (plus 10 s washout); 25 cycles acquisition" ;
@@ -6658,7 +6544,16 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g); phosphate mineral (nominal) — Table 2, each 'single parallel measurement' listed per grain" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g)",
+                "phosphate mineral (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g); phosphate mineral (nominal) — Table 2, each 'single parallel measurement' listed per grain" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Mineral identity, from the μXRF survey — phosphates are located as \"thin elongate inclusions in the kamacite-taenite metal matrix (e.g., μXRF map of Imilac at Fig. 1)\", the identification resting \"on the intensities of the Kα lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca and P)\" (p.4)" ;
     ada:samplingUnitType "Grain (phosphate crystal) > Spot — compositions are reported per named phosphate grain (\"Ph1\" … \"Ph4\", with \"stanf\" or \"merr\"), each an average of numbered \"single parallel measurement\" spots (Table 2, p.10)" ;
@@ -6725,8 +6620,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
@@ -6735,65 +6628,11 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C3)" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Double-focusing sector field ICP-MS (explicitly stated)",
-        "ICPMS" ;
-    schema1:hasPart <ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/ICP-Source>,
-        <ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
-    schema1:name "HELEX II two-volume ablation cell" ;
-    ada:laserFluenceDefault "3.5 J cm⁻²" ;
-    ada:laserRepetitionRateDefault "all: 20 Hz" ;
-    ada:laserSpotGeometryDefault "all: 110 µm diameter circular-masked — §2.2.4" ;
-    ada:laserType "193 nm ArF* excimer — §2.2.2" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -6917,17 +6756,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -6980,11 +6808,58 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Double-focusing sector field ICP-MS (explicitly stated)",
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
+    schema1:name "HELEX II two-volume ablation cell" ;
+    ada:laserFluenceDefault "3.5 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "all: 20 Hz" ;
+    ada:laserSpotGeometryDefault "all: 110 µm diameter circular-masked — §2.2.4" ;
+    ada:laserType "193 nm ArF* excimer — §2.2.2" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -7003,6 +6878,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -7157,7 +7033,8 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Freedom from inclusions, checked by SEM beforehand — the grains were \"low in inclusions, [but] were not devoid of them\", so \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5)",
   "schema:additionalProperty": [
@@ -7513,35 +7390,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7562,6 +7410,34 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     ]
   },
   "ada:massesMeasuredDefault": "²⁵Mg → Mg; ²⁷Al → Al; ³¹P → P; ⁴³Ca → Ca; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁴⁹Ti → Ti; ⁵¹V → V; ⁵²Cr → Cr; ⁵³Cr → Cr; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶¹Ni → Ni; ⁶²Ni → Ni; ⁶⁴Zn → Zn; ⁶⁶Zn → Zn; ⁶⁹Ga → Ga; ⁷¹Ga → Ga — 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (§3.3)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (µg/g) — olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (§4)",
+    "ada:defaultReportedProperties": [
+      "Mg",
+      "Al",
+      "P",
+      "Ca",
+      "Sc",
+      "Ti",
+      "V",
+      "Cr",
+      "Co",
+      "Ni",
+      "Zn",
+      "Ga (µg/g)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "all: medium resolution (m/Δm of 4000) — §3.3",
   "ada:backgroundCountTimeDefault": "N — the analysis parameters were lost (§3.3)",
   "schema:measurementTechnique": [
@@ -7602,9 +7478,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       "ada:toolRole": "dataReduction",
       "schema:name": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (µg/g) — olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (§4)"
   ],
   "ada:ablationSamplingMode": [
     "all: spot mode — 'The laser was run in spot mode' (§3.3)"
@@ -7660,6 +7533,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -7668,6 +7542,7 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -7823,7 +7698,8 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Freedom from inclusions, checked by SEM beforehand \u2014 the grains were \"low in inclusions, [but] were not devoid of them\", so \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5)",
   "schema:additionalProperty": [
@@ -8179,35 +8055,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -8228,6 +8075,34 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     ]
   },
   "ada:massesMeasuredDefault": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b3\u00b9P \u2192 P; \u2074\u00b3Ca \u2192 Ca; \u2074\u2074Ca \u2192 Ca; \u2074\u2075Sc \u2192 Sc; \u2074\u2077Ti \u2192 Ti; \u2074\u2079Ti \u2192 Ti; \u2075\u00b9V \u2192 V; \u2075\u00b2Cr \u2192 Cr; \u2075\u00b3Cr \u2192 Cr; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b9Ni \u2192 Ni; \u2076\u00b2Ni \u2192 Ni; \u2076\u2074Zn \u2192 Zn; \u2076\u2076Zn \u2192 Zn; \u2076\u2079Ga \u2192 Ga; \u2077\u00b9Ga \u2192 Ga \u2014 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (\u00a73.3)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (\u00b5g/g) \u2014 olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (\u00a74)",
+    "ada:defaultReportedProperties": [
+      "Mg",
+      "Al",
+      "P",
+      "Ca",
+      "Sc",
+      "Ti",
+      "V",
+      "Cr",
+      "Co",
+      "Ni",
+      "Zn",
+      "Ga (\u00b5g/g)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "all: medium resolution (m/\u0394m of 4000) \u2014 \u00a73.3",
   "ada:backgroundCountTimeDefault": "N \u2014 the analysis parameters were lost (\u00a73.3)",
   "schema:measurementTechnique": [
@@ -8268,9 +8143,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       "ada:toolRole": "dataReduction",
       "schema:name": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (\u00b5g/g) \u2014 olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (\u00a74)"
   ],
   "ada:ablationSamplingMode": [
     "all: spot mode \u2014 'The laser was run in spot mode' (\u00a73.3)"
@@ -8323,26 +8195,19 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laSficpmsUPbTAPP-Mittlefehldt2024> a cdi:Activity,
+ex:laSficpmsUPbTAPP-Mittlefehldt2024 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
@@ -8353,6 +8218,15 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -8370,8 +8244,8 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
             schema1:name "Mittlefehldt" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "The files documenting the analysis parameters (gas flows, laser power, etc.) were lost during an extended shutdown of the JSC ICP-MS laboratory; the grains are the EMPA grain mounts, 'low in inclusions, [but] not devoid of them' (§3.3)" ;
-    schema1:instrument <ex:laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS>,
-        <ex:laSficpmsUPbTAPP-Mittlefehldt2024/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS>,
+        <https://example.org/laSficpmsUPbTAPP-Mittlefehldt2024/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -8382,11 +8256,11 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
             schema1:target [ schema1:name "Mittlefehldt (2024) GCA; Lee (Rice University) Excel data reduction spreadsheet" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
@@ -8408,7 +8282,26 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     ada:oxideProductionMethodAndThreshold "N — parameters lost" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (µg/g) — olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (§4)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Al",
+                "Ca",
+                "Co",
+                "Cr",
+                "Ga (µg/g)",
+                "Mg",
+                "Ni",
+                "P",
+                "Sc",
+                "Ti",
+                "V",
+                "Zn" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (µg/g) — olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (§4)" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Freedom from inclusions, checked by SEM beforehand — the grains were \"low in inclusions, [but] were not devoid of them\", so \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5)" ;
     ada:samplingUnitType "Grain (olivine grain fragment) > Spot — \"The laser was run in spot mode with a 75 µm spot size\" (p.5); results are reported as average analyses per sample, and individual spots carry labels such as \"laser spot 059-Pa-1\" (p.8). Line scans across grain fragments were also run (p.3)" ;
@@ -8443,8 +8336,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
@@ -8453,63 +8344,11 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "Excel spreadsheets developed by C.-T. A. Lee (Rice University)" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Magnetic-sector — 'magnetic-sector Thermo Fisher Element-XR ICP-MS' (§3.3)" ;
-    schema1:hasPart <ex:laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source>,
-        <ex:laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Mittlefehldt2024/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "New Wave UP-193 solid state laser — §3.3" ] ;
-    schema1:name "N — standard cell; parameters lost" ;
-    ada:laserFluenceDefault "N — parameters lost" ;
-    ada:laserRepetitionRateDefault "N — parameters lost" ;
-    ada:laserSpotGeometryDefault "all: 75 µm spot size — §3.3" ;
-    ada:laserType "193 nm solid-state (New Wave UP-193)" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -8636,17 +8475,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -8699,11 +8527,56 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Magnetic-sector — 'magnetic-sector Thermo Fisher Element-XR ICP-MS' (§3.3)" ;
+    schema1:hasPart <https://example.org/laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Mittlefehldt2024/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Mittlefehldt2024/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "New Wave UP-193 solid state laser — §3.3" ] ;
+    schema1:name "N — standard cell; parameters lost" ;
+    ada:laserFluenceDefault "N — parameters lost" ;
+    ada:laserRepetitionRateDefault "N — parameters lost" ;
+    ada:laserSpotGeometryDefault "all: 75 µm spot size — §3.3" ;
+    ada:laserType "193 nm solid-state (New Wave UP-193)" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -8722,6 +8595,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -9120,7 +8994,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
   "ada:analysisSequenceDefault": "3 × NIST SRM 612 and 3 × North Chile, then blocks of ten unknowns, each followed by 2 × NIST SRM 612 and 2 × North Chile — Experimental section",
@@ -9228,35 +9103,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -9277,6 +9123,25 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ]
   },
   "ada:massesMeasuredDefault": "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5",
+    "ada:defaultReportedProperties": [
+      "Fe, Ni (g/100 g)",
+      "Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g)",
+      "chemical classification (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "all: low resolution (300) — Table 2",
   "ada:backgroundCountTimeDefault": "20 s — laser firing with the shutter closed, before each ablation",
   "schema:measurementTechnique": [
@@ -9325,9 +9190,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "ada:toolRole": "dataReduction",
       "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS"
     }
-  ],
-  "ada:reportedProperties": [
-    "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5"
   ],
   "ada:ablationSamplingMode": [
     "all: spot — Experimental section"
@@ -9386,6 +9248,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -9394,6 +9257,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -9793,7 +9657,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min\u207b\u00b9 (MFC 1) + 0.7 l min\u207b\u00b9 (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
   "ada:analysisSequenceDefault": "3 \u00d7 NIST SRM 612 and 3 \u00d7 North Chile, then blocks of ten unknowns, each followed by 2 \u00d7 NIST SRM 612 and 2 \u00d7 North Chile \u2014 Experimental section",
@@ -9901,35 +9766,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -9950,6 +9786,25 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ]
   },
   "ada:massesMeasuredDefault": "\u2075\u00b2Cr \u2192 Cr; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u00b9Ni \u2192 Ni; \u2076\u2075Cu \u2192 Cu; \u2076\u2079Ga \u2192 Ga; \u2077\u00b2Ge \u2192 Ge; \u2077\u2075As \u2192 As; \u2079\u2079Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2075Pd \u2192 Pd; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2078\u2079Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au \u2014 Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (\u00b5g/g); chemical classification (nominal) \u2014 Table 3 and Table 5",
+    "ada:defaultReportedProperties": [
+      "Fe, Ni (g/100 g)",
+      "Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (\u00b5g/g)",
+      "chemical classification (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "all: low resolution (300) \u2014 Table 2",
   "ada:backgroundCountTimeDefault": "20 s \u2014 laser firing with the shutter closed, before each ablation",
   "schema:measurementTechnique": [
@@ -9998,9 +9853,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "ada:toolRole": "dataReduction",
       "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS"
     }
-  ],
-  "ada:reportedProperties": [
-    "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (\u00b5g/g); chemical classification (nominal) \u2014 Table 3 and Table 5"
   ],
   "ada:ablationSamplingMode": [
     "all: spot \u2014 Experimental section"
@@ -10056,25 +9908,19 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laSficpmsUPbTAPP-Navarro2024> a cdi:Activity,
+ex:laSficpmsUPbTAPP-Navarro2024 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
@@ -10083,6 +9929,14 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "all: Longerich et al., calculated for each acquisition in iolite 4 — 'the LOD must be calculated for each acquisition'; Table 3 gives the medians" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -10103,8 +9957,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:description "Two measurement standards complement each other: North Chile for matrix similarity and NIST SRM 612 for its well-known composition; Fe + Ni + Co = 100% normalisation removes the need for an internal standard" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the acknowledgements name CNPq grant 316191/2021-3 (J.E.) and support for a conference presentation; neither is for procedure development" ] ;
-    schema1:instrument <ex:laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS>,
-        <ex:laSficpmsUPbTAPP-Navarro2024/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS>,
+        <https://example.org/laSficpmsUPbTAPP-Navarro2024/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -10115,13 +9969,13 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
             schema1:target [ schema1:name "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: spot — Experimental section" ;
     ada:ablationSpotDurationDefault "40 s — '20 s of blank measurement (laser-firing with the shutter closed), followed by 40 s of sample ablation'" ;
@@ -10141,7 +9995,17 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g)",
+                "Fe, Ni (g/100 g)",
+                "chemical classification (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Phase targeting, as the stated alternative to rastering — \"depending on the specific objectives, spot sampling at specific phases may also fulfill the analytical requirements\", against the problem that irons have an \"inherent natural inhomogeneity, a result of their lamellar exsolution patterns\" (p.2)" ;
     ada:samplingUnitType "Whole sample (polished ~1 cm fragment) > Spot — \"fragments about 1 cm were mounted in epoxy resin, polished, and cleaned with ultrapure water\" (p.3); the reported quantity is the meteorite's bulk composition for chemical classification (Table 1, p.2)" ;
@@ -10182,8 +10046,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
@@ -10192,64 +10054,11 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Sector field (SF-ICP-MS) (explicitly stated: \"sector field inductively coupled plasma mass spectrometer\")" ;
-    schema1:hasPart <ex:laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/ICP-Source>,
-        <ex:laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Navarro2024/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Excite 193 (Teledyne) — Table 2" ] ;
-    schema1:name "HelEx II two-volume sample cell" ;
-    ada:laserFluenceDefault "7 J cm⁻²" ;
-    ada:laserRepetitionRateDefault "all: 10 Hz" ;
-    ada:laserSpotGeometryDefault "all: 150 µm — Table 2 'spot diameter'" ;
-    ada:laserType "193 nm ArF excimer; pulse duration 4 ns" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -10373,17 +10182,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -10436,11 +10234,57 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Sector field (SF-ICP-MS) (explicitly stated: \"sector field inductively coupled plasma mass spectrometer\")" ;
+    schema1:hasPart <https://example.org/laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Navarro2024/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Navarro2024/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Excite 193 (Teledyne) — Table 2" ] ;
+    schema1:name "HelEx II two-volume sample cell" ;
+    ada:laserFluenceDefault "7 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "all: 10 Hz" ;
+    ada:laserSpotGeometryDefault "all: 150 µm — Table 2 'spot diameter'" ;
+    ada:laserType "193 nm ArF excimer; pulse duration 4 ns" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -10459,6 +10303,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -10857,7 +10702,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell",
   "ada:analysisSequenceDefault": "1 min background, 3 × NIST SRM 612, 3 × North Chile, a 30 min measurement over the unknown area, then 3 × North Chile, 3 × NIST SRM 612 and background — Experimental section",
@@ -10965,35 +10811,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -11014,6 +10831,25 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ]
   },
   "ada:massesMeasuredDefault": "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5",
+    "ada:defaultReportedProperties": [
+      "Fe, Ni (g/100 g)",
+      "Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g)",
+      "chemical classification (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "all: low resolution (300) — Table 2",
   "ada:backgroundCountTimeDefault": "1 min at the start and at the end of the mapping sequence — Experimental section",
   "schema:measurementTechnique": [
@@ -11062,9 +10898,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "ada:toolRole": "dataReduction",
       "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS"
     }
-  ],
-  "ada:reportedProperties": [
-    "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5"
   ],
   "ada:ablationSamplingMode": [
     "all: scanning (elemental mapping) — Experimental section"
@@ -11123,6 +10956,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11131,6 +10965,7 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11530,7 +11365,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min\u207b\u00b9 (MFC 1) + 0.7 l min\u207b\u00b9 (MFC 2) in HelEx II cell",
   "ada:analysisSequenceDefault": "1 min background, 3 \u00d7 NIST SRM 612, 3 \u00d7 North Chile, a 30 min measurement over the unknown area, then 3 \u00d7 North Chile, 3 \u00d7 NIST SRM 612 and background \u2014 Experimental section",
@@ -11638,35 +11474,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -11687,6 +11494,25 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ]
   },
   "ada:massesMeasuredDefault": "\u2075\u00b2Cr \u2192 Cr; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u00b9Ni \u2192 Ni; \u2076\u2075Cu \u2192 Cu; \u2076\u2079Ga \u2192 Ga; \u2077\u00b2Ge \u2192 Ge; \u2077\u2075As \u2192 As; \u2079\u2079Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2075Pd \u2192 Pd; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2078\u2079Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au \u2014 Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (\u00b5g/g); chemical classification (nominal) \u2014 Table 3 and Table 5",
+    "ada:defaultReportedProperties": [
+      "Fe, Ni (g/100 g)",
+      "Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (\u00b5g/g)",
+      "chemical classification (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "all: low resolution (300) \u2014 Table 2",
   "ada:backgroundCountTimeDefault": "1 min at the start and at the end of the mapping sequence \u2014 Experimental section",
   "schema:measurementTechnique": [
@@ -11735,9 +11561,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "ada:toolRole": "dataReduction",
       "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS"
     }
-  ],
-  "ada:reportedProperties": [
-    "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (\u00b5g/g); chemical classification (nominal) \u2014 Table 3 and Table 5"
   ],
   "ada:ablationSamplingMode": [
     "all: scanning (elemental mapping) \u2014 Experimental section"
@@ -11793,16 +11616,18 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laSficpmsUPbTAPP-Navarro2024-2> a cdi:Activity,
+ex:laSficpmsUPbTAPP-Navarro2024-2 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -11815,19 +11640,19 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -11840,8 +11665,8 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:description "Mapping over regions with diverse phases of Augusto Pestana; Fe + Ni + Co = 100% normalisation 'is mandatory when acquiring elemental maps of multiphasic samples'" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — the acknowledgements name CNPq grant 316191/2021-3 (J.E.) and support for a conference presentation; neither is for procedure development" ] ;
-    schema1:instrument <ex:laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS>,
-        <ex:laSficpmsUPbTAPP-Navarro2024-2/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS>,
+        <https://example.org/laSficpmsUPbTAPP-Navarro2024-2/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -11854,11 +11679,11 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
+            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: scanning (elemental mapping) — Experimental section" ;
     ada:ablationSpotDurationDefault "N/A — mapping mode" ;
@@ -11878,7 +11703,17 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "no value available: ada:rasterLineSpacingDefault" ;
     ada:reportedDateType "N — the procedure reports no date" ;
-    ada:reportedProperties "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g)",
+                "Fe, Ni (g/100 g)",
+                "chemical classification (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5" ] ;
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Representativeness, and phase diversity — \"the approach of rastering large areas may improve representative sampling compared with spot analysis\" (p.2), and the mapping is \"conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1)" ;
     ada:samplingUnitType "Region of interest > Phase — \"elemental mapping, conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1); the map is read for the phases it resolves, \"even without prior knowledge regarding natural structural variations\" (p.1)" ;
@@ -11919,8 +11754,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/dwellTimePerMass>,
@@ -11929,64 +11762,11 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" ;
     bios:computationalTool [ schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Sector field (SF-ICP-MS) (explicitly stated)" ;
-    schema1:hasPart <ex:laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/ICP-Source>,
-        <ex:laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laSficpmsUPbTAPP-Navarro2024-2/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Excite 193 (Teledyne) — Table 2" ] ;
-    schema1:name "HelEx II two-volume sample cell" ;
-    ada:laserFluenceDefault "7 J cm⁻²" ;
-    ada:laserRepetitionRateDefault "all: 10 Hz" ;
-    ada:laserSpotGeometryDefault "all: 150 µm² square spot — as written: 'targeting a 150 μm2 square spot'" ;
-    ada:laserType "193 nm ArF excimer; pulse duration 4 ns" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
@@ -12110,17 +11890,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Analytical Accuracy and Assessment Method" ;
-    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
-    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Calibration Strategy per Target Species" ;
@@ -12173,11 +11942,57 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
-    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
+<https://example.org/laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Sector field (SF-ICP-MS) (explicitly stated)" ;
+    schema1:hasPart <https://example.org/laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Navarro2024-2/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laSficpmsUPbTAPP-Navarro2024-2/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Excite 193 (Teledyne) — Table 2" ] ;
+    schema1:name "HelEx II two-volume sample cell" ;
+    ada:laserFluenceDefault "7 J cm⁻²" ;
+    ada:laserRepetitionRateDefault "all: 10 Hz" ;
+    ada:laserSpotGeometryDefault "all: 150 µm² square spot — as written: 'targeting a 150 μm2 square spot'" ;
+    ada:laserType "193 nm ArF excimer; pulse duration 4 ns" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -12564,6 +12379,9 @@ allOf:
               const: Triple Scanning Mode
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/triple-scanning-mode
           required:
           - '@id'
           - '@type'
@@ -12741,6 +12559,9 @@ allOf:
               const: Triple Scanning Mode
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/triple-scanning-mode
           required:
           - '@id'
           - '@type'
@@ -13489,109 +13310,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Within-Session Analytical Precision and Assessment Method
-              description: Precision of repeated measurements within a single analytical
-                session and the method used to assess it. Report both the assessment
-                method and the precision values. The assessment method must specify
-                the reference material or standard measured, the number of replicates
-                n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
-                Distinct from the internal precision of a single measurement, which
-                derives from counting statistics over the cycles of that measurement
-                rather than from repeated analyses.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: withinSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Within-Session Analytical Precision and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Between-Session (Long-Term) Analytical Precision and Assessment
-                Method
-              description: "Precision of measurements across multiple analytical sessions
-                over weeks to months \u2014 long-term or intermediate precision \u2014
-                and the method used to assess it. Report both the assessment method
-                and the precision values, specifying the reference material, the number
-                of measurements and sessions, the time span covered, and the statistic
-                reported."
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Between-Session (Long-Term) Analytical Precision and Assessment
-                    Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Analytical Accuracy and Assessment Method
-              description: Offset between measured and accepted values for secondary
-                reference materials, and the method used to assess it. Specify the
-                reference material and the source of its accepted values, the number
-                of analyses, and the quantities assessed. Report systematic biases
-                and their likely causes. Express the offset in the form appropriate
-                to what the procedure reports - percent relative bias for concentrations,
-                or deviation in delta or ratio units for isotopic quantities.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracyAndAssessmentMethod
-                schema:name:
-                  const: Analytical Accuracy and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: Counting Statistics Error
               description: "How the uncertainty predicted from counting statistics
                 \u2014 the theoretical limit set by the Poisson distribution of the
@@ -13920,118 +13638,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Within-Session Analytical Precision and Assessment Method
-              description: Precision of repeated measurements within a single analytical
-                session and the method used to assess it. Report both the assessment
-                method and the precision values. The assessment method must specify
-                the reference material or standard measured, the number of replicates
-                n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
-                Distinct from the internal precision of a single measurement, which
-                derives from counting statistics over the cycles of that measurement
-                rather than from repeated analyses.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: withinSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Within-Session Analytical Precision and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Between-Session (Long-Term) Analytical Precision and Assessment
-                Method
-              description: "Precision of measurements across multiple analytical sessions
-                over weeks to months \u2014 long-term or intermediate precision \u2014
-                and the method used to assess it. Report both the assessment method
-                and the precision values, specifying the reference material, the number
-                of measurements and sessions, the time span covered, and the statistic
-                reported."
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Between-Session (Long-Term) Analytical Precision and Assessment
-                    Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Analytical Accuracy and Assessment Method
-              description: Offset between measured and accepted values for secondary
-                reference materials, and the method used to assess it. Specify the
-                reference material and the source of its accepted values, the number
-                of analyses, and the quantities assessed. Report systematic biases
-                and their likely causes. Express the offset in the form appropriate
-                to what the procedure reports - percent relative bias for concentrations,
-                or deviation in delta or ratio units for isotopic quantities.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracyAndAssessmentMethod
-                schema:name:
-                  const: Analytical Accuracy and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
               title: Counting Statistics Error
               description: "How the uncertainty predicted from counting statistics
                 \u2014 the theoretical limit set by the Poisson distribution of the
@@ -14125,6 +13731,19 @@ allOf:
         the element symbols appearing here.
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:massResolutionAssignment:
       description: Mass resolution mode used for acquisition. One target species may
         be acquired at more than one resolution, so the assignment is per acquired
@@ -14175,7 +13794,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

@@ -17,6 +17,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -33,6 +34,30 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
   "schema:description": "dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgary | Test Resources electromechanical press (Model 313Q) (publication column of DSSM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Test.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Test Resources electromechanical press (Model 313Q)",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Time (s)",
+      "Uncorrected Load (N)",
+      "Corrected Load (N)",
+      "Uncorrected Stress (MPa)",
+      "Corrected Stress (MPa)",
+      "Load (N)",
+      "Stress (MPa)",
+      "Displacement (mm)",
+      "Strain"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -48,14 +73,11 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     "schema:name": "University of Calgary",
     "schema:identifier": "https://ror.org/03yjb2x39"
   },
-  "ada:reportedProperties": [
-    "Time (s) | Uncorrected Load (N) | Corrected Load (N) | Uncorrected Stress (MPa) | Corrected Stress (MPa) | Load (N) | Stress (MPa) | Displacement (mm) | Strain"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Direct Shear Strength Measurement analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -96,6 +118,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -104,6 +127,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -121,6 +145,30 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
   "schema:description": "dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgary | Test Resources electromechanical press (Model 313Q) (publication column of DSSM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Test.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Test Resources electromechanical press (Model 313Q)",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Time (s)",
+      "Uncorrected Load (N)",
+      "Corrected Load (N)",
+      "Uncorrected Stress (MPa)",
+      "Corrected Stress (MPa)",
+      "Load (N)",
+      "Stress (MPa)",
+      "Displacement (mm)",
+      "Strain"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -136,14 +184,11 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     "schema:name": "University of Calgary",
     "schema:identifier": "https://ror.org/03yjb2x39"
   },
-  "ada:reportedProperties": [
-    "Time (s) | Uncorrected Load (N) | Corrected Load (N) | Uncorrected Stress (MPa) | Corrected Stress (MPa) | Load (N) | Stress (MPa) | Displacement (mm) | Strain"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Direct Shear Strength Measurement analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -181,17 +226,18 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:dssmTAPP-P0> a cdi:Activity,
+ex:dssmTAPP-P0 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Direct Shear Strength Measurement analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -212,7 +258,22 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Test Resources electromechanical press (Model 313Q)" ;
-    ada:reportedProperties "Time (s) | Uncorrected Load (N) | Corrected Load (N) | Uncorrected Stress (MPa) | Corrected Stress (MPa) | Load (N) | Stress (MPa) | Displacement (mm) | Strain" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Corrected Load (N)",
+                "Corrected Stress (MPa)",
+                "Displacement (mm)",
+                "Load (N)",
+                "Strain",
+                "Stress (MPa)",
+                "Time (s)",
+                "Uncorrected Load (N)",
+                "Uncorrected Stress (MPa)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
@@ -309,6 +370,19 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -327,7 +401,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.DSSM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

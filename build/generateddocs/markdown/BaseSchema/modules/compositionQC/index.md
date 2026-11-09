@@ -134,10 +134,10 @@ The procedure half of the CompositionQC module, with every property populated. G
                     schema1:name "Data processing" ;
                     schema1:position 1 ;
                     ada:detectionLimitMethod "no value available: unnamed property" ] ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Normalization / Standards-Based Correction" ],
-        [ schema1:defaultValue 1 ;
-            schema1:name "Detection Limit" ] ;
+    schema1:variableMeasured [ schema1:defaultValue 1 ;
+            schema1:name "Detection Limit" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Normalization / Standards-Based Correction" ] ;
     ada:secondaryReferenceMaterialDefault "no value available: unnamed property" .
 
 
@@ -245,10 +245,10 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:variableMeasured [ schema1:name "Detection Limit" ;
-            schema1:value 1 ],
-        [ schema1:name "Detection Limit Method" ;
+[] schema1:variableMeasured [ schema1:name "Detection Limit Method" ;
             schema1:value "no value available: unnamed property" ],
+        [ schema1:name "Detection Limit" ;
+            schema1:value 1 ],
         [ schema1:name "Normalization / Standards-Based Correction" ;
             schema1:value "no value available: unnamed property" ] ;
     prov:wasGeneratedBy [ prov:used [ ] ] .
@@ -473,7 +473,7 @@ $defs:
                         type: array
                         items:
                           allOf:
-                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent
+                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
                           - type: object
                             allOf:
                             - if:
@@ -666,7 +666,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.compositionQC
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

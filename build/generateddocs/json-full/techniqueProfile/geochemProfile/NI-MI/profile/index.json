@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-10-31",
+  "dateOfLastChange": "2026-11-09",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -25,6 +25,12 @@
     "ogch.BaseSchema.geochemProduct": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/rules.shacl"
     ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
+    ],
     "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
     ],
@@ -33,12 +39,6 @@
     ],
     "cdif.bbr.metadata.skosProperties.skosConcept": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
-    ],
-    "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.organization": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
@@ -100,18 +100,6 @@
     "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
     ],
-    "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
-    ],
     "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
     ],
@@ -135,6 +123,18 @@
     ],
     "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
+    ],
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
     ],
     "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
@@ -223,7 +223,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA NI-MI Product Profile\ndescription: Path-driven technique-specific profile for ADA NI-MI Product Profile.\n  Extends the base ADA product profile with the NIMI analysis-instance detail on the\n  schema:Dataset root, narrows prov:used to the niMiTAPP protocol, and constrains\n  valid component types on schema:distribution.hasPart.\nallOf:\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NI-MI/detail/schema.yaml\n- type: object\n  properties:\n    prov:wasGeneratedBy:\n      description: 'Pin the niMiTAPP definition and the instrument where prov:used\n        carries them. Constraint-only if/then, never a narrowed anyOf: prov:used items\n        are role-keyed wrappers, and an anyOf here would allOf-merge with the base\n        union and exclude item shapes the base allows.'\n      type: array\n      items:\n        type: object\n        properties:\n          prov:used:\n            type: array\n            items:\n              allOf:\n              - if:\n                  type: object\n                  required:\n                  - schema:instrument\n                then:\n                  properties:\n                    schema:instrument:\n                      type: array\n                      minItems: 1\n                      items:\n                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml\n              - if:\n                  type: object\n                  properties:\n                    '@type':\n                      contains:\n                        const: ada:TAPPDefinition\n                  required:\n                  - '@type'\n                  - schema:name\n                then:\n                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NI-MI/tapp/schema.yaml\n      title: Analysis Events\n    schema:additionalType:\n      description: Must include a NIMI product type identifier.\n      contains:\n        enum:\n        - Nanoindentation and Microindentation\n        - Nanoindentation and microindentation (NI-MI)\n      title: Product Type\n    schema:subjectOf:\n      properties:\n        dcterms:conformsTo:\n          contains:\n            type: object\n            properties:\n              '@id':\n                const: https://w3id.org/geochem/metadata/profiles/adaNIMI\n      title: About This Record\nx-bblocks-metadata:\n  itemIdentifier: ogch.techniqueProfile.geochemProfile.NI-MI.profile\n  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-10-31'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA NI-MI Product Profile\ndescription: Path-driven technique-specific profile for ADA NI-MI Product Profile.\n  Extends the base ADA product profile with the NIMI analysis-instance detail on the\n  schema:Dataset root, narrows prov:used to the niMiTAPP protocol, and constrains\n  valid component types on schema:distribution.hasPart.\nallOf:\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NI-MI/detail/schema.yaml\n- type: object\n  properties:\n    prov:wasGeneratedBy:\n      description: 'Pin the niMiTAPP definition and the instrument where prov:used\n        carries them. Constraint-only if/then, never a narrowed anyOf: prov:used items\n        are role-keyed wrappers, and an anyOf here would allOf-merge with the base\n        union and exclude item shapes the base allows.'\n      type: array\n      items:\n        type: object\n        properties:\n          prov:used:\n            type: array\n            items:\n              allOf:\n              - if:\n                  type: object\n                  required:\n                  - schema:instrument\n                then:\n                  properties:\n                    schema:instrument:\n                      type: array\n                      minItems: 1\n                      items:\n                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml\n              - if:\n                  type: object\n                  properties:\n                    '@type':\n                      contains:\n                        const: ada:TAPPDefinition\n                  required:\n                  - '@type'\n                  - schema:name\n                then:\n                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NI-MI/tapp/schema.yaml\n      title: Analysis Events\n    schema:additionalType:\n      description: Must include a NIMI product type identifier.\n      contains:\n        enum:\n        - Nanoindentation and Microindentation\n        - Nanoindentation and microindentation (NI-MI)\n      title: Product Type\n    schema:subjectOf:\n      properties:\n        dcterms:conformsTo:\n          contains:\n            type: object\n            properties:\n              '@id':\n                const: https://w3id.org/geochem/metadata/profiles/adaNIMI\n      title: About This Record\nx-bblocks-metadata:\n  itemIdentifier: ogch.techniqueProfile.geochemProfile.NI-MI.profile\n  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-11-09'\n",
   "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/techniqueProfile/geochemProfile/NI-MI/profile"
 }

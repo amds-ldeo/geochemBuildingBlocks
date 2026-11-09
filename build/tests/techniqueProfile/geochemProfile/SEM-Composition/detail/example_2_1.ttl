@@ -1,25 +1,56 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Gucsik2013> a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique <ex:semCompositionTAPP-Gucsik2013> ;
+ex:semCompositionTAPP-detail-Gucsik2013 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "CL (same instrument); BSE Imaging (same instrument, same session); EPMA with WDS (JEOL JXA-8900R, out of scope)" ] ] ;
+    prov:wasGeneratedBy [ schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "no value available: schema:name" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/semCompositionTAPP-detail-Gucsik2013/instrument/SEM> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ;
+            ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
+    ada:analyticalMode "EDS Point Analysis" ;
     ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
     ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Gucsik2013> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/semCompositionTAPP-detail-Gucsik2013/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/acceleratingVoltage> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "Optical microscope-cathodoluminescence survey — \"Following a systematic optical microscopecathodoluminescence study of a Kaba thin section, seven representative grains (designated as B-1 through B-7) were selected for further analyses\" (p.2); the grain labels tie the later measurements back to that survey (Fig. 1, p.2)" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "15 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 15 .
 

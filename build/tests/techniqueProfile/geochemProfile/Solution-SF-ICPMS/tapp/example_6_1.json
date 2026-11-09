@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -115,35 +116,6 @@
         ],
         "schema:valueName": "interferenceCorrectionMethod",
         "schema:name": "Interference Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       },
@@ -557,7 +529,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Solution SF-ICP-MS analytical workflow"
   },
   "ada:numberOfScansPerReplicate": "all: 70 to 120 scans of the whole mass spectrum \u2014 for one analysis, a total acquisition time of 10 minutes per sample",
   "ada:numberOfReplicatesPerSample": "3 \u2014 'Triplicate determinations were performed for each digestion'",
@@ -598,6 +571,48 @@
       "schema:defaultValue": "Dixon outlier test on each block of ten ratios \u2014 'Generally, less than one ratio had to be excluded from the whole data set'"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (\u00b5g/g) \u2014 Equations 1 and 2",
+    "ada:defaultReportedProperties": [
+      "Rb",
+      "Sr",
+      "Y",
+      "Zr",
+      "Nb",
+      "Cs",
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Hf",
+      "Ta",
+      "Pb",
+      "Th",
+      "U (\u00b5g/g)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:numberOfAcquisitionPasses": "2 \u2014 the LR and HR solutions",
   "schema:measurementTechnique": [
     {
@@ -616,9 +631,6 @@
   "ada:samplingUnitType": "Digestion, with determinations nested inside it -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"Only one digestion was prepared for the USGS reference glasses ... and were measured in triplicate\"",
   "ada:analyticalMode": [
     "Solution nebulisation (continuous) -- \"The ELEMENT2 was equipped with an ESI microconcentric Teflon nebuliser (flow rate ca. 100 ul min-1) and an ESI Teflon spray chamber\"; \"Sample uptake rate ca. 100 ul min-1\""
-  ],
-  "ada:reportedProperties": [
-    "Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (\u00b5g/g) \u2014 Equations 1 and 2"
   ],
   "ada:chromatographicSeparationApplied": "None \u2014 'dissolved rock samples are analysed directly by ID without previous separation'",
   "ada:isotopeDilutionSpike": "Three multi-element spikes: MES 1 (86Sr, 135Ba, 145Nd, 149Sm, 235U), MES 2 (155Gd, 161Dy, 167Er, 171Yb, 207Pb), MES 3 (91Zr, 179Hf) \u2014 Table 1; calibrated by reverse ID against Alfa Aesar specpure solutions, spike-concentration uncertainty 0.5\u20131% RSD",

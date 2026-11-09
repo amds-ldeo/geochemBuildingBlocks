@@ -1,16 +1,26 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-Model5077> a ada:SVRUECTabular ;
-    schema1:measurementTechnique <ex:svruecTAPP-Model5077> ;
+ex:svruecTAPP-detail-Model5077 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Hanton, Lincoln" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "Grant 22EXPOSICA from Planetary Exploration, Space Exploration, Canadian Space Agency. This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20241216_sv-ruec_uca_orex-800123-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "University of Calgary" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800123-0" ] ;
+            schema1:startTime "2024-12-16" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-12-16" ;
     ada:analyst "Hanton, Lincoln" ;
-    ada:componentType "ada:SVRUECTabular" ;
     ada:fundingSourceForAnalysis "Grant 22EXPOSICA from Planetary Exploration, Space Exploration, Canadian Space Agency. This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-800123-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241216_sv-ruec_uca_orex-800123-0_1" .
-
-<ex:svruecTAPP-Model5077> schema1:identifier "no value available: schema:identifier" .
 

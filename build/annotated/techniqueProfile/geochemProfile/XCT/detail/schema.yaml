@@ -183,6 +183,9 @@ allOf:
                     const: Sample Mounting Method
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/sample-mounting-method
                 required:
                 - '@id'
                 - '@type'
@@ -437,6 +440,9 @@ allOf:
                     const: Detector Binning
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/detector-binning
                 required:
                 - '@id'
                 - '@type'
@@ -462,6 +468,9 @@ allOf:
                     const: Rotation Mode
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/rotation-mode
                 required:
                 - '@id'
                 - '@type'
@@ -557,6 +566,9 @@ allOf:
                     const: CT Number Calibration
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/ct-number-calibration
                 required:
                 - '@id'
                 - '@type'
@@ -581,6 +593,9 @@ allOf:
                     const: Segmentation Method
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/segmentation-method
                 required:
                 - '@id'
                 - '@type'
@@ -683,6 +698,9 @@ allOf:
                     const: Output Bit Depth
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/output-bit-depth
                 required:
                 - '@id'
                 - '@type'
@@ -799,6 +817,9 @@ allOf:
                     const: Sample Mounting Method
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/sample-mounting-method
                 required:
                 - '@id'
                 - '@type'
@@ -1080,6 +1101,9 @@ allOf:
                     const: Detector Binning
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/detector-binning
                 required:
                 - '@id'
                 - '@type'
@@ -1108,6 +1132,9 @@ allOf:
                     const: Rotation Mode
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/rotation-mode
                 required:
                 - '@id'
                 - '@type'
@@ -1218,6 +1245,9 @@ allOf:
                     const: CT Number Calibration
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/ct-number-calibration
                 required:
                 - '@id'
                 - '@type'
@@ -1245,6 +1275,9 @@ allOf:
                     const: Segmentation Method
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/segmentation-method
                 required:
                 - '@id'
                 - '@type'
@@ -1359,6 +1392,9 @@ allOf:
                     const: Output Bit Depth
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/output-bit-depth
                 required:
                 - '@id'
                 - '@type'
@@ -1475,7 +1511,7 @@ allOf:
                       type: array
                       items:
                         allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
                         - type: object
                           allOf:
                           - if:
@@ -1848,6 +1884,9 @@ allOf:
                                   const: Flat Field Correction
                                 schema:value:
                                   type: string
+                                schema:inDefinedTermSet:
+                                  const:
+                                    '@id': ada:vocab/flat-field-correction
                               required:
                               - '@id'
                               - '@type'
@@ -1905,6 +1944,9 @@ allOf:
                                   const: Flat Field Correction
                                 schema:value:
                                   type: string
+                                schema:inDefinedTermSet:
+                                  const:
+                                    '@id': ada:vocab/flat-field-correction
                               required:
                               - '@id'
                               - '@type'
@@ -1978,6 +2020,7 @@ allOf:
                 - None
                 - missing
               - type: string
+              schema:inDefinedTermSet: ada:vocab/output-data-format
             minItems: 1
         required:
         - schema:encodingFormat
@@ -2347,4 +2390,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'

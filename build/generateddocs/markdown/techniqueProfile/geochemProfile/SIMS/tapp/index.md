@@ -17,6 +17,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -33,6 +34,27 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
   "schema:description": "simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7 (publication column of SIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = CAMECA.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "CAMECA IMS-1270E7",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Analysis Name",
+      "error",
+      "d18O corr",
+      "2SE",
+      "d17O corr",
+      "D17O corr"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -61,14 +83,11 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
       "schema:name": "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)."
     }
   ],
-  "ada:reportedProperties": [
-    "Analysis Name | error | d18O corr | 2SE | d17O corr | D17O corr"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Secondary ion mass spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -109,6 +128,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -117,6 +137,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -134,6 +155,27 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
   "schema:description": "simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7 (publication column of SIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = CAMECA.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "CAMECA IMS-1270E7",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Analysis Name",
+      "error",
+      "d18O corr",
+      "2SE",
+      "d17O corr",
+      "D17O corr"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -162,14 +204,11 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
       "schema:name": "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)."
     }
   ],
-  "ada:reportedProperties": [
-    "Analysis Name | error | d18O corr | 2SE | d17O corr | D17O corr"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Secondary ion mass spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -207,17 +246,18 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:simsTAPP-P0> a cdi:Activity,
+ex:simsTAPP-P0 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Secondary ion mass spectrometry analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -241,7 +281,19 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
     ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "CAMECA IMS-1270E7" ;
-    ada:reportedProperties "Analysis Name | error | d18O corr | 2SE | d17O corr | D17O corr" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "2SE",
+                "Analysis Name",
+                "D17O corr",
+                "d17O corr",
+                "d18O corr",
+                "error" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
@@ -338,6 +390,19 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -356,7 +421,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SIMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

@@ -1,25 +1,95 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Ma2015> a ada:EPMAImage ;
-    schema1:measurementTechnique <ex:epmaTAPP-Ma2015> ;
+ex:epmaTAPP-detail-Ma2015 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Chi Ma" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "DOE Cooperative Agreement DE-NA0001982; NSF EAR 322082; NASA NNN13D465T; NASA Cosmochemistry NNX11AG58G and NNX12AH63G; NSF EAR 1344942 and 1440005 — acknowledged author by author for the study as a whole; none is attributed to the microprobe work" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO: one standard deviation of the mean; other: N — Table 1 note b: 'Errors given inside parentheses are one standard deviation of the mean based on all of the analyses'" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Polished thin section; carbon coating N" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:description "Ma et al. 2015, Earth Planet. Sci. Lett. — tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility." ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Caltech GPS Division Analytical Facility" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "Tissint Mars meteorite" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/epmaTAPP-detail-Ma2015/instrument/EPMA> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ;
+            ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Chi Ma" ;
     ada:analyticalAccuracy "missing" ;
+    ada:analyticalMode "WDS Point Analysis — 'WDS: 15 kV; 5 nA; beam in focused mode'; point analyses only" ;
     ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:EPMAImage" ;
     ada:detectionLimit "K2O: 0.02 wt% K; Cr2O3: 0.05 wt% Cr; MnO: 0.06 wt% Mn; other: N — Table 1 footnote c, attached to the b.d. entries of the K2O, Cr2O3 and MnO rows: 'b.d. = below detection limit: 0.02 wt% K, 0.05 wt% Cr, 0.06 wt% Mn'" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "DOE Cooperative Agreement DE-NA0001982; NSF EAR 322082; NASA NNN13D465T; NASA Cosmochemistry NNX11AG58G and NNX12AH63G; NSF EAR 1344942 and 1440005 — acknowledged author by author for the study as a whole; none is attributed to the microprobe work" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "Tissint Mars meteorite" ;
     ada:samplingUnitName "Labelled at section level only: tissintite \"was identified in sections UT1, UT2 and UT3\" (p.2); Table 1 groups the point analyses by phase and setting (\"Wormy type tissintite\", \"Rimming tissintite\", \"Maskelynite away from melt pockets\" …) with counts (n = 6, 9, 17 …), not labels (p.5)" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "each unit is named by its material: tissintite (wormy, rimming), maskelynite (three settings), pigeonite, fayalite — Table 1" .
 
-<ex:epmaTAPP-Ma2015> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/epmaTAPP-detail-Ma2015/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "15 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 15 .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> a schema1:PropertyValue ;
+    schema1:name "Beam Diameter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "SEM BSE imaging on a ZEISS 1550VP field-emission SEM, which locates the occurrences the probe then analyses — \"SEM BSE image showing tissintite in a shock melt pocket, in Tissint section UT2\" (Fig. 1 caption, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order" .
 

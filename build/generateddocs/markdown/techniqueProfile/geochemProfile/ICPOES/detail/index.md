@@ -16,17 +16,52 @@ detail instance derived from ADA n=12 | Welten, Kees | University of California,
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-CAP6300",
+  "@id": "ex:icpoesTAPP-detail-CAP6300",
   "@type": [
-    "ada:ICPOESRawTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:ICPOESRawTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:icpoesTAPP-CAP6300",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of California, Berkeley"
+      },
+      "schema:identifier": "20231219_icp-oes_ucb_multisample_1",
+      "schema:startTime": "2023-12-13",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803047-101"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Welten, Kees"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX Participating Scientist Program."
     }
   ],
   "ada:sessionIdentifier": "20231219_icp-oes_ucb_multisample_1",
@@ -51,18 +86,53 @@ detail instance derived from ADA n=12 | Welten, Kees | University of California,
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/ICPOES/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-CAP6300",
+  "@id": "ex:icpoesTAPP-detail-CAP6300",
   "@type": [
-    "ada:ICPOESRawTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:ICPOESRawTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:icpoesTAPP-CAP6300",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of California, Berkeley"
+      },
+      "schema:identifier": "20231219_icp-oes_ucb_multisample_1",
+      "schema:startTime": "2023-12-13",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803047-101"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Welten, Kees"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX Participating Scientist Program."
     }
   ],
   "ada:sessionIdentifier": "20231219_icp-oes_ucb_multisample_1",
@@ -78,20 +148,30 @@ detail instance derived from ADA n=12 | Welten, Kees | University of California,
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-CAP6300> a ada:ICPOESRawTabular ;
-    schema1:measurementTechnique <ex:icpoesTAPP-CAP6300> ;
+ex:icpoesTAPP-detail-CAP6300 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Welten, Kees" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX Participating Scientist Program." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20231219_icp-oes_ucb_multisample_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "University of California, Berkeley" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-803047-101" ] ;
+            schema1:startTime "2023-12-13" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-12-13" ;
     ada:analyst "Welten, Kees" ;
-    ada:componentType "ada:ICPOESRawTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX Participating Scientist Program." ;
     ada:sampleName "OREX-803047-101" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231219_icp-oes_ucb_multisample_1" .
-
-<ex:icpoesTAPP-CAP6300> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.ICPOES.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

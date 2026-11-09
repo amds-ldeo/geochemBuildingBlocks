@@ -7,20 +7,279 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:solutionMcicpmsTAPP-detail-P0",
   "@type": [
-    "ada:SolutionICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SolutionICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:solutionMcicpmsTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
+                }
+              ],
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 0.3,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "0.3\u20130.5 g digested; ~100 ng Mo consumed per measurement"
+            }
+          ],
+          "schema:name": "Three matrix separates, six chondrule fractions (C2, C3, C4; C3m, C3i, C3n) and two bulk rock samples of Allende; BHVO-2",
+          "schema:description": "no value available: schema:description"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "Sample Introduction System",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
+                        }
+                      ],
+                      "schema:name": "Sample Uptake Rate",
+                      "schema:value": 50,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "~50 \u00b5l/min"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P0/instrument/ICPMS/part/Sample-Introduction-System"
+                },
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "ICP Source",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P0/instrument/ICPMS/part/ICP-Source"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "Collision Reaction Cell",
+                  "@id": "ex:solutionMcicpmsTAPP-detail-P0/instrument/ICPMS/part/Collision-Reaction-Cell"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:solutionMcicpmsTAPP-detail-P0/instrument/ICPMS"
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "BHVO-2 \u2014 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:proceduralBlankLevel": "Mo: 0.7\u20131.2 ng \u2014 'negligible, given that several hundred ng of Mo were analyzed for each sample'",
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Data processing",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/Core/constantsReferenceValues",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                  }
+                ],
+                "schema:name": "Constants Reference Values",
+                "schema:value": "98Mo/96Mo = 1.453173 for internal normalization; 134Ba/136Ba = 0.3078 (Carlson et al. 2007) for the TIMS half"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          },
+          {
+            "schema:name": "Sample digestion",
+            "schema:position": 3,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+            }
+          ],
+          "schema:name": "Number of Cycles per Block",
+          "schema:value": 100,
+          "schema:description": "all: 100 isotope ratio measurements, preceded by 40 baseline integrations \u2014 \u00a72"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+            }
+          ],
+          "schema:name": "Integration Time per Cycle",
+          "schema:value": 8.4,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "all: 8.4 s \u2014 \u00a72"
+        },
+        {
+          "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatio"
+            }
+          ],
+          "schema:name": "Double Spike Mixing Ratio",
+          "schema:value": "N/A \u2014 no double spike used"
+        }
+      ],
+      "ada:deltaOrEpsilonValueReferenceStandard": "Mo: Alfa Aesar Mo solution standard \u2014 mean of bracketing runs",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Institut f\u00fcr Planetologie, University of M\u00fcnster"
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
   ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "BHVO-2 [all: \u03b5\u2071Mo indistinguishable from the Alfa Aesar standard] \u2014 \u00a72"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "BHVO-2 [all: \u00b10.14 (\u03b597Mo) to \u00b10.39 (\u03b592Mo), 2 s.d., n = 24] \u2014 external reproducibility (\u00a72, Table S2); Ba by TIMS \u00b10.13\u20130.31 (n = 14)"
+    },
+    {
+      "dqv:isMeasurementOf": "Peak Flatness",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "TIMS \u2014 Ba isotopes on a Thermo Scientific Triton Plus at the same institute; Hf-W on the same sample digestions"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:sensitivityYield": "N \u2014 total ion beam ~1.3 \u00d7 10\u207b\u00b9\u2070 A for a ~100 ppb Mo solution at ~50 \u00b5l/min",
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
   "ada:analysisStartDate": "missing",
@@ -31,40 +290,8 @@
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
-  "ada:deltaOrEpsilonValueReferenceStandard": "Mo: Alfa Aesar Mo solution standard \u2014 mean of bracketing runs",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Mo: 0.7\u20131.2 ng \u2014 'negligible, given that several hundred ng of Mo were analyzed for each sample'",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "BHVO-2 [all: \u00b10.14 (\u03b597Mo) to \u00b10.39 (\u03b592Mo), 2 s.d., n = 24] \u2014 external reproducibility (\u00a72, Table S2); Ba by TIMS \u00b10.13\u20130.31 (n = 14)",
-  "ada:analyticalAccuracyAndAssessmentMethod": "BHVO-2 [all: \u03b5\u2071Mo indistinguishable from the Alfa Aesar standard] \u2014 \u00a72",
   "ada:detectionLimit": -9999,
-  "ada:limitOfQuantificationMethod": "missing",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock"
-        }
-      ],
-      "schema:name": "Number of Cycles per Block",
-      "schema:value": "all: 100 isotope ratio measurements, preceded by 40 baseline integrations \u2014 \u00a72"
-    },
-    {
-      "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio"
-        }
-      ],
-      "schema:name": "Double-Spike Mixing Ratio",
-      "schema:value": "N/A \u2014 no double spike used"
-    }
-  ]
+  "ada:limitOfQuantificationMethod": "missing"
 }

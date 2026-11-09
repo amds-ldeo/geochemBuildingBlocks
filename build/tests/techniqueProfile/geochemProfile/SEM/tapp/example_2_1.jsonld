@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -81,7 +83,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "SEM analytical workflow"
   },
   "schema:instrument": [
     {
@@ -178,6 +181,23 @@
       "@id": "ex:semTAPP-Garvie2008-2/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "internal structure of the sectioned globules (nominal) \u2014 Internal structure of the sectioned globules (nominal) \u2014 \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)",
+    "ada:defaultReportedProperties": [
+      "internal structure of the sectioned globules (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "carbonaceous nanoglobules"
@@ -253,9 +273,6 @@
   "ada:samplingUnitType": "Grain (individual nanoglobule) > Sub-volume (FIB cross-section) \u2014 \"The internal structure of the globules was investigated after sectioning by focused ion beam (FIB) milling\" (p.1)",
   "ada:analyticalMode": [
     "TEM Sample Preparation"
-  ],
-  "ada:reportedProperties": [
-    "internal structure of the sectioned globules (nominal) \u2014 Internal structure of the sectioned globules (nominal) \u2014 \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)"
   ],
   "schema:measurementTechnique": [
     {

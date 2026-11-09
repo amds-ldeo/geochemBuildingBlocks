@@ -1,27 +1,171 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-P1> a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique <ex:solutionQicpmsTAPP-P1> ;
+ex:solutionQicpmsTAPP-detail-P1 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)" ;
+                    schema1:name "ICP-AES (for initial [Ca] determination; stated section 2)" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "all [Li/Ca: 0.39%; B/Ca: 2.57%; Mg/Ca: 0.61%; Al/Ca: 9.30%; Mn/Ca: 0.23%; Zn/Ca: 0.82% (1.2–7.8), 1.69% (0.5–1.2); Sr/Ca: 0.34%; Cd/Ca: 0.93% (0.07–0.24), 0.80% (0.01–0.07); U/Ca: 1.09%] — Acc.% = (average measured − true)/true × 100 on external standards (Table 2)" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: RSD% = SD of measurements / average ratio × 100 — table notes" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "all [Li/Ca: 2.42%; B/Ca: 4.17%; Mg/Ca: 1.39%; Al/Ca: 14.06%; Mn/Ca: 0.93%; Zn/Ca: 2.83% (1.2–7.8), 5.05% (0.5–1.2); Sr/Ca: 0.92%; Cd/Ca: 2.37% (0.07–0.24), 4.80% (0.01–0.07); U/Ca: 2.54%] — RSD of external standards over three months, n = 120 except Zn/Ca 88 and 32, Cd/Ca 50 and 70 (Table 2, §3.6)" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Ten to twenty tests handpicked, crushed gently, cleaned of clays (water, methanol) and silicates, reductively and oxidatively cleaned, rinsed twice in 0.001 M HNO3 and dissolved in 200 µl 0.075 M HNO3. 20 µl diluted for Ca by ICP-AES, the remainder diluted to 100 ppm Ca — §2" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues>,
+                                <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
+            schema1:description "Cetac ASX-100 autosampler; auto lens on; 0.03 mm ID pump tubing at 12 rpm; Ca matrix effects tested over 60–240 ppm Ca (Table 1, §2, §3.5)" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "N -- \"a typical run (~5 hr)\" referenced; no run identifier stated" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "University of Cambridge (affiliation)" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/solutionQicpmsTAPP-detail-P1/instrument/ICPMS> ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N — precision and accuracy are assessed on external standards of known ratio (Table 2); core-top results are compared with published data (Table 4)" ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
+            ada:combinedResults [ ] ;
+            ada:proceduralBlankLevel "Li, Mg, Sr: <1%; Cd: <2%; Zn: <4%; U: <5%; B: 5%; other: N — relative to typical foraminiferal ratios; Ca also <1%; B was 30% with a glass spray chamber (§3.2)" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "all [Li/Ca: 0.39%; B/Ca: 2.57%; Mg/Ca: 0.61%; Al/Ca: 9.30%; Mn/Ca: 0.23%; Zn/Ca: 0.82% (1.2–7.8), 1.69% (0.5–1.2); Sr/Ca: 0.34%; Cd/Ca: 0.93% (0.07–0.24), 0.80% (0.01–0.07); U/Ca: 1.09%] — Acc.% = (average measured − true)/true × 100 on external standards (Table 2)" ;
-    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "all [Li/Ca: 2.42%; B/Ca: 4.17%; Mg/Ca: 1.39%; Al/Ca: 14.06%; Mn/Ca: 0.93%; Zn/Ca: 2.83% (1.2–7.8), 5.05% (0.5–1.2); Sr/Ca: 0.92%; Cd/Ca: 2.37% (0.07–0.24), 4.80% (0.01–0.07); U/Ca: 2.54%] — RSD of external standards over three months, n = 120 except Zn/Ca 88 and 32, Cd/Ca 50 and 70 (Table 2, §3.6)" ;
-    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:analyticalMode "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler" ;
     ada:detectionLimit "Li/Ca: 0.5; B/Ca: 15; Mg/Ca: 0.03; Al/Ca: 0.05; Mn/Ca: 0.3; Zn/Ca: 0.05; Sr/Ca: 0.02; Cd/Ca: 0.005; U/Ca: 0.5 — in the units of the ratio (Table 2)" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:numberOfReplicates 6 ;
     ada:oxideProduction "missing" ;
-    ada:proceduralBlankLevel "Li, Mg, Sr: <1%; Cd: <2%; Zn: <4%; U: <5%; B: 5%; other: N — relative to typical foraminiferal ratios; Ca also <1%; B was 30% with a glass spray chamber (§3.2)" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods" ;
     ada:samplingUnitName "N — only the sample type is named (core-top Cibicidoides wuellerstorfi); no sample or aliquot identifiers are stated" ;
+    ada:sensitivityYield "7Li: 2500 cps/ppb; 11B: 1000 cps/ppb; 25Mg: 800 cps/ppb; 46Ca: 0.5 cps/ppb; 27Al: 15000 cps/ppb; 55Mn: 12000 cps/ppb; 66Zn: 2500 cps/ppb; 87Sr: 1500 cps/ppb; 111Cd: 1500 cps/ppb; 238U: 9000 cps/ppb — typical count rate (Table 1); ~40 kHz for 1 ppb ¹¹⁵In at 60 µl/min (§2)" ;
     ada:sessionIdentifier "N -- \"a typical run (~5 hr)\" referenced; no run identifier stated" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-<ex:solutionQicpmsTAPP-P1> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/solutionQicpmsTAPP-detail-P1/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/solutionQicpmsTAPP-detail-P1/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/solutionQicpmsTAPP-detail-P1/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/solutionQicpmsTAPP-detail-P1/instrument/ICPMS/part/Sample-Introduction-System> ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/solutionQicpmsTAPP-detail-P1/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "Collision Reaction Cell" .
+
+<https://example.org/solutionQicpmsTAPP-detail-P1/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/solutionQicpmsTAPP-detail-P1/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRate>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> a schema1:PropertyValue ;
+    schema1:name "Constants Reference Values" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
+    schema1:value "Natural isotopic abundances used to select isotopes and derive correction factors: the Li standard \"was artificially depleted of 7Li (92.32% vs 92.48% for natural)\"; \"The natural abundance of 11B (80.17%) is also different from values of foraminiferal samples which are expected to be 80.40-80.43% if assumed to have d11B ratios of 25-27 permil\", giving \"correction factors (0.9983 for Li and 0.9968-0.9971 for B)\"; 111Cd 12.8%, 112Cd 24.1%, 114Cd 28.7%, 238U 99.3%" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate> a schema1:PropertyValue ;
+    schema1:description "1.2 L/min (Table 1)" ;
+    schema1:name "Auxiliary Gas Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1.2e+00 .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate> a schema1:PropertyValue ;
+    schema1:description "15 L/min (Table 1)" ;
+    schema1:name "Coolant Plasma Gas Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 15 .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> a schema1:PropertyValue ;
+    schema1:name "ICP Tuning" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> ;
+    schema1:value "\"The instrument sensitivity was optimized daily using a 10 ppb Mg-In-U standard\"; \"Plasma robustness was monitored by constraining CeO/Ce ratio within 3% to refrain formation of polyatomic oxides\"" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> a schema1:PropertyValue ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
+    schema1:value "Longer washout and uptake times for B, and a quartz spray chamber to reduce B blanks — §2, §3.2" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> a schema1:PropertyValue ;
+    schema1:description "1300 W (Table 1)" ;
+    schema1:name "RF Power" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1300 .
+
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> a schema1:PropertyValue ;
+    schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+    schema1:value "N/A — all isotopes in pulse mode 'to avoid the need for cross calibration' (§3.1)" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRate> a schema1:PropertyValue ;
+    schema1:description "0.99-1.02 L/min (Table 1)" ;
+    schema1:name "Nebulizer Gas Flow Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 9.9e-01 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> a schema1:PropertyValue ;
+    schema1:description "Ten to twenty tests, about 300 µg of shells — §2; one measurement uses 250 µl at 100 ppm Ca, equivalent to 60 µg calcite" ;
+    schema1:name "Sample Aliquot Mass or Volume" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 300 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> a schema1:PropertyValue ;
+    schema1:description "~60 uL/min (stated Table 1; 0.03 mm ID pump tubing)" ;
+    schema1:name "Sample Uptake Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 60 .
 

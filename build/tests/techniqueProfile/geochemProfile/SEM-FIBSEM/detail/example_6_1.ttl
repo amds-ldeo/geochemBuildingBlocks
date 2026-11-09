@@ -1,17 +1,95 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Zega2025-3> a ada:FIBSEMVolume ;
-    schema1:measurementTechnique <ex:semFibsemTAPP-Zega2025-3> ;
+ex:semFibsemTAPP-detail-Zega2025-3 a schema1:Dataset,
+        schema1:Product ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
+                            schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 2 ] ] ;
+            schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "no value available: schema:name" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/semFibsemTAPP-detail-Zega2025-3/instrument/SEM> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:FIBSEMVolume" ;
+    ada:analyticalMode "TEM Sample Preparation" ;
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "N — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-<ex:semFibsemTAPP-Zega2025-3> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/semFibsemTAPP-detail-Zega2025-3/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/acceleratingVoltage> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "N — the passage states only that \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10); no prior imaging or screening is described for this laboratory" .
+
+<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 30 .
+
+<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions> a schema1:PropertyValue ;
+    schema1:name "Coarse Milling Conditions" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions> ;
+    schema1:value "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" .
+
+<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions> a schema1:PropertyValue ;
+    schema1:name "Fine Polishing Conditions" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions> ;
+    schema1:value "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick" .
+
+<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> a schema1:PropertyValue ;
+    schema1:description "~100 nm" ;
+    schema1:name "Foil Thickness" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 100 .
+
+<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> a schema1:PropertyValue ;
+    schema1:name "Protective Coating Deposition" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
+    schema1:value "Electron-beam deposited carbon (~0.5–1 µm); followed by ion beam-deposited carbon (~2–3 µm capping layer)" .
 

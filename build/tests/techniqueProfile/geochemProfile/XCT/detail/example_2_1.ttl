@@ -1,24 +1,165 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Genge2025> a ada:XCTVolume ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique <ex:labxctTAPP-Genge2025> ;
+ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
+        schema1:Product ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Serial polished sections cut post-XCT; SEM imaging" ;
+                    schema1:name "SEM (post-XCT polished sections)" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "61 SSOs by polished SEM sections vs. 108 by XCT; discrepancy attributed to disruption by polishing; XCT detects more SSOs" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinning>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepth>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteria>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Not stated" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
+                        <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "A0180 (A0180-A and A0180-B)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "ImageJ + TANGO plugin (Ollion et al. 2013)" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/labxctTAPP-detail-Genge2025/instrument/XCT> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:XCTVolume" ;
+    ada:analyticalMode "Single-volume" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:sampleDimensions "1.592 × 0.756 × 0.985 mm" ;
     ada:sampleName "A0180 (A0180-A and A0180-B)" ;
     ada:samplingUnitName "Labelled: scans \"A0180-A and A0180-B\" of Ryugu sample A0180 (p.7)" ;
-    ada:sessionIdentifier "missing" ;
-    ada:voiApplied "Full scan volume" .
+    ada:sessionIdentifier "missing" .
 
-<ex:labxctTAPP-Genge2025> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/labxctTAPP-detail-Genge2025/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "90 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 90 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinning> a schema1:PropertyValue ;
+    schema1:name "Detector Binning" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinning> ;
+    schema1:value "No binning" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
     schema1:value "N — the paper's \"spatial resolutions (in voxels)\" are the voxel sizes (0.625 / 0.672 µm); no effective (PSF/MTF) resolution reported" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> a schema1:PropertyValue ;
+    schema1:description "33 s (A0180-A); 28 s (A0180-B)" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 33 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> a schema1:PropertyValue ;
+    schema1:name "Number of Projections" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> ;
+    schema1:value 2401 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepth> a schema1:PropertyValue ;
+    schema1:name "Output Bit Depth" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepth> ;
+    schema1:value "16-bit (CCD pixel depth)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteria> a schema1:PropertyValue ;
+    schema1:name "Partial Volume Effect Criteria" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteria> ;
+    schema1:value "SSOs ≥ 5.4 µm identified (implicit: features ≥ voxel size = 0.625 µm); sulphide rims ≥ 1 voxel required for detection" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod> a schema1:PropertyValue ;
+    schema1:name "Phase Identification Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod> ;
+    schema1:value "Sulphide rims of SSOs identified by bright contrast; silicate glass by contrast relative to matrix" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange> a schema1:PropertyValue ;
+    schema1:description "360°" ;
+    schema1:name "Rotation Range" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 360 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> a schema1:PropertyValue ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+    schema1:value "1.592 × 0.756 × 0.985 mm" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> a schema1:PropertyValue ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
+    schema1:value "Mounted in pipette tips" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod> a schema1:PropertyValue ;
+    schema1:name "Segmentation Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod> ;
+    schema1:value "ImageJ threshold-based; TANGO plugin for 3D object detection" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent> a schema1:PropertyValue ;
+    schema1:description "89 µA" ;
+    schema1:name "Tube Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 89 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> a schema1:PropertyValue ;
+    schema1:name "VOI Applied" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    schema1:value "Full scan volume" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> a schema1:PropertyValue ;
+    schema1:description "0.625 µm (A0180-A); 0.672 µm (A0180-B)" ;
+    schema1:name "Voxel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 6.25e-01 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> a schema1:PropertyValue ;
+    schema1:name "X-ray Pre-filter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
+    schema1:value "Inbuilt LE4 filter (beam hardening reduction)" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "Optical microscopy — morphological inspection of the sample exterior through the container window with the CLOXS digital optical microscope system on automated digital sample stages at JAXA/ISAS, before the sample was decanted for nano-XCT" .
 

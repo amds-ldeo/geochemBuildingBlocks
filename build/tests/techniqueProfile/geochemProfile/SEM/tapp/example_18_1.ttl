@@ -1,17 +1,26 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semTAPP-Pascucci2026> a cdi:Activity,
+ex:semTAPP-Pascucci2026 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -19,13 +28,6 @@
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
                     ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -40,7 +42,7 @@
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
-    schema1:instrument <ex:semTAPP-Pascucci2026/instrument/SEM> ;
+    schema1:instrument <https://example.org/semTAPP-Pascucci2026/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -66,7 +68,16 @@
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N/A — this procedure is BSE Imaging. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns" ;
-    ada:reportedProperties "texture (nominal); phase distribution (nominal) — Textures and phase distribution across the slab (nominal), imaged at 20.00 kV and mosaicked into 10 BSE images covering the SPIM area (p.3)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "phase distribution (nominal)",
+                "texture (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "texture (nominal); phase distribution (nominal) — Textures and phase distribution across the slab (nominal), imaged at 20.00 kV and mosaicked into 10 BSE images covering the SPIM area (p.3)" ] ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab" ;
     ada:samplingUnitType "Whole sample (polished slab) > Phase — BSE images \"were used at high vacuum mode at 20.00 kV accelerating voltage\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)" ;
@@ -89,53 +100,6 @@
     ada:workingDistanceDefault "8 mm" ;
     bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ] .
-
-<ex:semTAPP-Pascucci2026/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "ESEM" ;
-    schema1:hasPart <ex:semTAPP-Pascucci2026/instrument/SEM/part/BSE-Detector>,
-        <ex:semTAPP-Pascucci2026/instrument/SEM/part/EDS-Detector>,
-        <ex:semTAPP-Pascucci2026/instrument/SEM/part/Electron-Source>,
-        <ex:semTAPP-Pascucci2026/instrument/SEM/part/WDS-Spectrometer> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Zeiss" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Supra 40" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault "20 kV" ;
-    ada:beamDiameterDefault -9999 ;
-    ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" ;
-    ada:mappingBeamCurrentDefault -9999 ;
-    ada:mappingBeamDiameterDefault -9999 ;
-    ada:mappingBeamMode "missing" .
-
-<ex:semTAPP-Pascucci2026/instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "N/A" .
-
-<ex:semTAPP-Pascucci2026/instrument/SEM/part/EDS-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EDS Detector" ;
-    schema1:name "missing" .
-
-<ex:semTAPP-Pascucci2026/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "Field emission gun (FEG) — subtype not specified" ;
-    schema1:name "missing" .
-
-<ex:semTAPP-Pascucci2026/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "WDS Spectrometer" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -161,4 +125,51 @@
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
+
+<https://example.org/semTAPP-Pascucci2026/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "ESEM" ;
+    schema1:hasPart <https://example.org/semTAPP-Pascucci2026/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semTAPP-Pascucci2026/instrument/SEM/part/EDS-Detector>,
+        <https://example.org/semTAPP-Pascucci2026/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semTAPP-Pascucci2026/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Supra 40" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault "20 kV" ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
+
+<https://example.org/semTAPP-Pascucci2026/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "N/A" .
+
+<https://example.org/semTAPP-Pascucci2026/instrument/SEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/semTAPP-Pascucci2026/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
+    schema1:name "missing" .
+
+<https://example.org/semTAPP-Pascucci2026/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
 

@@ -1,18 +1,307 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P2",
+  "@id": "ex:solutionSficpmsTAPP-detail-P2",
   "@type": [
-    "ada:SolutionICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SolutionICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:solutionSficpmsTAPP-P2",
-      "schema:identifier": "no value available: schema:identifier"
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Auxiliary Gas Flow Rate",
+                      "schema:value": 1.2,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "1.2 L/min (stated Table in section 2.1.2)"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Coolant Plasma Gas Flow Rate",
+                      "schema:value": 14,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "14 L/min (stated Table in section 2.1.2)"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": 1.1,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "1.1 kW (stated Table in section 2.1.2)"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionSficpmsTAPP-detail-P2/instrument/ICPMS/part/ICP-Source"
+                },
+                {
+                  "schema:additionalType": [
+                    "Sample Introduction System",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Nebulizer Gas Flow Rate",
+                      "schema:value": 0.9,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "0.90 L/min (stated Table in section 2.1.2)"
+                    },
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
+                        }
+                      ],
+                      "schema:name": "Sample Uptake Rate",
+                      "schema:value": 60,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "Self-aspiration; uptake time 60 s (stated section 2.1.2); volumetric flow rate N"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionSficpmsTAPP-detail-P2/instrument/ICPMS/part/Sample-Introduction-System"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                    }
+                  ],
+                  "schema:name": "Mass Resolution Setting",
+                  "schema:value": "MR (M/Delta-m = 3000; stated section 2.1.2)"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
+                  "schema:value": "0.5 mol/l HF carrier and wash solution; ~3 min wash per sample \u2014 \u00a72.1.2"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                    }
+                  ],
+                  "schema:name": "ICP Tuning",
+                  "schema:value": "Partially -- an oxide acceptance criterion is registered in the operating conditions, \"Oxide forming rate <1% (CeO+/Ce+)\"; no tuning solution or tuning procedure stated"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:solutionSficpmsTAPP-detail-P2/instrument/ICPMS"
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 \u2014 GSJ and USGS silicate reference materials (\u00a72.3); the chondrites are samples",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample digestion",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
+                  }
+                ],
+                "schema:name": "Digestion Temperature",
+                "schema:value": 70,
+                "schema:unitText": "no value available: unnamed property",
+                "schema:description": "ultrasonic HF decomposition: <70 \u00b0C; bomb HF decomposition: 245 \u00b0C; re-dissolution: N \u2014 abstract"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 3,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1.2)"
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
+          "schema:description": "no value available: schema:description"
+        }
+      ],
+      "schema:description": "Continuous sample introduction with an uptake time of 60 s (0.04 ml per measurement); quartz glass torch with sapphire injector (Table 1b)",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime",
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
     }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "all [Ti: RSD 3.6% (2.3\u20135.4%)] \u2014 TTi/93Nb RSD% (Table 2b)"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: consistent with previous studies] \u2014 abstract; Tables 5 and 6"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "all: RSD% \u2014 'Averages of the reproducibility (RSD %)'"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Agilent 7500cs Q-ICP-MS at PML (B, Zr, Nb, Mo, Sn, Sb, Hf, Ta on same samples; stated section 2.1.1)",
+        "schema:description": "The SF-ICP-MS measures Ti as the (47Ti + 49Ti)/93Nb ratio; the Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta on the same solutions and gives the Nb concentration used for Ti \u2014 abstract; \u00a72.7"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous) -- stated in the acquisition parameters: \"Middle resolution 50 s with 30 scans (continuous nebulization)\""
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -28,7 +317,5 @@
   "ada:proceduralBlankLevel": "missing",
   "ada:detectionLimit": "Ti: 4 \u00b5g/g; other: N \u2014 3\u03c3 in rock; 21 ng/g in solution (Table 2b)",
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "all [Ti: RSD 3.6% (2.3\u20135.4%)] \u2014 TTi/93Nb RSD% (Table 2b)",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: consistent with previous studies] \u2014 abstract; Tables 5 and 6"
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing"
 }

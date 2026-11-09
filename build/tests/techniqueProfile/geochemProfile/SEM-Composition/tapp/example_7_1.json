@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -149,6 +150,24 @@
     }
   ],
   "ada:edsAcquisitionMode": "Point",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "phase composition (At%); phase identification (nominal) \u2014 Phase compositions from point spectra, reported with the EMPA data as atomic proportions (At%: Fe + Co, S, Ni for the sulfides, Fig. 1, p.2); phase identification is the nominal output",
+    "ada:defaultReportedProperties": [
+      "phase composition (At%)",
+      "phase identification (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
   "ada:monitoredElements": [
     "N \u2014 \"EDS spectra were acquired at 15 kV with acquisition times ranging from 20 to 200 s with an incident beam current of ~900 pA\" on the JEOL 7600F (p.9); no element set is stated"
@@ -185,9 +204,6 @@
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
-  "ada:reportedProperties": [
-    "phase composition (At%); phase identification (nominal) \u2014 Phase compositions from point spectra, reported with the EMPA data as atomic proportions (At%: Fe + Co, S, Ni for the sulfides, Fig. 1, p.2); phase identification is the nominal output"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -223,7 +239,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "SEM Composition (EDS/WDS) analytical workflow"
   },
   "schema:measurementTechnique": [
     {

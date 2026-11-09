@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -89,7 +91,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "TEM analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the particles were allocated rather than chosen (\"We were allocated particles RA-QD02-0125 and RA-QD02-0211\", p.2), and no rule is given for the ultramicrotome sections taken from them",
   "schema:object": [
@@ -333,6 +336,28 @@
       }
     ]
   },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "quantitative element abundances; spatial distribution of elements; rim thickness (nm); rim structure (nominal); npFe presence (nominal); solar-flare track density (cm-2) \u2014 Quantitative elemental maps as spectrum images, \"enabling the determination of quantitative element abundances in addition to displaying the spatial distribution of major and minor elements\" (p.3); rim thickness (nm \u2014 \"a continuous approximately 50-nm thick, structurally disordered rim\", p.4); rim structure and the presence or absence of npFe and solar-flare tracks (nominal, with an upper limit of <10^9 cm-2 on track density, p.4)",
+    "ada:defaultReportedProperties": [
+      "quantitative element abundances",
+      "spatial distribution of elements",
+      "rim thickness (nm)",
+      "rim structure (nominal)",
+      "npFe presence (nominal)",
+      "solar-flare track density (cm-2)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "HRTEM lattice fringes + SAED: metallic npFe0 grains (<5 nm) identified by bcc iron d-spacings (Fig. 6 FFT: iron 110 spacings); pyrrhotite superstructure reflections present in core and absent in disordered rim (SAED + FFT); olivine composition by TEM-EDX (Fo70)",
   "schema:measurementTechnique": [
     {
@@ -349,9 +374,6 @@
     "schema:name": "Robert M. Walker Laboratory for Space Science, Code KR, Astromaterials Research and Exploration Science (ARES), NASA Johnson Space Center"
   },
   "ada:samplingUnitType": "Grain > Region of interest (spectrum image) \u2014 the JEOL 2500SE \"was used to measure chemical compositions using EDX as well as to acquire quantitative elemental maps (spectrum images) of individual grains. Spectrum images contain a high-count EDX spectrum in each pixel\" (p.3), in ultramicrotome thin sections of two particles (p.2)",
-  "ada:reportedProperties": [
-    "quantitative element abundances; spatial distribution of elements; rim thickness (nm); rim structure (nominal); npFe presence (nominal); solar-flare track density (cm-2) \u2014 Quantitative elemental maps as spectrum images, \"enabling the determination of quantitative element abundances in addition to displaying the spatial distribution of major and minor elements\" (p.3); rim thickness (nm \u2014 \"a continuous approximately 50-nm thick, structurally disordered rim\", p.4); rim structure and the presence or absence of npFe and solar-flare tracks (nominal, with an upper limit of <10^9 cm-2 on track density, p.4)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

@@ -1,28 +1,26 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semTAPP-Izawa2010-4> a cdi:Activity,
+ex:semTAPP-Izawa2010-4 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -34,13 +32,16 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v88.csv)." ;
-    schema1:instrument <ex:semTAPP-Izawa2010-4/instrument/SEM> ;
+    schema1:instrument <https://example.org/semTAPP-Izawa2010-4/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -66,7 +67,15 @@
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N/A — this procedure is BSE Imaging. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns" ;
-    ada:reportedProperties "textural relationships (nominal) — Textural relationships at higher resolution (nominal) — the stage is \"higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), reporting mineralogy and texture rather than a magnitude" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "textural relationships (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "textural relationships (nominal) — Textural relationships at higher resolution (nominal) — the stage is \"higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), reporting mineralogy and texture rather than a magnitude" ] ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Follow-up on features already located — this is the third stage of the paper's strategy, \"finally higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), on features identified by the earlier μXRD and SEM-EDX/CL stages" ;
     ada:samplingUnitType "Region of interest — \"High-resolution BSE imaging ... carried out with the Leo 1540 FIB/SEM CrossBeam field emission SEM\" (p.3), used for \"higher resolution SEM-BSE mapping to document smaller scale relationships\" within \"polished thin sections\" of Tagish Lake (p.2)" ;
@@ -88,53 +97,6 @@
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<ex:semTAPP-Izawa2010-4/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "FIB-SEM dual-beam" ;
-    schema1:hasPart <ex:semTAPP-Izawa2010-4/instrument/SEM/part/BSE-Detector>,
-        <ex:semTAPP-Izawa2010-4/instrument/SEM/part/EDS-Detector>,
-        <ex:semTAPP-Izawa2010-4/instrument/SEM/part/Electron-Source>,
-        <ex:semTAPP-Izawa2010-4/instrument/SEM/part/WDS-Spectrometer> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Zeiss" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Leo 1540 FIB/SEM CrossBeam" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault -9999 ;
-    ada:beamDiameterDefault -9999 ;
-    ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" ;
-    ada:mappingBeamCurrentDefault -9999 ;
-    ada:mappingBeamDiameterDefault -9999 ;
-    ada:mappingBeamMode "missing" .
-
-<ex:semTAPP-Izawa2010-4/instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "missing" .
-
-<ex:semTAPP-Izawa2010-4/instrument/SEM/part/EDS-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EDS Detector" ;
-    schema1:name "missing" .
-
-<ex:semTAPP-Izawa2010-4/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "Unknown" ;
-    schema1:name "missing" .
-
-<ex:semTAPP-Izawa2010-4/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "WDS Spectrometer" ;
-    schema1:name "missing" .
-
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Background Counting Time" ;
@@ -152,4 +114,51 @@
     schema1:name "Primary Calibration Standard Name" ;
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
+
+<https://example.org/semTAPP-Izawa2010-4/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "FIB-SEM dual-beam" ;
+    schema1:hasPart <https://example.org/semTAPP-Izawa2010-4/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semTAPP-Izawa2010-4/instrument/SEM/part/EDS-Detector>,
+        <https://example.org/semTAPP-Izawa2010-4/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semTAPP-Izawa2010-4/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Leo 1540 FIB/SEM CrossBeam" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:beamDiameterDefault -9999 ;
+    ada:beamMode "missing" ;
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
+
+<https://example.org/semTAPP-Izawa2010-4/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/semTAPP-Izawa2010-4/instrument/SEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/semTAPP-Izawa2010-4/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Unknown" ;
+    schema1:name "missing" .
+
+<https://example.org/semTAPP-Izawa2010-4/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
 

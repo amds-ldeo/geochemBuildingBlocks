@@ -1,16 +1,23 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-JSM7000> a ada:SEMHRCLTabular ;
-    schema1:measurementTechnique <ex:semClTAPP-JSM7000> ;
+ex:semClTAPP-detail-JSM7000 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/02feahw73" ;
+                    schema1:name "CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800045-109" ] ;
+            schema1:startTime "2023-11-27" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-27" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:SEMHRCLTabular" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800045-109" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2" .
-
-<ex:semClTAPP-JSM7000> schema1:identifier "no value available: schema:identifier" .
 

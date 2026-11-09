@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -141,6 +142,26 @@
       "@id": "ex:semFibsemTAPP-Liu2017/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) \u2014 Pore volume percent by pore class (vol%: macropores, mesopores, micropores \u2014 \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10\u201350 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)",
+    "ada:defaultReportedProperties": [
+      "pore volume percent by pore class (vol%)",
+      "pore width (nm)",
+      "pore type (nominal)",
+      "pore connectivity (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -219,7 +240,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
   "schema:location": {
@@ -249,9 +271,6 @@
   ],
   "ada:analyticalMode": [
     "3D Tomography"
-  ],
-  "ada:reportedProperties": [
-    "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) \u2014 Pore volume percent by pore class (vol%: macropores, mesopores, micropores \u2014 \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10\u201350 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)"
   ],
   "schema:measurementTechnique": [
     {
