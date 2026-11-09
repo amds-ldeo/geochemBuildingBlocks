@@ -16,17 +16,37 @@ detail instance derived from ADA n=2 | no named analyst | Boston College | (BC)Q
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:capdTAPP-detail-P0",
   "@type": [
-    "ada:CAPDRawTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:CAPDRawTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:capdTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Boston College",
+        "schema:identifier": "https://ror.org/02n2fzt79"
+      },
+      "schema:identifier": "20241219_CAPD_BC_OREX-800123-0_1",
+      "schema:startTime": "2024-11-12",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800123-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20241219_CAPD_BC_OREX-800123-0_1",
@@ -51,18 +71,38 @@ detail instance derived from ADA n=2 | no named analyst | Boston College | (BC)Q
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/CAPD/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:capdTAPP-detail-P0",
   "@type": [
-    "ada:CAPDRawTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:CAPDRawTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:capdTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Boston College",
+        "schema:identifier": "https://ror.org/02n2fzt79"
+      },
+      "schema:identifier": "20241219_CAPD_BC_OREX-800123-0_1",
+      "schema:startTime": "2024-11-12",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800123-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20241219_CAPD_BC_OREX-800123-0_1",
@@ -78,20 +118,27 @@ detail instance derived from ADA n=2 | no named analyst | Boston College | (BC)Q
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:CAPDRawTabular ;
-    schema1:measurementTechnique <ex:capdTAPP-P0> ;
+ex:capdTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20241219_CAPD_BC_OREX-800123-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/02n2fzt79" ;
+                    schema1:name "Boston College" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800123-0" ] ;
+            schema1:startTime "2024-11-12" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-11-12" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:CAPDRawTabular" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800123-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241219_CAPD_BC_OREX-800123-0_1" .
-
-<ex:capdTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +204,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.CAPD.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

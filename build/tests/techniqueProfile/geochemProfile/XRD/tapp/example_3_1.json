@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -18,6 +19,23 @@
   "schema:description": "xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD (publication column of XRD_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Rigaku",
   "ada:instrumentModel": "Rigaku Rapid 2 Micro-XRD",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Angle (degrees 2theta)",
+      "Intensity (counts)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -47,14 +65,11 @@
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "Angle (degrees 2theta) | Intensity (counts)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "XRD analytical workflow",
     "schema:step": [
       {
         "@type": [

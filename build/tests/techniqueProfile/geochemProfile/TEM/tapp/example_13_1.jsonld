@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -92,7 +94,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "TEM analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "None, stated explicitly \u2014 \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)",
   "schema:object": [
@@ -314,6 +317,28 @@
       }
     ]
   },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "carbonate composition (at%); change in composition over time (at%); grain dimensions (nm); grain area (\u00b5m2); areal fraction of carbonates; phase identification (nominal) \u2014 Na,Ca carbonate compositions from TEM EDS, reported as atomic percentages and as changes in them over time (at%: \"+9.4 at.% C, +5.6 at.% F, +4.1 at.% Ca, +3.5 at.% Cl, \u201319 at.% O, and \u20134.8 at.% Na\" for grain 11, p.3); grain dimensions (nm: shortest axes 140\u2013860 nm, longest 640\u20132360 nm, p.2); grain area and the areal fraction the carbonates represent (\u00b5m2, p.2); phase identifications from SAED (nominal)",
+    "ada:defaultReportedProperties": [
+      "carbonate composition (at%)",
+      "change in composition over time (at%)",
+      "grain dimensions (nm)",
+      "grain area (\u00b5m2)",
+      "areal fraction of carbonates",
+      "phase identification (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "SAED (few reflections due to beam sensitivity / poor crystallinity) matched against literature crystal structures (Dickens and Brown 1969 for gaylussite/pirssonite; McKie and Frankis 1977 for nyerereite); EDS cation ratios compared to theoretical mineral formulae (H and reliable O not measurable by EDS)",
   "schema:measurementTechnique": [
     {
@@ -339,9 +364,6 @@
       "ada:toolRole": "dataReduction",
       "schema:name": "TS Velox"
     }
-  ],
-  "ada:reportedProperties": [
-    "carbonate composition (at%); change in composition over time (at%); grain dimensions (nm); grain area (\u00b5m2); areal fraction of carbonates; phase identification (nominal) \u2014 Na,Ca carbonate compositions from TEM EDS, reported as atomic percentages and as changes in them over time (at%: \"+9.4 at.% C, +5.6 at.% F, +4.1 at.% Ca, +3.5 at.% Cl, \u201319 at.% O, and \u20134.8 at.% Na\" for grain 11, p.3); grain dimensions (nm: shortest axes 140\u2013860 nm, longest 640\u20132360 nm, p.2); grain area and the areal fraction the carbonates represent (\u00b5m2, p.2); phase identifications from SAED (nominal)"
   ],
   "schema:variableMeasured": [
     {

@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -89,7 +91,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "TEM analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Size, and irradiation state \u2014 \"We selected individual magnetite grains from the irradiated regions that were large enough (>15 \u03bcm) to extract FIB sections\" (p.3)",
   "schema:object": [
@@ -267,6 +270,27 @@
       }
     ]
   },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Fe concentration (at%); O concentration (at%); rim thickness (nm); d-spacing (\u00c5); defect microstructure (nominal) \u2014 Fe and O concentrations across the altered rim (at%, from quantitative EDS maps and line profiles quantified by the Cliff-Lorimer method, p.3); rim thickness (nm \u2014 \"a ~50 nm rim on the magnetite surface\", p.9); d-spacings from HRTEM (\u00c5: \"2.9 \u00c5, 2.5 \u00c5, and 1.6 \u00c5\", p.9); and the defect microstructure as a nominal property (\"elongated defects\" in a crystalline rim, p.9)",
+    "ada:defaultReportedProperties": [
+      "Fe concentration (at%)",
+      "O concentration (at%)",
+      "rim thickness (nm)",
+      "d-spacing (\u00c5)",
+      "defect microstructure (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "Manual d-spacing comparison: HRTEM lattice fringes; 2.5 \u00c5 \u2192 magnetite (311); 1.4 \u00c5 and 2.0 \u00c5 \u2192 metallic iron (110) and (200); 2.9 \u00c5 / 2.5 \u00c5 / 1.6 \u00c5 \u2192 magnetite (220)/(311)/(511)",
   "schema:measurementTechnique": [
     {
@@ -296,9 +320,6 @@
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Region of interest (altered rim) \u2014 \"We analyzed the FIB sections using different imaging modes\" and \"collected EDS maps and profiles using a probe size of <1 nm\" (p.3); the reported profiles run across the rim and \"The underlying unaltered magnetite\" (p.7)",
-  "ada:reportedProperties": [
-    "Fe concentration (at%); O concentration (at%); rim thickness (nm); d-spacing (\u00c5); defect microstructure (nominal) \u2014 Fe and O concentrations across the altered rim (at%, from quantitative EDS maps and line profiles quantified by the Cliff-Lorimer method, p.3); rim thickness (nm \u2014 \"a ~50 nm rim on the magnetite surface\", p.9); d-spacings from HRTEM (\u00c5: \"2.9 \u00c5, 2.5 \u00c5, and 1.6 \u00c5\", p.9); and the defect microstructure as a nominal property (\"elongated defects\" in a crystalline rim, p.9)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

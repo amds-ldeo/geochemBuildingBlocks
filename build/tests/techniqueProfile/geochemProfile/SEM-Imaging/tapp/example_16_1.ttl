@@ -1,33 +1,35 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semImagingTAPP-Zega2025-3> a cdi:Activity,
+ex:semImagingTAPP-Zega2025-3 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "SEM Imaging analytical workflow" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
-    schema1:instrument <ex:semImagingTAPP-Zega2025-3/instrument/SEM> ;
+    schema1:instrument <https://example.org/semImagingTAPP-Zega2025-3/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -46,7 +48,17 @@
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
     ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "phase distribution (nominal); texture (nominal); grain size (µm) — Phase distribution and texture within the polished sections (nominal), with grain sizes in µm (Fig. 1, p.2)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "grain size (µm)",
+                "phase distribution (nominal)",
+                "texture (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "phase distribution (nominal); texture (nominal); grain size (µm) — Phase distribution and texture within the polished sections (nominal), with grain sizes in µm (Fig. 1, p.2)" ] ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)" ;
     ada:samplingUnitType "Whole sample (polished section) > Region of interest — \"SE and BSE images were acquired using a Hitachi S-4800 SEM\" on \"Polished sections\" (p.9); the imaged fields are not labelled" ;
@@ -59,14 +71,14 @@
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
 
-<ex:semImagingTAPP-Zega2025-3/instrument/SEM> a schema1:Product,
+<https://example.org/semImagingTAPP-Zega2025-3/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "missing" ;
-    schema1:hasPart <ex:semImagingTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector>,
-        <ex:semImagingTAPP-Zega2025-3/instrument/SEM/part/Electron-Source>,
-        <ex:semImagingTAPP-Zega2025-3/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <https://example.org/semImagingTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semImagingTAPP-Zega2025-3/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semImagingTAPP-Zega2025-3/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Hitachi" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -76,20 +88,20 @@
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
-<ex:semImagingTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<https://example.org/semImagingTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:semImagingTAPP-Zega2025-3/instrument/SEM/part/Electron-Source> a schema1:Product,
+<https://example.org/semImagingTAPP-Zega2025-3/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<ex:semImagingTAPP-Zega2025-3/instrument/SEM/part/SE-Detector> a schema1:Product,
+<https://example.org/semImagingTAPP-Zega2025-3/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;

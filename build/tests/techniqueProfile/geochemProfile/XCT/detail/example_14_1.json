@@ -1,28 +1,238 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Tait2014",
+  "@id": "ex:labxctTAPP-detail-Tait2014",
   "@type": [
-    "ada:XCTVolume"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XCTVolume",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:labxctTAPP-Tait2014",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/sampleDimensions",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/sampleDimensions"
+                }
+              ],
+              "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+              "schema:value": "8 mm diameter core"
+            }
+          ],
+          "schema:name": "Watson 012"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "XCT",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 70,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "70 kV"
+                },
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                    }
+                  ],
+                  "schema:name": "Tube Current",
+                  "schema:value": 86,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "86 \u00b5A"
+                },
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/voxelSize"
+                    }
+                  ],
+                  "schema:name": "Voxel Size",
+                  "schema:value": 1.923,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1.923 \u00b5m"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:labxctTAPP-detail-Tait2014/instrument/XCT"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "AvizoFire 8.0; Matlab; Drishti 2.0",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/labxctTAPP/xRayPower",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPower"
+            }
+          ],
+          "schema:name": "X-ray Power",
+          "schema:value": 7,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "7 W"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/rotationRange",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/rotationRange"
+            }
+          ],
+          "schema:name": "Rotation Range",
+          "schema:value": 360,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "360\u00b0"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/numberOfProjections",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/numberOfProjections"
+            }
+          ],
+          "schema:name": "Number of Projections",
+          "schema:value": 2000
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/segmentationMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/segmentationMethod"
+            }
+          ],
+          "schema:name": "Segmentation Method",
+          "schema:value": "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteria",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteria"
+            }
+          ],
+          "schema:name": "Segmentation Threshold Values or Criteria",
+          "schema:value": "Dedicated workflow; specific threshold values N"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethod"
+            }
+          ],
+          "schema:name": "Phase Identification Method",
+          "schema:value": "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable"
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "CSIRO, Kensington, Western Australia"
+      },
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Core or trimmed billet \u2014 \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
   ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleDimensions": "8 mm diameter core",
-  "ada:sampleName": "Watson 012",
-  "ada:samplingUnitName": "Sample name only \u2014 \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9); not otherwise labelled",
-  "ada:voiApplied": "Full 8 mm core volume",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
@@ -36,6 +246,44 @@
       ],
       "schema:name": "Effective Spatial Resolution (PSF/MTF)",
       "schema:value": "N \u2014 voxel size only (1.923 \u00b5m); no spatial resolution reported"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/voiApplied",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/voiApplied"
+        }
+      ],
+      "schema:name": "VOI Applied",
+      "schema:value": "Full 8 mm core volume"
     }
-  ]
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Cross-Validation Outcome",
+      "dqv:value": "XCT qualitatively compared with thin sections and EBSD; cm-scale plagioclase confirmed"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Optical microscopy; EBSD",
+        "schema:description": "XCT qualitatively compared with thin sections and EBSD"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Single-volume"
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "Watson 012",
+  "ada:samplingUnitName": "Sample name only \u2014 \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9); not otherwise labelled"
 }

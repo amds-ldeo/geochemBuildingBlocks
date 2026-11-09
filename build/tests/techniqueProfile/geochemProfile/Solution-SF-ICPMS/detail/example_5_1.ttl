@@ -1,27 +1,134 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-P4> a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique <ex:solutionSficpmsTAPP-P4> ;
+ex:solutionSficpmsTAPP-detail-P4 a schema1:Dataset,
+        schema1:Product ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [all: ±2σ of repeat analyses over 8 months] — Table 4; n = 180, 130, 100 and 150" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [B/Ca: across degrees of sample dilution] — Fig. 2" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "all [B/Ca: 4.0% (2σ), average within-run external precision] — abstract" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Handpicked 1–2 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 µL of supernatant diluted with 200 µL 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF — §2.4; the HF-bearing matrix 'was used only in the final dilution step'" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 3 ] ] ;
+            schema1:description "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (§2.3)" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "N -- \"a single instrument session\" referenced; no session identifier stated" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Godwin Laboratory for Palaeoclimate Research, University of Cambridge (affiliation)" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "In-house consistency standards CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2 and CAM-Mix; Globigerinoides sacculifer specimens of the 300-355 um size fraction" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/solutionSficpmsTAPP-detail-P4/instrument/ICPMS> ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "CAM-wuellerstorfi; CAM-Uvig-1; CAM-Uvig-2; CAM-Mix — the four Cambridge consistency standards (§2.2)" ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
+            ada:combinedResults [ ] ;
+            ada:proceduralBlankLevel "B: 2.0 ± 1.0 µmol/mol (as B/Ca); other: N — abstract" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [B/Ca: across degrees of sample dilution] — Fig. 2" ;
-    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [all: ±2σ of repeat analyses over 8 months] — Table 4; n = 180, 130, 100 and 150" ;
-    ada:componentType "ada:SolutionICPMSTabular" ;
+    ada:analyticalMode "Solution nebulisation (continuous) -- \"a Teflon Scott type (single pass) spray chamber was constructed\"; \"we used a platinum injector (1.8 mm I.D.)\"; ESI nebulizer" ;
     ada:detectionLimit "B/Ca: 2 µmol/mol; other: N — 'We report a B/Ca detection limit of 2 µmol/mol' (abstract)" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:numberOfReplicates 3 ;
     ada:oxideProduction "missing" ;
-    ada:proceduralBlankLevel "B: 2.0 ± 1.0 µmol/mol (as B/Ca); other: N — abstract" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "In-house consistency standards CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2 and CAM-Mix; Globigerinoides sacculifer specimens of the 300-355 um size fraction" ;
     ada:samplingUnitName "Sample name only — consistency standards \"CAM-Uvig-1\", \"CAM-Uvig-2\", \"CAM-wuellerstorfi\", \"CAM-Mix\" (p.6); in the cleaning test each core-top sample was \"split into three fractions\" identified only by cleaning sequence (p.4)" ;
+    ada:sensitivityYield "N — 'a typical sensitivity of 2.5 × 10^6 cps/ppb on 115In' (§3.1), the tuning isotope; 1 ppb 11B and 115In sensitivities by spray chamber, injector and acid matrix in Table 2" ;
     ada:sessionIdentifier "N -- \"a single instrument session\" referenced; no session identifier stated" ;
-    ada:signalIntegrationTime -9999 ;
-    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "all [B/Ca: 4.0% (2σ), average within-run external precision] — abstract" .
+    ada:signalIntegrationTime -9999 .
 
-<ex:solutionSficpmsTAPP-P4> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/solutionSficpmsTAPP-detail-P4/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <https://example.org/solutionSficpmsTAPP-detail-P4/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/solutionSficpmsTAPP-detail-P4/instrument/ICPMS/part/Sample-Introduction-System> ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/solutionSficpmsTAPP-detail-P4/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/solutionSficpmsTAPP-detail-P4/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> a schema1:PropertyValue ;
+    schema1:name "ICP Tuning" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning> ;
+    schema1:value "\"Instrumental sensitivity was optimized on 11B, 115In, and 175Lu\", with sensitivities \"set as operational criteria\"; \"in medium resolution tuning, the instrument was optimized on 56Fe to achieve a mass resolution\"" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> a schema1:PropertyValue ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
+    schema1:value "LR and MR (stated Table 1 and section 2.3)" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> a schema1:PropertyValue ;
+    schema1:name "Memory Effect Mitigation" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
+    schema1:value "120 s washout (Table 1)" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> a schema1:PropertyValue ;
+    schema1:description "1250 W (Table 1)" ;
+    schema1:name "RF Power" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1250 .
+
+<https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> a schema1:PropertyValue ;
+    schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+    schema1:value "all: detector cross-calibration between pulse and analog modes performed daily — §2.3.1" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> a schema1:PropertyValue ;
+    schema1:description "1-2 mg foraminifera shells (stated section 2.4)" ;
+    schema1:name "Sample Aliquot Mass or Volume" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1 .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> a schema1:PropertyValue ;
+    schema1:description "50 uL ESI nebulizer; uptake time 70 s (Table 1); volumetric flow rate N" ;
+    schema1:name "Sample Uptake Rate" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 50 .
 

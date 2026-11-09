@@ -1,16 +1,18 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:temTAPP-Dobrica2022-2> a cdi:Activity,
+ex:temTAPP-Dobrica2022-2 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "TEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -28,7 +30,7 @@
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EDS analysis areas 5–10 nm (Molecular Foundry); compositions displayed as color-coded maps in Esprit 1.9; O abundances noted as subject to variable self-absorption; compositions normalized to 100% Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (Z-contrast); STEM-EDS (hyperspectral map); ada:edsAcquisitionModeDefault = Spectrum image (hyperspectral map)." ;
-    schema1:instrument <ex:temTAPP-Dobrica2022-2/instrument/TEM> ;
+    schema1:instrument <https://example.org/temTAPP-Dobrica2022-2/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -57,7 +59,17 @@
     ada:eelsCollectionSemiAngle -9999 ;
     ada:eelsEnergyLossRangeDefault "no value available: ada:eelsEnergyLossRangeDefault" ;
     ada:phaseIdentificationMethod "EDS quantification: compositions normalized to 100%; carbonate chemistry (MgCO3–CaCO3–(Fe+Mn)CO3 ternary) used for dolomite/ankerite ID; structural formulae from EDS spot analyses over 5–10 nm areas; detection limit <0.1 wt% (stated for TEM EDS measurements)" ;
-    ada:reportedProperties "carbonate composition (mole%); MnO (wt%); FeO (wt%) — Carbonate compositions from EDS hyperspectral maps, normalised to 100% and reported as oxide mole percentages on the MgCO3-CaCO3-(Fe + Mn)CO3 ternary (mole%, Fig. 5, p.7) — with the ranges also given in wt% (\"2.9–8.1 wt.% MnO, 2.5–6.0 wt.% FeO\", p.5); the EDS detection limit is stated (p.2)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "FeO (wt%)",
+                "MnO (wt%)",
+                "carbonate composition (mole%)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "carbonate composition (mole%); MnO (wt%); FeO (wt%) — Carbonate compositions from EDS hyperspectral maps, normalised to 100% and reported as oxide mole percentages on the MgCO3-CaCO3-(Fe + Mn)CO3 ternary (mole%, Fig. 5, p.7) — with the ranges also given in wt% (\"2.9–8.1 wt.% MnO, 2.5–6.0 wt.% FeO\", p.5); the EDS detection limit is stated (p.2)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Phase targeting — the mapping is of the carbonate-bearing sections, \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5–10 nm (at the Molecular Foundry)\" (p.2)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Region of interest — \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5–10 nm (at the Molecular Foundry)\" (p.2), within the carbonate-bearing sections UH-001 and UH-002 (Fig. 5, p.7)" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
@@ -91,69 +103,6 @@
     bios:computationalTool [ schema1:name "Bruker Esprit 1.9" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:temTAPP-Dobrica2022-2/instrument/TEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "TEM" ;
-    schema1:hasPart <ex:temTAPP-Dobrica2022-2/instrument/TEM/part/4D-STEM-Detector>,
-        <ex:temTAPP-Dobrica2022-2/instrument/TEM/part/Aberration-Corrector>,
-        <ex:temTAPP-Dobrica2022-2/instrument/TEM/part/EDS-Detector>,
-        <ex:temTAPP-Dobrica2022-2/instrument/TEM/part/EELS-Spectrometer>,
-        <ex:temTAPP-Dobrica2022-2/instrument/TEM/part/Electron-Source>,
-        <ex:temTAPP-Dobrica2022-2/instrument/TEM/part/Imaging-Detector>,
-        <ex:temTAPP-Dobrica2022-2/instrument/TEM/part/Monochromator> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "ThermoFisher Scientific (FEI)" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "FEI TitanX 80–300 kV (\"ChemiSTEM\")" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault "200 kV (EDS maps acquired at 200 kV; instrument range 80–300 kV)" .
-
-<ex:temTAPP-Dobrica2022-2/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "4D-STEM Detector" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Dobrica2022-2/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Aberration Corrector" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Dobrica2022-2/instrument/TEM/part/EDS-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EDS Detector" ;
-    schema1:description "Four windowless silicon drift detectors (SDD); 0.7 sr solid angle" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Dobrica2022-2/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EELS Spectrometer" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Dobrica2022-2/instrument/TEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Dobrica2022-2/instrument/TEM/part/Imaging-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Imaging Detector" ;
-    schema1:name "missing" .
-
-<ex:temTAPP-Dobrica2022-2/instrument/TEM/part/Monochromator> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Monochromator" ;
-    schema1:name "missing" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "SEM/EDS identification in the polished section — the same four sections, cut at carbonates and other secondary phases \"identified in the polished section by SEM/EDS\" (p.3), of which the carbonate-bearing ones carry this laboratory's maps (Fig. 5, p.7)" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -175,4 +124,67 @@
     schema1:valueName "samplePreparationDetailsDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/temTAPP-Dobrica2022-2/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:hasPart <https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/4D-STEM-Detector>,
+        <https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/Aberration-Corrector>,
+        <https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/EDS-Detector>,
+        <https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/EELS-Spectrometer>,
+        <https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/Electron-Source>,
+        <https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/Imaging-Detector>,
+        <https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/Monochromator> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "ThermoFisher Scientific (FEI)" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "FEI TitanX 80–300 kV (\"ChemiSTEM\")" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault "200 kV (EDS maps acquired at 200 kV; instrument range 80–300 kV)" .
+
+<https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "4D-STEM Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Aberration Corrector" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:description "Four windowless silicon drift detectors (SDD); 0.7 sr solid angle" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EELS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Imaging Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/temTAPP-Dobrica2022-2/instrument/TEM/part/Monochromator> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Monochromator" ;
+    schema1:name "missing" .
 

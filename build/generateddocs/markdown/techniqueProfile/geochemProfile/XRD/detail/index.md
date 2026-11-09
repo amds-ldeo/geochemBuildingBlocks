@@ -16,17 +16,53 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-King2024",
+  "@id": "ex:xrdTAPP-detail-King2024",
   "@type": [
-    "ada:XRDTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XRDTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:xrdTAPP-King2024",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Natural History Museum",
+        "schema:identifier": "https://ror.org/039zvsn29"
+      },
+      "schema:identifier": "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1",
+      "schema:startTime": "2024-07-25 | 2024-11-25",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800117-108 | OREX-800107-103"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "King, Ashley"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1",
@@ -51,18 +87,54 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-King2024",
+  "@id": "ex:xrdTAPP-detail-King2024",
   "@type": [
-    "ada:XRDTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XRDTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:xrdTAPP-King2024",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Natural History Museum",
+        "schema:identifier": "https://ror.org/039zvsn29"
+      },
+      "schema:identifier": "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1",
+      "schema:startTime": "2024-07-25 | 2024-11-25",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800117-108 | OREX-800107-103"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "King, Ashley"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1",
@@ -78,20 +150,31 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-King2024> a ada:XRDTabular ;
-    schema1:measurementTechnique <ex:xrdTAPP-King2024> ;
+ex:xrdTAPP-detail-King2024 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "King, Ashley" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/039zvsn29" ;
+                    schema1:name "Natural History Museum" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800117-108 | OREX-800107-103" ] ;
+            schema1:startTime "2024-07-25 | 2024-11-25" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-07-25 | 2024-11-25" ;
     ada:analyst "King, Ashley" ;
-    ada:componentType "ada:XRDTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-800117-108 | OREX-800107-103" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1" .
-
-<ex:xrdTAPP-King2024> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -104,17 +187,53 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-King2024-2",
+  "@id": "ex:xrdTAPP-detail-King2024-2",
   "@type": [
-    "ada:XRDTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XRDTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:xrdTAPP-King2024-2",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA Johnson Space Center",
+        "schema:identifier": "https://ror.org/04xx4z452"
+      },
+      "schema:identifier": "20230928_xrd_jsc-ares_orex-500005-0_1",
+      "schema:startTime": "2024-01-28",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-500005-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "King, Ashley"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20230928_xrd_jsc-ares_orex-500005-0_1",
@@ -139,18 +258,54 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-King2024-2",
+  "@id": "ex:xrdTAPP-detail-King2024-2",
   "@type": [
-    "ada:XRDTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XRDTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:xrdTAPP-King2024-2",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA Johnson Space Center",
+        "schema:identifier": "https://ror.org/04xx4z452"
+      },
+      "schema:identifier": "20230928_xrd_jsc-ares_orex-500005-0_1",
+      "schema:startTime": "2024-01-28",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-500005-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "King, Ashley"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20230928_xrd_jsc-ares_orex-500005-0_1",
@@ -166,20 +321,31 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-King2024-2> a ada:XRDTabular ;
-    schema1:measurementTechnique <ex:xrdTAPP-King2024-2> ;
+ex:xrdTAPP-detail-King2024-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "King, Ashley" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20230928_xrd_jsc-ares_orex-500005-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/04xx4z452" ;
+                    schema1:name "NASA Johnson Space Center" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-500005-0" ] ;
+            schema1:startTime "2024-01-28" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-01-28" ;
     ada:analyst "King, Ashley" ;
-    ada:componentType "ada:XRDTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-500005-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20230928_xrd_jsc-ares_orex-500005-0_1" .
-
-<ex:xrdTAPP-King2024-2> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -192,17 +358,53 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-King2023",
+  "@id": "ex:xrdTAPP-detail-King2023",
   "@type": [
-    "ada:XRDTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XRDTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:xrdTAPP-King2023",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Natural History Museum",
+        "schema:identifier": "https://ror.org/039zvsn29"
+      },
+      "schema:identifier": "20231124_xrd_nhm_orex-800032-110_1",
+      "schema:startTime": "2023-11-24",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800032-110"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "King, Ashley"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20231124_xrd_nhm_orex-800032-110_1",
@@ -227,18 +429,54 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-King2023",
+  "@id": "ex:xrdTAPP-detail-King2023",
   "@type": [
-    "ada:XRDTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XRDTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:xrdTAPP-King2023",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Natural History Museum",
+        "schema:identifier": "https://ror.org/039zvsn29"
+      },
+      "schema:identifier": "20231124_xrd_nhm_orex-800032-110_1",
+      "schema:startTime": "2023-11-24",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800032-110"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "King, Ashley"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
   "ada:sessionIdentifier": "20231124_xrd_nhm_orex-800032-110_1",
@@ -254,20 +492,31 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-King2023> a ada:XRDTabular ;
-    schema1:measurementTechnique <ex:xrdTAPP-King2023> ;
+ex:xrdTAPP-detail-King2023 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "King, Ashley" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20231124_xrd_nhm_orex-800032-110_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/039zvsn29" ;
+                    schema1:name "Natural History Museum" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800032-110" ] ;
+            schema1:startTime "2023-11-24" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-24" ;
     ada:analyst "King, Ashley" ;
-    ada:componentType "ada:XRDTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-800032-110" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231124_xrd_nhm_orex-800032-110_1" .
-
-<ex:xrdTAPP-King2023> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -311,6 +560,9 @@ allOf:
                     const: Sample Mount
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/sample-mount
                 required:
                 - '@id'
                 - '@type'
@@ -393,6 +645,9 @@ allOf:
                     const: Sample Mount
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/sample-mount
                 required:
                 - '@id'
                 - '@type'
@@ -497,7 +752,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XRD.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

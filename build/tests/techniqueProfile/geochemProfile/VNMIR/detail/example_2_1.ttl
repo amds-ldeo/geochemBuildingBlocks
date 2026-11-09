@@ -1,13 +1,30 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Hiroi2023-2> a ada:VNMIRSpectralPoint ;
-    schema1:measurementTechnique <ex:vnmirTAPP-Hiroi2023-2> ;
+ex:vnmirTAPP-detail-Hiroi2023-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Hiroi, Takahiro" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)" ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/05gq02987" ;
+                    schema1:name "Brown University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)" ] ;
+            schema1:startTime "2023-11-14 | 2024-09-16 | (+4 more)" ;
+            ada:emissionAngle -9999 ;
+            ada:incidenceAngle -9999 ;
+            ada:sampleTemperature -9999 ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-14 | 2024-09-16 | (+4 more)" ;
     ada:analyst "Hiroi, Takahiro" ;
-    ada:componentType "ada:VNMIRSpectralPoint" ;
+    ada:analyticalMode "Spectral Point" ;
     ada:emissionAngle -9999 ;
     ada:fundingSourceForAnalysis "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)" ;
     ada:incidenceAngle -9999 ;
@@ -17,6 +34,4 @@
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)" ;
     ada:vacuumExposedSample "missing" .
-
-<ex:vnmirTAPP-Hiroi2023-2> schema1:identifier "no value available: schema:identifier" .
 

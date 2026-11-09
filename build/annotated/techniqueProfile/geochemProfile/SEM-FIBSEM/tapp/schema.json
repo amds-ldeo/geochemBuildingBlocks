@@ -197,6 +197,7 @@
                                         "None",
                                         "missing"
                                       ],
+                                      "schema:inDefinedTermSet": "ada:vocab/se-detector-type",
                                       "readOnly": true
                                     },
                                     {
@@ -212,6 +213,7 @@
                                           "None",
                                           "missing"
                                         ],
+                                        "schema:inDefinedTermSet": "ada:vocab/se-detector-type",
                                         "readOnly": true
                                       }
                                     }
@@ -256,6 +258,7 @@
                                         "None",
                                         "missing"
                                       ],
+                                      "schema:inDefinedTermSet": "ada:vocab/bse-detector-type",
                                       "readOnly": true
                                     },
                                     {
@@ -274,6 +277,7 @@
                                           "None",
                                           "missing"
                                         ],
+                                        "schema:inDefinedTermSet": "ada:vocab/bse-detector-type",
                                         "readOnly": true
                                       }
                                     }
@@ -464,6 +468,7 @@
                                         "None",
                                         "missing"
                                       ],
+                                      "schema:inDefinedTermSet": "ada:vocab/ion-beam-source",
                                       "readOnly": true
                                     },
                                     {
@@ -479,6 +484,7 @@
                                           "None",
                                           "missing"
                                         ],
+                                        "schema:inDefinedTermSet": "ada:vocab/ion-beam-source",
                                         "readOnly": true
                                       }
                                     }
@@ -547,6 +553,31 @@
               }
             }
           ]
+        },
+        "ada:reportedPropertyTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultReportedProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "ada:defaultReportedProperties"
+          ],
+          "title": "Reported Property Template"
         },
         "ada:dwellTimePerPixelDefault": {
           "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
@@ -840,6 +871,11 @@
                                   },
                                   "schema:value": {
                                     "type": "string"
+                                  },
+                                  "schema:inDefinedTermSet": {
+                                    "const": {
+                                      "@id": "ada:vocab/lift-out-method"
+                                    }
                                   }
                                 },
                                 "required": [
@@ -1040,6 +1076,11 @@
                                   },
                                   "schema:value": {
                                     "type": "string"
+                                  },
+                                  "schema:inDefinedTermSet": {
+                                    "const": {
+                                      "@id": "ada:vocab/lift-out-method"
+                                    }
                                   }
                                 },
                                 "required": [
@@ -1232,7 +1273,8 @@
             {
               "type": "string"
             }
-          ]
+          ],
+          "schema:inDefinedTermSet": "ada:vocab/segmentation-method"
         },
         "ada:analyticalMode": {
           "type": "array",
@@ -1256,6 +1298,6 @@
     "itemIdentifier": "ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-10-31"
+    "dateOfLastChange": "2026-11-09"
   }
 }

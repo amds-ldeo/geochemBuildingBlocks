@@ -16,17 +16,37 @@ detail instance derived from ADA n=1 | no named analyst | Boston College | (BC)Q
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:tdmTAPP-detail-P0",
   "@type": [
-    "ada:TDMRawTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:TDMRawTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:tdmTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Boston College",
+        "schema:identifier": "https://ror.org/02n2fzt79"
+      },
+      "schema:identifier": "20250306_TDM_BC_OREX-800107-104_1",
+      "schema:startTime": "2025-03-06",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800107-104"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20250306_TDM_BC_OREX-800107-104_1",
@@ -51,18 +71,38 @@ detail instance derived from ADA n=1 | no named analyst | Boston College | (BC)Q
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:tdmTAPP-detail-P0",
   "@type": [
-    "ada:TDMRawTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:TDMRawTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:tdmTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Boston College",
+        "schema:identifier": "https://ror.org/02n2fzt79"
+      },
+      "schema:identifier": "20250306_TDM_BC_OREX-800107-104_1",
+      "schema:startTime": "2025-03-06",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800107-104"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20250306_TDM_BC_OREX-800107-104_1",
@@ -78,20 +118,27 @@ detail instance derived from ADA n=1 | no named analyst | Boston College | (BC)Q
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:TDMRawTabular ;
-    schema1:measurementTechnique <ex:tdmTAPP-P0> ;
+ex:tdmTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20250306_TDM_BC_OREX-800107-104_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/02n2fzt79" ;
+                    schema1:name "Boston College" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800107-104" ] ;
+            schema1:startTime "2025-03-06" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2025-03-06" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:TDMRawTabular" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800107-104" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250306_TDM_BC_OREX-800107-104_1" .
-
-<ex:tdmTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +204,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TDM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

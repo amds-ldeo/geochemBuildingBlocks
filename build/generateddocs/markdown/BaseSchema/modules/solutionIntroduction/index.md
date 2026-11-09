@@ -611,6 +611,10 @@ $defs:
       schema:defaultValue:
         type: string
         x-jsonld-id: http://schema.org/defaultValue
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/desolvation-system
+        x-jsonld-id: http://schema.org/inDefinedTermSet
     required:
     - '@id'
     - '@type'
@@ -825,7 +829,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.solutionIntroduction
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

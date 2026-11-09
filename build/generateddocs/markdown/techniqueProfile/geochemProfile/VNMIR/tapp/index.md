@@ -17,6 +17,7 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -33,6 +34,25 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
   "schema:description": "vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Nexus 870 FTIR (publication column of VNMIR_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Thermo Fisher Scientific (Nicolet)",
   "ada:instrumentModel": "Thermo/Nicolet Nexus 870 FTIR",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Wavelength (nm) (nm)",
+      "Reflectance",
+      "Reflectance (Reflectance)",
+      "Standard Deviation"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -65,14 +85,11 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
   "ada:analyticalMode": [
     "Spectral Point"
   ],
-  "ada:reportedProperties": [
-    "Wavelength (nm) (nm) | Reflectance | Reflectance (Reflectance) | Standard Deviation"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "VNMIR analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -123,6 +140,7 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -131,6 +149,7 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -148,6 +167,25 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
   "schema:description": "vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Nexus 870 FTIR (publication column of VNMIR_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Thermo Fisher Scientific (Nicolet)",
   "ada:instrumentModel": "Thermo/Nicolet Nexus 870 FTIR",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Wavelength (nm) (nm)",
+      "Reflectance",
+      "Reflectance (Reflectance)",
+      "Standard Deviation"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -180,14 +218,11 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
   "ada:analyticalMode": [
     "Spectral Point"
   ],
-  "ada:reportedProperties": [
-    "Wavelength (nm) (nm) | Reflectance | Reflectance (Reflectance) | Standard Deviation"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "VNMIR analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -235,17 +270,18 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:vnmirTAPP-Hiroi2023> a cdi:Activity,
+ex:vnmirTAPP-Hiroi2023 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "VNMIR analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -277,7 +313,17 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
     ada:measurementEnvironmentDefault "missing" ;
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
-    ada:reportedProperties "Wavelength (nm) (nm) | Reflectance | Reflectance (Reflectance) | Standard Deviation" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Reflectance",
+                "Reflectance (Reflectance)",
+                "Standard Deviation",
+                "Wavelength (nm) (nm)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
@@ -298,6 +344,7 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -314,6 +361,26 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
   "schema:description": "vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directional (publication column of VNMIR_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Custom-built",
   "ada:instrumentModel": "Custom bi-directional",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Wavelength (nm) (nm)",
+      "Reflectance",
+      "Standard Deviation",
+      "Reflectance (Reflectance)",
+      "Standard Deviation (Reflectance)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -346,14 +413,11 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
   "ada:analyticalMode": [
     "Spectral Point"
   ],
-  "ada:reportedProperties": [
-    "Wavelength (nm) (nm) | Reflectance | Standard Deviation | Reflectance (Reflectance) | Standard Deviation (Reflectance)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "VNMIR analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -404,6 +468,7 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -412,6 +477,7 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -429,6 +495,26 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
   "schema:description": "vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directional (publication column of VNMIR_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Custom-built",
   "ada:instrumentModel": "Custom bi-directional",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Wavelength (nm) (nm)",
+      "Reflectance",
+      "Standard Deviation",
+      "Reflectance (Reflectance)",
+      "Standard Deviation (Reflectance)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -461,14 +547,11 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
   "ada:analyticalMode": [
     "Spectral Point"
   ],
-  "ada:reportedProperties": [
-    "Wavelength (nm) (nm) | Reflectance | Standard Deviation | Reflectance (Reflectance) | Standard Deviation (Reflectance)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "VNMIR analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -516,17 +599,18 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:vnmirTAPP-Hiroi2023-2> a cdi:Activity,
+ex:vnmirTAPP-Hiroi2023-2 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "VNMIR analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -558,7 +642,18 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
     ada:measurementEnvironmentDefault "missing" ;
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
-    ada:reportedProperties "Wavelength (nm) (nm) | Reflectance | Standard Deviation | Reflectance (Reflectance) | Standard Deviation (Reflectance)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Reflectance",
+                "Reflectance (Reflectance)",
+                "Standard Deviation",
+                "Standard Deviation (Reflectance)",
+                "Wavelength (nm) (nm)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
@@ -579,6 +674,7 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -595,6 +691,23 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
   "schema:description": "vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FTIR microscope (publication column of VNMIR_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Bruker",
   "ada:instrumentModel": "Bruker LUMOS FTIR microscope",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Wavenumber (cm-1) (cm-1)",
+      "Reflectance (Reflectance)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -627,14 +740,11 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
   "ada:analyticalMode": [
     "Spectral Point"
   ],
-  "ada:reportedProperties": [
-    "Wavenumber (cm-1) (cm-1) | Reflectance (Reflectance)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "VNMIR analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -685,6 +795,7 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -693,6 +804,7 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -710,6 +822,23 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
   "schema:description": "vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FTIR microscope (publication column of VNMIR_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Bruker",
   "ada:instrumentModel": "Bruker LUMOS FTIR microscope",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Wavenumber (cm-1) (cm-1)",
+      "Reflectance (Reflectance)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -742,14 +871,11 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
   "ada:analyticalMode": [
     "Spectral Point"
   ],
-  "ada:reportedProperties": [
-    "Wavenumber (cm-1) (cm-1) | Reflectance (Reflectance)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "VNMIR analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -797,17 +923,18 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:vnmirTAPP-Milliken2024> a cdi:Activity,
+ex:vnmirTAPP-Milliken2024 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "VNMIR analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -839,7 +966,15 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
     ada:measurementEnvironmentDefault "missing" ;
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
-    ada:reportedProperties "Wavenumber (cm-1) (cm-1) | Reflectance (Reflectance)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Reflectance (Reflectance)",
+                "Wavenumber (cm-1) (cm-1)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
@@ -860,6 +995,7 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -876,6 +1012,26 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
   "schema:description": "vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | JEOL 2500SE (publication column of VNMIR_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = JEOL.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "JEOL 2500SE",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "wavenumber (3999.49)",
+      "Clays (Percent transmission)",
+      "dolomite (Percent transmission)",
+      "calcite (Percent transmission)",
+      "MgPO4 (Percent transmission)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -908,14 +1064,11 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
   "ada:analyticalMode": [
     "Spectral Point"
   ],
-  "ada:reportedProperties": [
-    "wavenumber (3999.49) | Clays (Percent transmission) | dolomite (Percent transmission) | calcite (Percent transmission) | MgPO4 (Percent transmission)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "VNMIR analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -966,6 +1119,7 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -974,6 +1128,7 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -991,6 +1146,26 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
   "schema:description": "vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | JEOL 2500SE (publication column of VNMIR_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = JEOL.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "JEOL 2500SE",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "wavenumber (3999.49)",
+      "Clays (Percent transmission)",
+      "dolomite (Percent transmission)",
+      "calcite (Percent transmission)",
+      "MgPO4 (Percent transmission)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1023,14 +1198,11 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
   "ada:analyticalMode": [
     "Spectral Point"
   ],
-  "ada:reportedProperties": [
-    "wavenumber (3999.49) | Clays (Percent transmission) | dolomite (Percent transmission) | calcite (Percent transmission) | MgPO4 (Percent transmission)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "VNMIR analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -1078,17 +1250,18 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:vnmirTAPP-Keller2024> a cdi:Activity,
+ex:vnmirTAPP-Keller2024 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "VNMIR analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1120,7 +1293,18 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
     ada:measurementEnvironmentDefault "missing" ;
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
-    ada:reportedProperties "wavenumber (3999.49) | Clays (Percent transmission) | dolomite (Percent transmission) | calcite (Percent transmission) | MgPO4 (Percent transmission)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Clays (Percent transmission)",
+                "MgPO4 (Percent transmission)",
+                "calcite (Percent transmission)",
+                "dolomite (Percent transmission)",
+                "wavenumber (3999.49)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
@@ -1215,6 +1399,9 @@ allOf:
                         const: R
                       schema:defaultValue:
                         type: string
+                      schema:inDefinedTermSet:
+                        const:
+                          '@id': ada:vocab/sample-heated
                     required:
                     - '@id'
                     - '@type'
@@ -1247,6 +1434,9 @@ allOf:
                         const: R
                       schema:defaultValue:
                         type: string
+                      schema:inDefinedTermSet:
+                        const:
+                          '@id': ada:vocab/vacuum-exposed-sample
                     required:
                     - '@id'
                     - '@type'
@@ -1281,6 +1471,9 @@ allOf:
                         const: R
                       schema:defaultValue:
                         type: string
+                      schema:inDefinedTermSet:
+                        const:
+                          '@id': ada:vocab/sample-heated
                     required:
                     - '@id'
                     - '@type'
@@ -1316,6 +1509,9 @@ allOf:
                         const: R
                       schema:defaultValue:
                         type: string
+                      schema:inDefinedTermSet:
+                        const:
+                          '@id': ada:vocab/vacuum-exposed-sample
                     required:
                     - '@id'
                     - '@type'
@@ -1379,6 +1575,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/detector
       readOnly: true
     ada:beamsplitter:
       description: Beamsplitter fitted for this procedure; it sets the accessible
@@ -1395,6 +1592,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/beamsplitter
       readOnly: true
     ada:spectralRangeMinimum:
       description: Short-wavelength (or low-wavenumber) limit the procedure acquires.
@@ -1640,6 +1838,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/measurement-type
       readOnly: true
     ada:measurementEnvironmentDefault:
       description: Atmosphere the measurement chamber is held in.
@@ -1655,6 +1854,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/measurement-environment
     ada:spotSizeDefault:
       description: Diameter of the analysed area for a point measurement, or the pixel
         footprint for a map.
@@ -1666,6 +1866,19 @@ allOf:
       anyOf:
       - type: integer
       - type: string
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -1706,7 +1919,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.VNMIR.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

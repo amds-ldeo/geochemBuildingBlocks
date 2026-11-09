@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -459,35 +461,6 @@
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -508,6 +481,25 @@
     ]
   },
   "ada:massesMeasuredDefault": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u2074\u2075Sc \u2192 Sc; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2076\u2070Ni \u2192 Ni; \u2077\u00b9Ga \u2192 Ga; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2079\u2075Pt \u2192 Pt \u2014 'a total scan cycle time of 1.944 s for 14 nuclides' (\u00a72.2.2)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, \u00b5g/g); Fa#; principal-component scores \u2014 '2D concentration matrices of all target elements'; pure-olivine averages in Table E1",
+    "ada:defaultReportedProperties": [
+      "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, \u00b5g/g)",
+      "Fa#",
+      "principal-component scores"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "all: low resolution (M/\u0394M = 300) \u2014 Table B1",
   "ada:backgroundCountTimeDefault": "10 gas-blank scans before each line, 80 during ablation \u2014 Table B1",
   "schema:actionProcess": {
@@ -597,7 +589,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -645,9 +638,6 @@
       "ada:toolRole": "dataReduction",
       "schema:name": "In-house MatLab script (Appendix C1)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, \u00b5g/g); Fa#; principal-component scores \u2014 '2D concentration matrices of all target elements'; pure-olivine averages in Table E1"
   ],
   "ada:ablationSamplingMode": [
     "all: grid of parallel, adjacent lines \u2014 \u00a72.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'"

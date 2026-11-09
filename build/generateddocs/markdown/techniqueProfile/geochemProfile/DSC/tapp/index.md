@@ -17,6 +17,7 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -33,6 +34,27 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
   "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = PerkinsElmer.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "PerkinsElmer DSC 8000",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "T",
+      "Standard Deviation",
+      "Step Scan 1 Cp [J/g/K]",
+      "Step Scan 2 Cp [J/g/K]",
+      "Step Scan 3 Cp [J/g/K]",
+      "Averaged Cp [J/g/K]"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -61,14 +83,11 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "T | Standard Deviation | Step Scan 1 Cp [J/g/K] | Step Scan 2 Cp [J/g/K] | Step Scan 3 Cp [J/g/K] | Averaged Cp [J/g/K]"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Differential Scanning Calorimetry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -109,6 +128,7 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -117,6 +137,7 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -134,6 +155,27 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
   "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = PerkinsElmer.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "PerkinsElmer DSC 8000",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "T",
+      "Standard Deviation",
+      "Step Scan 1 Cp [J/g/K]",
+      "Step Scan 2 Cp [J/g/K]",
+      "Step Scan 3 Cp [J/g/K]",
+      "Averaged Cp [J/g/K]"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -162,14 +204,11 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "T | Standard Deviation | Step Scan 1 Cp [J/g/K] | Step Scan 2 Cp [J/g/K] | Step Scan 3 Cp [J/g/K] | Averaged Cp [J/g/K]"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Differential Scanning Calorimetry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -207,17 +246,18 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:dscTAPP-DSC8000> a cdi:Activity,
+ex:dscTAPP-DSC8000 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Differential Scanning Calorimetry analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -241,7 +281,19 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "PerkinsElmer DSC 8000" ;
-    ada:reportedProperties "T | Standard Deviation | Step Scan 1 Cp [J/g/K] | Step Scan 2 Cp [J/g/K] | Step Scan 3 Cp [J/g/K] | Averaged Cp [J/g/K]" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Averaged Cp [J/g/K]",
+                "Standard Deviation",
+                "Step Scan 1 Cp [J/g/K]",
+                "Step Scan 2 Cp [J/g/K]",
+                "Step Scan 3 Cp [J/g/K]",
+                "T" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
@@ -338,6 +390,19 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -356,7 +421,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.DSC.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

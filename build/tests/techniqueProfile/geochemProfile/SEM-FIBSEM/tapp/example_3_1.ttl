@@ -1,16 +1,18 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semFibsemTAPP-Zhou2017> a cdi:Activity,
+ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "FIB-SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -21,21 +23,21 @@
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)." ;
-    schema1:instrument <ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM>,
-        <ex:semFibsemTAPP-Zhou2017/instrument/SEM> ;
+    schema1:instrument <https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM>,
+        <https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Geosciences, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -45,7 +47,20 @@
     ada:analyticalMode "3D Tomography" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment" ;
-    ada:reportedProperties "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (µm) — Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10–50 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 × 14.8 nm pixel size (pp.3–4)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "pore connectivity (nominal)",
+                "pore diameter (nm)",
+                "pore type (nominal)",
+                "pore-space volume (voxels)",
+                "throat length (µm)",
+                "throat size (nm)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (µm) — Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10–50 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 × 14.8 nm pixel size (pp.3–4)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Stated, but by procedure rather than by criterion — \"an area within the coal sample was selected for FIB-SEM tomography\" following a published procedure (p.3), and the volume's adequacy is then tested under \"evaluation of representative volumes\" (§2.3, p.4); no rule is given for where the area was placed" ;
     ada:samplingUnitType "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) — \"an area within the coal sample was selected for FIB-SEM tomography\" on \"cuboidal-shaped 0.5 × 1 × 1 cm3 coal samples\", and \"~800 SEM images of FIB slices were obtained\" at a \"pixel-size of 14.8 × 14.8 nm\" (pp.3–4)" ;
     ada:segmentationMethod3DDefault "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)" ;
@@ -61,27 +76,27 @@
     bios:computationalTool [ schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/SEM> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "N/A" ;
-    schema1:hasPart <ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector>,
-        <ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source>,
-        <ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -91,20 +106,20 @@
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault "4 mm" .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;

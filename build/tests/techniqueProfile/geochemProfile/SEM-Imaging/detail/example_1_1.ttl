@@ -1,13 +1,41 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Garvie2008> a ada:SEMImage ;
-    schema1:measurementTechnique <ex:semImagingTAPP-Garvie2008> ;
+ex:semImagingTAPP-detail-Garvie2008 a schema1:Dataset,
+        schema1:Product ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "FIB milling and TEM cross-section preparation (same instrument)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "no value available: schema:name" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/semImagingTAPP-detail-Garvie2008/instrument/SEM> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:SEMImage" ;
+    ada:analyticalMode "SE Imaging" ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
@@ -17,5 +45,38 @@
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semImagingTAPP-Garvie2008> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/semImagingTAPP-detail-Garvie2008/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/semImagingTAPP/mappingBeamCurrent>,
+        <https://ada.astromat.org/metadata/parameter/semImagingTAPP/workingDistance> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "N — the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units" .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "500 V; 1 kV; 5 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 500 .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/mappingBeamCurrent> a schema1:PropertyValue ;
+    schema1:description "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)" ;
+    schema1:name "Mapping Beam Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/mappingBeamCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 70 .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/workingDistance> a schema1:PropertyValue ;
+    schema1:description "0.5–5.4 mm" ;
+    schema1:name "Working Distance" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/workingDistance> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 5e-01 .
 

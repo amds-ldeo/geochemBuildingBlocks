@@ -17,6 +17,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -80,7 +81,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Scanning Transmission Electron Microscopy analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -114,6 +115,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -122,6 +124,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -186,7 +189,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Scanning Transmission Electron Microscopy analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -217,17 +220,18 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:stemTAPP-HF5000> a cdi:Activity,
+ex:stemTAPP-HF5000 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Scanning Transmission Electron Microscopy analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -240,7 +244,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
             schema1:name "Claude assisted" ] ;
     schema1:datePublished "2024-05-16" ;
     schema1:description "stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona | Hitachi HF5000 (25 instrumentMetadata exports) (publication column of STEM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Hitachi." ;
-    schema1:instrument <ex:stemTAPP-HF5000/instrument/STEM> ;
+    schema1:instrument <https://example.org/stemTAPP-HF5000/instrument/STEM> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/03m2x1q45" ;
             schema1:name "University of Arizona" ] ;
@@ -255,7 +259,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
-<ex:stemTAPP-HF5000/instrument/STEM> a schema1:Product,
+<https://example.org/stemTAPP-HF5000/instrument/STEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "STEM" ;
@@ -274,6 +278,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -320,7 +325,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Scanning Transmission Electron Microscopy analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -371,6 +376,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -379,6 +385,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -426,7 +433,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Scanning Transmission Electron Microscopy analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -474,17 +481,18 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:stemTAPP-P1> a cdi:Activity,
+ex:stemTAPP-P1 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Scanning Transmission Electron Microscopy analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -497,7 +505,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
             schema1:name "Claude assisted" ] ;
     schema1:datePublished "2023-12-07" ;
     schema1:description "stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley National Laboratory | FEI TitanX TEM (78 instrumentMetadata exports, dimensions only) (publication column of STEM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FEI." ;
-    schema1:instrument <ex:stemTAPP-P1/instrument/STEM> ;
+    schema1:instrument <https://example.org/stemTAPP-P1/instrument/STEM> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02jbv0t02" ;
             schema1:name "Lawrence Berkeley National Laboratory" ] ;
@@ -512,7 +520,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
-<ex:stemTAPP-P1/instrument/STEM> a schema1:Product,
+<https://example.org/stemTAPP-P1/instrument/STEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "STEM" ;
@@ -546,6 +554,19 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     schema:creator:
       type: object
       properties:
@@ -679,7 +700,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.STEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

@@ -16,17 +16,52 @@ detail instance derived from ADA n=2 | Crowther, Sarah | University of Mancheste
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:ritofngmsTAPP-detail-P0",
   "@type": [
-    "ada:RITOFNGMSCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:RITOFNGMSCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:ritofngmsTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of Manchester"
+      },
+      "schema:identifier": "20240116_ri-tof-ngms_uom_orex-803060-0_1",
+      "schema:startTime": "2024-01-16",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803060-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Crowther, Sarah"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1"
     }
   ],
   "ada:sessionIdentifier": "20240116_ri-tof-ngms_uom_orex-803060-0_1",
@@ -51,18 +86,53 @@ detail instance derived from ADA n=2 | Crowther, Sarah | University of Mancheste
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/RITOFNGMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:ritofngmsTAPP-detail-P0",
   "@type": [
-    "ada:RITOFNGMSCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:RITOFNGMSCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:ritofngmsTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "University of Manchester"
+      },
+      "schema:identifier": "20240116_ri-tof-ngms_uom_orex-803060-0_1",
+      "schema:startTime": "2024-01-16",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803060-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Crowther, Sarah"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1"
     }
   ],
   "ada:sessionIdentifier": "20240116_ri-tof-ngms_uom_orex-803060-0_1",
@@ -78,20 +148,30 @@ detail instance derived from ADA n=2 | Crowther, Sarah | University of Mancheste
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:RITOFNGMSCollection ;
-    schema1:measurementTechnique <ex:ritofngmsTAPP-P0> ;
+ex:ritofngmsTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Crowther, Sarah" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1" ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240116_ri-tof-ngms_uom_orex-803060-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "University of Manchester" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-803060-0" ] ;
+            schema1:startTime "2024-01-16" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-01-16" ;
     ada:analyst "Crowther, Sarah" ;
-    ada:componentType "ada:RITOFNGMSCollection" ;
     ada:fundingSourceForAnalysis "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1" ;
     ada:sampleName "OREX-803060-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240116_ri-tof-ngms_uom_orex-803060-0_1" .
-
-<ex:ritofngmsTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.RITOFNGMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

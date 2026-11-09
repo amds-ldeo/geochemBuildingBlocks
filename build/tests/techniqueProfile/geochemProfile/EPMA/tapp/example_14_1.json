@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -25,8 +26,6 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
-      "ada:beamDiameterDefault": "all: 1 \u00b5m \u2014 as above",
-      "ada:beamMode": "all: Focused \u2014 'Analyses were performed at 20 kV, using a focused 1-\u03bcm beam'",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -161,6 +160,54 @@
         "schema:defaultValue": -9999
       },
       {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": -9999
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamDamageMinimization",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamDamageMinimization",
+        "schema:name": "Beam Damage Minimization",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamDiameter",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamDiameter",
+        "schema:name": "Beam Diameter",
+        "ada:dataType": "number",
+        "schema:defaultValue": -9999
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamMode",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamMode",
+        "schema:name": "Beam Mode",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamRasterDimensions",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamRasterDimensions",
+        "schema:name": "Beam Raster Dimensions",
+        "ada:dataType": "number"
+      },
+      {
         "@id": "ada:targetMaterialColumn/epmaTAPP/peakCountingTime",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -183,9 +230,36 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase identity \u2014 \"Olivine and pyroxene grains were identified and characterized at the NHM\" (p.13), the paper's target being the anhydrous silicates in particles P1 and P2",
-  "ada:monitoredElements": [
-    "N \u2014 the paper gives beam conditions and a detection limit for transition metals of about 250 ppm for the NHM London instrument (p.13) but names no element"
-  ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "major and minor element abundances; Mg# \u2014 'Major and minor element abundances' of olivine and pyroxene; 'the Mg# of olivine grains is >83' (p.13)",
+    "ada:defaultReportedProperties": [
+      "major and minor element abundances",
+      "Mg#"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -215,9 +289,6 @@
     }
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 \"Olivine and pyroxene grains were identified and characterized at the NHM\" in particles P1 and P2, and \"Analyses were performed at 20 kV, using a focused 1-\u03bcm beam\" (p.13)",
-  "ada:reportedProperties": [
-    "major and minor element abundances; Mg# \u2014 'Major and minor element abundances' of olivine and pyroxene; 'the Mg# of olivine grains is >83' (p.13)"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -253,7 +324,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "EPMA analytical workflow"
   },
   "schema:measurementTechnique": [
     {

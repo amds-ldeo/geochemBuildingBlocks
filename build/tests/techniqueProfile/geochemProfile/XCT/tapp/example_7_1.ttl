@@ -1,36 +1,38 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:labxctTAPP-Tomkinson2015> a cdi:Activity,
+ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "Lab-XCT analytical workflow" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary); ada:segmentationMethodDefault = Manual segmentation of 2D slices; grayscale threshold applied to 3D volume." ;
-    schema1:instrument <ex:labxctTAPP-Tomkinson2015/instrument/XCT> ;
+    schema1:instrument <https://example.org/labxctTAPP-Tomkinson2015/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -56,7 +58,15 @@
     ada:numberOfProjectionsDefault "3143" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "Filtered back projection (Nikon proprietary)" ;
-    ada:reportedProperties "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite; slice area (mm2)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite",
+                "slice area (mm2)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:rotationModeDefault "missing" ;
     ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Single 2.7 g chip (~1.1 x 1.2 x 0.8 cm) taken from the outer part of one stone, selected because it provides a profile from the weathered exterior to the fresh interior; six 2-D slices at ~1 mm spacing extracted for modal analysis" ;
@@ -74,20 +84,6 @@
     ada:xRaySourceConfiguration "missing" ;
     bios:computationalTool [ schema1:name "Avizo™" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:labxctTAPP-Tomkinson2015/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Nikon" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Nikon Metris XTH 225" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)" ;
-    ada:tubeCurrentDefault -9999 ;
-    ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" ;
-    ada:xRayPreFilterDefault "no value available: ada:xRayPreFilterDefault" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Errors from threshold + PVE generally <5% for grains >125 voxels; features smaller than ~3 voxels unreliable" ;
@@ -116,6 +112,20 @@
     schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/labxctTAPP-Tomkinson2015/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nikon" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon Metris XTH 225" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)" ;
+    ada:tubeCurrentDefault -9999 ;
+    ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" ;
+    ada:xRayPreFilterDefault "no value available: ada:xRayPreFilterDefault" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
     schema1:name "X-ray Tube Anode Material" ;

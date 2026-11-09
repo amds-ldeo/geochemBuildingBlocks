@@ -1,16 +1,23 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:NIMICollection ;
-    schema1:measurementTechnique <ex:niMiTAPP-P0> ;
+ex:niMiTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240910_NI-MI_ASU_OREX-800055-9_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/03efmqc40" ;
+                    schema1:name "Arizona State University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800055-9" ] ;
+            schema1:startTime "2024-08-15" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-08-15" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:NIMICollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800055-9" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240910_NI-MI_ASU_OREX-800055-9_1" .
-
-<ex:niMiTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 

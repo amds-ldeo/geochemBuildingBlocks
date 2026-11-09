@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -286,24 +287,6 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -314,6 +297,24 @@
       }
     ],
     "ada:defaultTargetSpecies": []
+  },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "atomic proportions of the constituent elements (%); phase identification (nominal) \u2014 Atomic proportions of the constituent elements (%), from which \"mineral phases were determined from atomic proportions in percentages (%) of constituent elements and compared to the atomic proportions of constituent elements in stoichiometric proportions\" (p.4); the phase identification is the nominal output",
+    "ada:defaultReportedProperties": [
+      "atomic proportions of the constituent elements (%)",
+      "phase identification (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
   },
   "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
   "ada:monitoredElements": [
@@ -351,9 +352,6 @@
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
-  "ada:reportedProperties": [
-    "atomic proportions of the constituent elements (%); phase identification (nominal) \u2014 Atomic proportions of the constituent elements (%), from which \"mineral phases were determined from atomic proportions in percentages (%) of constituent elements and compared to the atomic proportions of constituent elements in stoichiometric proportions\" (p.4); the phase identification is the nominal output"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -389,7 +387,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "SEM Composition (EDS/WDS) analytical workflow"
   },
   "schema:measurementTechnique": [
     {

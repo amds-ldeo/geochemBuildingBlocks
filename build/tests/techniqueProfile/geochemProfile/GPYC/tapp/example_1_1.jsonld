@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -28,6 +30,27 @@
   "schema:description": "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Densinator.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Densinator - Custom-built glove-box mounted pycnometer",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "stdev",
+      "P1",
+      "P atm",
+      "Loop",
+      "Start",
+      "End"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -56,14 +79,11 @@
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "stdev | P1 | P atm | Loop | Start | End"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Gas pycnometry analytical workflow",
     "schema:step": [
       {
         "@type": [

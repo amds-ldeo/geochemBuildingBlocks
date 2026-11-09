@@ -1,16 +1,23 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-Agilent7890> a ada:GCCIRMSDataCollection ;
-    schema1:measurementTechnique <ex:gcCIrmsTAPP-Agilent7890> ;
+ex:gcCIrmsTAPP-detail-Agilent7890 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20250219_GC-C-IRMS_PSU_OREX-800107-183_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/04xt43068" ;
+                    schema1:name "Hokkaido University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800107-183" ] ;
+            schema1:startTime "2024-10-24" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-10-24" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:GCCIRMSDataCollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800107-183" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250219_GC-C-IRMS_PSU_OREX-800107-183_1" .
-
-<ex:gcCIrmsTAPP-Agilent7890> schema1:identifier "no value available: schema:identifier" .
 

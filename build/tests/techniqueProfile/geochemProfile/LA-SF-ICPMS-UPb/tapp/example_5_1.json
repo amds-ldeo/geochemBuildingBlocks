@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -156,7 +157,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "LA-SF-ICP-MS U-Pb Geochronology analytical workflow"
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Freedom from inclusions, checked by SEM beforehand \u2014 the grains were \"low in inclusions, [but] were not devoid of them\", so \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5)",
   "schema:additionalProperty": [
@@ -512,35 +514,6 @@
         "schema:defaultValue": "no value available: unnamed property"
       },
       {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Within-Session Analytical Precision and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
-        "schema:name": "Analytical Accuracy and Assessment Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -561,6 +534,34 @@
     ]
   },
   "ada:massesMeasuredDefault": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b3\u00b9P \u2192 P; \u2074\u00b3Ca \u2192 Ca; \u2074\u2074Ca \u2192 Ca; \u2074\u2075Sc \u2192 Sc; \u2074\u2077Ti \u2192 Ti; \u2074\u2079Ti \u2192 Ti; \u2075\u00b9V \u2192 V; \u2075\u00b2Cr \u2192 Cr; \u2075\u00b3Cr \u2192 Cr; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b9Ni \u2192 Ni; \u2076\u00b2Ni \u2192 Ni; \u2076\u2074Zn \u2192 Zn; \u2076\u2076Zn \u2192 Zn; \u2076\u2079Ga \u2192 Ga; \u2077\u00b9Ga \u2192 Ga \u2014 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (\u00a73.3)",
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (\u00b5g/g) \u2014 olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (\u00a74)",
+    "ada:defaultReportedProperties": [
+      "Mg",
+      "Al",
+      "P",
+      "Ca",
+      "Sc",
+      "Ti",
+      "V",
+      "Cr",
+      "Co",
+      "Ni",
+      "Zn",
+      "Ga (\u00b5g/g)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:massResolutionAssignment": "all: medium resolution (m/\u0394m of 4000) \u2014 \u00a73.3",
   "ada:backgroundCountTimeDefault": "N \u2014 the analysis parameters were lost (\u00a73.3)",
   "schema:measurementTechnique": [
@@ -601,9 +602,6 @@
       "ada:toolRole": "dataReduction",
       "schema:name": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)"
     }
-  ],
-  "ada:reportedProperties": [
-    "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (\u00b5g/g) \u2014 olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (\u00a74)"
   ],
   "ada:ablationSamplingMode": [
     "all: spot mode \u2014 'The laser was run in spot mode' (\u00a73.3)"

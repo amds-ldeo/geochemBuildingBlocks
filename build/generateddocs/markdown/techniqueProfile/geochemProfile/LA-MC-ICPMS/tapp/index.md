@@ -17,6 +17,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -69,28 +70,9 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
       }
     ]
   },
-  "ada:analyticalAccuracy": "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -587,6 +569,48 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ],
     "@type": [
       "schema:HowTo"
+    ],
+    "schema:name": "LA-MC-ICP-MS analytical workflow"
+  },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3",
+    "ada:defaultReportedProperties": [
+      "⁸⁷Sr/⁸⁶Sr (dimensionless ratio)",
+      "⁸⁷Rb/⁸⁶Sr (dimensionless ratio)",
+      "Rb–Sr isochron age (Ma)",
+      "initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
     ]
   },
   "ada:targetMaterialTemplate": {
@@ -618,7 +642,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     "ada:defaultTargetMaterials": []
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Random selection among the target phases — 'The plagioclases, pyroxenes, and ilmenites in NWA 10597 were measured randomly' (p.7); target phases are plagioclase, pyroxene, ilmenite and glass (abstract; p.7-8)",
-  "ada:withinSessionPrecision": "all [⁸⁷Sr/⁸⁶Sr, ⁸⁷Rb/⁸⁶Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] — regression in Fig. 3; relative errors for ⁸⁷Rb/⁸⁶Sr ±3% for most reference glasses, and for ⁸⁷Sr/⁸⁶Sr <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1",
   "ada:numberOfAcquisitionPasses": "1",
   "schema:measurementTechnique": [
     {
@@ -670,9 +693,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   "ada:analyticalMode": [
     "Transect"
   ],
-  "ada:reportedProperties": [
-    "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3"
-  ],
   "ada:ablationSamplingMode": [
     "all: Transect — continuous line scan at 2–6 µm s⁻¹"
   ],
@@ -697,7 +717,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   ],
   "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:ablationSpotDurationDefault": -9999,
-  "ada:betweenSessionPrecision": "no value available: ada:betweenSessionPrecision",
   "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:rasterLineSpacingDefault": "no value available: ada:rasterLineSpacingDefault",
@@ -713,6 +732,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -721,6 +741,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -774,28 +795,9 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
         "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
-        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-        "ada:dataType": "string"
       }
     ]
   },
-  "ada:analyticalAccuracy": "all [\u2078\u2077Sr/\u2078\u2076Sr: relative error <0.2\u2030 where \u2078\u2077Rb/\u2078\u2076Sr <1 (12 of 14 reference materials); \u2078\u2077Rb/\u2078\u2076Sr: within \u00b13% for 11 glasses] \u2014 exceptions NIST 610 (\u22122.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated \u00b13% criterion",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1292,6 +1294,48 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ],
     "@type": [
       "schema:HowTo"
+    ],
+    "schema:name": "LA-MC-ICP-MS analytical workflow"
+  },
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "\u2078\u2077Sr/\u2078\u2076Sr (dimensionless ratio); \u2078\u2077Rb/\u2078\u2076Sr (dimensionless ratio); Rb\u2013Sr isochron age (Ma); initial \u2078\u2077Sr/\u2078\u2076Sr (dimensionless ratio) \u2014 Tables 2 and 3",
+    "ada:defaultReportedProperties": [
+      "\u2078\u2077Sr/\u2078\u2076Sr (dimensionless ratio)",
+      "\u2078\u2077Rb/\u2078\u2076Sr (dimensionless ratio)",
+      "Rb\u2013Sr isochron age (Ma)",
+      "initial \u2078\u2077Sr/\u2078\u2076Sr (dimensionless ratio)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
     ]
   },
   "ada:targetMaterialTemplate": {
@@ -1323,7 +1367,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     "ada:defaultTargetMaterials": []
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Random selection among the target phases \u2014 'The plagioclases, pyroxenes, and ilmenites in NWA 10597 were measured randomly' (p.7); target phases are plagioclase, pyroxene, ilmenite and glass (abstract; p.7-8)",
-  "ada:withinSessionPrecision": "all [\u2078\u2077Sr/\u2078\u2076Sr, \u2078\u2077Rb/\u2078\u2076Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] \u2014 regression in Fig. 3; relative errors for \u2078\u2077Rb/\u2078\u2076Sr \u00b13% for most reference glasses, and for \u2078\u2077Sr/\u2078\u2076Sr <0.2\u2030 where \u2078\u2077Rb/\u2078\u2076Sr <1",
   "ada:numberOfAcquisitionPasses": "1",
   "schema:measurementTechnique": [
     {
@@ -1375,9 +1418,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   "ada:analyticalMode": [
     "Transect"
   ],
-  "ada:reportedProperties": [
-    "\u2078\u2077Sr/\u2078\u2076Sr (dimensionless ratio); \u2078\u2077Rb/\u2078\u2076Sr (dimensionless ratio); Rb\u2013Sr isochron age (Ma); initial \u2078\u2077Sr/\u2078\u2076Sr (dimensionless ratio) \u2014 Tables 2 and 3"
-  ],
   "ada:ablationSamplingMode": [
     "all: Transect \u2014 continuous line scan at 2\u20136 \u00b5m s\u207b\u00b9"
   ],
@@ -1402,7 +1442,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   ],
   "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:ablationSpotDurationDefault": -9999,
-  "ada:betweenSessionPrecision": "no value available: ada:betweenSessionPrecision",
   "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:rasterLineSpacingDefault": "no value available: ada:rasterLineSpacingDefault",
@@ -1415,24 +1454,19 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:laMcicpmsTAPP-Zhang2022> a cdi:Activity,
+ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "LA-MC-ICP-MS analytical workflow" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (two-volume cell)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
@@ -1448,7 +1482,14 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Polished thin section (two-volume cell)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -1462,8 +1503,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     schema1:description "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability Reported detail: ada:isobaricInterferenceCorrectionsApplied = Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "National Natural Science Foundation of China (NSFC)" ] ;
-    schema1:instrument <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS>,
-        <ex:laMcicpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> ;
+    schema1:instrument <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS>,
+        <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Geological Processes and Mineral Resources, China Univ. Geosciences, Wuhan, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1479,10 +1520,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:ablationSamplingMode "all: Transect — continuous line scan at 2–6 µm s⁻¹" ;
     ada:ablationSpotDurationDefault -9999 ;
     ada:analysisSequenceDefault "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis" ;
-    ada:analyticalAccuracy "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion" ;
     ada:analyticalMode "Transect" ;
     ada:backgroundCountTimeDefault "30 cycles × 0.524 s ≈ 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)" ;
-    ada:betweenSessionPrecision "no value available: ada:betweenSessionPrecision" ;
     ada:blankBackgroundCorrectionMethod "First 30 cycles (no laser ablation) used for background collection; background Kr⁺ signals removed by correction; no additional Kr peak stripping applied" ;
     ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He, 0.90 l min⁻¹ (two-volume cell)" ;
@@ -1511,7 +1550,21 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:numberOfAcquisitionPasses "1" ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "no value available: ada:rasterLineSpacingDefault" ;
-    ada:reportedProperties "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Rb–Sr isochron age (Ma)",
+                "initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio)",
+                "⁸⁷Rb/⁸⁶Sr (dimensionless ratio)",
+                "⁸⁷Sr/⁸⁶Sr (dimensionless ratio)" ;
+            ada:reportedPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> ;
+            ada:reportedPropertyDeclaration "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3" ] ;
     ada:sampleIntroduction "He filled into the two-volume ablation cell; Ar mixed into the sample-out line downstream of the ablation chamber before the torch; a signal-smoothing device downstream of the sample cell (Hu et al. 2015) that 'significantly reduced the short-term variability of the signal'; 12 ml min⁻¹ N₂ added to the carrier gas via a simple Y connector behind the signal-smoothing device (p.3)" ;
     ada:samplingUnitSelectionCriteriaDefault "Random selection among the target phases — 'The plagioclases, pyroxenes, and ilmenites in NWA 10597 were measured randomly' (p.7); target phases are plagioclase, pyroxene, ilmenite and glass (abstract; p.7-8)" ;
     ada:samplingUnitType "Analysis point — one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8" ;
@@ -1538,85 +1591,10 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment> ] ;
     ada:uncertaintyLevel "2SD for reference-material mean values (Table 2); within-run repeatability quoted as U_SD and U_SE at 95% confidence (Eqs. 1-2, p.5); isochron ages quoted with IsoplotR and Monte Carlo uncertainties (Table 3)" ;
-    ada:withinSessionPrecision "all [⁸⁷Sr/⁸⁶Sr, ⁸⁷Rb/⁸⁶Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] — regression in Fig. 3; relative errors for ⁸⁷Rb/⁸⁶Sr ±3% for most reference glasses, and for ⁸⁷Sr/⁸⁶Sr <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1" ;
     bios:computationalTool [ schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field (MC-ICP-MS)" ;
-    schema1:hasPart <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collector>,
-        <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source>,
-        <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone>,
-        <ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)" ] ;
-    schema1:name "no value available: schema:name" .
-
-<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferenceCorrectionMethod>,
-        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferingSpecies>,
-        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/massResolutionAssignment>,
-        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues>,
-        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration>,
-        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:name "missing" ;
-    ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
-
-<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "all: Not installed — 'traditional (MC-)ICP-MS without the reaction/collision cell' (p.1); contrasted against 'MC-ICP-MS with collision cell' in the conclusion (pp.8-9)" .
-
-<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<ex:laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<ex:laMcicpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "New Wave Research NWR FemtoUC (Yb:KGW fs, 257 nm PHAROS amplifier)" ] ;
-    schema1:name "Two-volume cell (constant distance between laser and aerosol extraction)" ;
-    ada:laserFluenceDefault "~60% of maximum output (PHAROS system; exact J cm⁻² not converted)" ;
-    ada:laserPulseDuration "300 fs (Yb:KGW PHAROS femtosecond amplifier)" ;
-    ada:laserRepetitionRateDefault "all: 10–30 Hz — varied based on Sr concentration in samples" ;
-    ada:laserSpotGeometryDefault "all: 50–60 µm circular" ;
-    ada:laserType "257 nm Yb:KGW femtosecond; pulse duration 300 fs (PHAROS system)" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 8e-01 ;
@@ -1751,6 +1729,16 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/laMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Primary Calibration Standard Name" ;
@@ -1763,21 +1751,83 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     schema1:valueName "calibrationStrategyPerTargetSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
-    schema1:name "Counting Statistics Error" ;
-    schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
-    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
-    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
+
+<https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field (MC-ICP-MS)" ;
+    schema1:hasPart <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collector>,
+        <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source>,
+        <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone>,
+        <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)" ] ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferenceCorrectionMethod>,
+        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferingSpecies>,
+        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/massResolutionAssignment>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:name "missing" ;
+    ada:collectorConfiguration "no value available: ada:collectorConfiguration" .
+
+<https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "all: Not installed — 'traditional (MC-)ICP-MS without the reaction/collision cell' (p.1); contrasted against 'MC-ICP-MS with collision cell' in the conclusion (pp.8-9)" .
+
+<https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://example.org/laMcicpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "New Wave Research NWR FemtoUC (Yb:KGW fs, 257 nm PHAROS amplifier)" ] ;
+    schema1:name "Two-volume cell (constant distance between laser and aerosol extraction)" ;
+    ada:laserFluenceDefault "~60% of maximum output (PHAROS system; exact J cm⁻² not converted)" ;
+    ada:laserPulseDuration "300 fs (Yb:KGW PHAROS femtosecond amplifier)" ;
+    ada:laserRepetitionRateDefault "all: 10–30 Hz — varied based on Sr concentration in samples" ;
+    ada:laserSpotGeometryDefault "all: 50–60 µm circular" ;
+    ada:laserType "257 nm Yb:KGW femtosecond; pulse duration 300 fs (PHAROS system)" .
 
 <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -2102,78 +2152,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Counting Statistics Error
-              description: "How the uncertainty predicted from counting statistics
-                \u2014 the theoretical limit set by the Poisson distribution of the
-                counts accumulated \u2014 is computed for each reported quantity,
-                and the sigma level it is quoted at. It is derived from the counts
-                on the target species together with those on any background or blank
-                subtracted from it. Distinct from the scatter actually observed within
-                a measurement or between repeated measurements, which is recorded
-                separately. In the dataset: report, for each analysis and reported
-                quantity, the counting-statistics uncertainty at the stated sigma
-                level."
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: countingStatisticsError
-                schema:name:
-                  const: Counting Statistics Error
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Internal (Within-Measurement) Analytical Precision and Assessment
-                Method
-              description: 'How the precision of a single measurement is assessed
-                from the scatter of the cycles, sweeps or integrations that make it
-                up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is
-                computed over, for each reported quantity. Distinct from Counting
-                Statistics Error, which records how the uncertainty predicted from
-                the counts is computed rather than the scatter observed. In the dataset:
-                report, for each measurement and reported quantity, the internal precision
-                as the stated statistic.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: internalAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Internal (Within-Measurement) Analytical Precision and Assessment
-                    Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
           allOf:
           - contains:
               title: Mass Resolution Assignment
@@ -2247,96 +2225,10 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
-          - contains:
-              title: Counting Statistics Error
-              description: "How the uncertainty predicted from counting statistics
-                \u2014 the theoretical limit set by the Poisson distribution of the
-                counts accumulated \u2014 is computed for each reported quantity,
-                and the sigma level it is quoted at. It is derived from the counts
-                on the target species together with those on any background or blank
-                subtracted from it. Distinct from the scatter actually observed within
-                a measurement or between repeated measurements, which is recorded
-                separately. In the dataset: report, for each analysis and reported
-                quantity, the counting-statistics uncertainty at the stated sigma
-                level."
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: countingStatisticsError
-                schema:name:
-                  const: Counting Statistics Error
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Internal (Within-Measurement) Analytical Precision and Assessment
-                Method
-              description: 'How the precision of a single measurement is assessed
-                from the scatter of the cycles, sweeps or integrations that make it
-                up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is
-                computed over, for each reported quantity. Distinct from Counting
-                Statistics Error, which records how the uncertainty predicted from
-                the counts is computed rather than the scatter observed. In the dataset:
-                report, for each measurement and reported quantity, the internal precision
-                as the stated statistic.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: internalAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Internal (Within-Measurement) Analytical Precision and Assessment
-                    Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
           title: Target Species Columns
       required:
       - ada:defaultTargetSpecies
       title: Target Species Template
-    ada:analyticalAccuracy:
-      description: Offset between measured and accepted values for secondary reference
-        materials, and the method used to assess it. Specify the reference material
-        and the source of its accepted values, the number of analyses, and the quantities
-        assessed. Report systematic biases and their likely causes. Express the offset
-        in the form appropriate to what the procedure reports - percent relative bias
-        for concentrations, or deviation in delta or ratio units for isotopic quantities.
-      type: string
     schema:instrument:
       type: array
       items:
@@ -3321,13 +3213,6 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:betweenSessionPrecision:
-      description: "Precision of measurements across multiple analytical sessions
-        over weeks to months \u2014 long-term or intermediate precision \u2014 and
-        the method used to assess it. Report both the assessment method and the precision
-        values, specifying the reference material, the number of measurements and
-        sessions, the time span covered, and the statistic reported."
-      type: string
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -3355,6 +3240,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/spectral-interference-corrections-applied
       readOnly: true
     ada:massBiasCorrectionStrategy:
       description: 'Strategy used to correct instrumental isotopic mass fractionation,
@@ -3476,15 +3362,176 @@ allOf:
       required:
       - ada:defaultTargetMaterials
       title: Target Material Template
-    ada:withinSessionPrecision:
-      description: Precision of repeated measurements within a single analytical session
-        and the method used to assess it. Report both the assessment method and the
-        precision values. The assessment method must specify the reference material
-        or standard measured, the number of replicates n, and the statistic reported
-        (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of
-        a single measurement, which derives from counting statistics over the cycles
-        of that measurement rather than from repeated analyses.
-      type: string
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+        ada:reportedPropertyColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ReportedPropertyIdentifierColumn
+            - title: Counting Statistics Error
+              description: "How the uncertainty predicted from counting statistics
+                \u2014 the theoretical limit set by the Poisson distribution of the
+                counts accumulated \u2014 is computed for each reported quantity,
+                and the sigma level it is quoted at. It is derived from the counts
+                on the target species together with those on any background or blank
+                subtracted from it. Distinct from the scatter actually observed within
+                a measurement or between repeated measurements, which is recorded
+                separately. In the dataset: report, for each analysis and reported
+                quantity, the counting-statistics uncertainty at the stated sigma
+                level."
+              type: object
+              properties:
+                '@id':
+                  const: ada:reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: countingStatisticsError
+                schema:name:
+                  const: Counting Statistics Error
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - title: Internal (Within-Measurement) Analytical Precision and Assessment
+                Method
+              description: 'How the precision of a single measurement is assessed
+                from the scatter of the cycles, sweeps or integrations that make it
+                up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is
+                computed over, for each reported quantity. Distinct from Counting
+                Statistics Error, which records how the uncertainty predicted from
+                the counts is computed rather than the scatter observed. In the dataset:
+                report, for each measurement and reported quantity, the internal precision
+                as the stated statistic.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: internalAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Internal (Within-Measurement) Analytical Precision and Assessment
+                    Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains:
+              title: Counting Statistics Error
+              description: "How the uncertainty predicted from counting statistics
+                \u2014 the theoretical limit set by the Poisson distribution of the
+                counts accumulated \u2014 is computed for each reported quantity,
+                and the sigma level it is quoted at. It is derived from the counts
+                on the target species together with those on any background or blank
+                subtracted from it. Distinct from the scatter actually observed within
+                a measurement or between repeated measurements, which is recorded
+                separately. In the dataset: report, for each analysis and reported
+                quantity, the counting-statistics uncertainty at the stated sigma
+                level."
+              type: object
+              properties:
+                '@id':
+                  const: ada:reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: countingStatisticsError
+                schema:name:
+                  const: Counting Statistics Error
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Internal (Within-Measurement) Analytical Precision and Assessment
+                Method
+              description: 'How the precision of a single measurement is assessed
+                from the scatter of the cycles, sweeps or integrations that make it
+                up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is
+                computed over, for each reported quantity. Distinct from Counting
+                Statistics Error, which records how the uncertainty predicted from
+                the counts is computed rather than the scatter observed. In the dataset:
+                report, for each measurement and reported quantity, the internal precision
+                as the stated statistic.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: internalAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Internal (Within-Measurement) Analytical Precision and Assessment
+                    Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
+          title: Reported Property Columns
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the
         passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures
@@ -3502,18 +3549,15 @@ allOf:
         - Transect
         - Mapping
   required:
-  - ada:analyticalAccuracy
-  - ada:betweenSessionPrecision
   - ada:constantsAndReferenceValuesUsedDefault
   - ada:isobaricInterferenceCorrectionsApplied
   - ada:massBiasCorrectionStrategy
-  - ada:withinSessionPrecision
   - ada:numberOfAcquisitionPasses
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

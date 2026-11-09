@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -28,6 +30,33 @@
   "schema:description": "capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of CAPD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "T [K] Raw Data",
+      "T [K] Raw Data Error",
+      "Capacitance [pF] Raw data",
+      "Capacitance [pF] Raw data Error",
+      "T [K] Data",
+      "T [K] Data Error",
+      "a [1/K]",
+      "a [1/K] x 10^-6",
+      "T [K] dilatometer calibration (avg)",
+      "Capacitance [pF] dilatometer calibration (avg)",
+      "T [K] OFHC Cu Std. Reference",
+      "a [1/K] OFHC Cu Std. Reference"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -43,14 +72,11 @@
     "schema:name": "Boston College",
     "schema:identifier": "https://ror.org/02n2fzt79"
   },
-  "ada:reportedProperties": [
-    "T [K] Raw Data | T [K] Raw Data Error | Capacitance [pF] Raw data | Capacitance [pF] Raw data Error | T [K] Data | T [K] Data Error | a [1/K] | a [1/K] x 10^-6 | T [K] dilatometer calibration (avg) | Capacitance [pF] dilatometer calibration (avg) | T [K] OFHC Cu Std. Reference | a [1/K] OFHC Cu Std. Reference"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Capacitance Dilatometry analytical workflow",
     "schema:step": [
       {
         "@type": [

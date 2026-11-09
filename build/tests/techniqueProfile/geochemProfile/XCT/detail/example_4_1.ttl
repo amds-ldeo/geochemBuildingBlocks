@@ -1,20 +1,107 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Neuman2025-2> a ada:XCTVolume ;
-    schema1:measurementTechnique <ex:labxctTAPP-Neuman2025-2> ;
+ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfSubVolumes>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "Post-reconstruction ring corrections applied; severity not documented" ],
+        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+            dqv:value "Steel outer sleeve caused secondary BH and scattering artifact resulting in uneven brightness; corrected with asymmetric + symmetric corrections" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethod>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "UTCT Facility, U. Texas" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+                    schema1:name "Apollo 17 core 73001" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Neuman2025-2/instrument/XCT> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:XCTVolume" ;
+    ada:analyticalMode "Multi-volume stitching" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:numberOfSubVolumes 9 ;
-    ada:sampleDimensions "~35 cm length core" ;
     ada:sampleName "Apollo 17 core 73001" ;
     ada:samplingUnitName "Sample name only — core 73001, \"A series of nine scan volumes was acquired along the length of the core\" (p.5); the volumes are counted, not labelled" ;
-    ada:sessionIdentifier "missing" ;
-    ada:voiApplied "Full core length per sub-volume" .
+    ada:sessionIdentifier "missing" .
 
-<ex:labxctTAPP-Neuman2025-2> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/labxctTAPP-detail-Neuman2025-2/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "190 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 190 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfSubVolumes> a schema1:PropertyValue ;
+    schema1:description "9 volumes" ;
+    schema1:name "Number of Sub-volumes" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfSubVolumes> ;
+    schema1:value 9 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethod> a schema1:PropertyValue ;
+    schema1:name "Ring Artifact Correction Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethod> ;
+    schema1:value "Post-reconstruction ring corrections applied" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode> a schema1:PropertyValue ;
+    schema1:name "Rotation Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode> ;
+    schema1:value "Non-continuous rotation (to avoid rotational mismatch of continuous mode)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> a schema1:PropertyValue ;
+    schema1:name "Sample Dimensions (L × W × H)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+    schema1:value "~35 cm length core" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> a schema1:PropertyValue ;
+    schema1:name "Sample Mounting Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
+    schema1:value "Custom PVC tube; core left in its stainless-steel outer sleeve — \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning. The core was positioned for scanning in a custom PVC tube mount\" (Neuman et al. 2025, pp.4–5)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> a schema1:PropertyValue ;
+    schema1:name "Sub-volume Stitching and Registration Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
+    schema1:value "Digital stitching; manual realignment of raw projection images for rotational misalignment (up to 0.35°); additional cone-beam, BH, and scattering corrections applied" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> a schema1:PropertyValue ;
+    schema1:name "VOI Applied" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
+    schema1:value "Full core length per sub-volume" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> a schema1:PropertyValue ;
+    schema1:name "X-ray Pre-filter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
+    schema1:value "None (steel sleeve acts as effective filter)" .
 

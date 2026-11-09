@@ -147,9 +147,9 @@ The procedure half of the ICPMS module, with every property populated. Generated
             schema1:hasPart [ schema1:additionalType "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Uncertainty Propagation Method" ],
+            schema1:name "Limit of Quantification (LOQ) Method" ],
         [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Limit of Quantification (LOQ) Method" ] ;
+            schema1:name "Uncertainty Propagation Method" ] ;
     ada:analysisSequenceDefault "no value available: unnamed property" ;
     ada:blankBackgroundCorrectionMethod "no value available: unnamed property" ;
     ada:calibrationMeasurementFrequency "no value available: unnamed property" ;
@@ -1585,6 +1585,10 @@ $defs:
       schema:defaultValue:
         type: string
         x-jsonld-id: http://schema.org/defaultValue
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/guard-electrode
+        x-jsonld-id: http://schema.org/inDefinedTermSet
     required:
     - '@id'
     - '@type'
@@ -1628,6 +1632,10 @@ $defs:
       schema:defaultValue:
         type: string
         x-jsonld-id: http://schema.org/defaultValue
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/plasma-thermal-mode
+        x-jsonld-id: http://schema.org/inDefinedTermSet
     required:
     - '@id'
     - '@type'
@@ -1887,6 +1895,10 @@ $defs:
       schema:defaultValue:
         type: string
         x-jsonld-id: http://schema.org/defaultValue
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/isotope-dilution-data-reduction-method
+        x-jsonld-id: http://schema.org/inDefinedTermSet
     required:
     - '@id'
     - '@type'
@@ -1916,6 +1928,10 @@ $defs:
       schema:value:
         type: string
         x-jsonld-id: http://schema.org/value
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
+        x-jsonld-id: http://schema.org/inDefinedTermSet
     required:
     - '@id'
     - '@type'
@@ -1955,6 +1971,10 @@ $defs:
       schema:defaultValue:
         type: string
         x-jsonld-id: http://schema.org/defaultValue
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
+        x-jsonld-id: http://schema.org/inDefinedTermSet
     required:
     - '@id'
     - '@type'
@@ -1995,6 +2015,10 @@ $defs:
       schema:defaultValue:
         type: string
         x-jsonld-id: http://schema.org/defaultValue
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sampler-and-skimmer-cone-material
+        x-jsonld-id: http://schema.org/inDefinedTermSet
     required:
     - '@id'
     - '@type'
@@ -2040,7 +2064,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.icpms
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

@@ -1,12 +1,47 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Eckley2024> a ada:XCTVolume ;
-    schema1:measurementTechnique <ex:labxctTAPP-Eckley2024> ;
+ex:labxctTAPP-detail-Eckley2024 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Scott Eckley" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:distribution [ schema1:encodingFormat "TIFF (16-bit, 928 slices)" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameter>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinning>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepth>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistance>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistance>,
+                <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800099-0" ] ;
+            schema1:startTime "2024-10-29" ;
+            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Eckley2024/instrument/XCT> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Nikon CTPro3D v5.4" ;
+                            ada:toolRole "dataReduction" ] ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-10-29" ;
     ada:analyst "Scott Eckley" ;
-    ada:componentType "ada:XCTVolume" ;
+    ada:analyticalMode "Single-volume" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "OREX-800099-0" ;
@@ -14,5 +49,103 @@
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
-<ex:labxctTAPP-Eckley2024> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/labxctTAPP-detail-Eckley2024/instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "110 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 110 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameter> a schema1:PropertyValue ;
+    schema1:name "Beam Hardening Correction Parameter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameter> ;
+    schema1:value "Preset 4" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinning> a schema1:PropertyValue ;
+    schema1:name "Detector Binning" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinning> ;
+    schema1:value "1×1 (no binning)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> a schema1:PropertyValue ;
+    schema1:description "4.00 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 4e+00 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrection> a schema1:PropertyValue ;
+    schema1:name "Flat Field Correction" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrection> ;
+    schema1:value "Flux normalization: no" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection> a schema1:PropertyValue ;
+    schema1:description "1 frame" ;
+    schema1:name "Frames Averaged per Projection" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection> ;
+    schema1:value 1 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> a schema1:PropertyValue ;
+    schema1:name "Number of Projections" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections> ;
+    schema1:value 4000 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepth> a schema1:PropertyValue ;
+    schema1:name "Output Bit Depth" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepth> ;
+    schema1:value "16-bit (full grayscale range)" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode> a schema1:PropertyValue ;
+    schema1:name "Rotation Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode> ;
+    schema1:value "Continuous rotation" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistance> a schema1:PropertyValue ;
+    schema1:description "679.51 mm" ;
+    schema1:name "Source-to-Detector Distance (SDD)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistance> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 6.7951e+02 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistance> a schema1:PropertyValue ;
+    schema1:description "20.39 mm" ;
+    schema1:name "Source-to-Object Distance (SOD)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistance> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 2.039e+01 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent> a schema1:PropertyValue ;
+    schema1:description "27 µA" ;
+    schema1:name "Tube Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 27 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> a schema1:PropertyValue ;
+    schema1:description "6.00 µm" ;
+    schema1:name "Voxel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 6e+00 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> a schema1:PropertyValue ;
+    schema1:description "3.0 W" ;
+    schema1:name "X-ray Power" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 3e+00 .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> a schema1:PropertyValue ;
+    schema1:name "X-ray Pre-filter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
+    schema1:value "0.25 mm aluminum" .
 

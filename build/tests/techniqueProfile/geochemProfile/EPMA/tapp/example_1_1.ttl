@@ -1,16 +1,18 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:epmaTAPP-Ma2015> a cdi:Activity,
+ex:epmaTAPP-Ma2015 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "EPMA analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -31,8 +33,8 @@
     schema1:description "Ma et al. 2015, Earth Planet. Sci. Lett. — tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'WDS: 15 kV; 5 nA; beam in focused mode'; point analyses only." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 — 'SEM, EBSD and EPMA analyses were carried out at the Caltech GPS Division Analytical Facility, which is supported, in part, by NSF Grants EAR-0318518 and DMR-0080065'" ] ;
-    schema1:instrument <ex:epmaTAPP-Ma2015/instrument/EPMA>,
-        <ex:epmaTAPP-Ma2015/instrument/SEM> ;
+    schema1:instrument <https://example.org/epmaTAPP-Ma2015/instrument/EPMA>,
+        <https://example.org/epmaTAPP-Ma2015/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Caltech GPS Division Analytical Facility" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -57,8 +59,49 @@
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "CITZAF (Armstrong 1995)" ;
-    ada:monitoredElements "Si, Al, Ca, Na, Fe, Mg, Mn, Ti, Cr, K — all determined; no monitor-only element. \"Standards for analysis were anorthite (SiKα, AlKα, CaKα); albite (NaKα); fayalite (FeKα); forsterite (MgKα); Mn2SiO4 (MnKα); TiO2 (TiKα); Cr2O3 (CrKα); and microcline (KKα)\" (p.3)" ;
-    ada:reportedProperties "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO; cations per formula unit; Ca/(Ca+Na+K); Ca-Eskola component; An content of the precursor plagioclase — oxide wt% with totals and 1 s.d. of the mean, cations on 6 or 8 oxygens (Table 1); Ca-Eskola (mol%) and An58–69 (p.1)" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/backgroundPosition>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/diffractingCrystal>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/dwellTimePerPixel>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/proportionalCounterDetector>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/sequence>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/wdsPhaSetting>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/wdsSpectrometerChannel>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/xRayDetectionMethodPerMonitoredElement>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/xRayLine> ] ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "An content of the precursor plagioclase",
+                "Ca-Eskola component",
+                "Ca/(Ca+Na+K)",
+                "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO",
+                "cations per formula unit" ;
+            ada:reportedPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/reportedPropertyColumn/epmaTAPP/countingStatisticsError> ;
+            ada:reportedPropertyDeclaration "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO; cations per formula unit; Ca/(Ca+Na+K); Ca-Eskola component; An content of the precursor plagioclase — oxide wt% with totals and 1 s.d. of the mean, cations on 6 or 8 oxygens (Table 1); Ca-Eskola (mol%) and An58–69 (p.1)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Textural position relative to the shock-melt pockets — the analyses are grouped as \"Wormy type tissintite\", \"Rimming tissintite\", \"Maskelynite associated with wormy tissintite\" and \"Maskelynite away from melt pockets\" (Table 1, p.5), the phase itself occurring \"only in maskelynite less than ~25 μm of a shock melt pocket\" (p.1)" ;
     ada:samplingUnitType "Phase > Analysis point — Table 1 reports one column per phase and textural setting (\"Wormy type tissintite\", \"Maskelynite away from melt pockets\" …), each the mean of n = 5–17 focused-beam point analyses (p.5)" ;
     ada:stepSizePixelSizeDefault -9999 ;
@@ -75,6 +118,11 @@
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDamageMinimization>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
@@ -95,66 +143,72 @@
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/analyticalAccuracy>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/analyticalPrecision>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/targetSpeciesEstimationMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/timeDependentIntensityCorrection>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+            ada:toolRole "dataReduction" ] .
 
-<ex:epmaTAPP-Ma2015/instrument/EPMA> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EPMA" ;
-    schema1:hasPart <ex:epmaTAPP-Ma2015/instrument/EPMA/part/EDS-Detector>,
-        <ex:epmaTAPP-Ma2015/instrument/EPMA/part/Electron-Source>,
-        <ex:epmaTAPP-Ma2015/instrument/EPMA/part/WDS-Spectrometer> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "JEOL" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given" ;
-    ada:beamMode "all: Focused — 'WDS: 15 kV; 5 nA; beam in focused mode' (p.3)" ;
-    ada:mappingBeamCurrentDefault -9999 ;
-    ada:mappingBeamDiameterDefault -9999 ;
-    ada:mappingBeamMode "missing" .
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
+    schema1:name "Background Position(s)" ;
+    schema1:valueName "backgroundPosition" ;
+    ada:dataType "string" .
 
-<ex:epmaTAPP-Ma2015/instrument/EPMA/part/EDS-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "EDS Detector" ;
-    schema1:name "missing" .
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Diffracting Crystal" ;
+    schema1:valueName "diffractingCrystal" ;
+    ada:dataType "string" .
 
-<ex:epmaTAPP-Ma2015/instrument/EPMA/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/dwellTimePerPixel> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Dwell Time per Pixel" ;
+    schema1:valueName "dwellTimePerPixel" ;
+    ada:dataType "number" .
 
-<ex:epmaTAPP-Ma2015/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "WDS Spectrometer" ;
-    schema1:name "missing" .
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
+    schema1:name "Proportional Counter / Detector" ;
+    schema1:valueName "proportionalCounterDetector" ;
+    ada:dataType "string" .
 
-<ex:epmaTAPP-Ma2015/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix stated)" ] ;
-    schema1:name "no value available: schema:name" .
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/sequence> a schema1:PropertyValueSpecification ;
+    schema1:name "Sequence" ;
+    schema1:valueName "sequence" ;
+    ada:dataType "integer" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
+    schema1:name "WDS PHA Setting" ;
+    schema1:valueName "wdsPhaSetting" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
+    schema1:name "WDS Spectrometer Channel" ;
+    schema1:valueName "wdsSpectrometerChannel" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/xRayDetectionMethodPerMonitoredElement> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "X-ray Detection Method per Monitored Element" ;
+    schema1:valueName "xRayDetectionMethodPerMonitoredElement" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/epmaTAPP/xRayLine> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "X-ray Line" ;
+    schema1:valueName "xRayLine" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "SEM BSE imaging on a ZEISS 1550VP field-emission SEM, which locates the occurrences the probe then analyses — \"SEM BSE image showing tissintite in a shock melt pocket, in Tissint section UT2\" (Fig. 1 caption, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order" ;
@@ -163,10 +217,43 @@
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/reportedPropertyColumn/epmaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Background Counting Time" ;
     schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue -9999 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDamageMinimization> a schema1:PropertyValueSpecification ;
+    schema1:name "Beam Damage Minimization" ;
+    schema1:valueName "beamDamageMinimization" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue -9999 ;
+    schema1:name "Beam Diameter" ;
+    schema1:valueName "beamDiameter" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Beam Mode" ;
+    schema1:valueName "beamMode" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions> a schema1:PropertyValueSpecification ;
+    schema1:name "Beam Raster Dimensions" ;
+    schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
@@ -181,30 +268,9 @@
     schema1:valueName "primaryCalibrationStandardName" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Accuracy" ;
-    schema1:valueName "analyticalAccuracy" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
-    schema1:name "Analytical Precision" ;
-    schema1:valueName "analyticalPrecision" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue -9999 ;
-    schema1:name "Beam Current" ;
-    schema1:valueName "beamCurrent" ;
-    ada:dataType "number" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
     schema1:valueName "blankCorrection" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
-    schema1:name "Counting Statistics Error" ;
-    schema1:valueName "countingStatisticsError" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -227,15 +293,51 @@
     schema1:valueName "timeDependentIntensityCorrection" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "X-ray Background Correction Method" ;
-    schema1:valueName "xRayBackgroundCorrectionMethod" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
     schema1:name "X-ray Line Overlap Corrections Applied" ;
     schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
     ada:dataType "string" .
+
+<https://example.org/epmaTAPP-Ma2015/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/EDS-Detector>,
+        <https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/Electron-Source>,
+        <https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
+
+<https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<https://example.org/epmaTAPP-Ma2015/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix stated)" ] ;
+    schema1:name "no value available: schema:name" .
 

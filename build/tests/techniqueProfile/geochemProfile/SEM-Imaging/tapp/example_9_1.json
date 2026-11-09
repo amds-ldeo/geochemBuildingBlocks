@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -111,6 +112,25 @@
       "@id": "ex:semImagingTAPP-Liu2017-2/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "pore type (nominal); pore morphology (nominal); pore size (nm) \u2014 Pore type and morphology at higher resolution (nominal), with pore sizes in nm \u2014 \"the shrinkage-induced pores are mainly mesopores\" (p.1)",
+    "ada:defaultReportedProperties": [
+      "pore type (nominal)",
+      "pore morphology (nominal)",
+      "pore size (nm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/semImagingTAPP/chamberPressureDefault",
@@ -145,9 +165,6 @@
   "ada:samplingUnitType": "Whole sample (polished coal block) > Phase (pore types) \u2014 higher-resolution imaging of the same pore types (p.1) on the polished coal blocks \"#1\" and \"#2\" (Table 1, p.2)",
   "ada:analyticalMode": [
     "SE Imaging"
-  ],
-  "ada:reportedProperties": [
-    "pore type (nominal); pore morphology (nominal); pore size (nm) \u2014 Pore type and morphology at higher resolution (nominal), with pore sizes in nm \u2014 \"the shrinkage-induced pores are mainly mesopores\" (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -184,7 +201,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "SEM Imaging analytical workflow"
   },
   "schema:measurementTechnique": [
     {

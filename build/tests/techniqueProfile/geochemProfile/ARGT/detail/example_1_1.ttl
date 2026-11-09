@@ -1,16 +1,26 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:report ;
-    schema1:measurementTechnique <ex:argtTAPP-P0> ;
+ex:argtTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Jourdan, Fred" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20250108_argt_cuwa_orex-803373-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Curtin University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-803373-0" ] ;
+            schema1:startTime "2024-02-09" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-02-09" ;
     ada:analyst "Jourdan, Fred" ;
-    ada:componentType "ada:report" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-803373-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250108_argt_cuwa_orex-803373-0_1" .
-
-<ex:argtTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 

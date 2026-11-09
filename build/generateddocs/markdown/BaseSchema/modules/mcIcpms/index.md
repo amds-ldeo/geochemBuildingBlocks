@@ -577,6 +577,9 @@ $defs:
         x-jsonld-id: https://ada.astromat.org/metadata/tier
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-fractionation-law
     required:
     - '@id'
     - '@type'
@@ -774,7 +777,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.mcIcpms
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

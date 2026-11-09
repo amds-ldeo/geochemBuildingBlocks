@@ -60,7 +60,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.identifier
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/identifier/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString:
@@ -76,7 +76,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.definedTerm:
@@ -143,7 +143,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.definedTerm
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/definedTerm/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.instrument:
@@ -358,7 +358,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.instrument
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-31'
+      dateOfLastChange: '2026-11-09'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.laboratory:
@@ -404,7 +404,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.laboratory
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-31'
+      dateOfLastChange: '2026-11-09'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.person:
@@ -500,7 +500,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.person
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/person/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.organization:
@@ -579,7 +579,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.organization
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/organization/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.labeledLink:
@@ -746,7 +746,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.labeledLink
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.monetaryGrant:
@@ -808,8 +808,40 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.monetaryGrant
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/monetaryGrant/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+  ogch.BaseSchema.creativeWork:
+    title: Creative Work Type
+    description: Shell type for labeled links to other resources. Any schema.org CreativeWork
+      property could be included.
+    type: object
+    properties:
+      '@type':
+        type: array
+        contains:
+          enum:
+          - schema:CreativeWork
+        minItems: 1
+      schema:name:
+        type: string
+        x-jsonld-id: http://schema.org/name
+      schema:description:
+        type: string
+        x-jsonld-id: http://schema.org/description
+      schema:url:
+        type: string
+        x-jsonld-id: http://schema.org/url
+    required:
+    - '@type'
+    x-jsonld-prefixes:
+      schema: http://schema.org/
+    x-bblocks-metadata:
+      itemIdentifier: ogch.BaseSchema.creativeWork
+      register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
+      version: '0.1'
+      dateOfLastChange: '2026-11-09'
+    x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.qualityProperties.qualityMeasure:
     title: definitions for simple quality measure property
@@ -851,7 +883,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.qualityProperties.qualityMeasure
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.objectReference:
@@ -869,7 +901,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.cdifDataType.objectReference
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm:
@@ -886,7 +918,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTerm/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.instrument:
@@ -1256,7 +1288,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.instrument
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.2'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.spatialExtent:
@@ -1452,7 +1484,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.spatialExtent
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.skosProperties.skosConcept:
@@ -1648,7 +1680,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.skosProperties.skosConcept
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/skosProperties/skosConcept/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.agentInRole:
@@ -1694,7 +1726,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.agentInRole
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/agentInRole/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.additionalProperty:
@@ -1756,7 +1788,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.additionalProperty
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/additionalProperty/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.linkRole:
@@ -1838,7 +1870,7 @@ x-defs:
       itemIdentifier: cdif.bbr.metadata.schemaorgProperties.linkRole
       register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-10-29'
+      dateOfLastChange: '2026-11-07'
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/linkRole/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
 title: Technique-Aligned Protocol Profile (TAPP) Definition v3
@@ -1947,6 +1979,9 @@ properties:
     title: Method Start Date
     type: string
     description: ISO 8601 date when this method configuration was first used.
+    anyOf:
+    - pattern: ^\d{4}-\d{2}-\d{2}$
+    - pattern: '^(missing|no value available: .+)$'
     x-jsonld-id: http://schema.org/datePublished
   schema:dateModified:
     type: string
@@ -2389,6 +2424,20 @@ properties:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/ReportedPropertyIdentifierColumn
         maxContains: 1
         x-jsonld-id: https://ada.astromat.org/metadata/reportedPropertyColumns
+      ada:reportedPropertyDeclaration:
+        type: string
+        description: 'The reported variables and their units, AS THE SOURCE STATES
+          IT. Free text on purpose, and the counterpart of ada:targetSpeciesDeclaration.
+          The workbook cell is one transcribed statement -- a list of properties followed,
+          after a dash, by the units, the scale, the table it is reported in, or the
+          file format. ada:defaultReportedProperties carries the property names that
+          could be recognised; this carries the statement they were recognised FROM,
+          so the units survive. Measured 2026-11-02 over the 143 distinct cells in
+          the corpus: 78 carry such a tail, holding units ("per mille relative to
+          NIST SRM984"), citations ("Tables 2 and 3") and formats ("32-bit floating
+          point .tiff"). Parsing to rows alone would have dropped every one of them,
+          out of a field named "Reported Variables and Units".'
+        x-jsonld-id: https://ada.astromat.org/metadata/reportedPropertyDeclaration
       ada:defaultReportedProperties:
         type: array
         description: "The reported properties this procedure defines by default \u2014
@@ -2403,6 +2452,64 @@ properties:
     required:
     - ada:reportedPropertyColumns
     x-jsonld-id: https://ada.astromat.org/metadata/reportedPropertyTemplate
+  ada:standardTemplate:
+    title: Standard Template
+    description: 'Template for the standards this procedure calibrates against, and
+      the columns that repeat over them. A standard STANDARDIZES something: ada:standardizationType
+      names which domain that is (target species, monitored property or reported property)
+      and the standardization-target column names the member of it. Rows are standard-by-target
+      PAIRS, not one row per standard -- one natural kaersutite standard calibrates
+      Si, Fe and Mg as three rows -- which is why the TAPP workbook keys this as the
+      cross-product `standard x reported property` and why the identifier column is
+      not unique per row.
+
+      A CALIBRATION STANDARD IS NOT A REAGENT, and the rows of this table are its
+      own entities (Stephen, 2026-11-01). The two carry different metadata because
+      different things can go wrong with them: a reagent is described by purity, lot
+      number, expiration and the contamination it contributes, tracked through method
+      blanks, while a calibration standard is described by its CERTIFIED VALUES, the
+      uncertainties on those values, its traceability chain (NIST SRM to SI units),
+      its source or manufacturer, and preparation details such as dilution factors.
+      Bioschemas'' reagentUsed ranges -- BioChemEntity, MolecularEntity, ChemicalSubstance,
+      DefinedTerm -- are oriented toward biological and chemical substances, not reference
+      materials with certified compositions, so flattening a standard into bios:reagent
+      loses exactly the metrological traceability an analytical provenance record
+      exists to carry.
+
+      Known gap: this table records the citation for a standard''s accepted values
+      (the `source` column) and the analytical precision and accuracy MEASURED against
+      it, but it has no column for the certified value itself or the uncertainty on
+      that value. Those are properties of the standard, not of a measurement made
+      with it.'
+    type: object
+    properties:
+      ada:standardColumns:
+        title: Standard Columns
+        type: array
+        description: Columns of the standards table. Must include exactly one column
+          with schema:valueName "standard" identifying the standard named in each
+          row.
+        minItems: 1
+        items:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/StandardColumn
+        contains:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/StandardIdentifierColumn
+        maxContains: 1
+        x-jsonld-id: https://ada.astromat.org/metadata/standardColumns
+      ada:defaultStandards:
+        type: array
+        description: The standards this procedure uses by default -- the ROWS of the
+          standards table. Each is a bare string or a schema:DefinedTerm identifying
+          the standard; per-standard column VALUES live in the analysis record, not
+          here.
+        items:
+          anyOf:
+          - type: string
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/DefinedTerm
+        x-jsonld-id: https://ada.astromat.org/metadata/defaultStandards
+    required:
+    - ada:standardColumns
+    x-jsonld-id: https://ada.astromat.org/metadata/standardTemplate
   dqv:hasQualityMeasurement:
     description: Quality measurements that characterize the method's expected performance
       (e.g. analytical precision, accuracy, counting statistics error). Uses the CDIF
@@ -2425,6 +2532,16 @@ properties:
     items:
       $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.monetaryGrant
     x-jsonld-id: http://schema.org/funding
+  schema:license:
+    title: Method License
+    description: Legal statement of conditions for use and access of this method description
+    type: array
+    minItems: 0
+    items:
+      anyOf:
+      - type: string
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.creativeWork
+    x-jsonld-id: http://schema.org/license
   schema:variableMeasured:
     title: Reported Variables
     description: "Variables / properties this procedure reports (e.g. detection limit,
@@ -3070,6 +3187,57 @@ $defs:
       targetMaterialColumns registry $ref it.
     allOf:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/KeyedTableColumn
+  StandardIdentifierColumn:
+    description: 'The mandatory standard-identifier column, naming the standard used
+      in each row. Mirrors ReportedPropertyIdentifierColumn, with one difference that
+      matters: it is NOT unique per row, because a row is a standard-by-target pair
+      and one standard calibrates several targets. Like the other identifier columns
+      it maps into schema:variableMeasured/schema:name, because a procedure''s several
+      tables share one logical variable registry rather than owning one each.'
+    allOf:
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/StandardColumn
+    - type: object
+      properties:
+        schema:valueName:
+          x-jsonld-id: http://schema.org/valueName
+          enum:
+          - standard
+        ada:dataType:
+          x-jsonld-id: https://ada.astromat.org/metadata/dataType
+          enum:
+          - string
+        schema:readonlyValue:
+          x-jsonld-id: http://schema.org/readonlyValue
+          enum:
+          - true
+        schema:valueRequired:
+          x-jsonld-id: http://schema.org/valueRequired
+          enum:
+          - true
+        ada:tier:
+          x-jsonld-id: https://ada.astromat.org/metadata/tier
+          enum:
+          - M
+        ada:cdifPropertyPath:
+          x-jsonld-id: https://ada.astromat.org/metadata/cdifPropertyPath
+          enum:
+          - '#/schema:variableMeasured/schema:name'
+      required:
+      - schema:valueName
+      - ada:dataType
+      - schema:readonlyValue
+      - schema:valueRequired
+      - ada:tier
+      - ada:cdifPropertyPath
+  StandardColumn:
+    description: 'One column of the standards table. Structurally a KeyedTableColumn,
+      like every other keyed domain''s column. The EPMA template worksheet''s columns
+      are the worked example: the standard''s type and material, what it standardizes
+      (type and target), which target materials it applies to, the citation for its
+      accepted values, and the expected analytical precision and accuracy for that
+      standard-target pair.'
+    allOf:
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/KeyedTableColumn
   ReportedPropertyColumn:
     description: One column of the reported-property table. The reported properties
       are what the procedure REPORTS -- '206Pb/238U date (Ma)', 'd56Fe (permil vs
@@ -3427,7 +3595,66 @@ $defs:
           type: string
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/DefinedTerm
   QualityMeasure:
-    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
+    description: 'CDIF''s qualityMeasure, extended with what an ANALYTICAL quality
+      statistic needs beyond a bare value. A precision or accuracy figure is a dataset-level
+      metric, not a per-measurement one (Stephen, 2026-11-01): the RSD is dqv:value,
+      and the properties below say what that number means. Without them an RSD is
+      unusable -- 0.5% at one sigma over three replicates against one standard is
+      a different claim from 0.5% at two sigma over thirty against another.
+
+      ada:assessmentMethod is listed here because the workbooks currently BUNDLE it
+      into the item name -- ada:analyticalAccuracyAndAssessmentMethod, and the two
+      ...AnalyticalPrecisionAndAssessmentMethod spellings -- which is two facts in
+      one field. The value belongs in dqv:value and the method beside it.'
+    allOf:
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.qualityProperties.qualityMeasure
+    - type: object
+      properties:
+        ada:confidenceLevel:
+          title: Confidence Level
+          description: The confidence interval the value is quoted at, e.g. "1 sigma",
+            "2 sigma", "95%". A string rather than an enum because the corpus has
+            not been surveyed for its spellings; a vocabulary belongs here once it
+            has.
+          type: string
+          x-jsonld-id: https://ada.astromat.org/metadata/confidenceLevel
+        ada:measurementScope:
+          title: Measurement Scope
+          description: Over what span the statistic was assessed. Within-session reproducibility
+            and between-session (long-term) reproducibility are different claims about
+            the same procedure, which is why the TAPP workbooks name them as separate
+            items.
+          type: string
+          enum:
+          - within-session
+          - between-session
+          x-jsonld-id: https://ada.astromat.org/metadata/measurementScope
+        ada:measuredStandard:
+          title: Measured Standard
+          description: The standard this statistic was measured against, as a reference
+            INTO the procedure's standards table (ada:standardTemplate) rather than
+            a restatement of the material. An accuracy figure without the standard
+            behind it cannot be compared with another lab's.
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/$defs/DefinedTerm
+          x-jsonld-id: https://ada.astromat.org/metadata/measuredStandard
+        ada:assessmentMethod:
+          title: Assessment Method
+          description: How the statistic was assessed -- repeat measurement of a secondary
+            standard, replicate digestions, counting statistics. Currently bundled
+            into the workbook item name; see the note above.
+          type: string
+          x-jsonld-id: https://ada.astromat.org/metadata/assessmentMethod
+        ada:numberOfReplicates:
+          title: Number of Replicates
+          description: 'How many replicates the statistic is based on. Distinct from
+            a procedure-level replicate count: this one qualifies THIS measure, and
+            three replicates behind an RSD is a weaker claim than thirty.'
+          type: integer
+          x-jsonld-id: https://ada.astromat.org/metadata/numberOfReplicates
   DefinedTerm:
     $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
 x-jsonld-prefixes:
@@ -3443,5 +3670,5 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.tappDefinition
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.3'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 x-schema-version: https://json-schema.org/draft/2020-12/schema

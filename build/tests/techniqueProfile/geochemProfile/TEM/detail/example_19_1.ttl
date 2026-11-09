@@ -1,13 +1,59 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Cymes2023-2> a ada:TEMImage ;
-    schema1:measurementTechnique <ex:temTAPP-Cymes2023-2> ;
+ex:temTAPP-detail-Cymes2023-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "B.A. Cymes; K.D. Burgess; R.M. Stroud" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Fe oxidation state mapping and Fe³⁺/ΣFe quantification in exsolved lunar pyroxene (Apollo 17 soil) using STEM-EELS; MLLS and integral white-line ratio methods; coordinated HAADF-STEM + EDS for compositional mapping" ;
+                    schema1:name "FIB (FEI Helios G3 Dual Beam at NRL); BF/EFTEM/SAED/HRTEM (JEOL JEM-2200FS at NRL; coordinated with Nion UltraSTEM200-X)" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Zenodo repository: 10.5281/zenodo.7439174" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "FIB lift-out (Ga+)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethod>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibration>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent>,
+                <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> ;
+            schema1:description "Nion UltraSTEM200-X at NRL; dedicated aberration-corrected STEM; cold-FEG; 0.1 nm probe diameter; 40 pA; 200 keV. Gatan Enfinium ER Dual EELS (simultaneous low-loss + core-loss spectrum imaging). Bruker X-Flash windowless SDD EDS (0.7 sr). EELS Fe³⁺/ΣFe quantified by integral I(L3)/I(L2) ratio → Van Aken & Liebscher (2002) universal calibration curve. Oxidation state maps by MLLS fitting with 2 reference spectra; Fe⁰+Fe²⁺ not separated by MLLS (overlapping L3 peaks); Fe⁰ identified by anti-correlation with O K-edge. EDS: Cliff-Lorimer; detector-specific k-factors; 60% O assumed; no absorption correction. Coordinated with JEOL JEM-2200FS (same FIB section). EELS + EDS acquisition details in supplementary Fig. S1. Data deposited at Zenodo: 10.5281/zenodo.7439174." ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Cymes2023-2/instrument/TEM> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "B.A. Cymes; K.D. Burgess; R.M. Stroud" ;
-    ada:componentType "ada:TEMImage" ;
     ada:edsDeadTime -9999 ;
     ada:edsDetectionLimit -9999 ;
     ada:eelsDetectionLimit -9999 ;
@@ -16,5 +62,88 @@
     ada:samplingUnitName "Labelled: one FIB section of Apollo 17 soil 71501 \"containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx”\" (p.3)" ;
     ada:sessionIdentifier "missing" .
 
-<ex:temTAPP-Cymes2023-2> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/temTAPP-detail-Cymes2023-2/instrument/TEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "TEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "FIB-SEM imaging of the dispersed soil grains — \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "200 keV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 200 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> a schema1:PropertyValue ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> ;
+    schema1:value "HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> a schema1:PropertyValue ;
+    schema1:name "EDS Acquisition Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode> ;
+    schema1:value "Spectrum imaging (SI): simultaneous EELS + EDS at each pixel; both low-loss and core-loss EELS collected" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode> a schema1:PropertyValue ;
+    schema1:name "EELS Acquisition Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionMode> ;
+    schema1:value "Dual EELS spectrum imaging (simultaneous low-loss and core-loss)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum> a schema1:PropertyValue ;
+    schema1:description "Fe (L2,3); O (K)" ;
+    schema1:name "EELS Acquisition Time per Spectrum" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrum> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 2 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethod> a schema1:PropertyValue ;
+    schema1:name "EELS Chemical State Determination Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethod> ;
+    schema1:value "Integral white-line intensity ratio I(L3)/I(L2) → Van Aken & Liebscher (2002) universal calibration curve for Fe³⁺/ΣFe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges> a schema1:PropertyValue ;
+    schema1:name "EELS Edges" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEdges> ;
+    schema1:value "\"Fe L2,3 edge\" (700–735 eV) → Fe; \"O K-edge\" (528–550 eV) → O" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibration> a schema1:PropertyValue ;
+    schema1:name "EELS Energy Calibration" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibration> ;
+    schema1:value "EELS reference standards collected on same microscope and spectrometer: FeNi metal (Fe⁰); wüstite (FeO) powder (Fe²⁺); synthetic Fe³⁺-bearing glass (Fe³⁺); magnetite Fe₃O₄ (mixed Fe²⁺/Fe³⁺) — Burgess & Stroud (2018b)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange> a schema1:PropertyValue ;
+    schema1:name "EELS Energy Loss Range" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRange> ;
+    schema1:value "Fe (L2,3); O (K)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> a schema1:PropertyValue ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+    schema1:value "FEI Helios G3 Dual Beam FIB-SEM at NRL; ~80 nm amorphous C coating applied to grain before FIB; 1–2 µm e-beam amorphous C protection strip; initial in situ thinning to ~1–2 µm, then Pt-welded to Cu TEM half-grid; thinned to ~80–100 nm; stored under N₂; baked 140°C for 8 h under vacuum before TEM" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> a schema1:PropertyValue ;
+    schema1:name "Spectroscopic Detector(s)" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
+    schema1:value "EELS (Gatan Enfinium ER Dual EELS); EDS (Bruker X-Flash windowless SDD, 0.7 sr solid angle)" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> a schema1:PropertyValue ;
+    schema1:description "40 pA" ;
+    schema1:name "STEM Probe Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 40 .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> a schema1:PropertyValue ;
+    schema1:description "0.1 nm" ;
+    schema1:name "STEM Probe Diameter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameter> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1e-01 .
 

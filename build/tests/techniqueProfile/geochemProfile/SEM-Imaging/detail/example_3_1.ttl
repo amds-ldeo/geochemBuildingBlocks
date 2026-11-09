@@ -1,13 +1,35 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Genge2025-2> a ada:SEMImage ;
-    schema1:measurementTechnique <ex:semImagingTAPP-Genge2025-2> ;
+ex:semImagingTAPP-detail-Genge2025-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabase> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressure> ;
+            schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "no value available: schema:name" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/semImagingTAPP-detail-Genge2025-2/instrument/SEM> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:SEMImage" ;
+    ada:analyticalMode "EBSD" ;
     ada:ebsdIndexingRate -9999 ;
     ada:ebsdMeanAngularDeviation -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
@@ -17,5 +39,42 @@
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semImagingTAPP-Genge2025-2> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/semImagingTAPP-detail-Genge2025-2/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/semImagingTAPP/mappingBeamCurrent> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "N — the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units" .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "20 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 20 .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressure> a schema1:PropertyValue ;
+    schema1:description "25 Pa (variable pressure mode)" ;
+    schema1:name "Chamber Pressure" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressure> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 25 .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabase> a schema1:PropertyValue ;
+    schema1:name "Crystal Structure Database" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabase> ;
+    schema1:value "ICSD (Inorganic Crystal Structure Database)" .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/mappingBeamCurrent> a schema1:PropertyValue ;
+    schema1:description "6 nA" ;
+    schema1:name "Mapping Beam Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/mappingBeamCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 6 .
 

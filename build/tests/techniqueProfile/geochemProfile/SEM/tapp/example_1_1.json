@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -111,6 +112,25 @@
       "@id": "ex:semTAPP-Garvie2008/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "globule morphology (nominal); globule size (\u00b5m); surface structure (nominal) \u2014 Globule morphology, size and surface structure (nominal, with sizes in \u00b5m) \u2014 the imaging is used \"to characterize the globule forms and external structures\" (p.1)",
+    "ada:defaultReportedProperties": [
+      "globule morphology (nominal)",
+      "globule size (\u00b5m)",
+      "surface structure (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:seDetectorType": "In-lens / TLD (through-the-lens)",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
@@ -188,9 +208,6 @@
   "ada:analyticalMode": [
     "SE Imaging"
   ],
-  "ada:reportedProperties": [
-    "globule morphology (nominal); globule size (\u00b5m); surface structure (nominal) \u2014 Globule morphology, size and surface structure (nominal, with sizes in \u00b5m) \u2014 the imaging is used \"to characterize the globule forms and external structures\" (p.1)"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -246,7 +263,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "SEM analytical workflow"
   },
   "schema:measurementTechnique": [
     {

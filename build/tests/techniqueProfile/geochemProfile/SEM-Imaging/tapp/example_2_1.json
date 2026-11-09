@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -110,6 +111,26 @@
       "@id": "ex:semImagingTAPP-Genge2025/instrument/SEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "texture (nominal); phase distribution (nominal); grain size (\u00b5m); modal abundance (vol%) \u2014 Texture and phase distribution (nominal), with grain sizes in \u00b5m and a modal estimate by area \u2014 e.g. \"subhedral crystals of Fe-bearing olivine (Fa11\u201325, 37 vol %), up to 10.8 \u00b5m in size\" (p.2)",
+    "ada:defaultReportedProperties": [
+      "texture (nominal)",
+      "phase distribution (nominal)",
+      "grain size (\u00b5m)",
+      "modal abundance (vol%)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -132,9 +153,6 @@
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
-  "ada:reportedProperties": [
-    "texture (nominal); phase distribution (nominal); grain size (\u00b5m); modal abundance (vol%) \u2014 Texture and phase distribution (nominal), with grain sizes in \u00b5m and a modal estimate by area \u2014 e.g. \"subhedral crystals of Fe-bearing olivine (Fa11\u201325, 37 vol %), up to 10.8 \u00b5m in size\" (p.2)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -148,7 +166,7 @@
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "SEM Imaging analytical workflow",
     "schema:step": [
       {
         "@type": [

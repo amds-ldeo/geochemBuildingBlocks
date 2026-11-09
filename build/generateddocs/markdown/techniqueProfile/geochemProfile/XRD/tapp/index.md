@@ -17,6 +17,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -33,6 +34,23 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
   "schema:description": "xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction (publication column of XRD_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Custom-built",
   "ada:instrumentModel": "(NHM)Position Sensitive Detector X-ray Diffraction",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Angle (degrees 2theta)",
+      "Intensity (counts)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -62,14 +80,11 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "Angle (degrees 2theta) | Intensity (counts)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "XRD analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -115,6 +130,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -123,6 +139,7 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -140,6 +157,23 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
   "schema:description": "xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction (publication column of XRD_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Custom-built",
   "ada:instrumentModel": "(NHM)Position Sensitive Detector X-ray Diffraction",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Angle (degrees 2theta)",
+      "Intensity (counts)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -169,14 +203,11 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "Angle (degrees 2theta) | Intensity (counts)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "XRD analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -219,17 +250,18 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:xrdTAPP-King2024> a cdi:Activity,
+ex:xrdTAPP-King2024 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "XRD analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -255,7 +287,15 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
     ada:diffractometerGeometry "missing" ;
     ada:instrumentManufacturer "Custom-built" ;
     ada:instrumentModel "(NHM)Position Sensitive Detector X-ray Diffraction" ;
-    ada:reportedProperties "Angle (degrees 2theta) | Intensity (counts)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Angle (degrees 2theta)",
+                "Intensity (counts)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:sampleMountDefault "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
@@ -276,6 +316,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -292,6 +333,23 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
   "schema:description": "xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (JSC-ARES)Malvern PANalytical XPert Pro XRD (publication column of XRD_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Malvern PANalytical",
   "ada:instrumentModel": "(JSC-ARES)Malvern PANalytical XPert Pro XRD",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Angle (degrees 2theta)",
+      "Intensity (counts)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -321,14 +379,11 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "Angle (degrees 2theta) | Intensity (counts)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "XRD analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -374,6 +429,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -382,6 +438,7 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -399,6 +456,23 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
   "schema:description": "xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (JSC-ARES)Malvern PANalytical XPert Pro XRD (publication column of XRD_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Malvern PANalytical",
   "ada:instrumentModel": "(JSC-ARES)Malvern PANalytical XPert Pro XRD",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Angle (degrees 2theta)",
+      "Intensity (counts)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -428,14 +502,11 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "Angle (degrees 2theta) | Intensity (counts)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "XRD analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -478,17 +549,18 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:xrdTAPP-King2024-2> a cdi:Activity,
+ex:xrdTAPP-King2024-2 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "XRD analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -514,7 +586,15 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
     ada:diffractometerGeometry "missing" ;
     ada:instrumentManufacturer "Malvern PANalytical" ;
     ada:instrumentModel "(JSC-ARES)Malvern PANalytical XPert Pro XRD" ;
-    ada:reportedProperties "Angle (degrees 2theta) | Intensity (counts)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Angle (degrees 2theta)",
+                "Intensity (counts)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:sampleMountDefault "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
@@ -535,6 +615,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -551,6 +632,23 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
   "schema:description": "xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD (publication column of XRD_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Rigaku",
   "ada:instrumentModel": "Rigaku Rapid 2 Micro-XRD",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Angle (degrees 2theta)",
+      "Intensity (counts)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -580,14 +678,11 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "Angle (degrees 2theta) | Intensity (counts)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "XRD analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -633,6 +728,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -641,6 +737,7 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -658,6 +755,23 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
   "schema:description": "xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD (publication column of XRD_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Rigaku",
   "ada:instrumentModel": "Rigaku Rapid 2 Micro-XRD",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Angle (degrees 2theta)",
+      "Intensity (counts)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -687,14 +801,11 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "Angle (degrees 2theta) | Intensity (counts)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "XRD analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -737,17 +848,18 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:xrdTAPP-King2023> a cdi:Activity,
+ex:xrdTAPP-King2023 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "XRD analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -773,7 +885,15 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
     ada:diffractometerGeometry "missing" ;
     ada:instrumentManufacturer "Rigaku" ;
     ada:instrumentModel "Rigaku Rapid 2 Micro-XRD" ;
-    ada:reportedProperties "Angle (degrees 2theta) | Intensity (counts)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Angle (degrees 2theta)",
+                "Intensity (counts)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:sampleMountDefault "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
@@ -841,6 +961,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/sample-mount
     schema:object:
       type: array
       items:
@@ -900,6 +1021,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/diffractometer-geometry
       readOnly: true
     ada:xRayWavelength:
       description: Wavelength of the incident radiation, with the anode and any monochromator
@@ -918,6 +1040,19 @@ allOf:
       anyOf:
       - type: number
       - type: string
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -941,7 +1076,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XRD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

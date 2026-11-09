@@ -139,6 +139,9 @@ allOf:
                                   const: EELS Plural Scattering Correction
                                 schema:value:
                                   type: string
+                                schema:inDefinedTermSet:
+                                  const:
+                                    '@id': ada:vocab/eels-plural-scattering-correction
                               required:
                               - '@id'
                               - '@type'
@@ -192,6 +195,9 @@ allOf:
                                   const: EELS Plural Scattering Correction
                                 schema:value:
                                   type: string
+                                schema:inDefinedTermSet:
+                                  const:
+                                    '@id': ada:vocab/eels-plural-scattering-correction
                               required:
                               - '@id'
                               - '@type'
@@ -260,6 +266,9 @@ allOf:
                     const: Sample Holder
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/sample-holder
                 required:
                 - '@id'
                 - '@type'
@@ -284,6 +293,9 @@ allOf:
                     const: Spectroscopic Detector(s)
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/spectroscopic-detector
                 required:
                 - '@id'
                 - '@type'
@@ -308,6 +320,9 @@ allOf:
                     const: Analytical Sub-mode
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/analytical-sub-mode
                 required:
                 - '@id'
                 - '@type'
@@ -663,6 +678,9 @@ allOf:
                     const: Diffraction Camera Length Calibration Method
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/diffraction-camera-length-calibration-method
                 required:
                 - '@id'
                 - '@type'
@@ -696,6 +714,9 @@ allOf:
                     const: EDS Acquisition Mode
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/eds-acquisition-mode
                 required:
                 - '@id'
                 - '@type'
@@ -773,6 +794,9 @@ allOf:
                     const: EELS Acquisition Mode
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/eels-acquisition-mode
                 required:
                 - '@id'
                 - '@type'
@@ -877,6 +901,9 @@ allOf:
                     const: Specimen Thickness Determination Method
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/specimen-thickness-determination-method
                 required:
                 - '@id'
                 - '@type'
@@ -1034,6 +1061,9 @@ allOf:
                     const: EELS Chemical State Determination Method
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/eels-chemical-state-determination-method
                 required:
                 - '@id'
                 - '@type'
@@ -1062,6 +1092,9 @@ allOf:
                     const: Sample Holder
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/sample-holder
                 required:
                 - '@id'
                 - '@type'
@@ -1089,6 +1122,9 @@ allOf:
                     const: Spectroscopic Detector(s)
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/spectroscopic-detector
                 required:
                 - '@id'
                 - '@type'
@@ -1116,6 +1152,9 @@ allOf:
                     const: Analytical Sub-mode
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/analytical-sub-mode
                 required:
                 - '@id'
                 - '@type'
@@ -1510,6 +1549,9 @@ allOf:
                     const: Diffraction Camera Length Calibration Method
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/diffraction-camera-length-calibration-method
                 required:
                 - '@id'
                 - '@type'
@@ -1546,6 +1588,9 @@ allOf:
                     const: EDS Acquisition Mode
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/eds-acquisition-mode
                 required:
                 - '@id'
                 - '@type'
@@ -1632,6 +1677,9 @@ allOf:
                     const: EELS Acquisition Mode
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/eels-acquisition-mode
                 required:
                 - '@id'
                 - '@type'
@@ -1748,6 +1796,9 @@ allOf:
                     const: Specimen Thickness Determination Method
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/specimen-thickness-determination-method
                 required:
                 - '@id'
                 - '@type'
@@ -1923,6 +1974,9 @@ allOf:
                     const: EELS Chemical State Determination Method
                   schema:value:
                     type: string
+                  schema:inDefinedTermSet:
+                    const:
+                      '@id': ada:vocab/eels-chemical-state-determination-method
                 required:
                 - '@id'
                 - '@type'
@@ -1968,7 +2022,7 @@ allOf:
                       type: array
                       items:
                         allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
                         - type: object
                           allOf:
                           - if:
@@ -2204,4 +2258,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'

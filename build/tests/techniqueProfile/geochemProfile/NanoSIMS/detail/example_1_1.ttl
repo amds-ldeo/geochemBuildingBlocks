@@ -1,16 +1,26 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:analysisLocation ;
-    schema1:measurementTechnique <ex:nanosimsTAPP-P0> ;
+ex:nanosimsTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Nguyen, Ann" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "STFC Grant ST/Y000188/1" ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240111_nanosims_ou_orex-501059-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Open University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-501018-100" ] ;
+            schema1:startTime "2023-11-16" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-16" ;
     ada:analyst "Nguyen, Ann" ;
-    ada:componentType "ada:analysisLocation" ;
     ada:fundingSourceForAnalysis "STFC Grant ST/Y000188/1" ;
     ada:sampleName "OREX-501018-100" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240111_nanosims_ou_orex-501059-0_1" .
-
-<ex:nanosimsTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 

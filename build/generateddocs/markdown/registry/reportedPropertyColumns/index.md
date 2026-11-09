@@ -20,6 +20,76 @@ description: Registry of reusable schema:PropertyValueSpecification reported-pro
   register. The root only hosts $defs; it has no instantiable properties of its own.
 type: object
 $defs:
+  epma_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpms_countingStatisticsError:
+    title: Counting Statistics Error
+    description: "How the uncertainty predicted from counting statistics \u2014 the
+      theoretical limit set by the Poisson distribution of the counts accumulated
+      \u2014 is computed for each reported quantity, and the sigma level it is quoted
+      at. It is derived from the counts on the target species together with those
+      on any background or blank subtracted from it. Distinct from the scatter actually
+      observed within a measurement or between repeated measurements, which is recorded
+      separately. In the dataset: report, for each analysis and reported quantity,
+      the counting-statistics uncertainty at the stated sigma level."
+    type: object
+    properties:
+      '@id':
+        const: ada:reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: countingStatisticsError
+      schema:name:
+        const: Counting Statistics Error
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   laMcicpms_detectionLimitMethod:
     title: Detection Limit Method
     description: Reference or description of the method used to calculate session
@@ -51,11 +121,45 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  laMcicpms_internalAnalyticalPrecisionAndAssessmentMethod:
+    title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+    description: 'How the precision of a single measurement is assessed from the scatter
+      of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD,
+      1s RSD) and the number of cycles it is computed over, for each reported quantity.
+      Distinct from Counting Statistics Error, which records how the uncertainty predicted
+      from the counts is computed rather than the scatter observed. In the dataset:
+      report, for each measurement and reported quantity, the internal precision as
+      the stated statistic.'
+    type: object
+    properties:
+      '@id':
+        const: ada:reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: internalAnalyticalPrecisionAndAssessmentMethod
+      schema:name:
+        const: Internal (Within-Measurement) Analytical Precision and Assessment Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
 x-bblocks-metadata:
   itemIdentifier: ogch.registry.reportedPropertyColumns
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

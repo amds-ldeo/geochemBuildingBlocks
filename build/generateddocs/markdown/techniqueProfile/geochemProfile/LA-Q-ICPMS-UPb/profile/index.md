@@ -606,11 +606,19 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
-  "ada:analyticalMode": [
-    "Spot"
-  ],
-  "ada:spotDiameterMeasured": 1.0,
   "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: analyticalAccuracyAndAssessmentMethod"
+    },
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
       "dqv:value": "no value available: goodnessOfFitOrDispersionStatistic"
@@ -620,6 +628,10 @@ and technique component types on the archive distribution. Mock data for validat
       "dqv:value": "no value available: oxideProduction"
     }
   ],
+  "ada:analyticalMode": [
+    "Spot"
+  ],
+  "ada:spotDiameterMeasured": 1.0,
   "ada:reportedDateType": [
     "Weighted mean 206Pb/238U"
   ],
@@ -1232,11 +1244,19 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
-  "ada:analyticalMode": [
-    "Spot"
-  ],
-  "ada:spotDiameterMeasured": 1.0,
   "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: analyticalAccuracyAndAssessmentMethod"
+    },
     {
       "dqv:isMeasurementOf": "Goodness-of-Fit",
       "dqv:value": "no value available: goodnessOfFitOrDispersionStatistic"
@@ -1246,6 +1266,10 @@ and technique component types on the archive distribution. Mock data for validat
       "dqv:value": "no value available: oxideProduction"
     }
   ],
+  "ada:analyticalMode": [
+    "Spot"
+  ],
+  "ada:spotDiameterMeasured": 1.0,
   "ada:reportedDateType": [
     "Weighted mean 206Pb/238U"
   ],
@@ -1349,8 +1373,14 @@ ex:adaLAQICPMSUPb-example-001 a schema1:Dataset,
         <https://example.org/var/Reported-Date-Type>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
@@ -1627,7 +1657,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS-UPb.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

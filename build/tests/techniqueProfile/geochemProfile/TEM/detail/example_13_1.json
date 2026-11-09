@@ -1,17 +1,252 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Singerling2025",
+  "@id": "ex:temTAPP-detail-Singerling2025",
   "@type": [
-    "ada:TEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:TEMImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:temTAPP-Singerling2025",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/temTAPP/samplePreparationDetails",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/temTAPP/samplePreparationDetails"
+                  }
+                ],
+                "schema:name": "Sample Preparation Details",
+                "schema:value": "Particle crushed between two glass slides; ethanol dropped onto powder; TEM copper mesh grid with lacey carbon support touched to suspension; allowed to dry; gentle plasma cleaning performed before inserting into microscope"
+              }
+            ],
+            "schema:description": "Crushing / dispersion on grid",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening"
+                }
+              ],
+              "schema:name": "Pre-Analysis Imaging and Screening",
+              "schema:value": "N \u2014 the particle was crushed onto a grid and the fine particles taken as they came: \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)"
+            }
+          ],
+          "schema:name": "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27",
+          "schema:identifier": "OREX-800045-102 (NASA OSIRIS-REx curation number)"
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/temTAPP/spectroscopicDetector",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/spectroscopicDetector"
+            }
+          ],
+          "schema:name": "Spectroscopic Detector(s)",
+          "schema:value": "EDS only"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/analyticalSubMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/analyticalSubMode"
+            }
+          ],
+          "schema:name": "Analytical Sub-mode",
+          "schema:value": "BF-TEM; HAADF-STEM; SAED (Electron Diffraction); STEM-EDS (point; map)"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/haadfCollectionAngles",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/haadfCollectionAngles"
+            }
+          ],
+          "schema:name": "HAADF Collection Angles",
+          "schema:value": "Convergence semi-angle 10.5 mrad; inner collection semi-angle 58 mrad"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/diffractionCameraLengthCalibrationMethod"
+            }
+          ],
+          "schema:name": "Diffraction Camera Length Calibration Method",
+          "schema:value": "External standard: Cross Grating 3 mm S106 from AGAR (image magnification and camera constant calibrations)"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/edsAcquisitionMode",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/edsAcquisitionMode"
+            }
+          ],
+          "schema:name": "EDS Acquisition Mode",
+          "schema:value": "Spectrum image (map); point analysis"
+        },
+        {
+          "@id": "ada:parameter/temTAPP/diffractionCalibrationReference",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/temTAPP/diffractionCalibrationReference"
+            }
+          ],
+          "schema:name": "Diffraction Calibration Reference",
+          "schema:value": "AGAR S106 Cross Grating 3 mm (camera constant calibration)"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "TEM",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/temTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/temTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 200,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "200 kV"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:temTAPP-detail-Singerling2025/instrument/TEM"
+            }
+          ]
+        },
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "acquisition",
+              "schema:name": "TS Velox",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            },
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "TS Velox",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University, Frankfurt, Germany"
+      },
+      "schema:startTime": "December 2023",
+      "schema:endTime": "December 2024 (four sessions total: Dec 2023, Jan 2024, May 2024, Dec 2024)",
+      "schema:description": "Na,Ca carbonate grains extremely beam-sensitive: amorphized under electron beam; samples re-analyzed in 4 sessions (Dec 2023 \u2013 Dec 2024) to track terrestrial alteration; NO FIB used (authors note FIB may destroy beam-sensitive Na,Ca carbonates); underlying TEM data deposited at AstroMat (Table A4 supplementary); note: same Goethe lab and instrument (Talos F200X G2) as in Zega2025",
+      "schema:identifier": "no value available: schema:identifier",
+      "ada:deadTime": -9999
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "S.A. Singerling; F.E. Brenker; B. Tkalcec (TEM data collection and analyses)"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledDataset",
+      "schema:target": "TEM data products at AstroMat (DOIs in Table A4 supplementary); full EDS and electron diffraction data in Tables A1\u2013A2 supplementary; data also at Figshare: https://doi.org/10.6084/m9.figshare.29383433.v1"
     }
   ],
   "ada:sessionIdentifier": "missing",

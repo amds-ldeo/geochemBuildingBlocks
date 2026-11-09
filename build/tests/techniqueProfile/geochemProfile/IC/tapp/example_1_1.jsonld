@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -28,6 +30,27 @@
   "schema:description": "icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space Center | DIONEX Integrion IC (publication column of IC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = DIONEX.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "DIONEX Integrion IC",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "sample number",
+      "sample name",
+      "retention time",
+      "area",
+      "height",
+      "Amount"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -56,14 +79,11 @@
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:reportedProperties": [
-    "sample number | sample name | retention time | area | height | Amount"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Ion Chromatography analytical workflow",
     "schema:step": [
       {
         "@type": [

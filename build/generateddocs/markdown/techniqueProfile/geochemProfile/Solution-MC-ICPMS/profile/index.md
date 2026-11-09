@@ -545,10 +545,19 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous)"
-  ],
   "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: analyticalAccuracyAndAssessmentMethod"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+    },
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod"
+    },
     {
       "dqv:isMeasurementOf": "Peak Flatness",
       "dqv:value": "no value available: peakFlatness"
@@ -561,6 +570,9 @@ and technique component types on the archive distribution. Mock data for validat
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "no value available: oxideProduction"
     }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
   ],
   "ada:sensitivityYield": 1.0
 }
@@ -1110,10 +1122,19 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:url": "https://astromat.org"
     }
   },
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous)"
-  ],
   "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: analyticalAccuracyAndAssessmentMethod"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+    },
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod"
+    },
     {
       "dqv:isMeasurementOf": "Peak Flatness",
       "dqv:value": "no value available: peakFlatness"
@@ -1126,6 +1147,9 @@ and technique component types on the archive distribution. Mock data for validat
       "dqv:isMeasurementOf": "Oxide production ratio",
       "dqv:value": "no value available: oxideProduction"
     }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
   ],
   "ada:sensitivityYield": 1.0
 }
@@ -1224,12 +1248,18 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
         <https://example.org/var/Limit-of-Quantification-LOQ-Method>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ] ;
+            dqv:value "no value available: peakFlatness" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endTime "2026-01-10T12:45:00" ;
@@ -1463,7 +1493,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

@@ -1,27 +1,89 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-HF5000> a ada:STEMImage ;
-    schema1:measurementTechnique <ex:stemTAPP-HF5000> ;
+ex:stemTAPP-detail-HF5000 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Maizey; Beau" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:distribution [ schema1:hasPart [ schema1:height [ a schema1:QuantitativeValue ;
+                            schema1:unitText "pixel" ;
+                            schema1:value 2048 ] ;
+                    schema1:width [ a schema1:QuantitativeValue ;
+                            schema1:unitText "pixel" ;
+                            schema1:value 2048 ] ] ] ;
+    prov:wasGeneratedBy [ schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/stemTAPP/dwellTimePerProbePosition>,
+                <https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltAlpha>,
+                <https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltBeta>,
+                <https://ada.astromat.org/metadata/parameter/stemTAPP/stageXPosition>,
+                <https://ada.astromat.org/metadata/parameter/stemTAPP/stageYPosition> ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/03m2x1q45" ;
+                    schema1:name "University of Arizona" ] ;
+            schema1:startTime "2024-05-16" ;
+            prov:used [ schema1:instrument <https://example.org/stemTAPP-detail-HF5000/instrument/STEM> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-05-16" ;
     ada:analyst "Maizey; Beau" ;
-    ada:cameraLength 37 ;
-    ada:componentType "ada:STEMImage" ;
-    ada:dwellTimePerProbePosition 4 ;
+    ada:analyticalMode "STEM" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:imageHeight 2048 ;
     ada:imagePixelSize 3.696e-01 ;
-    ada:imageWidth 2048 ;
-    ada:magnification 14000 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "missing" ;
-    ada:sessionIdentifier "missing" ;
-    ada:stageTiltAlpha 0e+00 ;
-    ada:stageTiltBeta 1e-01 ;
-    ada:stageXPosition -1.375e-01 ;
-    ada:stageYPosition -1.776e-01 .
+    ada:sessionIdentifier "missing" .
 
-<ex:stemTAPP-HF5000> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/stemTAPP-detail-HF5000/instrument/STEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/stemTAPP/cameraLength>,
+        <https://ada.astromat.org/metadata/parameter/stemTAPP/magnification> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "STEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/cameraLength> a schema1:PropertyValue ;
+    schema1:description "37 mm" ;
+    schema1:name "Camera Length" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/cameraLength> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 37 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/dwellTimePerProbePosition> a schema1:PropertyValue ;
+    schema1:description "4e-06 s" ;
+    schema1:name "Dwell Time per Probe Position" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/dwellTimePerProbePosition> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 4 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/magnification> a schema1:PropertyValue ;
+    schema1:name "Magnification" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/magnification> ;
+    schema1:value 14000 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltAlpha> a schema1:PropertyValue ;
+    schema1:description "0.0 deg" ;
+    schema1:name "Stage Tilt Alpha" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltAlpha> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 0e+00 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltBeta> a schema1:PropertyValue ;
+    schema1:description "0.1 deg" ;
+    schema1:name "Stage Tilt Beta" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/stageTiltBeta> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1e-01 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/stageXPosition> a schema1:PropertyValue ;
+    schema1:name "Stage X Position" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/stageXPosition> ;
+    schema1:value -1.375e-01 .
+
+<https://ada.astromat.org/metadata/parameter/stemTAPP/stageYPosition> a schema1:PropertyValue ;
+    schema1:name "Stage Y Position" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/stemTAPP/stageYPosition> ;
+    schema1:value -1.776e-01 .
 

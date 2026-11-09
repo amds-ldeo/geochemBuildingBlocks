@@ -16,17 +16,37 @@ detail instance derived from ADA n=26 | no named analyst | CNRS - Centre de Rech
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-JSM7000",
+  "@id": "ex:semClTAPP-detail-JSM7000",
   "@type": [
-    "ada:SEMHRCLTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMHRCLTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:semClTAPP-JSM7000",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications",
+        "schema:identifier": "https://ror.org/02feahw73"
+      },
+      "schema:identifier": "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2",
+      "schema:startTime": "2023-11-27",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800045-109"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2",
@@ -51,18 +71,38 @@ detail instance derived from ADA n=26 | no named analyst | CNRS - Centre de Rech
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-CL/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-JSM7000",
+  "@id": "ex:semClTAPP-detail-JSM7000",
   "@type": [
-    "ada:SEMHRCLTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SEMHRCLTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:semClTAPP-JSM7000",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications",
+        "schema:identifier": "https://ror.org/02feahw73"
+      },
+      "schema:identifier": "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2",
+      "schema:startTime": "2023-11-27",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800045-109"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2",
@@ -78,20 +118,27 @@ detail instance derived from ADA n=26 | no named analyst | CNRS - Centre de Rech
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-JSM7000> a ada:SEMHRCLTabular ;
-    schema1:measurementTechnique <ex:semClTAPP-JSM7000> ;
+ex:semClTAPP-detail-JSM7000 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/02feahw73" ;
+                    schema1:name "CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800045-109" ] ;
+            schema1:startTime "2023-11-27" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-27" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:SEMHRCLTabular" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800045-109" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2" .
-
-<ex:semClTAPP-JSM7000> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +204,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-CL.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

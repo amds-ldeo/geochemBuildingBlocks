@@ -7,29 +7,237 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Tomkinson2015",
+  "@id": "ex:labxctTAPP-detail-Tomkinson2015",
   "@type": [
-    "ada:XCTVolume"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:XCTVolume",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:labxctTAPP-Tomkinson2015",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/sampleDimensions",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/sampleDimensions"
+                }
+              ],
+              "schema:name": "Sample Dimensions (L \u00d7 W \u00d7 H)",
+              "schema:value": "~1.1 \u00d7 1.2 \u00d7 0.8 cm"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/sampleMass",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/sampleMass"
+                }
+              ],
+              "schema:name": "Sample Mass",
+              "schema:value": 2.7,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "2.7 g"
+            }
+          ],
+          "schema:name": "NWA 5790"
+        }
+      ],
+      "prov:used": [
+        {
+          "bios:computationalTool": [
+            {
+              "ada:toolRole": "dataReduction",
+              "schema:name": "Avizo\u2122",
+              "@type": [
+                "schema:SoftwareApplication"
+              ]
+            }
+          ]
+        },
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "XCT",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                    }
+                  ],
+                  "schema:name": "Accelerating Voltage",
+                  "schema:value": 120,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)"
+                },
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/labxctTAPP/voxelSize"
+                    }
+                  ],
+                  "schema:name": "Voxel Size",
+                  "schema:value": 10.3,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "10.3 \u00d7 10.3 \u00d7 10.3 \u00b5m\u00b3"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:labxctTAPP-detail-Tomkinson2015/instrument/XCT"
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/labxctTAPP/numberOfProjections",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/numberOfProjections"
+            }
+          ],
+          "schema:name": "Number of Projections",
+          "schema:value": 3143
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/exposureTimePerProjection",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/exposureTimePerProjection"
+            }
+          ],
+          "schema:name": "Exposure Time per Projection",
+          "schema:value": 20,
+          "schema:unitText": "no value available: unnamed property",
+          "schema:description": "20 s"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/segmentationMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/segmentationMethod"
+            }
+          ],
+          "schema:name": "Segmentation Method",
+          "schema:value": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteria",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteria"
+            }
+          ],
+          "schema:name": "Segmentation Threshold Values or Criteria",
+          "schema:value": "Thresholds not given numerically; SEM images used to define phases; errors from threshold + subvoxel variability generally <5% for grains >125 voxels"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethod",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethod"
+            }
+          ],
+          "schema:name": "Phase Identification Method",
+          "schema:value": "Phases: augite, mesostasis, olivine, titanomagnetite, pore space \u2014 identified by grayscale correlated to linear attenuation coefficients; verified with SEM"
+        },
+        {
+          "@id": "ada:parameter/labxctTAPP/partialVolumeEffectCriteria",
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "ada:parameter/labxctTAPP/partialVolumeEffectCriteria"
+            }
+          ],
+          "schema:name": "Partial Volume Effect Criteria",
+          "schema:value": "Errors from threshold + PVE generally <5% for grains >125 voxels; features smaller than ~3 voxels unreliable"
+        }
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Manchester X-ray Imaging Facility, U. Manchester"
+      },
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Bulk specimen or fragment \u2014 \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 2,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
   ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleDimensions": "~1.1 \u00d7 1.2 \u00d7 0.8 cm",
-  "ada:sampleName": "NWA 5790",
-  "ada:samplingUnitName": "Labelled: 2-D slices of the one scanned volume \u2014 \"XCT slice 500\" to \"XCT slice 1000\" (Table 1, p.2) \u2014 of \"a single 2.7 g chip\" of NWA 5790 (p.3)",
-  "ada:voiApplied": "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/labxctTAPP/effectiveSpatialResolution",
@@ -43,6 +251,48 @@
       ],
       "schema:name": "Effective Spatial Resolution (PSF/MTF)",
       "schema:value": "N \u2014 the paper states \"a resolution of 10.3 x 10.3 x 10.3 \u00b5m\u00b3 per voxel\", i.e. the voxel size; no effective resolution reported"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/voiApplied",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/labxctTAPP/voiApplied"
+        }
+      ],
+      "schema:name": "VOI Applied",
+      "schema:value": "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy"
     }
-  ]
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Beam Hardening Artifact Assessment",
+      "dqv:value": "High noise in central portion of sample attributed to BH; augite/mesostasis difficult to distinguish in central region"
+    },
+    {
+      "dqv:isMeasurementOf": "Cross-Validation Outcome",
+      "dqv:value": "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM-BSE (qualitative comparison)",
+        "schema:description": "BSE images compared with XCT attenuation contrast"
+      }
+    }
+  ],
+  "ada:analyticalMode": [
+    "Single-volume"
+  ],
+  "ada:sessionIdentifier": "missing",
+  "ada:analyst": "missing",
+  "ada:analysisStartDate": "missing",
+  "ada:analysisEndDate": "missing",
+  "ada:fundingSourceForAnalysis": "missing",
+  "ada:sampleName": "NWA 5790",
+  "ada:samplingUnitName": "Labelled: 2-D slices of the one scanned volume \u2014 \"XCT slice 500\" to \"XCT slice 1000\" (Table 1, p.2) \u2014 of \"a single 2.7 g chip\" of NWA 5790 (p.3)"
 }

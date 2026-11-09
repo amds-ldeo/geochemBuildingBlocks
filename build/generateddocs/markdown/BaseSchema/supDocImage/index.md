@@ -137,7 +137,7 @@ properties:
     - ada:shapefile
     - ada:supplementalBasemap
     - ada:worldFile
-    - nil:missing
+    - http://www.opengis.net/def/nil/OGC/0/missing
     description: ADA componentType for a supplemental document image, as a single
       string. Allowed values are constrained at the technique-profile level.
     x-jsonld-id: https://ada.astromat.org/metadata/componentType
@@ -163,7 +163,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.supDocImage
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

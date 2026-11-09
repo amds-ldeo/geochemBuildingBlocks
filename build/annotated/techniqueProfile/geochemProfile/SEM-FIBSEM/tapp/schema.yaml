@@ -152,6 +152,7 @@ allOf:
                             - N/A
                             - None
                             - missing
+                            schema:inDefinedTermSet: ada:vocab/se-detector-type
                             readOnly: true
                           - type: array
                             items:
@@ -164,6 +165,7 @@ allOf:
                               - N/A
                               - None
                               - missing
+                              schema:inDefinedTermSet: ada:vocab/se-detector-type
                               readOnly: true
                       required:
                       - schema:name
@@ -194,6 +196,7 @@ allOf:
                             - N/A
                             - None
                             - missing
+                            schema:inDefinedTermSet: ada:vocab/bse-detector-type
                             readOnly: true
                           - type: array
                             items:
@@ -209,6 +212,7 @@ allOf:
                               - N/A
                               - None
                               - missing
+                              schema:inDefinedTermSet: ada:vocab/bse-detector-type
                               readOnly: true
                       required:
                       - schema:name
@@ -338,6 +342,7 @@ allOf:
                             - N/A
                             - None
                             - missing
+                            schema:inDefinedTermSet: ada:vocab/ion-beam-source
                             readOnly: true
                           - type: array
                             items:
@@ -350,6 +355,7 @@ allOf:
                               - N/A
                               - None
                               - missing
+                              schema:inDefinedTermSet: ada:vocab/ion-beam-source
                               readOnly: true
                       required:
                       - schema:name
@@ -379,6 +385,19 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:dwellTimePerPixelDefault:
       description: Time the electron beam dwells on each pixel during raster scanning,
         or on each step position during mapping, in microseconds or milliseconds.
@@ -586,6 +605,9 @@ allOf:
                             const: Lift-out Method
                           schema:value:
                             type: string
+                          schema:inDefinedTermSet:
+                            const:
+                              '@id': ada:vocab/lift-out-method
                         required:
                         - '@id'
                         - '@type'
@@ -721,6 +743,9 @@ allOf:
                             const: Lift-out Method
                           schema:value:
                             type: string
+                          schema:inDefinedTermSet:
+                            const:
+                              '@id': ada:vocab/lift-out-method
                         required:
                         - '@id'
                         - '@type'
@@ -836,6 +861,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/segmentation-method
     ada:analyticalMode:
       type: array
       items:
@@ -851,4 +877,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'

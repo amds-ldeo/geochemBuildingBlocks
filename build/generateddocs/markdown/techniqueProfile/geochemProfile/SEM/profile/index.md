@@ -530,6 +530,14 @@ and technique component types on the archive distribution. Mock data for validat
   },
   "dqv:hasQualityMeasurement": [
     {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: analyticalAccuracy"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Precision",
+      "dqv:value": "no value available: analyticalPrecision"
+    },
+    {
       "dqv:isMeasurementOf": "EBSD Indexing Rate",
       "dqv:value": 1.0
     },
@@ -1084,6 +1092,14 @@ and technique component types on the archive distribution. Mock data for validat
   },
   "dqv:hasQualityMeasurement": [
     {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "no value available: analyticalAccuracy"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Precision",
+      "dqv:value": "no value available: analyticalPrecision"
+    },
+    {
       "dqv:isMeasurementOf": "EBSD Indexing Rate",
       "dqv:value": 1.0
     },
@@ -1201,14 +1217,18 @@ ex:adaSEM-example-001 a schema1:Dataset,
         <https://example.org/var/Detection-Limit>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: analyticalPrecision" ],
         [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ] ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: analyticalAccuracy" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endTime "2026-01-10T12:45:00" ;
@@ -1224,8 +1244,8 @@ ex:adaSEM-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:semTAPP-P0 ],
-                [ schema1:instrument <https://example.org/adaSEM-example-001/instrument/SEM> ] ;
+            prov:used [ schema1:instrument <https://example.org/adaSEM-example-001/instrument/SEM> ],
+                [ ada:tappDefinition ex:semTAPP-P0 ] ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "SE Imaging" ;
@@ -1434,7 +1454,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

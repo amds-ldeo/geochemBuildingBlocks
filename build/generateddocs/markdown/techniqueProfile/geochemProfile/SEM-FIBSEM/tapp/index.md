@@ -17,6 +17,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -155,6 +156,23 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
       "@id": "ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "internal structure of the sectioned globules (nominal) — Internal structure of the sectioned globules (nominal) — \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)",
+    "ada:defaultReportedProperties": [
+      "internal structure of the sectioned globules (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -205,7 +223,8 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "schema:location": {
     "@type": [
@@ -228,9 +247,6 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
   "ada:samplingUnitType": "Grain (individual nanoglobule) > Sub-volume (FIB cross-section) — \"The internal structure of the globules was investigated after sectioning by focused ion beam (FIB) milling\" (p.1)",
   "ada:analyticalMode": [
     "TEM Sample Preparation"
-  ],
-  "ada:reportedProperties": [
-    "internal structure of the sectioned globules (nominal) — Internal structure of the sectioned globules (nominal) — \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)"
   ],
   "schema:measurementTechnique": [
     {
@@ -256,6 +272,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -264,6 +281,7 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -403,6 +421,23 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
       "@id": "ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "internal structure of the sectioned globules (nominal) \u2014 Internal structure of the sectioned globules (nominal) \u2014 \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)",
+    "ada:defaultReportedProperties": [
+      "internal structure of the sectioned globules (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -453,7 +488,8 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "schema:location": {
     "@type": [
@@ -477,9 +513,6 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
   "ada:analyticalMode": [
     "TEM Sample Preparation"
   ],
-  "ada:reportedProperties": [
-    "internal structure of the sectioned globules (nominal) \u2014 Internal structure of the sectioned globules (nominal) \u2014 \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -501,23 +534,19 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semFibsemTAPP-Garvie2008> a cdi:Activity,
+ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "FIB-SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -528,14 +557,20 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v45.csv)." ;
-    schema1:instrument <ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM>,
-        <ex:semFibsemTAPP-Garvie2008/instrument/SEM> ;
+    schema1:instrument <https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM>,
+        <https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -549,7 +584,15 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
-    ada:reportedProperties "internal structure of the sectioned globules (nominal) — Internal structure of the sectioned globules (nominal) — \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "internal structure of the sectioned globules (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "internal structure of the sectioned globules (nominal) — Internal structure of the sectioned globules (nominal) — \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper claims the capability without stating a rule: \"The rapid site-specific cross-sectioning capabilities of the FIB allow the preservation of the internal morphology of the nanoglobules\" (p.1), but which globules were sectioned is not said" ;
     ada:samplingUnitType "Grain (individual nanoglobule) > Sub-volume (FIB cross-section) — \"The internal structure of the globules was investigated after sectioning by focused ion beam (FIB) milling\" (p.1)" ;
     ada:segmentationMethod3DDefault "missing" ;
@@ -562,27 +605,27 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "no value available: schema:name" .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "Gallium LMIS (Ga+)" .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/SEM> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "FIB-SEM dual-beam" ;
-    schema1:hasPart <ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector>,
-        <ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source>,
-        <ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "FEI / Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -592,20 +635,20 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault "5.4 mm (eucentric height for electron and ion columns)" .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector> a schema1:Product,
+<https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -623,6 +666,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -762,6 +806,26 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
       "@id": "ex:semFibsemTAPP-Liu2017/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) — Pore volume percent by pore class (vol%: macropores, mesopores, micropores — \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10–50 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)",
+    "ada:defaultReportedProperties": [
+      "pore volume percent by pore class (vol%)",
+      "pore width (nm)",
+      "pore type (nominal)",
+      "pore connectivity (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -840,7 +904,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
   "schema:location": {
@@ -871,9 +936,6 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
   "ada:analyticalMode": [
     "3D Tomography"
   ],
-  "ada:reportedProperties": [
-    "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) — Pore volume percent by pore class (vol%: macropores, mesopores, micropores — \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10–50 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -897,6 +959,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -905,6 +968,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -1045,6 +1109,26 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
       "@id": "ex:semFibsemTAPP-Liu2017/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) \u2014 Pore volume percent by pore class (vol%: macropores, mesopores, micropores \u2014 \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10\u201350 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)",
+    "ada:defaultReportedProperties": [
+      "pore volume percent by pore class (vol%)",
+      "pore width (nm)",
+      "pore type (nominal)",
+      "pore connectivity (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -1123,7 +1207,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
   "schema:location": {
@@ -1154,9 +1239,6 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
   "ada:analyticalMode": [
     "3D Tomography"
   ],
-  "ada:reportedProperties": [
-    "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) \u2014 Pore volume percent by pore class (vol%: macropores, mesopores, micropores \u2014 \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10\u201350 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1177,16 +1259,18 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semFibsemTAPP-Liu2017> a cdi:Activity,
+ex:semFibsemTAPP-Liu2017 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "FIB-SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1212,8 +1296,8 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
                     schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics." ;
-    schema1:instrument <ex:semFibsemTAPP-Liu2017/instrument/FIBSEM>,
-        <ex:semFibsemTAPP-Liu2017/instrument/SEM> ;
+    schema1:instrument <https://example.org/semFibsemTAPP-Liu2017/instrument/FIBSEM>,
+        <https://example.org/semFibsemTAPP-Liu2017/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1227,7 +1311,18 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     ada:analyticalMode "3D Tomography" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
-    ada:reportedProperties "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) — Pore volume percent by pore class (vol%: macropores, mesopores, micropores — \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10–50 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "pore connectivity (nominal)",
+                "pore type (nominal)",
+                "pore volume percent by pore class (vol%)",
+                "pore width (nm)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) — Pore volume percent by pore class (vol%: macropores, mesopores, micropores — \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10–50 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper states the scope of the model rather than a rule for siting the volume: it \"only focuses on the coal sample #1\" (p.8)" ;
     ada:samplingUnitType "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) — the volume supports \"a three dimensional (3D) pore network model, which was further used to characterize the pore connectivity\" (p.1), with pores classified as coalification-related and mineral-related (p.1); the model \"only focuses on the coal sample #1\" (p.8)" ;
     ada:segmentationMethod3DDefault "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics" ;
@@ -1242,55 +1337,6 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
                     ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
             ada:toolRole "dataReduction" ] .
-
-<ex:semFibsemTAPP-Liu2017/instrument/FIBSEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "FIBSEM" ;
-    schema1:hasPart <ex:semFibsemTAPP-Liu2017/instrument/FIBSEM/part/Ion-Beam-Source> ;
-    schema1:name "missing" .
-
-<ex:semFibsemTAPP-Liu2017/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Ion Beam Source" ;
-    schema1:name "missing" .
-
-<ex:semFibsemTAPP-Liu2017/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "missing" ;
-    schema1:hasPart <ex:semFibsemTAPP-Liu2017/instrument/SEM/part/BSE-Detector>,
-        <ex:semFibsemTAPP-Liu2017/instrument/SEM/part/Electron-Source>,
-        <ex:semFibsemTAPP-Liu2017/instrument/SEM/part/SE-Detector> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Zeiss" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Crossbeam 540" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault -9999 ;
-    ada:mappingBeamCurrentDefault -9999 ;
-    ada:workingDistanceDefault -9999 .
-
-<ex:semFibsemTAPP-Liu2017/instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "missing" .
-
-<ex:semFibsemTAPP-Liu2017/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<ex:semFibsemTAPP-Liu2017/instrument/SEM/part/SE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SE Detector" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "No coating applied; not sputtered with gold or other materials" ;
@@ -1307,6 +1353,55 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/semFibsemTAPP-Liu2017/instrument/FIBSEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "FIBSEM" ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Liu2017/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:name "missing" .
+
+<https://example.org/semFibsemTAPP-Liu2017/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Ion Beam Source" ;
+    schema1:name "missing" .
+
+<https://example.org/semFibsemTAPP-Liu2017/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "missing" ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Liu2017/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semFibsemTAPP-Liu2017/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semFibsemTAPP-Liu2017/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Crossbeam 540" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:workingDistanceDefault -9999 .
+
+<https://example.org/semFibsemTAPP-Liu2017/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/semFibsemTAPP-Liu2017/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<https://example.org/semFibsemTAPP-Liu2017/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
+
 
 ```
 
@@ -1319,6 +1414,7 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -1458,6 +1554,28 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
       "@id": "ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (µm) — Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10–50 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 × 14.8 nm pixel size (pp.3–4)",
+    "ada:defaultReportedProperties": [
+      "pore-space volume (voxels)",
+      "pore diameter (nm)",
+      "pore connectivity (nominal)",
+      "pore type (nominal)",
+      "throat size (nm)",
+      "throat length (µm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
   "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
   "schema:location": {
@@ -1475,9 +1593,6 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
   ],
   "ada:analyticalMode": [
     "3D Tomography"
-  ],
-  "ada:reportedProperties": [
-    "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (µm) — Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10–50 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 × 14.8 nm pixel size (pp.3–4)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -1529,7 +1644,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -1553,6 +1669,7 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -1561,6 +1678,7 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -1701,6 +1819,28 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
       "@id": "ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (\u00b5m) \u2014 Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10\u201350 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 \u00d7 14.8 nm pixel size (pp.3\u20134)",
+    "ada:defaultReportedProperties": [
+      "pore-space volume (voxels)",
+      "pore diameter (nm)",
+      "pore connectivity (nominal)",
+      "pore type (nominal)",
+      "throat size (nm)",
+      "throat length (\u00b5m)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
   "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
   "schema:location": {
@@ -1718,9 +1858,6 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
   ],
   "ada:analyticalMode": [
     "3D Tomography"
-  ],
-  "ada:reportedProperties": [
-    "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (\u00b5m) \u2014 Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10\u201350 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 \u00d7 14.8 nm pixel size (pp.3\u20134)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -1772,7 +1909,8 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "schema:measurementTechnique": [
     {
@@ -1793,16 +1931,18 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semFibsemTAPP-Zhou2017> a cdi:Activity,
+ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "FIB-SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -1813,21 +1953,21 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)." ;
-    schema1:instrument <ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM>,
-        <ex:semFibsemTAPP-Zhou2017/instrument/SEM> ;
+    schema1:instrument <https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM>,
+        <https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Geosciences, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1837,7 +1977,20 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     ada:analyticalMode "3D Tomography" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment" ;
-    ada:reportedProperties "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (µm) — Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10–50 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 × 14.8 nm pixel size (pp.3–4)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "pore connectivity (nominal)",
+                "pore diameter (nm)",
+                "pore type (nominal)",
+                "pore-space volume (voxels)",
+                "throat length (µm)",
+                "throat size (nm)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (µm) — Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10–50 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 × 14.8 nm pixel size (pp.3–4)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Stated, but by procedure rather than by criterion — \"an area within the coal sample was selected for FIB-SEM tomography\" following a published procedure (p.3), and the volume's adequacy is then tested under \"evaluation of representative volumes\" (§2.3, p.4); no rule is given for where the area was placed" ;
     ada:samplingUnitType "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) — \"an area within the coal sample was selected for FIB-SEM tomography\" on \"cuboidal-shaped 0.5 × 1 × 1 cm3 coal samples\", and \"~800 SEM images of FIB slices were obtained\" at a \"pixel-size of 14.8 × 14.8 nm\" (pp.3–4)" ;
     ada:segmentationMethod3DDefault "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)" ;
@@ -1853,27 +2006,27 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     bios:computationalTool [ schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
             ada:toolRole "dataReduction" ] .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/SEM> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "N/A" ;
-    schema1:hasPart <ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector>,
-        <ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source>,
-        <ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -1883,20 +2036,20 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault "4 mm" .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -1914,6 +2067,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -2052,6 +2206,24 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@id": "ex:semFibsemTAPP-Zega2025/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "electron-transparent section (nominal); section thickness (nm) — Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) — the reported product is the section itself and its location within the particle (nominal)",
+    "ada:defaultReportedProperties": [
+      "electron-transparent section (nominal)",
+      "section thickness (nm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -2131,7 +2303,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "schema:location": {
     "@type": [
@@ -2154,9 +2327,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:samplingUnitType": "Grain (Bennu particle) > Sub-volume (FIB section) — \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "ada:analyticalMode": [
     "TEM Sample Preparation"
-  ],
-  "ada:reportedProperties": [
-    "electron-transparent section (nominal); section thickness (nm) — Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) — the reported product is the section itself and its location within the particle (nominal)"
   ],
   "schema:measurementTechnique": [
     {
@@ -2182,6 +2352,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -2190,6 +2361,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -2329,6 +2501,24 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@id": "ex:semFibsemTAPP-Zega2025/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "electron-transparent section (nominal); section thickness (nm) \u2014 Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) \u2014 the reported product is the section itself and its location within the particle (nominal)",
+    "ada:defaultReportedProperties": [
+      "electron-transparent section (nominal)",
+      "section thickness (nm)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -2408,7 +2598,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "schema:location": {
     "@type": [
@@ -2432,9 +2623,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:analyticalMode": [
     "TEM Sample Preparation"
   ],
-  "ada:reportedProperties": [
-    "electron-transparent section (nominal); section thickness (nm) \u2014 Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) \u2014 the reported product is the section itself and its location within the particle (nominal)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2456,25 +2644,26 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semFibsemTAPP-Zega2025> a cdi:Activity,
+ex:semFibsemTAPP-Zega2025 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "FIB-SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -2484,15 +2673,16 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
-    schema1:instrument <ex:semFibsemTAPP-Zega2025/instrument/FIBSEM>,
-        <ex:semFibsemTAPP-Zega2025/instrument/SEM> ;
+    schema1:instrument <https://example.org/semFibsemTAPP-Zega2025/instrument/FIBSEM>,
+        <https://example.org/semFibsemTAPP-Zega2025/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2506,7 +2696,16 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
-    ada:reportedProperties "electron-transparent section (nominal); section thickness (nm) — Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) — the reported product is the section itself and its location within the particle (nominal)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "electron-transparent section (nominal)",
+                "section thickness (nm)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "electron-transparent section (nominal); section thickness (nm) — Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) — the reported product is the section itself and its location within the particle (nominal)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Position within the particle — \"All sections were extracted from varied regions of matrix within the particles\" (p.9)" ;
     ada:samplingUnitType "Grain (Bennu particle) > Sub-volume (FIB section) — \"All sections were extracted from varied regions of matrix within the particles\" (p.9)" ;
     ada:segmentationMethod3DDefault "missing" ;
@@ -2519,27 +2718,34 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
 
-<ex:semFibsemTAPP-Zega2025/instrument/FIBSEM> a schema1:Product,
+<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ;
+    schema1:name "Protective Coating Deposition" ;
+    schema1:valueName "protectiveCoatingDepositionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://example.org/semFibsemTAPP-Zega2025/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <ex:semFibsemTAPP-Zega2025/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Zega2025/instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zega2025/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zega2025/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zega2025/instrument/SEM> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zega2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "N/A" ;
-    schema1:hasPart <ex:semFibsemTAPP-Zega2025/instrument/SEM/part/BSE-Detector>,
-        <ex:semFibsemTAPP-Zega2025/instrument/SEM/part/Electron-Source>,
-        <ex:semFibsemTAPP-Zega2025/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Zega2025/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semFibsemTAPP-Zega2025/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semFibsemTAPP-Zega2025/instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -2549,31 +2755,24 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ada:mappingBeamCurrentDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
-<ex:semFibsemTAPP-Zega2025/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zega2025/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zega2025/instrument/SEM/part/Electron-Source> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zega2025/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
-<ex:semFibsemTAPP-Zega2025/instrument/SEM/part/SE-Detector> a schema1:Product,
+<https://example.org/semFibsemTAPP-Zega2025/instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ;
-    schema1:name "Protective Coating Deposition" ;
-    schema1:valueName "protectiveCoatingDepositionDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> a schema1:PropertyValue ;
     schema1:name "Lift-out Method" ;
@@ -2592,6 +2791,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -2730,6 +2930,23 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.9)",
+    "ada:defaultReportedProperties": [
+      "electron-transparent section (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -2807,7 +3024,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "schema:location": {
     "@type": [
@@ -2830,9 +3048,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:samplingUnitType": "Grain (Bennu particle) > Sub-volume (FIB section) — \"Bennu particles were placed on PELCO carbon conductive tabs\" for extraction (p.9)",
   "ada:analyticalMode": [
     "TEM Sample Preparation"
-  ],
-  "ada:reportedProperties": [
-    "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.9)"
   ],
   "schema:measurementTechnique": [
     {
@@ -2858,6 +3073,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -2866,6 +3082,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -3005,6 +3222,23 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@id": "ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "electron-transparent section (nominal) \u2014 Electron-transparent sections for TEM analysis \u2014 the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.9)",
+    "ada:defaultReportedProperties": [
+      "electron-transparent section (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -3082,7 +3316,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "schema:location": {
     "@type": [
@@ -3106,9 +3341,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:analyticalMode": [
     "TEM Sample Preparation"
   ],
-  "ada:reportedProperties": [
-    "electron-transparent section (nominal) \u2014 Electron-transparent sections for TEM analysis \u2014 the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.9)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3130,17 +3362,25 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semFibsemTAPP-Zega2025-2> a cdi:Activity,
+ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "FIB-SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -3148,12 +3388,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -3165,8 +3399,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
-    schema1:instrument <ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM>,
-        <ex:semFibsemTAPP-Zega2025-2/instrument/SEM> ;
+    schema1:instrument <https://example.org/semFibsemTAPP-Zega2025-2/instrument/FIBSEM>,
+        <https://example.org/semFibsemTAPP-Zega2025-2/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3180,7 +3414,15 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
-    ada:reportedProperties "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.9)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "electron-transparent section (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.9)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states only how particles were mounted, \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), and no rule for choosing where to cut" ;
     ada:samplingUnitType "Grain (Bennu particle) > Sub-volume (FIB section) — \"Bennu particles were placed on PELCO carbon conductive tabs\" for extraction (p.9)" ;
     ada:segmentationMethod3DDefault "missing" ;
@@ -3192,55 +3434,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
-
-<ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "FIBSEM" ;
-    schema1:hasPart <ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM/part/Ion-Beam-Source> ;
-    schema1:name "no value available: schema:name" .
-
-<ex:semFibsemTAPP-Zega2025-2/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Ion Beam Source" ;
-    schema1:name "N/A" .
-
-<ex:semFibsemTAPP-Zega2025-2/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "N/A" ;
-    schema1:hasPart <ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/BSE-Detector>,
-        <ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/Electron-Source>,
-        <ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/SE-Detector> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Unknown" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Helios G4 UX" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" ;
-    ada:mappingBeamCurrentDefault -9999 ;
-    ada:workingDistanceDefault -9999 .
-
-<ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "missing" .
-
-<ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "Field emission gun (FEG) — subtype not specified" ;
-    schema1:name "missing" .
-
-<ex:semFibsemTAPP-Zega2025-2/instrument/SEM/part/SE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SE Detector" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Various voltages down to 1 keV (polishing)" ;
@@ -3257,6 +3450,55 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://example.org/semFibsemTAPP-Zega2025-2/instrument/FIBSEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "FIBSEM" ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Zega2025-2/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/semFibsemTAPP-Zega2025-2/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Ion Beam Source" ;
+    schema1:name "N/A" .
+
+<https://example.org/semFibsemTAPP-Zega2025-2/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Zega2025-2/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semFibsemTAPP-Zega2025-2/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semFibsemTAPP-Zega2025-2/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Unknown" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Helios G4 UX" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:workingDistanceDefault -9999 .
+
+<https://example.org/semFibsemTAPP-Zega2025-2/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/semFibsemTAPP-Zega2025-2/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
+    schema1:name "missing" .
+
+<https://example.org/semFibsemTAPP-Zega2025-2/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
+
 
 ```
 
@@ -3269,6 +3511,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -3407,6 +3650,23 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.10)",
+    "ada:defaultReportedProperties": [
+      "electron-transparent section (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -3509,7 +3769,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "schema:location": {
     "@type": [
@@ -3532,9 +3793,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:samplingUnitType": "Grain (Bennu particle) > Sub-volume (FIB section) — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10)",
   "ada:analyticalMode": [
     "TEM Sample Preparation"
-  ],
-  "ada:reportedProperties": [
-    "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.10)"
   ],
   "schema:measurementTechnique": [
     {
@@ -3560,6 +3818,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -3568,6 +3827,7 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -3707,6 +3967,23 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "@id": "ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM"
     }
   ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "electron-transparent section (nominal) \u2014 Electron-transparent sections for TEM analysis \u2014 the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.10)",
+    "ada:defaultReportedProperties": [
+      "electron-transparent section (nominal)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -3809,7 +4086,8 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "FIB-SEM analytical workflow"
   },
   "schema:location": {
     "@type": [
@@ -3833,9 +4111,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
   "ada:analyticalMode": [
     "TEM Sample Preparation"
   ],
-  "ada:reportedProperties": [
-    "electron-transparent section (nominal) \u2014 Electron-transparent sections for TEM analysis \u2014 the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.10)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3857,17 +4132,28 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:semFibsemTAPP-Zega2025-3> a cdi:Activity,
+ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
+            schema1:name "FIB-SEM analytical workflow" ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" ],
+                [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
@@ -3882,20 +4168,11 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
-    schema1:instrument <ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM>,
-        <ex:semFibsemTAPP-Zega2025-3/instrument/SEM> ;
+    schema1:instrument <https://example.org/semFibsemTAPP-Zega2025-3/instrument/FIBSEM>,
+        <https://example.org/semFibsemTAPP-Zega2025-3/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3909,7 +4186,15 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
-    ada:reportedProperties "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.10)" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "electron-transparent section (nominal)" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:reportedPropertyDeclaration "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.10)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states only that \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), and no rule for choosing where to cut" ;
     ada:samplingUnitType "Grain (Bennu particle) > Sub-volume (FIB section) — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10)" ;
     ada:segmentationMethod3DDefault "missing" ;
@@ -3921,55 +4206,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
-
-<ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "FIBSEM" ;
-    schema1:hasPart <ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM/part/Ion-Beam-Source> ;
-    schema1:name "no value available: schema:name" .
-
-<ex:semFibsemTAPP-Zega2025-3/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Ion Beam Source" ;
-    schema1:name "N/A" .
-
-<ex:semFibsemTAPP-Zega2025-3/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "N/A" ;
-    schema1:hasPart <ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector>,
-        <ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/Electron-Source>,
-        <ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/SE-Detector> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Unknown" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Quanta 3D 600" ] ;
-    schema1:name "no value available: schema:name" ;
-    ada:acceleratingVoltageDefault "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)" ;
-    ada:mappingBeamCurrentDefault -9999 ;
-    ada:workingDistanceDefault -9999 .
-
-<ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "missing" .
-
-<ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "Field emission gun (FEG) — subtype not specified" ;
-    schema1:name "missing" .
-
-<ex:semFibsemTAPP-Zega2025-3/instrument/SEM/part/SE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SE Detector" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick" ;
@@ -3992,6 +4228,55 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
     schema1:valueName "protectiveCoatingDepositionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://example.org/semFibsemTAPP-Zega2025-3/instrument/FIBSEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "FIBSEM" ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Zega2025-3/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:name "no value available: schema:name" .
+
+<https://example.org/semFibsemTAPP-Zega2025-3/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Ion Beam Source" ;
+    schema1:name "N/A" .
+
+<https://example.org/semFibsemTAPP-Zega2025-3/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <https://example.org/semFibsemTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector>,
+        <https://example.org/semFibsemTAPP-Zega2025-3/instrument/SEM/part/Electron-Source>,
+        <https://example.org/semFibsemTAPP-Zega2025-3/instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Unknown" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Quanta 3D 600" ] ;
+    schema1:name "no value available: schema:name" ;
+    ada:acceleratingVoltageDefault "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:workingDistanceDefault -9999 .
+
+<https://example.org/semFibsemTAPP-Zega2025-3/instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<https://example.org/semFibsemTAPP-Zega2025-3/instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
+    schema1:name "missing" .
+
+<https://example.org/semFibsemTAPP-Zega2025-3/instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> a schema1:PropertyValue ;
     schema1:name "Lift-out Method" ;
@@ -4158,6 +4443,7 @@ allOf:
                             - N/A
                             - None
                             - missing
+                            schema:inDefinedTermSet: ada:vocab/se-detector-type
                             readOnly: true
                           - type: array
                             items:
@@ -4170,6 +4456,7 @@ allOf:
                               - N/A
                               - None
                               - missing
+                              schema:inDefinedTermSet: ada:vocab/se-detector-type
                               readOnly: true
                       required:
                       - schema:name
@@ -4200,6 +4487,7 @@ allOf:
                             - N/A
                             - None
                             - missing
+                            schema:inDefinedTermSet: ada:vocab/bse-detector-type
                             readOnly: true
                           - type: array
                             items:
@@ -4215,6 +4503,7 @@ allOf:
                               - N/A
                               - None
                               - missing
+                              schema:inDefinedTermSet: ada:vocab/bse-detector-type
                               readOnly: true
                       required:
                       - schema:name
@@ -4344,6 +4633,7 @@ allOf:
                             - N/A
                             - None
                             - missing
+                            schema:inDefinedTermSet: ada:vocab/ion-beam-source
                             readOnly: true
                           - type: array
                             items:
@@ -4356,6 +4646,7 @@ allOf:
                               - N/A
                               - None
                               - missing
+                              schema:inDefinedTermSet: ada:vocab/ion-beam-source
                               readOnly: true
                       required:
                       - schema:name
@@ -4385,6 +4676,19 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:dwellTimePerPixelDefault:
       description: Time the electron beam dwells on each pixel during raster scanning,
         or on each step position during mapping, in microseconds or milliseconds.
@@ -4592,6 +4896,9 @@ allOf:
                             const: Lift-out Method
                           schema:value:
                             type: string
+                          schema:inDefinedTermSet:
+                            const:
+                              '@id': ada:vocab/lift-out-method
                         required:
                         - '@id'
                         - '@type'
@@ -4727,6 +5034,9 @@ allOf:
                             const: Lift-out Method
                           schema:value:
                             type: string
+                          schema:inDefinedTermSet:
+                            const:
+                              '@id': ada:vocab/lift-out-method
                         required:
                         - '@id'
                         - '@type'
@@ -4842,6 +5152,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/segmentation-method
     ada:analyticalMode:
       type: array
       items:
@@ -4857,7 +5168,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

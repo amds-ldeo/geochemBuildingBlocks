@@ -16,17 +16,53 @@ detail instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholt
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Liss2024",
+  "@id": "ex:ramanTAPP-detail-Liss2024",
   "@type": [
-    "ada:RAMANRawTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:RAMANRawTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:ramanTAPP-Liss2024",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Helmholtz University (Helmholtz Zentrum Munchen)",
+        "schema:identifier": "https://ror.org/034rhsb33"
+      },
+      "schema:identifier": "20240823_raman_hmgu_orex-803141-0_1",
+      "schema:startTime": "2024-08-23",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803141-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Liss, Michael"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)."
     }
   ],
   "ada:sessionIdentifier": "20240823_raman_hmgu_orex-803141-0_1",
@@ -51,18 +87,54 @@ detail instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholt
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/RAMAN/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Liss2024",
+  "@id": "ex:ramanTAPP-detail-Liss2024",
   "@type": [
-    "ada:RAMANRawTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:RAMANRawTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:ramanTAPP-Liss2024",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Helmholtz University (Helmholtz Zentrum Munchen)",
+        "schema:identifier": "https://ror.org/034rhsb33"
+      },
+      "schema:identifier": "20240823_raman_hmgu_orex-803141-0_1",
+      "schema:startTime": "2024-08-23",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-803141-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Liss, Michael"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)."
     }
   ],
   "ada:sessionIdentifier": "20240823_raman_hmgu_orex-803141-0_1",
@@ -78,20 +150,31 @@ detail instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholt
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-Liss2024> a ada:RAMANRawTabular ;
-    schema1:measurementTechnique <ex:ramanTAPP-Liss2024> ;
+ex:ramanTAPP-detail-Liss2024 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Liss, Michael" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240823_raman_hmgu_orex-803141-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/034rhsb33" ;
+                    schema1:name "Helmholtz University (Helmholtz Zentrum Munchen)" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-803141-0" ] ;
+            schema1:startTime "2024-08-23" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-08-23" ;
     ada:analyst "Liss, Michael" ;
-    ada:componentType "ada:RAMANRawTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)." ;
     ada:sampleName "OREX-803141-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240823_raman_hmgu_orex-803141-0_1" .
-
-<ex:ramanTAPP-Liss2024> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +240,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.RAMAN.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

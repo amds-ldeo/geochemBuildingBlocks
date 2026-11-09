@@ -1,16 +1,26 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:TOFSIMSCollection ;
-    schema1:measurementTechnique <ex:tofsimsTAPP-P0> ;
+ex:tofsimsTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Rickard, William" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "Australian Research Council LIEF190100053; Space Science and Technology Centre and the John de Laeter Centre at Curtin University." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20231125_tof-sims_cuwa_orex-501070-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Curtin University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-501070-0" ] ;
+            schema1:startTime "2023-11-25" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-25" ;
     ada:analyst "Rickard, William" ;
-    ada:componentType "ada:TOFSIMSCollection" ;
     ada:fundingSourceForAnalysis "Australian Research Council LIEF190100053; Space Science and Technology Centre and the John de Laeter Centre at Curtin University." ;
     ada:sampleName "OREX-501070-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231125_tof-sims_cuwa_orex-501070-0_1" .
-
-<ex:tofsimsTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 

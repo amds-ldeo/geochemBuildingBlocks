@@ -1,25 +1,115 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Pascucci2026-2> a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique <ex:semCompositionTAPP-Pascucci2026-2> ;
+ex:semCompositionTAPP-detail-Pascucci2026-2 a schema1:Dataset,
+        schema1:Product ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/mapArea> ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressure>,
+                <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel>,
+                <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/stepSizePixelSize> ;
+            schema1:description "EDS mapping: 20 kV, 60 µm aperture, 5 ms dwell per pixel, 1024×768 pixels, 2.5 µm pixel size, ~10 h total; element maps co-registered with BSE images" ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "NWA 7317" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+                            ada:toolRole "dataReduction" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Oxford INCA Energy" ;
+                            ada:toolRole "acquisition" ] ],
+                [ schema1:instrument <https://example.org/semCompositionTAPP-detail-Pascucci2026-2/instrument/SEM> ] ;
+            ada:combinedResults [ ] ;
+            ada:deadTime -9999 ;
+            ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
+    ada:analyticalMode "EDS Mapping" ;
     ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:SEMEDSSpectrum" ;
     ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:mapArea 1.05e+01 ;
-    ada:mapDimensions 1024 ;
-    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
+    ada:mapDimensions "1024 × 768 pixels" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:semCompositionTAPP-Pascucci2026-2> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/semCompositionTAPP-detail-Pascucci2026-2/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/mappingBeamDiameter> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "VIS-IR imaging spectroscopy, acquired before the section was prepared — the fragment was embedded and polished \"after the SPectral IMager (SPIM) reflectance spectroscopy imagery acquisition\" and only then carbon coated \"for further SEM-EDS and EMPA-WDS analyses\" (p.3). The SEM work is then registered to those images: \"To cover approximately the same area of the SPIM images (9.7 mm large), 10 BSE images, with four consecutive images in the same row, were acquired and mosaicked\" (p.3)" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "20 kV" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 20 .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressure> a schema1:PropertyValue ;
+    schema1:name "Chamber Pressure" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressure> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "High vacuum" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel> a schema1:PropertyValue ;
+    schema1:description "5 ms dwell time per pixel" ;
+    schema1:name "EDS Live Time per Point or Pixel" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 5 .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/mapArea> a schema1:PropertyValue ;
+    schema1:description "10.5 × 4.0 mm — 'The area acquired by the SEM-EDS instrument is 10.5 × 4.0 mm wide and it is composed of nine mosaicked images (magnification 138×)'" ;
+    schema1:name "Map Area" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/mapArea> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1.05e+01 .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/mappingBeamDiameter> a schema1:PropertyValue ;
+    schema1:description "N — a 60 μm aperture is stated (p.3), not a beam diameter" ;
+    schema1:name "Mapping Beam Diameter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/mappingBeamDiameter> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 60 .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/stepSizePixelSize> a schema1:PropertyValue ;
+    schema1:description "2.5 µm" ;
+    schema1:name "Step Size / Pixel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/stepSizePixelSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 2.5e+00 .
 

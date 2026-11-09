@@ -1,17 +1,18 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:stemTAPP-P1> a cdi:Activity,
+ex:stemTAPP-P1 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Scanning Transmission Electron Microscopy analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -24,7 +25,7 @@
             schema1:name "Claude assisted" ] ;
     schema1:datePublished "2023-12-07" ;
     schema1:description "stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley National Laboratory | FEI TitanX TEM (78 instrumentMetadata exports, dimensions only) (publication column of STEM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FEI." ;
-    schema1:instrument <ex:stemTAPP-P1/instrument/STEM> ;
+    schema1:instrument <https://example.org/stemTAPP-P1/instrument/STEM> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02jbv0t02" ;
             schema1:name "Lawrence Berkeley National Laboratory" ] ;
@@ -39,7 +40,7 @@
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
 
-<ex:stemTAPP-P1/instrument/STEM> a schema1:Product,
+<https://example.org/stemTAPP-P1/instrument/STEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "STEM" ;

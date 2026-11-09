@@ -1,16 +1,26 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:LAFRaw ;
-    schema1:measurementTechnique <ex:lafTAPP-P0> ;
+ex:lafTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Greenwood, Richard" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "STFC Grant ST/Y000188/1" ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240124_laf_ou_orex-501042-0_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Open University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-501042-0" ] ;
+            schema1:startTime "2024-01-23" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-01-23" ;
     ada:analyst "Greenwood, Richard" ;
-    ada:componentType "ada:LAFRaw" ;
     ada:fundingSourceForAnalysis "STFC Grant ST/Y000188/1" ;
     ada:sampleName "OREX-501042-0" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240124_laf_ou_orex-501042-0_1" .
-
-<ex:lafTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 

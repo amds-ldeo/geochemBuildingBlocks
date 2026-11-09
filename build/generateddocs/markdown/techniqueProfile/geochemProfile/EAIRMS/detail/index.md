@@ -16,17 +16,52 @@ detail instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Institut
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:eairmsTAPP-detail-P0",
   "@type": [
-    "ada:EAIRMSCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:EAIRMSCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:eairmsTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Carnegie Institution for Science"
+      },
+      "schema:identifier": "20231209_ea-irms_cis_multisample_1",
+      "schema:startTime": "2023-10-04",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800107-177"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Foustoukos, Dionysis"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "his material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and CIW"
     }
   ],
   "ada:sessionIdentifier": "20231209_ea-irms_cis_multisample_1",
@@ -51,18 +86,53 @@ detail instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Institut
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EAIRMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:eairmsTAPP-detail-P0",
   "@type": [
-    "ada:EAIRMSCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:EAIRMSCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:eairmsTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Carnegie Institution for Science"
+      },
+      "schema:identifier": "20231209_ea-irms_cis_multisample_1",
+      "schema:startTime": "2023-10-04",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800107-177"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Foustoukos, Dionysis"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "his material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and CIW"
     }
   ],
   "ada:sessionIdentifier": "20231209_ea-irms_cis_multisample_1",
@@ -78,20 +148,30 @@ detail instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Institut
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:EAIRMSCollection ;
-    schema1:measurementTechnique <ex:eairmsTAPP-P0> ;
+ex:eairmsTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Foustoukos, Dionysis" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "his material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and CIW" ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20231209_ea-irms_cis_multisample_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Carnegie Institution for Science" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800107-177" ] ;
+            schema1:startTime "2023-10-04" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-10-04" ;
     ada:analyst "Foustoukos, Dionysis" ;
-    ada:componentType "ada:EAIRMSCollection" ;
     ada:fundingSourceForAnalysis "his material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and CIW" ;
     ada:sampleName "OREX-800107-177" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231209_ea-irms_cis_multisample_1" .
-
-<ex:eairmsTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EAIRMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

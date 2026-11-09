@@ -1,16 +1,27 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-Golish2024> a ada:QRISRaw ;
-    schema1:measurementTechnique <ex:qrisTAPP-Golish2024> ;
+ex:qrisTAPP-detail-Golish2024 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Golish, Dathon | Fulford, Ruby" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)" ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/04xx4z452" ;
+                    schema1:name "NASA Johnson Space Center" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)" ] ;
+            schema1:startTime "2024-04-11 | 2024-05-14" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-04-11 | 2024-05-14" ;
     ada:analyst "Golish, Dathon | Fulford, Ruby" ;
-    ada:componentType "ada:QRISRaw" ;
     ada:fundingSourceForAnalysis "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)" ;
     ada:sampleName "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)" .
-
-<ex:qrisTAPP-Golish2024> schema1:identifier "no value available: schema:identifier" .
 

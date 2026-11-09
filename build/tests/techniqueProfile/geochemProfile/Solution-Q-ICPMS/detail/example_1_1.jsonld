@@ -7,19 +7,356 @@
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-Q-ICPMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Gao2008",
+  "@id": "ex:solutionQicpmsTAPP-detail-Gao2008",
   "@type": [
-    "ada:SolutionICPMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SolutionICPMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:solutionQicpmsTAPP-Gao2008",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Sample digestion",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperature"
+                  }
+                ],
+                "schema:name": "Digestion Temperature",
+                "schema:value": 190,
+                "schema:unitText": "no value available: unnamed property",
+                "schema:description": "bomb attack: 190 \u00b0C; re-dissolution: 150 \u00b0C \u2014 \u00a73.3"
+              },
+              {
+                "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/SolutionIntroduction/digestionDuration"
+                  }
+                ],
+                "schema:name": "Digestion Duration",
+                "schema:value": "bomb attack: 48 h; re-dissolution: overnight \u2014 \u00a73.3"
+              }
+            ],
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 1
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard \u2014 clean-room conditions (\u00a73.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:position": 2
+          },
+          {
+            "schema:name": "Data processing",
+            "schema:position": 3,
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ]
+          }
+        ]
+      },
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume"
+                }
+              ],
+              "schema:name": "Sample Aliquot Mass or Volume",
+              "schema:value": 50,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "50 mg (stated section 3.3)"
+            }
+          ],
+          "schema:name": "AGV-1 (andesite), BHVO-1 (basalt), G-2 (granite), SCO-1 (shale), GSR-5 (shale); GSR-6 and \"another eighteen international\" RMs; worldwide loess and Chinese upper-crustal composites",
+          "schema:description": "no value available: schema:description"
+        }
+      ],
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalType": [
+                "ICPMS",
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:hasPart": [
+                {
+                  "schema:additionalType": [
+                    "Sample Introduction System",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
+                        }
+                      ],
+                      "schema:name": "Sample Uptake Rate",
+                      "schema:value": 0.2,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "0.20 ml/min (stated section 3.1)"
+                    },
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Nebulizer Gas Flow Rate",
+                      "schema:value": 3.1,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "N \u2014 'optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U' (\u00a73.1)"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS/part/Sample-Introduction-System"
+                },
+                {
+                  "schema:additionalType": [
+                    "ICP Source",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "schema:additionalProperty": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/rfPower"
+                        }
+                      ],
+                      "schema:name": "RF Power",
+                      "schema:value": 1350,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "1350 W (stated section 3.1)"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Coolant Plasma Gas Flow Rate",
+                      "schema:value": 14,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "14 L/min (outer ICP gas; stated section 3.1)"
+                    },
+                    {
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
+                      "@type": [
+                        "schema:PropertyValue"
+                      ],
+                      "schema:propertyID": [
+                        {
+                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
+                        }
+                      ],
+                      "schema:name": "Auxiliary Gas Flow Rate",
+                      "schema:value": 1.2,
+                      "schema:unitText": "no value available: unnamed property",
+                      "schema:description": "1.2 L/min (intermediate gas; stated section 3.1)"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "missing",
+                  "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS/part/ICP-Source"
+                },
+                {
+                  "schema:additionalType": [
+                    "Collision Reaction Cell",
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "Collision Reaction Cell",
+                  "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
+                    }
+                  ],
+                  "schema:name": "Doubly-Charged Species Monitor",
+                  "schema:value": "Ce2+/Ce+ \u2014 \u00a73.1"
+                },
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
+                    }
+                  ],
+                  "schema:name": "Doubly-Charged Species Production",
+                  "schema:value": "Ce2+/Ce+ below 2.5% \u2014 \u00a73.1"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                    }
+                  ],
+                  "schema:name": "Memory Effect Mitigation",
+                  "schema:value": "Alternating 5% HNO3 + 0.1% HF and 3% HNO3 washout for B and Ta (stated section 3.1)"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                    }
+                  ],
+                  "schema:name": "ICP Tuning",
+                  "schema:value": "Autolens voltages \"set by optimizing a solution of 10 ng/ml Mg, Co, Rh, Ce, Pb and U\"; \"The nebulizer gas flow rate was optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U, while keeping the CeO+/Ce+ and Ce2+/Ce+ ratios below 2.5%\""
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "no value available: schema:name",
+              "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS"
+            }
+          ]
+        },
+        {
+          "bios:reagent": [
+            {
+              "ada:reagentRole": "referenceMaterial",
+              "schema:name": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 \u2014 five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (\u00a73.4)",
+              "@type": [
+                "schema:DefinedTerm"
+              ]
+            }
+          ]
+        }
+      ],
+      "ada:proceduralBlankLevel": "Li: 0.036 \u00b1 0.028; Be: 0.00091 \u00b1 0.00049; B: 0.39 \u00b1 0.26; Sc: 0.033 \u00b1 0.011; V: 0.50 \u00b1 0.38; Cr: 0.53 \u00b1 0.16; Co: 0.0046 \u00b1 0.0032; Ni: 0.065 \u00b1 0.037; Cu: 0.072 \u00b1 0.022; Zn: 0.80 \u00b1 0.56; Ga: 0.0037 \u00b1 0.0020; Ge: 0.0081 \u00b1 0.0040; As: 0.021 \u00b1 0.009; Rb: 0.11 \u00b1 0.05; Sr: 0.018 \u00b1 0.018; Y: 0.0018 \u00b1 0.0017; Zr: 0.0030 \u00b1 0.0015; Nb: 0.0012 \u00b1 0.0012; Mo: 0.035 \u00b1 0.030; Cd: 0.0026 \u00b1 0.0015; In: 0.00016 \u00b1 0.00004; Sn: 0.0083 \u00b1 0.0016; Sb: 0.010 \u00b1 0.006; Te: 0.00097 \u00b1 0.00014; Cs: 0.00060 \u00b1 0.00034; Ba: 0.075 \u00b1 0.063; La: 0.0025 \u00b1 0.0020; Ce: 0.0028 \u00b1 0.0016; Pr: 0.00056 \u00b1 0.00042; Nd: 0.0019 \u00b1 0.0017; Sm: 0.00079 \u00b1 0.00036; Eu: 0.00023 \u00b1 0.00014; Gd: 0.00063 \u00b1 0.00054; Tb: 0.00013 \u00b1 0.00005; Dy: 0.00058 \u00b1 0.00038; Ho: 0.00013 \u00b1 0.00008; Er: 0.00027 \u00b1 0.00020; Tm: 0.00011 \u00b1 0.00003; Yb: 0.00043 \u00b1 0.00025; Lu: 0.00015 \u00b1 0.00007; Hf: 0.0010 \u00b1 0.0012; Ta: 0.00017 \u00b1 0.00009; W: 0.023 \u00b1 0.010; Tl: 0.0026 \u00b1 0.0009; Pb: 0.043 \u00b1 0.020; Bi: 0.00049 \u00b1 0.00028; Th: 0.00062 \u00b1 0.00050; U: 0.00027 \u00b1 0.00025 \u2014 ppb, mean \u00b1 STD of n = 5 blanks (Table 2)",
+      "ada:combinedResults": [
+        {}
+      ],
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "State Key Laboratory of Continental Dynamics, Northwest University, Xi'an (affiliation)"
+      },
+      "schema:description": "Auto lens voltages optimised on a 10 ng/ml Mg, Co, Rh, Ce, Pb and U solution; As and Te measured in 4.80 ml sample solution plus 0.20 ml ethanol; HF boiled before sub-boiling distillation to remove volatile As \u2014 \u00a73.1, \u00a73.2, \u00a73.3",
+      "schema:endTime": "no value available: schema:endTime",
+      "schema:identifier": "no value available: schema:identifier",
+      "schema:startTime": "no value available: schema:startTime"
     }
+  ],
+  "dqv:hasQualityMeasurement": [
+    {
+      "dqv:isMeasurementOf": "Within-Session Analytical Precision",
+      "dqv:value": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: RSD of n = 4\u20137 analyses, usually <8%] \u2014 Table 2 and \u00a73.4; whether the replicates share a session is not stated"
+    },
+    {
+      "dqv:isMeasurementOf": "Analytical Accuracy",
+      "dqv:value": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: agreement with GeoReM preferred values (AGV-1, BHVO-1) and Govindaraju 1994 (G-2, GSR-5, SCO-1), better than 8% for most elements]; JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 [Mo, Cd, In, Sn, Sb, W, Tl, Bi, As, Te: reasonable agreement with Govindaraju 1994 and GeoReM] \u2014 Tables 2 and 3, \u00a73.4"
+    },
+    {
+      "dqv:isMeasurementOf": "Goodness-of-Fit",
+      "dqv:value": "all: RSD, relative standard deviation in percent \u2014 Table 2: 'The RSD is the relative standard deviation in percent'"
+    },
+    {
+      "dqv:isMeasurementOf": "Oxide production ratio",
+      "dqv:value": "no value available: dqv:value"
+    },
+    {
+      "dqv:isMeasurementOf": "Between-Session Analytical Precision",
+      "dqv:value": "no value available: dqv:value"
+    }
+  ],
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\""
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -32,10 +369,7 @@
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Li: 0.036 \u00b1 0.028; Be: 0.00091 \u00b1 0.00049; B: 0.39 \u00b1 0.26; Sc: 0.033 \u00b1 0.011; V: 0.50 \u00b1 0.38; Cr: 0.53 \u00b1 0.16; Co: 0.0046 \u00b1 0.0032; Ni: 0.065 \u00b1 0.037; Cu: 0.072 \u00b1 0.022; Zn: 0.80 \u00b1 0.56; Ga: 0.0037 \u00b1 0.0020; Ge: 0.0081 \u00b1 0.0040; As: 0.021 \u00b1 0.009; Rb: 0.11 \u00b1 0.05; Sr: 0.018 \u00b1 0.018; Y: 0.0018 \u00b1 0.0017; Zr: 0.0030 \u00b1 0.0015; Nb: 0.0012 \u00b1 0.0012; Mo: 0.035 \u00b1 0.030; Cd: 0.0026 \u00b1 0.0015; In: 0.00016 \u00b1 0.00004; Sn: 0.0083 \u00b1 0.0016; Sb: 0.010 \u00b1 0.006; Te: 0.00097 \u00b1 0.00014; Cs: 0.00060 \u00b1 0.00034; Ba: 0.075 \u00b1 0.063; La: 0.0025 \u00b1 0.0020; Ce: 0.0028 \u00b1 0.0016; Pr: 0.00056 \u00b1 0.00042; Nd: 0.0019 \u00b1 0.0017; Sm: 0.00079 \u00b1 0.00036; Eu: 0.00023 \u00b1 0.00014; Gd: 0.00063 \u00b1 0.00054; Tb: 0.00013 \u00b1 0.00005; Dy: 0.00058 \u00b1 0.00038; Ho: 0.00013 \u00b1 0.00008; Er: 0.00027 \u00b1 0.00020; Tm: 0.00011 \u00b1 0.00003; Yb: 0.00043 \u00b1 0.00025; Lu: 0.00015 \u00b1 0.00007; Hf: 0.0010 \u00b1 0.0012; Ta: 0.00017 \u00b1 0.00009; W: 0.023 \u00b1 0.010; Tl: 0.0026 \u00b1 0.0009; Pb: 0.043 \u00b1 0.020; Bi: 0.00049 \u00b1 0.00028; Th: 0.00062 \u00b1 0.00050; U: 0.00027 \u00b1 0.00025 \u2014 ppb, mean \u00b1 STD of n = 5 blanks (Table 2)",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: RSD of n = 4\u20137 analyses, usually <8%] \u2014 Table 2 and \u00a73.4; whether the replicates share a session is not stated",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: agreement with GeoReM preferred values (AGV-1, BHVO-1) and Govindaraju 1994 (G-2, GSR-5, SCO-1), better than 8% for most elements]; JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 [Mo, Cd, In, Sn, Sb, W, Tl, Bi, As, Te: reasonable agreement with Govindaraju 1994 and GeoReM] \u2014 Tables 2 and 3, \u00a73.4"
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing"
 }

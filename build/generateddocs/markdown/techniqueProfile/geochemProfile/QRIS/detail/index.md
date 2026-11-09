@@ -16,17 +16,53 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Golish2024",
+  "@id": "ex:qrisTAPP-detail-Golish2024",
   "@type": [
-    "ada:QRISRaw"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:QRISRaw",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:qrisTAPP-Golish2024",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA Johnson Space Center",
+        "schema:identifier": "https://ror.org/04xx4z452"
+      },
+      "schema:identifier": "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)",
+      "schema:startTime": "2024-04-11 | 2024-05-14",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Golish, Dathon | Fulford, Ruby"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)"
     }
   ],
   "ada:sessionIdentifier": "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)",
@@ -51,18 +87,54 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/QRIS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Golish2024",
+  "@id": "ex:qrisTAPP-detail-Golish2024",
   "@type": [
-    "ada:QRISRaw"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:QRISRaw",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:qrisTAPP-Golish2024",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA Johnson Space Center",
+        "schema:identifier": "https://ror.org/04xx4z452"
+      },
+      "schema:identifier": "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)",
+      "schema:startTime": "2024-04-11 | 2024-05-14",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Golish, Dathon | Fulford, Ruby"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)"
     }
   ],
   "ada:sessionIdentifier": "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)",
@@ -78,20 +150,31 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-Golish2024> a ada:QRISRaw ;
-    schema1:measurementTechnique <ex:qrisTAPP-Golish2024> ;
+ex:qrisTAPP-detail-Golish2024 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Golish, Dathon | Fulford, Ruby" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)" ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/04xx4z452" ;
+                    schema1:name "NASA Johnson Space Center" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)" ] ;
+            schema1:startTime "2024-04-11 | 2024-05-14" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-04-11 | 2024-05-14" ;
     ada:analyst "Golish, Dathon | Fulford, Ruby" ;
-    ada:componentType "ada:QRISRaw" ;
     ada:fundingSourceForAnalysis "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)" ;
     ada:sampleName "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)" .
-
-<ex:qrisTAPP-Golish2024> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -319,7 +402,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.QRIS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

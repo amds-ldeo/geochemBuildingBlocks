@@ -16,17 +16,37 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:sXrfTAPP-detail-P0",
   "@type": [
-    "ada:SXRF2DImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SXRF2DImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:sXrfTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "European Synchrotron Radiation Facility",
+        "schema:identifier": "https://ror.org/02550n020"
+      },
+      "schema:identifier": "20240117_S-XRF_ESRF_OREX-800045-101_1",
+      "schema:startTime": "2023-12-11",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800045-101"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20240117_S-XRF_ESRF_OREX-800045-101_1",
@@ -51,18 +71,38 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/S-XRF/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:sXrfTAPP-detail-P0",
   "@type": [
-    "ada:SXRF2DImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SXRF2DImage",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:sXrfTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "European Synchrotron Radiation Facility",
+        "schema:identifier": "https://ror.org/02550n020"
+      },
+      "schema:identifier": "20240117_S-XRF_ESRF_OREX-800045-101_1",
+      "schema:startTime": "2023-12-11",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800045-101"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "ada:sessionIdentifier": "20240117_S-XRF_ESRF_OREX-800045-101_1",
@@ -78,20 +118,27 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:SXRF2DImage ;
-    schema1:measurementTechnique <ex:sXrfTAPP-P0> ;
+ex:sXrfTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240117_S-XRF_ESRF_OREX-800045-101_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:identifier "https://ror.org/02550n020" ;
+                    schema1:name "European Synchrotron Radiation Facility" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800045-101" ] ;
+            schema1:startTime "2023-12-11" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-12-11" ;
     ada:analyst "missing" ;
-    ada:componentType "ada:SXRF2DImage" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800045-101" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240117_S-XRF_ESRF_OREX-800045-101_1" .
-
-<ex:sXrfTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +204,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.S-XRF.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

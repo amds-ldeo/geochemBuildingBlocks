@@ -3,6 +3,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -11,6 +12,7 @@
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -35,8 +37,6 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "plagioclase and its polymorphs: 2\u20135 \u00b5m; other: N \u2014 'a defocused beam (2\u20135 \u03bcm in diameter)'",
-      "ada:beamMode": "plagioclase and its polymorphs: Defocused; other: Focused \u2014 Methods",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -144,59 +144,12 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/analyticalAccuracy",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "xRayBackgroundCorrectionMethod",
-        "schema:name": "X-ray Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/beamCurrent",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": -9999
-      },
-      {
         "@id": "ada:targetSpeciesColumn/epmaTAPP/blankCorrection",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "blankCorrection",
         "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
       },
       {
@@ -289,6 +242,54 @@
         "schema:defaultValue": -9999
       },
       {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": -9999
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamDamageMinimization",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamDamageMinimization",
+        "schema:name": "Beam Damage Minimization",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamDiameter",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamDiameter",
+        "schema:name": "Beam Diameter",
+        "ada:dataType": "number",
+        "schema:defaultValue": -9999
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamMode",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamMode",
+        "schema:name": "Beam Mode",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamRasterDimensions",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamRasterDimensions",
+        "schema:name": "Beam Raster Dimensions",
+        "ada:dataType": "number"
+      },
+      {
         "@id": "ada:targetMaterialColumn/epmaTAPP/peakCountingTime",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -312,9 +313,37 @@
     "ada:defaultTargetMaterials": []
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Spatial position within the shock assemblage \u2014 garnet is analysed \"within the eclogitic mineral assemblage of zoned veins\" and contrasted with grains \"in either thin melt veins or the edge zones of zoned melt veins\" (p.4); the individual grains are not otherwise chosen by a stated rule",
-  "ada:monitoredElements": [
-    "N \u2014 \"Natural and synthetic standards were used\" (p.7) without naming them; the analysed elements are given in Supplementary Table 4, which is not in the archived PDF"
-  ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "En, Fs, Wo; Ca-Eskola component; empirical formulae \u2014 mol% (p.2, p.4); the oxide analyses are in Supplementary Tables 1\u20134, not in the archived PDF",
+    "ada:defaultReportedProperties": [
+      "En, Fs, Wo",
+      "Ca-Eskola component",
+      "empirical formulae"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -355,9 +384,6 @@
   "ada:analyticalMode": [
     "WDS Point Analysis"
   ],
-  "ada:reportedProperties": [
-    "En, Fs, Wo; Ca-Eskola component; empirical formulae \u2014 mol% (p.2, p.4); the oxide analyses are in Supplementary Tables 1\u20134, not in the archived PDF"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -393,7 +419,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "EPMA analytical workflow"
   },
   "schema:variableMeasured": [
     {

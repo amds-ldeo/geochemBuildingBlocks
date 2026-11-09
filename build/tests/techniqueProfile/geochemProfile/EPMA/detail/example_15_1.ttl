@@ -1,25 +1,134 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:detail-Neuman2025> a ada:EPMAImage ;
-    schema1:measurementTechnique <ex:epmaTAPP-Neuman2025> ;
+ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
+        schema1:Product ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/mapArea>,
+        <https://ada.astromat.org/metadata/parameter/epmaTAPP/mapDimensions> ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA ANGSA program 80NSSC19K0958 — 'We thank NASA for support of the ANGSA program (Grant 80NSSC19K0958)'" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Ogliore (2025) — 'The quantitative EPMA image data and coregistered image sets are available in Ogliore (2025)'" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases" ;
+                    schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamRasterDimensions>,
+                <https://ada.astromat.org/metadata/parameter/epmaTAPP/stepSizePixelSize> ;
+            schema1:description "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes." ;
+            schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "no value available: schema:identifier" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Washington University in St. Louis" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:name "73001,6014-73001,6021" ] ;
+            schema1:startTime "no value available: schema:startTime" ;
+            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Neuman2025/instrument/EPMA> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+                            ada:toolRole "dataReduction" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
+                            ada:toolRole "acquisition" ] ] ;
+            ada:deadTime -9999 ;
+            ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
+    ada:analyticalMode "WDS Mapping — 'five EPMA stage maps were acquired using fixed wavelength-dispersive spectrometers (WDS)'" ;
     ada:analyticalPrecision "missing" ;
-    ada:componentType "ada:EPMAImage" ;
     ada:detectionLimit "all: 0.1–0.2 element wt% — 'for all elements in this map set'" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "NASA ANGSA program 80NSSC19K0958 — 'We thank NASA for support of the ANGSA program (Grant 80NSSC19K0958)'" ;
-    ada:mapArea "N - not stated directly (1,024 pixels at 9.5 um step corresponds to ~9.7 mm per side)" ;
-    ada:mapDimensions 1 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "73001,6014-73001,6021" ;
     ada:samplingUnitName "Labelled at thin-section level: \"The 73001,6014–73001,6021 samples are 50 × 25 mm continuous thin sections\" (p.6), e.g. the \"73001,6019\" X-ray map (p.11); every map pixel is an analysis, so the section — the acquisition area — is the unit named" ;
     ada:sessionIdentifier "missing" ;
     ada:targetMaterialOfSamplingUnit "missing" .
 
-<ex:epmaTAPP-Neuman2025> schema1:identifier "no value available: schema:identifier" .
+<https://example.org/epmaTAPP-detail-Neuman2025/instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
+        <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter>,
+        <https://ada.astromat.org/metadata/parameter/epmaTAPP/mappingBeamCurrent>,
+        <https://ada.astromat.org/metadata/parameter/epmaTAPP/mappingBeamDiameter> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:name "no value available: schema:name" .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage> a schema1:PropertyValue ;
+    schema1:description "15 kV (stage maps and BSE mosaic)" ;
+    schema1:name "Accelerating Voltage" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 15 .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> a schema1:PropertyValue ;
+    schema1:name "Beam Diameter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N/A — mapping-only procedure; map beam under Mapping Beam Diameter" .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/beamRasterDimensions> a schema1:PropertyValue ;
+    schema1:name "Beam Raster Dimensions" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamRasterDimensions> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value "N/A — stage scan, not beam scan" .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/mapArea> a schema1:PropertyValue ;
+    schema1:description "N - not stated directly (1,024 pixels at 9.5 um step corresponds to ~9.7 mm per side)" ;
+    schema1:name "Map Area" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/mapArea> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1 .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/mapDimensions> a schema1:PropertyValue ;
+    schema1:description "1,024 x 1,024 pixels per stage map; five stage maps per thin section" ;
+    schema1:name "Map Dimensions" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/mapDimensions> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 1 .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/mappingBeamCurrent> a schema1:PropertyValue ;
+    schema1:description "100 nA probe current (stage maps)" ;
+    schema1:name "Mapping Beam Current" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/mappingBeamCurrent> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 100 .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/mappingBeamDiameter> a schema1:PropertyValue ;
+    schema1:description "10 µm (fixed)" ;
+    schema1:name "Mapping Beam Diameter" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/mappingBeamDiameter> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 10 .
+
+<https://ada.astromat.org/metadata/parameter/epmaTAPP/stepSizePixelSize> a schema1:PropertyValue ;
+    schema1:description "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)" ;
+    schema1:name "Step Size / Pixel Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/epmaTAPP/stepSizePixelSize> ;
+    schema1:unitText "no value available: unnamed property" ;
+    schema1:value 9.5e+00 .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+    schema1:value "BSE mosaic: approximately 325 backscattered-electron images collected with the JEOL guide-net mapping software at 15 kV, 2 nA probe current and 70x magnification, stitched with the ImageJ Fiji grid-collection stitching plug-in (Donovan et al., 2021) into a 20k x 5k pixel mosaic at ~1.5 um pixel resolution" .
 

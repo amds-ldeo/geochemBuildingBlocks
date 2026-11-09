@@ -118,6 +118,12 @@ Registry of reusable schema:PropertyValue parameter-value definitions derived fr
 
 Registry of reusable schema:PropertyValueSpecification reported-property column definitions derived from technique TAPP workbooks. Each $def constrains one column of the reported-property table -- the variables a procedure REPORTS, as distinct from the analytes and channels it acquires. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the register.
 
+### `ogch.registry.standardColumns` — Standard-Column Specification Registry
+
+**Type:** schema
+
+Registry of reusable schema:PropertyValueSpecification standard column definitions derived from technique TAPP workbooks. Each $def constrains one column of the standards table -- the reference materials a procedure calibrates against. A row of that table is a standard BY the thing it standardizes, so one standard appears once per target and the identifier column is not unique per row. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.
+
 ### `ogch.registry.targetMaterialColumns` — Target-Material-Column Specification Registry
 
 **Type:** schema
@@ -304,17 +310,23 @@ The shared Analyte block of the 2026-08-11 TAPP library, composed by 13 of the s
 
 The shared UPb block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 3 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
-### `ogch.BaseSchema.geochemProduct` — Geochem Analytical Product
+### `ogch.BaseSchema.geochemBaseProfile` — Geochem Base Profile
 
 **Type:** schema
 
-Generic geochemistry analytical product metadata base: composes the CDIF core, data-description, manifest, and provenance profiles with the analytical surface (analysis events, variables measured, distributions, coverage). Extended by archive-specific delivery profiles such as adaProduct.
+The geochemistry overlay on its own: the analytical surface this repository adds to, and refines on top of, the CDIF profiles -- analysis events, variables measured, distributions and parts, coverage, and the product-level declarations. geochemProduct is the composition of the CDIF profiles with this block; this block composes nothing and is not a standalone record schema.
 
 ### `ogch.BaseSchema.structuredData` — Structured Data File Type
 
 **Type:** schema
 
 A container/array data file (HDF5, NeXus) in an ADA bundle whose layout is described by a CDIF DataStructure via cdi:isStructuredBy. The bundle-part analog of the monolithic single-file isStructuredBy pattern (pattern chosen by encoding, not position). Defines properties: @type, ada:componentType, cdi:isStructuredBy. Uses building blocks: cdifDataStructure (cdifProperties).
+
+### `ogch.BaseSchema.geochemProduct` — Geochem Analytical Product
+
+**Type:** schema
+
+Generic geochemistry analytical product metadata base: composes the CDIF core, data-description, manifest, and provenance profiles with the analytical surface (analysis events, variables measured, distributions, coverage). Extended by archive-specific delivery profiles such as adaProduct.
 
 ### `ogch.BaseSchema.modules.compositionQC` — TAPP Composition Module: CompositionQC
 
@@ -326,7 +338,7 @@ The shared CompositionQC block of the 2026-08-11 TAPP library, composed by 12 of
 
 **Type:** schema
 
-The shared Core block of the 2026-08-11 TAPP library, composed by 16 of the sixteen delivery tables. 32 owned fields over 37 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared Core block of the 2026-08-11 TAPP library, composed by 16 of the sixteen delivery tables. 32 owned fields over 36 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.files` — Files Type
 

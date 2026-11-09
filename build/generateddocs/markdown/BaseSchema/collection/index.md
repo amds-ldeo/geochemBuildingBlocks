@@ -182,7 +182,7 @@ properties:
     - ada:supplementalBasemap
     - ada:supplementaryImage
     - ada:worldFile
-    - nil:missing
+    - http://www.opengis.net/def/nil/OGC/0/missing
     description: ADA componentType for a collection, as a single string. Allowed values
       are constrained at the technique-profile level (each adaProfile's schema:hasPart
       anyOf enumerates the allowed values for that technique, either inline or via
@@ -238,7 +238,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.collection
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

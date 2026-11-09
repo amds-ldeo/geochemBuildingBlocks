@@ -53,7 +53,10 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
   "ada:fieldScope": "session",
   "schema:readonlyValue": true,
   "ada:tier": "R",
-  "schema:defaultValue": "no value available: unnamed property"
+  "schema:defaultValue": "no value available: unnamed property",
+  "schema:inDefinedTermSet": {
+    "@id": "ada:vocab/detector-configuration"
+  }
 }
 ```
 
@@ -77,7 +80,10 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
   "ada:fieldScope": "session",
   "schema:readonlyValue": true,
   "ada:tier": "R",
-  "schema:defaultValue": "no value available: unnamed property"
+  "schema:defaultValue": "no value available: unnamed property",
+  "schema:inDefinedTermSet": {
+    "@id": "ada:vocab/detector-configuration"
+  }
 }
 ```
 
@@ -89,6 +95,7 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
+    schema1:inDefinedTermSet <https://ada.astromat.org/metadata/vocab/detector-configuration> ;
     schema1:name "Detector Configuration" ;
     schema1:readonlyValue true ;
     schema1:valueName "detectorConfiguration" ;
@@ -115,7 +122,10 @@ A parameter the SingleCollector module publishes for the analysis side. The modu
     }
   ],
   "schema:name": "Pulse Analog Detector Nonlinearity Correction",
-  "schema:value": "no value available: unnamed property"
+  "schema:value": "no value available: unnamed property",
+  "schema:inDefinedTermSet": {
+    "@id": "ada:vocab/pulse-analog-detector-nonlinearity-correction"
+  }
 }
 ```
 
@@ -138,7 +148,10 @@ A parameter the SingleCollector module publishes for the analysis side. The modu
     }
   ],
   "schema:name": "Pulse Analog Detector Nonlinearity Correction",
-  "schema:value": "no value available: unnamed property"
+  "schema:value": "no value available: unnamed property",
+  "schema:inDefinedTermSet": {
+    "@id": "ada:vocab/pulse-analog-detector-nonlinearity-correction"
+  }
 }
 ```
 
@@ -147,6 +160,7 @@ A parameter the SingleCollector module publishes for the analysis side. The modu
 @prefix schema1: <http://schema.org/> .
 
 <ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> a schema1:PropertyValue ;
+    schema1:inDefinedTermSet <ada:vocab/pulse-analog-detector-nonlinearity-correction> ;
     schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
     schema1:propertyID <ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
     schema1:value "no value available: unnamed property" .
@@ -170,7 +184,10 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
   "ada:fieldScope": "session",
   "schema:readonlyValue": false,
   "ada:tier": "R",
-  "schema:defaultValue": "no value available: unnamed property"
+  "schema:defaultValue": "no value available: unnamed property",
+  "schema:inDefinedTermSet": {
+    "@id": "ada:vocab/pulse-analog-detector-nonlinearity-correction"
+  }
 }
 ```
 
@@ -194,7 +211,10 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
   "ada:fieldScope": "session",
   "schema:readonlyValue": false,
   "ada:tier": "R",
-  "schema:defaultValue": "no value available: unnamed property"
+  "schema:defaultValue": "no value available: unnamed property",
+  "schema:inDefinedTermSet": {
+    "@id": "ada:vocab/pulse-analog-detector-nonlinearity-correction"
+  }
 }
 ```
 
@@ -206,6 +226,7 @@ A parameter the SingleCollector module publishes for the procedure side. The mod
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
+    schema1:inDefinedTermSet <https://ada.astromat.org/metadata/vocab/pulse-analog-detector-nonlinearity-correction> ;
     schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
     schema1:readonlyValue false ;
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
@@ -259,6 +280,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/detector-configuration
     required:
     - '@id'
     - '@type'
@@ -290,6 +314,9 @@ $defs:
         const: Pulse Analog Detector Nonlinearity Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -327,6 +354,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -338,7 +368,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.singleCollector
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

@@ -16,17 +16,52 @@ detail instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Ther
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Ultimate3000",
+  "@id": "ex:lcmsTAPP-detail-Ultimate3000",
   "@type": [
-    "ada:LCMSCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:LCMSCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:lcmsTAPP-Ultimate3000",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Kyushu University"
+      },
+      "schema:identifier": "20240301_lc-ms_ku_orex-800044-101_1",
+      "schema:startTime": "2023-11-15",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800044-101"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Oba, Yasuhiro"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA"
     }
   ],
   "ada:sessionIdentifier": "20240301_lc-ms_ku_orex-800044-101_1",
@@ -51,18 +86,53 @@ detail instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Ther
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LCMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-Ultimate3000",
+  "@id": "ex:lcmsTAPP-detail-Ultimate3000",
   "@type": [
-    "ada:LCMSCollection"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:LCMSCollection",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:lcmsTAPP-Ultimate3000",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Kyushu University"
+      },
+      "schema:identifier": "20240301_lc-ms_ku_orex-800044-101_1",
+      "schema:startTime": "2023-11-15",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800044-101"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Oba, Yasuhiro"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA"
     }
   ],
   "ada:sessionIdentifier": "20240301_lc-ms_ku_orex-800044-101_1",
@@ -78,20 +148,30 @@ detail instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Ther
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-Ultimate3000> a ada:LCMSCollection ;
-    schema1:measurementTechnique <ex:lcmsTAPP-Ultimate3000> ;
+ex:lcmsTAPP-detail-Ultimate3000 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Oba, Yasuhiro" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA" ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240301_lc-ms_ku_orex-800044-101_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Kyushu University" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800044-101" ] ;
+            schema1:startTime "2023-11-15" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-15" ;
     ada:analyst "Oba, Yasuhiro" ;
-    ada:componentType "ada:LCMSCollection" ;
     ada:fundingSourceForAnalysis "NASA" ;
     ada:sampleName "OREX-800044-101" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240301_lc-ms_ku_orex-800044-101_1" .
-
-<ex:lcmsTAPP-Ultimate3000> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LCMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

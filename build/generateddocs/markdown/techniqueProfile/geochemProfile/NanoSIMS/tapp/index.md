@@ -17,6 +17,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -33,6 +34,27 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
   "schema:description": "nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoSIMS 50L (publication column of NanoSIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = NanoSIMS.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(OU)NanoSIMS 50L",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Sample Name",
+      "X",
+      "Y",
+      "Z",
+      "16O Counts",
+      "17O/16O Ratio"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -61,14 +83,11 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
       "schema:name": "STFC Grant ST/Y000188/1"
     }
   ],
-  "ada:reportedProperties": [
-    "Sample Name | X | Y | Z | 16O Counts | 17O/16O Ratio"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Nanoscale secondary ion mass spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -109,6 +128,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -117,6 +137,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     {
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
       "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#"
@@ -134,6 +155,27 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
   "schema:description": "nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoSIMS 50L (publication column of NanoSIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = NanoSIMS.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(OU)NanoSIMS 50L",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Sample Name",
+      "X",
+      "Y",
+      "Z",
+      "16O Counts",
+      "17O/16O Ratio"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -162,14 +204,11 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
       "schema:name": "STFC Grant ST/Y000188/1"
     }
   ],
-  "ada:reportedProperties": [
-    "Sample Name | X | Y | Z | 16O Counts | 17O/16O Ratio"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Nanoscale secondary ion mass spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [
@@ -207,17 +246,18 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<ex:nanosimsTAPP-P0> a cdi:Activity,
+ex:nanosimsTAPP-P0 a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
-            schema1:name "missing" ;
+            schema1:name "Nanoscale secondary ion mass spectrometry analytical workflow" ;
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
@@ -241,7 +281,19 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(OU)NanoSIMS 50L" ;
-    ada:reportedProperties "Sample Name | X | Y | Z | 16O Counts | 17O/16O Ratio" ;
+    ada:reportedPropertyTemplate [ ada:defaultReportedProperties "16O Counts",
+                "17O/16O Ratio",
+                "Sample Name",
+                "X",
+                "Y",
+                "Z" ;
+            ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "reportedProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
@@ -339,6 +391,19 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction
         to calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -357,7 +422,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.NanoSIMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 

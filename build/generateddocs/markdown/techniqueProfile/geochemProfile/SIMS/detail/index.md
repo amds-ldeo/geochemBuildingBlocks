@@ -16,17 +16,52 @@ detail instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Pe
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P0",
+  "@id": "ex:simsTAPP-detail-P0",
   "@type": [
-    "ada:SIMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SIMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:simsTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Centre de Recherches Petrographiques et Geochimiques (Nancy, France)"
+      },
+      "schema:identifier": "20240422_sims_cnrs-crpg_orex-800045-103_1",
+      "schema:startTime": "2024-02-29",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800045-103"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Marrocchi, Yves"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)."
     }
   ],
   "ada:sessionIdentifier": "20240422_sims_cnrs-crpg_orex-800045-103_1",
@@ -51,18 +86,53 @@ detail instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Pe
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SIMS/detail/context.jsonld",
     {
       "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
+      "ada": "https://ada.astromat.org/metadata/",
+      "ex": "https://example.org/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
     }
   ],
-  "@id": "ex:detail-P0",
+  "@id": "ex:simsTAPP-detail-P0",
   "@type": [
-    "ada:SIMSTabular"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:SIMSTabular",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:simsTAPP-P0",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Centre de Recherches Petrographiques et Geochimiques (Nancy, France)"
+      },
+      "schema:identifier": "20240422_sims_cnrs-crpg_orex-800045-103_1",
+      "schema:startTime": "2024-02-29",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-800045-103"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Marrocchi, Yves"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)."
     }
   ],
   "ada:sessionIdentifier": "20240422_sims_cnrs-crpg_orex-800045-103_1",
@@ -78,20 +148,30 @@ detail instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Pe
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
-<ex:detail-P0> a ada:SIMSTabular ;
-    schema1:measurementTechnique <ex:simsTAPP-P0> ;
+ex:simsTAPP-detail-P0 a schema1:Dataset,
+        schema1:Product ;
+    schema1:contributor [ schema1:contributor [ schema1:name "Marrocchi, Yves" ] ;
+            schema1:roleName "analyst" ] ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)." ] ;
+    prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
+            schema1:identifier "20240422_sims_cnrs-crpg_orex-800045-103_1" ;
+            schema1:location [ a schema1:Place ;
+                    schema1:name "Centre de Recherches Petrographiques et Geochimiques (Nancy, France)" ] ;
+            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+                    schema1:name "OREX-800045-103" ] ;
+            schema1:startTime "2024-02-29" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-02-29" ;
     ada:analyst "Marrocchi, Yves" ;
-    ada:componentType "ada:SIMSTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)." ;
     ada:sampleName "OREX-800045-103" ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240422_sims_cnrs-crpg_orex-800045-103_1" .
-
-<ex:simsTAPP-P0> schema1:identifier "no value available: schema:identifier" .
 
 
 ```
@@ -157,7 +237,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SIMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-10-31'
+  dateOfLastChange: '2026-11-09'
 
 ```
 
