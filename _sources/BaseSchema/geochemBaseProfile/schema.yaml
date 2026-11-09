@@ -420,8 +420,18 @@ properties:
                   combined result nothing can name gives a field keyed by combined result no
                   row to attach its value to.
                 type: string
+      # An analysis always happened somewhere, so the activity must name a laboratory
+      # node. What that node must CARRY is deliberately left to cdifLaboratory, which
+      # requires one of schema:name / schema:identifier / schema:geo /
+      # geosparql:hasGeometry rather than a name specifically: a laboratory may honestly
+      # never have been assigned a name, and a ROR or a coordinate identifies it just as
+      # well. Do not add "schema:name" here, and do not pin the
+      # [schema:additionalType='Laboratory'] selector the sidecar paths use -- the node is
+      # the laboratory by virtue of its position and its $ref, and no record in the corpus
+      # carries that additionalType (281 carry none, 110 carry an unrelated NXsource).
       required:
         - "prov:used"
+        - "schema:location"
   "schema:variableMeasured":
     title: Measured Variables
     description: >-
