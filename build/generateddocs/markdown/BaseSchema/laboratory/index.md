@@ -3,7 +3,7 @@
 
 `ogch.BaseSchema.laboratory` *v0.1*
 
-ADA laboratory/facility building block extending core CDIF spatialExtent (schema:Place). Adds nxs:BaseClass/NXsource classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates from core.
+ADA laboratory/facility building block extending core CDIF spatialExtent (schema:Place). Adds a Wikidata laboratory (Q483242) classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates from core.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
@@ -17,12 +17,12 @@ Extends the core CDIF [spatialExtent](https://cross-domain-interoperability-fram
 
 ### ADA Analysis Laboratory Example
 A laboratory facility extending core spatialExtent (schema:Place) with
-NeXus NXsource classification in additionalType.
+a Wikidata laboratory classification in additionalType.
 #### json
 ```json
 {
   "@type": ["schema:Place"],
-  "schema:additionalType": [{"@id": "nxs:base_classes/NXsource.html"}],
+  "schema:additionalType": [{"@id": "https://www.wikidata.org/wiki/Q483242"}],
   "schema:name": "Lunar and Planetary Laboratory Electron Microprobe Facility",
   "schema:alternateName": ["LPL EPMA Lab"],
   "schema:identifier": "https://ror.org/03m2x1q45"
@@ -35,8 +35,7 @@ NeXus NXsource classification in additionalType.
 {
   "@context": [
     {
-      "schema": "http://schema.org/",
-      "nxs": "https://manual.nexusformat.org/classes/"
+      "schema": "http://schema.org/"
     },
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/context.jsonld"
   ],
@@ -45,7 +44,7 @@ NeXus NXsource classification in additionalType.
   ],
   "schema:additionalType": [
     {
-      "@id": "nxs:base_classes/NXsource.html"
+      "@id": "https://www.wikidata.org/wiki/Q483242"
     }
   ],
   "schema:name": "Lunar and Planetary Laboratory Electron Microprobe Facility",
@@ -61,7 +60,7 @@ NeXus NXsource classification in additionalType.
 @prefix schema1: <http://schema.org/> .
 
 [] a schema1:Place ;
-    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
     schema1:alternateName "LPL EPMA Lab" ;
     schema1:identifier "https://ror.org/03m2x1q45" ;
     schema1:name "Lunar and Planetary Laboratory Electron Microprobe Facility" .
@@ -75,8 +74,9 @@ NeXus NXsource classification in additionalType.
 $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA Analysis Laboratory
 description: ADA laboratory or facility building block. Extends the core CDIF spatialExtent
-  (schema:Place) with NeXus NXsource classification via additionalType. Inherits place
-  name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.
+  (schema:Place) with a Wikidata laboratory classification via additionalType. Inherits
+  place name, identifier, alternateName, geo coordinates, and geosparql geometry from
+  spatialExtent.
 allOf:
 - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml
 - type: object
@@ -88,11 +88,26 @@ allOf:
       title: Laboratory Alternate Name
       x-jsonld-id: http://schema.org/alternateName
     schema:additionalType:
-      description: 'Must classify the place as a NeXus NXsource. The value is a sealed
+      description: 'Must classify the place as a laboratory. The value is a sealed
         reference ({"@id": ...}) so JSON-LD expands it to a real IRI; written as a
         bare string it stays a literal that looks like a URI and resolves to nothing.
-        The two-segment path is the form that actually resolves -- .../classes/BaseClass/NXsource
-        is a 404, .../classes/base_classes/NXsource.html is not.'
+        The IRI is spelled out in full rather than as a CURIE because no context in
+        this repo defines a Wikidata prefix -- the instrument block writes https://www.wikidata.org/wiki/Q3099911
+        the same way.
+
+        Wikidata Q483242 "laboratory" is a subclass of facility (Q13226383), which
+        is what makes it right for a schema:Place. An Organization type would not
+        be: schema:DiagnosticLab is clinical and sits under MedicalOrganization, and
+        schema:ResearchOrganization is an organization rather than a place.
+
+        This slot held nxs:base_classes/NXsource.html until 2026-11-09. That was wrong
+        -- NXsource is the radiation or particle source that produces a beam, not
+        the place it stands in; its name field conventionally carries a facility name,
+        which is the likely route to the confusion. NeXus has no facility or laboratory
+        base class, so unlike the instrument block -- where NXinstrument is correct
+        and sits beside its Wikidata class -- there is nothing to keep here alongside
+        Q483242. Bioschemas has no Laboratory type either; its LabProtocol and LabProcess
+        describe the procedure and the run, not the place.'
       type: array
       items:
         $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
@@ -103,11 +118,10 @@ allOf:
         - '@id'
         properties:
           '@id':
-            const: nxs:base_classes/NXsource.html
+            const: https://www.wikidata.org/wiki/Q483242
       x-jsonld-id: http://schema.org/additionalType
 x-jsonld-prefixes:
   schema: http://schema.org/
-  nxs: https://manual.nexusformat.org/classes/
 x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.laboratory
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
@@ -129,7 +143,6 @@ Links to the schema:
   "@context": {
     "schema": "http://schema.org/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "@version": 1.1
   }
 }

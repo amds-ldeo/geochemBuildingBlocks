@@ -225,7 +225,7 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
           {
-            "@id": "nxs:base_classes/NXsource.html"
+            "@id": "https://www.wikidata.org/wiki/Q483242"
           }
         ]
       },
@@ -759,7 +759,7 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
           {
-            "@id": "nxs:base_classes/NXsource.html"
+            "@id": "https://www.wikidata.org/wiki/Q483242"
           }
         ]
       },
@@ -1168,7 +1168,7 @@ ex:adaTEM-example-001 a schema1:Dataset,
             schema1:endTime "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
-                    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
             schema1:object [ a schema1:Thing,

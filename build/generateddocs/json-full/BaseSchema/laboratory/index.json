@@ -4,7 +4,7 @@
   "itemIdentifier": "ogch.BaseSchema.laboratory",
   "$schema": "metaschema.yaml",
   "name": "ADA Analysis Laboratory",
-  "abstract": "ADA laboratory/facility building block extending core CDIF spatialExtent (schema:Place). Adds nxs:BaseClass/NXsource classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates from core.",
+  "abstract": "ADA laboratory/facility building block extending core CDIF spatialExtent (schema:Place). Adds a Wikidata laboratory (Q483242) classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates from core.",
   "status": "under-development",
   "dateTimeAddition": "2026-02-05T00:00:00Z",
   "itemClass": "schema",
@@ -64,34 +64,33 @@
   "examples": [
     {
       "title": "ADA Analysis Laboratory Example",
-      "content": "A laboratory facility extending core spatialExtent (schema:Place) with\nNeXus NXsource classification in additionalType.",
+      "content": "A laboratory facility extending core spatialExtent (schema:Place) with\na Wikidata laboratory classification in additionalType.",
       "prefixes": {
-        "schema": "http://schema.org/",
-        "nxs": "https://manual.nexusformat.org/classes/"
+        "schema": "http://schema.org/"
       },
       "snippets": [
         {
           "language": "json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/laboratory/example_1_1.json",
-          "sizeBytes": 280,
-          "code": "{\n  \"@type\": [\"schema:Place\"],\n  \"schema:additionalType\": [{\"@id\": \"nxs:base_classes/NXsource.html\"}],\n  \"schema:name\": \"Lunar and Planetary Laboratory Electron Microprobe Facility\",\n  \"schema:alternateName\": [\"LPL EPMA Lab\"],\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}\n"
+          "sizeBytes": 287,
+          "code": "{\n  \"@type\": [\"schema:Place\"],\n  \"schema:additionalType\": [{\"@id\": \"https://www.wikidata.org/wiki/Q483242\"}],\n  \"schema:name\": \"Lunar and Planetary Laboratory Electron Microprobe Facility\",\n  \"schema:alternateName\": [\"LPL EPMA Lab\"],\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/laboratory/example_1_1.jsonld",
-          "sizeBytes": 551,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"nxs\": \"https://manual.nexusformat.org/classes/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Place\"\n  ],\n  \"schema:additionalType\": [\n    {\n      \"@id\": \"nxs:base_classes/NXsource.html\"\n    }\n  ],\n  \"schema:name\": \"Lunar and Planetary Laboratory Electron Microprobe Facility\",\n  \"schema:alternateName\": [\n    \"LPL EPMA Lab\"\n  ],\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}"
+          "sizeBytes": 502,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/context.jsonld\"\n  ],\n  \"@type\": [\n    \"schema:Place\"\n  ],\n  \"schema:additionalType\": [\n    {\n      \"@id\": \"https://www.wikidata.org/wiki/Q483242\"\n    }\n  ],\n  \"schema:name\": \"Lunar and Planetary Laboratory Electron Microprobe Facility\",\n  \"schema:alternateName\": [\n    \"LPL EPMA Lab\"\n  ],\n  \"schema:identifier\": \"https://ror.org/03m2x1q45\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/BaseSchema/laboratory/example_1_1.ttl",
-          "sizeBytes": 337,
-          "code": "@prefix schema1: <http://schema.org/> .\n\n[] a schema1:Place ;\n    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;\n    schema1:alternateName \"LPL EPMA Lab\" ;\n    schema1:identifier \"https://ror.org/03m2x1q45\" ;\n    schema1:name \"Lunar and Planetary Laboratory Electron Microprobe Facility\" .\n\n"
+          "sizeBytes": 309,
+          "code": "@prefix schema1: <http://schema.org/> .\n\n[] a schema1:Place ;\n    schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;\n    schema1:alternateName \"LPL EPMA Lab\" ;\n    schema1:identifier \"https://ror.org/03m2x1q45\" ;\n    schema1:name \"Lunar and Planetary Laboratory Electron Microprobe Facility\" .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA Analysis Laboratory\ndescription: ADA laboratory or facility building block. Extends the core CDIF spatialExtent\n  (schema:Place) with NeXus NXsource classification via additionalType. Inherits place\n  name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.\nallOf:\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml\n- type: object\n  properties:\n    schema:identifier:\n      title: Laboratory Identifier\n      x-jsonld-id: http://schema.org/identifier\n    schema:alternateName:\n      title: Laboratory Alternate Name\n      x-jsonld-id: http://schema.org/alternateName\n    schema:additionalType:\n      description: 'Must classify the place as a NeXus NXsource. The value is a sealed\n        reference ({\"@id\": ...}) so JSON-LD expands it to a real IRI; written as a\n        bare string it stays a literal that looks like a URI and resolves to nothing.\n        The two-segment path is the form that actually resolves -- .../classes/BaseClass/NXsource\n        is a 404, .../classes/base_classes/NXsource.html is not.'\n      type: array\n      items:\n        $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml\n      contains:\n        type: object\n        additionalProperties: false\n        required:\n        - '@id'\n        properties:\n          '@id':\n            const: nxs:base_classes/NXsource.html\n      x-jsonld-id: http://schema.org/additionalType\nx-jsonld-prefixes:\n  schema: http://schema.org/\n  nxs: https://manual.nexusformat.org/classes/\nx-bblocks-metadata:\n  itemIdentifier: ogch.BaseSchema.laboratory\n  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-11-09'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA Analysis Laboratory\ndescription: ADA laboratory or facility building block. Extends the core CDIF spatialExtent\n  (schema:Place) with a Wikidata laboratory classification via additionalType. Inherits\n  place name, identifier, alternateName, geo coordinates, and geosparql geometry from\n  spatialExtent.\nallOf:\n- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml\n- type: object\n  properties:\n    schema:identifier:\n      title: Laboratory Identifier\n      x-jsonld-id: http://schema.org/identifier\n    schema:alternateName:\n      title: Laboratory Alternate Name\n      x-jsonld-id: http://schema.org/alternateName\n    schema:additionalType:\n      description: 'Must classify the place as a laboratory. The value is a sealed\n        reference ({\"@id\": ...}) so JSON-LD expands it to a real IRI; written as a\n        bare string it stays a literal that looks like a URI and resolves to nothing.\n        The IRI is spelled out in full rather than as a CURIE because no context in\n        this repo defines a Wikidata prefix -- the instrument block writes https://www.wikidata.org/wiki/Q3099911\n        the same way.\n\n        Wikidata Q483242 \"laboratory\" is a subclass of facility (Q13226383), which\n        is what makes it right for a schema:Place. An Organization type would not\n        be: schema:DiagnosticLab is clinical and sits under MedicalOrganization, and\n        schema:ResearchOrganization is an organization rather than a place.\n\n        This slot held nxs:base_classes/NXsource.html until 2026-11-09. That was wrong\n        -- NXsource is the radiation or particle source that produces a beam, not\n        the place it stands in; its name field conventionally carries a facility name,\n        which is the likely route to the confusion. NeXus has no facility or laboratory\n        base class, so unlike the instrument block -- where NXinstrument is correct\n        and sits beside its Wikidata class -- there is nothing to keep here alongside\n        Q483242. Bioschemas has no Laboratory type either; its LabProtocol and LabProcess\n        describe the procedure and the run, not the place.'\n      type: array\n      items:\n        $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml\n      contains:\n        type: object\n        additionalProperties: false\n        required:\n        - '@id'\n        properties:\n          '@id':\n            const: https://www.wikidata.org/wiki/Q483242\n      x-jsonld-id: http://schema.org/additionalType\nx-jsonld-prefixes:\n  schema: http://schema.org/\nx-bblocks-metadata:\n  itemIdentifier: ogch.BaseSchema.laboratory\n  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-11-09'\n",
   "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/BaseSchema/laboratory"
 }

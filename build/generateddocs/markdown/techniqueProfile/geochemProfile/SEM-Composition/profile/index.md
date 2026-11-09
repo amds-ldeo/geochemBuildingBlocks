@@ -225,7 +225,7 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
           {
-            "@id": "nxs:base_classes/NXsource.html"
+            "@id": "https://www.wikidata.org/wiki/Q483242"
           }
         ]
       },
@@ -773,7 +773,7 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
           {
-            "@id": "nxs:base_classes/NXsource.html"
+            "@id": "https://www.wikidata.org/wiki/Q483242"
           }
         ]
       },
@@ -1189,18 +1189,18 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
         <https://example.org/var/Detection-Limit>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: analyticalPrecision" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: analyticalAccuracy" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: analyticalPrecision" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endTime "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
-                    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
             schema1:object [ a schema1:Thing,

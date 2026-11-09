@@ -261,7 +261,7 @@ Mock data for validation and testing.
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
           {
-            "@id": "nxs:base_classes/NXsource.html"
+            "@id": "https://www.wikidata.org/wiki/Q483242"
           }
         ]
       },
@@ -699,7 +699,7 @@ Mock data for validation and testing.
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
           {
-            "@id": "nxs:base_classes/NXsource.html"
+            "@id": "https://www.wikidata.org/wiki/Q483242"
           }
         ]
       },
@@ -1037,7 +1037,7 @@ ex:adaXANES-legacy-example-001 a schema1:Dataset,
                 prov:Activity ;
             schema1:identifier "session-xanes-20260110-001" ;
             schema1:location [ a schema1:Place ;
-                    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
             schema1:object [ a schema1:Thing,

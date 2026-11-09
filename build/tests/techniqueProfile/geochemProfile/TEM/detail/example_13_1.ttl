@@ -17,15 +17,15 @@ ex:temTAPP-detail-Singerling2025 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "Crushing / dispersion on grid" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod>,
@@ -45,10 +45,10 @@ ex:temTAPP-detail-Singerling2025 a schema1:Dataset,
             prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Singerling2025/instrument/TEM> ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "TS Velox" ;
-                            ada:toolRole "dataReduction" ],
+                            ada:toolRole "acquisition" ],
                         [ a schema1:SoftwareApplication ;
                             schema1:name "TS Velox" ;
-                            ada:toolRole "acquisition" ] ] ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ] ;
     ada:analysisEndDate "December 2024 (four sessions total: Dec 2023, Jan 2024, May 2024, Dec 2024)" ;

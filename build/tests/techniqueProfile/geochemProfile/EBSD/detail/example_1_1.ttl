@@ -29,13 +29,13 @@ ex:ebsdTAPP-detail-P0 a schema1:Dataset,
                     schema1:identifier "https://ror.org/02n415q13" ;
                     schema1:name "Curtin University" ] ;
             schema1:startTime "2023-11-16" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
-                            ada:toolRole "acquisition" ],
-                        [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/ebsdTAPP-detail-P0/instrument/SEM> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "AZtecCrystal" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/ebsdTAPP-detail-P0/instrument/SEM> ] ] ;
+                            ada:toolRole "dataReduction" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
+                            ada:toolRole "acquisition" ] ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-16" ;
     ada:analyst "Nicholas E Timms" ;

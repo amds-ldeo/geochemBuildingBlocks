@@ -226,7 +226,7 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
           {
-            "@id": "nxs:base_classes/NXsource.html"
+            "@id": "https://www.wikidata.org/wiki/Q483242"
           }
         ]
       },
@@ -781,7 +781,7 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:identifier": "https://ror.org/00hx57361",
         "schema:additionalType": [
           {
-            "@id": "nxs:base_classes/NXsource.html"
+            "@id": "https://www.wikidata.org/wiki/Q483242"
           }
         ]
       },
@@ -1205,12 +1205,12 @@ ex:adaLAQICPMS-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
@@ -1218,7 +1218,7 @@ ex:adaLAQICPMS-example-001 a schema1:Dataset,
             schema1:endTime "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
-                    schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXsource.html> ;
+                    schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
             schema1:object [ a schema1:Thing,
@@ -1228,8 +1228,8 @@ ex:adaLAQICPMS-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:laQicpmsTAPP-P0 ],
-                [ schema1:instrument <https://example.org/adaLAQICPMS-example-001/instrument/ICPMS> ] ;
+            prov:used [ schema1:instrument <https://example.org/adaLAQICPMS-example-001/instrument/ICPMS> ],
+                [ ada:tappDefinition ex:laQicpmsTAPP-P0 ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "Spot" ;
     ada:sensitivityYield 1e+00 ;
