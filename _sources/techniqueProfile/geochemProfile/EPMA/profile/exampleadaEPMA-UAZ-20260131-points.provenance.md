@@ -111,3 +111,20 @@ SOURCE-DERIVED and never regenerated, so the members were added here directly.
 What the session does report is a per-element 1-sigma standard deviation and an oxide total per
 analysis point; those are per-point columns on `schema:variableMeasured`, not a session-level
 precision or accuracy assessment, so they are not restated here as if they were.
+
+## Laboratory classification corrected, 2026-11-09
+
+`/prov:wasGeneratedBy/0/schema:location/schema:additionalType` reads
+`https://www.wikidata.org/wiki/Q483242` ("laboratory", a subclass of facility). The source
+record for this example carried NeXus `nxs:base_classes/NXsource.html` there, so this ONE field
+deliberately diverges from the source attributed above.
+
+The old value was wrong: `NXsource` is the radiation or particle source that produces a beam,
+not the place it stands in. It was not a judgement the data submitter made -- it was emitted
+for every record by `yaml_to_jsonld.py` in the `metadata` repo, and the `laboratory` building
+block required it, so source and schema agreed on the same error. CDIF upstream had already
+declined to use `NXsource` for a facility, in `xasProperties/xasFacility`.
+
+Nothing transcribed from a primary source changed. This example is NOT regenerable, so the
+swap was made by hand here; re-deriving it from the ADA record would reintroduce the old value
+until that loader is fixed.

@@ -2145,14 +2145,23 @@ def _instrument_for_provused(tapp_instrument: dict | None) -> dict:
 
 def _location_for_provused(tapp_location: dict | None) -> dict:
     """Adapt schema:Place from the TAPP into a profile-level prov:wasGeneratedBy
-    schema:location entry. Profile schema requires NXsource in additionalType."""
+    schema:location entry.
+
+    The classification is Wikidata Q483242 "laboratory", a subclass of facility,
+    written as a full IRI because no context here defines a Wikidata prefix. The
+    laboratory block constrains schema:additionalType to CONTAIN it, but does not
+    require the property at all -- so emitting it is a choice, not an obligation.
+    The docstring here used to claim "Profile schema requires NXsource in
+    additionalType", which was wrong twice over: nothing requires the property,
+    and NXsource is a radiation source rather than a place.
+    """
     name = "Analytical Sciences Laboratory"
     if isinstance(tapp_location, dict) and tapp_location.get("schema:name"):
         name = tapp_location["schema:name"]
     return OrderedDict([
         ("@type", ["schema:Place"]),
         ("schema:name", name),
-        ("schema:additionalType", [{"@id": "nxs:base_classes/NXsource.html"}]),
+        ("schema:additionalType", [{"@id": "https://www.wikidata.org/wiki/Q483242"}]),
     ])
 
 

@@ -1,16 +1,15 @@
 - title: ADA Analysis Laboratory Example
   content: |-
     A laboratory facility extending core spatialExtent (schema:Place) with
-    NeXus NXsource classification in additionalType.
+    a Wikidata laboratory classification in additionalType.
   prefixes:
     schema: http://schema.org/
-    nxs: https://manual.nexusformat.org/classes/
   snippets:
     - language: json
       code: |
         {
           "@type": ["schema:Place"],
-          "schema:additionalType": [{"@id": "nxs:base_classes/NXsource.html"}],
+          "schema:additionalType": [{"@id": "https://www.wikidata.org/wiki/Q483242"}],
           "schema:name": "Lunar and Planetary Laboratory Electron Microprobe Facility",
           "schema:alternateName": ["LPL EPMA Lab"],
           "schema:identifier": "https://ror.org/03m2x1q45"
