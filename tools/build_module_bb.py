@@ -659,7 +659,10 @@ def emit_parameter_defs(module, params):
         vname = _re.sub(r"[^A-Za-z0-9]+", " ", label).title().replace(" ", "")
         vname = vname[:1].lower() + vname[1:]
         b = {"item": label, "name": vname, "P": P, "A": A, "desc": desc or label,
-             "jtype": bt.jtype(dt), "unit": bt.unit(dt)}
+             # `dt` raw as well as derived: the canonical emitters resolve the parameter's
+             # ada:vocab scheme from it, and a module parameter is the same logical parameter as
+             # the technique one it replaces, so it earns the same annotation.
+             "jtype": bt.jtype(dt), "unit": bt.unit(dt), "dt": dt}
         # The canonical emitters read PARAM_BASE (the @id stem) and CFG["prefix"] (the registry
         # $def key) from build_tapp module state, which configure() sets per TECHNIQUE. A module is
         # not a technique, so stand in for that state across the call and restore it after.
@@ -716,7 +719,7 @@ def write_examples(d, name, doc):
             continue          # a published parameter branch, not an instance shape
         inst = _sample(sub, base_dir=d, root=sample_doc)
         # A module $def may $ref a sibling building block by relative path
-        # (../../geochemProduct/schema.yaml#/$defs/UsedComputationalTool). jsonschema cannot follow
+        # (../../geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool). jsonschema cannot follow
         # a relative FILE ref - it falls back to urllib and raises Unresolvable - so the sample is
         # checked against the module's own constraints and any cross-BB ref is left to the resolved
         # schema, which is where those refs are inlined and where CI checks them. Reporting an

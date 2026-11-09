@@ -33,8 +33,6 @@ import schemapath_io
 # Divergences the reviewer has SETTLED in the module's favour. Naming them here, rather than
 # loosening the match, keeps the default safe: an unlisted divergence is still refused.
 ADOPTED = {
-    "Reported Variables and Units":
-        "reviewer settled the reported-property list as $MethodDefinition.ada:reportedProperties[]",
     "Goodness-of-Fit or Dispersion Statistic":
         "reviewer's rule: dqv:hasQualityMeasurement by default, the reported-property "
         "variableMeasured list only when keyed and a reportedProperties list is defined",

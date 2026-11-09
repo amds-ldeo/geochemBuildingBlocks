@@ -56,37 +56,6 @@
                                                 }
                                             ]
                                         },
-                                        "ada:beamDiameterDefault": {
-                                            "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
-                                            "anyOf": [
-                                                {
-                                                    "type": "number"
-                                                },
-                                                {
-                                                    "type": "string"
-                                                }
-                                            ]
-                                        },
-                                        "ada:beamMode": {
-                                            "description": "Whether the electron beam was operated as a stationary focused spot, defocused to a specified diameter, or rastered over a small area during a single-point analysis. Must be consistent with the Beam Diameter and Beam Raster Dimensions fields. For mapping, beam scanning is controlled by Step Size / Pixel Size and Stage Scan vs. Beam Scan instead.",
-                                            "anyOf": [
-                                                {
-                                                    "type": "string",
-                                                    "enum": [
-                                                        "Focused",
-                                                        "Defocused",
-                                                        "Rastered",
-                                                        "N/A",
-                                                        "None",
-                                                        "missing"
-                                                    ]
-                                                },
-                                                {
-                                                    "type": "string"
-                                                }
-                                            ],
-                                            "readOnly": true
-                                        },
                                         "schema:hasPart": {
                                             "type": "array",
                                             "items": {
@@ -282,6 +251,7 @@
                                                     "type": "string"
                                                 }
                                             ],
+                                            "schema:inDefinedTermSet": "ada:vocab/mapping-beam-mode",
                                             "readOnly": true
                                         },
                                         "ada:mappingBeamCurrentDefault": {
@@ -309,8 +279,6 @@
                                     },
                                     "required": [
                                         "ada:acceleratingVoltageDefault",
-                                        "ada:beamDiameterDefault",
-                                        "ada:beamMode",
                                         "ada:mappingBeamCurrentDefault",
                                         "ada:mappingBeamDiameterDefault",
                                         "ada:mappingBeamMode",
@@ -461,180 +429,6 @@
                                         ]
                                     },
                                     {
-                                        "title": "Analytical Accuracy",
-                                        "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/epmaTAPP/analyticalAccuracy"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalAccuracy"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Accuracy"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Analytical Precision",
-                                        "description": "Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/epmaTAPP/analyticalPrecision"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalPrecision"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Precision"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    {
-                                        "title": "X-ray Background Correction Method",
-                                        "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "xRayBackgroundCorrectionMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "X-ray Background Correction Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:inDefinedTermSet": {
-                                                "const": {
-                                                    "@id": "ada:vocab/x-ray-background-correction-method"
-                                                }
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Beam Current",
-                                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/epmaTAPP/beamCurrent"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "beamCurrent"
-                                            },
-                                            "schema:name": {
-                                                "const": "Beam Current"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "number"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "anyOf": [
-                                                    {
-                                                        "type": "number"
-                                                    },
-                                                    {
-                                                        "type": "string"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    },
-                                    {
                                         "title": "Blank Correction",
                                         "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
                                         "type": "object",
@@ -652,46 +446,6 @@
                                             },
                                             "schema:name": {
                                                 "const": "Blank Correction"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Counting Statistics Error",
-                                        "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/epmaTAPP/countingStatisticsError"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "countingStatisticsError"
-                                            },
-                                            "schema:name": {
-                                                "const": "Counting Statistics Error"
                                             },
                                             "ada:dataType": {
                                                 "const": "string"
@@ -939,196 +693,6 @@
                                 },
                                 {
                                     "contains": {
-                                        "title": "Analytical Accuracy",
-                                        "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/epmaTAPP/analyticalAccuracy"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalAccuracy"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Accuracy"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "title": "Analytical Precision",
-                                        "description": "Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/epmaTAPP/analyticalPrecision"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalPrecision"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Precision"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "title": "X-ray Background Correction Method",
-                                        "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "xRayBackgroundCorrectionMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "X-ray Background Correction Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:inDefinedTermSet": {
-                                                "const": {
-                                                    "@id": "ada:vocab/x-ray-background-correction-method"
-                                                }
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "title": "Beam Current",
-                                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/epmaTAPP/beamCurrent"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "beamCurrent"
-                                            },
-                                            "schema:name": {
-                                                "const": "Beam Current"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "number"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "anyOf": [
-                                                    {
-                                                        "type": "number"
-                                                    },
-                                                    {
-                                                        "type": "string"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
                                         "title": "Blank Correction",
                                         "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
                                         "type": "object",
@@ -1146,50 +710,6 @@
                                             },
                                             "schema:name": {
                                                 "const": "Blank Correction"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "title": "Counting Statistics Error",
-                                        "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/epmaTAPP/countingStatisticsError"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "countingStatisticsError"
-                                            },
-                                            "schema:name": {
-                                                "const": "Counting Statistics Error"
                                             },
                                             "ada:dataType": {
                                                 "const": "string"
@@ -1411,331 +931,6 @@
                     ],
                     "title": "Target Species Template"
                 },
-                "ada:targetMaterialTemplate": {
-                    "type": "object",
-                    "properties": {
-                        "ada:targetMaterialColumns": {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn"
-                                    },
-                                    {
-                                        "title": "Background Counting Time",
-                                        "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetMaterialColumn/epmaTAPP/backgroundCountingTime"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "backgroundCountingTime"
-                                            },
-                                            "schema:name": {
-                                                "const": "Background Counting Time"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "number"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "anyOf": [
-                                                    {
-                                                        "type": "number"
-                                                    },
-                                                    {
-                                                        "type": "string"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Peak Counting Time",
-                                        "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetMaterialColumn/epmaTAPP/peakCountingTime"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "peakCountingTime"
-                                            },
-                                            "schema:name": {
-                                                "const": "Peak Counting Time"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "number"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "anyOf": [
-                                                    {
-                                                        "type": "number"
-                                                    },
-                                                    {
-                                                        "type": "string"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Primary Calibration Standard Name",
-                                        "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "primaryCalibrationStandardName"
-                                            },
-                                            "schema:name": {
-                                                "const": "Primary Calibration Standard Name"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    }
-                                ]
-                            },
-                            "allOf": [
-                                {
-                                    "contains": {
-                                        "title": "Background Counting Time",
-                                        "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetMaterialColumn/epmaTAPP/backgroundCountingTime"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "backgroundCountingTime"
-                                            },
-                                            "schema:name": {
-                                                "const": "Background Counting Time"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "number"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "anyOf": [
-                                                    {
-                                                        "type": "number"
-                                                    },
-                                                    {
-                                                        "type": "string"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "title": "Peak Counting Time",
-                                        "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetMaterialColumn/epmaTAPP/peakCountingTime"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "peakCountingTime"
-                                            },
-                                            "schema:name": {
-                                                "const": "Peak Counting Time"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "number"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "anyOf": [
-                                                    {
-                                                        "type": "number"
-                                                    },
-                                                    {
-                                                        "type": "string"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "title": "Primary Calibration Standard Name",
-                                        "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "primaryCalibrationStandardName"
-                                            },
-                                            "schema:name": {
-                                                "const": "Primary Calibration Standard Name"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                }
-                            ],
-                            "title": "Target Material Columns"
-                        },
-                        "ada:defaultTargetMaterials": {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "string"
-                                    },
-                                    {
-                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
-                                    },
-                                    {
-                                        "type": "object"
-                                    }
-                                ]
-                            },
-                            "title": "Default Target Materials"
-                        }
-                    },
-                    "required": [
-                        "ada:defaultTargetMaterials"
-                    ],
-                    "title": "Target Material Template"
-                },
                 "ada:monitoredPropertyTemplate": {
                     "type": "object",
                     "properties": {
@@ -1745,6 +940,62 @@
                                 "anyOf": [
                                     {
                                         "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn"
+                                    },
+                                    {
+                                        "title": "X-ray Background Correction Method",
+                                        "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/epmaTAPP/xRayBackgroundCorrectionMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "xRayBackgroundCorrectionMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "X-ray Background Correction Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:inDefinedTermSet": {
+                                                "const": {
+                                                    "@id": "ada:vocab/x-ray-background-correction-method"
+                                                }
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     {
                                         "title": "Background Position(s)",
@@ -2068,6 +1319,56 @@
                                                 "const": {
                                                     "@id": "ada:vocab/wds-pha-setting"
                                                 }
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "WDS Spectrometer Channel",
+                                        "description": "WDS spectrometer position(s) assigned to each target species, one entry per assignment. An target species may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several target species across a run, so the assignment — not the target species — is the unit carrying the spectrometer setup.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/epmaTAPP/wdsSpectrometerChannel"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "wdsSpectrometerChannel"
+                                            },
+                                            "schema:name": {
+                                                "const": "WDS Spectrometer Channel"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
                                             },
                                             "schema:defaultValue": {
                                                 "anyOf": [
@@ -2208,6 +1509,66 @@
                             "allOf": [
                                 {
                                     "contains": {
+                                        "title": "X-ray Background Correction Method",
+                                        "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/epmaTAPP/xRayBackgroundCorrectionMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "xRayBackgroundCorrectionMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "X-ray Background Correction Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:inDefinedTermSet": {
+                                                "const": {
+                                                    "@id": "ada:vocab/x-ray-background-correction-method"
+                                                }
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
                                         "title": "Background Position(s)",
                                         "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
                                         "type": "object",
@@ -2549,6 +1910,60 @@
                                                 "const": {
                                                     "@id": "ada:vocab/wds-pha-setting"
                                                 }
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "WDS Spectrometer Channel",
+                                        "description": "WDS spectrometer position(s) assigned to each target species, one entry per assignment. An target species may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several target species across a run, so the assignment — not the target species — is the unit carrying the spectrometer setup.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/epmaTAPP/wdsSpectrometerChannel"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "wdsSpectrometerChannel"
+                                            },
+                                            "schema:name": {
+                                                "const": "WDS Spectrometer Channel"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
                                             },
                                             "schema:defaultValue": {
                                                 "anyOf": [
@@ -2716,110 +2131,940 @@
                             "title": "Default Monitored Properties"
                         }
                     },
+                    "required": [
+                        "ada:defaultMonitoredProperties"
+                    ],
                     "title": "Monitored Property Template"
+                },
+                "ada:targetMaterialTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:targetMaterialColumns": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn"
+                                    },
+                                    {
+                                        "title": "Background Counting Time",
+                                        "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/backgroundCountingTime"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "backgroundCountingTime"
+                                            },
+                                            "schema:name": {
+                                                "const": "Background Counting Time"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Beam Current",
+                                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/beamCurrent"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamCurrent"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Current"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Beam Damage Minimization",
+                                        "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/beamDamageMinimization"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamDamageMinimization"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Damage Minimization"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Beam Diameter",
+                                        "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/beamDiameter"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamDiameter"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Diameter"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Beam Mode",
+                                        "description": "Whether the electron beam was operated as a stationary focused spot, defocused to a specified diameter, or rastered over a small area during a single-point analysis. Must be consistent with the Beam Diameter and Beam Raster Dimensions fields. For mapping, beam scanning is controlled by Step Size / Pixel Size and Stage Scan vs. Beam Scan instead.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/beamMode"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamMode"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Mode"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:inDefinedTermSet": {
+                                                "const": {
+                                                    "@id": "ada:vocab/beam-mode"
+                                                }
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Beam Raster Dimensions",
+                                        "description": "Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/beamRasterDimensions"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamRasterDimensions"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Raster Dimensions"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Peak Counting Time",
+                                        "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/peakCountingTime"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "peakCountingTime"
+                                            },
+                                            "schema:name": {
+                                                "const": "Peak Counting Time"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Primary Calibration Standard Name",
+                                        "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "primaryCalibrationStandardName"
+                                            },
+                                            "schema:name": {
+                                                "const": "Primary Calibration Standard Name"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "title": "Background Counting Time",
+                                        "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/backgroundCountingTime"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "backgroundCountingTime"
+                                            },
+                                            "schema:name": {
+                                                "const": "Background Counting Time"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Beam Current",
+                                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/beamCurrent"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamCurrent"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Current"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Beam Damage Minimization",
+                                        "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/beamDamageMinimization"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamDamageMinimization"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Damage Minimization"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Beam Diameter",
+                                        "description": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/beamDiameter"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamDiameter"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Diameter"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Beam Mode",
+                                        "description": "Whether the electron beam was operated as a stationary focused spot, defocused to a specified diameter, or rastered over a small area during a single-point analysis. Must be consistent with the Beam Diameter and Beam Raster Dimensions fields. For mapping, beam scanning is controlled by Step Size / Pixel Size and Stage Scan vs. Beam Scan instead.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/beamMode"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamMode"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Mode"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:inDefinedTermSet": {
+                                                "const": {
+                                                    "@id": "ada:vocab/beam-mode"
+                                                }
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Beam Raster Dimensions",
+                                        "description": "Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/beamRasterDimensions"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamRasterDimensions"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Raster Dimensions"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Peak Counting Time",
+                                        "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/peakCountingTime"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "peakCountingTime"
+                                            },
+                                            "schema:name": {
+                                                "const": "Peak Counting Time"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Primary Calibration Standard Name",
+                                        "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "primaryCalibrationStandardName"
+                                            },
+                                            "schema:name": {
+                                                "const": "Primary Calibration Standard Name"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                }
+                            ],
+                            "title": "Target Material Columns"
+                        },
+                        "ada:defaultTargetMaterials": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            },
+                            "title": "Default Target Materials"
+                        }
+                    },
+                    "required": [
+                        "ada:defaultTargetMaterials"
+                    ],
+                    "title": "Target Material Template"
+                },
+                "ada:reportedPropertyTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:reportedPropertyColumns": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ReportedPropertyIdentifierColumn"
+                                    },
+                                    {
+                                        "title": "Counting Statistics Error",
+                                        "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "countingStatisticsError"
+                                            },
+                                            "schema:name": {
+                                                "const": "Counting Statistics Error"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "title": "Counting Statistics Error",
+                                        "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "countingStatisticsError"
+                                            },
+                                            "schema:name": {
+                                                "const": "Counting Statistics Error"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                }
+                            ],
+                            "title": "Reported Property Columns"
+                        },
+                        "ada:defaultReportedProperties": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ada:defaultReportedProperties"
+                    ],
+                    "title": "Reported Property Template"
                 },
                 "schema:additionalProperty": {
                     "type": "array",
                     "items": {
                         "anyOf": [
-                            {
-                                "title": "Beam Damage Minimization",
-                                "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/epmaTAPP/beamDamageMinimizationDefault"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValueSpecification"
-                                        ]
-                                    },
-                                    "schema:valueName": {
-                                        "const": "beamDamageMinimizationDefault"
-                                    },
-                                    "schema:name": {
-                                        "const": "Beam Damage Minimization"
-                                    },
-                                    "ada:dataType": {
-                                        "const": "string"
-                                    },
-                                    "ada:fieldScope": {
-                                        "const": "session"
-                                    },
-                                    "schema:readonlyValue": {
-                                        "const": false
-                                    },
-                                    "ada:tier": {
-                                        "const": "R"
-                                    },
-                                    "schema:defaultValue": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:valueName",
-                                    "schema:name",
-                                    "ada:dataType",
-                                    "ada:fieldScope"
-                                ]
-                            },
-                            {
-                                "title": "Beam Raster Dimensions",
-                                "description": "Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/epmaTAPP/beamRasterDimensionsDefault"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValueSpecification"
-                                        ]
-                                    },
-                                    "schema:valueName": {
-                                        "const": "beamRasterDimensionsDefault"
-                                    },
-                                    "schema:name": {
-                                        "const": "Beam Raster Dimensions"
-                                    },
-                                    "ada:dataType": {
-                                        "const": "number"
-                                    },
-                                    "ada:fieldScope": {
-                                        "const": "session"
-                                    },
-                                    "schema:readonlyValue": {
-                                        "const": false
-                                    },
-                                    "ada:tier": {
-                                        "const": "R"
-                                    },
-                                    "schema:defaultValue": {
-                                        "anyOf": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "string"
-                                            }
-                                        ]
-                                    },
-                                    "schema:unitText": {
-                                        "const": "µm x µm"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:valueName",
-                                    "schema:name",
-                                    "ada:dataType",
-                                    "ada:fieldScope"
-                                ]
-                            },
                             {
                                 "title": "Drift Correction",
                                 "description": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.",
@@ -2889,6 +3134,11 @@
                                     },
                                     "schema:value": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/eds-spectral-processing-type"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -2933,6 +3183,11 @@
                                     },
                                     "schema:defaultValue": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/halogen-correction-on-oxygen"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -2969,6 +3224,11 @@
                                     },
                                     "schema:value": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/stage-scan-vs-beam-scan"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -2985,112 +3245,6 @@
                     "allOf": [
                         {
                             "contains": {
-                                "title": "Beam Damage Minimization",
-                                "description": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/epmaTAPP/beamDamageMinimizationDefault"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValueSpecification"
-                                        ]
-                                    },
-                                    "schema:valueName": {
-                                        "const": "beamDamageMinimizationDefault"
-                                    },
-                                    "schema:name": {
-                                        "const": "Beam Damage Minimization"
-                                    },
-                                    "ada:dataType": {
-                                        "const": "string"
-                                    },
-                                    "ada:fieldScope": {
-                                        "const": "session"
-                                    },
-                                    "schema:readonlyValue": {
-                                        "const": false
-                                    },
-                                    "ada:tier": {
-                                        "const": "R"
-                                    },
-                                    "schema:defaultValue": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:valueName",
-                                    "schema:name",
-                                    "ada:dataType",
-                                    "ada:fieldScope"
-                                ]
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
-                                "title": "Beam Raster Dimensions",
-                                "description": "Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.",
-                                "type": "object",
-                                "properties": {
-                                    "@id": {
-                                        "const": "ada:parameter/epmaTAPP/beamRasterDimensionsDefault"
-                                    },
-                                    "@type": {
-                                        "const": [
-                                            "schema:PropertyValueSpecification"
-                                        ]
-                                    },
-                                    "schema:valueName": {
-                                        "const": "beamRasterDimensionsDefault"
-                                    },
-                                    "schema:name": {
-                                        "const": "Beam Raster Dimensions"
-                                    },
-                                    "ada:dataType": {
-                                        "const": "number"
-                                    },
-                                    "ada:fieldScope": {
-                                        "const": "session"
-                                    },
-                                    "schema:readonlyValue": {
-                                        "const": false
-                                    },
-                                    "ada:tier": {
-                                        "const": "R"
-                                    },
-                                    "schema:defaultValue": {
-                                        "anyOf": [
-                                            {
-                                                "type": "number"
-                                            },
-                                            {
-                                                "type": "string"
-                                            }
-                                        ]
-                                    },
-                                    "schema:unitText": {
-                                        "const": "µm x µm"
-                                    }
-                                },
-                                "required": [
-                                    "@id",
-                                    "@type",
-                                    "schema:valueName",
-                                    "schema:name",
-                                    "ada:dataType",
-                                    "ada:fieldScope"
-                                ]
-                            },
-                            "minContains": 0,
-                            "maxContains": 1
-                        },
-                        {
-                            "contains": {
                                 "title": "Drift Correction",
                                 "description": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.",
                                 "type": "object",
@@ -3163,6 +3317,11 @@
                                     },
                                     "schema:value": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/eds-spectral-processing-type"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -3211,6 +3370,11 @@
                                     },
                                     "schema:defaultValue": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/halogen-correction-on-oxygen"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -3251,6 +3415,11 @@
                                     },
                                     "schema:value": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/stage-scan-vs-beam-scan"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -3279,6 +3448,7 @@
                         "None",
                         "missing"
                     ],
+                    "schema:inDefinedTermSet": "ada:vocab/eds-acquisition-mode",
                     "readOnly": true
                 },
                 "schema:object": {
@@ -3505,6 +3675,7 @@
                         "None",
                         "missing"
                     ],
+                    "schema:inDefinedTermSet": "ada:vocab/mass-absorption-coefficients",
                     "readOnly": true
                 },
                 "ada:matrixCorrectionMethod": {
@@ -3532,6 +3703,7 @@
                             "type": "string"
                         }
                     ],
+                    "schema:inDefinedTermSet": "ada:vocab/matrix-correction-method",
                     "readOnly": true
                 },
                 "ada:stepSizePixelSizeDefault": {
@@ -3566,15 +3738,8 @@
                             "type": "string"
                         }
                     ],
+                    "schema:inDefinedTermSet": "ada:vocab/wds-dead-time-correction",
                     "readOnly": true
-                },
-                "ada:monitoredElements": {
-                    "type": "array",
-                    "items": {
-                        "description": "Specific elements monitored in this procedure, grouped by the target species they serve where they serve one. Includes elements monitored only to correct an interference, which serve no target species and so have no parent. The target species list is given by the Target Species field and is never inferred from the elements appearing here. A target species determined by stoichiometry or by difference, rather than measured, has no monitored element. The X-ray line, diffracting crystal, spectrometer assignment and counting times used for each monitored element are recorded in their own fields, keyed to this one.",
-                        "type": "string",
-                        "readOnly": true
-                    }
                 },
                 "ada:analyticalMode": {
                     "type": "array",

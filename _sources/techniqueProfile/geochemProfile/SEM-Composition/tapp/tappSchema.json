@@ -617,6 +617,7 @@
                                                     "type": "string"
                                                 }
                                             ],
+                                            "schema:inDefinedTermSet": "ada:vocab/beam-mode",
                                             "readOnly": true
                                         },
                                         "ada:acceleratingVoltageDefault": {
@@ -669,6 +670,7 @@
                                                     "type": "string"
                                                 }
                                             ],
+                                            "schema:inDefinedTermSet": "ada:vocab/mapping-beam-mode",
                                             "readOnly": true
                                         },
                                         "ada:mappingBeamCurrentDefault": {
@@ -1112,86 +1114,6 @@
                                             },
                                             "schema:readonlyValue": {
                                                 "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Analytical Precision",
-                                        "description": "Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalPrecision"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Precision"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    {
-                                        "title": "Analytical Accuracy",
-                                        "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalAccuracy"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Accuracy"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
                                             },
                                             "ada:tier": {
                                                 "const": "R"
@@ -1679,94 +1601,6 @@
                                 },
                                 {
                                     "contains": {
-                                        "title": "Analytical Precision",
-                                        "description": "Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalPrecision"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Precision"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "title": "Analytical Accuracy",
-                                        "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalAccuracy"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Accuracy"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
                                         "title": "Counting Statistics Error",
                                         "description": "How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.",
                                         "type": "object",
@@ -2006,6 +1840,11 @@
                                     },
                                     "schema:value": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/stage-scan-vs-beam-scan"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -2104,6 +1943,11 @@
                                     },
                                     "schema:defaultValue": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/halogen-correction-on-oxygen"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -2140,6 +1984,11 @@
                                     },
                                     "schema:value": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/eds-spectral-processing-type"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -2334,6 +2183,11 @@
                                     },
                                     "schema:value": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/stage-scan-vs-beam-scan"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -2440,6 +2294,11 @@
                                     },
                                     "schema:defaultValue": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/halogen-correction-on-oxygen"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -2480,6 +2339,11 @@
                                     },
                                     "schema:value": {
                                         "type": "string"
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/eds-spectral-processing-type"
+                                        }
                                     }
                                 },
                                 "required": [
@@ -3474,7 +3338,33 @@
                         "None",
                         "missing"
                     ],
+                    "schema:inDefinedTermSet": "ada:vocab/eds-acquisition-mode",
                     "readOnly": true
+                },
+                "ada:reportedPropertyTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultReportedProperties": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ada:defaultReportedProperties"
+                    ],
+                    "title": "Reported Property Template"
                 },
                 "ada:edsLiveTimePerPointOrPixelDefault": {
                     "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds.",
@@ -3519,6 +3409,7 @@
                             "type": "string"
                         }
                     ],
+                    "schema:inDefinedTermSet": "ada:vocab/matrix-correction-method",
                     "readOnly": true
                 },
                 "ada:massAbsorptionCoefficients": {
@@ -3536,6 +3427,7 @@
                         "None",
                         "missing"
                     ],
+                    "schema:inDefinedTermSet": "ada:vocab/mass-absorption-coefficients",
                     "readOnly": true
                 },
                 "ada:wdsDeadTimeCorrection": {
@@ -3559,6 +3451,7 @@
                             "type": "string"
                         }
                     ],
+                    "schema:inDefinedTermSet": "ada:vocab/wds-dead-time-correction",
                     "readOnly": true
                 },
                 "schema:actionProcess": {

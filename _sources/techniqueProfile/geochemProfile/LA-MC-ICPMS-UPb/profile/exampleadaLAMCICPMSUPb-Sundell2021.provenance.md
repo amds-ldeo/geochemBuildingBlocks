@@ -115,3 +115,18 @@ The document scope is `ggr-12355`, this record's own `@id`.
 `schema:additionalType` tokens, so deriving from the type would have replaced two names the paper
 identifies (Table 1) with `ICPMS` and `ICPMS-2`; an authored local part names the actual device and
 is preserved.
+
+## 2026-11-07 — three analytical-quality measures added as SENT
+
+`Within-Session Analytical Precision`, `Between-Session (Long-Term) Analytical Precision` and
+`Analytical Accuracy` moved from the LA-MC-ICP-MS U-Pb procedure template to
+`$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='...'].dqv:value`: each is the session's own
+result, not the method's expected performance. All three are Analysis-Level Basic, so requiredness
+follows the path and the profile now pins each with `contains`. Nothing was unpinned — the
+dataset-root `dqv` node pinned no measure before this change.
+
+All three carry `missing`. That is **not** an assertion that the paper omits them — it records that
+they were NOT TRANSCRIBED in this pass. Sundell, Gehrels & Pecha (2021) is a Geostandards methods
+paper and its Methods and Table 1 very likely give reproducibility and accuracy figures; whoever has
+the paper to hand should replace these three sentinels with the real values and re-source the row
+above from LIT.

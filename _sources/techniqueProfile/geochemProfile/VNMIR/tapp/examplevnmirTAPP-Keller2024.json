@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -18,6 +19,26 @@
   "schema:description": "vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | JEOL 2500SE (publication column of VNMIR_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = JEOL.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "JEOL 2500SE",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "wavenumber (3999.49)",
+      "Clays (Percent transmission)",
+      "dolomite (Percent transmission)",
+      "calcite (Percent transmission)",
+      "MgPO4 (Percent transmission)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -50,14 +71,11 @@
   "ada:analyticalMode": [
     "Spectral Point"
   ],
-  "ada:reportedProperties": [
-    "wavenumber (3999.49) | Clays (Percent transmission) | dolomite (Percent transmission) | calcite (Percent transmission) | MgPO4 (Percent transmission)"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "VNMIR analytical workflow",
     "schema:step": [
       {
         "@type": [

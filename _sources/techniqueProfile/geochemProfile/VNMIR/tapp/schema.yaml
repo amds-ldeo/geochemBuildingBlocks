@@ -72,6 +72,9 @@ allOf:
                         const: R
                       schema:defaultValue:
                         type: string
+                      schema:inDefinedTermSet:
+                        const:
+                          '@id': ada:vocab/sample-heated
                     required:
                     - '@id'
                     - '@type'
@@ -103,6 +106,9 @@ allOf:
                         const: R
                       schema:defaultValue:
                         type: string
+                      schema:inDefinedTermSet:
+                        const:
+                          '@id': ada:vocab/vacuum-exposed-sample
                     required:
                     - '@id'
                     - '@type'
@@ -166,6 +172,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/detector
       readOnly: true
     ada:beamsplitter:
       description: Beamsplitter fitted for this procedure; it sets the accessible spectral range. Record 'N/A' where the procedure uses no interferometer.
@@ -181,6 +188,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/beamsplitter
       readOnly: true
     ada:spectralRangeMinimum:
       description: Short-wavelength (or low-wavenumber) limit the procedure acquires.
@@ -354,6 +362,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/measurement-type
       readOnly: true
     ada:measurementEnvironmentDefault:
       description: Atmosphere the measurement chamber is held in.
@@ -369,6 +378,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/measurement-environment
     ada:spotSizeDefault:
       description: Diameter of the analysed area for a point measurement, or the pixel footprint for a map.
       anyOf:
@@ -379,6 +389,19 @@ allOf:
       anyOf:
       - type: integer
       - type: string
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record "None" if no citable, revisable physical constants feed into this procedure's data reduction.
       type: string

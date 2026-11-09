@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -18,6 +19,22 @@
   "schema:description": "ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Manchester | RELAX (publication column of RITOFNGMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = RELAX.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "RELAX",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "None"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -46,14 +63,11 @@
       "schema:name": "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1"
     }
   ],
-  "ada:reportedProperties": [
-    "None"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Resonance ionization time of flight noble gas mass spectrome analytical workflow",
     "schema:step": [
       {
         "@type": [

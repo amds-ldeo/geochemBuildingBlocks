@@ -365,6 +365,16 @@
       },
       "expect": "schema:endDate",
       "why": "The analysis event's timing is schema:startTime/schema:endTime (the schema.org Action pair, and the pair CDIF's cdifProvActivity uses); the superseded schema:startDate/schema:endDate is closed off in geochemProduct. The mutation ADDS the old key beside the example's existing schema:endTime, with a full date-time value, so it is the dual-emitted shape a writer in transition produces and nothing else in the instance changes -- the close-off is the only thing that can reject it. Without the close-off the old key would still validate, because the activity object is open, so a writer that regressed to it would pass silently. Rejecting outright was safe because, measured 2026-10-26 after the ADA writers dropped the old pair, it occurred 0 times in the 7,447 activities of both ada_subjects and ada2, validated against gBB 60e3f13c1a."
+    },
+    {
+      "id": "activity-requires-location",
+      "example": "_sources/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/exampleadaLAMCICPMS.json",
+      "mutate": {
+        "op": "remove",
+        "pointer": "/prov:wasGeneratedBy/0/schema:location"
+      },
+      "expect": "schema:location",
+      "why": "An analysis always happened somewhere, so an activity carrying no laboratory node is incomplete rather than merely terse. Nothing else here can see this constraint go missing: it is a `required` entry on geochemBaseProfile's analysis activity, and removing it only makes every composing profile MORE permissive, so all 658 positive examples would keep passing. Note what this case deliberately does NOT pin -- the laboratory node's own contents. cdifLaboratory asks for one of schema:name / schema:identifier / schema:geo / geosparql:hasGeometry rather than a name specifically, because a laboratory may honestly never have been assigned a name, and a ROR or a coordinate identifies it just as well. Pinning schema:name here would re-impose exactly what that anyOf exists to avoid."
     }
   ]
 }

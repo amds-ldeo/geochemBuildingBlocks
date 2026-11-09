@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -158,6 +159,23 @@
   "ada:rotationRangeDefault": "360°",
   "ada:beamHardeningCorrectionMethod": "Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned",
   "ada:segmentationMethodDefault": "Adaptive (mean) thresholding",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Density and porosity",
+      "proportions, volume, size, shape and spatial distribution of internal structure"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -188,9 +206,6 @@
   "ada:samplingUnitType": "Whole sample (one scan per meteorite specimen: NWA 8277, NWA 6963)",
   "ada:analyticalMode": [
     "Single-volume"
-  ],
-  "ada:reportedProperties": [
-    "Density and porosity; proportions, volume, size, shape and spatial distribution of internal structure"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -226,7 +241,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Lab-XCT analytical workflow"
   },
   "schema:variableMeasured": [
     {

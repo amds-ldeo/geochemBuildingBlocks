@@ -1651,6 +1651,29 @@ def methoddef_name(b):
     return b["name"] + ("Default" if is_dual(b) else "")
 
 
+def _annotate_scheme(props, b):
+    """Point a parameter at the ada:vocab scheme its values are drawn from, where one exists.
+
+    The same annotation keyed-table columns carry (schema_path_emitter.analyte_column_def), on
+    the other kind of thing a controlled list lands on. Shared resolver, so the two cannot
+    disagree about the @id: _tapp_lib.vocab_scheme_for.
+
+    NOT required, and pinned as a const rather than left open, exactly like the column case: no
+    generated example carries it, so requiring it would reject every instance in the repo, while
+    a const means an instance that DOES state a term set states the right one. Annotation in
+    effect -- it constrains only a property nothing emits -- but a real const to the census,
+    which counts what restricts and cannot tell the two apart.
+
+    `b["dt"]` is the workbook's raw Data Type: `jtype`/`unit` have already collapsed it to a JSON
+    type by the time these emitters see it, and "controlled" is not recoverable from "string".
+    A bundle built without it is simply not annotated, which is the fail-closed direction.
+    """
+    import _tapp_lib as L
+    scheme = L.vocab_scheme_for(b.get("name") or "", b.get("dt") or "")
+    if scheme:
+        props["schema:inDefinedTermSet"] = {"const": {"@id": scheme}}
+
+
 def param_template_def(b, existing):
     mdname = methoddef_name(b)
     name = def_key(mdname, existing)
@@ -1687,6 +1710,7 @@ def param_template_def(b, existing):
         # a named unit is pinned; "dimensioned but unnamed" only requires that one be given
         props["schema:unitText"] = ({"type": "string"} if b["unit"] == UNIT_UNNAMED
                                     else {"const": b["unit"]})
+    _annotate_scheme(props, b)
     return name, {name: {"title": b["item"], "description": b["desc"], "type": "object",
                          "properties": props,
                          "required": ["@id", "@type", "schema:valueName", "schema:name",
@@ -1712,6 +1736,7 @@ def param_value_def(b, existing):
     if has_unit:
         props["schema:unitText"] = {"type": "string"}
         req.append("schema:unitText")
+    _annotate_scheme(props, b)
     return name, {name: {"title": b["item"], "description": b["desc"], "type": "object",
                          "properties": props, "required": req}}
 

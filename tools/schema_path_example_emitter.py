@@ -30,7 +30,14 @@ ROOT = e.ROOT
 
 # a plausible instance @type / @context for the TAPP plan (mirrors the shipped examples)
 _TAPP_TYPE = ["prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"]
+# "ex" is declared because every example this emitter writes USES it -- the root @id is
+# f"ex:{tapp}-P0" and assign_instrument_ids mints ex:instrument/<Token> -- and an undeclared
+# prefix is not a CURIE: the JSON-LD uplift drops the term instead of expanding it, so the
+# identifiers silently vanish from the RDF the SHACL shapes are run against. 537 generated
+# examples were in that state. https://example.org/ is the value the 112 examples that DO
+# declare it already use (and RFC 2606 reserves it for documentation); one prefix, one IRI.
 _CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/",
+        "ex": "https://example.org/",
         "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/", "prov": "http://www.w3.org/ns/prov#",
         "bios": "https://bioschemas.org/", "dqv": "http://www.w3.org/ns/dqv#"}
 
@@ -665,6 +672,86 @@ def _known_target_species(values):
     return []
 
 
+_DASH_TAIL = re.compile(r"\s+[\u2014\u2013-]\s+")
+# The straight and curly quote marks, as CHARACTERS. Written as the literal text \u2018 once, which
+# made every character of that escape -- u, 2, 0, 1, 8, 9, c, d and the backslash -- a quote
+# delimiter: 'Na2O, MgO' then opened a quoted run at the 2 and swallowed the comma, so the cell
+# silently came back under-split instead of failing.
+_QUOTES = "\"'\u2018\u2019\u201c\u201d"
+
+
+def _split_reported(s, seps):
+    """Split on seps, never inside (), [], {} or a quoted run."""
+    out, buf, depth, q = [], [], 0, None
+    for ch in s:
+        if q:
+            buf.append(ch)
+            if ch == q:
+                q = None
+            continue
+        if ch in _QUOTES:
+            q = {"\u2018": "\u2019", "\u201c": "\u201d"}.get(ch, ch)
+            buf.append(ch)
+            continue
+        if ch in "([{":
+            depth += 1
+        elif ch in ")]}":
+            depth = max(0, depth - 1)
+        if ch in seps and depth == 0:
+            out.append("".join(buf))
+            buf = []
+        else:
+            buf.append(ch)
+    out.append("".join(buf))
+    return [x.strip().strip(_QUOTES).strip() for x in out if x.strip()]
+
+
+def _parse_reported_properties(v):
+    """A 'Reported Variables and Units' cell -> the property names it lists.
+
+    SEPARATE from _parse_grouped_members, which serves the target-species and monitored-
+    property axes, because these cells have two shapes that one does not: a PIPE-separated run
+    of literal column headers taken off a data file ('Num | Size_mm | id | size (mm)'), and a
+    dash-delimited TAIL carrying the units or the table reference rather than another property.
+
+    Measured over the 143 distinct cells in the corpus (2026-11-02):
+        91  semicolon-separated list      25  pipe-separated column headers
+        22  comma-separated, dash tail     2  single property, commas inside parentheses
+         2  single, no delimiter           1  text sentinel
+
+    The comma rule is what that measurement decided. A comma separates properties ONLY when a
+    dash tail was present: both 'comma, no tail' cells in the corpus are ONE property carrying
+    a parenthetical list -- 'Phase volumes within the melt inclusion (glass, clinopyroxene,
+    spinel, vapour)' and 'Absorbed x-ray dose (~180 Gy, the maximum a Bennu sample would
+    receive ...)'. Splitting those yields four fragments and two, none of them a reported
+    property. Depth-aware splitting protects the parenthetical case anyway; the tail test is
+    the second guard.
+
+    The tail is DISCARDED here and re-attached by the caller as ada:reportedPropertyDeclaration
+    -- which is the only reason discarding it is safe: 78 of the 143 have one and they hold the
+    units, in a field named "Reported Variables and Units".
+    """
+    s = (v or "").strip()
+    if not s:
+        return []
+    if _sent.is_text_sentinel(s):
+        return [s]
+    if "|" in s:                                  # literal column headers off a data file
+        m = _split_reported(s, "|")
+        return m if len(m) > 1 else [s]
+    head, tail = s, None
+    parts = _DASH_TAIL.split(s, 1)
+    if len(parts) == 2 and parts[0].strip():
+        head, tail = parts[0].strip(), parts[1].strip()
+    if ";" in head:
+        m = _split_reported(head, ";")
+        return m if len(m) > 1 else [s]
+    if tail is not None and "," in head:
+        m = _split_reported(head, ",")
+        return m if len(m) > 1 else [head]
+    return [head]
+
+
 def _collector_map(values, members):
     """monitored property -> collector, read out of the Collector Configuration cell.
 
@@ -781,7 +868,7 @@ def build_example(tapp, values=None, emit_reported_property=False):
     # minimal valid TAPP-side example (the schema still constrains them). Dataset-side (detail)
     # sample/relatedLink are kept: the detail is validated standalone, not against the strict base.
     SKIP_MD = ("ada:targetSpeciesTemplate", "ada:reportedPropertyTemplate", "ada:monitoredPropertyTemplate",
-               "ada:targetMaterialTemplate",
+               "ada:targetMaterialTemplate", "ada:standardTemplate",
                "bios:computationalTool",
                "schema:actionProcess", "schema:instrument", "schema:object", "schema:relatedLink")
     # Publication mode populates the rich objects from real cells. What still stays out are the
@@ -789,14 +876,15 @@ def build_example(tapp, values=None, emit_reported_property=False):
     # are structural, emitted schema-side, never carrying per-publication values — while the default
     # ROWS (defaultAnalytes / defaultChannels) and the collector-configuration data ARE populated.
     COLUMN_DEFS = ("ada:targetSpeciesColumns", "ada:monitoredPropertyColumns", "ada:reportedPropertyColumns",
-                   "ada:targetMaterialColumns", "ada:collectorConfiguration",
+                   "ada:targetMaterialColumns", "ada:standardColumns", "ada:collectorConfiguration",
                    # reported properties are a conditional template: emitted only when the procedure
                    # enumerates "Reported Variables and Units" (build_tapp_examples gates them),
                    # never by the generic interpreter — otherwise every reported field would appear
                    # both here and on its workflow step.
                    "schema:variableMeasured")
     DEFAULT_ROWS = ("ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
-                    "ada:defaultTargetMaterials")
+                    "ada:defaultTargetMaterials", "ada:defaultStandards",
+                    "ada:defaultReportedProperties")
     # A module-owned field has no path in the technique sidecar (Source = module), and
     # load_spec drops a path-less row, so the item never reaches the loop below -- whatever the
     # publication reported for it went unemitted, and 20 LA examples lost
@@ -846,6 +934,31 @@ def build_example(tapp, values=None, emit_reported_property=False):
                 v = strip_annotation(values[item], m)
                 if not isinstance(v, str):
                     items = v
+                elif parsed.segments[-1].prop == "ada:defaultReportedProperties":
+                    # The property NAMES become the rows, and the cell itself goes beside them in
+                    # ada:reportedPropertyDeclaration whenever the parse did not keep all of it --
+                    # which is what makes dropping the post-dash tail safe, since 78 of the 143
+                    # distinct cells carry one and they hold the units.
+                    #
+                    # The declaration is written HERE rather than by the _DECL block further down:
+                    # that block sits inside the target-species `else`, so a branch that returns
+                    # before it never reaches it. Written the first time, this emitted rows in 196
+                    # examples and the declaration in ZERO -- the units silently gone, which is the
+                    # one outcome the sibling exists to prevent.
+                    items = _parse_reported_properties(v)
+                    if not items:
+                        continue
+                    _parts = _DASH_TAIL.split(v, 1)
+                    if len(_parts) == 2 and _parts[0].strip():
+                        # A tail was split off, so the rows no longer carry the units, the scale,
+                        # the table or the file format that followed the dash. Record the cell they
+                        # were recognised FROM. Keyed on the tail rather than on reconstructing the
+                        # string, because the delimiters never survive a split and a reconstruction
+                        # test would fire on every cell.
+                        _decl = re.sub(r"ada:defaultReportedProperties$",
+                                       "ada:reportedPropertyDeclaration", path)
+                        if _decl != path:
+                            e.insert(roots[parsed.root], spp.parse(_decl), v.strip())
                 elif parsed.segments[-1].prop == "ada:defaultMonitoredProperties":
                     known = _known_target_species(values)
                     rows = _parse_grouped_members(v, known)
@@ -904,7 +1017,9 @@ def build_example(tapp, values=None, emit_reported_property=False):
                         # material axis has the same exposure and the same remedy, and
                         # ada:targetMaterialDeclaration sits on its template for this.
                         _DECL = {"ada:defaultTargetSpecies": "ada:targetSpeciesDeclaration",
-                                 "ada:defaultTargetMaterials": "ada:targetMaterialDeclaration"}
+                                 "ada:defaultTargetMaterials": "ada:targetMaterialDeclaration",
+                                 "ada:defaultReportedProperties":
+                                     "ada:reportedPropertyDeclaration"}
                         decl = path
                         for _axis, _field in _DECL.items():
                             if path.endswith(_axis):
@@ -946,8 +1061,29 @@ def build_example(tapp, values=None, emit_reported_property=False):
                 trunc = spp.ParsedPath(parsed.root, parsed.segments[:-1])
                 e.insert(roots[parsed.root], trunc, element=e.Leaf(elem))
                 continue
-            e.insert(roots[parsed.root], parsed,
-                     strip_annotation(values[item], m) if pub else placeholder(m, item, sidecar))
+            if not pub:
+                e.insert(roots[parsed.root], parsed, placeholder(m, item, sidecar))
+                continue
+            val = strip_annotation(values[item], m)
+            # The same ruling placeholder() records above, now for a TRANSCRIBED value. A
+            # QuantitativeValue Data Type wants an OBJECT, and this branch was inserting the bare
+            # cell: STEM's Image Width / Image Height are "Integer (QuantitativeValue)" and their
+            # publication examples wrote schema:width: "2048" against a schema requiring
+            # {@type: [schema:QuantitativeValue], schema:value, schema:unitText}, failing their own
+            # generated schema. That is the THIRD reader of this one cell to disagree with the
+            # other two -- schema emitter, placeholder, values path -- so it uses the same
+            # e.is_quantitative token test and the same unit-read-off-the-schema shape rather than
+            # restating either.
+            #
+            # Only when a number was actually extracted: schema:value is typed integer/number, so
+            # wrapping non-numeric prose would trade a clear shape failure for a subtler type one.
+            if e.is_quantitative(m.get("dt")):
+                num, _desc = numify(val, b.jtype(m.get("dt", "")))
+                if isinstance(num, (int, float)) and not isinstance(num, bool):
+                    qv = quantitative_placeholder(m.get("dt"))
+                    qv["schema:value"] = num
+                    val = qv
+            e.insert(roots[parsed.root], parsed, val)
     out = {r: e.to_instance(o) for r, o in roots.items()}
     for v in out.values():
         normalize_instrument_tree(v)

@@ -225,62 +225,6 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id004
-              title: Counting Statistics Error
-              description: 'How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: countingStatisticsError
-                schema:name:
-                  const: Counting Statistics Error
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id005
-              title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-              description: 'How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.'
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: internalAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Internal (Within-Measurement) Analytical Precision and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
           allOf:
           - contains: *id002
             minContains: 0
@@ -288,19 +232,10 @@ allOf:
           - contains: *id003
             minContains: 0
             maxContains: 1
-          - contains: *id004
-            minContains: 0
-            maxContains: 1
-          - contains: *id005
-            minContains: 0
-            maxContains: 1
           title: Target Species Columns
       required:
       - ada:defaultTargetSpecies
       title: Target Species Template
-    ada:analyticalAccuracy:
-      description: Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.
-      type: string
     schema:instrument:
       type: array
       items:
@@ -469,7 +404,7 @@ allOf:
                               - schema:name
                               - schema:value
                               readOnly: true
-                            - &id006
+                            - &id004
                               title: Ion Counter Dead Time
                               description: Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.
                               type: object
@@ -589,7 +524,7 @@ allOf:
                               readOnly: true
                             minContains: 0
                             maxContains: 1
-                          - contains: *id006
+                          - contains: *id004
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -701,7 +636,7 @@ allOf:
                 type: array
                 items:
                   anyOf:
-                  - &id007
+                  - &id005
                     title: Doubly-Charged Species Monitor
                     description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.
                     type: object
@@ -732,7 +667,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id008
+                  - &id006
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.
                     type: object
@@ -768,10 +703,10 @@ allOf:
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation
                 allOf:
-                - contains: *id007
+                - contains: *id005
                   minContains: 0
                   maxContains: 1
-                - contains: *id008
+                - contains: *id006
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -890,7 +825,7 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
         - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
-        - &id009
+        - &id007
           title: Collision/Reaction Gas Mixture Ratio
           description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
           type: object
@@ -1012,7 +947,7 @@ allOf:
           $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         minContains: 0
         maxContains: 1
-      - contains: *id009
+      - contains: *id007
         minContains: 0
         maxContains: 1
       - contains:
@@ -1067,9 +1002,6 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:betweenSessionPrecision:
-      description: Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.
-      type: string
     ada:constantsAndReferenceValuesUsedDefault:
       description: Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record "None" if no citable, revisable physical constants feed into this procedure's data reduction.
       type: string
@@ -1085,6 +1017,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/spectral-interference-corrections-applied
       readOnly: true
     ada:massBiasCorrectionStrategy:
       description: 'Strategy used to correct instrumental isotopic mass fractionation, also called mass bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses inter-element fractionation during ablation and transport: this field addresses discrimination between isotopes of the same element, and applies wherever the procedure reports isotope ratios.'
@@ -1112,7 +1045,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
-            - &id010
+            - &id008
               title: Primary Calibration Standard Name
               description: Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.
               type: object
@@ -1142,7 +1075,7 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id010
+          - contains: *id008
             minContains: 0
             maxContains: 1
           title: Target Material Columns
@@ -1157,9 +1090,88 @@ allOf:
       required:
       - ada:defaultTargetMaterials
       title: Target Material Template
-    ada:withinSessionPrecision:
-      description: Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.
-      type: string
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+        ada:reportedPropertyColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ReportedPropertyIdentifierColumn
+            - &id009
+              title: Counting Statistics Error
+              description: 'How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: countingStatisticsError
+                schema:name:
+                  const: Counting Statistics Error
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id010
+              title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+              description: 'How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: internalAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Internal (Within-Measurement) Analytical Precision and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains: *id009
+            minContains: 0
+            maxContains: 1
+          - contains: *id010
+            minContains: 0
+            maxContains: 1
+          title: Reported Property Columns
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.
       anyOf:
@@ -1175,10 +1187,7 @@ allOf:
         - Transect
         - Mapping
   required:
-  - ada:analyticalAccuracy
-  - ada:betweenSessionPrecision
   - ada:constantsAndReferenceValuesUsedDefault
   - ada:isobaricInterferenceCorrectionsApplied
   - ada:massBiasCorrectionStrategy
-  - ada:withinSessionPrecision
   - ada:numberOfAcquisitionPasses

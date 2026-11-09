@@ -307,6 +307,7 @@ allOf:
                   - None
                   - missing
                 - type: string
+                schema:inDefinedTermSet: ada:vocab/beam-mode
                 readOnly: true
               ada:acceleratingVoltageDefault:
                 description: Electron beam accelerating voltage in kilovolts.
@@ -334,6 +335,7 @@ allOf:
                   - None
                   - missing
                 - type: string
+                schema:inDefinedTermSet: ada:vocab/mapping-beam-mode
                 readOnly: true
               ada:mappingBeamCurrentDefault:
                 description: Probe current in nanoamperes (nA) used during X-ray mapping.
@@ -643,62 +645,6 @@ allOf:
               - schema:name
               - ada:dataType
             - &id013
-              title: Analytical Precision
-              description: Precision of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). State whether the repeats were made within one session (repeatability) or across sessions (intermediate precision, in ISO 5725 terms). Include reference material name, number of analyses (n), and the measured value.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalPrecision
-                schema:name:
-                  const: Analytical Precision
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id014
-              title: Analytical Accuracy
-              description: Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracy
-                schema:name:
-                  const: Analytical Accuracy
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id015
               title: Counting Statistics Error
               description: 'How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.'
               type: object
@@ -757,12 +703,6 @@ allOf:
           - contains: *id013
             minContains: 0
             maxContains: 1
-          - contains: *id014
-            minContains: 0
-            maxContains: 1
-          - contains: *id015
-            minContains: 0
-            maxContains: 1
           title: Target Species Columns
         ada:defaultTargetSpecies:
           type: array
@@ -779,7 +719,7 @@ allOf:
       type: array
       items:
         anyOf:
-        - &id016
+        - &id014
           title: Beam Raster Dimensions
           description: Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.
           type: object
@@ -814,7 +754,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id017
+        - &id015
           title: Beam Damage Minimization
           description: 'Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points.'
           type: object
@@ -845,7 +785,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id018
+        - &id016
           title: Drift Correction
           description: 'Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals.'
           type: object
@@ -892,6 +832,9 @@ allOf:
               const: Stage Scan vs. Beam Scan
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/stage-scan-vs-beam-scan
           required:
           - '@id'
           - '@type'
@@ -899,7 +842,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id019
+        - &id017
           title: Chamber Pressure
           description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.
           type: object
@@ -934,7 +877,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id020
+        - &id018
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.
           type: object
@@ -958,6 +901,9 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/halogen-correction-on-oxygen
           required:
           - '@id'
           - '@type'
@@ -981,6 +927,9 @@ allOf:
               const: EDS Spectral Processing Type
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-spectral-processing-type
           required:
           - '@id'
           - '@type'
@@ -989,13 +938,13 @@ allOf:
           - schema:value
           readOnly: true
       allOf:
+      - contains: *id014
+        minContains: 0
+        maxContains: 1
+      - contains: *id015
+        minContains: 0
+        maxContains: 1
       - contains: *id016
-        minContains: 0
-        maxContains: 1
-      - contains: *id017
-        minContains: 0
-        maxContains: 1
-      - contains: *id018
         minContains: 0
         maxContains: 1
       - contains:
@@ -1015,6 +964,9 @@ allOf:
               const: Stage Scan vs. Beam Scan
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/stage-scan-vs-beam-scan
           required:
           - '@id'
           - '@type'
@@ -1024,10 +976,10 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id019
+      - contains: *id017
         minContains: 0
         maxContains: 1
-      - contains: *id020
+      - contains: *id018
         minContains: 0
         maxContains: 1
       - contains:
@@ -1047,6 +999,9 @@ allOf:
               const: EDS Spectral Processing Type
             schema:value:
               type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-spectral-processing-type
           required:
           - '@id'
           - '@type'
@@ -1064,7 +1019,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id029
+            - &id027
               title: Dwell Time per Pixel
               description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. For WDS mapping, the dwell time is per spectrometer per pixel.
               type: object
@@ -1086,12 +1041,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id021
+                  - &id019
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id021
+                    items: *id019
               required:
               - '@id'
               - '@type'
@@ -1099,7 +1054,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id030
+            - &id028
               title: X-ray Line
               description: X-ray emission line measured.
               type: object
@@ -1124,10 +1079,10 @@ allOf:
                     '@id': ada:vocab/x-ray-line
                 schema:defaultValue:
                   anyOf:
-                  - &id022
+                  - &id020
                     type: string
                   - type: array
-                    items: *id022
+                    items: *id020
               required:
               - '@id'
               - '@type'
@@ -1135,7 +1090,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id031
+            - &id029
               title: Diffracting Crystal
               description: Analyzing crystal (monochromator).
               type: object
@@ -1160,10 +1115,10 @@ allOf:
                     '@id': ada:vocab/diffracting-crystal
                 schema:defaultValue:
                   anyOf:
-                  - &id023
+                  - &id021
                     type: string
                   - type: array
-                    items: *id023
+                    items: *id021
               required:
               - '@id'
               - '@type'
@@ -1171,7 +1126,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id032
+            - &id030
               title: Sequence
               description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.
               type: object
@@ -1193,19 +1148,19 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id024
+                  - &id022
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id024
+                    items: *id022
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id033
+            - &id031
               title: Proportional Counter / Detector
               description: Type of detector used.
               type: object
@@ -1230,17 +1185,17 @@ allOf:
                     '@id': ada:vocab/proportional-counter-detector
                 schema:defaultValue:
                   anyOf:
-                  - &id025
+                  - &id023
                     type: string
                   - type: array
-                    items: *id025
+                    items: *id023
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id034
+            - &id032
               title: WDS PHA Setting
               description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.
               type: object
@@ -1265,17 +1220,17 @@ allOf:
                     '@id': ada:vocab/wds-pha-setting
                 schema:defaultValue:
                   anyOf:
-                  - &id026
+                  - &id024
                     type: string
                   - type: array
-                    items: *id026
+                    items: *id024
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id035
+            - &id033
               title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.
               type: object
@@ -1297,17 +1252,17 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id027
+                  - &id025
                     type: string
                   - type: array
-                    items: *id027
+                    items: *id025
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id036
+            - &id034
               title: X-ray Detection Method per Monitored Element
               description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.'
               type: object
@@ -1332,10 +1287,10 @@ allOf:
                     '@id': ada:vocab/x-ray-detection-method-per-monitored-element
                 schema:defaultValue:
                   anyOf:
-                  - &id028
+                  - &id026
                     type: string
                   - type: array
-                    items: *id028
+                    items: *id026
               required:
               - '@id'
               - '@type'
@@ -1344,6 +1299,12 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
+          - contains: *id027
+            minContains: 0
+            maxContains: 1
+          - contains: *id028
+            minContains: 0
+            maxContains: 1
           - contains: *id029
             minContains: 0
             maxContains: 1
@@ -1362,12 +1323,6 @@ allOf:
           - contains: *id034
             minContains: 0
             maxContains: 1
-          - contains: *id035
-            minContains: 0
-            maxContains: 1
-          - contains: *id036
-            minContains: 0
-            maxContains: 1
           title: Monitored Property Columns
       title: Monitored Property Template
     ada:edsAcquisitionMode:
@@ -1382,7 +1337,21 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/eds-acquisition-mode
       readOnly: true
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:edsLiveTimePerPointOrPixelDefault:
       description: EDS spectral acquisition live time per analysis point or per pixel in seconds.
       anyOf:
@@ -1408,6 +1377,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/matrix-correction-method
       readOnly: true
     ada:massAbsorptionCoefficients:
       description: Database of mass absorption coefficients used in the matrix correction.
@@ -1423,6 +1393,7 @@ allOf:
       - N/A
       - None
       - missing
+      schema:inDefinedTermSet: ada:vocab/mass-absorption-coefficients
       readOnly: true
     ada:wdsDeadTimeCorrection:
       description: Method used to correct for WDS proportional counter dead time at high count rates. Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion. Record the algorithm here and any instrument-specific constant alongside it — 'Default constant (manufacturer) — 3 µs, Cameca'. The instrument vendor itself is recorded by Instrument Manufacturer, not by this field's allowed values.
@@ -1439,6 +1410,7 @@ allOf:
         - None
         - missing
       - type: string
+      schema:inDefinedTermSet: ada:vocab/wds-dead-time-correction
       readOnly: true
     schema:actionProcess:
       type: object
@@ -1461,7 +1433,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id037
+                      - &id035
                         title: Analysis Inclusion and Rejection Criteria
                         description: 'The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.'
                         type: object
@@ -1494,7 +1466,7 @@ allOf:
                         - ada:fieldScope
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
-                    - contains: *id037
+                    - contains: *id035
                       minContains: 0
                       maxContains: 1
                     - contains:

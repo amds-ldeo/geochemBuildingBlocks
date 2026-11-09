@@ -861,35 +861,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
             - &id008
-              title: Analytical Accuracy and Assessment Method
-              description: Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracyAndAssessmentMethod
-                schema:name:
-                  const: Analytical Accuracy and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id009
               title: Internal (Within-Measurement) Analytical Precision and Assessment Method
               description: 'How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.'
               type: object
@@ -917,35 +888,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id010
-              title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-              description: Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Between-Session (Long-Term) Analytical Precision and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id011
+            - &id009
               title: Counting Statistics Error
               description: 'How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.'
               type: object
@@ -973,35 +916,6 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id012
-              title: Within-Session Analytical Precision and Assessment Method
-              description: Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: withinSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Within-Session Analytical Precision and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
           allOf:
           - contains: *id007
             minContains: 0
@@ -1010,15 +924,6 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id009
-            minContains: 0
-            maxContains: 1
-          - contains: *id010
-            minContains: 0
-            maxContains: 1
-          - contains: *id011
-            minContains: 0
-            maxContains: 1
-          - contains: *id012
             minContains: 0
             maxContains: 1
           title: Target Species Columns
@@ -1033,7 +938,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id017
+            - &id014
               title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.
               type: object
@@ -1058,10 +963,10 @@ allOf:
                     '@id': ada:vocab/spectral-interference-corrections-applied
                 schema:defaultValue:
                   anyOf:
-                  - &id013
+                  - &id010
                     type: string
                   - type: array
-                    items: *id013
+                    items: *id010
               required:
               - '@id'
               - '@type'
@@ -1069,7 +974,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id018
+            - &id015
               title: Interfering Species
               description: The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.
               type: object
@@ -1091,10 +996,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id014
+                  - &id011
                     type: string
                   - type: array
-                    items: *id014
+                    items: *id011
               required:
               - '@id'
               - '@type'
@@ -1102,7 +1007,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id019
+            - &id016
               title: Interference Correction Method
               description: Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.
               type: object
@@ -1124,10 +1029,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id015
+                  - &id012
                     type: string
                   - type: array
-                    items: *id015
+                    items: *id012
               required:
               - '@id'
               - '@type'
@@ -1135,7 +1040,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id020
+            - &id017
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
               type: object
@@ -1157,10 +1062,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id016
+                  - &id013
                     type: string
                   - type: array
-                    items: *id016
+                    items: *id013
               required:
               - '@id'
               - '@type'
@@ -1169,16 +1074,16 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
+          - contains: *id014
+            minContains: 0
+            maxContains: 1
+          - contains: *id015
+            minContains: 0
+            maxContains: 1
+          - contains: *id016
+            minContains: 0
+            maxContains: 1
           - contains: *id017
-            minContains: 0
-            maxContains: 1
-          - contains: *id018
-            minContains: 0
-            maxContains: 1
-          - contains: *id019
-            minContains: 0
-            maxContains: 1
-          - contains: *id020
             minContains: 0
             maxContains: 1
           minItems: 1
@@ -1195,6 +1100,19 @@ allOf:
       - ada:defaultMonitoredProperties
       - ada:monitoredPropertyColumns
       title: Monitored Property Template
+    ada:reportedPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultReportedProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultReportedProperties
+      title: Reported Property Template
     ada:massBiasCorrectionStrategy:
       description: 'Primary strategy used to correct for instrumental isotopic mass fractionation. Four main strategies: (1) Sample-standard bracketing (SSB): alternating sample and isotopic standard measurements; bias interpolated linearly between bracketing measurements. (2) Double-spike: a mixture of two enriched isotopes of the target species element added before digestion provides an internal monitor of both instrumental and chemical mass fractionation. (3) Internal normalization: an element of known isotopic composition added to samples and standards; measured ratio of normalizing element used to calculate the mass bias factor applied to target species ratios. (4) SSB + internal normalization: both strategies applied simultaneously for redundant bias correction.'
       type: string

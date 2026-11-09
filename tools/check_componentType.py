@@ -8,7 +8,7 @@ that enforcement across the four places componentType lives:
   1. registry/vocab/componentType.json   the UNIVERSAL (cross-technique) term set (SKOS)
   2. tools/componentType_enum_cache.json  the FULL per-file-type-BB term set, cached from
                                           the Components worksheet (apply_componentType_enums.py)
-  3. BaseSchema/{geochemProduct,adaProduct}/schema.yaml
+  3. BaseSchema/{geochemBaseProfile,adaProduct}/schema.yaml
                                           must annotate schema:inDefinedTermSet -> the vocab
   4. every _sources/**/example*.json      ada:componentType values actually used
 
@@ -32,7 +32,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VOCAB = os.path.join(ROOT, "_sources", "registry", "vocab", "componentType.json")
 CACHE = os.path.join(ROOT, "tools", "componentType_enum_cache.json")
 VOCAB_ID = "ada:vocab/componentType"
-BASE_SCHEMAS = ["_sources/BaseSchema/geochemProduct/schema.yaml",
+# geochemBaseProfile, not geochemProduct: the annotation lives with the overlay, which was
+# factored out of geochemProduct on 2026-11-04. geochemProduct is now a thin allOf and declares
+# no properties to annotate, so naming it here failed check B for a file that was never wrong.
+BASE_SCHEMAS = ["_sources/BaseSchema/geochemBaseProfile/schema.yaml",
                 "_sources/BaseSchema/adaProduct/schema.yaml"]
 
 
@@ -126,7 +129,7 @@ def main():
 
     # A. universal vocab ⊆ enum cache, EXCEPT the OGC nil reason.
     #
-    # The cache is the Components worksheet, cached; `nil:missing` is deliberately not a
+    # The cache is the Components worksheet, cached; the OGC nil reason is deliberately not a
     # worksheet row -- a nil reason applies to every file type, so apply_componentType_enums
     # appends it to each base BB's enum directly (see NIL_MISSING there). Adding it to the
     # cache would satisfy this check and then be dropped by the next `--refresh`, which is a

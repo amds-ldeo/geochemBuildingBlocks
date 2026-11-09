@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -169,6 +170,22 @@
   "ada:numberOfProjectionsDefault": "1601",
   "ada:exposureTimePerProjectionDefault": "8 s",
   "ada:segmentationMethodDefault": "Grayscale threshold range selection (ImageJ)",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Phase volumes within the melt inclusion (glass, clinopyroxene, spinel, vapour)"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -186,9 +203,6 @@
   "ada:samplingUnitType": "Region of interest (individual melt inclusion) > Phase (glass, clinopyroxene, spinel, vapour)",
   "ada:analyticalMode": [
     "Single-volume"
-  ],
-  "ada:reportedProperties": [
-    "Phase volumes within the melt inclusion (glass, clinopyroxene, spinel, vapour)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -224,7 +238,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "Lab-XCT analytical workflow"
   },
   "schema:variableMeasured": [
     {

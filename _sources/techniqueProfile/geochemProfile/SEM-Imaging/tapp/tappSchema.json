@@ -197,6 +197,7 @@
                                                                                 "None",
                                                                                 "missing"
                                                                             ],
+                                                                            "schema:inDefinedTermSet": "ada:vocab/se-detector-type",
                                                                             "readOnly": true
                                                                         },
                                                                         {
@@ -212,6 +213,7 @@
                                                                                     "None",
                                                                                     "missing"
                                                                                 ],
+                                                                                "schema:inDefinedTermSet": "ada:vocab/se-detector-type",
                                                                                 "readOnly": true
                                                                             }
                                                                         }
@@ -256,6 +258,7 @@
                                                                                 "None",
                                                                                 "missing"
                                                                             ],
+                                                                            "schema:inDefinedTermSet": "ada:vocab/bse-detector-type",
                                                                             "readOnly": true
                                                                         },
                                                                         {
@@ -274,6 +277,7 @@
                                                                                     "None",
                                                                                     "missing"
                                                                                 ],
+                                                                                "schema:inDefinedTermSet": "ada:vocab/bse-detector-type",
                                                                                 "readOnly": true
                                                                             }
                                                                         }
@@ -598,6 +602,31 @@
                     "description": "EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).",
                     "type": "string",
                     "readOnly": true
+                },
+                "ada:reportedPropertyTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultReportedProperties": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ada:defaultReportedProperties"
+                    ],
+                    "title": "Reported Property Template"
                 },
                 "ada:targetSpeciesTemplate": {
                     "type": "object",
@@ -1067,6 +1096,7 @@
                         "None",
                         "missing"
                     ],
+                    "schema:inDefinedTermSet": "ada:vocab/cl-acquisition-mode",
                     "readOnly": true
                 },
                 "ada:clWavelengthRange": {
@@ -1157,6 +1187,7 @@
                                                                 "None",
                                                                 "missing"
                                                             ],
+                                                            "schema:inDefinedTermSet": "ada:vocab/ebsd-indexing-method",
                                                             "readOnly": true
                                                         },
                                                         {
@@ -1172,6 +1203,7 @@
                                                                     "None",
                                                                     "missing"
                                                                 ],
+                                                                "schema:inDefinedTermSet": "ada:vocab/ebsd-indexing-method",
                                                                 "readOnly": true
                                                             }
                                                         }

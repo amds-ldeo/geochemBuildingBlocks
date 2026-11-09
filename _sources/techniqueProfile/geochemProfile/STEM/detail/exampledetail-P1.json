@@ -1,18 +1,51 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-P1",
+  "@id": "ex:stemTAPP-detail-P1",
   "@type": [
-    "ada:STEMImage"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:STEMImage",
-  "schema:measurementTechnique": [
+  "schema:distribution": {
+    "schema:hasPart": {
+      "schema:width": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 2048,
+        "schema:unitText": "pixel"
+      },
+      "schema:height": {
+        "@type": [
+          "schema:QuantitativeValue"
+        ],
+        "schema:value": 2048,
+        "schema:unitText": "pixel"
+      }
+    }
+  },
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:stemTAPP-P1",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "Lawrence Berkeley National Laboratory",
+        "schema:identifier": "https://ror.org/02jbv0t02"
+      },
+      "schema:startTime": "2023-12-07",
+      "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier"
     }
+  ],
+  "ada:analyticalMode": [
+    "STEM"
   ],
   "ada:sessionIdentifier": "missing",
   "ada:analyst": "missing",
@@ -28,7 +61,5 @@
   "ada:stageYPosition": -9999,
   "ada:stageTiltAlpha": -9999,
   "ada:stageTiltBeta": -9999,
-  "ada:imagePixelSize": 2.2766,
-  "ada:imageWidth": 2048,
-  "ada:imageHeight": 2048
+  "ada:imagePixelSize": 2.2766
 }

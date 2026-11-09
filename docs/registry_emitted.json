@@ -7,6 +7,8 @@
       "ada:monitoredPropertyColumn/epmaTAPP/proportionalCounterDetector",
       "ada:monitoredPropertyColumn/epmaTAPP/sequence",
       "ada:monitoredPropertyColumn/epmaTAPP/wdsPhaSetting",
+      "ada:monitoredPropertyColumn/epmaTAPP/wdsSpectrometerChannel",
+      "ada:monitoredPropertyColumn/epmaTAPP/xRayBackgroundCorrectionMethod",
       "ada:monitoredPropertyColumn/epmaTAPP/xRayDetectionMethodPerMonitoredElement",
       "ada:monitoredPropertyColumn/epmaTAPP/xRayLine"
     ],
@@ -50,9 +52,23 @@
       "ada:monitoredPropertyColumn/temTAPP/eelsDetectionLimit"
     ]
   },
+  "reportedPropertyColumns": {
+    "epmaTAPP": [
+      "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError"
+    ],
+    "laMcicpmsTAPP": [
+      "ada:reportedPropertyColumn/laMcicpmsTAPP/countingStatisticsError",
+      "ada:reportedPropertyColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+    ]
+  },
   "targetMaterialColumns": {
     "epmaTAPP": [
       "ada:targetMaterialColumn/epmaTAPP/backgroundCountingTime",
+      "ada:targetMaterialColumn/epmaTAPP/beamCurrent",
+      "ada:targetMaterialColumn/epmaTAPP/beamDamageMinimization",
+      "ada:targetMaterialColumn/epmaTAPP/beamDiameter",
+      "ada:targetMaterialColumn/epmaTAPP/beamMode",
+      "ada:targetMaterialColumn/epmaTAPP/beamRasterDimensions",
       "ada:targetMaterialColumn/epmaTAPP/peakCountingTime",
       "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName"
     ],
@@ -96,39 +112,27 @@
   },
   "targetSpeciesColumns": {
     "epmaTAPP": [
-      "ada:targetSpeciesColumn/epmaTAPP/analyticalAccuracy",
-      "ada:targetSpeciesColumn/epmaTAPP/analyticalPrecision",
-      "ada:targetSpeciesColumn/epmaTAPP/beamCurrent",
       "ada:targetSpeciesColumn/epmaTAPP/blankCorrection",
-      "ada:targetSpeciesColumn/epmaTAPP/countingStatisticsError",
       "ada:targetSpeciesColumn/epmaTAPP/interferenceCorrectionStandard",
       "ada:targetSpeciesColumn/epmaTAPP/interferingElements",
       "ada:targetSpeciesColumn/epmaTAPP/targetSpeciesEstimationMethod",
       "ada:targetSpeciesColumn/epmaTAPP/timeDependentIntensityCorrection",
-      "ada:targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod",
       "ada:targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied"
     ],
     "laMcicpmsTAPP": [
       "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
-      "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError",
-      "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment"
     ],
     "laMcicpmsUPbTAPP": [
-      "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-      "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/calibrationStrategyPerTargetSpecies",
       "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/countingStatisticsError",
       "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/interferenceCorrectionMethod",
       "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/interferingSpecies",
       "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/massResolutionAssignment",
-      "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/spectralInterferenceCorrectionsApplied",
-      "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+      "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/spectralInterferenceCorrectionsApplied"
     ],
     "laQicpmsTAPP": [
-      "ada:targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-      "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies",
       "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
       "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
@@ -136,12 +140,9 @@
       "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
       "ada:targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
-      "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
-      "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+      "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied"
     ],
     "laQicpmsUPbTAPP": [
-      "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-      "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies",
       "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError",
       "ada:targetSpeciesColumn/laQicpmsUPbTAPP/dwellTimePerMass",
@@ -149,12 +150,9 @@
       "ada:targetSpeciesColumn/laQicpmsUPbTAPP/interferingSpecies",
       "ada:targetSpeciesColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laQicpmsUPbTAPP/monitoredMasses",
-      "ada:targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied",
-      "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+      "ada:targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied"
     ],
     "laSficpmsTAPP": [
-      "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-      "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
       "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
       "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
@@ -163,12 +161,9 @@
       "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
       "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
-      "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
-      "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+      "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied"
     ],
     "laSficpmsUPbTAPP": [
-      "ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod",
-      "ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies",
       "ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError",
       "ada:targetSpeciesColumn/laSficpmsUPbTAPP/dwellTimePerMass",
@@ -177,12 +172,9 @@
       "ada:targetSpeciesColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment",
       "ada:targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses",
-      "ada:targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied",
-      "ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+      "ada:targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied"
     ],
     "semCompositionTAPP": [
-      "ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy",
-      "ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision",
       "ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent",
       "ada:targetSpeciesColumn/semCompositionTAPP/blankCorrection",
       "ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError",
@@ -198,8 +190,6 @@
       "ada:targetSpeciesColumn/semImagingTAPP/beamCurrent"
     ],
     "semTAPP": [
-      "ada:targetSpeciesColumn/semTAPP/analyticalAccuracy",
-      "ada:targetSpeciesColumn/semTAPP/analyticalPrecision",
       "ada:targetSpeciesColumn/semTAPP/beamCurrent",
       "ada:targetSpeciesColumn/semTAPP/blankCorrection",
       "ada:targetSpeciesColumn/semTAPP/countingStatisticsError",
@@ -212,24 +202,16 @@
       "ada:targetSpeciesColumn/semTAPP/xRayLineOverlapCorrectionsApplied"
     ],
     "solutionMcicpmsTAPP": [
-      "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-      "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
       "ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError",
-      "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
-      "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+      "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
     ],
     "solutionQicpmsTAPP": [
-      "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-      "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
       "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
-      "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
-      "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+      "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
     ],
     "solutionSficpmsTAPP": [
-      "ada:targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
-      "ada:targetSpeciesColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies",
       "ada:targetSpeciesColumn/solutionSficpmsTAPP/countingStatisticsError",
       "ada:targetSpeciesColumn/solutionSficpmsTAPP/dwellTimePerMass",
@@ -237,8 +219,7 @@
       "ada:targetSpeciesColumn/solutionSficpmsTAPP/interferingSpecies",
       "ada:targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
       "ada:targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses",
-      "ada:targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied",
-      "ada:targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+      "ada:targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied"
     ]
   }
 }

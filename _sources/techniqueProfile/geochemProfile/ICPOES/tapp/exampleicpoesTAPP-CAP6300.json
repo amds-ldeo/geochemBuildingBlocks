@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -18,6 +19,27 @@
   "schema:description": "icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of California, Berkeley | Thermo Fisher Scientific iCAP 6300 duo (publication column of ICPOES_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Thermo Fisher Scientific",
   "ada:instrumentModel": "Thermo Fisher Scientific iCAP 6300 duo",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "Date",
+      "Time",
+      "Sample",
+      "Method",
+      "P_1774",
+      "Co"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -46,14 +68,11 @@
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX Participating Scientist Program."
     }
   ],
-  "ada:reportedProperties": [
-    "Date | Time | Sample | Method | P_1774 | Co"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Inductively coupled plasma - optical emission spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [

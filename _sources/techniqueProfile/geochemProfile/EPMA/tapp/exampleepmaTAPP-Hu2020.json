@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -25,8 +26,6 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "N — only 15 kV and 10 nA are given",
-      "ada:beamMode": "N — only 15 kV and 10 nA are given",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -145,59 +144,12 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/analyticalAccuracy",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalAccuracy",
-        "schema:name": "Analytical Accuracy",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/analyticalPrecision",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "analyticalPrecision",
-        "schema:name": "Analytical Precision",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "xRayBackgroundCorrectionMethod",
-        "schema:name": "X-ray Background Correction Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "no value available: unnamed property"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/beamCurrent",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "beamCurrent",
-        "schema:name": "Beam Current",
-        "ada:dataType": "number",
-        "schema:defaultValue": -9999
-      },
-      {
         "@id": "ada:targetSpeciesColumn/epmaTAPP/blankCorrection",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "blankCorrection",
         "schema:name": "Blank Correction",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:targetSpeciesColumn/epmaTAPP/countingStatisticsError",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "countingStatisticsError",
-        "schema:name": "Counting Statistics Error",
         "ada:dataType": "string"
       },
       {
@@ -295,6 +247,54 @@
         "schema:defaultValue": -9999
       },
       {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": -9999
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamDamageMinimization",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamDamageMinimization",
+        "schema:name": "Beam Damage Minimization",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamDiameter",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamDiameter",
+        "schema:name": "Beam Diameter",
+        "ada:dataType": "number",
+        "schema:defaultValue": -9999
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamMode",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamMode",
+        "schema:name": "Beam Mode",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/beamRasterDimensions",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamRasterDimensions",
+        "schema:name": "Beam Raster Dimensions",
+        "ada:dataType": "number"
+      },
+      {
         "@id": "ada:targetMaterialColumn/epmaTAPP/peakCountingTime",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -317,9 +317,187 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
-  "ada:monitoredElements": [
-    "Si, Mg, Fe, Na, Al, Ca, Mn, K, Ti, Cr — all determined. \"The EPMA standards were natural and synthetic minerals: natural kaersutite for Si, Mg and Fe, jadeite for Na and Al, bustamite for Ca and Mn, and K-feldspar for K, synthetic rutile for Ti and Cr2O3 for Cr\". Cr also carries the interference correction — \"X-ray interference of the Kα line of Mn by the Kβ line of Cr was corrected\" — but is itself determined, so it is not an orphan"
-  ],
+  "ada:reportedPropertyTemplate": {
+    "ada:reportedPropertyDeclaration": "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O — oxide wt% for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2)",
+    "ada:defaultReportedProperties": [
+      "SiO2",
+      "TiO2",
+      "Al2O3",
+      "Cr2O3",
+      "FeO",
+      "MnO",
+      "MgO",
+      "CaO",
+      "Na2O",
+      "K2O"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:reportedPropertyColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
+      {
+        "monitoredProperty": "Si"
+      },
+      {
+        "monitoredProperty": "Mg"
+      },
+      {
+        "monitoredProperty": "Fe"
+      },
+      {
+        "monitoredProperty": "Na"
+      },
+      {
+        "monitoredProperty": "Al"
+      },
+      {
+        "monitoredProperty": "Ca"
+      },
+      {
+        "monitoredProperty": "Mn"
+      },
+      {
+        "monitoredProperty": "K"
+      },
+      {
+        "monitoredProperty": "Ti"
+      },
+      {
+        "monitoredProperty": "Cr"
+      }
+    ],
+    "ada:monitoredPropertyColumns": [
+      {
+        "schema:valueName": "monitoredProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "no value available: schema:name"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/backgroundPosition",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundPosition",
+        "schema:name": "Background Position(s)",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/diffractingCrystal",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "diffractingCrystal",
+        "schema:name": "Diffracting Crystal",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/dwellTimePerPixel",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerPixel",
+        "schema:name": "Dwell Time per Pixel",
+        "ada:dataType": "number",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/proportionalCounterDetector",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "proportionalCounterDetector",
+        "schema:name": "Proportional Counter / Detector",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/sequence",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "sequence",
+        "schema:name": "Sequence",
+        "ada:dataType": "integer"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/wdsPhaSetting",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "wdsPhaSetting",
+        "schema:name": "WDS PHA Setting",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/wdsSpectrometerChannel",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "wdsSpectrometerChannel",
+        "schema:name": "WDS Spectrometer Channel",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/xRayLine",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLine",
+        "schema:name": "X-ray Line",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/epmaTAPP/xRayDetectionMethodPerMonitoredElement",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayDetectionMethodPerMonitoredElement",
+        "schema:name": "X-ray Detection Method per Monitored Element",
+        "ada:dataType": "string",
+        "schema:defaultValue": "no value available: unnamed property"
+      }
+    ]
+  },
   "schema:creator": {
     "schema:name": "Sen Hu",
     "@type": [
@@ -361,9 +539,6 @@
       "schema:name": "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named"
     }
   ],
-  "ada:reportedProperties": [
-    "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O — oxide wt% for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2)"
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -399,7 +574,8 @@
     ],
     "@type": [
       "schema:HowTo"
-    ]
+    ],
+    "schema:name": "EPMA analytical workflow"
   },
   "schema:measurementTechnique": [
     {

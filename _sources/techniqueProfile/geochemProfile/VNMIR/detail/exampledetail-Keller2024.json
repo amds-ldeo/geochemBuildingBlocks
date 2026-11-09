@@ -1,18 +1,60 @@
 {
   "@context": {
     "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
+    "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "bios": "https://bioschemas.org/",
+    "prov": "http://www.w3.org/ns/prov#"
   },
-  "@id": "ex:detail-Keller2024",
+  "@id": "ex:vnmirTAPP-detail-Keller2024",
   "@type": [
-    "ada:VNMIRSpectralPoint"
+    "schema:Dataset",
+    "schema:Product"
   ],
-  "ada:componentType": "ada:VNMIRSpectralPoint",
-  "schema:measurementTechnique": [
+  "prov:wasGeneratedBy": [
     {
-      "@id": "ex:vnmirTAPP-Keller2024",
-      "schema:identifier": "no value available: schema:identifier"
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:name": "NASA Johnson Space Center",
+        "schema:identifier": "https://ror.org/04xx4z452"
+      },
+      "schema:identifier": "20230929_vnmir_jsc-ares_orex-501006-0_1",
+      "schema:startTime": "2024-04-17",
+      "schema:object": [
+        {
+          "@type": [
+            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          ],
+          "schema:name": "OREX-501006-0"
+        }
+      ],
+      "schema:endTime": "no value available: schema:endTime",
+      "ada:emissionAngle": -9999,
+      "ada:incidenceAngle": -9999,
+      "ada:sampleTemperature": -9999
     }
+  ],
+  "schema:contributor": [
+    {
+      "schema:roleName": "analyst",
+      "schema:contributor": {
+        "schema:name": "Keller, Lindsay"
+      }
+    }
+  ],
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
+    }
+  ],
+  "ada:analyticalMode": [
+    "Spectral Point"
   ],
   "ada:sessionIdentifier": "20230929_vnmir_jsc-ares_orex-501006-0_1",
   "ada:analyst": "Keller, Lindsay",

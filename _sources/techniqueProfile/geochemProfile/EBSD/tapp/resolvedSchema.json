@@ -168,7 +168,15 @@
     "schema:datePublished": {
       "title": "Method Start Date",
       "type": "string",
-      "description": "ISO 8601 date when this method configuration was first used."
+      "description": "ISO 8601 date when this method configuration was first used.",
+      "anyOf": [
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        {
+          "pattern": "^(missing|no value available: .+)$"
+        }
+      ]
     },
     "schema:dateModified": {
       "type": "string",
@@ -3460,6 +3468,10 @@
           },
           "maxContains": 1
         },
+        "ada:reportedPropertyDeclaration": {
+          "type": "string",
+          "description": "The reported variables and their units, AS THE SOURCE STATES IT. Free text on purpose, and the counterpart of ada:targetSpeciesDeclaration. The workbook cell is one transcribed statement -- a list of properties followed, after a dash, by the units, the scale, the table it is reported in, or the file format. ada:defaultReportedProperties carries the property names that could be recognised; this carries the statement they were recognised FROM, so the units survive. Measured 2026-11-02 over the 143 distinct cells in the corpus: 78 carry such a tail, holding units (\"per mille relative to NIST SRM984\"), citations (\"Tables 2 and 3\") and formats (\"32-bit floating point .tiff\"). Parsing to rows alone would have dropped every one of them, out of a field named \"Reported Variables and Units\"."
+        },
         "ada:defaultReportedProperties": {
           "type": "array",
           "description": "The reported properties this procedure defines by default — the ROWS of the reported- property table. Each is a bare string or a schema:DefinedTerm identifying the property; per-property column VALUES live in the analysis record, not here.",
@@ -3479,67 +3491,199 @@
         "ada:reportedPropertyColumns"
       ]
     },
+    "ada:standardTemplate": {
+      "title": "Standard Template",
+      "description": "Template for the standards this procedure calibrates against, and the columns that repeat over them. A standard STANDARDIZES something: ada:standardizationType names which domain that is (target species, monitored property or reported property) and the standardization-target column names the member of it. Rows are standard-by-target PAIRS, not one row per standard -- one natural kaersutite standard calibrates Si, Fe and Mg as three rows -- which is why the TAPP workbook keys this as the cross-product `standard x reported property` and why the identifier column is not unique per row.\nA CALIBRATION STANDARD IS NOT A REAGENT, and the rows of this table are its own entities (Stephen, 2026-11-01). The two carry different metadata because different things can go wrong with them: a reagent is described by purity, lot number, expiration and the contamination it contributes, tracked through method blanks, while a calibration standard is described by its CERTIFIED VALUES, the uncertainties on those values, its traceability chain (NIST SRM to SI units), its source or manufacturer, and preparation details such as dilution factors. Bioschemas' reagentUsed ranges -- BioChemEntity, MolecularEntity, ChemicalSubstance, DefinedTerm -- are oriented toward biological and chemical substances, not reference materials with certified compositions, so flattening a standard into bios:reagent loses exactly the metrological traceability an analytical provenance record exists to carry.\nKnown gap: this table records the citation for a standard's accepted values (the `source` column) and the analytical precision and accuracy MEASURED against it, but it has no column for the certified value itself or the uncertainty on that value. Those are properties of the standard, not of a measurement made with it.",
+      "type": "object",
+      "properties": {
+        "ada:standardColumns": {
+          "title": "Standard Columns",
+          "type": "array",
+          "description": "Columns of the standards table. Must include exactly one column with schema:valueName \"standard\" identifying the standard named in each row.",
+          "minItems": 1,
+          "items": {
+            "description": "One column of the standards table. Structurally a KeyedTableColumn, like every other keyed domain's column. The EPMA template worksheet's columns are the worked example: the standard's type and material, what it standardizes (type and target), which target materials it applies to, the citation for its accepted values, and the expected analytical precision and accuracy for that standard-target pair.",
+            "allOf": [
+              {
+                "$ref": "#/$defs/KeyedTableColumn"
+              }
+            ]
+          },
+          "contains": {
+            "description": "The mandatory standard-identifier column, naming the standard used in each row. Mirrors ReportedPropertyIdentifierColumn, with one difference that matters: it is NOT unique per row, because a row is a standard-by-target pair and one standard calibrates several targets. Like the other identifier columns it maps into schema:variableMeasured/schema:name, because a procedure's several tables share one logical variable registry rather than owning one each.",
+            "allOf": [
+              {
+                "description": "One column of the standards table. Structurally a KeyedTableColumn, like every other keyed domain's column. The EPMA template worksheet's columns are the worked example: the standard's type and material, what it standardizes (type and target), which target materials it applies to, the citation for its accepted values, and the expected analytical precision and accuracy for that standard-target pair.",
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/KeyedTableColumn"
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "schema:valueName": {
+                    "const": "standard"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "schema:valueRequired": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "M"
+                  },
+                  "ada:cdifPropertyPath": {
+                    "const": "#/schema:variableMeasured/schema:name"
+                  }
+                },
+                "required": [
+                  "schema:valueName",
+                  "ada:dataType",
+                  "schema:readonlyValue",
+                  "schema:valueRequired",
+                  "ada:tier",
+                  "ada:cdifPropertyPath"
+                ]
+              }
+            ]
+          },
+          "maxContains": 1
+        },
+        "ada:defaultStandards": {
+          "type": "array",
+          "description": "The standards this procedure uses by default -- the ROWS of the standards table. Each is a bare string or a schema:DefinedTerm identifying the standard; per-standard column VALUES live in the analysis record, not here.",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/DefinedTerm"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "ada:standardColumns"
+      ]
+    },
     "dqv:hasQualityMeasurement": {
       "description": "Quality measurements that characterize the method's expected performance (e.g. analytical precision, accuracy, counting statistics error). Uses the CDIF qualityMeasure building block.",
       "type": "array",
       "items": {
-        "title": "definitions for simple quality measure property",
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "contains": {
-              "const": "dqv:QualityMeasurement"
-            },
-            "minItems": 1
-          },
-          "dqv:isMeasurementOf": {
-            "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "title": "Object Reference",
-                "description": "a resolvable reference to a representation of a quality measure",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "resolvable @id of the referenced node"
-                  }
+        "description": "CDIF's qualityMeasure, extended with what an ANALYTICAL quality statistic needs beyond a bare value. A precision or accuracy figure is a dataset-level metric, not a per-measurement one (Stephen, 2026-11-01): the RSD is dqv:value, and the properties below say what that number means. Without them an RSD is unusable -- 0.5% at one sigma over three replicates against one standard is a different claim from 0.5% at two sigma over thirty against another.\nada:assessmentMethod is listed here because the workbooks currently BUNDLE it into the item name -- ada:analyticalAccuracyAndAssessmentMethod, and the two ...AnalyticalPrecisionAndAssessmentMethod spellings -- which is two facts in one field. The value belongs in dqv:value and the method beside it.",
+        "allOf": [
+          {
+            "title": "definitions for simple quality measure property",
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
                 },
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false
+                "contains": {
+                  "const": "dqv:QualityMeasurement"
+                },
+                "minItems": 1
               },
-              {
-                "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+              "dqv:isMeasurementOf": {
+                "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "title": "Object Reference",
+                    "description": "a resolvable reference to a representation of a quality measure",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "description": "resolvable @id of the referenced node"
+                      }
+                    },
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                  }
+                ]
+              },
+              "dqv:value": {
+                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                  }
+                ]
               }
+            },
+            "required": [
+              "dqv:isMeasurementOf",
+              "dqv:value"
             ]
           },
-          "dqv:value": {
-            "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
-            "anyOf": [
-              {
+          {
+            "type": "object",
+            "properties": {
+              "ada:confidenceLevel": {
+                "title": "Confidence Level",
+                "description": "The confidence interval the value is quoted at, e.g. \"1 sigma\", \"2 sigma\", \"95%\". A string rather than an enum because the corpus has not been surveyed for its spellings; a vocabulary belongs here once it has.",
                 "type": "string"
               },
-              {
-                "type": "number"
+              "ada:measurementScope": {
+                "title": "Measurement Scope",
+                "description": "Over what span the statistic was assessed. Within-session reproducibility and between-session (long-term) reproducibility are different claims about the same procedure, which is why the TAPP workbooks name them as separate items.",
+                "type": "string",
+                "enum": [
+                  "within-session",
+                  "between-session"
+                ]
               },
-              {
-                "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+              "ada:measuredStandard": {
+                "title": "Measured Standard",
+                "description": "The standard this statistic was measured against, as a reference INTO the procedure's standards table (ada:standardTemplate) rather than a restatement of the material. An accuracy figure without the standard behind it cannot be compared with another lab's.",
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/$defs/DefinedTerm"
+                    }
+                  ]
+                }
+              },
+              "ada:assessmentMethod": {
+                "title": "Assessment Method",
+                "description": "How the statistic was assessed -- repeat measurement of a secondary standard, replicate digestions, counting statistics. Currently bundled into the workbook item name; see the note above.",
+                "type": "string"
+              },
+              "ada:numberOfReplicates": {
+                "title": "Number of Replicates",
+                "description": "How many replicates the statistic is based on. Distinct from a procedure-level replicate count: this one qualifies THIS measure, and three replicates behind an RSD is a weaker claim than thirty.",
+                "type": "integer"
               }
-            ]
+            }
           }
-        },
-        "required": [
-          "dqv:isMeasurementOf",
-          "dqv:value"
         ]
       }
     },
@@ -4341,6 +4485,45 @@
         ]
       }
     },
+    "schema:license": {
+      "title": "Method License",
+      "description": "Legal statement of conditions for use and access of this method description",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "title": "Creative Work Type",
+            "description": "Shell type for labeled links to other resources. Any schema.org CreativeWork property could be included.",
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "contains": {
+                  "const": "schema:CreativeWork"
+                },
+                "minItems": 1
+              },
+              "schema:name": {
+                "type": "string"
+              },
+              "schema:description": {
+                "type": "string"
+              },
+              "schema:url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@type"
+            ]
+          }
+        ]
+      }
+    },
     "schema:variableMeasured": {
       "title": "Reported Variables",
       "description": "Variables / properties this procedure reports (e.g. detection limit, limit of quantification, calibration factor, uncertainty propagation method), each modeled as a schema:PropertyValueSpecification (a procedure-level default, carrying schema:defaultValue) or a schema:PropertyValue (a measured value, carrying schema:value), keyed by schema:name. A technique profile enumerates the reported properties it defines; a dataset instance overrides each schema:defaultValue with a schema:value. Left open here — the technique overlay narrows it.",
@@ -4593,13 +4776,6 @@
             "type": "string"
           }
         },
-        "ada:reportedProperties": {
-          "type": "array",
-          "items": {
-            "description": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.",
-            "type": "string"
-          }
-        },
         "schema:description": {
           "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
           "type": "string"
@@ -4753,6 +4929,31 @@
     {
       "type": "object",
       "properties": {
+        "ada:reportedPropertyTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultReportedProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "ada:defaultReportedProperties"
+          ],
+          "title": "Reported Property Template"
+        },
         "schema:creator": {
           "type": "object",
           "properties": {
@@ -5016,6 +5217,7 @@
                                         "Speed 1",
                                         "missing"
                                       ],
+                                      "schema:inDefinedTermSet": "ada:vocab/ebsd-camera-speed-setting",
                                       "readOnly": true
                                     },
                                     {
@@ -5026,6 +5228,7 @@
                                           "Speed 1",
                                           "missing"
                                         ],
+                                        "schema:inDefinedTermSet": "ada:vocab/ebsd-camera-speed-setting",
                                         "readOnly": true
                                       }
                                     }
@@ -9712,63 +9915,112 @@
           "description": "Quality measurements specific to this workflow step.",
           "type": "array",
           "items": {
-            "title": "definitions for simple quality measure property",
-            "type": "object",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "contains": {
-                  "const": "dqv:QualityMeasurement"
-                },
-                "minItems": 1
-              },
-              "dqv:isMeasurementOf": {
-                "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "title": "Object Reference",
-                    "description": "a resolvable reference to a representation of a quality measure",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "description": "resolvable @id of the referenced node"
-                      }
+            "description": "CDIF's qualityMeasure, extended with what an ANALYTICAL quality statistic needs beyond a bare value. A precision or accuracy figure is a dataset-level metric, not a per-measurement one (Stephen, 2026-11-01): the RSD is dqv:value, and the properties below say what that number means. Without them an RSD is unusable -- 0.5% at one sigma over three replicates against one standard is a different claim from 0.5% at two sigma over thirty against another.\nada:assessmentMethod is listed here because the workbooks currently BUNDLE it into the item name -- ada:analyticalAccuracyAndAssessmentMethod, and the two ...AnalyticalPrecisionAndAssessmentMethod spellings -- which is two facts in one field. The value belongs in dqv:value and the method beside it.",
+            "allOf": [
+              {
+                "title": "definitions for simple quality measure property",
+                "type": "object",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
                     },
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false
+                    "contains": {
+                      "const": "dqv:QualityMeasurement"
+                    },
+                    "minItems": 1
                   },
-                  {
-                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                  "dqv:isMeasurementOf": {
+                    "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "title": "Object Reference",
+                        "description": "a resolvable reference to a representation of a quality measure",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "type": "string",
+                            "description": "resolvable @id of the referenced node"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                      }
+                    ]
+                  },
+                  "dqv:value": {
+                    "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                      }
+                    ]
                   }
+                },
+                "required": [
+                  "dqv:isMeasurementOf",
+                  "dqv:value"
                 ]
               },
-              "dqv:value": {
-                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
-                "anyOf": [
-                  {
+              {
+                "type": "object",
+                "properties": {
+                  "ada:confidenceLevel": {
+                    "title": "Confidence Level",
+                    "description": "The confidence interval the value is quoted at, e.g. \"1 sigma\", \"2 sigma\", \"95%\". A string rather than an enum because the corpus has not been surveyed for its spellings; a vocabulary belongs here once it has.",
                     "type": "string"
                   },
-                  {
-                    "type": "number"
+                  "ada:measurementScope": {
+                    "title": "Measurement Scope",
+                    "description": "Over what span the statistic was assessed. Within-session reproducibility and between-session (long-term) reproducibility are different claims about the same procedure, which is why the TAPP workbooks name them as separate items.",
+                    "type": "string",
+                    "enum": [
+                      "within-session",
+                      "between-session"
+                    ]
                   },
-                  {
-                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                  "ada:measuredStandard": {
+                    "title": "Measured Standard",
+                    "description": "The standard this statistic was measured against, as a reference INTO the procedure's standards table (ada:standardTemplate) rather than a restatement of the material. An accuracy figure without the standard behind it cannot be compared with another lab's.",
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "$ref": "#/$defs/DefinedTerm"
+                        }
+                      ]
+                    }
+                  },
+                  "ada:assessmentMethod": {
+                    "title": "Assessment Method",
+                    "description": "How the statistic was assessed -- repeat measurement of a secondary standard, replicate digestions, counting statistics. Currently bundled into the workbook item name; see the note above.",
+                    "type": "string"
+                  },
+                  "ada:numberOfReplicates": {
+                    "title": "Number of Replicates",
+                    "description": "How many replicates the statistic is based on. Distinct from a procedure-level replicate count: this one qualifies THIS measure, and three replicates behind an RSD is a weaker claim than thirty.",
+                    "type": "integer"
                   }
-                ]
+                }
               }
-            },
-            "required": [
-              "dqv:isMeasurementOf",
-              "dqv:value"
             ]
           }
         }

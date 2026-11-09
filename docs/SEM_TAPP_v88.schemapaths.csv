@@ -13,9 +13,9 @@ Analysis Start Date,N/A,Basic,Date,,module,shared,placement owned by Module Core
 Analyst,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
 Target Species,Basic,Editable,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[],technique,shared,placement is technique-owned: no built module carries the default-ROWS array,defines: target species
 Target Species Estimation Method,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,,target species
-Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
+Analytical Accuracy,Advanced,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Analytical Accuracy'].dqv:value,authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
 Analytical Mode,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
-Analytical Precision,Advanced,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
+Analytical Precision,Advanced,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Analytical Precision'].dqv:value,authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
 X-ray Background Correction Method,Basic,Editable,Controlled list,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,divergence decision applied,monitored property
 Background Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[],keyed,shared,"channel keyed table (was mis-mapped) re-keyed target material x monitored property by tapp 6a6eed2; X names the table and the monitored-property half rides the column, as target material x target species does",target material x monitored property
 Background Position(s),Advanced,Editable,Text (free),$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),monitored property
@@ -117,7 +117,7 @@ Procedure Start Date,Basic,Read-Only,Date,,module,shared,placement owned by Modu
 Proportional Counter / Detector,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),monitored property
 Protective Coating Deposition,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:protectiveCoatingDepositionDefault,authored,,,
 Protective Coating Deposition,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Protective Coating Deposition'].schema:value,authored,,new in this revision (needs mapping),
-Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
+Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,shared,"consolidated onto the reported-property template 2026-11-02 (Stephen): the rows are the property names, and the cell is kept verbatim beside them in ada:reportedPropertyDeclaration so the units after the dash survive. De-modularised because a default-row array is not composable through allOf.",defines: reported property
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
 Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,sample

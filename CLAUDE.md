@@ -234,22 +234,23 @@ of `_sources/` is generated, and reading it as hand-authored invites editing a f
 regeneration overwrites. The question a label has to answer is **"if this is wrong, do I edit it
 or fix a generator?"** — so the taxonomy is by WHAT WRITES IT, measured, not by directory:
 
-| path | 252 `schema.yaml` | written by |
+| path | 253 `schema.yaml` | written by |
 |---|---|---|
 | `techniqueProfile/geochemProfile/*/tapp/` | 61 | `build_tapp` + `build_pathdriven` |
 | `techniqueProfile/geochemProfile/*/detail/` | 61 | `build_pathdriven` |
 | `techniqueProfile/geochemProfile/*/profile/` | 34 | `build_profile` |
 | `BaseSchema/modules/*/` | 16 | `build_module_bb` |
 | `registry/*/` | 6 | `build_tapp` |
-| `BaseSchema/*` (non-module) | 18 | **nobody — edit directly** |
+| `BaseSchema/*` (non-module) | 19 | **nobody — edit directly** |
 | `techniqueProfile/adaProfile/*/` | 45 | **nobody — edit directly** (`generate_profiles.py` is deprecated and refuses to run) |
 | `techniqueProfile/geochemProfile/*/profile-ada/` | 4 | **nobody — LEGACY, see below** |
 | `techniqueProfile/geochemProfile/*/detail-legacy/` | 1 | **nobody — legacy** |
 | `adaSubjects/*/` | 6 | **nobody here** — derived from pinned `metadata` commits; NOT register blocks (no `bblock.json`), see its `README.md` |
 
-So 178 of 252 `schema.yaml` under `_sources/` are generated (re-counted 2026-10-27; the total
-fell from 257 when #225 retired five `profile-ada` blocks). The same applies to everything
-beside them: all 252 `resolvedSchema.json` (`resolve_schema.py`), all 252 `<name>Schema.json`
+So 178 of 253 `schema.yaml` under `_sources/` are generated (re-counted 2026-11-04; the total
+fell from 257 when #225 retired five `profile-ada` blocks, then rose by one when the geochem
+overlay was factored into `geochemBaseProfile`, which nobody generates). The same applies to
+everything beside them: all 253 `resolvedSchema.json` (`resolve_schema.py`), all 253 `<name>Schema.json`
 (`regenerate_schema_json.py`), and the generated `example*.json` (`build_tapp_examples` — but see
 the three categories of example below, because the static and source-derived ones are NOT
 regenerated).
@@ -627,7 +628,7 @@ note at the end.
 
 **Each label has exactly ONE home, and the generators READ it rather than restating it.**
 
-    record side (the dataset)    _sources/BaseSchema/geochemProduct/schema.yaml
+    record side (the dataset)    _sources/BaseSchema/geochemBaseProfile/schema.yaml
     procedure-side containers    _sources/BaseSchema/tappDefinition/schema.yaml
     the plan's own eight         _sources/BaseSchema/tappDefinition/schema.yaml
 
@@ -635,6 +636,20 @@ note at the end.
 the generators call it. A label list inside a generator would be a second home for one
 fact, the shape this repo retired for `ada:procedureAuthorDescription` and is retiring
 for `ada:resultTarget` (#212).
+
+**The record-side home is `geochemBaseProfile`, NOT `geochemProduct`, since 2026-11-04** —
+the overlay was factored out and geochemProduct is now the thin allOf over the four CDIF
+profiles plus that one block. READING THE COMPOSITION INSTEAD OF THE OVERLAY FAILS OPEN:
+`geochemProduct/schema.yaml` still opens, still parses, and declares no properties, so
+`record_labels()` returned 0 labels instead of 33 and every generated detail and profile
+block was emitted unlabelled. No gate saw it — a title restricts nothing, so
+`validate_examples` was 658/658 and `constraint_census` is structurally blind to titles
+(see the census note below). Only a per-artifact title count caught it, which is the
+measurement that section already demands. `record_labels()` now RAISES on an empty
+result, because a file that parses and declares nothing can only mean the home moved;
+the old fail-open is kept for a file that cannot be READ, which is the recoverable case
+it was written for. `check_componentType.BASE_SCHEMAS` named geochemProduct for the same
+reason and broke the same way.
 
 **Title Case.** Measured over the 509 property titles that predate this work:
 *Background Count Time*, *Funding Source*, *Collection Type*, *ADA Analysis Instrument*.
@@ -659,7 +674,16 @@ generator that completely redefines a labelled property must carry the label ove
 literal `allOf` entry in place, so a base title lands at `/properties/<key>/title` while
 adaProduct's own lands at `/allOf/4/properties/<key>/title`. The viewer prefers a direct
 `properties` title over one found in a branch, so the BASE wins and the overlay silently
-loses. Per-product wording needs the generator route, not an overlay. Do not rebuild the
+loses.
+
+The 2026-11-04 split MOVED both products' labels, in opposite directions, and the rule
+above is why that had to be measured rather than assumed. geochemProduct's 33 labels went
+from `/allOf/4/properties/` to the ROOT — it had 0 root properties before, so they now win
+outright. adaProduct's went the other way, root to `/allOf/4/`, and still resolve to the
+same 33 strings because no sibling titles those keys: a titled branch beside UNTITLED
+siblings is the safe shape, as *Samples Analyzed* already showed. The exposure is latent,
+not live — if CDIF ever titles one of those keys at a node that hoists to adaProduct's
+root, gBB's label starts losing there, where before the split it could not. Per-product wording needs the generator route, not an overlay. Do not rebuild the
 overlay layer expecting it to win.
 
 **WHICH APPLICATION MODE a property needs depends on whether its meaning travels** (the

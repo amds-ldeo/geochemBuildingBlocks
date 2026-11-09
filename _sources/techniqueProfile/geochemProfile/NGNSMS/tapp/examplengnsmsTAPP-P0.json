@@ -2,6 +2,7 @@
   "@context": {
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
+    "ex": "https://example.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#"
@@ -18,6 +19,27 @@
   "schema:description": "ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | (CNRS-CRPG)Nu Instruments Noblesse HR (publication column of NGNSMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Nu.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(CNRS-CRPG)Nu Instruments Noblesse HR",
+  "ada:reportedPropertyTemplate": {
+    "ada:defaultReportedProperties": [
+      "1 sigma",
+      "Sample",
+      "Laser power",
+      "Date",
+      "Cycles",
+      "Trap"
+    ],
+    "ada:reportedPropertyColumns": [
+      {
+        "schema:valueName": "reportedProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "no value available: schema:name"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -46,14 +68,11 @@
       "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This work was cofunded by the European Union (ERC, IRONIS, 10187562). Support from the French Space Agency (CNES) is also acknowledged."
     }
   ],
-  "ada:reportedProperties": [
-    "1 sigma | Sample | Laser power | Date | Cycles | Trap"
-  ],
   "schema:actionProcess": {
     "@type": [
       "schema:HowTo"
     ],
-    "schema:name": "missing",
+    "schema:name": "Noble gas and Nitrogen Static Mass Spectrometry analytical workflow",
     "schema:step": [
       {
         "@type": [

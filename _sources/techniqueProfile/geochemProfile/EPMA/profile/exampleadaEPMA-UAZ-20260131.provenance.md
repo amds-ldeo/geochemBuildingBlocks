@@ -97,3 +97,19 @@ the values were re-minted in place with the generators' own scheme
 same strings.
 
 The document scope is `3xec-yw98`, this record's own `@id`.
+
+## 2026-11-07 — `Analytical Accuracy` and `Analytical Precision` added as SENTINEL
+
+`Analytical Precision` and `Analytical Accuracy` moved from the EPMA procedure template to
+`$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='...'].dqv:value`, because each is the
+session's own result and not the method's expected performance (the `$MethodDefinition` slot is
+described as the latter). Both rows are Analysis-Level Basic, so requiredness follows the path and
+the profile now pins each with `contains`.
+
+No source reports either figure for this session — the same reason `Goodness-of-Fit` is SENTINEL
+above — so both carry the string `missing`, by this file's existing convention. This example is
+SOURCE-DERIVED and never regenerated, so the members were added here directly.
+
+What the session does report is a per-element 1-sigma standard deviation and an oxide total per
+analysis point; those are per-point columns on `schema:variableMeasured`, not a session-level
+precision or accuracy assessment, so they are not restated here as if they were.

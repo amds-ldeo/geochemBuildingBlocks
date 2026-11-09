@@ -18,6 +18,31 @@
         {
             "type": "object",
             "properties": {
+                "ada:reportedPropertyTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultReportedProperties": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ada:defaultReportedProperties"
+                    ],
+                    "title": "Reported Property Template"
+                },
                 "schema:creator": {
                     "type": "object",
                     "properties": {
@@ -199,6 +224,7 @@
                                                                                 "Speed 1",
                                                                                 "missing"
                                                                             ],
+                                                                            "schema:inDefinedTermSet": "ada:vocab/ebsd-camera-speed-setting",
                                                                             "readOnly": true
                                                                         },
                                                                         {
@@ -209,6 +235,7 @@
                                                                                     "Speed 1",
                                                                                     "missing"
                                                                                 ],
+                                                                                "schema:inDefinedTermSet": "ada:vocab/ebsd-camera-speed-setting",
                                                                                 "readOnly": true
                                                                             }
                                                                         }

@@ -98,13 +98,19 @@ ROLE_KEYS = {"ada:toolRole", "ada:reagentRole"}
 # block demands nothing and the entities come out untyped.
 WRAPPER_ITEM_REF = {
     "schema:instrument": "../../../../BaseSchema/instrument/schema.yaml",
-    # Reference the tool/reagent shapes at their home in the generic geochemProduct base, NOT
-    # through the adaProduct alias: the technique detail is a geochem artifact and must not depend
-    # on the ADA-specific product layer. (The adaProduct alias also mis-resolves as a cross-file
+    # Reference the tool/reagent shapes at their home in geochemBaseProfile, NOT through the
+    # adaProduct alias: the technique detail is a geochem artifact and must not depend on the
+    # ADA-specific product layer. (The adaProduct alias also mis-resolves as a cross-file
     # $ref-of-a-$ref — it inlines the whole product schema, leaking @type [Dataset,Product] onto the
-    # tool/reagent — whereas the direct geochemProduct fragment resolves to the correct shape.)
-    "bios:computationalTool": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedComputationalTool",
-    "bios:reagent": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent",
+    # tool/reagent — whereas the direct fragment resolves to the correct shape.)
+    #
+    # The home was geochemProduct until 2026-11-04, when the overlay and its $defs were factored
+    # into geochemBaseProfile and geochemProduct became the thin composition over the CDIF
+    # profiles. Pointing at geochemProduct#/$defs still RESOLVED afterwards, because resolution
+    # inlines the composition -- which is what makes this the dangerous kind of stale ref: it
+    # would have gone on working while naming a file that no longer defines the shape.
+    "bios:computationalTool": "../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool",
+    "bios:reagent": "../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent",
 }
 
 # Array properties whose ITEMS are a rich object defined elsewhere, keyed by PROPERTY name
@@ -147,7 +153,8 @@ BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool", "ada:combinedResults"}
 # "{'monitoredProperty': '11B'} is not valid under any of the given schemas" while the base reads
 # as though it allows exactly that.
 DEFAULT_ROW_ARRAYS = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
-                      "ada:defaultTargetMaterials"}
+                      "ada:defaultTargetMaterials", "ada:defaultStandards",
+                      "ada:defaultReportedProperties"}
 DEFAULT_ROW_ITEMS = {"anyOf": [{"type": "string"},
                                {"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"},
                                {"type": "object"}]}
@@ -197,6 +204,17 @@ KEYED_TABLES = {
                     "#/$defs/ReportedPropertyIdentifierColumn"
         },
     },
+    # Standards. The one keyed domain whose rows are PAIRS -- a standard by the thing it
+    # standardizes -- so its identifier column is deliberately not unique per row. Shape from the
+    # Standards worksheet of metadata/EPMA-templates20261031.xlsx.
+    "ada:standardColumns": {
+        "template": "ada:standardTemplate",
+        "registry": "standardColumns",
+        "identifier_ref": {
+            "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"
+                    "#/$defs/StandardIdentifierColumn"
+        },
+    },
     # ada:collectorConfiguration is deliberately NOT here. It used to serve as the
     # monitored-property column array directly, which made it the container for eight unrelated
     # items and contradicted its own declared Data Type of Text (free). It is now what the sidecar
@@ -219,10 +237,18 @@ def normalize_path(p):
     the reference LA-MC-ICPMS sidecar addresses it — no brackets), whereas the array-segment form
     routes into the append leaf and would emit the raw items schema instead of the members. The
     schema side keys off the property NAME, so both grammars still emit the same array constraint."""
-    return (p.replace(".ada:collectorConfiguration.ada:defaultMonitoredProperties", ".ada:defaultMonitoredProperties")
-             .replace(".ada:defaultTargetSpecies[]", ".ada:defaultTargetSpecies")
-             .replace(".ada:defaultMonitoredProperties[]", ".ada:defaultMonitoredProperties")
-             .replace(".ada:defaultTargetMaterials[]", ".ada:defaultTargetMaterials"))
+    out = p.replace(".ada:collectorConfiguration.ada:defaultMonitoredProperties",
+                    ".ada:defaultMonitoredProperties")
+    # DERIVED from DEFAULT_ROW_ARRAYS rather than listed axis by axis. The list form named three of
+    # the five and silently excluded the rest: a path ending `ada:defaultReportedProperties[]` kept
+    # its array segment, insert() took the branch above that sets `append = Leaf(DEFAULT_ROW_ITEMS)`
+    # -- which ignores the value passed to it -- and to_instance then rendered that SCHEMA as the
+    # array's content. 195 of 657 examples carried {"anyOf": [...]} where their reported properties
+    # should have been, and the parse that produced the members ran correctly the whole time.
+    # One set, one behaviour: an axis added to DEFAULT_ROW_ARRAYS is collapsed here automatically.
+    for _axis in DEFAULT_ROW_ARRAYS:
+        out = out.replace(".%s[]" % _axis, ".%s" % _axis)
+    return out
 
 
 class AddlType:
@@ -483,11 +509,8 @@ def _term_scheme(consts):
     return found.pop() if len(found) == 1 else None
 
 
-_VOCAB_SCHEMES = set()
-
-
 def _vocab_scheme(prop, dtype):
-    """The consolidated ada:vocab scheme a keyed-table column's VALUES come from, or None.
+    """The consolidated ada:vocab scheme a property's VALUES come from, or None.
 
     Sibling of _term_scheme above: that one resolves an instrument SELECTOR TOKEN to its scheme,
     this one resolves a PROPERTY NAME to the scheme of the values that property takes. Both
@@ -510,24 +533,16 @@ def _vocab_scheme(prop, dtype):
     have a single stable target -- and both segments of that IRI had already moved once
     (empaTAPP -> epmaTAPP, analyteEstimationMethod -> targetSpeciesEstimationMethod). One scheme
     per property is what makes the annotation worth minting.
+
+    DELEGATES to _tapp_lib.vocab_scheme_for, which is now the single home. It moved there when
+    the parameter emitters needed the same resolution: they live in build_tapp, this module
+    imports build_tapp, so a resolver here could not be reached from there without inverting the
+    import. Same reason vocab_slug itself lives in _tapp_lib.
     """
-    if not dtype or "controlled" not in dtype.lower():
-        return None
-    # Imported locally, like the _json below and build_tapp's own `import _tapp_lib as L`:
-    # build_tapp imports _tapp_lib only inside functions, and this module imports build_tapp.
+    # Imported locally, like build_tapp's own `import _tapp_lib as L`: build_tapp imports
+    # _tapp_lib only inside functions, and this module imports build_tapp.
     import _tapp_lib as _L
-    if not _VOCAB_SCHEMES:
-        import json as _json
-        import glob as _glob
-        for f in _glob.glob(os.path.join(ROOT, "_sources", "registry", "vocab", "*.json")):
-            try:
-                sid = _json.load(open(f, encoding="utf-8")).get("@id")
-            except Exception:
-                continue
-            if sid:
-                _VOCAB_SCHEMES.add(sid)
-    sid = "ada:vocab/" + _L.vocab_slug(prop)
-    return sid if sid in _VOCAB_SCHEMES else None
+    return _L.vocab_scheme_for(prop, dtype)
 
 
 # ---------- serialize IR -> JSON Schema ----------
@@ -1117,7 +1132,11 @@ def build(tapp):
                     continue
                 bd = {"item": item, "name": (sidecar.get(item, {}).get("name") or b.camel(item)),
                       "jtype": b.jtype(m.get("dt", "")), "unit": b.unit(m.get("dt", "")),
-                      "desc": m.get("desc", ""), "A": m.get("A", "")}
+                      "desc": m.get("desc", ""), "A": m.get("A", ""),
+                      # RAW Data Type, carried alongside the two derived forms: the parameter
+                      # emitters annotate schema:inDefinedTermSet from it, and "controlled" is
+                      # not recoverable from jtype's "string".
+                      "dt": m.get("dt", "")}
                 if parsed.segments[-1].prop == "schema:defaultValue":
                     name, body = b.param_template_def(bd, pt_seen)
                     registries["parameterTemplates"].update(body); pt_seen.add(name)
@@ -1231,6 +1250,15 @@ def build(tapp):
             if "controlled" in dl:
                 enum = b.enum_terms(m.get("ex")) or None
             leaf = leaf_for(m.get("desc"), m.get("dt"), enum)
+            # A controlled list that lands on a bare scalar -- $MethodDefinition.ada:signalCollectionMode,
+            # or an instrument component's schema:name inside its hasPart branch -- has no object to
+            # hang an instance property on, so the scheme is annotated on the SCHEMA NODE, beside the
+            # enum it documents. Bare CURIE, the form to_schema already uses for a selector token's
+            # scheme and apply_productType_enum.py for a declaration's; the {"const": {"@id": ...}}
+            # form is for the two places the annotation is an instance property (columns, parameters).
+            _lsch = _vocab_scheme(sidecar.get(item, {}).get("name") or b.camel(item), m.get("dt", ""))
+            if _lsch:
+                leaf = {**leaf, "schema:inDefinedTermSet": _lsch}
             if read_only:
                 leaf = {**leaf, "readOnly": True}
             insert(roots[parsed.root], parsed, leaf, require=require, require_array=require_array)

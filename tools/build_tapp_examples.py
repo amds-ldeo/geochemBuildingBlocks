@@ -24,7 +24,15 @@ import schema_path_example_emitter as ex  # noqa: E402  (shared nested path inte
 # schema.org-typed marker the instrument BB requires every instrument to carry
 WIKIDATA_INSTRUMENT = "https://www.wikidata.org/wiki/Q3099911"
 
+# "ex" belongs here because these examples USE it: the root @id is ex:<tapp>-<code> and the
+# instrument ids are ex:instrument/<Token>. An undeclared prefix is not a CURIE, so the JSON-LD
+# uplift drops the term rather than expanding it and the identifiers never reach the RDF the
+# SHACL shapes see. https://example.org/ matches what the examples that already declare it use.
+# NOTE: this is the fourth copy of the prefix table in tools/ (see _tapp_lib._ADA_CONTEXT,
+# schema_path_example_emitter._CTX, build_module_bb.PREFIX_IRI) -- one fact, several homes,
+# which is how 537 examples ended up missing this one. Worth consolidating.
 CTX = {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/",
+       "ex": "https://example.org/",
        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/", "bios": "https://bioschemas.org/", "prov": "http://www.w3.org/ns/prov#"}
 SUP = {"⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5",
        "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9"}
@@ -335,7 +343,8 @@ _HASPART_SEL = re.compile(r"schema:instrument\[\s*schema:additionalType\s*=\s*'(
 _TEMPLATE_COLS = {"ada:targetSpeciesTemplate": "ada:targetSpeciesColumns",
                   "ada:monitoredPropertyTemplate": "ada:monitoredPropertyColumns",
                   "ada:reportedPropertyTemplate": "ada:reportedPropertyColumns",
-                  "ada:targetMaterialTemplate": "ada:targetMaterialColumns"}
+                  "ada:targetMaterialTemplate": "ada:targetMaterialColumns",
+                  "ada:standardTemplate": "ada:standardColumns"}
 
 
 def populate_template_columns(inst, tapp_res):
@@ -755,11 +764,15 @@ NEVER_SENTINEL = {"@type", "@id", "@context"}
 # which properties the generic sentinel must not be allowed to answer.
 ORDINAL_FROM_PATH = {"schema:position"}
 
+# ada:defaultStandards was missing and belongs: all five are array-of-object with no minItems,
+# the shape for which fabricating a member asserts that one EXISTS and then names it "missing".
+# It is declared in 173 resolved schemas and instantiated in 0 examples today, so adding it
+# changes nothing now and stops the set being accidentally four-of-five when a technique starts
+# requiring it. (sentinel_for reaches the same answer from the schema; this list is for the fill
+# sites where the subschema is not locally inspectable.)
 EMPTY_ARRAY_SENTINEL = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
-                        "ada:defaultReportedProperties", "ada:defaultTargetMaterials"}
-
-
-SENTINEL_URI = "nil:missing"
+                        "ada:defaultReportedProperties", "ada:defaultTargetMaterials",
+                        "ada:defaultStandards"}
 
 
 # A text sentinel that NAMES the field it stands in for. "missing" alone says a value was not
@@ -783,6 +796,13 @@ SENTINEL_URI = "nil:missing"
 # as a real term.
 import _tapp_lib as _sent
 SENTINEL_TEXT_PREFIX = _sent.SENTINEL_TEXT_PREFIX
+# The OGC nil reason, from _tapp_lib -- the one home for it, shared with the schema:url
+# gap-filler. It was `nil:missing`, a CURIE against a prefix NO CONTEXT DECLARES: zero of the 90
+# context.jsonld files define `nil`, so it never expanded and stayed a bare string a JSON-LD
+# processor may read as a relative IRI or drop. CLAUDE.md already prescribed the expanded form,
+# and the concept's own definition in registry/vocab/componentType.json already called it an "OGC
+# nil reason", so this finishes an intent rather than changing one.
+SENTINEL_URI = _sent.SENTINEL_URL
 
 
 def text_sentinel(name, sub=None, root=None):
@@ -1034,7 +1054,35 @@ def idify_uri_values(inst):
     return converted
 
 
-def name_unnamed_howtos(inst):
+def workflow_name(tapp):
+    """"<Technique> analytical workflow" -- the name pattern tappDefinition documents.
+
+    Derived from TAPP_CONFIGS[tapp]["title"], so it is a function of the source and not of
+    when or how the generator ran. Most titles read "SEM Technique-Aligned Procedure Profile
+    (semTAPP)", but three do not carry that phrase and two carry a parenthetical that belongs
+    to the technique rather than to the TAPP token -- hence the two branches below, checked
+    against all 61.
+    """
+    title = (bt.TAPP_CONFIGS.get(tapp) or {}).get("title") or ""
+    if "Technique-Aligned" in title:
+        tech = title.split("Technique-Aligned")[0]
+    else:
+        # The three U-Pb titles do not carry the phrase: "LA-MC-ICP-MS U-Pb Geochronology TAPP
+        # (laMcicpmsUPbTAPP)". Strip the TAPP token and the word only in THIS branch -- doing it
+        # unconditionally ate semCompositionTAPP's own "(EDS/WDS)", which is part of the technique
+        # name, not a token.
+        tech = re.sub(r"\s*\([^()]*\)\s*$", "", title)
+        tech = re.sub(r"\s+TAPP\s*$", "", tech)
+    tech = tech.strip()
+    # epmaTAPP leads with "EPMA/EPMA". Collapse only a repeated pair, so a genuine "X/Y"
+    # technique name keeps both halves.
+    halves = [x.strip() for x in tech.split("/")]
+    if len(halves) == 2 and halves[0] == halves[1]:
+        tech = halves[0]
+    return f"{tech} analytical workflow" if tech else SENTINEL_TEXT
+
+
+def name_unnamed_howtos(inst, name=None):
     """Give every schema:HowTo a schema:name, which CDIF's SHACL requires.
 
     The two creation sites above now set it, but a HowTo can also be built by
@@ -1043,16 +1091,36 @@ def name_unnamed_howtos(inst):
     {"@type": ["schema:HowTo"]}. That path cannot supply the name, because
     schema:name is not JSON-Schema-required there; only the SHACL asks for it.
 
+    `name` is the value to write -- pass workflow_name(tapp) so the example carries a real
+    workflow name rather than a sentinel. A SHACL minCount is satisfied by any string, so
+    writing "missing" into the 149 publication examples that were missing one would have
+    bought a green shape with junk content. Defaults to SENTINEL_TEXT for callers that have
+    no TAPP in hand.
+
+    A SENTINEL name counts as absent. The two creation sites above set SENTINEL_TEXT
+    ("missing") when they build the HowTo, which runs BEFORE this pass, so a skip-if-named
+    test left 70 plan-root HowTos named "missing" -- satisfying the shape with junk, next to
+    the real names their siblings carry. Overwriting is safe for exactly the reason those
+    sites already record: nothing keys a discriminator on a HowTo's own name (0 of 3268
+    schema:name discriminators, against 131 that key on a STEP name, where a change would
+    mint a second step). Tested with is_text_sentinel, which matches the bare word and the
+    named "no value available: ..." form but not an authored name.
+
     Returns how many nodes were named. Mutates in place.
     """
     named = 0
+    # NOT `value`: walk() below binds `value` as its loop variable, which would make this
+    # assignment unreachable from inside it and raise UnboundLocalError at every call site.
+    label = name or SENTINEL_TEXT
 
     def walk(node):
         nonlocal named
         if isinstance(node, dict):
             types = node.get("@type")
-            if isinstance(types, list) and "schema:HowTo" in types and "schema:name" not in node:
-                node["schema:name"] = SENTINEL_TEXT
+            if isinstance(types, list) and "schema:HowTo" in types and (
+                    "schema:name" not in node
+                    or _sent.is_text_sentinel(node.get("schema:name"))):
+                node["schema:name"] = label
                 named += 1
             for value in node.values():
                 walk(value)
@@ -1521,14 +1589,89 @@ def coerce(v, jtype):
 _SIMPLE_DATASET_LEAF = re.compile(r"^\$Dataset\.([A-Za-z]+:[A-Za-z0-9]+)$")
 
 
-def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_types, canon_sp=None):
+def _placed_scalars(tree):
+    """Every scalar build_example actually wrote into the $Dataset tree, as stripped strings.
+
+    Used by build_detail's unplaced_only pass to answer "did this row's transcribed value land?"
+    rather than the weaker "does this row have an authored path?" -- see the gate for why.
+    """
+    out = set()
+
+    def walk(o):
+        if isinstance(o, dict):
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+        elif o is not None and not isinstance(o, bool):
+            out.add(str(o).strip())
+
+    walk(tree)
+    return out
+
+
+def _value_landed(v, placed):
+    """True when v is already carried somewhere in the placed $Dataset tree.
+
+    Deliberately asymmetric. A false POSITIVE drops a transcribed value for good; a false
+    NEGATIVE only repeats it at a tolerated flat key. So this errs toward "not landed":
+    exact match, or containment in a longer placed string (the emitter may wrap or
+    annotation-strip a value), or -- for a measurement such as "0.5 um" that becomes a
+    QuantitativeValue -- a match on the leading numeric token alone.
+    """
+    if v is None:
+        return False
+    s = str(v).strip()
+    if not s:
+        return True                      # nothing to carry
+    if s in placed:
+        return True
+    if len(s) >= 8 and any(s in p for p in placed):
+        return True
+    head = s.split()[0].rstrip(",;")
+    try:
+        float(head)
+    except ValueError:
+        return False
+    return head in placed or str(float(head)) in placed
+
+
+def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_types, canon_sp=None,
+                 unplaced_only=False, placed=None):
     """Build one analysis-level detail-block instance from a publication column:
     componentType + required analysis-level (detail_req) fields + per-dataset
-    schema:PropertyValue entries (detail_addl). Pairs with the TAPP example by @id."""
+    schema:PropertyValue entries (detail_addl). Pairs with the TAPP example by @id.
+
+    unplaced_only=True returns ONLY the flat ada:<name> fields for detail_req rows that have NO
+    authored path, and no envelope. The caller merges those over build_example's placed $Dataset
+    tree, because build_example places an item AT its canonical path and an item without one has
+    no path to be placed at -- so this fallback is its only carrier. Measured when the whole
+    function was replaced: 173 of 222 examples lost 356 transcribed publication values, every one
+    of them free text on an unplaced row (detection-limit tables, sample-labelling notes). The
+    rows that DO carry an authored path are skipped here ONLY when that path actually carried
+    the value (see the gate): build_example has then put it at its real home, and emitting it
+    flat as well is the bypass this change removes. When the path placed nothing, the flat key
+    is kept, because a silently dropped value is worse than an undeclared key. `placed` is the
+    set of scalars build_example really wrote, from _placed_scalars().
+    """
     canon_sp = canon_sp or {}
     ct = component_types[0] if component_types else "ada:Tabular"
-    inst = {"@context": {"schema": "http://schema.org/", "ada": "https://ada.astromat.org/metadata/"},
-            "@id": f"ex:{detail_name}-{code}", "@type": [ct], "ada:componentType": ct,
+    # CTX, not a fresh literal: this was a fifth inline copy of the prefix table and the reason
+    # 222 detail examples still had no "ex" declaration after the other four were fixed. The extra
+    # prefixes CTX carries are inert in JSON-LD, and using it removes a copy instead of adding one.
+    inst = {} if unplaced_only else {"@context": CTX,
+            # QUALIFIED BY TAPP. detail_name is os.path.basename(DETAIL_DIR), which is literally
+            # "detail" for every technique, so this minted ex:detail-P0 in all 34 of them -- one
+            # @id for 34 different records. In RDF the @id IS the identity, so merging those
+            # graphs collapsed 34 techniques' detail records into a single node with their
+            # properties union'd: the same "two files, one @id, is a fork" defect CLAUDE.md
+            # records for the vocabularies, here in the examples. 143 files across 42 colliding
+            # ids, worst ex:detail-P0 at 34. Mirrors the paired TAPP example's ex:{tapp}-{code},
+            # which this record already references in schema:measurementTechnique. The FILENAME is
+            # left alone -- it only has to be unique within its directory, and renaming 222
+            # committed files would buy nothing.
+            "@id": f"ex:{tapp}-{detail_name}-{code}", "@type": [ct], "ada:componentType": ct,
             "schema:measurementTechnique": [{"@id": f"ex:{tapp}-{code}"}]}
     seen = set()
     for b in R["detail_req"]:
@@ -1544,6 +1687,21 @@ def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_t
         # (the analysis-level grant, distinct from procedure funding $MethodDefinition.schema:funding;
         # ada:fundingSourceForAnalysis was a camelCase artifact). Nested / $MethodDefinition paths
         # keep the tolerated flat ada:<name> form (the schema does not require those keys).
+        if unplaced_only and canon_sp.get(b["item"], "").strip():
+            # The row HAS an authored path, so build_example owns its placement -- but skip it
+            # here only if the transcribed value ACTUALLY LANDED. "Has a path" is not the same
+            # question, and the gap between them loses content silently: a keyed-table COLUMN
+            # array holds PropertyValueSpecifications, not values, so a figure pathed to
+            # ada:targetSpeciesColumns[] is placed NOWHERE, and some keyed selector paths
+            # ($Dataset.schema:variableMeasured[schema:name='...']) are not filled either. At
+            # HEAD this fallback was unconditional, which masked both. Measured when the gate
+            # was "has a path" alone: 87 transcribed values vanished from 222 detail examples
+            # while validate_examples stayed green -- losing content only makes an instance
+            # smaller and more permissively valid. Content preservation is the invariant; the
+            # undeclared flat key is the lesser evil, and it self-retires per row as the path
+            # becomes placeable.
+            if _value_landed(v, placed or set()):
+                continue
         m = _SIMPLE_DATASET_LEAF.match(canon_sp.get(b["item"], ""))
         leaf = m.group(1) if m else None
         if leaf == "schema:funding":
@@ -1557,8 +1715,11 @@ def build_detail(tapp, code, pc, R, pubval, param_base, detail_name, component_t
             inst[key] = coerce(v, b["jtype"])
         elif not b["multivol_only"]:   # required -> sentinel
             inst[key] = (-9999 if b["jtype"] in ("number", "integer") else "missing")
+    # detail_addl is already path-driven -- it keeps only rows whose canonical path is the
+    # detail-root schema:additionalProperty -- so build_example places those; skip the block
+    # entirely when only the unplaced are wanted.
     saps, seen_pv = [], set()
-    for b in R["detail_addl"]:
+    for b in (R["detail_addl"] if not unplaced_only else []):
         if b["name"] in seen_pv:
             continue
         # Only a param whose canonical path is the detail-ROOT schema:additionalProperty belongs in
@@ -1623,7 +1784,8 @@ def main():
     R = bt.route()
     # jtype comes from the workbook's Data Type column and is the only place URI-ness is recorded:
     # the resolved schema declares a DOI slot as anyOf[string, PropertyValue], indistinguishable
-    # from free text. Needed so a missing identifier gets nil:missing, not "not provided".
+    # from free text. Needed so a missing identifier gets the OGC nil reason (SENTINEL_URI),
+    # not "not provided".
     global JTYPE_BY_PROP
     JTYPE_BY_PROP = {r["name"]: r.get("jtype") for r in R.get("tapp_prop", []) if r.get("name")}
     JTYPE_BY_PROP.update({("ada:" + r["name"]): r.get("jtype")
@@ -1749,7 +1911,10 @@ def main():
         # a publication that lists Reported Variables populates schema:variableMeasured from the
         # 'reported property' rows; otherwise those rows defer to their non-reported counterparts.
         emit_rp = bool(cell(pubval.get("Reported Variables and Units", {}).get(pc)))
-        md = ex.build_example(tapp, values=values, emit_reported_property=emit_rp)["MethodDefinition"]
+        # Keep BOTH roots. The ["Dataset"] half was being discarded and build_detail hand-rolled a
+        # flat replacement for it, which is what the comment above promises this call avoids.
+        built = ex.build_example(tapp, values=values, emit_reported_property=emit_rp)
+        md = built["MethodDefinition"]
         md.pop("@type", None)                          # the envelope owns the TAPP @type
         name = md.pop("schema:name", "") or f"{short} protocol — {code}"
         inst = {"@context": CTX, "@id": f"ex:{tapp}-{code}",
@@ -1795,6 +1960,11 @@ def main():
         # IRI-shaped schema:additionalType and would hide the type token the id derives from.
         ex.assign_instrument_ids(inst)
         idify_uri_values(inst)
+        # After the fills, for the reason name_unnamed_howtos documents: the HowTo that needs a
+        # name is often one fill_nested_required just created. build_pathdriven does this for the
+        # -P0 pair; the publication examples are written here and were getting no such pass, which
+        # left 149 of them with a schema:HowTo carrying no schema:name at all.
+        name_unnamed_howtos(inst, workflow_name(tapp))
         fp = os.path.join(TAPP_DIR, f"example{tapp}-{code}.json")
         with open(fp, "w", encoding="utf-8", newline="\n") as f:
             json.dump(inst, f, indent=2, ensure_ascii=False)
@@ -1803,7 +1973,38 @@ def main():
         # paired analysis-level detail-block example — apply the same structural completion the TAPP
         # example gets: type the instrument tree, fill @type/structural gaps, then sentinel every
         # still-absent required analysis field (ada:stepSize et al.).
-        dinst = build_detail(tapp, code, pc, R, pubval, PARAM_BASE, detail_name, component_types, canon_sp)
+        # THE DATASET HALF OF THE SAME CALL, not a second construction of it. build_detail minted
+        # `ada:` + camelCase(item) for every row whose authored path was not a single-segment
+        # $Dataset leaf -- nested path, selector path or $MethodDefinition path alike -- so 31 of the
+        # 48 flat root keys that no schema declared were authored placements being bypassed:
+        # ada:sessionIdentifier against $Dataset.prov:wasGeneratedBy.schema:identifier,
+        # ada:samplingUnitName against Module_Core's variableMeasured[schema:name='Sampling Unit
+        # Name'], and so on. Measured on aivaTAPP: 10 paths with 8 flat keys becomes 42 placed ones.
+        #
+        # It also fixes the SHAPE. detail/schema.yaml is a DATASET-ROOT block -- allOf over the
+        # modules' AnalysisIdentification plus a prov:wasGeneratedBy overlay -- and these examples
+        # were typed ["ada:quickLook"] with an ada:componentType the block never declares, i.e. a
+        # hasPart component demonstrating a schema that describes a Dataset. It validated only
+        # because that schema requires nothing and leaves additionalProperties unset. Dataset-level
+        # facts have nowhere to go in a component, which is WHY they were being flattened onto it.
+        # CLAUDE.md's detail-placement rule says the dataset-root form is the correct design and the
+        # descriptions calling these hasPart-item blocks are the error.
+        #
+        # The TAPP pairing build_detail carried as schema:measurementTechnique {@id} now lives in
+        # the @id itself, ex:{tapp}-detail-{code}, which names both the technique and the column;
+        # overwriting the emitter's own authored schema:measurementTechnique would re-introduce
+        # exactly the hand-rolled-over-authored precedence this change removes.
+        dinst = {"@context": CTX, "@id": f"ex:{tapp}-{detail_name}-{code}",
+                 "@type": ["schema:Dataset", "schema:Product"],
+                 **built["Dataset"]}
+        # ...and re-add the UNPLACED rows only. build_example places an item at its canonical
+        # path; a row with no authored path has no path to be placed at, and the flat fallback is
+        # the only thing carrying its transcribed content. setdefault, not assignment: anything
+        # build_example placed wins, so an authored home is never overwritten by a flat key.
+        for _k, _v in build_detail(tapp, code, pc, R, pubval, PARAM_BASE, detail_name,
+                                   component_types, canon_sp, unplaced_only=True,
+                                   placed=_placed_scalars(built["Dataset"])).items():
+            dinst.setdefault(_k, _v)
         type_instrument_tree(dinst)
         if detail_res is not None:
             conform_nested_enums(dinst, detail_res)
@@ -1817,6 +2018,7 @@ def main():
             ex.fill_required_types(dinst, detail_res)
         ex.assign_instrument_ids(dinst)
         idify_uri_values(dinst)
+        name_unnamed_howtos(dinst, workflow_name(tapp))
         with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),
                   "w", encoding="utf-8", newline="\n") as f:
             json.dump(dinst, f, indent=2, ensure_ascii=False)

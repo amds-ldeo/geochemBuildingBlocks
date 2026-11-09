@@ -86,7 +86,7 @@ EDS Energy Range,Advanced,Editable,Text (free),$MethodDefinition.schema:addition
 EDS Energy Range,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EDS Energy Range'].schema:value,inferred,,,
 Matrix Correction Method,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:edsQuantificationMethod,inferred,,,
 Target Species,Basic,Editable,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[],technique,,placement is technique-owned: no built module carries the default-ROWS array,defines: target species
-Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
+Reported Variables and Units,Basic,Read-Only,Text (free),$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[],authored,shared,"consolidated onto the reported-property template 2026-11-02 (Stephen): the rows are the property names, and the cell is kept verbatim beside them in ada:reportedPropertyDeclaration so the units after the dash survive. De-modularised because a default-row array is not composable through allOf.",defines: reported property
 EELS Acquisition Mode,Basic,Editable,Controlled list,$MethodDefinition.ada:eelsAcquisitionModeDefault,inferred,,,
 EELS Acquisition Mode,Basic,Editable,Controlled list,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EELS Acquisition Mode'].schema:value,inferred,,,
 EELS Edges,Basic,Editable,Text (free),$MethodDefinition.ada:eelsEdgesDefault[],authored,,,defines: monitored property per target species
